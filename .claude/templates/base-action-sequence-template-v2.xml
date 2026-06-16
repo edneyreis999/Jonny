@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Action Sequence Template V2.1 - Annotated
+
+Este template estendido inclui micro-dicas em comentários para auxiliar no preenchimento,
+baseado na documentação completa em action-sequence-commands.md.
+
+NOVIDADES V2.1:
+- Comentários inline com valores enumerados
+- Avisos de campos críticos
+- Referências rápidas à documentação completa
+- Exemplos de valores comuns
+
+Para documentação completa, consulte: action-sequence-commands.md
+-->
+<ActionSequenceGuide>
+  <!--
+    ========================================
+    METADATA
+    ========================================
+  -->
+  <metadata>
+    <guideTitle>[PREENCHER: Título do Guia]</guideTitle>
+    <skillId>[PREENCHER: ID da skill]</skillId>
+    <skillName>[PREENCHER: Nome da skill]</skillName>
+    <!-- SKILL TYPES: Ultimate/Basic/Finisher/Multi-Hit/Random/Area/Cast/Projectile/Conditional/Loop -->
+    <skillType>[PREENCHER: Ultimate/Basic/Finisher/etc]</skillType>
+    <generatedAt>[PREENCHER: Data/hora da geração]</generatedAt>
+    <validated>[PREENCHER: true/false - Todos parâmetros validados contra código real?]</validated>
+
+    <!-- Metadados de extração -->
+    <extractionMethod>manual/auto</extractionMethod>
+    <extractionVersion>2.1</extractionVersion>
+  </metadata>
+
+  <!--
+    ========================================
+    SKILL CONTEXT
+    ========================================
+  -->
+  <skillContext>
+    <damageFormula>[PREENCHER: Fórmula de dano REAL do Skills.json]</damageFormula>
+    <tpCost>[PREENCHER: Custo de TP REAL]</tpCost>
+    <!-- SCOPES: 1 Enemy/1 Random Enemy/All Enemies/All Allies/1 Ally/1 Random Ally -->
+    <scope>[PREENCHER: Scope REAL da skill]</scope>
+    <speed>[PREENCHER: Speed bonus/malus REAL]</speed>
+    <description>[PREENCHER: Descrição REAL da skill]</description>
+
+    <!-- SEQUENCE TYPES: melee/ranged/projectile/cast/conditional/loop -->
+    <sequenceType>[PREENCHER: melee/ranged/projectile/cast]</sequenceType>
+
+    <notetags>
+      <notetag>[PREENCHER: &lt;Custom Action Sequence&gt;]</notetag>
+      <notetag>[PREENCHER: Outras notetags...]</notetag>
+    </notetags>
+  </skillContext>
+
+  <!--
+    ========================================
+    SEQUENCE STRUCTURE
+    ========================================
+  -->
+  <sequenceStructure>
+    <hasSetup>[PREENCHER: true/false]</hasSetup>
+    <!-- numberOfHits: contagem de hits que CAUSAM DANO (com Action Effect) -->
+    <numberOfHits>[PREENCHER: Número de hits que aplicam dano]</numberOfHits>
+    <!-- numberOfSections: contagem total de seções (inclui transições, etc.) -->
+    <numberOfSections>[PREENCHER: Número total de seções]</numberOfSections>
+
+    <!-- TARGET TYPES: single/random/all/variable -->
+    <targetType>[PREENCHER: single/random/all]</targetType>
+    <targetTypeDetected>[PREENCHER: true se detectado automaticamente dos comandos]</targetTypeDetected>
+
+    <hasFinish>[PREENCHER: true/false]</hasFinish>
+
+    <!-- Flags de características -->
+    <hasConditionals>[PREENCHER: true/false - tem Conditional Branches?]</hasConditionals>
+    <hasLoops>[PREENCHER: true/false - tem Labels/Jump to Label?]</hasLoops>
+    <hasProjectiles>[PREENCHER: true/false - usa PROJECTILE: Animation?]</hasProjectiles>
+    <hasCustomDamage>[PREENCHER: true/false - usa Custom Damage Formula?]</hasCustomDamage>
+  </sequenceStructure>
+
+  <!--
+    ========================================
+    SETUP SECTION
+    ========================================
+  -->
+  <setup>
+    <!-- Display Action: mostra o nome da skill no battle log -->
+    <displayAction>[PREENCHER: true/false]</displayAction>
+    <!-- Apply Immortal: previne morte durante multi-hit (OBRIGATÓRIO para multi-hit!) -->
+    <applyImmortal>[PREENCHER: true/false]</applyImmortal>
+    <!-- Battle Step: move forward para preparar ataque -->
+    <battleStep>[PREENCHER: true/false]</battleStep>
+    <!-- Wait For Movement: sincroniza execução -->
+    <waitForMovement>[PREENCHER: true/false]</waitForMovement>
+    <!-- Cast Animation: toca animação de conjuração antes da skill -->
+    <castAnimation>[PREENCHER: true/false]</castAnimation>
+    <waitForAnimation>[PREENCHER: true/false]</waitForAnimation>
+  </setup>
+
+  <!--
+    ========================================
+    HITS
+    Cada hit com tipo e comandos extendidos
+    ========================================
+  -->
+  <hits>
+    <hit id="[PREENCHER: Número]">
+      <!-- HIT TYPES: movement/action-effect/animation/projectile/conditional/loop/timing/setup-only -->
+      <hitType>[PREENCHER: movement/action-effect/etc]</hitType>
+
+      <label>[PREENCHER: Label do hit ex: Hit 1 - Frontal Flip Bounce]</label>
+      <description>[PREENCHER: Descrição detalhada do que o hit faz]</description>
+      <baseCommonEventId>[PREENCHER: ID do Common Event base ou vazio]</baseCommonEventId>
+
+      <!-- Target Selection -->
+      <usesRandomTarget>[PREENCHER: true/false]</usesRandomTarget>
+      <randomTargetLabel>[PREENCHER: Label para jump ex: Hit1Label ou vazio]</randomTargetLabel>
+
+      <!--
+        MOVEMENT COMMANDS
+      -->
+      <movement>
+        <!-- MOVE TO TARGET -->
+        <moveToTarget>
+          <enabled>[PREENCHER: true/false]</enabled>
+          <!-- TARGETS: ["user"], ["current target"], ["all targets"], ["alive opponents"] -->
+          <targetsMoving>["user"]</targetsMoving>
+          <targetsDestination>[PREENCHER: "current target" OU "all targets"]</targetsDestination>
+          <!-- TARGET LOCATIONS: front head/front center/front base/middle head/middle center/middle base/back head/back center/back base -->
+          <targetLocation>[PREENCHER: front base]</targetLocation>
+          <!-- Melee Distance: 0 = contato direto, valores típicos 10-48 -->
+          <meleeDistance>[PREENCHER: 0 ou valor]</meleeDistance>
+          <!-- DISTANCE ADJUSTMENT: Normal/Sem ajuste, Horizontal (actors esq/inimigos dir), Vertical (actors cima/inimigos baixo), Both -->
+          <offsetAdjust>[PREENCHER: horz/vert]</offsetAdjust>
+          <offsetX>[PREENCHER: Valor X - positivo direita, negativo esquerda]</offsetX>
+          <offsetY>[PREENCHER: Valor Y - positivo baixo, negativo cima]</offsetY>
+          <!-- DURATION: valores típicos 6-24 frames -->
+          <duration>[PREENCHER: Duração em frames]</duration>
+          <faceDestination>[PREENCHER: true/false]</faceDestination>
+          <!-- EASING TYPES: Linear, InQuad, OutQuad, InOutQuad, InCubic, OutCubic, InOutCubic, InElastic, OutElastic, InOutElastic -->
+          <easingType>[PREENCHER: Linear]</easingType>
+          <!-- MOTION TYPES: walk/run, attack (com arma), skill (sem arma) -->
+          <motionType>[PREENCHER: walk/run]</motionType>
+          <waitForMovement>[PREENCHER: true/false]</waitForMovement>
+        </moveToTarget>
+
+        <!-- JUMP -->
+        <jump>
+          <enabled>[PREENCHER: true/false]</enabled>
+          <targets>["user"]</targets>
+          <!-- HEIGHT: valores típicos 50-150 pixels -->
+          <height>[PREENCHER: Altura em pixels]</height>
+          <duration>[PREENCHER: Duração em frames]</duration>
+          <waitForJump>[PREENCHER: true/false]</waitForJump>
+        </jump>
+
+        <!-- SPIN/ROTATE -->
+        <spin>
+          <enabled>[PREENCHER: true/false]</enabled>
+          <targets>["user"]</targets>
+          <!-- ANGLE: valores típicos 180-720, 1080 para múltiplas rotações -->
+          <angle>[PREENCHER: Ângulo em graus]</angle>
+          <duration>[PREENCHER: Duração em frames]</duration>
+          <easingType>[PREENCHER: Linear]</easingType>
+          <revertAngle>[PREENCHER: true/false - volta ao ângulo original?]</revertAngle>
+          <waitForSpin>[PREENCHER: true/false]</waitForSpin>
+        </spin>
+
+        <!-- MOVE DISTANCE -->
+        <moveDistance>
+          <enabled>[PREENCHER: true/false]</enabled>
+          <targets>["user"]</targets>
+          <!-- DISTANCE X: positivo avança, negativo recua -->
+          <distanceAdjust>[PREENCHER: horz/vert]</distanceAdjust>
+          <distanceX>[PREENCHER: Distância X - positivo direita, negativo esquerda]</distanceX>
+          <distanceY>[PREENCHER: Distância Y]</distanceY>
+          <duration>[PREENCHER: Duração em frames]</duration>
+          <faceDestination>[PREENCHER: true/false]</faceDestination>
+          <easingType>[PREENCHER: Linear]</easingType>
+          <motionType>[PREENCHER: walk/run]</motionType>
+          <waitForMovement>[PREENCHER: true/false]</waitForMovement>
+        </moveDistance>
+      </movement>
+
+      <!--
+        TIMING
+      -->
+      <timing>
+        <!-- TYPES: motionFrameWait (baseado em motion speed), waitForEvents (pausa absoluta em frames) -->
+        <type>[PREENCHER: motionFrameWait/waitForEvents]</type>
+        <!-- MOTION FRAME WAIT: 1 frame ≈ Plugin Parameters > Actors > Motion Speed (padrão: 6) -->
+        <frames>[PREENCHER: Número de frames ou 0 se wait for events]</frames>
+      </timing>
+
+      <!--
+        ACTION EFFECT
+        ⚠️ CRÍTICO: Action Effect é OBRIGATÓRIO para aplicar dano!
+      -->
+      <actionEffect>
+        <hasMotionType>[PREENCHER: true/false]</hasMotionType>
+        <!-- MOTION TYPES: Attack/Thrust/Swing/Missile/Skill/Spell/Item/Defend/Evade/Chant/Damage/Escape/Dying/Dead/Wait/Walk -->
+        <motionType>[PREENCHER: attack/skill]</motionType>
+        <showWeapon>[PREENCHER: true/false]</showWeapon>
+
+        <!-- TARGETS: ["current target"], ["all targets"], ["user"] -->
+        <targets>[PREENCHER: "current target" OU "all targets"]</targets>
+        <mirrorAnimation>[PREENCHER: true/false]</mirrorAnimation>
+        <waitForAnimation>[PREENCHER: true/false]</waitForAnimation>
+      </actionEffect>
+
+      <!--
+        NOVO V2: ANIMATION COMMANDS
+        Para animações específicas no user/target
+      -->
+      <animationCommands>
+        <hasAnimation>[PREENCHER: true/false]</hasAnimation>
+        <!-- ANIMATION ID: 1-999 (IDs do Database > Animations) -->
+        <animationId>[PREENCHER: ID da animação ou 0]</animationId>
+        <!-- ANIMATION TARGETS: user, target, targets -->
+        <animationTargets>[PREENCHER: user/target/targets]</animationTargets>
+        <waitForAnimation>[PREENCHER: true/false]</waitForAnimation>
+      </animationCommands>
+
+      <!--
+        NOVO V2: PROJECTILE COMMANDS
+        Para disparo de projéteis (requer VisuMZ_3_ActSeqProjectiles)
+      -->
+      <projectileCommands>
+        <hasProjectile>[PREENCHER: true/false]</hasProjectile>
+        <!-- PROJECTILE TYPES: Animation, Icon, Picture -->
+        <projectileType>[PREENCHER: Animation/Icon/Picture]</projectileType>
+        <projectileAnimationId>[PREENCHER: ID da animação do projectile]</projectileAnimationId>
+        <!-- START/GOAL LOCATIONS: Target, Point, Target Location, etc. -->
+        <projectileSource>[PREENCHER: user/target]</projectileSource>
+        <projectileDestination>[PREENCHER: target/all targets]</projectileDestination>
+        <waitForProjectile>[PREENCHER: true/false]</waitForProjectile>
+      </projectileCommands>
+
+      <!--
+        NOVO V2: CUSTOM DAMAGE FORMULA
+        Para fórmulas de dano customizadas
+      -->
+      <customDamageFormula>
+        <hasCustomDamage>[PREENCHER: true/false]</hasCustomDamage>
+        <!-- FORMULA: Use 'default' para reverter à fórmula original da skill -->
+        <formula>[PREENCHER: Fórmula customizada ou 'default']</formula>
+        <targets>[PREENCHER: "current target" OU "all targets"]</targets>
+      </customDamageFormula>
+
+      <!--
+        NOVO V2: CONDITIONAL LOGIC
+        Para branches condicionais (Conditional Branch)
+      -->
+      <conditionalLogic>
+        <hasCondition>[PREENCHER: true/false]</hasCondition>
+        <!-- CONDITION TYPES: state, variable, switch, script -->
+        <conditionType>[PREENCHER: state/variable/switch/script]</conditionType>
+        <conditionValue>[PREENCHER: Valor da condição ex: 10 para Sleep]</conditionValue>
+        <conditionTarget>[PREENCHER: user/target/targets]</conditionTarget>
+        <trueLabel>[PREENCHER: Label se condição verdadeira]</trueLabel>
+        <falseLabel>[PREENCHER: Label se condição falsa]</falseLabel>
+      </conditionalLogic>
+
+      <!--
+        NOVO V2: LOOP
+        Para laços e inputs
+      -->
+      <loop>
+        <hasLoop>[PREENCHER: true/false]</hasLoop>
+        <!-- LOOP TYPES: timer (com timeout), input (botão), count (variável), label (jump to label) -->
+        <loopType>[PREENCHER: timer/input/count/label]</loopType>
+        <loopCondition>[PREENCHER: Condição do loop]</loopCondition>
+        <loopLabel>[PREENCHER: Label do loop para Jump To Label]</loopLabel>
+        <maxIterations>[PREENCHER: Máximo de iterações ou 0 = infinito]</maxIterations>
+      </loop>
+
+      <!--
+        POST-HIT MOVEMENT
+      -->
+      <postHitMovement>
+        <enabled>[PREENCHER: true/false]</enabled>
+        <type>[PREENCHER: moveDistance/moveToTarget]</type>
+        <distanceX>[PREENCHER: Distância X]</distanceX>
+        <distanceY>[PREENCHER: Distância Y]</distanceY>
+        <duration>[PREENCHER: Duração]</duration>
+        <faceDestination>[PREENCHER: true/false]</faceDestination>
+        <waitForMovement>[PREENCHER: true/false]</waitForMovement>
+      </postHitMovement>
+    </hit>
+  </hits>
+
+  <!--
+    ========================================
+    FINISH SECTION
+    ========================================
+  -->
+  <finish>
+    <!-- Wait For New Line: sincroniza com battle log -->
+    <waitForNewLine>[PREENCHER: true/false]</waitForNewLine>
+    <!-- Wait For Effects: espera todos os efeitos visuais completarem -->
+    <waitForEffects>[PREENCHER: true/false]</waitForEffects>
+    <!-- Clear Battle Log: limpa o log de batalha antes de voltar ao normal -->
+    <clearBattleLog>[PREENCHER: true/false]</clearBattleLog>
+    <!-- Home Reset: volta todos para posição original -->
+    <homeReset>[PREENCHER: true/false]</homeReset>
+    <!-- Wait For Movement: sincroniza o retorno -->
+    <waitForMovement>[PREENCHER: true/false]</waitForMovement>
+    <!-- Apply Immortal: remove immortal flag (permite unidades morrerem) -->
+    <applyImmortal>[PREENCHER: true/false - aplica Immortal OFF]</applyImmortal>
+  </finish>
+
+  <!--
+    ========================================
+    REFERENCES
+    ========================================
+  -->
+  <references>
+    <baseCommonEvents>
+      <commonEvent id="[PREENCHER: ID]">[PREENCHER: Nome]</commonEvent>
+    </baseCommonEvents>
+    <documentationFiles>
+      <file>action-sequence-commands.md</file>
+      <file>frontend/data/CommonEvents.json</file>
+    </documentationFiles>
+  </references>
+
+  <!--
+    ========================================
+    VALIDATION
+    ========================================
+  -->
+  <validation>
+    <allParametersValidated>[PREENCHER: true/false]</allParametersValidated>
+    <validatedAgainst>
+      <commonEvent id="[PREENCHER: ID]" validated="[PREENCHER: true/false]">[PREENCHER: Nome]</commonEvent>
+    </validatedAgainst>
+    <discrepanciesFound>
+      <discrepancy>
+        <source>[PREENCHER: documentation/code]</source>
+        <parameter>[PREENCHER: Nome do parâmetro]</parameter>
+        <documentedValue>[PREENCHER: Valor na documentação]</documentedValue>
+        <actualValue>[PREENCHER: Valor no código real]</actualValue>
+        <usedValue>[PREENCHER: Valor usado no guia]</usedValue>
+        <reason>[PREENCHER: Por que usou este valor]</reason>
+      </discrepancy>
+    </discrepanciesFound>
+  </validation>
+
+  <!--
+    ========================================
+    FILES AFFECTED
+    ========================================
+  -->
+  <filesAffected>
+    <file path="[PREENCHER: caminho/arquivo.json]" action="[PREENCHER: create/modify]">
+      <description>[PREENCHER: Descrição]</description>
+    </file>
+  </filesAffected>
+
+  <!--
+    ========================================
+    NOTES
+    ========================================
+  -->
+  <notes>
+    <!-- Dicas úteis para preenchimento -->
+    <note>Consulte action-sequence-commands.md para documentação completa de cada comando</note>
+    <note>⚠️ Sempre valide Action Effect está presente, pois é o único comando que aplica dano</note>
+    <note>⚠️ Sempre use ApplyImmortal: true no Setup e ApplyImmortal: true no Finish para multi-hit</note>
+    <note>⚠️ WaitForMovement=true sincroniza a execução - use em comandos críticos</note>
+    <note>⚠️ Motion Frame Wait é baseado em Motion Speed - ajuste conforme a velocidade do battler</note>
+    <note>⚠️ Target Location "front base" é o mais comum para ataques corpo a corpo</note>
+    <note>⚠️ Mirror Animation=true adiciona variedade visual em multi-hit</note>
+    <note>⚠️ Para Random Target, use Jump To Label para criar loops</note>
+
+    <!-- PADRÕES ESTRUTURAIS -->
+    <note>[PADRÃO] offsetX: 24 pixels presente em 80%+ dos ataques melee com moveToTarget para collision avoidance</note>
+    <note>[PADRÃO] Jump + MoveToTarget executados em paralelo com mesmo duration (12 frames) e waitForJump:false</note>
+    <note>[PADRÃO] Spin/Flip com ângulos múltiplos de 360: 360° (single flip), 720° (double flip), 1080° (triple flip), 1440° (quad flip)</note>
+    <note>[PADRÃO] Dash Through usa approach "front center/base" → dash "back center/base" + offsetX: 96 → Attack no midpoint</note>
+    <note>[PADRÃO] Cast skills usam sequência chant motion → float (100px) → spell motion (11 frames freeze) → evade motion</note>
+    <note>[PADRÃO] Projectile skills usam spell motion (11 frames) → projectile animation travel (18 frames) → Action Effect</note>
+    <note>[PADRÃO] Mirror Animation usado APENAS em hits pares de multi-hit (hit 2, 4, 6...)</note>
+    <note>[PADRÃO] Knockback padrão de -96 pixels usando moveDistance ao final de combos</note>
+
+    <!-- PADRÕES NUMÉRICOS -->
+    <note>[PADRÃO] duration: 12 frames é o valor padrão para movimentos de approach (moveToTarget, jump, spin)</note>
+    <note>[PADRÃO] height: 100 pixels é o valor padrão para jumps</note>
+    <note>[PADRÃO] meleeDistance: 0 para ataques de contato direto, 48 para dash-through attacks</note>
+    <note>[PADRÃO] motionFrameWait: 8 frames para transições entre hits em combos</note>
+
+    <!-- PADRÕES POR GRUPO -->
+    <note>[GRUPO: COMBO/MULTI-HIT] Skills com 7+ hits incluindo transições, knockback final e mirrorAnimation em hits pares</note>
+    <note>[CARACTERÍSTICA] numberOfHits alto (5-7), targetLocation muda de "front base" para "middle base" entre hits, motionFrameWait: 8 para transições, mirrorAnimation:true APENAS no último Action Effect (hit par), knockback de -96px no hit final</note>
+    <note>[CARACTERÍSTICA] Estrutura: Approach → Hit 1 → Hit 2 → Transição → Hit 3 → Hit 4 → Knockback → Finish</note>
+
+    <note>[GRUPO: JUMP ATTACK] Skills com approach + jump + attack sincronizados</note>
+    <note>[CARACTERÍSTICA] moveToTarget + jump combinados com mesmo duration (12 frames), waitForJump:false para paralelismo, attack motion DURANTE o jump, offsetX:24 para collision avoidance, waitForEvents sincroniza tudo</note>
+    <note>[CARACTERÍSTICA] targetLocation sempre "front base", meleeDistance:0 (contato direto), easingType: Linear (movimento reto)</note>
+
+    <note>[GRUPO: FLIP ATTACK] Skills com jump + spin + moveToTarget combinados em sequência fluida</note>
+    <note>[CARACTERÍSTICA] Três movimentos simultâneos: moveToTarget (approach) + jump (100px) + spin (múltiplos de 360°), todos com duration:12, revertAngle:true sempre presente, faceDestination:true para manter orientação</note>
+    <note>[CARACTERÍSTICA] Variação por ângulo: 360° (single flip), 720° (double flip), 1080° (triple flip), 1440° (quad flip); waitForEvents sincroniza todos os movimentos</note>
+
+    <note>[GRUPO: DASH THROUGH] Skills que atravessam o alvo visualmente com approach frontal → dash traseiro</note>
+    <note>[CARACTERÍSTICA] Approach inicial com meleeDistance:48 (não encosta), targetLocation "front center/base" para single/all targets, Dash para "back center/base" + offsetX:96, Attack aplicado no midpoint (waitForEvents: 6 de 12)</note>
+    <note>[CARACTERÍSTICA] Para "all" variants: targetsDestination "alive opponents", Action Effect final em "all targets/alive opponents"</note>
+
+    <note>[GRUPO: CAST] Skills mágicas com sequência narrativa de conjuração</note>
+    <note>[CARACTERÍSTICA] motionType: "chant" (preparação) → float 100px (elevação) → motionType: "spell" (conjuração, congela 11 frames no último frame) → Action Effect (flash/damage) → motionType: "evade" (descida suave)</note>
+    <note>[CARACTERÍSTICA] showWeapon:false em chant/spell (mágica não usa arma), waitForEvents:55 para float completo, waitForEvents:11 para spell freeze, waitForEvents:12 para descend</note>
+
+    <note>[GRUPO: PROJECTILE] Skills que disparam projectile do user até o target</note>
+    <note>[CARACTERÍSTICA] motionType: "spell" (11 frames, sem arma) → Projectile Animation (ID específica ex: 107, travel 18 frames) → Action Effect (damage só após projectile completar), targets "current target" ou "all targets"</note>
+    <note>[CARACTERÍSTICA] waitForEvents:18 sincroniza com tempo de voo do projectile; projectile pode ser Animation/Icon/Picture; source "user", destination "target/all targets"</note>
+
+    <note>[GRUPO: CONDITIONAL/LOGIC] Skills com branching baseado em condições (random, input, element, state)</note>
+    <note>[CARACTERÍSTICA] Uso de variáveis para armazenar estado (random 0-2, element choice, crit rate), Conditional Branches para avaliar condições, múltiplos Action Effects baseados em outcomes diferentes, Jump to Label para loops e redirecionamento</note>
+    <note>[CARACTERÍSTICA] Estrutura: Variable Setup → Conditional Branch (Label A) → Action Effect A → Jump to Label (return), Conditional Branch (Label B) → Action Effect B → Jump to Label (return), etc.</note>
+
+    <!-- PADRÕES ADICIONAIS -->
+    <note>[PADRÃO] Linear easing é padrão para movimentos de approach (moveToTarget, jump, spin)</note>
+  </notes>
+</ActionSequenceGuide>

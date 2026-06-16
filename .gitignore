@@ -1,0 +1,9 @@
+# Session artifacts — deny-by-default, never commit
+.agents/
+
+# macOS
+.DS_Store
+
+# Obsidian workspace cache (keep config, ignore volatile state)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json

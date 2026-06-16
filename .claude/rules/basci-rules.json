@@ -1,0 +1,133 @@
+{
+  "rules": [
+    {
+      "category": "language",
+      "rules": [
+        "Todo o código-fonte deve ser escrito em inglês.",
+        "Identificadores não devem misturar idiomas (ex: getUsuarioName é proibido).",
+        "Mensagens de erro e logs devem ser em inglês (exceto se o produto exigir PT-BR)."
+      ]
+    },
+    {
+      "category": "naming-and-conventions",
+      "rules": [
+        "Use camelCase para métodos, funções e variáveis.",
+        "Use PascalCase para classes e interfaces.",
+        "Use kebab-case para arquivos e diretórios.",
+        "Evite abreviações, mas também evite nomes longos (máx. 30 caracteres).",
+        "Métodos e funções devem começar com verbo e refletir uma ação clara (nunca substantivo).",
+        "Booleans devem começar com is/has/can/should/was.",
+        "Não reutilize termos diferentes para o mesmo conceito no mesmo contexto (ex: customer vs client)."
+      ]
+    },
+    {
+      "category": "constants-and-magic-numbers",
+      "rules": [
+        "Declare constantes para representar magic numbers com legibilidade.",
+        "Proibido repetir o mesmo número “mágico” em múltiplos pontos sem constante nomeada."
+      ]
+    },
+    {
+      "category": "functions-and-methods",
+      "rules": [
+        "Métodos/funções devem ter responsabilidade única e comportamento bem definido.",
+        "Evite passar mais de 3 parâmetros; prefira um objeto options tipado.",
+        "Nunca use flag params para chavear comportamento; extraia funções específicas.",
+        "Evite efeitos colaterais: uma função deve ser mutação OU consulta, nunca ambos.",
+        "Consultas não podem ter efeitos colaterais.",
+        "Evite métodos longos (máx. 50 linhas).",
+        "Variáveis devem ser declaradas o mais próximo possível do uso.",
+        "Nunca declare mais de uma variável na mesma linha."
+      ]
+    },
+    {
+      "category": "control-flow",
+      "rules": [
+        "Nunca aninhe mais de 2 níveis de if/else; prefira early return.",
+        "Evite else quando early return deixar o fluxo mais claro.",
+        "Não use try/catch para fluxo normal; trate erros de forma explícita."
+      ]
+    },
+    {
+      "category": "classes-and-architecture",
+      "rules": [
+        "Evite classes longas (máx. 300 linhas).",
+        "Prefira composição ao invés de herança.",
+        "Sempre inverta dependências de recursos externos (DIP) nos use cases e nos interface adapters.",
+        "Construtores não devem fazer I/O.",
+        "Não exponha estado mutável publicamente; encapsule invariantes."
+      ]
+    },
+    {
+      "category": "typing-typescript",
+      "rules": [
+        "any é proibido; use unknown e faça narrowing.",
+        "Evite as para “forçar” tipo; corrija a origem da tipagem.",
+        "Evite ! (non-null assertion); valide e falhe com mensagem clara quando necessário.",
+        "Prefira unions discriminadas para estados/retornos (ex: kind: success | error).",
+        "Não confie em tipagem TS para input externo: valide em runtime antes de entrar no core."
+      ]
+    },
+    {
+      "category": "immutability-and-mutation",
+      "rules": [
+        "Use const sempre que possível; let só quando necessário.",
+        "Não mutar parâmetros de função.",
+        "Não mutar arrays/objetos compartilhados sem intenção explícita."
+      ]
+    },
+    {
+      "category": "imports-and-organization",
+      "rules": [
+        "Agrupe imports: externos → internos → relativos.",
+        "Evite barrel exports (index.ts) se isso gerar circular deps ou esconder origem."
+      ]
+    },
+    {
+      "category": "code-style-and-comments",
+      "rules": [
+        "Evite linhas em branco dentro de métodos e funções.",
+        "Não colocar comentários no meio do código.",
+        "Evite comentários sempre que possível; prefira nomes claros e extração de funções.",
+        "Comentar apenas contratos/decisões não óbvias (e sempre em JSDoc)."
+      ]
+    },
+    {
+      "category": "errors-and-exceptions",
+      "rules": [
+        "Nunca silencie exceptions.",
+        "Ao capturar erro, registre log e re-lance ou traduza para um erro de domínio apropriado.",
+        "Mensagens de erro devem ser claras e acionáveis, com contexto mínimo (sem dados sensíveis)."
+      ]
+    },
+    {
+      "category": "logging",
+      "rules": [
+        "Utilize winston para logging.",
+        "Não use console.log ou console.error.",
+        "Use adequadamente os níveis DEBUG e ERROR.",
+        "Nunca armazene logs em arquivos; sempre redirecione pelo próprio processo.",
+        "Nunca registre dados sensíveis (nome, endereço, cartão de crédito, tokens, segredos).",
+        "Mensagens de log devem ser claras e curtas, sem textos longos.",
+        "Logs devem ser estruturados (objeto) com contexto consistente quando existir (ex: requestId, userId, orgId)."
+      ]
+    },
+    {
+      "category": "async",
+      "rules": [
+        "Não misture then/catch com async/await.",
+        "Evite forEach(async ...); use for..of ou Promise.all quando seguro.",
+        "Não faça fire and forget no core sem rastreio/log/retry explícito."
+      ]
+    },
+    {
+      "category": "tests-and-quality",
+      "rules": [
+        "Todo bug corrigido deve ganhar um teste que falharia antes.",
+        "Testes devem focar comportamento, não implementação.",
+        "Não desabilitar regras do linter sem justificativa e escopo mínimo (eslint-disable-next-line específico).",
+        "Código deve passar lint e typecheck sem exceções."
+      ]
+    }
+  ]
+}

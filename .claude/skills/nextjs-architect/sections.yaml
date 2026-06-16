@@ -1,0 +1,37 @@
+# Seções ativas da Nextjs Architect Skill
+- id: activation
+  title: Ativação
+  file: sections/activation.md
+  description: Gatilhos, persona, formato de saída
+- id: architecture
+  title: Arquitetura Server-First & Estrutura
+  file: sections/architecture.md
+  description: Feature-first, app/ como orquestrador, boundaries server/client
+- id: ui-tailwind
+  title: UI, Tailwind e shadcn
+  file: sections/ui-tailwind.md
+  description: Tokens, composição, content paths, composição shadcn/Radix
+- id: data-state-cache
+  title: Dados, Estado e Cache
+  file: sections/data-state-cache.md
+  description: Wrappers fetch/server actions, caching por tags, camadas de estado
+- id: forms
+  title: Formulários e Server Actions
+  file: sections/forms.md
+  description: Zod + RHF + useActionState + ActionResponse
+- id: security
+  title: Segurança em Camadas
+  file: sections/security.md
+  description: Middleware leve, DAL, auth/roles, error boundaries
+- id: performance-dx
+  title: Performance e DX
+  file: sections/performance-dx.md
+  description: Suspense, dynamic import, fontes/imagens, ESLint/.cursorrules, testes
+- id: anti-patterns
+  title: Anti-Patterns
+  file: sections/anti-patterns.md
+  description: Erros a evitar
+- id: maintenance
+  title: Manutenção
+  file: sections/maintenance.md
+  description: Versão, revisões e responsáveis
