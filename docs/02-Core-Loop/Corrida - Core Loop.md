@@ -12,12 +12,32 @@ tags: [core-loop, corrida, roguelite, minigame, rpg-maker-mz, timer-based, proce
 
 # Corrida — Core Loop v1
 
-> **TL;DR:** cada corrida é uma corrente procedural de cenas binárias com timer (**Sinal 4,0s / Curva 3,5s fixos**). Há **2 tipos de cena**: **Sinal** (sempre vermelho → Parar/Furar) e **Curva** (Direita/Esquerda). Toda cena tem uma ação **safe** (Parar / Direita = +10 Consciência, +10 Pontos de Glória, avança 1 cena) e uma ação **risk** (Furar / Esquerda = roll 0–99 contra `Consciência + P_cena`, consome `P_cena`, awards `P_cena × 2` Pontos de Glória). Sucesso se `roll < taxa`. Falha ou timer expira = crash = **reroll run** (nova seed + Consciência = 0, Pontos = 0). **Vencer = chegar em 1º lugar (maior pontuação)**. São **3 corridas fixas na narrativa** (Lenda → Rachadura → Abismo) escalando em comprimento (6 → 8 → 10 cenas). `P_cena` é sorteada **por cena** em `{0,10,20,...,100}`. Sem itens, sem power-ups — Consciência (0–100, reset) + Pontos de Glória (soma cumulativa).
+> **TL;DR:** cada corrida é uma corrente procedural de cenas binárias com timer (==Sinal 4,0s== / ==Curva 3,5s== fixos). Há ==2 tipos de cena==: ==Sinal== (sempre vermelho → Parar/Furar) e ==Curva== (Direita/Esquerda). Toda cena tem uma ação ==safe== (Parar / Direita = +10 Consciência, +10 Pontos de Glória, avança 1 cena) e uma ação ==risk== (Furar / Esquerda = roll 0–99 contra `Consciência + P_cena`, consome `P_cena`, awards `P_cena × 2` Pontos de Glória). Sucesso se `roll < taxa`. Falha ou timer expira = crash ==reroll run== (nova seed + Consciência = 0, Pontos = 0). ==Vencer = chegar em 1º lugar== (maior pontuação). São ==3 corridas fixas na narrativa== (Lenda → Rachadura → Abismo) escalando em comprimento (6 → 8 → 10 cenas). `P_cena` é sorteada por cena em `{0,10,20,...,100}`. Sem itens, sem power-ups — Consciência (0–100, reset) + Pontos de Glória (soma cumulativa).
 >
 > Este doc cobre **só o core loop da corrida** (sinal + curva + Consciência + restart procedural). Cenas VN, ConcernScore, finais e direção de arte estão especificados em [[Roleta Paulista]].
 >
 > [!info] Consciência ≠ ConcernScore
-> **Consciência** é a barra **visível dentro da corrida** (recurso do minigame, reset a cada corrida). **ConcernScore** é a variável **oculta acumulada nas cenas VN** (define qual final o jogador acessa). São **sistemas independentes** — uma não afeta a outra diretamente.
+> ==Consciência== é a barra ==visível dentro da corrida== (recurso do minigame, reset a cada corrida). ==ConcernScore== é a variável ==oculta acumulada nas cenas VN== (define qual final o jogador acessa). São ==sistemas independentes== — uma não afeta a outra diretamente.
+
+---
+
+## Índice
+
+- [1. Visão Geral](#1-visão-geral)
+- [2. Diagrama do Loop](#2-diagrama-do-loop)
+- [3. Anatomia de uma Cena](#3-anatomia-de-uma-cena)
+- [4. Mecânica — Cena de Sinal](#4-mecânica-cena-de-sinal)
+- [5. Mecânica — Cena de Curva](#5-mecânica-cena-de-curva)
+- [6. Geração Procedural](#6-geração-procedural)
+- [7. Restart / Roguelite Loop](#7-restart-roguelite-loop)
+- [8. Feedback Multimodal](#8-feedback-multimodal)
+- [9. Parâmetros Globais](#9-parâmetros-globais)
+- [10. Riscos de Balanceamento](#10-riscos-de-balanceamento)
+- [11. Dependências](#11-dependências)
+- [12. Implementação em RPG Maker MZ](#12-implementação-em-rpg-maker-mz)
+- [13. Decisões em aberto](#13-decisões-em-aberto)
+- [14. Referências](#14-referências)
+- [15. Próximos passos](#15-próximos-passos)
 
 ---
 
@@ -25,19 +45,19 @@ tags: [core-loop, corrida, roguelite, minigame, rpg-maker-mz, timer-based, proce
 
 | Atributo              | Valor                                                                                          |
 | --------------------- | ---------------------------------------------------------------------------------------------- |
-| **Formato**           | Roguelite timer-based de decisão binária com recurso. Não é racing steering — é QTE enfileirado. |
-| **Cena (unidade)**    | Decisão binária com timer fixo (Sinal 4,0s / Curva 3,5s). Toda cena tem 1 ação **safe** e 1 ação **risk**. Safe avança e dá +10 Consciência. Risk rola 0–99 contra `Consciência + P_cena`; sucesso se `roll < taxa`. |
-| **Tipos de cena**     | **Sinal** (sempre vermelho → Parar safe / Furar risk) e **Curva** (Direita safe / Esquerda risk). |
-| **Recurso central**   | **Consciência** — barra visível 0–100. Reset a 0 no início de cada corrida e a cada restart. |
-| **RNG**               | **Por cena**. A cada cena sorteia-se `P_cena ∈ {0,10,20,...,100}` (uniforme). Fixo para aquela cena só. |
+| **Formato**           | ==Roguelite timer-based== de decisão binária com recurso. Não é racing steering — é QTE enfileirado. |
+| **Cena (unidade)**    | Decisão binária com timer fixo (==Sinal 4,0s== / ==Curva 3,5s==). Toda cena tem 1 ação ==safe== e 1 ação ==risk==. Safe avança e dá +10 Consciência. Risk rola 0–99 contra `Consciência + P_cena`; sucesso se `roll < taxa`. |
+| **Tipos de cena**     | ==Sinal== (sempre vermelho → Parar safe / Furar risk) e ==Curva== (Direita safe / Esquerda risk). |
+| **Recurso central**   | ==Consciência== — barra visível 0–100. Reset a 0 no início de cada corrida e a cada restart. |
+| **RNG**               | ==Por cena==. A cada cena sorteia-se `P_cena ∈ {0,10,20,...,100}` (uniforme). Fixo para aquela cena só. |
 | **Geração**           | Procedural por corrida. Nova seed a cada início de corrida (incluindo restarts). Cada cena recebe tipo + `P_cena` via seed. |
-| **Comprimento**       | Escalona: Corrida 1 = 6 cenas · Corrida 2 = 8 cenas · Corrida 3 = 10 cenas.                    |
-| **Final fixo**        | Última cena da Corrida 3 é sempre **Curva do Diabo** (`P_cena = 100`, não-reseteável).        |
+| **Comprimento**       | Escalona: ==Corrida 1 = 6 cenas== · ==Corrida 2 = 8 cenas== · ==Corrida 3 = 10 cenas==.                    |
+| **Final fixo**        | Última cena da Corrida 3 é sempre ==Curva do Diabo== (`P_cena = 100`, não-reseteável).        |
 | **POV**               | Dissociativo — entre corridas você é o amigo; nas corridas você "vira" o João (ver [[Roleta Paulista]] §3 e §6). |
-| **Condição de vitória**| Ter a MAIOR pontuação total ao final da corrida. Jogador compete por Pontos de Glória, não apenas por completar. |
-| **Condição de derrota**| Risk action com roll falho = crash = restart imediato da corrida. Timer expira = jogada safe automática (Parar/Direita). **Não chegar em 1º lugar ao final = derrota = restart.**   |
+| **Condição de vitória**| Ter a ==MAIOR pontuação total== ao final da corrida. Jogador compete por Pontos de Glória, não apenas por completar. |
+| **Condição de derrota**| Risk action com roll falho = ==crash== = restart imediato da corrida. Timer expira = jogada safe automática (Parar/Direita). ==Não chegar em 1º lugar ao final = derrota== = restart.   |
 | **Input**             | Mouse (clique) + teclado (setas). RPG Maker MZ expõe ambos nativamente em HTML5.               |
-| **Implementação MZ**  | Eventos paralelos + `Show Picture` + `Move Picture` + variáveis + timer por evento. Sem plugins. |
+| **Implementação MZ**  | Eventos paralelos + `Show Picture` + `Move Picture` + variáveis + timer por evento. ==Sem plugins==. |
 
 > [!important] Princípio de design
 > A mecânica é **deliberadamente rasa**. Toda a profundidade vem da **leitura contextual** (saber quando arriscar) e do **arco emocional** (cada corrida carrega um tema narrativo). Em gamejam de 1 semana, "simples de implementar, profundo de sentir" vence "complexo de implementar, raso de sentir".
@@ -93,6 +113,9 @@ Toda cena — sinal ou curva — compartilha o mesmo esqueleto. Timer é **fixo 
 
 ## 4. Mecânica — Cena de Sinal
 
+> [!summary]- Clique para expandiroverview
+> Toda cena de sinal é ==vermelha== — é um sinal de parada obrigatória. O jogador escolhe entre ==Parar== (ação safe) ou ==Furar== (ação risk). Esta é a unidade de decisão moral do jogo: obedeça a lei (acumule Consciência e +10 Pontos de Glória) ou aposte (gaste Consciência por `P_cena × 2` Pontos de Glória). O `P_cena` é sorteado por cena e é o que varia a tentação.
+
 ### Overview
 Toda cena de sinal é **vermelha** — é um sinal de parada obrigatória. O jogador escolhe entre **Parar** (ação safe) ou **Furar** (ação risk). Esta é a unidade de decisão moral do jogo: obedeça a lei (acumule Consciência e +10 Pontos de Glória) ou aposte (gaste Consciência por `P_cena × 2` Pontos de Glória). O `P_cena` é sorteado por cena e é o que varia a tentação.
 
@@ -113,7 +136,7 @@ Toda cena de sinal é **vermelha** — é um sinal de parada obrigatória. O jog
 | Furar | Risk | `taxa = clamp(Consciência + P_cena, 0, 100)`. Roll `0–99`. Sucesso se `roll < taxa` → avança 1 cena. Senão → crash. Após roll (qualquer resultado): `Consciência -= P_cena` (mínimo 0). |
 
 > [!important] P_cena é a tentação
-> Uma cena com `P_cena = 80` é quase um "furar grátis" para quem tem Consciência moderada — mas drena 80 pontos do recurso. Uma cena com `P_cena = 0` é "furar pra morrer" (taxa = só a Consciência atual). A leitura do `P_cena` é o coração estratégico do minigame.
+> Uma cena com `P_cena = 80` é quase um "furar grátis" para quem tem Consciência moderada — mas drena 80 pontos do recurso. Uma cena com `P_cena = 0` é "furar pra morrer" (taxa = só a Consciência atual). A leitura do `P_cena` é o ==coração estratégico== do minigame #economia-de-risco.
 
 **State changes:**
 - `current_scene_index += 1` se Parar OU Furar-bem-sucedido.
@@ -189,8 +212,8 @@ Toda cena de sinal é **vermelha** — é um sinal de parada obrigatória. O jog
 
 ## 5. Mecânica — Cena de Curva
 
-### Overview
-A segunda decisão binária. Apresenta uma curva à frente. **Direita** = trajeto seguro (certeza, +10 Consciência, +10 Pontos de Glória). **Esquerda** = risco com recompensa (roll `Consciência + P_cena`, consome `P_cena`, awards `P_cena × 2` Pontos de Glória). Esquerda bem-sucedida awards Pontos; Esquerda falha = crash. Espelha o Sinal (§4) com framing visual diferente.
+> [!summary]- Clique para expandir Overview
+> A segunda decisão binária. Apresenta uma curva à frente. ==Direita== = trajeto seguro (certeza, +10 Consciência, +10 Pontos de Glória). ==Esquerda== = risco com recompensa (roll `Consciência + P_cena`, consome `P_cena`, awards `P_cena × 2` Pontos de Glória). Esquerda bem-sucedida awards Pontos; Esquerda falha = crash. Espelha o Sinal (§4) com framing visual diferente. #curva #risco-recompensa
 
 ### Input
 - **Mouse:** clique em "Direita" ou "Esquerda".
@@ -207,10 +230,10 @@ A segunda decisão binária. Apresenta uma curva à frente. **Direita** = trajet
 | Direita | Safe | Avança 1 cena. `Consciência += 10` (clamp 100). Sempre funciona.                                                     |
 | Esquerda| Risk | `taxa = clamp(Consciência + P_cena, 0, 100)`. Roll `0–99`. Sucesso se `roll < taxa` → avança 1 cena e ganha `P_cena × 2` Pontos de Glória. Senão → crash. Após roll (qualquer resultado): `Consciência -= P_cena` (mínimo 0). |
 
-> [!important] Pontuação de Glória
-> Recompensa proporcional ao risco: Esquerda-sucesso awards `P_cena × 2` Pontos de Glória, enquanto Direita awards apenas +10 pontos fixos. Em uma corrida de 6 cenas, Esquerda com `P_cena = 80` awards +160 pontos — a diferença entre 1º e 4º lugar.
+> [!important] Pontuação de Glória #pontuação #glória
+> Recompensa proporcional ao risco: Esquerda-sucesso awards `P_cena × 2` ==Pontos de Glória==, enquanto Direita awards apenas +10 pontos fixos. Em uma corrida de 6 cenas, Esquerda com `P_cena = 80` awards +160 pontos — ==a diferença entre 1º e 4º lugar==.
 >
-> **Pontuação = determinante da posição.** Ao final da corrida, o jogador com a MAIOR pontuação total vence. Jogador que não alcançar 1º lugar sofre derrota e restart da corrida.
+> ==Pontuação = determinante da posição==. Ao final da corrida, o jogador com a MAIOR pontuação total vence. Jogador que não alcançar 1º lugar sofre derrota e restart da corrida.
 
 **State changes:**
 - `current_scene_index += 1` (tanto Direita quanto Esquerda-sucesso).
@@ -308,16 +331,17 @@ for i in 0..N-1:
 - A seed determina: sequência de tipos (SINAL/CURVA) + `P_cena` de cada cena.
 - Implementação MZ: usar variável `VAR_SEED` inicializada com `Math.floor(Math.random() * 1e9)` no início de cada corrida.
 
-### 6.4 Curva do Diabo (final fixo)
+### 6.4 Curva do Diabo (final fixo) #curva-do-diabo #clímax
 
-- Apenas na **Corrida 3**.
-- Sempre na **última posição** (`i = N-1 = 9`).
-- Não é sorteadável — sobrescreve qualquer composição procedural.
-- `P_cena = 100` (fixo, não respeita o sorteio da §6.2).
-- **Comportamento:** `taxa_sucesso = clamp(Consciência + 100, 0, 100)` = sempre 100% (sucesso garantido). MAS `Consciência -= 100` = zera a barra.
-- Cena **sempre apresentada como Curva** (não sinal). Direita = safe (sobrevive à corrida). Esquerda = sucesso garantido mas destrói a Consciência (zera a barra).
-- Visual diferenciado: placa envelhecida "CURVA DO DIABO", cruz à beira da estrada.
-- Áudio diferenciado: motor engasga + baixo cai uma oitava (pista diegética — jogador reconhece antes de ver).
+> [!danger]- ⚠️ CURVA DO DIABO - O CLÍMAX FINAL
+> - Apenas na **Corrida 3**
+> - Sempre na ==última posição== (`i = N-1 = 9`)
+> - Não é sorteadável — sobrescreve qualquer composição procedural
+> - ==`P_cena = 100`== (fixo, não respeita o sorteio da §6.2)
+> - **Comportamento:** `taxa_sucesso = clamp(Consciência + 100, 0, 100)` = ==sempre 100%== (sucesso garantido). MAS `Consciência -= 100` = ==zera a barra==
+> - Cena **sempre apresentada como Curva** (não sinal). Direita = safe (sobrevive à corrida). Esquerda = sucesso garantido mas destrói a Consciência (zera a barra).
+> - Visual diferenciado: placa envelhecida "CURVA DO DIABO", cruz à beira da estrada.
+> - Áudio diferenciado: motor engasga + baixo cai uma oitava (pista diegética — jogador reconhece antes de ver).
 
 > [!warning] Mudança v2: Curva do Diabo não é mais 95% crash
 > Na v1 original, Curva do Diabo tinha `P_falha = 95%`. Na v2 com Consciência, ela tem `P_cena = 100` (sempre succeede no roll), mas **sempre zera a Consciência**. A tensão mudou de "95% de morrer" para "100% de zerar Consciência — e o que isso significa narrativamente?" [PLAYTEST: a releitura narrativa depende da conexão Consciência ↔ estado do João.]
@@ -327,7 +351,10 @@ for i in 0..N-1:
 
 ---
 
-## 7. Restart / Roguelite Loop
+## 7. Restart / Roguelite Loop #restart #roguelite
+
+> [!tip] Princípio do Restart
+> Qualquer erro fatal → ==crash== → ==restart imediato==. Minimiza fricção: ==sem tela de game over==, ==VN não replaya== entre tentativas. Restart é ==< 1s total==.
 
 ### 7.1 Trigger de restart
 - Qualquer erro fatal (Risk action com roll falho, timer expira sem input) → `EV_Crash` → restart.
@@ -352,7 +379,10 @@ for i in 0..N-1:
 
 ---
 
-## 8. Feedback Multimodal (consolidado)
+## 8. Feedback Multimodal (consolidado) #feedback #multimodal
+
+> [!info] Barra de Consciência é o HUD principal #hud
+> A barra de Consciência é ==sempre visível== no topo da tela durante toda a corrida. É o único HUD além do timer. É sépia clara quando cheia, escurecendo para sépia escuro conforme esvazia.
 
 | Evento              | Visual                                     | Áudio                              | Haptic       |
 | ------------------- | ------------------------------------------ | ---------------------------------- | ------------ |
@@ -378,7 +408,10 @@ for i in 0..N-1:
 
 ---
 
-## 9. Parâmetros Globais (tabela única)
+## 9. Parâmetros Globais (tabela única) #parâmetros #balanceamento
+
+> [!tip] Ajustes por Corrida
+> Timer pode encurtar na Corrida 3 (PLAYTEST: 3,5s → 3,0s para Curva, 4,0s → 3,5s para Sinal). ==Comprimento escalona== naturalmente (6 → 8 → 10 cenas).
 
 | Parâmetro                             | Default             | Corrida 1 | Corrida 2 | Corrida 3 |
 | ------------------------------------- | ------------------- | --------- | --------- | --------- |
@@ -438,7 +471,10 @@ for i in 0..N-1:
 
 ---
 
-## 12. Implementação em RPG Maker MZ
+## 12. Implementação em RPG Maker MZ #implementação #rpg-maker-mz
+
+> [!success]- ✅ Implementação Sem Plugins
+> Esta solução ==não requer plugins==. É 100% eventos nativos. Em gamejam, isso reduz risco de compatibilidade e exportação HTML5. #events-nativos
 
 > Esta seção é um **rascunho técnico** para o implementador. RPG Maker MZ não tem QTE nativo, mas o pattern abaixo é conhecido e estável.
 
@@ -527,7 +563,10 @@ on input (RISK = Furar/Esquerda):
 
 ---
 
-## 13. Decisões em aberto ([PLAYTEST])
+## 13. Decisões em aberto ([PLAYTEST]) #playtest #decisões-pendentes
+
+> [!question]- 🎮 Itens para Validar em Playtest
+> Estas decisões requerem ==playtest cego== para validação. Anote os resultados e ajuste os parâmetros globalmente na §9.
 
 Itens marcados para revisão após primeiro playtest vertical slice:
 
@@ -558,7 +597,14 @@ Itens marcados para revisão após primeiro playtest vertical slice:
 
 ---
 
-## 15. Próximos passos sugeridos
+## 15. Próximos passos sugeridos #roadmap #próximos-passos
+
+> [!checklist]- Roadmap de Implementação
+> 1. [ ] Validar spec contra o pitch (consistência narrativa)
+> 2. [ ] Prototipar em RPG Maker MZ: 1 corrida de 6 cenas + restart funcional (**D1 da jam**)
+> 3. [ ] Playtest cego (alguém sem contexto do pitch)
+> 4. [ ] Definir parâmetros após 3+ playtests
+> 5. [ ] Conectar com ConcernScore para intervenção na corrida 3
 
 1. Validar este spec contra o pitch (consistência narrativa).
 2. Prototipar em RPG Maker MZ: 1 corrida de 6 cenas + restart funcional. **Este é o D1 da jam conforme cronograma do pitch.**
