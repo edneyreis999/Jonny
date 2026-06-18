@@ -14,14 +14,17 @@ status: pending
 
 # Tarefa 5.4: Implementar HUD de Pontos de Glória via `TextPicture`
 
+> **ATUALIZAÇÃO (2026-06-18):** IDs corrigidos ao mapa canônico: `VAR_PONTOS_GLORIA = 105` (era 106), `VAR_CONSCIENCIA = 104` (era 105), `VAR_ROLL_RESULT = 107` (era 108). Plugin Commands do TextPicture continuam sendo via **MZ Editor** (plugin command code 357 tem schema opaco). Implementação via `build_phase5_ces.py` para os CEs 6/14/15; TextPicture Set Text/Show editados manualmente no MZ Editor após gerar o esqueleto. Ver [[fase5/Atualizacao-aplicada]] para o diff completo.
+
 ## Referências de Origem
 
 - Spec de Domínio: [[Corrida - Core Loop]] §5 (Pontos de Glória — pontuação cumulativa do jogador)
-- Guia Técnico: [[Guia de Implementação - Core Loop da Corrida]] §3.1 (linhas 349-379 — IDs de variáveis, `VAR_PONTOS_GLORIA` = ID 106), §4.1 (linhas 462-477 — faixa Picture IDs 51-60 para texto via TextPicture)
+- Guia Técnico: [[Guia de Implementação - Core Loop da Corrida]] §3.1 (linhas 349-379 — IDs de variáveis, `VAR_PONTOS_GLORIA` = ID 105), §4.1 (linhas 462-477 — faixa Picture IDs 51-60 para texto via TextPicture)
+- Aprendizados F1-F4: [[fase4/retrospectiva]] (Plugin Command 357 opaco → MZ Editor manual; `build_phaseN_ces.py` gera esqueleto, MZ Editor preenche TextPicture), [[fase3/retrospectiva]] (auditar inline scripts após gerador)
 
 ## Visão Geral
 
-Mostrar o valor atual de **Pontos de Glória** (`VAR_PONTOS_GLORIA`, ID 106) no canto superior direito da tela como texto, atualizando a cada Safe (+10) ou Risk-sucesso (+P_CENA×2). Usa o plugin **TextPicture** (ativado em task-1.3) que converte um texto em picture, permitindo mostrar números dinâmicos na tela.
+Mostrar o valor atual de **Pontos de Glória** (`VAR_PONTOS_GLORIA`, ID 105) no canto superior direito da tela como texto, atualizando a cada Safe (+10) ou Risk-sucesso (+P_CENA×2). Usa o plugin **TextPicture** (ativado em task-1.3) que converte um texto em picture, permitindo mostrar números dinâmicos na tela.
 
 Esta task é a primeira das HUDs textuais; servirá de padrão para `EV_UpdateHud` e futuros textos (Tentativa N em task-7.2).
 
@@ -36,14 +39,18 @@ Esta task é a primeira das HUDs textuais; servirá de padrão para `EV_UpdateHu
 
 ## Subtarefas
 
-- [ ] 5.4.1 Confirmar que o plugin TextPicture está ativo (task-1.3 já deve ter feito)
-- [ ] 5.4.2 Decidir o Picture ID (sugerido: ID 51) e posição (x=560, y=20 — canto superior direito da resolução 816×624)
-- [ ] 5.4.3 Criar/atualizar `EV_UpdateHud` (iniciado em task-3.4) para incluir chamada TextPicture da Glória
-- [ ] 5.4.4 Adicionar Plugin Command `TextPicture: Set Text` com template `"GLÓRIA: \V[106]"` (MZ usa `\V[N]` para interpolar variável)
-- [ ] 5.4.5 Adicionar Plugin Command `TextPicture: Show` na posição (560, 20) com Picture ID 51
-- [ ] 5.4.6 Garantir que `EV_UpdateHud` é chamado após cada Safe/Risk (já é em 5.1/5.2)
-- [ ] 5.4.7 Adicionar `Erase Picture: 51` no `EV_Crash` (task-6.1) e no fim da corrida
-- [ ] 5.4.8 Validar com Playtest que o número atualiza após clique Safe
+- [ ] 5.4.1 (Pré-passo) Confirmar snapshot de `System.json`: `variables[100:117]` e `switches[100:106]` — fonte de verdade para IDs (GLORIA=105, CONSCIENCIA=104)
+- [ ] 5.4.2 (Pré-passo) Confirmar que o plugin TextPicture está ativo (task-1.3 já deve ter feito) via MZ Editor → F10
+- [ ] 5.4.3 Decidir o Picture ID (sugerido: ID 51) e posição (x=560, y=20 — canto superior direito da resolução 816×624)
+- [ ] 5.4.4 Estender `EV_UpdateHud` (CE 6, iniciado em task-3.4) no `build_phase5_ces.py` com placeholder para TextPicture Plugin Commands
+- [ ] 5.4.5 No `EV_UpdateHud`, corrigir inline script da barra de Consciência: `$gameVariables.value(104)` (era 105) no `picture(21).move(...)`
+- [ ] 5.4.6 **Manual MZ Editor:** adicionar Plugin Command `TextPicture: Set Text` com template `"GLÓRIA: \V[105]"` (MZ usa `\V[N]` para interpolar variável)
+- [ ] 5.4.7 **Manual MZ Editor:** adicionar Plugin Command `TextPicture: Show` na posição (560, 20) com Picture ID 51
+- [ ] 5.4.8 Garantir que `EV_UpdateHud` é chamado após cada Safe/Risk (já é em 5.1/5.2)
+- [ ] 5.4.9 Adicionar `Erase Picture: 51` no `EV_Crash` (task-6.1) e no fim da corrida
+- [ ] 5.4.10 Rodar `build_phase5_ces.py`; auditar `rg "value\\(|setValue\\(" Jhonny/data/CommonEvents.json`
+- [ ] 5.4.11 **Pós-edição MZ obrigatória:** reabrir MZ Editor → Database (F10) → Ctrl+S → fechar e reabrir Playtest
+- [ ] 5.4.12 Playtest com feedback perceptível (número muda visivelmente após cada clique)
 
 ## Detalhes de Implementação
 
@@ -68,12 +75,12 @@ Plugin Commands são acessíveis via **MZ Editor** (não automatizáveis via JSO
 
 # === HUD de Consciência (já existente em task-3.4) ===
 # Barra bg + fill com scaleX dinâmico
-Script: $gameScreen.picture(21).move(0, 0, 100, Math.max(0, $gameVariables.value(105)), 255, 6, 0, 0)
+Script: $gameScreen.picture(21).move(0, 0, 100, Math.max(0, $gameVariables.value(104)), 255, 6, 0, 0)
 # (continua igual)
 
 # === HUD de Glória (task 5.4 — esta task) ===
 Plugin Command: TextPicture > Set Text
-  text: "GLÓRIA: \\V[106]"
+  text: "GLÓRIA: \\V[105]"
 
 Plugin Command: TextPicture > Show
   pictureId: 51
@@ -81,8 +88,8 @@ Plugin Command: TextPicture > Show
   fontSettings: default
 ```
 
-> [!note] Sobre `\\V[106]` em vez de `\V[106]`
-> Em Plugin Commands e strings do MZ, `\V[106]` precisa ser escapado como `\\V[106]` para não ser resolvido antes da hora. Ver documentação do TextPicture para sintaxe exata.
+> [!note] Sobre `\\V[105]` em vez de `\V[105]`
+> Em Plugin Commands e strings do MZ, `\V[105]` precisa ser escapado como `\\V[105]` para não ser resolvido antes da hora. Ver documentação do TextPicture para sintaxe exata.
 
 ### Posição sugerida (816×624)
 
@@ -115,7 +122,7 @@ ID 51 é o primeiro livre dessa faixa — convenção.
 |------|--------------|---------|
 | Esquecer de chamar `EV_UpdateHud` após mutação | Glória não atualiza visualmente | Sempre chamar após mudar `VAR_PONTOS_GLORIA` |
 | Picture ID 51 colidindo com overlay | Texto some atrás de flash | Reservar 30-39 para overlays, 51-60 para texto |
-| Usar `\V[106]` sem escape | Texto mostra literal "\V[106]" | Usar `\\V[106]` (escape duplo) |
+| Usar `\V[105]` sem escape | Texto mostra literal "\V[105]" | Usar `\\V[105]` (escape duplo) |
 | Posicionar texto fora da tela (ex.: x>800) | Texto invisível | Verificar 816×624 — manter x ≤ 600 |
 | Não dar `Erase Picture` no fim da corrida | Texto fica na próxima cena VN | `Erase Picture 51` no fim da corrida |
 | Atualizar texto sem re-chamar `Set Text` | Texto fica com valor antigo | Sempre chamar `Set Text` antes de `Show` (ou usar Plugin Command de Update) |
@@ -138,7 +145,7 @@ Ao concluir esta task (com 5.1, 5.2, 5.3 prontos):
 4. Texto muda para **"GLÓRIA: 10"** (imediato após flash verde de resolução).
 5. Clique em **Parar** novamente.
 6. Texto muda para **"GLÓRIA: 20"**.
-7. Force Risk-sucesso (`$gameVariables.setValue(108, 0)` no F12) com P_CENA=50.
+7. Force Risk-sucesso (`$gameVariables.setValue(107, 0)` no F12) com P_CENA=50.
 8. Clique em **Furar**.
 9. Texto muda para **"GLÓRIA: 120"** (20 + 50×2).
 10. Texto permanece na mesma posição durante toda a corrida.

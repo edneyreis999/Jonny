@@ -18,35 +18,40 @@ status: pending
 
 - Spec de Domínio: [[Corrida - Core Loop]] §4 (Cena de Sinal — input), §5 (Cena de Curva — input)
 - Guia Técnico: [[Guia de Implementação - Core Loop da Corrida]] §2.2 (linhas 192-247), §4.1 (linhas 463-477)
+- Retrospectiva Fase 3: [[fase3/retrospectiva]] (CE IDs reais da F3: RenderSinal=9, RenderCurva=10, Renderer=8)
 
 ## Visão Geral
 
 Configurar os botões clicáveis do minigame usando o plugin nativo `ButtonPicture.js`:
-- **Cena de Sinal:** `btn_parar` (Picture ID 41 → `EV_OnSafe`) e `btn_furar` (Picture ID 42 → `EV_OnRisk`).
-- **Cena de Curva:** `btn_direita` (Picture ID 43 → `EV_OnSafe`) e `btn_esquerda` (Picture ID 44 → `EV_OnRisk`).
+- **Cena de Sinal:** `btn_parar` (Picture ID 41 → `EV_OnSafe` CE 12) e `btn_furar` (Picture ID 42 → `EV_OnRisk` CE 13).
+- **Cena de Curva:** `btn_direita` (Picture ID 43 → `EV_OnSafe` CE 12) e `btn_esquerda` (Picture ID 44 → `EV_OnRisk` CE 13).
 
-Os botões são criados via `Show Picture` + `Plugin Command: ButtonPicture → Set` dentro de `EV_RenderSinal` e `EV_RenderCurva` (modificados por esta task).
+Os botões são criados via `Show Picture` + `Plugin Command: ButtonPicture → Set` dentro de `EV_RenderSinal` (CE 9) e `EV_RenderCurva` (CE 10) — modificados por esta task.
+
+> **CE IDs reais da F3 (não usar 5-9 da documentação antiga):** `EV_RaceOrchestrator` = CE 6, `EV_UpdateHud` = CE 7, `EV_RaceRenderer` = CE 8, `EV_RenderSinal` = CE 9, `EV_RenderCurva` = CE 10.
 
 <requirements>
-- Pictures 41-44 (botões) criadas em `EV_RenderSinal` (41, 42) e `EV_RenderCurva` (43, 44).
-- Plugin Command `ButtonPicture → Set` configurado para cada botão apontar para o Common Event correto.
-- Botões desaparecem na transição entre cenas (Renderer apaga pictures da faixa 10-19 e 41-50 ao detectar mudança).
+- Pictures 41-44 (botões) criadas em `EV_RenderSinal` (CE 9 — Pictures 41/42) e `EV_RenderCurva` (CE 10 — Pictures 43/44).
+- Plugin Command `ButtonPicture → Set` configurado para cada botão apontar para o Common Event correto (CE 12 = `EV_OnSafe`, CE 13 = `EV_OnRisk`).
+- Botões desaparecem na transição entre cenas (Renderer — CE 8 — apaga pictures da faixa 41-44 ao detectar mudança).
 - Botões têm IDs MAIORES que overlays e HUD (z-order correto — recebem clique).
 </requirements>
 
 ## Subtarefas
 
-- [ ] 4.2.1 Modificar `EV_RenderSinal` (task 3.3) para adicionar `Show Picture: 41` (btn_parar) e `Show Picture: 42` (btn_furar)
-- [ ] 4.2.2 Adicionar `Plugin Command: ButtonPicture → Set` pictureId=41, commonEventId=`EV_OnSafe`
-- [ ] 4.2.3 Adicionar `Plugin Command: ButtonPicture → Set` pictureId=42, commonEventId=`EV_OnRisk`
-- [ ] 4.2.4 Modificar `EV_RenderCurva` para adicionar `Show Picture: 43` (btn_direita) e `Show Picture: 44` (btn_esquerda)
-- [ ] 4.2.5 Adicionar Plugin Commands equivalentes para 43→`EV_OnSafe` e 44→`EV_OnRisk`
-- [ ] 4.2.6 Modificar `EV_RaceRenderer` (task 3.2) para apagar pictures 41-44 ao detectar mudança de cena
-- [ ] 4.2.7 Salvar o projeto
+- [ ] 4.2.1 Modificar `EV_RenderSinal` (CE 9) para adicionar `Show Picture: 41` (btn_parar) e `Show Picture: 42` (btn_furar)
+- [ ] 4.2.2 Adicionar `Plugin Command: ButtonPicture → Set` pictureId=41, commonEventId=12 (`EV_OnSafe`)
+- [ ] 4.2.3 Adicionar `Plugin Command: ButtonPicture → Set` pictureId=42, commonEventId=13 (`EV_OnRisk`)
+- [ ] 4.2.4 Modificar `EV_RenderCurva` (CE 10) para adicionar `Show Picture: 43` (btn_direita) e `Show Picture: 44` (btn_esquerda)
+- [ ] 4.2.5 Adicionar Plugin Commands equivalentes para 43→CE 12 e 44→CE 13
+- [ ] 4.2.6 Modificar `EV_RaceRenderer` (CE 8) para apagar pictures 41-44 ao detectar mudança de cena
+- [ ] 4.2.7 **Auditar scripts inline:** `rg "value\\(|setValue\\(" Jhonny/data/CommonEvents.json`
+- [ ] 4.2.8 Validar JSON com `python3 -m json.tool`
+- [ ] 4.2.9 Salvar o projeto e abrir no MZ Editor para validar visualmente o Plugin Command
 
 ## Detalhes de Implementação
 
-### Modificação do `EV_RenderSinal` (task 3.3)
+### Modificação do `EV_RenderSinal` (CE Editor ID 9)
 
 Adicionar após os elementos de cena:
 
@@ -58,14 +63,14 @@ Show Picture: 42, "race/btn_furar", Upper Left, (440, 500), 100%, 100%, 255, Nor
 # Configura botões clicáveis via ButtonPicture
 Plugin Command: ButtonPicture → Set
   pictureId     = 41
-  commonEventId = <ID do EV_OnSafe>
+  commonEventId = 12   # EV_OnSafe
 
 Plugin Command: ButtonPicture → Set
   pictureId     = 42
-  commonEventId = <ID do EV_OnRisk>
+  commonEventId = 13   # EV_OnRisk
 ```
 
-### Modificação do `EV_RenderCurva` (task 3.3)
+### Modificação do `EV_RenderCurva` (CE Editor ID 10)
 
 ```
 # === Botões da cena de Curva (Picture IDs 43-44) ===
@@ -74,14 +79,14 @@ Show Picture: 44, "race/btn_esquerda", Upper Left, (440, 500), 100%, 100%, 255, 
 
 Plugin Command: ButtonPicture → Set
   pictureId     = 43
-  commonEventId = <ID do EV_OnSafe>   # Direita = safe
+  commonEventId = 12   # EV_OnSafe (Direita = safe)
 
 Plugin Command: ButtonPicture → Set
   pictureId     = 44
-  commonEventId = <ID do EV_OnRisk>   # Esquerda = risk
+  commonEventId = 13   # EV_OnRisk (Esquerda = risk)
 ```
 
-### Modificação do `EV_RaceRenderer` (task 3.2)
+### Modificação do `EV_RaceRenderer` (CE Editor ID 8)
 
 Adicionar no bloco de limpeza de pictures (ao detectar mudança de cena):
 
@@ -96,6 +101,12 @@ Erase Picture: 43      # btn_direita
 Erase Picture: 44      # btn_esquerda
 # Preserva: HUD 20-21 (barra Consciência), 22-24 (overlays hover — controlados por CE separado)
 ```
+
+### Formato JSON do Plugin Command `ButtonPicture → Set`
+
+O `Plugin Command` no JSON do RMMZ usa code `357` (Plugin Command) seguido dos args serializados. A estrutura exata é melhor obtida via MZ Editor: abra CE 9 no Database, arraste o comando "Set" do plugin `ButtonPicture`, preencha `pictureId` e `commonEventId`, salve. O MZ escreve o JSON correto. Tentar adivinhar o formato JSON à mão é frágil (schema pode variar entre versões do MZ e do plugin).
+
+**Recomendação:** esta task é uma das poucas em F4-F7 onde o **MZ Editor é mais confiável que Python+json** para o bloco `Plugin Command`. As outras modificações (Show Picture 41-44, Erase Picture 41-44) podem ser via Python+json.
 
 ### Posicionamento
 
@@ -144,29 +155,33 @@ Após chamar este Plugin Command:
 | `Erase Picture` não limpa `mzkp_commonEventId` | Próxima picture no mesmo ID pode estar "marcada" errada | `Erase Picture` destrói o `Game_Picture`; nova `Show Picture` cria objeto novo |
 | Não apagar botões da cena anterior ao trocar de cena | Botão de Sinal ainda aparece na cena de Curva | Renderer sempre apaga faixa 41-44 ao detectar mudança |
 | Posicionar botão fora da tela (X > 816) | Botão invisível | Verificar coords antes de salvar |
+| Adicionar Plugin Command via Python+json | Schema do code 357 é opaco e pode quebrar | Usar MZ Editor para o bloco Plugin Command |
+| **Usar CE IDs antigos (5-9)** | Botões chamam CE errado | `EV_OnSafe` = CE 12, `EV_OnRisk` = CE 13 |
 
 ## visual_validation
 
-Ao concluir esta task (com 3.2, 3.3 prontos):
+Ao concluir esta task (com 3.2, 3.3, 4.3 prontos):
 1. No Map001, ative o event autorun.
 2. Após o fadein, a cena 1 aparece com os botões na parte inferior.
 3. Se for **Sinal**: botões "Parar" (esquerda) e "Furar" (direita).
 4. Se for **Curva**: botões "Direita" (esquerda) e "Esquerda" (direita).
 5. Ao **passar o mouse** sobre um botão, ele destaca (cursor muda / leve glow).
 6. Ao **clicar** em um botão:
-   - O handler é disparado (mas como `EV_OnSafe`/`EV_OnRisk` ainda estão vazios, nada visível acontece ainda).
+   - O handler é disparado (mas como `EV_OnSafe`/`EV_OnRisk` ainda têm apenas placeholders na task 4.3, nada visível acontece ainda).
    - No console F12: `$gameTemp.reserveCommonEvent` foi chamado.
    - Botão fica "inativo" durante o processamento (não aceita novo clique).
-7. Trocar de cena (via console `$gameVariables.setValue(102, 1)`) — botões anteriores somem, novos aparecem.
+7. Trocar de cena (via console `$gameVariables.setValue(101, 1)` — Editor ID 101 = `VAR_SCENE_INDEX`) — botões anteriores somem, novos aparecem.
 
 ## Critérios de Sucesso
 
-- [ ] Pictures 41-44 são mostradas em suas respectivas cenas (Sinal: 41-42; Curva: 43-44).
-- [ ] Plugin Command `ButtonPicture → Set` configura o Common Event correto para cada botão.
-- [ ] Renderer apaga botões ao trocar de cena.
+- [ ] Pictures 41-44 são mostradas em suas respectivas cenas (Sinal: 41-42 no CE 9; Curva: 43-44 no CE 10).
+- [ ] Plugin Command `ButtonPicture → Set` configura o Common Event correto para cada botão (CE 12 / CE 13).
+- [ ] Renderer (CE 8) apaga botões ao trocar de cena.
 - [ ] Botões recebem clique (sem "clique fantasma" em pictures erradas).
 - [ ] `Scene_Map.isAnyButtonPressed` funciona (clique no botão não move o player).
 - [ ] Z-order correto (botões acima de HUD e overlays).
+- [ ] `rg "value\\(|setValue\\(" Jhonny/data/CommonEvents.json` coerente com IDs 100-113.
+- [ ] `python3 -m json.tool Jhonny/data/CommonEvents.json` OK.
 - [ ] `visual_validation` confirmada pelo usuário rodando o jogo.
 
 ## Fora de Escopo

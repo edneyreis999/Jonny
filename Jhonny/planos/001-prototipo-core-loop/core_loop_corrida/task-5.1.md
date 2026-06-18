@@ -14,10 +14,13 @@ status: pending
 
 # Tarefa 5.1: Implementar Lógica Safe no `EV_OnSafe`
 
+> **ATUALIZAÇÃO (2026-06-18):** IDs de variáveis corrigidos ao mapa canônico (`VAR_CONSCIENCIA=104`, `VAR_PONTOS_GLORIA=105`, `VAR_SCENE_INDEX=101`, `SW_INPUT_LOCKED=101`). **Guarda 3 removido** — handlers usam apenas 2 guardas (bug fix F4 [[fase-4-completa#Bug do guarda 3]]). Implementação via `build_phase5_ces.py` (espelha F4). Ver [[fase5/Atualizacao-aplicada]] para o diff completo.
+
 ## Referências de Origem
 
 - Spec de Domínio: [[Corrida - Core Loop]] §4 (Mecânica Sinal — ação Parar), §5 (Mecânica Curva — ação Direita)
 - Guia Técnico: [[Guia de Implementação - Core Loop da Corrida]] §3.3 (linhas 410-457 — tabela de transição de estado), §3.3.1 (linhas 425-453 — pseudo-código), §3.2 (linhas 381-408 — INIT/reset)
+- Aprendizados F1-F4: [[fase4/retrospectiva]] (guardas, gerador, MZ reload), [[fase-4-completa]] (bug do guarda 3, IDs canônicos)
 
 ## Visão Geral
 
@@ -36,14 +39,18 @@ A ação Safe é a única escritora das variáveis `VAR_CONSCIENCIA` (+10), `VAR
 
 ## Subtarefas
 
-- [ ] 5.1.1 Remover `Comment: "TODO task 5.1"` do `EV_OnSafe`
-- [ ] 5.1.2 Adicionar `Control Variables: VAR_CONSCIENCIA = min(100, current + 10)` (operação `Set` + `Constant 10` com operação `Clamp 0-100` via `Script` se necessário)
-- [ ] 5.1.3 Adicionar `Control Variables: VAR_PONTOS_GLORIA += 10`
-- [ ] 5.1.4 Adicionar `Control Switches: SW_LAST_ACTION_SAFE = ON`
-- [ ] 5.1.5 Adicionar `Control Variables: VAR_SCENE_INDEX += 1` (após Consciência — ordem crítica)
-- [ ] 5.1.6 Adicionar `Call Common Event: EV_UpdateHud` (criado em task-3.4)
-- [ ] 5.1.7 Adicionar `Call Common Event: EV_ResolucaoSafe` (será criado em task-5.3 — placeholder aceitável aqui)
-- [ ] 5.1.8 Salvar o projeto e validar com Playtest
+- [ ] 5.1.1 (Pré-passo) Confirmar snapshot de `System.json`: `variables[100:117]` e `switches[100:106]` — fonte de verdade para IDs
+- [ ] 5.1.2 (Pré-passo) Criar/estender o gerador `Jhonny/planos/001-prototipo-core-loop/fase5/build_phase5_ces.py` (preserva slots 0-13, modo idempotente)
+- [ ] 5.1.3 Substituir `Comment: "TODO task 5.1"` no `EV_OnSafe` (CE 11) pela lógica real — via gerador
+- [ ] 5.1.4 Adicionar `Control Variables: VAR_CONSCIENCIA (104) = min(100, current + 10)` — If/Else (≤90 → +10; senão = 100)
+- [ ] 5.1.5 Adicionar `Control Variables: VAR_PONTOS_GLORIA (105) += 10`
+- [ ] 5.1.6 Adicionar `Control Switches: SW_LAST_ACTION_SAFE (103) = ON`
+- [ ] 5.1.7 Adicionar `Control Variables: VAR_SCENE_INDEX (101) += 1` (após Consciência — ordem crítica)
+- [ ] 5.1.8 Adicionar `Call Common Event: EV_UpdateHud` (CE 6)
+- [ ] 5.1.9 Adicionar `Call Common Event: EV_ResolucaoSafe` (CE 14 — será criado em task-5.3; placeholder aceitável)
+- [ ] 5.1.10 Rodar o gerador; auditar `rg "value\\(|setValue\\(" Jhonny/data/CommonEvents.json`
+- [ ] 5.1.11 **Pós-edição MZ obrigatória:** reabrir MZ Editor → Database (F10) → Ctrl+S → fechar e reabrir Playtest
+- [ ] 5.1.12 Playtest com feedback perceptível (flash verde + som `freada`) — sem precisar de F12/F9
 
 ## Detalhes de Implementação
 
@@ -53,14 +60,11 @@ A ação Safe é a única escritora das variáveis `VAR_CONSCIENCIA` (+10), `VAR
 # EV_OnSafe (Trigger: Call)
 # Substitui o placeholder da task 4.3 por esta lógica.
 
-# === GUARDAS (já existentes da task 4.3) ===
+# === GUARDAS (já existentes da task 4.3 — apenas 2, bug do guarda 3 corrigido em F4) ===
 If SW_RACE_ACTIVE == OFF
   Exit Event Processing
 End
 If SW_INPUT_LOCKED == ON
-  Exit Event Processing
-End
-If VAR_TIMER_FRAMES <= 0
   Exit Event Processing
 End
 
@@ -102,10 +106,10 @@ Call Common Event: EV_ResolucaoSafe
 
 ### Por que `min(100, current + 10)` e não simplesmente `+= 10`?
 
-Conforme tabela §3.3 do Guia, Consciência tem **faixa 0..100** (variável 105). Soma direta `+= 10` poderia estourar para 110 quando o jogador já estava em 95. O MZ não tem clamp nativo em `Control Variables`, então duas opções:
+Conforme tabela §3.3 do Guia, Consciência tem **faixa 0..100** (variável 104 — `VAR_CONSCIENCIA`). Soma direta `+= 10` poderia estourar para 110 quando o jogador já estava em 95. O MZ não tem clamp nativo em `Control Variables`, então duas opções:
 
 1. **If/Else manual** (recomendado — mais legível): verificar se `VAR_CONSCIENCIA <= 90`, se sim somar 10, senão setar 100.
-2. **Script inline**: `$gameVariables.setValue(105, Math.min(100, $gameVariables.value(105) + 10))`.
+2. **Script inline**: `$gameVariables.setValue(104, Math.min(100, $gameVariables.value(104) + 10))`.
 
 Esta task usa **opção 1 (If/Else)** para manter consistência com handlers de eventos (sem Script inline onde possível — melhora auditabilidade).
 
@@ -140,11 +144,11 @@ Ao concluir esta task (com 4.1, 4.2, 4.3 prontos):
 1. Inicie a corrida via Map001 (autorun).
 2. Cena 1 (Sinal) aparece com os botões.
 3. Clique no botão **Parar** (ou **Direita** em cena de Curva).
-4. **Barra de Consciência sobe visivelmente** em ~10 pontos (ver F9 → Variável 105 aumentou).
-5. **Texto de Pontos de Glória** (a ser implementado em task-5.4) ainda não existe — mas F9 mostra `VAR_PONTOS_GLORIA` aumentou de 10 em 10.
+4. **Barra de Consciência sobe visivelmente** em ~10 pontos (ver F9 → Variável 104 aumentou).
+5. **Texto de Pontos de Glória** (a ser implementado em task-5.4) ainda não existe — mas F9 mostra `VAR_PONTOS_GLORIA` (105) aumentou de 10 em 10.
 6. **Cena avança** (cenário/fundo muda — depende de task-3.2 Renderer estar ativo).
-7. `SW_INPUT_LOCKED` fica ON (a resolução ainda não desliga — corrigido na task-5.3).
-8. Para resetar lock manualmente durante playtest: `$gameSwitches.setValue(102, false)` no console F12.
+7. `SW_INPUT_LOCKED` (101) fica ON (a resolução ainda não desliga — corrigido na task-5.3).
+8. Para resetar lock manualmente durante playtest: `$gameSwitches.setValue(101, false)` no console F12.
 9. Console F12 sem erros.
 
 **Antes da task-5.3:** após clicar Safe, o jogo trava (lock não desliga). **Isso é esperado** — task-5.3 corrige.

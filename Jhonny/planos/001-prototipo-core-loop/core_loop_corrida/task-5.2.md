@@ -14,10 +14,13 @@ status: pending
 
 # Tarefa 5.2: Implementar Lógica Risk no `EV_OnRisk`
 
+> **ATUALIZAÇÃO (2026-06-18):** IDs de variáveis corrigidos ao mapa canônico (`VAR_TAXA_SUCESSO=106`, `VAR_ROLL_RESULT=107`, `VAR_CONSCIENCIA=104`, `VAR_PONTOS_GLORIA=105`, `VAR_P_CENA=103`). **Guarda 3 removido** — handlers usam apenas 2 guardas (bug fix F4 [[fase-4-completa#Bug do guarda 3]]). Implementação via `build_phase5_ces.py` (espelha F4). Ver [[fase5/Atualizacao-aplicada]] para o diff completo.
+
 ## Referências de Origem
 
 - Spec de Domínio: [[Corrida - Core Loop]] §4 (Mecânica Sinal — ação Furar), §5 (Mecânica Curva — ação Esquerda), §6.2 (P_CENA), §6.3 (roll d100)
 - Guia Técnico: [[Guia de Implementação - Core Loop da Corrida]] §3.3 (linhas 410-423 — tabela completa de transição), §3.3.1 (linhas 425-457 — pseudo-código canônico do `EV_OnRisk`)
+- Aprendizados F1-F4: [[fase4/retrospectiva]] (guardas, gerador, MZ reload), [[fase-4-completa]] (bug do guarda 3, IDs canônicos)
 
 ## Visão Geral
 
@@ -38,20 +41,24 @@ Ação Risk é a única escritora de: `VAR_TAXA_SUCESSO`, `VAR_ROLL_RESULT`, `SW
 
 ## Subtarefas
 
-- [ ] 5.2.1 Remover `Comment: "TODO task 5.2"` do `EV_OnRisk`
-- [ ] 5.2.2 Calcular `VAR_TAXA_SUCESSO = min(100, VAR_CONSCIENCIA + VAR_P_CENA)` via Script inline
-- [ ] 5.2.3 Rolar `VAR_ROLL_RESULT = Math.floor(Math.random() * 100)` via Script inline
-- [ ] 5.2.4 Adicionar `If VAR_ROLL_RESULT < VAR_TAXA_SUCESSO` (sucesso)
-- [ ] 5.2.5 No ramo sucesso: aplicar custo `VAR_CONSCIENCIA = max(0, current - P_CENA)`
-- [ ] 5.2.6 No ramo sucesso: `VAR_PONTOS_GLORIA += VAR_P_CENA * 2`
-- [ ] 5.2.7 No ramo sucesso: `Control Switches: SW_LAST_ACTION_SAFE = OFF`
-- [ ] 5.2.8 No ramo sucesso: `VAR_SCENE_INDEX += 1`
-- [ ] 5.2.9 No ramo sucesso: `Call EV_UpdateHud`, `Call EV_ResolucaoRiskOK` (task-5.3)
-- [ ] 5.2.10 No ramo `Else` (falha): aplicar custo `VAR_CONSCIENCIA = max(0, current - P_CENA)`
-- [ ] 5.2.11 No ramo falha: `Control Switches: SW_CRASH_FLAG = ON`
-- [ ] 5.2.12 No ramo falha: `Call Common Event: EV_Crash` (task-6.1)
-- [ ] 5.2.13 Adicionar `End` (código 412)
-- [ ] 5.2.14 Salvar e validar com Playtest (testar ambos os ramos — pode forçar roll via Script)
+- [ ] 5.2.1 (Pré-passo) Confirmar snapshot de `System.json`: `variables[100:117]` e `switches[100:106]` — fonte de verdade para IDs
+- [ ] 5.2.2 (Pré-passo) Criar/estender o gerador `Jhonny/planos/001-prototipo-core-loop/fase5/build_phase5_ces.py` (preserva slots 0-13, modo idempotente)
+- [ ] 5.2.3 Substituir `Comment: "TODO task 5.2"` no `EV_OnRisk` (CE 12) pela lógica real — via gerador
+- [ ] 5.2.4 Calcular `VAR_TAXA_SUCESSO (106) = min(100, VAR_CONSCIENCIA (104) + VAR_P_CENA (103))` via Script inline
+- [ ] 5.2.5 Rolar `VAR_ROLL_RESULT (107) = Math.floor(Math.random() * 100)` via Script inline
+- [ ] 5.2.6 Adicionar `If VAR_ROLL_RESULT (107) < VAR_TAXA_SUCESSO (106)` (sucesso)
+- [ ] 5.2.7 No ramo sucesso: aplicar custo `VAR_CONSCIENCIA (104) = max(0, current - P_CENA)`
+- [ ] 5.2.8 No ramo sucesso: `VAR_PONTOS_GLORIA (105) += VAR_P_CENA (103) * 2` via Script
+- [ ] 5.2.9 No ramo sucesso: `Control Switches: SW_LAST_ACTION_SAFE (103) = OFF`
+- [ ] 5.2.10 No ramo sucesso: `VAR_SCENE_INDEX (101) += 1`
+- [ ] 5.2.11 No ramo sucesso: `Call EV_UpdateHud` (CE 6), `Call EV_ResolucaoRiskOK` (CE 15 — task-5.3)
+- [ ] 5.2.12 No ramo `Else` (falha): aplicar custo `VAR_CONSCIENCIA (104) = max(0, current - P_CENA)`
+- [ ] 5.2.13 No ramo falha: `Control Switches: SW_CRASH_FLAG (102) = ON`
+- [ ] 5.2.14 No ramo falha: `Call Common Event: EV_Crash` (task-6.1)
+- [ ] 5.2.15 Adicionar `End` (código 412)
+- [ ] 5.2.16 Rodar o gerador; auditar `rg "value\\(|setValue\\(" Jhonny/data/CommonEvents.json`
+- [ ] 5.2.17 **Pós-edição MZ obrigatória:** reabrir MZ Editor → Database (F10) → Ctrl+S → fechar e reabrir Playtest
+- [ ] 5.2.18 Playtest com feedback perceptível (forçar roll via Script e observar mutações)
 
 ## Detalhes de Implementação
 
@@ -62,14 +69,11 @@ Ação Risk é a única escritora de: `VAR_TAXA_SUCESSO`, `VAR_ROLL_RESULT`, `SW
 # Substitui o placeholder da task 4.3 por esta lógica.
 # Pseudo-código canônico do §3.3.1 do Guia Técnico.
 
-# === GUARDAS (já existentes da task 4.3) ===
+# === GUARDAS (já existentes da task 4.3 — apenas 2, bug do guarda 3 corrigido em F4) ===
 If SW_RACE_ACTIVE == OFF
   Exit Event Processing
 End
 If SW_INPUT_LOCKED == ON
-  Exit Event Processing
-End
-If VAR_TIMER_FRAMES <= 0
   Exit Event Processing
 End
 
@@ -80,10 +84,12 @@ Control Switches: SW_INPUT_LOCKED = ON
 
 # Passo 1: calcular taxa de sucesso
 # taxa = clamp(CONSCIENCIA + P_CENA, 0, 100)
-Script: $gameVariables.setValue(107, Math.min(100, Math.max(0, $gameVariables.value(105) + $gameVariables.value(104))))
+# IDs: TAXA=106, CONSCIENCIA=104, P_CENA=103
+Script: $gameVariables.setValue(106, Math.min(100, Math.max(0, $gameVariables.value(104) + $gameVariables.value(103))))
 
 # Passo 2: rolar d100 (0..99)
-Script: $gameVariables.setValue(108, Math.floor(Math.random() * 100))
+# ID: ROLL_RESULT=107
+Script: $gameVariables.setValue(107, Math.floor(Math.random() * 100))
 
 # Passo 3: branch sucesso vs falha
 If VAR_ROLL_RESULT < VAR_TAXA_SUCESSO
@@ -99,7 +105,8 @@ If VAR_ROLL_RESULT < VAR_TAXA_SUCESSO
 
   # Glória × 2
   # MZ: Control Variables só aceita constante; usar Script para multiplicar por variável
-  Script: $gameVariables.setValue(106, $gameVariables.value(106) + $gameVariables.value(104) * 2)
+  # IDs: GLORIA=105, P_CENA=103
+  Script: $gameVariables.setValue(105, $gameVariables.value(105) + $gameVariables.value(103) * 2)
 
   # Marca última ação como não-safe
   Control Switches: SW_LAST_ACTION_SAFE = OFF
@@ -180,9 +187,9 @@ NÃO desligar no `EV_OnRisk`.
 
 Para testar o ramo específico durante Playtest, antes de clicar Risk, edite o Script inline temporariamente:
 
-- **Forçar sucesso:** `$gameVariables.setValue(108, 0)` (roll = 0, sempre < taxa).
-- **Forçar falha:** `$gameVariables.setValue(108, 99)` (roll = 99, sempre >= taxa).
-- **Forçar falha por taxa baixa:** `$gameVariables.setValue(105, 0)` (Consciência = 0) e `$gameVariables.setValue(104, 0)` (P_CENA = 0) → taxa = 0.
+- **Forçar sucesso:** `$gameVariables.setValue(107, 0)` (roll = 0, sempre < taxa).
+- **Forçar falha:** `$gameVariables.setValue(107, 99)` (roll = 99, sempre >= taxa).
+- **Forçar falha por taxa baixa:** `$gameVariables.setValue(104, 0)` (Consciência = 0) e `$gameVariables.setValue(103, 0)` (P_CENA = 0) → taxa = 0.
 
 Restaurar o código original antes de finalizar a task.
 
@@ -202,13 +209,13 @@ Restaurar o código original antes de finalizar a task.
 
 Ao concluir esta task (com 4.x, 5.1 prontos):
 
-1. Inicie a corrida e chegue numa cena com P_CENA conhecido (use Script para forçar: `$gameVariables.setValue(104, 50)`).
-2. **Teste ramo sucesso:** no console F12, antes do clique: `$gameVariables.setValue(108, 0)`. Clique em **Furar** (ou **Esquerda**). Verifique:
+1. Inicie a corrida e chegue numa cena com P_CENA conhecido (use Script para forçar: `$gameVariables.setValue(103, 50)`).
+2. **Teste ramo sucesso:** no console F12, antes do clique: `$gameVariables.setValue(107, 0)`. Clique em **Furar** (ou **Esquerda**). Verifique:
    - `VAR_CONSCIENCIA` caiu de 50 (ou clamped em 0 se era < 50).
    - `VAR_PONTOS_GLORIA` subiu de `P_CENA × 2 = 100`.
    - `VAR_SCENE_INDEX` avançou 1.
    - `SW_INPUT_LOCKED` fica ON (a ser desligado por EV_ResolucaoRiskOK em 5.3).
-3. **Teste ramo falha:** no console: `$gameVariables.setValue(108, 99)`. Clique em **Furar**. Verifique:
+3. **Teste ramo falha:** no console: `$gameVariables.setValue(107, 99)`. Clique em **Furar**. Verifique:
    - `VAR_CONSCIENCIA` caiu de P_CENA (ou 0).
    - `SW_CRASH_FLAG = ON`.
    - `VAR_PONTOS_GLORIA` **não** mudou (falha não dá Glória).

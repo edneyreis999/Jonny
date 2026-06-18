@@ -14,10 +14,13 @@ status: pending
 
 # Tarefa 5.3: Criar `EV_ResolucaoSafe` + `EV_ResolucaoRiskOK`
 
+> **ATUALIZAÇÃO (2026-06-18):** Common Events alocados nos slots **14 (`EV_ResolucaoSafe`) e 15 (`EV_ResolucaoRiskOK`) — últimos livres após F3/F4** (5-9 F3, 10-13 F4). `SW_INPUT_LOCKED = 101` (corrigido do 102 antigo). Implementação via `build_phase5_ces.py` (espelha F4). Ver [[fase5/Atualizacao-aplicada]] para o diff completo.
+
 ## Referências de Origem
 
 - Spec de Domínio: [[Corrida - Core Loop]] §4 (Resolução visual de Safe), §5 (Resolução visual de Risk-sucesso)
 - Guia Técnico: [[Guia de Implementação - Core Loop da Corrida]] §3.3 (linhas 410-423 — tabela de transição, coluna "Próximo CE"), §4.2 (linhas 478-518 — APIs Show/Move Picture), §4.3.1 (linhas 543-570 — overlays de feedback)
+- Aprendizados F1-F4: [[fase4/retrospectiva]] (gerador `build_phaseN_ces.py`, MZ reload pós-JSON), [[fase3/retrospectiva]] (auditar inline scripts)
 
 ## Visão Geral
 
@@ -41,22 +44,26 @@ Ambos são responsáveis por **desligar `SW_INPUT_LOCKED`** no fim — destravan
 
 ## Subtarefas
 
-- [ ] 5.3.1 Criar Common Event `EV_ResolucaoSafe` com trigger "Call"
-- [ ] 5.3.2 Adicionar `Show Picture` ID 30 (flash verde fullscreen) opacidade 100
-- [ ] 5.3.3 Adicionar `Move Picture` ID 30 (fade out em 12 frames — opacidade → 0)
-- [ ] 5.3.4 Adicionar `Wait: 12 frames`
-- [ ] 5.3.5 Adicionar `Erase Picture` ID 30
-- [ ] 5.3.6 Adicionar `Control Switches: SW_INPUT_LOCKED = OFF`
-- [ ] 5.3.7 Criar Common Event `EV_ResolucaoRiskOK` com trigger "Call"
-- [ ] 5.3.8 Adicionar `Show Picture` ID 31 (flash dourado fullscreen) opacidade 160
-- [ ] 5.3.9 Adicionar `Tint Screen` leve dourado por 6 frames (opcional)
-- [ ] 5.3.10 Adicionar `Shake Screen` power 3, speed 5, duration 8 frames
-- [ ] 5.3.11 Adicionar `Move Picture` ID 31 (fade out em 18 frames)
-- [ ] 5.3.12 Adicionar `Wait: 18 frames`
-- [ ] 5.3.13 Adicionar `Erase Picture` ID 31
-- [ ] 5.3.14 Adicionar `Tint Screen: Normal` (resetar cor)
-- [ ] 5.3.15 Adicionar `Control Switches: SW_INPUT_LOCKED = OFF`
-- [ ] 5.3.16 Salvar e validar com Playtest
+- [ ] 5.3.1 (Pré-passo) Confirmar snapshot de `System.json`: `variables[100:117]` e `switches[100:106]` — fonte de verdade para IDs
+- [ ] 5.3.2 (Pré-passo) Estender `Jhonny/planos/001-prototipo-core-loop/fase5/build_phase5_ces.py` com CEs 14 e 15 (preserva 0-13, modo idempotente)
+- [ ] 5.3.3 Criar Common Event 14 `EV_ResolucaoSafe` (trigger "Call") via gerador
+- [ ] 5.3.4 Adicionar `Show Picture` ID 30 (flash verde fullscreen) opacidade 100
+- [ ] 5.3.5 Adicionar `Move Picture` ID 30 (fade out em 12 frames — opacidade → 0)
+- [ ] 5.3.6 Adicionar `Wait: 12 frames`
+- [ ] 5.3.7 Adicionar `Erase Picture` ID 30
+- [ ] 5.3.8 Adicionar `Control Switches: SW_INPUT_LOCKED (101) = OFF`
+- [ ] 5.3.9 Criar Common Event 15 `EV_ResolucaoRiskOK` (trigger "Call") via gerador
+- [ ] 5.3.10 Adicionar `Show Picture` ID 31 (flash dourado fullscreen) opacidade 160
+- [ ] 5.3.11 Adicionar `Tint Screen` leve dourado por 6 frames (opcional)
+- [ ] 5.3.12 Adicionar `Shake Screen` power 3, speed 5, duration 8 frames
+- [ ] 5.3.13 Adicionar `Move Picture` ID 31 (fade out em 18 frames)
+- [ ] 5.3.14 Adicionar `Wait: 18 frames`
+- [ ] 5.3.15 Adicionar `Erase Picture` ID 31
+- [ ] 5.3.16 Adicionar `Tint Screen: Normal` (resetar cor)
+- [ ] 5.3.17 Adicionar `Control Switches: SW_INPUT_LOCKED (101) = OFF`
+- [ ] 5.3.18 Rodar o gerador; auditar `rg "value\\(|setValue\\(" Jhonny/data/CommonEvents.json`
+- [ ] 5.3.19 **Pós-edição MZ obrigatória:** reabrir MZ Editor → Database (F10) → Ctrl+S → fechar e reabrir Playtest
+- [ ] 5.3.20 Playtest com feedback perceptível (flash visível + shake perceptível)
 
 ## Detalhes de Implementação
 
@@ -165,9 +172,9 @@ Ao concluir esta task (com 5.1, 5.2 prontos):
 
 1. Inicie a corrida e clique em **Parar** (Safe).
 2. **Flash verde** cobre a tela por ~0,2s e desaparece.
-3. `SW_INPUT_LOCKED` desliga (F9 → Switch 102 = OFF) — pode clicar novamente.
+3. `SW_INPUT_LOCKED` desliga (F9 → Switch 101 = OFF) — pode clicar novamente.
 4. Cena avança (fundo muda se Renderer ativo).
-5. Clique em **Furar** com roll forçado para sucesso (`$gameVariables.setValue(108, 0)` no F12).
+5. Clique em **Furar** com roll forçado para sucesso (`$gameVariables.setValue(107, 0)` no F12).
 6. **Flash dourado** mais intenso cobre a tela.
 7. **Tela treme** por ~8 frames (sutil).
 8. Flash dourado desaparece em ~0,3s.

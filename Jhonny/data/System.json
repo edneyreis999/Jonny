@@ -741,9 +741,12 @@
         "VAR_SEED",
         "VAR_RACE_N_CENAS",
         "VAR_ATTEMPT_N",
-        "VAR_LAST_RENDERED_INDEX"
+        "VAR_LAST_RENDERED_INDEX",
+        "",
+        "",
+        "VAR_TIMER_TIMEOUT_FLAG"
     ],
-    "versionId": 43569612,
+    "versionId": 22820474,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,

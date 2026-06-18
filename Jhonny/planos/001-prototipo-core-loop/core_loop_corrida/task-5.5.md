@@ -14,10 +14,13 @@ status: pending
 
 # Tarefa 5.5: Implementar Hover Vermelho-Sangue com 3 Níveis Discretos
 
+> **ATUALIZAÇÃO (2026-06-18):** IDs corrigidos: `VAR_TAXA_SUCESSO = 106` (era 107). **F4 confirmou que `ButtonPicture.js` NÃO tem hover nativo** — usar **Opção B (Script inline com `TouchInput`)** obrigatoriamente. CE alocado no slot **16 (`EV_HoverRiskButton`)**. `VAR_HOVER_LEVEL = 115` (a criar em `System.json` via gerador). Implementação via `build_phase5_ces.py`. Ver [[fase5/Atualizacao-aplicada]] para o diff completo.
+
 ## Referências de Origem
 
 - Spec de Domínio: [[Corrida - Core Loop]] §5 (mecânica de Curva — hover indica risco crescente), §10.risco (clímax visual antes do Risk)
 - Guia Técnico: [[Guia de Implementação - Core Loop da Corrida]] §4.3.1 (linhas 543-570 — "Highlight vermelho-sangue no hover (3 níveis discretos)"), §4.1 (linhas 462-477 — faixas de Picture IDs, 22-24 usados para hover)
+- Aprendizados F1-F4: [[fase4/retrospectiva]] (ButtonPicture sem hover nativo → Opção B obrigatória; gerador `build_phaseN_ces.py`; MZ reload pós-JSON), [[fase3/retrospectiva]] (auditar inline scripts)
 
 ## Visão Geral
 
@@ -43,15 +46,19 @@ Esta task implementa o feedback visual de risco — diferenciando visualmente os
 
 ## Subtarefas
 
-- [ ] 5.5.1 Criar/confirmar pictures `race/hover_red_l1.png`, `race/hover_red_l2.png`, `race/hover_red_l3.png` (se faltar, gerar gradientes vermelho-sangue com opacidades 80/140/220)
-- [ ] 5.5.2 Decidir abordagem de detecção de hover: Plugin Command ButtonPicture `onHover` OU Script inline com `TouchInput`
-- [ ] 5.5.3 Criar CE `EV_HoverRiskButton` (Trigger: Parallel, Switch: `SW_RACE_ACTIVE`)
-- [ ] 5.5.4 Implementar detecção: `TouchInput.x` e `TouchInput.y` no retângulo do botão Furar
-- [ ] 5.5.5 Calcular nível baseado em `VAR_TAXA_SUCESSO` (3 categorias)
-- [ ] 5.5.6 Mostrar `Show Picture: 22/23/24` conforme nível (apenas 1 ativo por vez)
-- [ ] 5.5.7 Quando mouse sai do botão, `Erase Picture` 22/23/24
-- [ ] 5.5.8 Garantir que botões Safe (Parar/Direita) não disparam hover vermelho
-- [ ] 5.5.9 Validação visual com Playtest em cenários diferentes de taxa
+- [ ] 5.5.1 (Pré-passo) Confirmar snapshot de `System.json`: `variables[100:117]` — `VAR_TAXA_SUCESSO` em 106 e slot 115 livre para `VAR_HOVER_LEVEL`
+- [ ] 5.5.2 (Pré-passo) Criar/estender `Jhonny/planos/001-prototipo-core-loop/fase5/build_phase5_ces.py` com CE 16 (`EV_HoverRiskButton`) e a nova variável 115 (`VAR_HOVER_LEVEL`) no `System.json`
+- [ ] 5.5.3 Criar/confirmar pictures `race/hover_red_l1.png`, `race/hover_red_l2.png`, `race/hover_red_l3.png` (se faltar, gerar gradientes vermelho-sangue com opacidades 80/140/220)
+- [ ] 5.5.4 Usar **Opção B (Script inline com `TouchInput`)** — F4 confirmou que `ButtonPicture.js` não tem hover nativo
+- [ ] 5.5.5 Criar CE 16 `EV_HoverRiskButton` (Trigger: Parallel, Switch: `SW_RACE_ACTIVE` 100) via gerador
+- [ ] 5.5.6 Implementar detecção: `TouchInput.x` e `TouchInput.y` no retângulo do botão Furar
+- [ ] 5.5.7 Calcular nível baseado em `VAR_TAXA_SUCESSO` (106) — 3 categorias
+- [ ] 5.5.8 Mostrar `Show Picture: 22/23/24` conforme nível (apenas 1 ativo por vez)
+- [ ] 5.5.9 Quando mouse sai do botão, `Erase Picture` 22/23/24
+- [ ] 5.5.10 Garantir que botões Safe (Parar/Direita) não disparam hover vermelho
+- [ ] 5.5.11 Rodar o gerador; auditar `rg "value\\(|setValue\\(" Jhonny/data/CommonEvents.json`
+- [ ] 5.5.12 **Pós-edição MZ obrigatória:** reabrir MZ Editor → Database (F10) → Ctrl+S → fechar e reabrir Playtest
+- [ ] 5.5.13 Playtest com feedback perceptível em 3 níveis forçados via Script (taxa 80/50/20)
 
 ## Detalhes de Implementação
 
@@ -70,23 +77,20 @@ Esta task implementa o feedback visual de risco — diferenciando visualmente os
 
 ### Abordagem de detecção de hover
 
-**Opção A — Plugin Command ButtonPicture (recomendado):**
+> [!warning] F4 confirmou: `ButtonPicture.js` NÃO tem hover nativo
+> A Opção A (Plugin Command `onHover`) foi descartada em F4 — o plugin oficial não expõe esse callback. Usar **Opção B (Script inline com `TouchInput`)** obrigatoriamente.
 
-O plugin ButtonPicture (ativado em task-1.3) pode expor `onHover` callback via Plugin Command. Verificar documentação. Se sim:
+**Opção A — Plugin Command ButtonPicture (DESCARTADA em F4):**
 
-```
-Plugin Command: ButtonPicture > On Hover
-  buttonId: 42   # botão Furar
-  callCommonEvent: EV_HoverRiskButton
-```
+O plugin ButtonPicture não expõe `onHover`. Não usar.
 
-**Opção B — Script inline com `TouchInput`:**
+**Opção B — Script inline com `TouchInput` (ÚNICA VIÁVEL):**
 
-Sem callback do plugin, usar um CE paralelo com `TouchInput.x`/`TouchInput.y`:
+CE paralelo com `TouchInput.x`/`TouchInput.y`:
 
 ```javascript
-// EV_HoverRiskButton (Trigger: Parallel, SW: SW_RACE_ACTIVE)
-// Script inline para detectar hover no botão Furar (ID 42)
+// EV_HoverRiskButton (CE 16, Trigger: Parallel, SW: SW_RACE_ACTIVE 100)
+// Script inline para detectar hover no botão Furar (Picture ID 42)
 
 const btnX = 200;  // posição x do botão (a definir em task-4.2)
 const btnY = 500;  // posição y do botão
@@ -97,8 +101,8 @@ const tx = TouchInput.x;
 const ty = TouchInput.y;
 const isHovering = (tx >= btnX && tx <= btnX + btnW && ty >= btnY && ty <= btnY + btnH);
 
-// Taxa atual
-const taxa = $gameVariables.value(107);
+// Taxa atual (VAR_TAXA_SUCESSO = 106)
+const taxa = $gameVariables.value(106);
 
 // Determinar nível (0 = sem hover, 1/2/3)
 let nivel = 0;
@@ -108,7 +112,7 @@ if (isHovering) {
   else nivel = 3;
 }
 
-$gameVariables.setValue(115, nivel);  // VAR_HOVER_LEVEL (reservar ID 115)
+$gameVariables.setValue(115, nivel);  // VAR_HOVER_LEVEL (ID 115)
 ```
 
 Após o Script, um `If` mostra/oculta pictures:
@@ -136,16 +140,16 @@ Wait: 1 frame
 Jump to Label: start  # loop paralelo
 ```
 
-### Variável `VAR_HOVER_LEVEL` (reserva ID 115)
+### Variável `VAR_HOVER_LEVEL` (ID 115)
 
-Adicionar ao `System.json` (subtarefa similar à task-3.2.1):
+Adicionar ao `System.json` via `build_phase5_ces.py` (subtarefa similar à task-3.2.1):
 
 | ID | Variável | Faixa | Descrição |
 |----|----------|-------|-----------|
 | 115 | `VAR_HOVER_LEVEL` | 0..3 | Nível atual do hover vermelho (0 = sem hover) |
 
 > [!note] Reserva de ID 115
-> Conforme tabela §3.1, IDs 101-113 estão reservados. 114 será `VAR_LAST_RENDERED_INDEX` (task-3.2.1). 115+ está livre para extensões como esta.
+> Conforme tabela §3.1 e o snapshot pós-F4, IDs 100-114 estão alocados (113=`VAR_LAST_RENDERED_INDEX`, 114 livre). 115+ está livre para extensões como esta.
 
 ### Por que 3 níveis discretos e não gradiente contínuo?
 
@@ -200,7 +204,7 @@ Ao concluir esta task (com 3.4, 4.2 prontos):
 1. Inicie a corrida. Botões aparecem.
 2. Passe o mouse sobre o botão **Parar** (Safe).
 3. **Nenhum overlay vermelho** aparece (comportamento correto).
-4. Force `VAR_TAXA_SUCESSO = 80` (alta): `$gameVariables.setValue(107, 80)` no F12.
+4. Force `VAR_TAXA_SUCESSO = 80` (alta): `$gameVariables.setValue(106, 80)` no F12.
 5. Passe o mouse sobre o botão **Furar** (Risk).
 6. **Overlay vermelho suave (nível 1, ~31% opacidade)** aparece sobre o botão.
 7. Tire o mouse. Overlay desaparece.

@@ -871,6 +871,34 @@
                 ]
             },
             {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    41
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    42
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    43
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    44
+                ]
+            },
+            {
                 "code": 111,
                 "indent": 1,
                 "parameters": [
@@ -1135,6 +1163,52 @@
                 ]
             },
             {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    41,
+                    "race/btn_parar",
+                    0,
+                    0,
+                    220,
+                    500,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    42,
+                    "race/btn_furar",
+                    0,
+                    0,
+                    440,
+                    500,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "const p1 = $gameScreen.picture(41); if (p1) p1.mzkp_commonEventId = 11;"
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "const p2 = $gameScreen.picture(42); if (p2) p2.mzkp_commonEventId = 12;"
+                ]
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
@@ -1228,6 +1302,52 @@
                 "parameters": []
             },
             {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    43,
+                    "race/btn_direita",
+                    0,
+                    0,
+                    220,
+                    500,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    44,
+                    "race/btn_esquerda",
+                    0,
+                    0,
+                    440,
+                    500,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "const p3 = $gameScreen.picture(43); if (p3) p3.mzkp_commonEventId = 11;"
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "const p4 = $gameScreen.picture(44); if (p4) p4.mzkp_commonEventId = 12;"
+                ]
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
@@ -1236,6 +1356,374 @@
         "name": "EV_RenderCurva",
         "trigger": 0,
         "switchId": 1,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 10,
+        "list": [
+            {
+                "code": 118,
+                "indent": 0,
+                "parameters": [
+                    "TICK"
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    100,
+                    1
+                ]
+            },
+            {
+                "code": 115,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    101,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 1,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 119,
+                "indent": 1,
+                "parameters": [
+                    "TICK"
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    108,
+                    0,
+                    0,
+                    2
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 1,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 119,
+                "indent": 1,
+                "parameters": [
+                    "TICK"
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    108,
+                    108,
+                    2,
+                    0,
+                    1
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    108,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 1,
+                "parameters": [
+                    116,
+                    116,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 1,
+                "parameters": [
+                    11
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 119,
+                "indent": 0,
+                "parameters": [
+                    "TICK"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_RaceTimer",
+        "trigger": 2,
+        "switchId": 100,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 11,
+        "list": [
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    100,
+                    1
+                ]
+            },
+            {
+                "code": 115,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    101,
+                    0
+                ]
+            },
+            {
+                "code": 115,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    0
+                ]
+            },
+            {
+                "code": 250,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "name": "freada",
+                        "volume": 90,
+                        "pitch": 100,
+                        "pan": 0
+                    }
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_OnSafe",
+        "trigger": 0,
+        "switchId": 1,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 12,
+        "list": [
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    100,
+                    1
+                ]
+            },
+            {
+                "code": 115,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    101,
+                    0
+                ]
+            },
+            {
+                "code": 115,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    0
+                ]
+            },
+            {
+                "code": 250,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "name": "pneu_cantando",
+                        "volume": 90,
+                        "pitch": 100,
+                        "pan": 0
+                    }
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_OnRisk",
+        "trigger": 0,
+        "switchId": 1,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 13,
+        "list": [
+            {
+                "code": 118,
+                "indent": 0,
+                "parameters": [
+                    "KEY_LOOP"
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    100,
+                    1
+                ]
+            },
+            {
+                "code": 115,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "if ($gameVariables.value(102) === 0) {  if (Input.isTriggered('down')) $gameTemp.reserveCommonEvent(11);  if (Input.isTriggered('up'))   $gameTemp.reserveCommonEvent(12);} else {  if (Input.isTriggered('right')) $gameTemp.reserveCommonEvent(11);  if (Input.isTriggered('left'))  $gameTemp.reserveCommonEvent(12);}"
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 119,
+                "indent": 0,
+                "parameters": [
+                    "KEY_LOOP"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_KeyInput",
+        "trigger": 2,
+        "switchId": 100,
         "autoErase": false,
         "conditionString": ""
     }
