@@ -706,8 +706,8 @@
                     "race/bar_consciencia_bg",
                     0,
                     0,
-                    308,
-                    16,
+                    1152,
+                    104,
                     100,
                     100,
                     255,
@@ -1127,8 +1127,56 @@
                     "race/sinal_red",
                     0,
                     0,
-                    308,
-                    80,
+                    304,
+                    48,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    12,
+                    "race/btn_parar",
+                    0,
+                    0,
+                    104,
+                    440,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    13,
+                    "race/btn_furar",
+                    0,
+                    0,
+                    440,
+                    440,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    13,
+                    "race/btn_furar",
+                    0,
+                    0,
+                    440,
+                    440,
                     100,
                     100,
                     255,
@@ -1187,11 +1235,27 @@
                 "indent": 0,
                 "parameters": [
                     11,
-                    "race/placa_curva_dir",
+                    "race/btn_direita",
                     0,
                     0,
-                    600,
+                    632,
+                    288,
                     100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    12,
+                    "race/btn_esquerda",
+                    0,
+                    0,
+                    320,
+                    288,
                     100,
                     100,
                     255,
