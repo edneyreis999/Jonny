@@ -120,7 +120,7 @@
         "pitch": 100,
         "volume": 90
     },
-    "editMapId": 1,
+    "editMapId": 3,
     "elements": [
         "",
         "Físico",
@@ -346,8 +346,8 @@
             "volume": 90
         }
     ],
-    "startMapId": 1,
-    "startX": 8,
+    "startMapId": 3,
+    "startX": 13,
     "startY": 6,
     "switches": [
         "",
@@ -743,7 +743,7 @@
         "VAR_ATTEMPT_N",
         ""
     ],
-    "versionId": 53264027,
+    "versionId": 18373104,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,
