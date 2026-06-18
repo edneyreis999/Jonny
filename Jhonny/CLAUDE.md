@@ -84,6 +84,14 @@ The `planos/` directory contains development plans and prototypes. Each plan fol
 - Test scenarios
 - Implementation notes
 
+For `planos/001-prototipo-core-loop/`, if `tasks.md` and task-specific files already exist, execute from the existing plan instead of re-planning the phase. Read the phase tasks, implement directly, and record completion/validation in Markdown files inside the plan folder.
+
+When a task references a phase retrospectiva, treat it as reusable execution knowledge. Fase 1 and Fase 2 confirmed several project rules:
+- The actual project path is `Jhonny/`, not `docs/Jhonny/`.
+- Core-loop minigame variables and switches use the 101+ ID range to avoid collisions with early Database entries.
+- Validation that depends on the engine, visuals, input, picture loading, audio playback, or Common Events requires RPG Maker MZ Playtest confirmation.
+- Do not mark a phase as "validada" until the user confirms Playtest results.
+
 ## File Modification Guidelines
 
 ### When modifying core engine files (`rmmz_*.js`):
@@ -96,13 +104,19 @@ The `planos/` directory contains development plans and prototypes. Each plan fol
 - Use RPG Maker MZ editor for database changes (actors, items, skills, etc.)
 - For automated edits, validate JSON structure before committing
 - Map files (Map*.json) have complex structure—prefer editor tools
+- For `System.json`, arrays such as `variables` and `switches` are 0-based: editor ID 101 is array index 100.
+- For structured JSON edits, use a JSON parser/writer rather than textual replacement. RPG Maker JSON may be minified or have large one-line arrays.
+- Common Events with simple, known commands may be created in `CommonEvents.json` if an empty slot is confirmed and the result is validated in Playtest.
+- Prefer writing formatted JSON with stable indentation to avoid noisy diffs.
 
 ### When writing plugins:
 - Never directly modify `rmmz_*.js` files—use plugins instead
 - Use strict mode and wrap in IIFE
-- Provide `@help` documentation in both English and Japanese
+- Provide `@help` documentation in both English
 - Support plugin parameters for user configuration
 - Check for method existence before patching (plugin compatibility)
+- For project helper plugins, `@target MZ`, `@plugindesc`, and `@help` are required. Validate syntax with `node -c`.
+- The RPG Maker MZ Plugin Manager is GUI-driven. If activation cannot be represented safely in files, provide concise manual instructions for the user.
 
 ## Game Configuration
 
@@ -121,3 +135,8 @@ Key settings in `System.json`:
 - `css/`: game.css for web deployment styling
 - `movies/`: OGV format cutscene videos
 - `effects/`: Effekseer effect files (.efkfmt)
+
+For the race core-loop prototype:
+- Pictures live in `img/pictures/race/`; RPG Maker picture names omit the file extension, for example `race/bg_sinal`.
+- Prefer default RPG Maker SE files already present under `audio/se/` before generating, downloading, or converting placeholder audio.
+- `EV_Preload` uses the validated pattern `Show Picture -> Wait 1 frame -> Erase Picture` to warm picture assets.

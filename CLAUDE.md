@@ -12,6 +12,16 @@ This is **not a software project** — it is a personal AI-agent workspace. Ther
 
 Treat the workspace as a config root, not a codebase. Most "work" here is reading/editing markdown, JSON, YAML inside these three trees.
 
+## Project routing: `Jhonny/`
+
+`Jhonny/` is an exception to the workspace-level "not a software project" rule: it is a real RPG Maker MZ game project. When a task targets `Jhonny/`, follow `Jhonny/CLAUDE.md` first and treat that folder as the project root.
+
+For RPG Maker MZ work, prefer loading the matching skill before implementation:
+- `rpg-maker-mz-data-json` for edits to `data/*.json`, Database IDs, switches, variables, Common Events, and RPG Maker command lists.
+- `rpg-maker-mz-plugin-workflow` for creating or editing plugins under `js/plugins/`.
+
+Keep project-specific conventions in `Jhonny/CLAUDE.md` rather than in global skills. Use skills for RPG Maker MZ mechanics that would apply across projects.
+
 ## Critical: `.agents/` is deny-by-default
 
 `.agents/.gitignore` is `*` with only itself allowed. **Never stage, commit, or copy artifacts from `.agents/`** into git history or other directories. Session handoffs, logs, environment snapshots, learnings, and plans under `.agents/` are ephemeral and local-only.
@@ -47,6 +57,7 @@ Skill families under `.claude/skills/`:
 - **Backend**: `nestjs-architect`, `docker-nestjs-dev`, `MODE_Backend_TDD`, `fakebuilder-generator`, plus test-layer skills (`test-core-layer`, `test-service-layer`, `test-controller-layer`, `test-integration`, `test-e2e-playwright`) and `test-orchestrator`.
 - **Frontend**: `nextjs-architect`, `typescript-expert`, `react-electron-code-health`, plus the full `pixijs-*` family (v8).
 - **RPG Maker MZ ("Daratrine")**: `brainstorm-character`, `notetag-filler`, `visustella-analyst`, `state-tooltip-generator`, `skill-description-generator`.
+- **RPG Maker MZ project workflow**: `rpg-maker-mz-data-json`, `rpg-maker-mz-plugin-workflow`.
 - **Tracker**: `beads` (graph-based issue tracker via the `bd` CLI — pairs with the `bd prime` hook).
 - **External**: `pptx` (locked via `skills-lock.json`).
 
