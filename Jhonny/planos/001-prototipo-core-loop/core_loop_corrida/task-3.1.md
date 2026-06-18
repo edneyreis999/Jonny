@@ -1,5 +1,5 @@
 ---
-status: pending
+status: implemented-pending-playtest
 ---
 
 <task_context>
@@ -40,14 +40,122 @@ Criar o Common Event `EV_RaceOrchestrator`, que é a **fonte da verdade** do min
 
 ## Subtarefas
 
-- [ ] 3.1.1 Abrir MZ Editor → Database → Common Events
-- [ ] 3.1.2 Criar `EV_RaceOrchestrator` com trigger "Call"
-- [ ] 3.1.3 Adicionar INIT block (zerar variáveis)
-- [ ] 3.1.4 Adicionar composição baseada em `VAR_RACE_ID`
-- [ ] 3.1.5 Adicionar captura de seed via Script
-- [ ] 3.1.6 Adicionar `Call Common Event: EV_Preload`
-- [ ] 3.1.7 Adicionar fadein 18 frames
-- [ ] 3.1.8 Salvar o projeto
+- [ ] 3.1.1 **(JSON-automatizável)** Confirmar slot vazio em `CommonEvents.json` (CE ID 4+; ID 4 está vazio, mas usar ID 5+ para deixar o ID 4 livre como buffer). Ver IDs ocupados: 1=`acelerador`, 2=`freio`, 3=`EV_Preload`.
+- [ ] 3.1.2 Criar `EV_RaceOrchestrator` com trigger "Call" (`trigger: 0`, `name: "EV_RaceOrchestrator"`)
+- [ ] 3.1.3 Adicionar INIT block (zerar variáveis) — códigos `122` (Control Variables)
+- [ ] 3.1.4 Adicionar composição baseada em `VAR_RACE_ID` — códigos `111`/`411`/`412` (If/Else/End)
+- [ ] 3.1.5 Adicionar captura de seed via Script — código `355` (Script inline)
+- [ ] 3.1.6 Adicionar `Call Common Event: EV_Preload` — código `117` com `parameters: [3]`
+- [ ] 3.1.7 Adicionar fadein 18 frames — códigos `223` (Tint Screen preto) + `222` (Fadein Screen 18 frames)
+- [ ] 3.1.8 **Integrar HUD de Consciência** (pré-requisito: task 3.4) — `Show Picture: 20/21` (código `231`) antes do fadein
+- [ ] 3.1.9 Validar JSON com `python -m json.tool`
+- [ ] 3.1.10 Abrir MZ Editor para confirmar que o CE aparece corretamente no Database
+- [ ] 3.1.11 Playtest MZ obrigatório para validar visualmente
+
+## Automação via JSON (validado na Fase 2)
+
+> **Aprendizado [[fase2/retrospectiva]]:** Common Events simples com códigos MZ conhecidos **podem ser criados diretamente em `Jhonny/data/CommonEvents.json`** quando há slot vazio. Validado em produção na task 2.3 (`EV_Preload`).
+
+### Pré-condições para automação
+- [x] Slot vazio confirmado (CE ID 4+, ou expandir array)
+- [x] Códigos MZ conhecidos (todos abaixo mapeados)
+- [ ] Validação obrigatória: `python -m json.tool Jhonny/data/CommonEvents.json`
+- [ ] Validação obrigatória: MZ Editor abrir o CE sem erro
+- [ ] Validação obrigatória: Playtest MZ sem erro
+
+### Estrutura JSON do Common Event
+
+```json
+{
+  "id": 5,
+  "list": [
+    {"code": 0, "indent": 0, "parameters": []}
+  ],
+  "name": "EV_RaceOrchestrator",
+  "trigger": 0,
+  "switchId": 1,
+  "autoErase": false,
+  "conditionString": ""
+}
+```
+
+> **Campos críticos:** `trigger: 0` (Call), `switchId: 1` (default — sem switch condicional para trigger Call), `name` é o identificador visível no MZ.
+
+### Mapeamento de comandos MZ (use na geração JSON)
+
+| Comando MZ | code | parameters (exemplo) |
+|------------|------|---------------------|
+| `Control Variables: VAR_X = 0` | `122` | `[ID, ID, 0, 0, 0]` (op=set, operand=const, value=0) |
+| `Control Variables: VAR_X += 1` | `122` | `[ID, ID, 1, 0, 1]` (op=add, operand=const, value=1) |
+| `Control Switches: SW_X = ON` | `121` | `[ID, ID, 0]` (0=ON, 1=OFF, 2=toggle) |
+| `If VAR_X == 1` | `111` | `[12, VAR_ID, 0, 1, 0]` (type=variable, src=const, value, op=eq) |
+| `Else` | `411` | `[]` |
+| `End` | `412` | `[]` |
+| `Script (inline)` | `355` | `["$gameVariables.setValue(111, Math.floor(Math.random() * 1000000000))"]` |
+| `Call Common Event: N` | `117` | `[3]` (CE ID 3 = EV_Preload) |
+| `Tint Screen (-1,0,0,0,0)` | `223` | `[[-1,-1,-1,0], 0, false]` (cor, frames, wait) |
+| `Fadein Screen 18f` | `222` | `[18, false]` (frames, wait) |
+| `End of list` | `0` | `[]` (obrigatório como último item) |
+
+> **Notas sobre indentação:** comandos dentro de `If/Else` devem aumentar `indent` em +1, voltando a `indent: 0` após `End` (412).
+
+### Snippet Python de referência
+
+```python
+import json, pathlib
+ce_path = pathlib.Path("Jhonny/data/CommonEvents.json")
+ces = json.loads(ce_path.read_text())
+
+new_ce = {
+  "id": len(ces),  # próximo slot
+  "list": [
+    # INIT block
+    {"code": 122, "indent": 0, "parameters": [105, 105, 0, 0, 0]},  # VAR_CONSCIENCIA = 0
+    {"code": 122, "indent": 0, "parameters": [106, 106, 0, 0, 0]},  # VAR_PONTOS_GLORIA = 0
+    {"code": 122, "indent": 0, "parameters": [102, 102, 0, 0, 0]},  # VAR_SCENE_INDEX = 0
+    {"code": 122, "indent": 0, "parameters": [113, 113, 1, 0, 1]},  # VAR_ATTEMPT_N += 1
+    # Composição por corrida
+    {"code": 111, "indent": 0, "parameters": [12, 101, 0, 1, 0]},  # If VAR_RACE_ID == 1
+    {"code": 122, "indent": 1, "parameters": [112, 112, 0, 0, 6]},  #   VAR_RACE_N_CENAS = 6
+    {"code": 411, "indent": 0, "parameters": []},                    # Else
+    {"code": 111, "indent": 1, "parameters": [12, 101, 0, 2, 0]},  #   If VAR_RACE_ID == 2
+    {"code": 122, "indent": 2, "parameters": [112, 112, 0, 0, 8]},  #     VAR_RACE_N_CENAS = 8
+    {"code": 411, "indent": 1, "parameters": []},                    #   Else
+    {"code": 122, "indent": 2, "parameters": [112, 112, 0, 0, 10]},#     VAR_RACE_N_CENAS = 10
+    {"code": 412, "indent": 1, "parameters": []},                    #   End
+    {"code": 412, "indent": 0, "parameters": []},                    # End
+    # Seed
+    {"code": 355, "indent": 0, "parameters": [
+      "$gameVariables.setValue(111, Math.floor(Math.random() * 1000000000));"
+    ]},
+    # Ativa estado
+    {"code": 121, "indent": 0, "parameters": [101, 101, 0]},  # SW_RACE_ACTIVE = ON
+    {"code": 121, "indent": 0, "parameters": [102, 102, 0]},  # SW_INPUT_LOCKED = ON
+    # Pré-carregamento
+    {"code": 117, "indent": 0, "parameters": [3]},  # Call EV_Preload
+    # HUD de Consciência (pré-requisito: task 3.4)
+    {"code": 231, "indent": 0, "parameters": [
+      20, "race/bar_consciencia_bg", 0, 0, 308, 16, 100, 100, 255, 0
+    ]},
+    {"code": 231, "indent": 0, "parameters": [
+      21, "race/bar_consciencia_fill", 0, 0, 310, 18, 0, 100, 255, 0
+    ]},
+    # Fadein
+    {"code": 223, "indent": 0, "parameters": [[-1,-1,-1,0], 0, false]},  # Tint preto
+    {"code": 222, "indent": 0, "parameters": [18, false]},               # Fadein 18f
+    # End of list
+    {"code": 0, "indent": 0, "parameters": []}
+  ],
+  "name": "EV_RaceOrchestrator",
+  "trigger": 0,
+  "switchId": 1,
+  "autoErase": false,
+  "conditionString": ""
+}
+
+ces.append(new_ce)
+ce_path.write_text(json.dumps(ces, indent=4, ensure_ascii=False))
+```
 
 ## Detalhes de Implementação
 

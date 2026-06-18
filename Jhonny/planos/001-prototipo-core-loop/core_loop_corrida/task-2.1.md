@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 ---
 
 <task_context>
@@ -33,21 +33,23 @@ Criar 11 arquivos PNG na pasta `Jhonny/img/pictures/race/` que cobrem todos os e
 
 ## Subtarefas
 
-- [ ] 2.1.1 Criar pasta `Jhonny/img/pictures/race/`
-- [ ] 2.1.2 Criar `bg_sinal.png` (816x624) — fundo asfalto + sinal vermelho
-- [ ] 2.1.3 Criar `bg_curva.png` (816x624) — fundo asfalto + placa de curva
-- [ ] 2.1.4 Criar `btn_parar.png` (~160x80) — botão "Parar" (icone pedal freio)
-- [ ] 2.1.5 Criar `btn_furar.png` (~160x80) — botão "Furar" (icone acelerador)
-- [ ] 2.1.6 Criar `btn_direita.png` (~160x80) — botão "Direita" (seta curva direita)
-- [ ] 2.1.7 Criar `btn_esquerda.png` (~160x80) — botão "Esquerda" (seta curva esquerda)
-- [ ] 2.1.8 Criar `bar_consciencia_bg.png` (~200x20) — faixa sépia escura "vazia"
-- [ ] 2.1.9 Criar `bar_consciencia_fill.png` (~200x20) — faixa sépia clara "cheia"
-- [ ] 2.1.10 Criar `opala_pov.png` (transparente) — sprite do Opala em POV (primeira pessoa)
-- [ ] 2.1.11 Criar `timer_bar.png` (~300x6) — barra horizontal fina para o timer
-- [ ] 2.1.12 Criar `curva_do_diabo_placa.png` (~200x150) — placa envelhecida "CURVA DO DIABO"
-- [ ] 2.1.13 Criar `overlay_risk_low.png` (faixa vermelha fina, ~200x6)
-- [ ] 2.1.14 Criar `overlay_risk_med.png` (faixa vermelha média, ~200x12)
-- [ ] 2.1.15 Criar `overlay_risk_high.png` (faixa vermelha larga, ~200x20)
+- [x] 2.1.1 Criar pasta `Jhonny/img/pictures/race/`
+- [x] 2.1.2 Criar `bg_sinal.png` (816x624) — fundo asfalto + sinal vermelho
+- [x] 2.1.3 Criar `bg_curva.png` (816x624) — fundo asfalto + placa de curva
+- [x] 2.1.4 Criar `btn_parar.png` (~160x80) — botão "Parar" (icone pedal freio)
+- [x] 2.1.5 Criar `btn_furar.png` (~160x80) — botão "Furar" (icone acelerador)
+- [x] 2.1.6 Criar `btn_direita.png` (~160x80) — botão "Direita" (seta curva direita)
+- [x] 2.1.7 Criar `btn_esquerda.png` (~160x80) — botão "Esquerda" (seta curva esquerda)
+- [x] 2.1.8 Criar `bar_consciencia_bg.png` (~200x20) — faixa sépia escura "vazia"
+- [x] 2.1.9 Criar `bar_consciencia_fill.png` (~200x20) — faixa sépia clara "cheia"
+- [x] 2.1.10 Criar `opala_pov.png` (transparente) — sprite do Opala em POV (primeira pessoa)
+- [x] 2.1.11 Criar `timer_bar.png` (~300x6) — barra horizontal fina para o timer
+- [x] 2.1.12 Criar `curva_do_diabo_placa.png` (~200x150) — placa envelhecida "CURVA DO DIABO"
+- [x] 2.1.13 Criar `overlay_risk_low.png` (faixa vermelha fina, ~200x6)
+- [x] 2.1.14 Criar `overlay_risk_med.png` (faixa vermelha média, ~200x12)
+- [x] 2.1.15 Criar `overlay_risk_high.png` (faixa vermelha larga, ~200x20)
+
+> **Nota de implementação (2026-06-18):** além dos assets listados acima, foram criados `sinal_red.png` e `placa_curva_dir.png`, porque a task 3.3 referencia esses arquivos explicitamente em `EV_RenderSinal` e `EV_RenderCurva`.
 
 ## Detalhes de Implementação
 
@@ -137,11 +139,11 @@ Ao concluir esta task:
 
 ## Critérios de Sucesso
 
-- [ ] 15 arquivos PNG existem em `Jhonny/img/pictures/race/`.
-- [ ] Dimensões corretas (backgrounds 816x624; botões ~160x80; HUD 200x20; etc.).
-- [ ] Canal alpha preservado em `opala_pov`, `btn_*`, `overlay_*`.
-- [ ] Paleta sépia dominante conforme [[Direcão de arte]].
-- [ ] Arquivos não corrompidos (abrem em qualquer visualizador).
+- [x] 16 arquivos PNG existem em `Jhonny/img/pictures/race/` (14 da lista concreta da task + `sinal_red` + `placa_curva_dir` para F3).
+- [x] Dimensões corretas (backgrounds 816x624; botões ~160x80; HUD 200x20; etc.).
+- [x] Canal alpha preservado em `opala_pov`, `btn_*`, `overlay_*`.
+- [x] Paleta sépia dominante conforme [[Direcão de arte]].
+- [x] Arquivos não corrompidos (validados com `file`).
 
 ## Fora de Escopo
 

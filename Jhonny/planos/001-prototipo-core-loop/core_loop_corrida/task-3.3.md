@@ -1,5 +1,5 @@
 ---
-status: pending
+status: implemented-pending-playtest
 ---
 
 <task_context>
@@ -34,12 +34,93 @@ Criar dois Common Events — `EV_RenderSinal` e `EV_RenderCurva` — que fazem o
 
 ## Subtarefas
 
-- [ ] 3.3.1 Criar `EV_RenderSinal` com trigger "Call"
-- [ ] 3.3.2 Adicionar `Show Picture: 1` (bg_sinal) + `Show Picture: 10` (opala_pov) + `Show Picture: 11` (sinal_poste ou sinal luminoso)
-- [ ] 3.3.3 Criar `EV_RenderCurva` com trigger "Call"
-- [ ] 3.3.4 Adicionar `Show Picture: 1` (bg_curva) + `Show Picture: 10` (opala_pov) + `Show Picture: 11` (placa_curva)
-- [ ] 3.3.5 (Opcional) Animação de fade-in dos elementos (Move Picture com opacity 0→255 em 6 frames)
-- [ ] 3.3.6 Salvar o projeto
+- [ ] 3.3.1 **(JSON-automatizável)** Criar `EV_RenderSinal` com trigger "Call" (`trigger: 0`)
+- [ ] 3.3.2 Adicionar `Show Picture: 1` (bg_sinal) + `Show Picture: 10` (opala_pov) + `Show Picture: 11` (sinal_red) — código `231`
+- [ ] 3.3.3 **(JSON-automatizável)** Criar `EV_RenderCurva` com trigger "Call" (`trigger: 0`)
+- [ ] 3.3.4 Adicionar `Show Picture: 1` (bg_curva) + `Show Picture: 10` (opala_pov) + `Show Picture: 11` (placa_curva_dir) + `Show Picture: 12` condicional (`curva_do_diabo_placa` se `SW_IS_CURVA_DIABO`) — código `231` + If `111`/`412`
+- [ ] 3.3.5 (Opcional) Animação de fade-in dos elementos (`Move Picture` `232` com opacity 0→255 em 6 frames)
+- [ ] 3.3.6 Validar JSON com `python -m json.tool`
+- [ ] 3.3.7 Playtest MZ obrigatório para confirmar que todas as pictures carregam sem erro
+
+## Automação via JSON (caso de uso ideal — validado na Fase 2)
+
+> **Aprendizado [[fase2/retrospectiva]]:** `EV_Preload` (Fase 2) usou exclusivamente códigos `231`/`230`/`235` via Python+json com sucesso total. Esta task usa o mesmo conjunto de códigos — **automatização direta é o caminho recomendado.**
+
+### Pré-condições já satisfeitas (não recriar)
+- [x] Pictures já existem em `Jhonny/img/pictures/race/`:
+  - `bg_sinal.png`, `bg_curva.png` (fundo)
+  - `opala_pov.png` (elemento intermediário)
+  - `sinal_red.png`, `placa_curva_dir.png` (sinal/placa)
+  - `curva_do_diabo_placa.png` (curva do diabo)
+- [x] Picture em subpasta usa nome sem extensão: `race/bg_sinal` (confirmado em F2)
+- [x] Códigos MZ `231` (Show Picture) validados em `EV_Preload`
+
+### Estrutura JSON — `Show Picture` (código 231)
+
+```json
+{
+  "code": 231,
+  "indent": 0,
+  "parameters": [
+    1,                    // picture ID (1-9 fundo, 10-19 intermediário)
+    "race/bg_sinal",      // nome (subpasta/nome sem extensão)
+    0,                    // origin: 0=Upper Left, 1=Center
+    0,                    // 0=posição direta, 1=por variável
+    0,                    // x
+    0,                    // y
+    100,                  // scaleX %
+    100,                  // scaleY %
+    255,                  // opacity (0-255)
+    0                     // blend mode (0=Normal, 1=Add, 2=Multiply, 3=Screen)
+  ]
+}
+```
+
+### Snippet Python — gerar os dois CEs
+
+```python
+import json, pathlib
+ce_path = pathlib.Path("Jhonny/data/CommonEvents.json")
+ces = json.loads(ce_path.read_text())
+
+# EV_RenderSinal
+ces.append({
+  "id": len(ces),
+  "list": [
+    {"code": 231, "indent": 0, "parameters": [1, "race/bg_sinal", 0, 0, 0, 0, 100, 100, 255, 0]},
+    {"code": 231, "indent": 0, "parameters": [10, "race/opala_pov", 0, 0, 0, 0, 100, 100, 255, 0]},
+    {"code": 231, "indent": 0, "parameters": [11, "race/sinal_red", 0, 0, 308, 80, 100, 100, 255, 0]},
+    {"code": 0, "indent": 0, "parameters": []}
+  ],
+  "name": "EV_RenderSinal",
+  "trigger": 0,
+  "switchId": 1,
+  "autoErase": false,
+  "conditionString": ""
+})
+
+# EV_RenderCurva
+ces.append({
+  "id": len(ces),
+  "list": [
+    {"code": 231, "indent": 0, "parameters": [1, "race/bg_curva", 0, 0, 0, 0, 100, 100, 255, 0]},
+    {"code": 231, "indent": 0, "parameters": [10, "race/opala_pov", 0, 0, 0, 0, 100, 100, 255, 0]},
+    {"code": 231, "indent": 0, "parameters": [11, "race/placa_curva_dir", 0, 0, 600, 100, 100, 100, 255, 0]},
+    # If SW_IS_CURVA_DIABO == ON → mostrar placa especial (Picture ID 12)
+    {"code": 111, "indent": 0, "parameters": [1, 106, 0]},  # type=1 switch, switchId=106 (SW_IS_CURVA_DIABO), value=ON
+    {"code": 231, "indent": 1, "parameters": [12, "race/curva_do_diabo_placa", 0, 0, 308, 80, 100, 100, 255, 0]},
+    {"code": 412, "indent": 0, "parameters": []},
+    {"code": 0, "indent": 0, "parameters": []}
+  ],
+  "name": "EV_RenderCurva",
+  "trigger": 0,
+  "switchId": 1,
+  "autoErase": false,
+  "conditionString": ""
+})
+
+ce_path.write_text(json.dumps(ces, indent=4, ensure_ascii=False))
+```
 
 ## Detalhes de Implementação
 

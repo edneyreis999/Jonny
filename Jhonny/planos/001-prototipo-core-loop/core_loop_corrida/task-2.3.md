@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 ---
 
 <task_context>
@@ -24,18 +24,20 @@ Criar um Common Event (`EV_Preload`) que força o `ImageManager.loadPicture` a c
 
 <requirements>
 - Common Event `EV_Preload` criado com trigger "Call".
-- Executa `Show Picture` + `Wait 1 frame` + `Erase Picture` para cada uma das 15 pictures criadas na task 2.1.
+- Executa `Show Picture` + `Wait 1 frame` + `Erase Picture` para cada picture criada na task 2.1.
 - Pode ser chamado via `Call Common Event: EV_Preload` no `EV_RaceOrchestrator` (task 3.1).
 - Duração total: ~15 frames (0.25s) — imperceptível ao jogador.
 </requirements>
 
 ## Subtarefas
 
-- [ ] 2.3.1 Abrir MZ Editor → Database (F9) → aba "Common Events"
-- [ ] 2.3.2 Criar novo Common Event nomeado `EV_Preload` com trigger "Call"
-- [ ] 2.3.3 Para cada uma das 15 pictures, adicionar 3 comandos: `Show Picture`, `Wait 1 frame`, `Erase Picture`
-- [ ] 2.3.4 Salvar o projeto
-- [ ] 2.3.5 (Opcional) Testar chamando `EV_Preload` via console: `$gameTemp.reserveCommonEvent(ID)`
+- [x] 2.3.1 Criar/editar Common Event em `Jhonny/data/CommonEvents.json`
+- [x] 2.3.2 Criar novo Common Event nomeado `EV_Preload` com trigger "Call"
+- [x] 2.3.3 Para cada picture, adicionar 3 comandos: `Show Picture`, `Wait 1 frame`, `Erase Picture`
+- [x] 2.3.4 Salvar o projeto
+- [x] 2.3.5 Testar `EV_Preload` em Playtest no RPG Maker MZ
+
+> **Nota de implementação (2026-06-18):** `EV_Preload` foi criado no Common Event ID 3 diretamente em `CommonEvents.json`, com 48 comandos úteis (16 pictures x Show/Wait/Erase) mais o terminador. Validado em Playtest no RPG Maker MZ.
 
 ## Detalhes de Implementação
 
@@ -100,11 +102,11 @@ Ao concluir esta task:
 
 ## Critérios de Sucesso
 
-- [ ] Common Event `EV_Preload` existe com trigger "Call".
-- [ ] 15 pictures são carregadas e apagadas em sequência.
-- [ ] Duração total ~15 frames (0.25s).
-- [ ] Após chamar `EV_Preload`, `Show Picture` subsequente não causa hitch.
-- [ ] Picture ID usado durante o preload (ex.: 1) fica livre após o preload (todas apagadas).
+- [x] Common Event `EV_Preload` existe com trigger "Call".
+- [x] 16 pictures são carregadas e apagadas em sequência.
+- [x] Duração total ~16 frames (0.27s).
+- [x] Após chamar `EV_Preload`, `Show Picture` subsequente não causa hitch.
+- [x] Picture ID usado durante o preload (ex.: 1) fica livre após o preload (todas apagadas).
 
 ## Fora de Escopo
 

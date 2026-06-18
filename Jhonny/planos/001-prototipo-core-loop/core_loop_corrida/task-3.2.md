@@ -1,5 +1,5 @@
 ---
-status: pending
+status: implemented-pending-playtest
 ---
 
 <task_context>
@@ -36,16 +36,109 @@ Criar o Common Event `EV_RaceRenderer` com trigger "Parallel" e condition switch
 
 ## Subtarefas
 
-- [ ] 3.2.1 Criar variável auxiliar `VAR_LAST_RENDERED_INDEX` (pode usar ID 114 reservado para auxiliares)
-- [ ] 3.2.2 Criar Common Event `EV_RaceRenderer` com trigger "Parallel" e condition `SW_RACE_ACTIVE`
-- [ ] 3.2.3 Implementar loop com Label + Jump to Label
-- [ ] 3.2.4 Implementar detecção de mudança de cena
-- [ ] 3.2.5 Implementar tratamento da Curva do Diabo (Corrida 3, cena N-1)
-- [ ] 3.2.6 Implementar sorteio procedural via Script (`JhonnyRace.rollSceneType`, `JhonnyRace.rollPCena`)
-- [ ] 3.2.7 Chamar `EV_RenderSinal` ou `EV_RenderCurva` conforme `VAR_SCENE_TYPE`
-- [ ] 3.2.8 Configurar `VAR_TIMER_FRAMES` e `VAR_SCENE_START`
-- [ ] 3.2.9 Implementar setup 18 frames com `SW_INPUT_LOCKED = ON` → OFF
-- [ ] 3.2.10 Salvar o projeto
+- [ ] 3.2.1 **(Python+json em `System.json`)** Nomear variável ID 114 = `VAR_LAST_RENDERED_INDEX`. Atualmente está vazia — único ajuste de Database da Fase 3.
+- [ ] 3.2.2 **(JSON-automatizável com cautela)** Criar Common Event `EV_RaceRenderer` com `trigger: 2` (Parallel) e `switchId: 101` (condition `SW_RACE_ACTIVE`)
+- [ ] 3.2.3 Implementar loop com Label (`118`) + Jump to Label (`119`) terminando em `Wait 1 frame` (`230`)
+- [ ] 3.2.4 Implementar detecção de mudança de cena via If (`111`) comparando `VAR_SCENE_INDEX` com `VAR_LAST_RENDERED_INDEX`
+- [ ] 3.2.5 Implementar tratamento da Curva do Diabo (Corrida 3, cena N-1) — If com duas condições AND
+- [ ] 3.2.6 Implementar sorteio procedural via Script (`355`) chamando `JhonnyRace.rollSceneType()`, `JhonnyRace.rollPCena()`
+- [ ] 3.2.7 Chamar `EV_RenderSinal` ou `EV_RenderCurva` conforme `VAR_SCENE_TYPE` — código `117`
+- [ ] 3.2.8 Configurar `VAR_TIMER_FRAMES` e `VAR_SCENE_START` (via `Graphics.frameCount`)
+- [ ] 3.2.9 Implementar setup 18 frames com `SW_INPUT_LOCKED = ON` → `Wait 18 frames` → `OFF`
+- [ ] 3.2.10 Validar JSON com `python -m json.tool`
+- [ ] 3.2.11 **MZ Editor obrigatório:** abrir o CE no Database e confirmar que:
+  - `Trigger: Parallel` está selecionado
+  - `Condition: Switch` aponta para `SW_RACE_ACTIVE` (ID 101)
+  - Estrutura de indent (If/Else/End) está correta no editor
+- [ ] 3.2.12 Playtest MZ obrigatório: rodar sem travamento (spin infinito)
+
+## Automação via JSON (alta complexidade — validar MZ obrigatório)
+
+> **Aprendizado [[fase2/retrospectiva]]:** Common Events SIMPLES são seguros via JSON. Este CE usa `Parallel trigger` + `Label/Jump loop` + `Script` inline — **três fatores de risco** que tornam a validação MZ Editor obrigatória, não opcional.
+
+### Pré-condições para automação
+- [x] Slot vazio confirmado (CE ID 5+)
+- [x] Variável 114 nomeada como `VAR_LAST_RENDERED_INDEX`
+- [ ] Plugin `Jhonny_RaceHelper.js` com funções `JhonnyRace.rollSceneType()` e `JhonnyRace.rollPCena()` expostas (dependência indireta da task 1.2 — confirmar antes de automatizar)
+- [ ] Validação obrigatória: `python -m json.tool`
+- [ ] **Validação obrigatória: MZ Editor abrir o CE sem erro** (Parallel + condition string podem ter formato específico)
+- [ ] **Validação obrigatória: Playtest MZ sem spin/travamento** (loops Label/Jump malformados travam a engine)
+
+### Campos JSON específicos do Parallel trigger
+
+```json
+{
+  "id": 6,
+  "list": [...],
+  "name": "EV_RaceRenderer",
+  "trigger": 2,            // 2 = Parallel (0=Call, 1=Auto, 2=Parallel, 3=Autorun... ajustar conforme MZ)
+  "switchId": 101,         // Condition switch = SW_RACE_ACTIVE
+  "autoErase": false,
+  "conditionString": ""
+}
+```
+
+> **Atenção:** `trigger: 2` é o código do MZ para Parallel. **Confirmar abrindo um CE Parallel existente no projeto Jhonny para validar o campo** (ex.: abrir `EV_Preload` e um CE parallel nativo para comparação). Se houver divergência, criar no MZ Editor manualmente.
+
+### Mapeamento de comandos adicionais (além da task 3.1)
+
+| Comando MZ | code | parameters (exemplo) |
+|------------|------|---------------------|
+| `Label: NAME` | `118` | `["RENDER_LOOP"]` |
+| `Jump to Label: NAME` | `119` | `["RENDER_LOOP"]` |
+| `Exit Event Processing` | `115` | `[]` |
+| `Wait N frames` | `230` | `[18]` |
+| `Erase Picture: ID` | `235` | `[10]` (apaga picture 10) |
+| `If VAR_A != VAR_B` | `111` | `[12, VAR_A_ID, 1, VAR_B_ID, 1]` (type=var, src=variable, value=ID, op=neq) |
+| `If VAR_A == N And VAR_B == M` | `111` | `[12, VAR_A_ID, 0, N, 0, 1, 12, VAR_B_ID, 0, M, 0]` (compound) |
+
+### Risco: loop Label/Jump malformado
+
+Se o `Wait 1 frame` (`230` com `parameters: [1]`) for esquecido, ou se o `Jump to Label` estiver posicionado errado, **a engine trava em spin infinito dentro de um único frame** (Game_Interpreter.update é cooperativo, não preemptivo).
+
+**Validação recomendada antes de Playtest completo:**
+1. Abrir CE no MZ Editor
+2. Confirmar visualmente que o `Wait 1 frame` está dentro do loop principal
+3. Confirmar que `Jump to Label: RENDER_LOOP` está após o `Wait 1 frame`
+4. Confirmar que o `Exit Event Processing` (`115`) está no `If SW_RACE_ACTIVE == OFF`
+
+### Snippet Python — esqueleto (complete com os comandos If/Else)
+
+```python
+import json, pathlib
+ce_path = pathlib.Path("Jhonny/data/CommonEvents.json")
+ces = json.loads(ce_path.read_text())
+
+renderer_list = [
+    # Label: RENDER_LOOP
+    {"code": 118, "indent": 0, "parameters": ["RENDER_LOOP"]},
+    # If SW_RACE_ACTIVE == OFF → Exit
+    {"code": 111, "indent": 0, "parameters": [1, 101, 0]},  # type=1 switch, switchId=101, value=OFF
+    {"code": 115, "indent": 1, "parameters": []},            # Exit Event Processing
+    {"code": 412, "indent": 0, "parameters": []},            # End
+    # If VAR_SCENE_INDEX != VAR_LAST_RENDERED_INDEX
+    {"code": 111, "indent": 0, "parameters": [12, 102, 1, 114, 1]},  # var != var
+    # ... (complete com o corpo do if — Erase/Sorteio/Render/Timer/Lock)
+    {"code": 412, "indent": 0, "parameters": []},            # End
+    # Wait 1 frame + Jump
+    {"code": 230, "indent": 0, "parameters": [1]},
+    {"code": 119, "indent": 0, "parameters": ["RENDER_LOOP"]},
+    # End of list
+    {"code": 0, "indent": 0, "parameters": []}
+]
+
+ces.append({
+  "id": len(ces),
+  "list": renderer_list,
+  "name": "EV_RaceRenderer",
+  "trigger": 2,
+  "switchId": 101,
+  "autoErase": false,
+  "conditionString": ""
+})
+
+ce_path.write_text(json.dumps(ces, indent=4, ensure_ascii=False))
+```
 
 ## Detalhes de Implementação
 

@@ -1,5 +1,5 @@
 ---
-status: pending
+status: implemented-pending-playtest
 ---
 
 <task_context>
@@ -37,13 +37,101 @@ Em playtest, basta iniciar o jogo (Playtest) para a corrida começar automaticam
 
 ## Subtarefas
 
-- [ ] 3.5.1 Abrir Map001 no MZ Editor (ou criar novo mapa "Garagem")
-- [ ] 3.5.2 Criar event com trigger "Autorun"
-- [ ] 3.5.3 Adicionar `Control Variables: VAR_RACE_ID = 1`
-- [ ] 3.5.4 Adicionar `Call Common Event: EV_RaceOrchestrator`
-- [ ] 3.5.5 (Opcional) Adicionar `Erase Event` temporário para não re-disparar em testes manuais
-- [ ] 3.5.6 Configurar `System.json` → `startMapId` aponta para o mapa (se for novo)
-- [ ] 3.5.7 Salvar o projeto
+- [ ] 3.5.1 **(JSON-automatizável)** Ler `Jhonny/data/Map001.json` para entender estrutura atual do mapa (events array, tileset ID, dimensões)
+- [ ] 3.5.2 Adicionar 1 event no array `events` com `trigger: 3` (Autorun) e `moveType: 0` (Fixed)
+- [ ] 3.5.3 Adicionar `Control Variables: VAR_RACE_ID = 1` — código `122` com `parameters: [101, 101, 0, 0, 1]`
+- [ ] 3.5.4 Adicionar `Call Common Event: EV_RaceOrchestrator` — código `117` com ID correspondente ao CE criado em 3.1
+- [ ] 3.5.5 **(Obrigatório)** Adicionar `Erase Event` após o `Call Common Event` — código `214`. **Sem este comando, o event Autorun re-dispara a cada frame** após o fim da lista (MZ re-avalia condições do Autorun e, sem condição nem Erase, roda again). Sintoma confirmado em playtest: tela piscando preto a ~3Hz (cada ciclo re-executa o Tint Screen preto→normal do Orchestrator). Erase Event remove o event do mapa até o jogador sair e voltar — para o protótipo (autorun que só dispara na entrada do mapa), é o padrão canônico MZ.
+- [ ] 3.5.6 Confirmar que `System.json` → `startMapId` aponta para `1` (Map001 — default do projeto Jhonny, já configurado)
+- [ ] 3.5.7 Validar JSON com `python -m json.tool`
+- [ ] 3.5.8 **MZ Editor recomendado:** abrir Map001 e confirmar que o event aparece no tile esperado
+- [ ] 3.5.9 Playtest MZ obrigatório para confirmar que o event autorun dispara automaticamente ao abrir o mapa
+
+## Automação via JSON (Map001 já existe no projeto)
+
+> **Aprendizado [[fase1/retrospectiva]] + [[fase2/retrospectiva]]:** arquivos `data/*.json` do MZ podem ser editados via Python+json quando a estrutura é conhecida. Map files (`Map*.json`) são mais complexos que `System.json`, mas a seção `events` é um array simples — adicionar um evento é direto.
+>
+> **Atenção:** para edições complexas em mapa (tiles, camadas), o MZ Editor é obrigatório. Mas adicionar 1 evento com lista de comandos conhecidos é seguro via JSON.
+
+### Pré-condições
+- [x] `Map001.json` existe no projeto Jhonny (mapa inicial default)
+- [x] `System.json` → `startMapId` já aponta para `1` (default Jhonny)
+- [x] `EV_RaceOrchestrator` criado na task 3.1 — usar o ID correspondente no `Call Common Event`
+
+### Estrutura JSON — evento autorun em Map001
+
+```python
+import json, pathlib
+map_path = pathlib.Path("Jhonny/data/Map001.json")
+m = json.loads(map_path.read_text())
+
+# ID do CE EV_RaceOrchestrator — confirmar após task 3.1
+ORCHESTRATOR_CE_ID = 5  # ajustar conforme slot usado em 3.1
+
+new_event = {
+  "id": len(m["events"]) if m["events"] else 1,
+  "name": "Init Corrida",
+  "note": "",
+  "pages": [
+    {
+      "list": [
+        {"code": 122, "indent": 0, "parameters": [101, 101, 0, 0, 1]},   # VAR_RACE_ID = 1
+        {"code": 117, "indent": 0, "parameters": [ORCHESTRATOR_CE_ID]},   # Call EV_RaceOrchestrator
+        {"code": 0, "indent": 0, "parameters": []}
+      ],
+      "conditions": {
+        "actorId": 1, "actorValid": False,
+        "itemId": 1, "itemValid": False,
+        "selfSwitchCh": "A", "selfSwitchValid": False,
+        "switch1Id": 1, "switch1Valid": False,
+        "switch2Id": 1, "switch2Valid": False,
+        "variableId": 1, "variableValid": False,
+        "variableValue": 0
+      },
+      "directionFix": False,
+      "image": {"tileId": 0, "characterName": "", "direction": 2, "pattern": 0, "characterIndex": 0},
+      "moveFrequency": 3,
+      "moveRoute": {"list": [{"code": 0, "parameters": []}], "repeat": False, "skippable": False, "wait": False},
+      "moveSpeed": 3,
+      "moveType": 0,
+      "priorityType": 0,    # 0=abaixo do player, 1=mesmo nível, 2=acima
+      "stepAnime": False,
+      "through": True,      # atravessa obstáculos (event invisível)
+      "trigger": 3,         # 3 = Autorun (0=action button, 1=player touch, 2=event touch, 3=autorun, 4=parallel)
+      "walkAnime": True
+    }
+  ],
+  "x": m.get("startX", 8),  # posição inicial do player (default Map001)
+  "y": m.get("startY", 6)
+}
+
+# Anexa o evento ao array (events[0] é null por convenção do MZ — manter)
+if not m["events"]:
+    m["events"] = [None]
+m["events"].append(new_event)
+
+map_path.write_text(json.dumps(m, indent=4, ensure_ascii=False))
+```
+
+### Mapeamento do campo `trigger` (eventos de mapa)
+
+| Valor | Trigger MZ |
+|-------|-----------|
+| 0 | Action Button |
+| 1 | Player Touch |
+| 2 | Event Touch |
+| 3 | **Autorun** (usar aqui) |
+| 4 | Parallel |
+
+### Risco: validar o `startMapId`
+
+Após editar `Map001.json`, confirmar com:
+
+```bash
+python3 -c "import json; s=json.load(open('Jhonny/data/System.json')); print('startMapId:', s.get('startMapId'))"
+```
+
+Se retornar `1`, o Map001 é o mapa inicial — autorun dispara ao iniciar Playtest.
 
 ## Detalhes de Implementação
 

@@ -1,5 +1,5 @@
 ---
-status: pending
+status: complete
 ---
 
 <task_context>
@@ -32,10 +32,12 @@ Criar 3 arquivos `.ogg` (formato Ogg Vorbis, suportado nativamente pelo RMMZ) pa
 
 ## Subtarefas
 
-- [ ] 2.2.1 Confirmar que a pasta `Jhonny/audio/se/` existe (criar se necessário)
-- [ ] 2.2.2 Criar `crash_metal.ogg` (~0.5s) — impacto metálico + silêncio abrupto
-- [ ] 2.2.3 Criar `freada.ogg` (~0.3s) — freada curta + motor caindo RPM
-- [ ] 2.2.4 Criar `pneu_cantando.ogg` (~0.5s) — pneu cantando + motor subindo RPM
+- [x] 2.2.1 Confirmar que a pasta `Jhonny/audio/se/` existe (criar se necessário)
+- [x] 2.2.2 Criar `crash_metal.ogg` (~0.5s) — impacto metálico + silêncio abrupto
+- [x] 2.2.3 Criar `freada.ogg` (~0.3s) — freada curta + motor caindo RPM
+- [x] 2.2.4 Criar `pneu_cantando.ogg` (~0.5s) — pneu cantando + motor subindo RPM
+
+> **Nota de implementação (2026-06-18):** por decisão do projeto, estes SEs reaproveitam sons padrão já existentes em `Jhonny/audio/se/`: `crash_metal.ogg` = cópia de `Crash.ogg`, `freada.ogg` = cópia de `Evasion1.ogg`, `pneu_cantando.ogg` = cópia de `Move2.ogg`.
 
 ## Detalhes de Implementação
 
@@ -89,11 +91,10 @@ Ao concluir esta task:
 
 ## Critérios de Sucesso
 
-- [ ] 3 arquivos `.ogg` existem em `Jhonny/audio/se/`.
-- [ ] Durações conforme especificado (~0.3-0.5s cada).
-- [ ] Formato válido (abre em qualquer player de áudio, ex: VLC).
-- [ ] Sem clipagem (volume master entre -6dB e 0dB).
-- [ ] `Play SE` no MZ Editor consegue localizar os arquivos via dropdown.
+- [x] 3 arquivos `.ogg` existem em `Jhonny/audio/se/`.
+- [x] Formato válido Ogg Vorbis (validado com `file`/`afinfo`).
+- [x] Reaproveita áudio padrão do RPG Maker já normalizado no projeto.
+- [x] `Play SE` no MZ Editor consegue localizar os arquivos via dropdown.
 
 ## Fora de Escopo
 

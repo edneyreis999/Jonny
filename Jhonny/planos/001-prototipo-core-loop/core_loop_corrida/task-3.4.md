@@ -1,5 +1,5 @@
 ---
-status: pending
+status: implemented-pending-playtest
 ---
 
 <task_context>
@@ -37,12 +37,74 @@ Também criar o Common Event `EV_UpdateHud` que atualiza a barra quando `VAR_CON
 
 ## Subtarefas
 
-- [ ] 3.4.1 Adicionar `Show Picture: 20` e `Show Picture: 21` no INIT do `EV_RaceOrchestrator` (task 3.1)
-- [ ] 3.4.2 Criar variável auxiliar `VAR_HUD_CONSCIENCIA_DISPLAY` (ID 115) para interpolação
-- [ ] 3.4.3 Criar Common Event `EV_UpdateHud` com trigger "Call"
-- [ ] 3.4.4 No `EV_UpdateHud`, fazer `Move Picture: 21` com scaleX = `VAR_CONSCIENCIA`, duration 6 frames, Slow End
-- [ ] 3.4.5 (Opcional) Adicionar texto "CONSCIÊNCIA" ao lado da barra via TextPicture
-- [ ] 3.4.6 Salvar o projeto
+- [ ] 3.4.1 **(JSON-automatizável)** Definir `Show Picture: 20` e `Show Picture: 21` no INIT do `EV_RaceOrchestrator` (task 3.1) — código `231`
+- [ ] 3.4.2 **(Python+json em `System.json`)** Nomear variável ID 115 = `VAR_HUD_CONSCIENCIA_DISPLAY` (apenas se for usar interpolação manual; pode ser omitida se usar `Move Picture` direto)
+- [ ] 3.4.3 **(JSON-automatizável)** Criar Common Event `EV_UpdateHud` com trigger "Call"
+- [ ] 3.4.4 No `EV_UpdateHud`, usar `Script` (`355`) chamando `$gameScreen.picture(21).move(...)` para animar `scaleX` em 6 frames — alternativa mais confiável que `Move Picture` via código `232` com variável
+- [ ] 3.4.5 (Opcional) Adicionar texto "CONSCIÊNCIA" ao lado da barra via `TextPicture` (Plugin Command — task 7.2)
+- [ ] 3.4.6 Validar JSON com `python -m json.tool`
+- [ ] 3.4.7 Playtest MZ obrigatório para confirmar animação suave da barra
+
+## Automação via JSON (setup) + Script (animação)
+
+> **Aprendizado [[fase2/retrospectiva]]:** código `231` (Show Picture) é direto via JSON — mesmo padrão do `EV_Preload`.
+>
+> **Por que Script em vez de `Move Picture` (232) com variável:** o comando MZ `Move Picture` aceita apenas constantes em `scaleX`/`scaleY` pelo editor visual. Para animar `scaleX` baseado em `VAR_CONSCIENCIA` (variável), o caminho mais fiável é chamar direto o método JS da API (`$gameScreen.picture(ID).move(x, y, scaleX, scaleY, opacity, blendMode, duration)`).
+
+### Estrutura JSON — `EV_UpdateHud`
+
+```python
+import json, pathlib
+ce_path = pathlib.Path("Jhonny/data/CommonEvents.json")
+ces = json.loads(ce_path.read_text())
+
+ces.append({
+  "id": len(ces),
+  "list": [
+    # Script: anima scaleX da Picture 21 em 6 frames
+    {"code": 355, "indent": 0, "parameters": [
+      "const c = $gameVariables.value(105);"                           # VAR_CONSCIENCIA
+      "const p = $gameScreen.picture(21);"
+      "p.move(310, 18, c, 100, 255, 0, 6);"                            # x, y, scaleX, scaleY, opacity, blend, duration
+    ]},
+    {"code": 0, "indent": 0, "parameters": []}
+  ],
+  "name": "EV_UpdateHud",
+  "trigger": 0,
+  "switchId": 1,
+  "autoErase": false,
+  "conditionString": ""
+})
+
+ce_path.write_text(json.dumps(ces, indent=4, ensure_ascii=False))
+```
+
+> **API de referência (`rmmz_objects.js` `Game_Picture.move`):**
+> ```js
+> move(x, y, scaleX, scaleY, opacity, blendMode, duration)
+> ```
+> - `duration` em frames (6 = 0.1s)
+> - Easing padrão é linear; para "Slow End" precisaria patch no `Game_Picture` (polish posterior)
+> - `scaleX` aceita valor percentual direto (0..100) — não é decimal 0..1
+
+### Setup inicial no `EV_RaceOrchestrator` (task 3.1)
+
+Adicionar os comandos Show Picture ao INIT block do Orchestrator:
+
+```python
+# Estes comandos entram no list do EV_RaceOrchestrator
+orchestrator_hud_cmds = [
+  {"code": 231, "indent": 0, "parameters": [
+    20, "race/bar_consciencia_bg", 0, 0, 308, 16, 100, 100, 255, 0
+  ]},
+  {"code": 231, "indent": 0, "parameters": [
+    21, "race/bar_consciencia_fill", 0, 0, 310, 18, 0, 100, 255, 0
+    #                                                                  ^ scaleX = 0% (barra vazia no INIT)
+  ]}
+]
+```
+
+> **Ordem de execução F3:** esta task (3.4) deve ser executada **antes** da task 3.1 — assim o Orchestrator já inclui o setup do HUD ao ser gerado. Ver seção "Ordem de Execução Recomendada" em [[tasks.md]].
 
 ## Detalhes de Implementação
 
