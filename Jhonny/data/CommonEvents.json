@@ -46,12 +46,476 @@
         "id": 3,
         "list": [
             {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/bg_sinal",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/bg_curva",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/btn_parar",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/btn_furar",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/btn_direita",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/btn_esquerda",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/bar_consciencia_bg",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/bar_consciencia_fill",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/opala_pov",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/timer_bar",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/curva_do_diabo_placa",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/overlay_risk_low",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/overlay_risk_med",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/overlay_risk_high",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/sinal_red",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/placa_curva_dir",
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
             }
         ],
-        "name": "",
+        "name": "EV_Preload",
         "switchId": 1,
         "trigger": 0
     },
@@ -67,5 +531,712 @@
         "name": "",
         "switchId": 1,
         "trigger": 0
+    },
+    {
+        "id": 5,
+        "list": [
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    104,
+                    104,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    105,
+                    105,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    113,
+                    113,
+                    0,
+                    0,
+                    -1
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    112,
+                    112,
+                    1,
+                    0,
+                    1
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    100,
+                    0,
+                    1,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 1,
+                "parameters": [
+                    111,
+                    111,
+                    0,
+                    0,
+                    6
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 1,
+                "parameters": [
+                    1,
+                    100,
+                    0,
+                    2,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    111,
+                    111,
+                    0,
+                    0,
+                    8
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    111,
+                    111,
+                    0,
+                    0,
+                    10
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "$gameVariables.setValue(110, Math.floor(Math.random() * 1000000000));"
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    0
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 0,
+                "parameters": [
+                    3
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    100,
+                    100,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    20,
+                    "race/bar_consciencia_bg",
+                    0,
+                    0,
+                    308,
+                    16,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    21,
+                    "race/bar_consciencia_fill",
+                    0,
+                    0,
+                    310,
+                    18,
+                    0,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 223,
+                "indent": 0,
+                "parameters": [
+                    [
+                        -255,
+                        -255,
+                        -255,
+                        0
+                    ],
+                    0,
+                    false
+                ]
+            },
+            {
+                "code": 223,
+                "indent": 0,
+                "parameters": [
+                    [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    18,
+                    false
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    18
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_RaceOrchestrator",
+        "trigger": 0,
+        "switchId": 1,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 6,
+        "list": [
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "const c = $gameVariables.value(104); const p = $gameScreen.picture(21); if (p) p.move(310, 18, Math.max(0, Math.min(100, c)), 100, 255, 0, 6);"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_UpdateHud",
+        "trigger": 0,
+        "switchId": 1,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 7,
+        "list": [
+            {
+                "code": 118,
+                "indent": 0,
+                "parameters": [
+                    "RENDER_LOOP"
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    100,
+                    1
+                ]
+            },
+            {
+                "code": 115,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    101,
+                    1,
+                    113,
+                    5
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 1,
+                "parameters": [
+                    113,
+                    113,
+                    0,
+                    1,
+                    101
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    10
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    11
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    12
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 1,
+                "parameters": [
+                    12,
+                    "$gameVariables.value(100) === 3 && $gameVariables.value(101) === 9"
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    102,
+                    102,
+                    0,
+                    0,
+                    2
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    103,
+                    103,
+                    0,
+                    0,
+                    100
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 2,
+                "parameters": [
+                    105,
+                    105,
+                    0
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 355,
+                "indent": 2,
+                "parameters": [
+                    "$gameVariables.setValue(102, JhonnyRace.rollSceneType());"
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 2,
+                "parameters": [
+                    "$gameVariables.setValue(103, JhonnyRace.rollPCena());"
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 2,
+                "parameters": [
+                    105,
+                    105,
+                    1
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 1,
+                "parameters": [
+                    1,
+                    102,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 2,
+                "parameters": [
+                    8
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 117,
+                "indent": 2,
+                "parameters": [
+                    9
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 1,
+                "parameters": [
+                    1,
+                    102,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    108,
+                    108,
+                    0,
+                    0,
+                    240
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    108,
+                    108,
+                    0,
+                    0,
+                    210
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 355,
+                "indent": 1,
+                "parameters": [
+                    "$gameVariables.setValue(109, Graphics.frameCount);"
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 1,
+                "parameters": [
+                    101,
+                    101,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 1,
+                "parameters": [
+                    18
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 1,
+                "parameters": [
+                    101,
+                    101,
+                    1
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 119,
+                "indent": 0,
+                "parameters": [
+                    "RENDER_LOOP"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_RaceRenderer",
+        "trigger": 2,
+        "switchId": 100,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 8,
+        "list": [
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/bg_sinal",
+                    0,
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    10,
+                    "race/opala_pov",
+                    0,
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    11,
+                    "race/sinal_red",
+                    0,
+                    0,
+                    308,
+                    80,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_RenderSinal",
+        "trigger": 0,
+        "switchId": 1,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 9,
+        "list": [
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/bg_curva",
+                    0,
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    10,
+                    "race/opala_pov",
+                    0,
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    11,
+                    "race/placa_curva_dir",
+                    0,
+                    0,
+                    600,
+                    100,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    105,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 1,
+                "parameters": [
+                    12,
+                    "race/curva_do_diabo_placa",
+                    0,
+                    0,
+                    308,
+                    80,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_RenderCurva",
+        "trigger": 0,
+        "switchId": 1,
+        "autoErase": false,
+        "conditionString": ""
     }
 ]

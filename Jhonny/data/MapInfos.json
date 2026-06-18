@@ -2,7 +2,7 @@
     null,
     {
         "id": 1,
-        "expanded": true,
+        "expanded": false,
         "name": "MAP001",
         "order": 1,
         "parentId": 0,
@@ -25,6 +25,16 @@
         "name": "mapa-atalho",
         "order": 3,
         "parentId": 1,
+        "scrollX": 0,
+        "scrollY": 0,
+        "quick": false
+    },
+    {
+        "id": 4,
+        "expanded": false,
+        "name": "Mapa-fase2",
+        "order": 4,
+        "parentId": 0,
         "scrollX": 0,
         "scrollY": 0,
         "quick": false
