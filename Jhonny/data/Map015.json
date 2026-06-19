@@ -1380,42 +1380,6 @@
                     },
                     "list": [
                         {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                1,
-                                2,
-                                "Principal"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "John"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                1,
-                                2,
-                                "Principal"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "Marry"
-                            ]
-                        },
-                        {
                             "code": 250,
                             "indent": 0,
                             "parameters": [
@@ -1442,7 +1406,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "New message received from Jonny."
+                                "New message received."
                             ]
                         },
                         {

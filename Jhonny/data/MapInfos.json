@@ -51,7 +51,7 @@
     },
     {
         "id": 6,
-        "expanded": false,
+        "expanded": true,
         "name": "Estrada_VN4_sabotagem",
         "order": 9,
         "parentId": 1,

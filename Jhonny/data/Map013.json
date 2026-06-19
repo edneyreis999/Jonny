@@ -1558,16 +1558,23 @@
                             "parameters": [
                                 "",
                                 0,
-                                0,
-                                2,
-                                ""
+                                1,
+                                1,
+                                "Jonny"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Conversa"
+                                "I can’t wait to get on the track and forget all "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "this stress."
                             ]
                         },
                         {
@@ -1582,14 +1589,14 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "Opção 1",
-                                    "Opção 2",
-                                    "Opção 3"
+                                    "That’s it! Take it out on the accelerator!",
+                                    "The final year of high school isn’t easy for anyone, not even for big Jonny.",
+                                    "What happened, Jonny?"
                                 ],
-                                1,
+                                -1,
                                 0,
-                                2,
-                                0
+                                1,
+                                1
                             ]
                         },
                         {
@@ -1597,7 +1604,7 @@
                             "indent": 0,
                             "parameters": [
                                 0,
-                                "Opção 1"
+                                "That’s it! Take it out on the accelerator!"
                             ]
                         },
                         {
@@ -1605,6 +1612,24 @@
                             "indent": 1,
                             "parameters": [
                                 10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "This race is definitely going to be memorable."
                             ]
                         },
                         {
@@ -1617,7 +1642,7 @@
                             "indent": 0,
                             "parameters": [
                                 1,
-                                "Opção 2"
+                                "The final year of high school isn’t easy for anyone, not even for big Jonny."
                             ]
                         },
                         {
@@ -1626,6 +1651,346 @@
                             "parameters": [
                                 10
                             ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "This race is definitely going to be memorable."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 1,
+                            "parameters": [
+                                [
+                                    "Are you going to take Devil’s Curve, king of street racers?",
+                                    "You say that every time, show-off.",
+                                    "You’re... different. Did something happen?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                0,
+                                "Are you going to take Devil’s Curve, king of street racers?"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Let it all burn. I’m taking that curve like no "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "one ever has."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                1,
+                                "You say that every time, show-off."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Let it all burn. I’m taking that curve like no "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "one ever has."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                2,
+                                "You’re... different. Did something happen?"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "We broke up. It’s over."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "And it’s all my fault. I can’t do anything right."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 2,
+                            "parameters": [
+                                [
+                                    "That’s it! Take it out on the accelerator!",
+                                    "The final year of high school isn’t easy for anyone, not even for big Jonny.",
+                                    "You really liked her, didn’t you?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                0,
+                                "That’s it! Take it out on the accelerator!"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "Let it all burn. I’m taking that curve like no "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "one ever has."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                1,
+                                "The final year of high school isn’t easy for anyone, not even for big Jonny."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "Let it all burn. I’m taking that curve like no "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "one ever has."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                2,
+                                "You really liked her, didn’t you?"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "I did like her. But I messed it up. I think she got "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "tired of waiting for me to be who I used to be."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 1,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -1637,7 +2002,7 @@
                             "indent": 0,
                             "parameters": [
                                 2,
-                                "Opção 3"
+                                "What happened, Jonny?"
                             ]
                         },
                         {
@@ -1646,6 +2011,196 @@
                             "parameters": [
                                 10
                             ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "We broke up. It’s over."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "And it’s all my fault. I can’t do anything right."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 1,
+                            "parameters": [
+                                [
+                                    "That’s it! Take it out on the accelerator!",
+                                    "The final year of high school isn’t easy for anyone, not even for big Jonny.",
+                                    "You really liked her, didn’t you?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                0,
+                                "That’s it! Take it out on the accelerator!"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Let it all burn. I’m taking that curve like no "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "one ever has."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                1,
+                                "The final year of high school isn’t easy for anyone, not even for big Jonny."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Let it all burn. I’m taking that curve like no "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "one ever has."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                2,
+                                "You really liked her, didn’t you?"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I did like her. But I messed it up. I think she got "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "tired of waiting for me to be who I used to be."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 1,
+                            "parameters": []
                         },
                         {
                             "code": 0,
