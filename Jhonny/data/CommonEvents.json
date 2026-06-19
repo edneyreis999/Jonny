@@ -667,6 +667,17 @@
                 "parameters": []
             },
             {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    117,
+                    117,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
                 "code": 355,
                 "indent": 0,
                 "parameters": [
@@ -830,13 +841,6 @@
                 ]
             },
             {
-                "code": 355,
-                "indent": 0,
-                "parameters": [
-                    "console.log(\"Glória on terminal\")"
-                ]
-            },
-            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
@@ -865,6 +869,34 @@
                     0,
                     100,
                     1
+                ]
+            },
+            {
+                "code": 115,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    101,
+                    1,
+                    111,
+                    1
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 1,
+                "parameters": [
+                    19
                 ]
             },
             {
@@ -2091,14 +2123,7 @@
                 "code": 117,
                 "indent": 1,
                 "parameters": [
-                    17
-                ]
-            },
-            {
-                "code": 108,
-                "indent": 1,
-                "parameters": [
-                    "[TASK 6.1 PENDENTE] Call EV_Crash aqui quando F6 criar o CE."
+                    18
                 ]
             },
             {
@@ -2586,12 +2611,25 @@
         "id": 17,
         "list": [
             {
-                "code": 250,
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "",
+        "switchId": 1,
+        "trigger": 0
+    },
+    {
+        "id": 18,
+        "list": [
+            {
+                "code": 249,
                 "indent": 0,
                 "parameters": [
                     {
-                        "name": "Buzzer1",
-                        "volume": 80,
+                        "name": "Shock1",
+                        "volume": 90,
                         "pitch": 100,
                         "pan": 0
                     }
@@ -2601,10 +2639,181 @@
                 "code": 225,
                 "indent": 0,
                 "parameters": [
-                    5,
-                    5,
                     8,
+                    6,
+                    18,
                     false
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    32,
+                    "race/overlay_flash_white",
+                    0,
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 232,
+                "indent": 0,
+                "parameters": [
+                    32,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    0,
+                    0,
+                    6,
+                    false,
+                    0
+                ]
+            },
+            {
+                "code": 223,
+                "indent": 0,
+                "parameters": [
+                    [
+                        -255,
+                        -255,
+                        -255,
+                        0
+                    ],
+                    6,
+                    false
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    18
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    104,
+                    104,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    105,
+                    105,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    113,
+                    113,
+                    0,
+                    0,
+                    -1
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    108,
+                    108,
+                    0,
+                    0,
+                    240
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    106,
+                    106,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    107,
+                    107,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    117,
+                    117,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    112,
+                    112,
+                    1,
+                    0,
+                    1
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "$gameVariables.setValue(110, Math.floor(Math.random() * 1000000000));"
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    102,
+                    102,
+                    1
                 ]
             },
             {
@@ -2617,15 +2826,479 @@
                 ]
             },
             {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    103,
+                    103,
+                    1
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "for (let i = 1; i <= 60; i++) $gameScreen.erasePicture(i);"
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    32
+                ]
+            },
+            {
+                "code": 223,
+                "indent": 0,
+                "parameters": [
+                    [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    12,
+                    false
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 0,
+                "parameters": [
+                    6
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 0,
+                "parameters": [
+                    8
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    6
+                ]
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
             }
         ],
-        "name": "EV_ResolucaoRiskFail",
-        "trigger": 0,
+        "name": "EV_Crash",
+        "note": "",
         "switchId": 1,
-        "autoErase": false,
-        "conditionString": ""
+        "trigger": 0
+    },
+    {
+        "id": 19,
+        "list": [
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "for (let i = 1; i <= 60; i++) $gameScreen.erasePicture(i);"
+                ]
+            },
+            {
+                "code": 242,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 249,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "name": "Victory1",
+                        "volume": 90,
+                        "pitch": 100,
+                        "pan": 0
+                    }
+                ]
+            },
+            {
+                "code": 223,
+                "indent": 0,
+                "parameters": [
+                    [
+                        60,
+                        20,
+                        -120,
+                        60
+                    ],
+                    12,
+                    false
+                ]
+            },
+            {
+                "code": 108,
+                "indent": 0,
+                "parameters": [
+                    "[F6.4] bg_vitoria.png ausente — fallback Tint dourado acima"
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "const pontos = $gameVariables.value(105);\nconst raceId = $gameVariables.value(100);\nconst thresholds = { 1: 60, 2: 100, 3: 150 };\nconst passou = pontos >= (thresholds[raceId] || 60);\n$gameVariables.setValue(117, passou ? 1 : 0);"
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    117,
+                    0,
+                    1,
+                    0
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 1,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "\\C[6]VITÓRIA!"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Text = \\C[6]VITÓRIA!"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 1,
+                "parameters": [
+                    53,
+                    "",
+                    0,
+                    0,
+                    308,
+                    200,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 357,
+                "indent": 1,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "\\C[18]DERROTA!"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Text = \\C[18]DERROTA!"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 1,
+                "parameters": [
+                    56,
+                    "",
+                    0,
+                    0,
+                    308,
+                    200,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "Pontos de Glória: \\V[105]"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Text = Pontos de Glória: \\V[105]"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    54,
+                    "",
+                    0,
+                    0,
+                    258,
+                    300,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "Pressione [Espaço] para continuar"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Text = Pressione [Espaço] para continuar"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    55,
+                    "",
+                    0,
+                    0,
+                    258,
+                    360,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 118,
+                "indent": 0,
+                "parameters": [
+                    "WAIT_INPUT"
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    12,
+                    "!Input.isTriggered('ok')"
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 1,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 119,
+                "indent": 1,
+                "parameters": [
+                    "WAIT_INPUT"
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    5
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    53
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    56
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    54
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    55
+                ]
+            },
+            {
+                "code": 223,
+                "indent": 0,
+                "parameters": [
+                    [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    6,
+                    false
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    117,
+                    0,
+                    1,
+                    0
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 1,
+                "parameters": [
+                    1,
+                    100,
+                    0,
+                    3,
+                    4
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    100,
+                    100,
+                    1,
+                    0,
+                    1
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 2,
+                "parameters": [
+                    5
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 108,
+                "indent": 2,
+                "parameters": [
+                    "[F6.4] Tela FIM: bg_fim.png ausente — tela preta + loop Label/Jump abaixo"
+                ]
+            },
+            {
+                "code": 118,
+                "indent": 2,
+                "parameters": [
+                    "FIM_LOOP"
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 3,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 119,
+                "indent": 3,
+                "parameters": [
+                    "FIM_LOOP"
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 2,
+                "parameters": []
+            },
+            {
+                "code": 411,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 117,
+                "indent": 1,
+                "parameters": [
+                    18
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_VitoriaCorrida",
+        "note": "",
+        "switchId": 1,
+        "trigger": 0
     }
 ]

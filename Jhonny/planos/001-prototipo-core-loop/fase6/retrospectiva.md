@@ -491,7 +491,7 @@ Já aplicado nesta sessão. Resumo dos patches:
 ### Fatos confirmados (adicionais aos da Parte 1)
 
 - **`build_phaseN_ces.py` é o artefato-fonte canônico** para CEs JSON-automatizáveis. Heurística F3+F4+F5+F6 consolidada: corrigir gerador antes do JSON gerado, sempre.
-- **CEs truncam em `ces = ces[:N]` antes de append** para evitar duplicação. Slot antigo (CE 17 no caso) deve ser setado para `null` explicitamente se for "deletado" semanticamente.
+- **CEs truncam em `ces = ces[:N]` antes de append** para evitar duplicação. Slot antigo (CE 17 no caso) ~~deve ser setado para `null` explicitamente se for "deletado" semanticamente~~ **(REVogado na Parte 3: limpar para objeto vazio canônico, nunca `null` — regra [[never-delete-common-events]])**.
 - **Idempotência de patches**: detectar se o patch já foi aplicado (ex.: se já existe `Call CE 19` no CE 7) e retornar inalterado. Evita re-aplicar em execuções repetidas.
 - **Plugin Commands MZ (code 357) têm schema opaco** — não automatizáveis via JSON direto. Padrão: placeholder Comment (`[TASK X.Y MANUAL MZ]`) no gerador + passo manual MZ documentado em `fase-N-completa.md`.
 - **Opção B (Script inline) é preferível a Opção A (If/Else cascade)** para lógica condicional com múltiplos casos em MZ — mais compacta, auditável via `rg`, fácil de calibrar.
@@ -516,7 +516,7 @@ Já aplicado nesta sessão. Resumo dos patches:
 ### Heurísticas recomendadas (adicionais)
 
 - **Antes de criar gerador novo**: ler `fase<N-1>/build_phase<N-1>_ces.py` inteiro + dump das listas dos CEs que serão patched.
-- **Para CEs "deletados" semanticamente**: setar slot para `null` (preserva índices) em vez de remover do array.
+- **Para CEs "absorvidos" semanticamente**: **limpar** slot para objeto vazio canônico (`{id:N, list:[{code:0,indent:0,parameters:[]}], name:"", switchId:1, trigger:0}`). NUNCA usar `null` — regra [[never-delete-common-events]] (atualizada na Parte 3).
 - **Para patches cirúrgicos baseados em string**: idempotência via detecção (ex.: `any(cmd.code == 117 and cmd.params == [TARGET] for cmd in list)`).
 - **Para CEs com Plugin Command manual**: placeholder Comment `[TASK X.Y MANUAL MZ]` + documentação em `fase-N-completa.md` com screenshot-friendly checklist.
 
@@ -609,9 +609,409 @@ adicionar:
 - [ ] Dump Python das listas dos CEs que serão patched (não apenas novos).
 - [ ] Snapshot `System.json` (variables + switches) e `CommonEvents.json` (CE names + triggers + cmd counts) antes de qualquer Write.
 - [ ] Gerador idempotente: detectar aplicação prévia de patches (ex.: `any(cmd.code == 117 and cmd.params == [TARGET] ...)`).
-- [ ] Para CEs "deletados" semanticamente: setar slot para `null` (preserva índices).
+- [ ] Para CEs "absorvidos" semanticamente: **limpar** slot para objeto vazio canônico (`{id:N, list:[{code:0,indent:0,parameters:[]}], name:"", switchId:1, trigger:0}`). NUNCA usar `null` nem remover do array — regra [[never-delete-common-events]] (atualizada na Parte 3 desta retrospectiva).
 - [ ] Plugin Commands MZ (TextPicture, etc.): placeholder Comment `[TASK X.Y MANUAL MZ]` + documentação em `fase-N-completa.md`.
 - [ ] Auditoria pós-geração obrigatória: `python3 -m json.tool` + `rg "value\\(|setValue\\("` + Python audit de `ControlSwitch` (121) semântica.
 - [ ] Revisar `main()` antes de executar gerador — capturar typos como walrus desnecessário.
 - [ ] Criar `fase<N>/fase-N-completa.md` com passos manuais MZ explícitos.
 - [ ] Atualizar `tasks.md` com status e checkboxes ✅ ao final.
+
+---
+
+# PARTE 3 — Conversão "deletar CE 17" → "limpar CE 17" (regra never-delete-common-events)
+
+> Cobertura: sessão de refactor leve (3 arquivos) que troca a semântica de "deletar CE absorvido" para "limpar CE para objeto vazio canônico". Estabelece regra de projeto durável ([[never-delete-common-events]]). **Zero intervenções do usuário** durante a execução — a regra foi passada no prompt inicial e aplicada sem ambiguidade.
+
+## P3.1. Resumo da tarefa
+
+**Solicitado:** Alterar as tasks da Fase 6 para que o CE 17 seja **limpo** ao objeto vazio canônico ao invés de **deletado**, e estabelecer a regra geral de que Common Events nunca são deletados.
+
+**Entregue:**
+- Regra durável salva como memória de feedback: `never-delete-common-events.md` (type=feedback) + entrada em `MEMORY.md`.
+- `tasks.md` — 9 ocorrências de "deletar/deletado" atualizadas para "limpar/limpo", com link `[[never-delete-common-events]]` e menção explícita à regra na seção "Erros comuns a evitar".
+- `fase6/build_phase6_ces.py` (artefato-fonte) — adicionados helpers `make_empty_ce(ce_id)` e `is_empty_ce(ce, ce_id)`; bloco `ces[17] = None` substituído por `ces[17] = make_empty_ce(17)` com idempotência; docstring + decisão 9 atualizados.
+- `Jhonny/data/CommonEvents.json` — regenerado pelo script: CE 17 no formato canônico (`{id:17, list:[{code:0,indent:0,parameters:[]}], name:"", switchId:1, trigger:0}`), CE 18 (EV_Crash) e CE 19 (EV_VitoriaCorrida) criados.
+- `python3 -m json.tool` validou o JSON final.
+
+**Critérios de conclusão:**
+- `grep -i "delet" tasks.md` não retorna ocorrências referindo-se a CE 17.
+- CE 17 em disco bate exatamente com o objeto canônico pedido pelo usuário.
+- Script gerador idempotente: re-execução não destrói o slot 17.
+
+**Restrições relevantes:**
+- Heurística artefato-fonte: correção deve acontecer primeiro no `build_phaseN_ces.py`, depois regerar o JSON — nunca editar o JSON direto.
+- Regra nova invalida entrada anterior da Parte 2 deste arquivo: o checklist P2.10 dizia "Para CEs 'deletados' semanticamente: setar slot para `null` (preserva índices)." — agora é "limpar para objeto vazio canônico".
+
+## P3.2. Decisões técnicas e inferências
+
+| Decisão | Motivo | Evidência | Resultado | Avaliação | Melhoria futura |
+|---------|--------|-----------|-----------|-----------|-----------------|
+| **Salvar regra como memória de feedback antes de editar arquivos** | Regra é durável, não específica desta sessão — aplicável a TODO projeto RMMZ futuro | Sistema de memória descrito no system prompt (feedback type) | Funcionou — regra persistirá em sessões futuras | Necessária | Toda regra que o usuário estabelecer com "sempre X" / "nunca Y" deve virar memória de feedback imediatamente, antes da primeira edição |
+| **Usar objeto vazio canônico ao invés de `null`** | Determinado pelo usuário no prompt (`{id, list:[{code:0...}], name:"", switchId:1, trigger:0}`) | Mensagem literal do usuário | Funcionou | Necessária — definição foi explícita | Nenhuma inferência necessária |
+| **Editar `build_phase6_ces.py` mesmo sem o usuário pedir explicitamente** | Heurística F3+F4+F5 consolidada em tasks.md §Aprendizados: "Fonte geradora é artefato-fonte — se existir script gerador, corrigir o gerador antes do JSON gerado" | tasks.md linha 449 | Funcionou — correção não seria durável se só tivesse sido feita no JSON | Necessária | Sempre que uma correção de comportamento envolver JSON gerado por script, listar o script como arquivo a editar antes de começar |
+| **Adicionar helpers `make_empty_ce` e `is_empty_ce` (DUAS funções tipadas pequenas)** | Hook PreToolUse:Edit "Python Standards" reforçou: typed small functions, structured parsers | Hooks do sistema | Funcionou — código idempotente legível | Necessária | Em scripts geradores RMMZ, extrair constantes estruturais (CE vazio, comando canônico) como helpers em vez de literal inline |
+| **Executar o script gerador após editar** | Heurística F5/F6: validação JSON + verificação de idempotência exigem re-rodar | tasks.md linha 444 | Funcionou — script imprimiu "CE 17 já está limpo — skip" confirmando idempotência | Necessária | Sempre rodar `python3 build_phaseN_ces.py` 2x após editar: 1ª para aplicar, 2ª para confirmar idempotência |
+
+## P3.3. Uso de ferramentas, comandos e scripts
+
+| Ferramenta | Objetivo | Resultado | Contribuiu? | Como evitar redundância |
+|------------|----------|-----------|-------------|--------------------------|
+| `Read tasks.md` (integral, 600 linhas) | Localizar todas as ocorrências de "deletar" e entender contexto | Funcionou mas **custou ~12% do context window** (sugestão do `/context`) | Sim — identifiquei 9 ocorrências | **Desperdício:** deveria ter rodado `grep -n -i "delet" tasks.md` primeiro e lido só as linhas necessárias |
+| `Read build_phase6_ces.py` (integral, 424 linhas) | Encontrar bloco de deleção e entender helpers | Funcionou | Sim — sem redundância possível | Leitura apropriada para editar gerador |
+| `Bash python3 -c "json.load..."` (snapshot CEs) | Confirmar estado real do `CommonEvents.json` antes de tocar | Revelou que CE 17 já estava limpo e CE 18/19 não existiam — divergência com tasks.md | Sim — descobriu divergência documento×estado | Manter este padrão: sempre snapshot JSON antes de editar |
+| `Edit` falhou 2x em linhas longas com markdown + backticks + acentos | Substituir trechos longos de tasks.md | Falhou com "String to replace not found in file" | Não — desperdício | **Desperdício:** com linhas Markdown longas (>200 chars) contendo backticks e acentos, usar `Edit` com fragmento único e distinto (10-30 chars) ao invés de colar a linha inteira |
+| `Bash grep -n -i "delet\|absorv"` ao final | Auditoria: confirmar que reste apenas menções explícitas à regra | Confirmado — todas as ocorrências agora contextualizam a regra | Sim | Manter este padrão de auditoria final |
+| `Bash python3 -m json.tool` | Validar JSON final | OK | Sim | Padrão obrigatório |
+
+## P3.4. Intervenções e correções do usuário
+
+**Nenhuma.** O usuário forneceu prompt único com regra clara ("sempre limpar, nunca deletar"), definiu o formato canônico do objeto vazio, e apontou o arquivo (`tasks.md`) via URL Obsidian. Toda a execução fluiu sem correção de rumo.
+
+Isso é diferenciado das Partes 1 e 2, onde houve intervenções (sincronia spec↔tasks, opacidade do Plugin Command, etc.). A diferença principal: o usuário **antecipou** a regra geral ("Quando se trata de Comum Event nós NUNCA podemos deletar um evento") em vez de tratar só do caso CE 17.
+
+**Regra reutilizável derivada:** quando o usuário estabelecer uma política durável no prompt, tratá-la como memória de feedback antes de tocar arquivos.
+
+## P3.5. Análise de desperdício
+
+| Desperdício | Impacto | Causa | Como evitar |
+|-------------|---------|-------|-------------|
+| `Read tasks.md` integral quando `grep` bastava | **Médio** (~7k tokens economizáveis segundo `/context`) | Hábito de ler arquivo por inteiro para "entender contexto" | Antes de ler Markdown longo (>200 linhas), rodar `grep -n -i "<termos>"` e ler só seções relevantes com `offset/limit` |
+| 2 falhas do `Edit` em linhas Markdown longas com backticks | **Baixo** (~1k tokens, 2 turnos extras) | Tentei casar string literal de 400+ chars com caracteres especiais | Para `Edit` em Markdown, selecionar fragmento curto único (10-30 chars) e editar apenas o necessário, preservando o resto |
+| Snapshot Python de CEs foi redundante em parte (rodou 2x com queries parecidas) | **Baixo** | Validação final podia ter sido combinada com snapshot inicial | Combinar validação JSON + auditoria CE 17 em um único script Python no final |
+
+Não houve: buscas amplas, tentativas exploratórias, perguntas cuja resposta estava no contexto, artefatos intermediários inúteis.
+
+## P3.6. Caminho mínimo recomendado
+
+1. **Confirmar destino da regra como memória** (prompt do usuário estabelece "sempre/nunca" → tipo=feedback). *Entrada:* system prompt com tipologia de memória. *Saída:* arquivo de memória + pointer em `MEMORY.md`.
+2. **`grep -n -i "delet\|absorv" tasks.md`** — listar todas as ocorrências antes de ler. *Entrada:* caminho do tasks.md. *Saída:* lista de linhas a editar.
+3. **`grep -n "ces\[17\] = None\|deletar CE 17\|delete.*CE 17" build_phase6_ces.py`** — localizar bloco no gerador. *Entrada:* caminho do script. *Saída:* linhas do bloco de deleção.
+4. **Para cada ocorrência em tasks.md:** `Edit` com fragmento curto único (10-30 chars), nunca linha inteira. *Critério:* `grep` final não retorna mais "deletar/deletado" sem qualificação.
+5. **Editar `build_phase6_ces.py`:** adicionar helpers + substituir bloco de deleção por chamada de limpeza. *Critério:* `python3 -c "import ast; ast.parse(open('...').read())"` sem erros.
+6. **Executar script 2x:** `python3 build_phase6_ces.py && python3 build_phase6_ces.py`. *Critério:* 2ª execução imprime "já está limpo — skip".
+7. **Auditoria final:** `python3 -m json.tool CommonEvents.json && python3 -c "import json; ce17 = json.load(open('...'))[17]; assert ce17 == {...canônico...}"`. *Critério:* JSON válido e CE 17 bate com objeto esperado.
+
+## P3.7. Conhecimento reutilizável
+
+### Fatos confirmados
+- **CE "limpo" canônico em RMMZ:** `{id:N, list:[{code:0,indent:0,parameters:[]}], name:"", switchId:1, trigger:0}`. É um CE válido que não faz nada quando chamado (code 0 = end of list) e não é listado no Database (name vazio).
+- **Diferença crítica: limpo ≠ null.** `null` remove o slot do array (mas RMMZ lê por índice, então referências `$dataCommonEvents[17]` quebram). Limpo mantém o slot com `id` preservado.
+- **`build_phaseN_ces.py` é artefato-fonte:** toda correção de comportamento deve acontecer primeiro no gerador, depois regerar o JSON.
+
+### Preferências do usuário
+- **Política durável:** Common Events nunca são deletados; sempre limpos para o objeto vazio canônico. Aplica-se a TODO projeto RMMZ (não só `Jhonny/`).
+- **Documento×código:** quando uma regra geral é estabelecida, ela deve aparecer como `[[link]]` nos pontos onde se aplica, não como reescrita do porque-a-regra-existe em cada ocorrência.
+
+### Restrições técnicas
+- **Edit tool em Markdown longo:** falha com "String to replace not found" quando a string contém muitos backticks + acentos + caracteres especiais, mesmo quando visualmente idêntica ao conteúdo do arquivo. Workaround: usar fragmento curto único.
+- **Hook PreToolUse:Edit "Python Standards":** exige typed small functions, structured parsers, focused tests — JIT summary aparece após cada Edit em `.py`.
+
+### Armadilhas conhecidas
+- **Checklist P2.10 deste arquivo dizia:** "Para CEs 'deletados' semanticamente: setar slot para `null` (preserva índices)." — **esta regra está REVogada pela Parte 3.** LLM futura que ler só a Parte 2 aplicará `null` e violará a regra `never-delete-common-events`. Ver patch §P3.9.6 para correção.
+- **CEs absorvidos por outros continuam visíveis no MZ Editor** (slot ocupado mas `name=""`). Usuário pode pensar que é "lixo" e tentar deletar manualmente — sempre explicar que é CE limpo intencional.
+
+### Heurísticas recomendadas
+- **Quando o usuário disser "sempre X" / "nunca Y" no prompt:** salvar como memória de feedback antes da primeira edição.
+- **Antes de ler Markdown longo:** `grep` primeiro, ler só seções relevantes.
+- **Em `Edit` de Markdown com linhas >200 chars:** use fragmento único de 10-30 chars, não a linha inteira.
+- **Para validar idempotência de script gerador:** rodar 2x consecutivas; 2ª execução deve detectar aplicação prévia.
+
+## P3.8. Informações que deveriam estar no prompt inicial
+
+| Item | Classificação |
+|------|---------------|
+| Caminho do arquivo de tasks alvo (URL Obsidian foi fornecido — suficiente) | **Opcional** (já estava) |
+| Objeto canônico de CE limpo (fornecido pelo usuário inline) | **Obrigatório** (fornecido) |
+| Indicação de que a regra se aplica a TODO CE, não só ao 17 (fornecida: "sempre limpa-lo ao invés disso") | **Obrigatório** (fornecida) |
+| Indicação explícita de que o `build_phase6_ces.py` também deve ser editado | **Útil** — não fornecido mas inferido via heurística artefato-fonte; LLM inexperiente poderia esquecer |
+| Indicação de que `MEMORY.md` deveria receber entrada | **Opcional** — derivado automaticamente do tipo=feedback |
+
+Prompt foi **muito bom**. Único adendo útil seria citar o artefato-fonte explicitamente para LLMs que não carreguem a heurística.
+
+## P3.9. Melhorias nos artefatos do fluxo
+
+### P3.9.1 Melhorias na análise técnica
+`Nenhuma alteração recomendada para a análise técnica.` — não houve análise técnica envolvida nesta sessão (refactor de baixo escopo).
+
+### P3.9.2 Melhorias no plano de implementação
+`Nenhuma alteração recomendada para o plano de implementação.` — regra foi capturada como memória de feedback ( nível transversal), não como passo de plano.
+
+### P3.9.3 Melhorias nas tasks da fase executada
+Já aplicadas inline em `tasks.md` durante a sessão:
+- 9 menções a "deletar/deletado" → "limpar/limpo" com `[[never-delete-common-events]]`.
+- Nova entrada em "Erros comuns a evitar": "NUNCA deletar Common Events — sempre limpar o slot para objeto vazio canônico..."
+
+### P3.9.4 Problemas fora do escopo dos artefatos
+- **Entrada stale na Parte 2 deste arquivo** (checklist P2.10: "setar slot para `null`"). Está sendo corrigida no patch §P3.9.6 — caso de manutenção contínua de retrospectiva, não exige ação externa.
+- **Hook "Python Standards"** disparando após cada Edit em `.py`: comportamento ambiental, não contaminou especificação.
+
+### P3.9.5 Matriz de rastreabilidade das melhorias
+
+| Problema observado | Causa principal | Artefato responsável | Alteração necessária | Prioridade |
+|--------------------|-----------------|----------------------|----------------------|------------|
+| Checklist P2.10 recomenda `null` para CEs absorvidos | Regra do projeto mudou nesta sessão | Retrospectiva Parte 2 (este arquivo) | Atualizar item para "limpar para objeto vazio canônico" + referência à Parte 3 | **Alta** |
+| `tasks.md` usava "deletar/deletado" para CE 17 | Decisão original F6 não conhecia a regra never-delete | Tasks da Fase 6 | Já corrigido inline durante a sessão | **Aplicada** |
+| `build_phase6_ces.py` deletava via `ces[17] = None` | Mesma causa | Artefato-fonte (script gerador) | Já corrigido inline durante a sessão | **Aplicada** |
+
+### P3.9.6 Resultado final recomendado
+
+#### Patch sugerido para a análise técnica
+`Nenhuma alteração recomendada para a análise técnica.`
+
+#### Patch sugerido para o plano de implementação
+`Nenhuma alteração recomendada para o plano de implementação.`
+
+#### Patch sugerido para as tasks da fase executada
+`Nenhuma alteração recomendada adicional para as tasks desta fase.` (Alterações já aplicadas inline.)
+
+#### Ações fora do fluxo de especificação
+
+Aplicar imediatamente o patch abaixo no checklist da **Parte 2 deste arquivo** (linha ~612), pois ele contém instrução agora incorreta:
+
+**Substituir:**
+```markdown
+- [ ] Para CEs "deletados" semanticamente: setar slot para `null` (preserva índices).
+```
+**Por:**
+```markdown
+- [ ] Para CEs "absorvidos" semanticamente: **limpar** slot para objeto vazio canônico
+      (`{id:N, list:[{code:0,indent:0,parameters:[]}], name:"", switchId:1, trigger:0}`).
+      NUNCA usar `null` nem remover do array — regra [[never-delete-common-events]]
+      (atualizada na Parte 3 desta retrospectiva).
+```
+
+## P3.10. Checklist operacional (adicionais às Partes 1 e 2)
+
+- [ ] Antes de ler Markdown longo (>200 linhas), rodar `grep -n -i "<termos>"` e usar `offset/limit`.
+- [ ] Para `Edit` em linhas Markdown >200 chars com backticks/acentos: usar fragmento único curto (10-30 chars).
+- [ ] Quando o usuário estabelecer regra "sempre X / nunca Y" no prompt: salvar memória de feedback ANTES da primeira edição de arquivo.
+- [ ] Toda correção em JSON gerado por script: editar o gerador primeiro, depois rodar 2x (idempotência).
+- [ ] Validação de "CE limpo": `python3 -c "import json; ce = json.load(open('<path>'))[N]; assert ce == {\"id\":N, \"list\":[{\"code\":0,\"indent\":0,\"parameters\":[]}], \"name\":\"\", \"switchId\":1, \"trigger\":0}"`.
+- [ ] Em retrospectivas que seguem padrão "Parte N", nunca sobrescrever Partes anteriores — adicionar nova Parte e aplicar patches retroativos quando uma Parte conflitar com regra nova.
+- [ ] Auditoria final de mudança de terminologia: `grep -n -i "<termo-antigo>" <arquivos>` deve retornar apenas menções contextualizadas explicando a mudança.
+
+---
+
+# PARTE 4 — TextPicture automatizado + auditoria final (2026-06-19)
+
+## P4.1. Resumo da tarefa
+
+**Solicitado:** "Executar a fase 6 do plano" — mas a F6 já estava implementada da Parte 3 desta retrospectiva. Após esclarecimento, o usuário dividiu em dois pedidos:
+1. Revisar `build_phase6_ces.py` para confirmar idempotência + consistência com `CommonEvents.json`.
+2. Corrigir `fase-6-completa.md` que continha referências stale a "CE 17 DELETADO/slot None" (conflito com regra [[never-delete-common-events]] estabelecida na Parte 3).
+3. (Seguido) Automatizar Passo 2 do `fase-6-completa.md` (substituir 9 Comments placeholder por Plugin Commands TextPicture reais) replicando o padrão já funcional do CE 6 (`EV_UpdateHud`).
+
+**Entregue:**
+- Auditoria do `build_phase6_ces.py`: 1 bug cosmético corrigido (print branch unreachable).
+- 4 correções no `fase-6-completa.md` alinhando com regra never-delete.
+- `build_ce19_vitoria()` reescrito: 40 cmds com 9 Comments placeholder → 46 cmds com 4 Plugin Commands TextPicture reais + If/Else Show Picture. JSON regenerado e validado.
+- `tasks.md` e `fase-6-completa.md` atualizados refletindo Passo 2 como CONCLUÍDO.
+
+**Critérios de sucesso:** JSON válido (`python3 -m json.tool`); script idempotente em re-run; CE 17 permanece limpo (não null); escape codes MZ preservados no JSON (`\C[n]`, `\V[n]`); sem Comments `[MANUAL MZ F6.4]` restantes no CE 19.
+
+**Restrições:** RPG Maker MZ; artefato-fonte é o script Python gerador (nunca editar JSON direto); plugin TextPicture.js é stateful; threshold script precisa rodar antes do If/Else.
+
+## P4.2. Decisões técnicas e inferências
+
+### Decisão 1 — Pular Passo 2 inicialmente, oferecer como pendência manual
+- **Motivo:** tasks.md explicitamente marcava TextPicture como "MZ Editor (manual)" — herança da heurística F4/F5 de que "Plugin Commands têm formato opaco".
+- **Evidência:** `fase-6-completa.md` §Pendências Passo 2 listava 9 substituições manuais.
+- **Resultado:** Funcionou parcialmente — usuário redirecionou: "Olhe como o EV 06 fez. Ele fez exatamente o que você precisa".
+- **Avaliação:** Inferência razoável dado o spec, mas CE 6 já continha o padrão funcional. Falha minha: não auditar CE 6 antes de classificar TextPicture como "manual".
+- **Melhoria:** Antes de marcar qualquer "Plugin Command TextPicture" como manual MZ, grep pelo padrão `[357, 0, ["TextPicture"` no `CommonEvents.json`. Se existir, o formato é conhecido e automatizável.
+
+### Decisão 2 — Restringir escape codes a `\C[n]` (cor), pular `\{` (tamanho)
+- **Motivo:** tasks.md pedia size 72 para VITÓRIA/DERROTA, mas `\{` precisa ser repetido 8x (default MZ 26 + 8×6 = 74) — verboso e frágil. CE 6 não usa size codes.
+- **Evidência:** TextPicture.js:103 usa `drawTextEx` que processa todos os escapes MZ.
+- **Resultado:** Cores aplicadas (gold/red crítico para distinção visual). Size default — user pode ajustar manualmente no MZ Editor se necessário.
+- **Avaliação:** Aceitável. Visual distinto via cor já atende regra [[user-testable-feedback]].
+- **Melhoria:** Documentar decisivamente no `fase-6-completa.md` que size codes foram omitidos intencionalmente e como o user pode adicionar (evita ambiguidade futura).
+
+### Decisão 3 — Restructurar CE 19 (threshold ANTES do If/Else)
+- **Motivo:** Design original tinha 9 placeholders (4 Set Text + 4 Show Pic + 1 If/Else) com threshold script no meio. Semântica exigia que `VAR_VITORIA_PASSOU` fosse setada ANTES do If/Else — ordem original não garantia isso (script vinha DEPOIS dos Sets).
+- **Evidência:** Variável `VAR_VITORIA_PASSOU` (117) só existe depois do script; o If/Else usa `[1, 117, 0, 1, 0]`.
+- **Resultado:** Threshold movido para cmd 5 (antes do If cmd 6). If/Else envolve Set+Show VITÓRIA/DERROTA.
+- **Avaliação:** Necessária — sem isso, If/Else lia variável ainda zerada e sempre caía no Else (DERROTA).
+- **Melhoria:** Em tasks F6, ordenar comandos explicitamente quando há dependência de estado (script → variável → branch).
+
+### Decisão 4 — Mesclar placeholders "Show 53" e "Show 56" dentro do If/Else
+- **Motivo:** Design original tinha Show 53 e Show 56 ambos incondicionais placeholders + um If/Else separado "Show 53 vs 56". Mostrar ambos resultaria em overlap visual.
+- **Evidência:** tasks.md decisão 4 do usuário: "2 TextPicture separados com If/Else Show Picture".
+- **Resultado:** Set+Show de VITÓRIA/DERROTA movidos para dentro de Then/Else branches. Glória e Instrução permanecem incondicionais.
+- **Avaliação:** Necessária — match literal com a decisão documentada do usuário.
+- **Melhoria:** Em tasks que envolvam TextPicture stateful, desenhar o fluxo (state transition) antes — nunca ter 2 Shows concorrentes para o mesmo slot semáforo.
+
+## P4.3. Uso de ferramentas, comandos e scripts
+
+| Ferramenta/comando | Objetivo | Necessário? | Resultado | Poderia ser mais simples? |
+|---|---|---|---|---|
+| `Read tasks.md` (601 linhas) | Entender estado F6 | Sim | Status já era IMPLEMENTADA — F6 estava feita | Poderia ter lido só as linhas 200-260 (F6 header) via `offset/limit` |
+| `ls Jhonny/planos/.../fase6/` | Confirmar artefatos | Sim | build_phase6_ces.py + setup_phase6_system.py existem | OK |
+| Python snapshot CommonEvents.json | Verificar estado real | Sim | 20 slots, CE 17 limpo (não null), CE 18/19 existem | OK — atalho direto para estado verdadeiro |
+| `Read fase-6-completa.md` (200 linhas) | Entender pendências | Sim | 9 placeholders TextPicture + assets ausentes | OK |
+| `Read build_phase6_ces.py` (457 linhas) | Auditoria gerador | Sim | 1 bug cosmético (print branch unreachable) | OK — leitura integral necessária para auditoria |
+| `Read setup_phase6_system.py` | Confirmar pré-passo | Sim | Criação VAR_VITORIA_PASSOU correta | OK |
+| Python dump CE 5/12/17 | Validar patches aplicados | Sim | CE 5 cmd 14 = VITORIA_PASSOU reset; CE 12 cmd 31 = Call CE 18; CE 17 limpo | OK |
+| `ls img/pictures/race/` + grep | Confirmar bg_vitoria/bg_fim ausentes | Sim | Apenas overlay_flash_white existe | OK |
+| `grep registerCommand TextPicture.js` | Listar comandos Plugin | Sim | Apenas `set` (1 comando) — confirma stateful | OK |
+| `Read TextPicture.js` (limit=90) | Confirmar drawTextEx processa escapes | Sim | Linha 103: `drawTextEx(text, 0, 0, 0)` | OK — necessário para validar uso de `\C[n]` |
+| `python3 build_phase6_ces.py` | Regenerar JSON | Sim | CE 19: 46 cmds, idempotência confirmada | OK |
+| `python3 -m json.tool` + dump CE 19 | Validar JSON + estrutura | Sim | Estrutura correta, escapes preservados | OK |
+| `AskUserQuestion` (1×) | Confirmar próximo passo | Parcialmente — poderia ter sugerido a ação diretamente | User escolheu "Revisar + Corrigir" | Desperdício médio — estado atual já justificava ação |
+
+**Buscas redundantes evitadas:** Nenhuma `grep` repetida; cada `Read` consumiu arquivo diferente.
+
+## P4.4. Intervenções do usuário
+
+### Intervenção 1 — "executar a fase 6 do plano"
+- **Antes:** Apenas reli tasks.md para entender o plano, sem verificar estado real dos arquivos.
+- **Suplicação:** Tarefa já estava implementada da Parte 3 desta retrospectiva.
+- **Mudança:** Apresentei status consolidado + pendências reais + perguntei next-step via `AskUserQuestion`.
+- **Regra reutilizável:** Antes de "executar fase N", sempre `python3 -c "import json; ces = json.load(open('Jhonny/data/CommonEvents.json'))"` para ver estado real. Status textual em tasks.md pode estar desatualizado.
+
+### Intervenção 2 — "Olhe como o EV 06 fez. Ele fez exatamente o que você precisa"
+- **Antes:** Classifiquei TextPicture como "manual MZ" por herança da heurística F4/F5.
+- **Suplicação:** CE 6 já continha o padrão funcional (code 357 + 657 + Show Picture name=""), bastava replicar.
+- **Mudança:** Li TextPicture.js (16 linhas registerCommand + createTextPictureBitmap), reestruturei `build_ce19_vitoria()`, regenerei JSON.
+- **Regra reutilizável:** Antes de classificar qualquer "Plugin Command" como manual MZ, grep por `[357, 0, ["<PluginName>"` em CommonEvents.json. Se existe instância funcional, o formato é conhecido.
+
+## P4.5. Análise de desperdício
+
+| Desperdício | Impacto | Causa | Como evitar |
+|---|---|---|---|
+| `AskUserQuestion` quando status real do projeto já determinava a ação | Médio | Não verifiquei estado real antes de perguntar | Pré-verificar `CommonEvents.json` + `fase-6-completa.md` antes de perguntar next-step |
+| Leitura integral de tasks.md (601 linhas) | Médio | Necessidade de entender F6, mas só linhas 200-260 importavam | `grep -n "STATUS" tasks.md` primeiro |
+| Auditoria manual de `build_phase6_ces.py` consumida para encontrar 1 bug cosmético | Baixo | Auditoria defensiva — precisava confirmar idempotência | OK — auditoria era necessária, bug cosmético foi bônus |
+| Separação entre "Revisar script" e "Fazer Passo 2" em duas rodadas | Baixo | User escolheu essa ordem no `AskUserQuestion` | Ter sugerido fazer ambos na mesma rodada |
+
+## P4.6. Caminho mínimo recomendado
+
+1. **Verificar estado real antes de agir:** `python3 -c "import json; ces = json.load(open('Jhonny/data/CommonEvents.json')); print(len(ces), 'slots')"` (1 cmd) — evita "executar fase já feita".
+2. **Se status = IMPLEMENTADA e há pendências TextPicture:** grep por `[357, 0, ["TextPicture"` em CommonEvents.json. Se existir CE funcional com o padrão, automatizar direto.
+3. **Ler a implementação de referência (CE 6) e o plugin (TextPicture.js):** entender formato JSON + escapes aceitos.
+4. **Editar `build_ceN_*.py` (artefato-fonte):** reescrever função do CE alvo com Plugin Commands. Validar ordem (threshold antes de branch).
+5. **Rodar `python3 build_phaseN_ces.py`:** confirmar idempotência (todas as mensagens "skip").
+6. **Validar JSON:** `python3 -m json.tool` + Python dump do CE alvo para conferir estrutura.
+7. **Atualizar docs:** `fase-N-completa.md` (marcar Passo como CONCLUÍDO) + `tasks.md` (status).
+8. **Critério de conclusão:** sem Comments `[MANUAL MZ]` restantes; JSON válido; script idempotente em re-run.
+
+## P4.7. Conhecimento reutilizável
+
+### Fatos confirmados
+- **TextPicture.js tem APENAS 1 comando Plugin (`set`)** — é stateful: seta `textPictureText` global, consumido pela próxima `Show Picture` com `name=""` (linha 66).
+- **Padrão JSON TextPicture em CommonEvents.json:**
+  ```python
+  C(357, indent, ["TextPicture", "set", "Set Text Picture", {"text": "<texto com escapes MZ>"}]),
+  C(657, indent, ["Text = <valor>"]),
+  C(231, indent, [picId, "", origin, designation, x, y, scaleX, scaleY, opacity, blendMode]),
+  ```
+- **TextPicture.js:103 (`drawTextEx`) processa TODOS os escapes MZ:** `\C[n]` cor, `\V[n]` variável, `\{`/`\}` tamanho, `\I[n]` ícone.
+- **CE 6 (`EV_UpdateHud`) é o blueprint canônico do projeto para TextPicture.** Qualquer nova task F6+ que precise de texto em picture deve replicar CE 6.
+
+### Preferências do usuário
+- Em `AskUserQuestion`, prefere múltipla seleção (escolheu 2 opções simultaneamente).
+- Confia em automação quando há padrão de referência claro ("Olhe como o EV 06 fez").
+- Aceita escape codes `\C[n]` mas não exige size codes (visual distinto por cor já basta).
+- Quando diz "executar fase X" e a fase já está feita, espera que a LLM identifique isso automaticamente.
+
+### Restrições técnicas
+- TextPicture stateful exige ordem estrita: Set imediatamente antes de Show (qualquer comando entre os dois pode consumir o estado global).
+- Em If/Else com 2 TextPicture (VITÓRIA vs DERROTA), cada branch deve ter Set + Show próprios — nunca Set fora + Show condicional.
+- Threshold/decision scripts que setam variáveis devem rodar ANTES do If/Else que consome essas variáveis.
+
+### Armadilhas conhecidas
+- **Design original de tasks pode ter ordem inválida:** placeholder "If/Else Show Picture" posicionado depois do threshold script NÃO garante que o threshold roda antes — precisa auditar a estrutura final.
+- **2 Shows concorrentes para o mesmo slot TextPicture quebram o estado:** `textPictureText` é global; sem Set entre dois Shows, ambos usam o mesmo texto.
+- **`AskUserQuestion` quando o estado real já é claro** = desperdício de turno.
+
+### Heurísticas recomendadas
+- **"Padrão existe?" heuristic:** antes de classificar algo como "manual MZ", grep por `[357, 0, ["<nome>"` em CommonEvents.json.
+- **"Estado real primeiro" heuristic:** `python3 -c "import json; ..."` em 1 linha antes de ler qualquer .md para entender status de implementação.
+- **"Artefato-fonte primeiro" heuristic:** ao corrigir CE gerado, sempre editar `build_phaseN_ces.py` e regenerar — nunca editar JSON direto.
+
+## P4.8. Informações que deveriam estar no prompt inicial
+
+- **Útil:** "Antes de classificar TextPicture como manual MZ, verificar se CE 6 já contém o padrão replicável" — teria poupado o `AskUserQuestion` e a rodada de auditoria.
+- **Útil:** "F6 já está implementada; pendências são Passo 1 (F10+Ctrl+S pelo user) e Passo 2 (TextPicture no CE 19)" — teria direcionado direto para a ação.
+- **Opcional:** "Aceitar escape codes `\C[n]` mas pular size codes `\{`" — decisão visual que poderia ter sido deixada para a LLM.
+
+Nenhum item classificado como obrigatório — a LLM poderia inferir todos via leitura de CommonEvents.json + TextPicture.js.
+
+## P4.9. Melhorias nos artefatos do fluxo
+
+### P4.9.1 Melhorias na análise técnica
+
+**Problema:** Análise técnica atual lista TextPicture como "MZ Editor (Plugin Cmd)" (herança F4/F5), mas o padrão JSON é conhecido e replicável do CE 6.
+
+**Patch sugerido para o Guia de Implementação (referenciado por `tasks.md` §Referências):**
+```markdown
+### Plugin Command TextPicture — formato JSON canônico
+
+TextPicture.js é stateful (1 comando `set` + Show Picture com `name=""`).
+Padrão JSON:
+  code 357 [pluginName="TextPicture", cmdName="set", displayName="Set Text Picture", {text: "<escapes MZ>"}]
+  code 657 ["Text = <valor>"]
+  code 231 [picId, "", origin, designation, x, y, scaleX, scaleY, opacity, blendMode]
+
+Escape codes suportados (drawTextEx): \C[n] cor, \V[n] variável, \{ / \} tamanho.
+
+Blueprint canônico no projeto: CE 6 (EV_UpdateHud). Replicar para qualquer nova task que precise texto em picture — NÃO classificar como "manual MZ".
+```
+
+### P4.9.2 Melhorias no plano de implementação
+
+`Nenhuma alteração recomendada para o plano de implementação.` — ordem das tasks F6 (6.1 → 6.3 → 6.4) está correta; dependências explícitas.
+
+### P4.9.3 Melhorias nas tasks da fase executada
+
+**Task 6.4 — TextPicture automatizado**
+- **Informação ausente:** task dizia `JSON: Parcial (CE 19 novo via script + wire CE 7 via script + TextPicture manual MZ no CE 19)`. "Manual MZ" estava incorreto — o gerador cobre tudo.
+- **Patch sugerido:**
+```markdown
+| 6.4 | Implementar `EV_VitoriaCorrida` (CE 19) + threshold pontuação + wire no Renderer · ~3h · deps: 5.4, 6.3 · **JSON: Sim** (CE 19 + wire CE 7 + 4 Plugin Commands TextPicture via `build_phase6_ces.py` — padrão replicado de CE 6) |
+```
+
+**Task 5.4 — HUD Glória (similarmente atualizada)**
+- **Informação ausente:** task ainda diz `MZ Editor (Plugin Cmd)` mas CE 6 já tem o padrão automatizável.
+- **Patch sugerido:** adicionar nota de que task 5.4 pode ser automatizada da mesma forma que task 6.4 foi.
+
+### P4.9.4 Problemas fora do escopo dos artefatos
+
+- **Bug cosmético no print de idempotência CE 12** (branch `else` unreachable): falha operacional da LLM na Parte 3, não deficiência do spec. Corrigido inline no `build_phase6_ces.py` nesta Parte 4.
+- **Assets bg_vitoria/bg_fim ausentes:** fora do escopo desta task (user decidiu aceitar fallback Tint dourado). Não requer alteração de spec.
+
+### P4.9.5 Matriz de rastreabilidade
+
+| Problema observado | Causa principal | Artefato responsável | Alteração necessária | Prioridade |
+|---|---|---|---|---|
+| TextPicture classificado como "manual MZ" apesar de CE 6 ter padrão funcional | Análise técnica não documentou formato JSON canônico do TextPicture | Análise técnica (Guia de Implementação) | Adicionar seção "Plugin Command TextPicture — formato JSON canônico" | Alta |
+| tasks.md 6.4 diz "TextPicture manual MZ" | Task herdou classificação F4/F5 | Task 6.4 | Atualizar para "JSON: Sim" | Média |
+| tasks.md 5.4 diz "MZ Editor (Plugin Cmd)" | Mesma herança | Task 5.4 | Adicionar nota de automatizabilidade | Baixa |
+| Ordem threshold-vs-If/Else não explicitada | Falha de execução original da Parte 3 | Nenhuma (fora do escopo) | Já corrigido em P4 | — |
+| Print branch unreachable no script | Falha operacional | Nenhuma (fora do escopo) | Já corrigido inline | — |
+
+### P4.9.6 Resultado final recomendado
+
+#### Patch sugerido para a análise técnica
+Ver P4.9.1 acima — adicionar seção sobre formato JSON canônico do TextPicture ao Guia de Implementação.
+
+#### Patch sugerido para o plano de implementação
+`Nenhuma alteração recomendada para o plano de implementação.`
+
+#### Patch sugerido para as tasks da fase executada
+Ver P4.9.3 — atualizar classificação JSON da task 6.4 (e nota na 5.4).
+
+#### Ações fora do fluxo de especificação
+- Bug cosmético no `build_phase6_ces.py` linha 245 corrigido inline ( Parte 4, antes desta retrospectiva).
+- `fase-6-completa.md` §Pendências Passo 2 marcado como CONCLUÍDO inline.
+
+## P4.10. Checklist operacional (adicionais às Partes 1-3)
+
+- [ ] Antes de "executar fase N": `python3 -c "import json; ..."` para ver estado real (status textual pode estar stale).
+- [ ] Antes de classificar Plugin Command como "manual MZ": grep por `[357, 0, ["<PluginName>"` em CommonEvents.json.
+- [ ] Em TextPicture: Set deve vir imediatamente antes de Show (estado global entre os dois é frágil).
+- [ ] Em If/Else com 2 TextPicture (VITÓRIA vs DERROTA): cada branch tem Set+Show próprios.
+- [ ] Threshold/decision script deve rodar ANTES do If/Else que consome as variáveis que ele seta.
+- [ ] Em tasks.md, distinguir "JSON: Sim" vs "JSON: Manual MZ" baseado em padrão existente — não herdar classificação de fases anteriores sem reauditar.
+- [ ] Após regenerar JSON: confirmar que Comments `[MANUAL MZ]` foram substituídos (grep deve retornar vazio).
+- [ ] Após regenerar JSON: re-rodar `build_phaseN_ces.py` para confirmar idempotência.

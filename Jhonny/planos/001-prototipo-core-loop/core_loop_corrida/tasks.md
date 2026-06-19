@@ -202,12 +202,12 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 **Dependências:** F5 (lógica completa — CEs 11/12/14/15/16/17 já implementados).
 **Validação visual:** ao clicar Risk com falha no roll, tela shake + flash branco + fade para preto + reset de variáveis + fadein direto na cena 1 — total <1s cronometrado; ao terminar todas as cenas sem crash com pontuação suficiente, tela cerimonial de vitória com fanfarra e texto "VITÓRIA!" + instrução para continuar; abaixo do threshold → mesma tela de vitória porém informando derrota (restart).
 
-> **STATUS: IMPLEMENTADA — AGUARDANDO PLAYTEST MZ** (2026-06-19) — tasks 6.1, 6.3, 6.4 implementadas via `fase6/build_phase6_ces.py` (+ `fase6/setup_phase6_system.py` para criar VAR_VITORIA_PASSOU Editor ID 117). CE 17 (EV_ResolucaoRiskFail) **deletado** (absorvido por CE 18 EV_Crash). CE 12 FAIL branch agora chama CE 18 diretamente. CE 5 (Orchestrator) reescrito com Opção B (Script inline para cálculo de N_CENAS). CE 7 (Renderer) recebeu check de vitória antes do bloco de render. Asset `race/overlay_flash_white.png` criado (Pillow RGBA 816×624). **Pendências manuais MZ:** (1) F10 → Ctrl+S → reiniciar Playtest (bug F4 conhecido); (2) Inserir 4 Plugin Commands TextPicture no CE 19 + If/Else Show Picture (53/56/54/55) — substituindo os 4 Comments placeholder `[TASK 6.4 MANUAL MZ]`. Validação JSON OK (`python3 -m json.tool`). Auditoria inline OK (todos IDs 100-117). Simetria de lock preservada (4 ON ↔ 4 OFF).
+> **STATUS: FASE 6 COMPLETA E VALIDADA** (2026-06-19) — tasks 6.1, 6.3, 6.4 implementadas via `fase6/build_phase6_ces.py` (+ `fase6/setup_phase6_system.py` para criar VAR_VITORIA_PASSOU Editor ID 117) e **validadas em Playtest MZ pelo usuário**. CE 17 (EV_ResolucaoRiskFail) **limpo** para objeto vazio canônico (absorvido por CE 18 EV_Crash) — **NUNCA deletado** ([[never-delete-common-events]]). CE 12 FAIL branch agora chama CE 18 diretamente. CE 5 (Orchestrator) reescrito com Opção B (Script inline para cálculo de N_CENAS). CE 7 (Renderer) recebeu check de vitória antes do bloco de render. Asset `race/overlay_flash_white.png` criado (Pillow RGBA 816×624). CE 19 (`EV_VitoriaCorrida`) com 46 cmds incluindo 4 Plugin Commands TextPicture + If/Else Show Picture (53 VITÓRIA / 56 DERROTA) — padrão replicado de CE 6 (`EV_UpdateHud`), sem Comments placeholder `[MANUAL MZ F6.4]`. Validação JSON OK (`python3 -m json.tool`). Auditoria inline OK (todos IDs 100-117). Simetria de lock preservada (4 ON ↔ 4 OFF). Próxima fase: F7 (Polish + Observabilidade).
 >
 > **STATUS ANTIGO: ATUALIZADA COM APRENDIZADOS F1-F5** (2026-06-18) — tasks .md reescritas com base nas retrospectivas das fases anteriores e nas decisões confirmadas pelo usuário. Pronta para implementação pelo agente IA implementador. Ver [[fase6/Atualizacao-aplicada]] para o diff das mudanças.
 >
-> **DECISÕES CONFIRMADAS PELO USUÁRIO (2026-06-18):**
-> 1. **EV_Crash absorve CE 17:** o CE 17 (`EV_ResolucaoRiskFail`, criado na F5) será **deletado** em favor do novo `EV_Crash` (CE Editor ID 18) que absorve todas as responsabilidades — feedback visual (Buzzer1 + Shake + Flash + Tint) + reset completo + re-render. Wire final: CE 12 FAIL branch → `Call CE 18` (substitui o `Call CE 17` atual). Reduz um CE e elimina a separação artificial entre "feedback" e "restart".
+> **DECISÕES CONFIRMADAS PELO USUÁRIO (2026-06-18; atualizada 2026-06-19):**
+> 1. **EV_Crash absorve CE 17:** o CE 17 (`EV_ResolucaoRiskFail`, criado na F5) será **limpo** para um objeto vazio canônico (`name=""`, `list=[{code:0,indent:0,parameters:[]}]`, `switchId=1`, `trigger=0`) em favor do novo `EV_Crash` (CE Editor ID 18) que absorve todas as responsabilidades — feedback visual (Buzzer1 + Shake + Flash + Tint) + reset completo + re-render. Wire final: CE 12 FAIL branch → `Call CE 18` (substitui o `Call CE 17` atual). **Regra [[never-delete-common-events]]:** CEs nunca são deletados (`null`/removidos do array) — sempre limpos, preservando o `id` para compatibilidade com save files e referências indiretas. Reduz um CE ativo e elimina a separação artificial entre "feedback" e "restart".
 > 2. **EV_Crash incrementa `VAR_ATTEMPT_N`:** confirmado pelo usuário. Cada Risk-falha conta como nova tentativa. Adicionar `Control Variables: VAR_ATTEMPT_N += 1` (Editor ID 112) dentro do bloco de reset do EV_Crash. Não há conflito com o INIT Orchestrator (que só incrementa no início de cada corrida nova).
 > 3. **Curva do Diabo cena especial = fora de escopo desta implementação:** a cena 9 da Corrida 3 (definida na spec original §6.4 com `P_CENA=100` fixo) **NÃO** será implementada na F6. A Corrida 3 terá 10 cenas normais (sorteio 60/40 Sinal/Curva como as outras). A cena especial da Curva do Diabo (que bloqueará o caminho Safe e forçará Risk) fica reservada para uma fase futura ou v2. Task-6.2 mantida como placeholder.
 > 4. **Critério de avanço = pontuação mínima requerida:** spec §1 diz "Condição de vitória: Ter a MAIOR pontuação total ao final da corrida". Como o core loop é single-player sem NPCs visíveis implementados, simulamos a "competição" via threshold numérico por corrida (calibrável em playtest; defaults propostos em [[task-6.4]]).
@@ -216,13 +216,13 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 >
 > **APRENDIZADO F5 — Semântica do ControlSwitch (code 121):** (`js/rmmz_objects.js:10172-10176`) `params[2] === 0` → switch **ON**; `params[2] === 1` → switch **OFF**. **Oposto do que parece.** Toda operação `121 [swid, swid, A]` na F6 precisa ser auditada contra essa regra (bug real F5 corrigido em 5 operações).
 >
-> **APRENDIZADO F5 — Invariante de simetria de lock:** 4 produtores de `SW_INPUT_LOCKED=ON` (CE 5 Orchestrator INIT, CE 7 Renderer, CE 11 OnSafe, CE 12 OnRisk) ↔ 4 consumidores de `SW_INPUT_LOCKED=OFF` (CE 7 Renderer erase, CE 14 ResolucaoSafe, CE 15 ResolucaoRiskOK, ~~CE 17 ResolucaoRiskFail~~ → **agora CE 18 EV_Crash**). Task-6.1 deve **substituir** CE 17 por CE 18 no papel de "consumidor de lock para o ramo FAIL" — não adicionar CE 18 como 5º consumidor, sob risco de quebrar a simetria.
+> **APRENDIZADO F5 — Invariante de simetria de lock:** 4 produtores de `SW_INPUT_LOCKED=ON` (CE 5 Orchestrator INIT, CE 7 Renderer, CE 11 OnSafe, CE 12 OnRisk) ↔ 4 consumidores de `SW_INPUT_LOCKED=OFF` (CE 7 Renderer erase, CE 14 ResolucaoSafe, CE 15 ResolucaoRiskOK, ~~CE 17 ResolucaoRiskFail~~ → **agora CE 18 EV_Crash**). Task-6.1 deve **substituir** a referência ao CE 17 por CE 18 no papel de "consumidor de lock para o ramo FAIL" — não adicionar CE 18 como 5º consumidor, sob risco de quebrar a simetria. O slot CE 17 permanece no array como CE limpo ([[never-delete-common-events]]), mas não conta como consumidor ativo.
 >
 > **APRENDIZADO F4/F5 — Pós-edição MZ obrigatória:** após rodar `build_phase6_ces.py`, é obrigatório reabrir MZ Editor → Database (F10) → Ctrl+S antes do Playtest. Sem isso, `$dataCommonEvents` em runtime pode não refletir o JSON em disco (bug real F4).
 >
 > **Pré-passos obrigatórios da Fase 6 (uma única vez):**
 > 1. **Snapshot do `System.json`:** imprimir `variables[100:117]` e `switches[100:106]` (fonte de verdade canônica — IDs 100-116 variáveis, 100-105 switches).
-> 2. **Confirmar CEs F5 ativos** no `CommonEvents.json`: CEs 10-17 (com 17 marcado para deleção nesta fase).
+> 2. **Confirmar CEs F5 ativos** no `CommonEvents.json`: CEs 10-17 (CE 17 será **limpo** para objeto vazio nesta fase — regra [[never-delete-common-events]], nunca deletado).
 > 3. **Criar o script gerador** `Jhonny/planos/001-prototipo-core-loop/fase6/build_phase6_ces.py` antes da primeira task JSON-automatizável (task 6.1). Usar `fase5/build_phase5_ces.py` como referência de estrutura (helpers `C(code, indent, params)`, constantes de IDs, modo idempotente).
 > 4. **Confirmar assets necessários** (alguns podem precisar ser criados):
 >    - `race/bg_vitoria.png` (background da tela de vitória) — se não existir, usar Tint Screen dourado como fallback.
@@ -246,7 +246,7 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 > | 14 | `EV_ResolucaoSafe` | Call | — | F5 | intocado |
 > | 15 | `EV_ResolucaoRiskOK` | Call | — | F5 | intocado |
 > | 16 | `EV_HoverRiskButton` | Parallel | `SW_RACE_ACTIVE` (100) | F5 | intocado |
-> | ~~17~~ | ~~`EV_ResolucaoRiskFail`~~ | ~~Call~~ | — | ~~F5~~ | **DELETADO em F6** (absorvido por CE 18) |
+> | ~~17~~ | ~~`EV_ResolucaoRiskFail`~~ | ~~Call~~ | — | ~~F5~~ | **LIMPO em F6** (objeto vazio canônico — absorvido por CE 18; regra [[never-delete-common-events]]) |
 > | **18** | **`EV_Crash`** | **Call** | — | **F6 (task 6.1)** | **novo** |
 > | **19** | **`EV_VitoriaCorrida`** | **Call** | — | **F6 (task 6.4)** | **novo** |
 >
@@ -254,15 +254,15 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 
 | Task | JSON-automatizável? | Notas de implementação |
 |------|---------------------|------------------------|
-| 6.1 `EV_Crash` (CE 18, absorve CE 17) | **Sim — via `fase6/build_phase6_ces.py`** (350/355/121/122/230/223/232/231/117) | **Estende o script gerador com CE 18 e DELETA o CE 17.** Substitui placeholder `Call CE 17` no FAIL branch do CE 12 por `Call CE 18`. Sequência: Buzzer1 + Shake 18f + Flash branco + Tint escuro + reset (CONSCIENCIA=0, GLORIA=0, SCENE_INDEX=0, TIMER=240, TAXA=0, ROLL=0) + `VAR_ATTEMPT_N += 1` + reset switches (CRASH_FLAG OFF, INPUT_LOCKED OFF, LAST_ACTION_SAFE OFF) + erase pictures 1-60 via Script + Tint normal + Call CE 6 (UpdateHud) + Call CE 8 (RenderSinal). Não toca em VAR_RACE_ID, VAR_RACE_N_CENAS, VAR_SEED (preservidos). |
+| 6.1 `EV_Crash` (CE 18, absorve CE 17) | **Sim — via `fase6/build_phase6_ces.py`** (350/355/121/122/230/223/232/231/117) | **Estende o script gerador com CE 18 e LIMPA o CE 17** para objeto vazio canônico (`{id:17, list:[{code:0,indent:0,parameters:[]}], name:"", switchId:1, trigger:0}`) — **NUNCA deletar** (regra [[never-delete-common-events]]). Substitui placeholder `Call CE 17` no FAIL branch do CE 12 por `Call CE 18`. Sequência: Buzzer1 + Shake 18f + Flash branco + Tint escuro + reset (CONSCIENCIA=0, GLORIA=0, SCENE_INDEX=0, TIMER=240, TAXA=0, ROLL=0) + `VAR_ATTEMPT_N += 1` + reset switches (CRASH_FLAG OFF, INPUT_LOCKED OFF, LAST_ACTION_SAFE OFF) + erase pictures 1-60 via Script + Tint normal + Call CE 6 (UpdateHud) + Call CE 8 (RenderSinal). Não toca em VAR_RACE_ID, VAR_RACE_N_CENAS, VAR_SEED (preservidos). |
 | 6.2 Curva do Diabo cena especial | **FORA DE ESCOPO desta fase** | Cena especial da Curva do Diabo (RACE_ID=3 AND SCENE_INDEX=9 com `VAR_P_CENA=100` fixo e Safe bloqueado) reservada para fase futura. Task mantida como placeholder. Em F6: Corrida 3 tem 10 cenas normais (sorteio 60/40). |
 | 6.3 Variação de corridas (6/8/10) | **Sim — via `fase6/build_phase6_ces.py`** (estende CE 5) + Script inline | Adiciona cálculo de `VAR_RACE_N_CENAS` no INIT do Orchestrator baseado em `VAR_RACE_ID`: 1→6, 2→8, 3→10, default→6+clamp. **Opção B (Script inline)** recomendada por ser compacta. Default para corrida 1 se `VAR_RACE_ID` inválido. **Não** referencia Curva do Diabo (fora de escopo). |
 | 6.4 `EV_VitoriaCorrida` (CE 19) + threshold pontuação | **Parcial** — CE 19 + wire no CE 7 via script gerador (JSON); TextPicture Plugin Command no CE 19 é **manual MZ** (mesma heurística da task 5.4) | CE 19 novo: erase pictures + stop BGM + play ME + Show bg_vitoria + 3x TextPicture (VITÓRIA/Pontos/Continuar) + Wait input loop + decision (pontuação >= threshold → incrementa RACE_ID + Call CE 5; else → mensagem derrota + restart sem avançar). Threshold calibrável: R1=60, R2=100, R3=150 (valores propostos para playtest). Wire: CE 7 Renderer ganha check `If SCENE_INDEX >= RACE_N_CENAS → Call CE 19`. |
 
-- task-6.1 — Criar `EV_Crash` (CE 18, absorve CE 17, incrementa ATTEMPT_N, restart <1s) · ~3h · deps: 5.2, 5.6 · **JSON: Sim** via `build_phase6_ces.py` (CE 18 novo ~25 cmds + patch CE 12 FAIL branch + delete CE 17)
+- [x] task-6.1 — Criar `EV_Crash` (CE 18, absorve CE 17, incrementa ATTEMPT_N, restart <1s) · ~3h · deps: 5.2, 5.6 · **JSON: Sim** via `build_phase6_ces.py` (CE 18 novo ~25 cmds + patch CE 12 FAIL branch + **limpa CE 17** para objeto vazio — regra [[never-delete-common-events]])
 - task-6.2 — **FORA DE ESCOPO** — Cena especial da Curva do Diabo (Corrida 3 cena 9) · ~2h · deps: 3.2, 6.1 · reservada para fase futura
-- task-6.3 — Configurar variação de corridas (6/8/10 cenas por `VAR_RACE_ID` via Script inline no INIT Orchestrator) · ~2h · deps: 3.1 · **JSON: Sim** via `build_phase6_ces.py` (estende CE 5)
-- task-6.4 — Implementar `EV_VitoriaCorrida` (CE 19) + threshold pontuação + wire no Renderer · ~3h · deps: 5.4, 6.3 · **JSON: Parcial** (CE 19 novo via script + wire CE 7 via script + TextPicture manual MZ no CE 19)
+- [x] task-6.3 — Configurar variação de corridas (6/8/10 cenas por `VAR_RACE_ID` via Script inline no INIT Orchestrator) · ~2h · deps: 3.1 · **JSON: Sim** via `build_phase6_ces.py` (estende CE 5)
+- [x] task-6.4 — Implementar `EV_VitoriaCorrida` (CE 19) + threshold pontuação + wire no Renderer · ~3h · deps: 5.4, 6.3 · **JSON: Sim** (CE 19 + wire CE 7 + 4 Plugin Commands TextPicture via `build_phase6_ces.py` — padrão replicado de CE 6)
 
 ### Fase 7 — Polish + Observabilidade
 **Objetivo:** audio feedback, indicador "TENTATIVA N" discreto, e logger estruturado para playtest.
@@ -301,7 +301,7 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 | 5.4 | HUD de Pontos de Glória via `TextPicture` (Picture 51) | F5 | 5.1 | 2h | **MZ Editor** (Plugin Cmd) |
 | 5.5 | Hover vermelho-sangue 3 níveis discretos (CE 16) | F5 | 3.4, 4.2 | 3h | **Python+json** + Script inline (TouchInput) |
 | 5.6 | **Bugfix:** `EV_ResolucaoRiskFail` (CE 17) + wire FAIL branch CE 12 | F5 | 5.2, 5.3 | 1h | **Python+json** (gerador + patch cirúrgico) |
-| 6.1 | ~~Criar `EV_Crash` (CE 18, absorve CE 17, ATTEMPT_N++, restart <1s)~~ ✅ | F6 | 5.2, 5.6 | 3h | **Python+json** via `build_phase6_ces.py` (25 cmds) |
+| 6.1 | ~~Criar `EV_Crash` (CE 18, absorve CE 17, ATTEMPT_N++, restart <1s)~~ ✅ | F6 | 5.2, 5.6 | 3h | **Python+json** via `build_phase6_ces.py` (CE 18=25 cmds + **limpa CE 17** p/ objeto vazio) |
 | 6.2 | ~~Implementar Curva do Diabo~~ **FORA DE ESCOPO** (cena especial futura) | F6 | — | — | _reservado_ |
 | 6.3 | ~~Configurar variação de corridas (6/8/10 via Script inline no INIT Orchestrator)~~ ✅ | F6 | 3.1 | 2h | **Python+json** via `build_phase6_ces.py` (Opção B — Script inline) |
 | 6.4 | ~~Implementar `EV_VitoriaCorrida` (CE 19) + threshold pontuação + wire Renderer~~ ✅ | F6 | 5.4, 6.3 | 3h | **Python+json** (CE 19 + wire CE 7) + **MZ Editor** (TextPicture manual pendente) |
@@ -427,12 +427,12 @@ Baseado nas retrospectivas [[fase1/retrospectiva]], [[fase2/retrospectiva]] e [[
 | 9 | `EV_RenderCurva` | Call | F3 | intocado |
 | 10 | `EV_RaceTimer` | Parallel (`SW_RACE_ACTIVE` 100) | F4 | intocado |
 | 11 | `EV_OnSafe` | Call | F4 (F5 estendeu) | intocado |
-| 12 | `EV_OnRisk` | Call | F4 (F5 estendeu) | **editado em 6.1** (FAIL branch: CE 17 → CE 18) |
+| 12 | `EV_OnRisk` | Call | F4 (F5 estendeu) | **editado em 6.1** (FAIL branch: Call CE 17 → Call CE 18) |
 | 13 | `EV_KeyInput` | Parallel (`SW_RACE_ACTIVE` 100) | F4 | intocado |
 | 14 | `EV_ResolucaoSafe` | Call | F5 | intocado |
 | 15 | `EV_ResolucaoRiskOK` | Call | F5 | intocado |
 | 16 | `EV_HoverRiskButton` | Parallel (`SW_RACE_ACTIVE` 100) | F5 | intocado |
-| 17 | ~~`EV_ResolucaoRiskFail`~~ | ~~Call~~ | ~~F5~~ | **DELETADO em 6.1** (absorvido por CE 18) |
+| 17 | ~~`EV_ResolucaoRiskFail`~~ | ~~Call~~ | ~~F5~~ | **LIMPO em 6.1** (objeto vazio — absorvido por CE 18; regra [[never-delete-common-events]]) |
 | 18 | `EV_Crash` | Call | **F6 task 6.1** | **novo** |
 | 19 | `EV_VitoriaCorrida` | Call | **F6 task 6.4** | **novo** |
 
@@ -469,7 +469,7 @@ Baseado nas retrospectivas [[fase1/retrospectiva]], [[fase2/retrospectiva]] e [[
   - **F6 opcional:** `bg_vitoria.png` (background tela de vitória), `bg_fim.png` (tela FIM Corrida 3). Fallback: Tint Screen dourado/preto + TextPicture.
 - **3 OGGs** em `Jhonny/audio/se/`: `crash_metal.ogg` (reservado — **não usado em F6**), `freada.ogg`, `pneu_cantando.ogg`
 - **CE Editor ID 4 `EV_Preload`** criado em `CommonEvents.json`
-- **CEs Editor IDs 5-17** criados (F3+F4+F5); CE 17 será **deletado** em F6
+- **CEs Editor IDs 5-17** criados (F3+F4+F5); CE 17 será **limpo** para objeto vazio em F6 (regra [[never-delete-common-events]])
 - **Slots livres para novos CEs**: Editor IDs 18+ (F6 usará 18 para `EV_Crash`, 19 para `EV_VitoriaCorrida`)
 - **Picture IDs reservadas F6:** 32 (flash overlay crash), 5 (bg vitória/FIM), **53 (VITÓRIA!)**, **56 (DERROTA!)**, 54 (Glória), 55 (instrução). **Evitar colisão:** 51 já usado por HUD Glória (F5).
 
@@ -501,11 +501,11 @@ Baseado nas retrospectivas [[fase1/retrospectiva]], [[fase2/retrospectiva]] e [[
 1. **Pré-passos (Python+json):**
    - Confirmar que **F5 está validada em Playtest MZ** (não iniciar F6 se F5 tem bugs pendentes).
    - Imprimir `variables[100:117]` e `switches[100:106]` para snapshot da tabela real (pós-F5).
-   - Confirmar CEs 5-17 ativos no `CommonEvents.json` (CE 17 será deletado nesta fase).
+   - Confirmar CEs 5-17 ativos no `CommonEvents.json` (CE 17 será **limpo** para objeto vazio nesta fase — regra [[never-delete-common-events]]).
    - Criar `VAR_VITORIA_PASSOU` (Editor ID 117) em `System.json` via `fase6/setup_phase6_system.py`.
 2. **Criar o script gerador** `Jhonny/planos/001-prototipo-core-loop/fase6/build_phase6_ces.py` (usar `fase5/build_phase5_ces.py` como referência de estrutura — helpers `C(code, indent, params)`, constantes de IDs, modo idempotente preservando slots 0-16).
 3. **Task 6.1 (`EV_Crash` CE 18, absorve CE 17):**
-   - Estender o script para **deletar** CE 17 (`EV_ResolucaoRiskFail`) e criar CE 18 (`EV_Crash`).
+   - Estender o script para **limpar** CE 17 (`EV_ResolucaoRiskFail`) para objeto vazio canônico (`{id:17, list:[{code:0,indent:0,parameters:[]}], name:"", switchId:1, trigger:0}`) — **NUNCA deletar** (regra [[never-delete-common-events]]) — e criar CE 18 (`EV_Crash`).
    - **Patch do wire no CE 12 (OnRisk) FAIL branch:** substituir `C(117, 1, [17])` por `C(117, 1, [18])`.
    - **Sequência do CE 18 (≤ 60 frames = 1s):**
      - **Play ME `Buzzer1`** (code 249, volume 90, pitch 100) — ME toca sobre BGM, **não usar `crash_metal` SE**
@@ -579,7 +579,7 @@ Baseado nas retrospectivas [[fase1/retrospectiva]], [[fase2/retrospectiva]] e [[
 - **Não esquecer de auditar scripts inline** quando corrigir IDs de variáveis/switches
 - **Não confiar no seletor visual do MZ** para validar scripts inline — ele não os audita
 - **Não esquecer da semântica do ControlSwitch (code 121):** `params[2]===0` → switch **ON**; `params[2]===1` → switch **OFF** (bug crítico F5 — oposto do intuitivo)
-- **Não reintroduzir o CE 17** após F6 — ele foi absorvido pelo CE 18 (`EV_Crash`); se o CE 12 FAIL branch ainda referencia CE 17, o wire está quebrado
+- **Não reintroduzir o CE 17** após F6 — ele foi absorvido pelo CE 18 (`EV_Crash`); se o CE 12 FAIL branch ainda referencia CE 17, o wire está quebrado. **O slot CE 17 permanece no array como CE limpo** (`name=""`, `trigger=0`) — nunca o restaure nem o delete (regra [[never-delete-common-events]])
 - **Não incrementar `VAR_RACE_ID` sem clamp** — limite em 3 (Corrida 3 é a última)
 - **Não resetar `VAR_RACE_ID` ou `VAR_RACE_N_CENAS` no crash** — preservados entre restarts (spec §7.2)
 - **(F6) Não usar `crash_metal` SE no EV_Crash** — decisão 2026-06-19: som de crash é **Buzzer1 (ME)**. `crash_metal.ogg` fica reservado para polish/v2.
@@ -595,5 +595,6 @@ Baseado nas retrospectivas [[fase1/retrospectiva]], [[fase2/retrospectiva]] e [[
 - Não ativar ferramentas de análise (Serena, etc.) para tarefas simples de JSON/assets
 - Não usar Playwright para validar playtest RMMZ — para na title screen
 - Não sobrescrever CEs existentes (`acelerador`, `freio`, `EV_Preload`, CEs F3-F5) — verificar `CommonEvents.json` antes
+- **NUNCA deletar Common Events** — sempre limpar o slot para objeto vazio canônico (`{id:N, list:[{code:0,indent:0,parameters:[]}], name:"", switchId:1, trigger:0}`). Regra [[never-delete-common-events]]: deletar (`null` ou remover do array) pode deslocar IDs subsequentes e quebrar save files legados + referências indiretas.
 - Não corrigir apenas o JSON gerado — corrigir sempre o script gerador (`build_phaseN_ces.py`) também para evitar regressão
 - **Não implementar a Curva do Diabo cena especial em F6** — fora de escopo (decisão do usuário); Corrida 3 tem 10 cenas normais

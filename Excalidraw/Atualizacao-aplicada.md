@@ -24,12 +24,12 @@ As tasks 6.1–6.4 originais foram escritas **antes** da Fase 5 terminar. Quando
 
 ## Decisões do usuário (2026-06-18) — fonte canônica
 
-| # | Decisão | Impacto |
-|---|---------|---------|
-| 1 | **EV_Crash absorve CE 17** | CE 17 deletado; CE 18 criado com todas as responsabilidades; wire CE 12 FAIL atualizado de `Call CE 17` para `Call CE 18` |
-| 2 | **EV_Crash incrementa `VAR_ATTEMPT_N`** | `Control Variables: VAR_ATTEMPT_N += 1` (Editor ID 112) adicionado ao bloco de reset do CE 18 |
-| 3 | **Curva do Diabo cena especial = fora de escopo** | Task-6.2 transformada em placeholder; Corrida 3 tem 10 cenas normais; `SW_IS_CURVA_DIABO` (105) e `placa_curva_dir.png` ficam reservados sem uso |
-| 4 | **Critério de avanço = pontuação mínima requerida** | Task-6.4 reescrita com threshold check; nova variável `VAR_VITORIA_PASSOU` (Editor ID 117) criada; branch de derrota reinicia mesma corrida via CE 18 |
+| #   | Decisão                                             | Impacto                                                                                                                                               |
+| --- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **EV_Crash absorve CE 17**                          | CE 17 deletado; CE 18 criado com todas as responsabilidades; wire CE 12 FAIL atualizado de `Call CE 17` para `Call CE 18`                             |
+| 2   | **EV_Crash incrementa `VAR_ATTEMPT_N`**             | `Control Variables: VAR_ATTEMPT_N += 1` (Editor ID 112) adicionado ao bloco de reset do CE 18                                                         |
+| 3   | **Curva do Diabo cena especial = fora de escopo**   | Task-6.2 transformada em placeholder; Corrida 3 tem 10 cenas normais; `SW_IS_CURVA_DIABO` (105) e `placa_curva_dir.png` ficam reservados sem uso      |
+| 4   | **Critério de avanço = pontuação mínima requerida** | Task-6.4 reescrita com threshold check; nova variável `VAR_VITORIA_PASSOU` (Editor ID 117) criada; branch de derrota reinicia mesma corrida via CE 18 |
 
 ## Mapa canônico aplicado (referência rápida)
 
