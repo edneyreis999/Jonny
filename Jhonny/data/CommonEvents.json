@@ -1311,6 +1311,38 @@
                 "code": 231,
                 "indent": 0,
                 "parameters": [
+                    58,
+                    "race/bar_luck_bg",
+                    0,
+                    0,
+                    600,
+                    400,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    59,
+                    "race/bar_luck_fill",
+                    0,
+                    0,
+                    600,
+                    400,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
                     41,
                     "race/btn_parar",
                     0,
@@ -1429,6 +1461,38 @@
                 "code": 412,
                 "indent": 0,
                 "parameters": []
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    58,
+                    "race/bar_luck_bg",
+                    0,
+                    0,
+                    616,
+                    288,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    59,
+                    "race/bar_luck_fill",
+                    0,
+                    0,
+                    616,
+                    288,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
             },
             {
                 "code": 231,
