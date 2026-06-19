@@ -141,7 +141,7 @@
         "Corpo",
         "Acessório"
     ],
-    "gameTitle": "Jhonny",
+    "gameTitle": "Bye Bye Jhonny",
     "gameoverMe": {
         "name": "Gameover1",
         "pan": 0,
@@ -744,7 +744,7 @@
         "VAR_TIMER_TIMEOUT_FLAG",
         "VAR_VITORIA_PASSOU"
     ],
-    "versionId": 17429115,
+    "versionId": 71517084,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,
