@@ -1385,16 +1385,16 @@
                             "parameters": [
                                 "",
                                 0,
-                                0,
-                                2,
-                                ""
+                                1,
+                                1,
+                                "Jonny"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Conversa"
+                                "I got another warning from school today."
                             ]
                         },
                         {
@@ -1402,14 +1402,14 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "Opção 1",
-                                    "Opção 2",
-                                    "Opção 3"
+                                    "You’re popular! Getting warnings is basically your middle name.",
+                                    "Don’t worry about it. You can make it up later.",
+                                    "You’ve never really cared about warnings before. Did something happen?"
                                 ],
-                                1,
+                                -1,
                                 0,
-                                2,
-                                0
+                                1,
+                                1
                             ]
                         },
                         {
@@ -1417,7 +1417,1680 @@
                             "indent": 0,
                             "parameters": [
                                 0,
-                                "Opção 1"
+                                "You’re popular! Getting warnings is basically your middle name."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "Yeah, forget it..."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 1,
+                            "parameters": [
+                                [
+                                    "A diploma is just a piece of paper, Johnny.",
+                                    "The Johnny I know doesn’t care about that kind of stuff.",
+                                    "Do you want to talk about it?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                0,
+                                "A diploma is just a piece of paper, Johnny."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                1,
+                                "The Johnny I know doesn’t care about that kind of stuff."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                2,
+                                "Do you want to talk about it?"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I don’t know. Lately it’s been hard to even get out of bed."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 2,
+                            "parameters": [
+                                [
+                                    "That’s why I never show up to first period.",
+                                    "Who even likes waking up early to study? haha",
+                                    "You seem kinda down. If you wanna talk, I’m here, okay?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                0,
+                                "That’s why I never show up to first period."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                1,
+                                "Who even likes waking up early to study? haha"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                2,
+                                "You seem kinda down. If you wanna talk, I’m here, okay?"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "Don’t worry about it. You can make it up later."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "Yeah, forget it..."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 1,
+                            "parameters": [
+                                [
+                                    "A diploma is just a piece of paper, Johnny.",
+                                    "That’s right, tThe Johnny I know doesn’t care about that kind of stuff.",
+                                    "Do you want to talk about it?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                0,
+                                "A diploma is just a piece of paper, Johnny."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                1,
+                                "That’s right, tThe Johnny I know doesn’t care about that kind of stuff."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                2,
+                                "Do you want to talk about it?"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                2,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I don’t know. Lately it’s been hard to even get out of bed."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 2,
+                            "parameters": [
+                                [
+                                    "That’s why I never show up to first period.",
+                                    "Who even likes waking up early to study? haha",
+                                    "You seem kinda down. If you wanna talk, I’m here, okay?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                0,
+                                "That’s why I never show up to first period."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                1,
+                                "Who even likes waking up early to study? haha"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                2,
+                                "You seem kinda down. If you wanna talk, I’m here, okay?"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                2,
+                                "You’ve never really cared about warnings before. Did something happen?"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                2,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "I don’t know. Lately it’s been hard to even get "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "out of bed."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 1,
+                            "parameters": [
+                                [
+                                    "That’s why I never show up to first period.",
+                                    "Who even likes waking up early to study? haha",
+                                    "You seem kinda down. If you wanna talk, I’m here, okay?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                0,
+                                "That’s why I never show up to first period."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                1,
+                                "Who even likes waking up early to study? haha"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                2,
+                                "You seem kinda down. If you wanna talk, I’m here, okay?"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "So I skip class, show up late..."
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "And when I do, she gets on my case."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "Who?"
+                            ]
+                        },
+                        {
+                            "code": 122,
+                            "indent": 0,
+                            "parameters": [
+                                2,
+                                2,
+                                0,
+                                0,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 0,
+                            "parameters": []
+                        }
+                    ],
+                    "moveFrequency": 3,
+                    "moveRoute": {
+                        "list": [
+                            {
+                                "code": 0,
+                                "parameters": []
+                            }
+                        ],
+                        "repeat": true,
+                        "skippable": false,
+                        "wait": false
+                    },
+                    "moveSpeed": 3,
+                    "moveType": 0,
+                    "priorityType": 0,
+                    "stepAnime": false,
+                    "through": false,
+                    "trigger": 3,
+                    "walkAnime": false
+                },
+                {
+                    "conditions": {
+                        "actorId": 1,
+                        "actorValid": false,
+                        "itemId": 1,
+                        "itemValid": false,
+                        "selfSwitchCh": "A",
+                        "selfSwitchValid": false,
+                        "switch1Id": 1,
+                        "switch1Valid": false,
+                        "switch2Id": 1,
+                        "switch2Valid": false,
+                        "variableId": 2,
+                        "variableValid": true,
+                        "variableValue": 1
+                    },
+                    "directionFix": false,
+                    "image": {
+                        "characterIndex": 0,
+                        "characterName": "",
+                        "direction": 2,
+                        "pattern": 0,
+                        "tileId": 0
+                    },
+                    "list": [
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "My girlfriend. We fought again."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 0,
+                            "parameters": [
+                                [
+                                    "Then just break up already! Stop complaining so much.",
+                                    "Couples fight, that’s normal.",
+                                    "So what did you guys fight about?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                0,
+                                "Then just break up already! Stop complaining so much."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "At least I’ve got a girlfriend, right?"
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 1,
+                            "parameters": [
+                                [
+                                    "A girlfriend and the whole school at your feet!",
+                                    "No need to show off on your single friend, dude.",
+                                    "So what did you fight about?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                0,
+                                "A girlfriend and the whole school at your feet!"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "What can I do? I’m awesome like that, right?"
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                1,
+                                "No need to show off on your single friend, dude."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "What can I do? I’m awesome like that, right?"
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                2,
+                                "So what did you fight about?"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "She says I’ve been distant. That I’ve been pulling away. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "That I’m not the same guy she used to know. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I guess she’s right."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 2,
+                            "parameters": [
+                                [
+                                    "That’s just your girlfriend being jealous and not wanting you to race anymore.",
+                                    "You just need to race again and you’ll be back to normal.",
+                                    "You don’t really seem okay with this..."
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                0,
+                                "That’s just your girlfriend being jealous and not wanting you to race anymore."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                1,
+                                "You just need to race again and you’ll be back to normal."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                2,
+                                "You don’t really seem okay with this..."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "I don’t know... it feels like I’m watching my life "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "from far away. I don’t even feel like doing the things "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "I used to love anymore."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "I used to only think about the next race. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "Now even that doesn’t seem to matter much. "
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "Couples fight, that’s normal."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "At least I’ve got a girlfriend, right?"
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 1,
+                            "parameters": [
+                                [
+                                    "A girlfriend and the whole school at your feet!",
+                                    "No need to show off on your single friend, dude.",
+                                    "So what did you fight about?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                0,
+                                "A girlfriend and the whole school at your feet!"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "What can I do? I’m awesome like that, right?"
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                1,
+                                "No need to show off on your single friend, dude."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "What can I do? I’m awesome like that, right?"
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                2,
+                                "So what did you fight about?"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "She says I’ve been distant. That I’ve been pulling away. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "That I’m not the same guy she used to know. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I guess she’s right."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 2,
+                            "parameters": [
+                                [
+                                    "That’s just your girlfriend being jealous and not wanting you to race anymore.",
+                                    "You just need to race again and you’ll be back to normal.",
+                                    "You don’t really seem okay with this..."
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                0,
+                                "That’s just your girlfriend being jealous and not wanting you to race anymore."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                1,
+                                "You just need to race again and you’ll be back to normal."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 2,
+                            "parameters": [
+                                2,
+                                "You don’t really seem okay with this..."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "I don’t know... it feels like I’m watching my life "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "from far away. I don’t even feel like doing the things "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "I used to love anymore."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 3,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "I used to only think about the next race. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 3,
+                            "parameters": [
+                                "Now even that doesn’t seem to matter much. "
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 3,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                2,
+                                "So what did you guys fight about?"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "She says I’ve been distant. That I’ve been pulling away. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "That I’m not the same guy she used to know. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "I guess she’s right."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 1,
+                            "parameters": [
+                                [
+                                    "That’s just your girlfriend being jealous and not wanting you to race anymore.",
+                                    "You just need to race again and you’ll be back to normal.",
+                                    "You don’t really seem okay with this..."
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                0,
+                                "That’s just your girlfriend being jealous and not wanting you to race anymore."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                1,
+                                "You just need to race again and you’ll be back to normal."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                2,
+                                "You don’t really seem okay with this..."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I don’t know... it feels like I’m watching my life "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "from far away. I don’t even feel like doing the things "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I used to love anymore."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I used to only think about the next race. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Now even that doesn’t seem to matter much. "
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "Remember when I used to spend the whole week "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "waiting for the street races?"
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 0,
+                            "parameters": [
+                                [
+                                    "You just need some adrenaline. You should race more.",
+                                    "It’s just a phase, Johnny. There’s a race tomorrow, you’ll forget all about this.",
+                                    "It’s weird that you’re not even excited about racing."
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                0,
+                                "You just need some adrenaline. You should race more."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "Speaking of which... I was thinking about that curve..."
                             ]
                         },
                         {
@@ -1430,7 +3103,26 @@
                             "indent": 0,
                             "parameters": [
                                 1,
-                                "Opção 2"
+                                "It’s just a phase, Johnny. There’s a race tomorrow, you’ll forget all about this."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "Speaking of which... I was thinking about that curve..."
                             ]
                         },
                         {
@@ -1443,7 +3135,726 @@
                             "indent": 0,
                             "parameters": [
                                 2,
-                                "Opção 3"
+                                "It’s weird that you’re not even excited about racing."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "Yeah... I’ve even been thinking about selling the Opala. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "But not before I try the last curve..."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "What curve, Jonny?"
+                            ]
+                        },
+                        {
+                            "code": 122,
+                            "indent": 0,
+                            "parameters": [
+                                2,
+                                2,
+                                0,
+                                0,
+                                2
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 0,
+                            "parameters": []
+                        }
+                    ],
+                    "moveFrequency": 3,
+                    "moveRoute": {
+                        "list": [
+                            {
+                                "code": 0,
+                                "parameters": []
+                            }
+                        ],
+                        "repeat": true,
+                        "skippable": false,
+                        "wait": false
+                    },
+                    "moveSpeed": 3,
+                    "moveType": 0,
+                    "priorityType": 0,
+                    "stepAnime": false,
+                    "through": false,
+                    "trigger": 0,
+                    "walkAnime": true
+                },
+                {
+                    "conditions": {
+                        "actorId": 1,
+                        "actorValid": false,
+                        "itemId": 1,
+                        "itemValid": false,
+                        "selfSwitchCh": "A",
+                        "selfSwitchValid": false,
+                        "switch1Id": 1,
+                        "switch1Valid": false,
+                        "switch2Id": 1,
+                        "switch2Valid": false,
+                        "variableId": 1,
+                        "variableValid": false,
+                        "variableValue": 0
+                    },
+                    "directionFix": false,
+                    "image": {
+                        "characterIndex": 0,
+                        "characterName": "",
+                        "direction": 2,
+                        "pattern": 0,
+                        "tileId": 0
+                    },
+                    "list": [
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "Devil’s Curve... I’m thinking of giving it a try."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 0,
+                            "parameters": [
+                                [
+                                    "You’d be the biggest legend in town.",
+                                    "That’s so you, Jonny. If you say can do it...",
+                                    "The last guy who tried died. You’re not serious, right? "
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                0,
+                                "You’d be the biggest legend in town."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "Yeah... I know."
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 1,
+                            "parameters": [
+                                [
+                                    "My friend Jonny is the best! You’re going to crush it tomorrow.",
+                                    "That’s just like you, Jonny! The only possible winner tomorrow.",
+                                    "But... The last guy who tried that turn died. Are you serious about this?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                0,
+                                "My friend Jonny is the best! You’re going to crush it tomorrow."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Wow, there’s a race tomorrow. I had almost "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "forgotten about it. I think I need to rest..."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Are you sending me away? Haha It’s late, you’re right. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "See you tomorrow?"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "See you tomorrow. Maybe I’ll finally do something... "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "interesting there."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                1,
+                                "That’s just like you, Jonny! The only possible winner tomorrow."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Wow, there’s a race tomorrow. I had almost "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "forgotten about it. I think I need to rest..."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Are you sending me away? Haha It’s late, you’re right. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "See you tomorrow?"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "See you tomorrow. Maybe I’ll finally do something... "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "interesting there."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                2,
+                                "But... The last guy who tried that turn died. Are you serious about this?"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I’m just saying… the idea sounds more tempting than "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "it should. Sometimes I don’t really care "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "what happens after."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Jonny, you’re not the kind of person who takes risks. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "There’s a race tomorrow. Promise me you won’t do this."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Right… there’s a race tomorrow. I almost forgot. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I think I need some rest…"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Don’t change the subject, Jonny. Promise me "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "you won’t take Devil’s Curve."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Alright, I promise. I’ll try not to wreck the Opala."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "See you tomorrow."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "That’s so you, Jonny. If you say can do it..."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "Yeah... "
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                2,
+                                "The last guy who tried died. You’re not serious, right? "
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "I’m just saying… the idea sounds more tempting than "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "it should. Sometimes I don’t really care "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "what happens after."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "Jonny, you’re not the kind of person who takes risks. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "There’s a race tomorrow. Promise me you won’t do this."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "Right… there’s a race tomorrow. I almost forgot. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "I think I need some rest…"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "Don’t change the subject, Jonny. Promise me "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "you won’t take Devil’s Curve."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "Alright, I promise. I’ll try not to wreck the Opala."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 1,
+                            "parameters": [
+                                "See you tomorrow."
                             ]
                         },
                         {
@@ -1479,8 +3890,8 @@
                     "priorityType": 0,
                     "stepAnime": false,
                     "through": false,
-                    "trigger": 3,
-                    "walkAnime": false
+                    "trigger": 0,
+                    "walkAnime": true
                 }
             ],
             "x": 0,

@@ -1387,14 +1387,39 @@
                                 0,
                                 0,
                                 2,
-                                ""
+                                "Player"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Narração"
+                                "Maybe it wasn’t just Devil’s Curve. Maybe Johnny had "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "already been slipping away long before that night..."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "I wish I had seen it sooner."
                             ]
                         },
                         {

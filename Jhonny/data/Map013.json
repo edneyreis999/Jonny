@@ -1380,23 +1380,81 @@
                     },
                     "list": [
                         {
-                            "code": 230,
+                            "code": 101,
                             "indent": 0,
                             "parameters": [
-                                180
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
                             ]
                         },
                         {
-                            "code": 201,
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "Conversa"
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 0,
+                            "parameters": [
+                                [
+                                    "Opção 1",
+                                    "Opção 2",
+                                    "Opção 3"
+                                ],
+                                1,
+                                0,
+                                2,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 402,
                             "indent": 0,
                             "parameters": [
                                 0,
-                                15,
-                                0,
-                                0,
-                                0,
-                                0
+                                "Opção 1"
                             ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "Opção 2"
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                2,
+                                "Opção 3"
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 0,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -1433,7 +1491,7 @@
     "note": "",
     "parallaxLoopX": false,
     "parallaxLoopY": false,
-    "parallaxName": "JonnyFormando",
+    "parallaxName": "Estrada",
     "parallaxShow": true,
     "parallaxSx": 0,
     "parallaxSy": 0,
