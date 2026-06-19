@@ -743,10 +743,10 @@
         "VAR_ATTEMPT_N",
         "VAR_LAST_RENDERED_INDEX",
         "",
-        "",
+        "VAR_HOVER_LEVEL",
         "VAR_TIMER_TIMEOUT_FLAG"
     ],
-    "versionId": 22820474,
+    "versionId": 60491849,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,

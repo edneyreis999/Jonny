@@ -145,7 +145,9 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 **Dependências:** F4 (handlers esqueleto prontos — CEs 10/11/12/13).
 **Validação visual:** barra de Consciência sobe 10 pontos visivelmente no Safe; desce `P_cena` no Risk (ambos resultados); texto de Pontos de Glória no canto atualiza (+10 no Safe, +`P_cena×2` no Risk-sucesso); hover no botão Risk pisca vermelho-sangue em 3 níveis discretos. **Toda validação deve produzir feedback perceptível sem F12/F9** (regra [[user-testable-feedback]]): flash visível + som já existente da F4.
 
-> **STATUS: ATUALIZADA COM APRENDIZADOS F1-F4** (2026-06-18) — tasks .md corrigidas para refletir mapa canônico de IDs (variáveis 100-116) e alocação real de CEs (F3=5-9, F4=10-13, F5=14-16). Pronta para implementação pelo agente IA. Ver [[fase5/Atualizacao-aplicada]] para o diff das mudanças.
+> **STATUS: FASE 5 IMPLEMENTADA — AGUARDANDO PLAYTEST MZ** (2026-06-18) — tasks 5.1/5.2/5.3/5.5/5.6 implementadas via `fase5/build_phase5_ces.py` (+ patch cirúrgico `apply_task_5_6.py` para preservar logs `[F5DBG]` e Plugin Command manual do CE 6); task 5.4 com Plugin Command TextPicture + Show Picture inseridos manualmente no CE 6 pelo usuário (ver [[fase-5-completa]] para revisão pendente da posição/pictureId). Pré-passo `fase5/setup_phase5_system.py` criou `VAR_HOVER_LEVEL` (Editor ID 115). Validação JSON + auditoria inline completa. **Bug crítico corrigido (sessão anterior):** docstring do gerador invertia `ControlSwitch` (`0=OFF|1=ON`); realidade MZ é `0=ON|1=OFF` (`rmmz_objects.js:10172`). 5 operações de switch corrigidas. **Bug crítico corrigido (esta sessão — task 5.6):** CE 12 FAIL branch não destravava input; criado CE 17 `EV_ResolucaoRiskFail` (Buzzer1 + Shake 8f + unlock) e wired no FAIL branch. Invariante de simetria de lock satisfeita (4 ON ↔ 4 OFF). Falta: revisão manual MZ do CE 6 (pictureId/posição), pós-edição MZ obrigatória (F10 → Ctrl+S → reiniciar Playtest), playtest de aceitação com feedback perceptível.
+>
+> **STATUS ANTIGO: ATUALIZADA COM APRENDIZADOS F1-F4** (2026-06-18) — tasks .md corrigidas para refletir mapa canônico de IDs (variáveis 100-116) e alocação real de CEs (F3=5-9, F4=10-13, F5=14-16). Pronta para implementação pelo agente IA. Ver [[fase5/Atualizacao-aplicada]] para o diff das mudanças.
 >
 > **DIRETRIZ DE GERAÇÃO (obrigatória, espelha F4):** todas as tasks JSON-automatizáveis da F5 (5.1, 5.2, 5.3) devem ser implementadas por um **único script gerador** `build_phase5_ces.py` localizado em **`Jhonny/planos/001-prototipo-core-loop/fase5/build_phase5_ces.py`**. O script é **artefato-fonte**: criá-lo/regenerá-lo antes de tocar em `CommonEvents.json`; qualquer correção posterior de IDs/comandos deve ser feita no script e regenerada — nunca no JSON gerado diretamente (heurística F3+F4 consolidada).
 >
@@ -176,6 +178,7 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 > | **14** | **`EV_ResolucaoSafe`** | **Call** | — | **F5 (task 5.3)** |
 > | **15** | **`EV_ResolucaoRiskOK`** | **Call** | — | **F5 (task 5.3)** |
 > | **16** | **`EV_HoverRiskButton`** | **Parallel** | **`SW_RACE_ACTIVE` (100)** | **F5 (task 5.5)** |
+> | **17** | **`EV_ResolucaoRiskFail`** | **Call** | — | **F5 (task 5.6 — bugfix pós-playtest)** |
 >
 > **Heurística de auditoria (F3+F4):** Antes de fechar cada task, rodar `rg "value\\(|setValue\\(" Jhonny/data/CommonEvents.json` e confirmar que todos os IDs em scripts inline batem com a tabela real de `System.json`. IDs canônicos da F5: `VAR_CONSCIENCIA=104`, `VAR_PONTOS_GLORIA=105`, `VAR_TAXA_SUCESSO=106`, `VAR_ROLL_RESULT=107`, `VAR_TIMER_FRAMES=108`, `VAR_TIMER_TIMEOUT_FLAG=116`, `VAR_P_CENA=103`, `VAR_SCENE_INDEX=101`, `VAR_SCENE_TYPE=102`.
 
@@ -187,11 +190,12 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 | 5.4 HUD Glória via `TextPicture` | **MZ Editor** (Plugin Command) | Picture ID 51, posição (560, 20). Plugin Command `TextPicture > Set Text` com `"GLÓRIA: \\V[105]"` (escape duplo). Estende `EV_UpdateHud` (CE 6). |
 | 5.5 Hover 3 níveis discretos | **Sim para CE 16 + Script inline** (Plugin Command NÃO existe) | CE 16 Parallel `EV_HoverRiskButton` com `TouchInput.x/y` via Script. `VAR_HOVER_LEVEL=115` (reserva nova). Pictures 22-24 (abaixo dos botões 41-50). Thresholds: taxa≥70 suave, 40-69 médio, <40 intenso. |
 
-- task-5.1 — Implementar lógica Safe no `EV_OnSafe` (Consciência +10 clamp, Glória +10, cena++) · ~2h · deps: 4.3 · **JSON: Sim** · estende CE 11 via `build_phase5_ces.py`
-- task-5.2 — Implementar lógica Risk no `EV_OnRisk` (clamp, roll d100, custo aplicado, Glória ×2) · ~3h · deps: 4.3, 5.1 · **JSON: Sim** · estende CE 12 via `build_phase5_ces.py`
-- task-5.3 — Criar `EV_ResolucaoSafe` (CE 14) + `EV_ResolucaoRiskOK` (CE 15) · ~3h · deps: 5.1, 5.2 · **JSON: Sim** · novos CEs via `build_phase5_ces.py`
-- task-5.4 — Implementar HUD de Pontos de Glória via `TextPicture` (Picture 51) · ~2h · deps: 5.1 · **MZ Editor** · estende CE 6
-- task-5.5 — Implementar hover vermelho-sangue 3 níveis discretos via CE 16 + overlays (ID 22-24) · ~3h · deps: 3.4, 4.2 · **JSON: Sim** (CE 16 novo) + Script inline
+- [x] task-5.1 — Implementar lógica Safe no `EV_OnSafe` (Consciência +10 clamp, Glória +10, cena++) · ~2h · deps: 4.3 · **JSON: Sim** · estende CE 11 via `build_phase5_ces.py` (22 cmds)
+- [x] task-5.2 — Implementar lógica Risk no `EV_OnRisk` (clamp, roll d100, custo aplicado, Glória ×2) · ~3h · deps: 4.3, 5.1 · **JSON: Sim** · estende CE 12 via `build_phase5_ces.py` (34 cmds)
+- [x] task-5.3 — Criar `EV_ResolucaoSafe` (CE 14) + `EV_ResolucaoRiskOK` (CE 15) · ~3h · deps: 5.1, 5.2 · **JSON: Sim** · novos CEs via `build_phase5_ces.py` (CE 14=5 cmds, CE 15=6 cmds)
+- [ ] task-5.4 — Implementar HUD de Pontos de Glória via `TextPicture` (Picture 51) · ~2h · deps: 5.1 · **MZ Editor** · estende CE 6 (placeholder Comment no gerador; **passo manual pendente** — ver [[fase-5-completa]])
+- [x] task-5.5 — Implementar hover vermelho-sangue 3 níveis discretos via CE 16 + overlays (ID 22-24) · ~3h · deps: 3.4, 4.2 · **JSON: Sim** (CE 16 novo, 33 cmds) + Script inline
+- [x] task-5.6 — **Bug fix pós-playtest F5:** criar `EV_ResolucaoRiskFail` (CE 17) + wire FAIL branch do CE 12 para destravar input (Bug 3 da [[fase5/retrospectiva]] PARTE 3) · ~1h · deps: 5.2, 5.3 · **JSON: Sim** via `build_phase5_ces.py` (estendido) + patch cirúrgico `fase5/apply_task_5_6.py` (preserva logs `[F5DBG]` e Plugin Command manual do CE 6). CE 17 = 4 cmds (Buzzer1 + Shake 8f + unlock); CE 12 FAIL = `Call CE 17` inserido antes do Comment `TASK 6.1 PENDENTE`. Invariante de simetria de lock satisfeita: 4 produtores ON (CE 5/7/11/12) ↔ 4 consumidores OFF (CE 7/14/15/17).
 
 ### Fase 6 — Crash, Restart e Curva do Diabo
 **Objetivo:** falha no Risk → crash visual → restart <1s; cena 9 da Corrida 3 é a Curva do Diabo com `P_CENA=100`.
@@ -241,6 +245,7 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 | 5.3 | Criar `EV_ResolucaoSafe` (CE 14) + `EV_ResolucaoRiskOK` (CE 15) | F5 | 5.1, 5.2 | 3h | **Python+json** via `build_phase5_ces.py` |
 | 5.4 | HUD de Pontos de Glória via `TextPicture` (Picture 51) | F5 | 5.1 | 2h | **MZ Editor** (Plugin Cmd) |
 | 5.5 | Hover vermelho-sangue 3 níveis discretos (CE 16) | F5 | 3.4, 4.2 | 3h | **Python+json** + Script inline (TouchInput) |
+| 5.6 | **Bugfix:** `EV_ResolucaoRiskFail` (CE 17) + wire FAIL branch CE 12 | F5 | 5.2, 5.3 | 1h | **Python+json** (gerador + patch cirúrgico) |
 | 6.1 | Criar `EV_Crash` (restart <1s) | F6 | 5.2 | 3h | Python+json |
 | 6.2 | Implementar Curva do Diabo | F6 | 3.2, 6.1 | 2h | Python+json |
 | 6.3 | Configurar variação de corridas (6/8/10) | F6 | 3.1 | 2h | Python+json |
@@ -270,7 +275,7 @@ Pré-passos F4 (uma única vez):
 Linear daí em diante:
   3.4 → 3.1 → 3.5 → 3.2 → 3.3
   → 4.1 → 4.2 → 4.3 → 4.4 → 4.5
-  → 5.1 → 5.2 → 5.3 → 5.4 → 5.5
+  → 5.1 → 5.2 → 5.3 → 5.4 → 5.5 → 5.6
   → 6.1 → 6.2 → 6.3 → 6.4
   → 7.1 → 7.2 → 7.3
 ```
@@ -368,6 +373,7 @@ Baseado nas retrospectivas [[fase1/retrospectiva]], [[fase2/retrospectiva]] e [[
 | 14 | `EV_ResolucaoSafe` | Call | F5 task 5.3 (a criar) |
 | 15 | `EV_ResolucaoRiskOK` | Call | F5 task 5.3 (a criar) |
 | 16 | `EV_HoverRiskButton` | Parallel (`SW_RACE_ACTIVE` 100) | F5 task 5.5 (a criar) |
+| 17 | `EV_ResolucaoRiskFail` | Call | F5 task 5.6 (bugfix pós-playtest) |
 
 ### Heurísticas de implementação
 - **Sempre imprimir `System.json` IDs como pré-passo** antes de gerar ou debugar Common Events

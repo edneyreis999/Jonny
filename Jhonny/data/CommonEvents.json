@@ -787,6 +787,55 @@
                 ]
             },
             {
+                "code": 108,
+                "indent": 0,
+                "parameters": [
+                    "[TASK 5.4 MANUAL MZ] Inserir Plugin Command TextPicture: Set Text \"GLÓRIA: \\\\V[105]\" + Show (Pic ID 51, pos 560,20). Ver fase-5-completa.md."
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "GLÓRIA: \\V[105]"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Text = GLÓRIA: \\V[105]"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    51,
+                    "",
+                    1,
+                    0,
+                    560,
+                    20,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "console.log(\"Glória on terminal\")"
+                ]
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
@@ -1580,6 +1629,133 @@
                 ]
             },
             {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    104,
+                    0,
+                    90,
+                    2
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 1,
+                "parameters": [
+                    104,
+                    104,
+                    1,
+                    0,
+                    10
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 122,
+                "indent": 1,
+                "parameters": [
+                    104,
+                    104,
+                    0,
+                    0,
+                    100
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    105,
+                    105,
+                    1,
+                    0,
+                    10
+                ]
+            },
+            {
+                "code": 250,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "name": "Up1",
+                        "volume": 70,
+                        "pitch": 100,
+                        "pan": 0
+                    }
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    103,
+                    103,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    1,
+                    0,
+                    1
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 0,
+                "parameters": [
+                    6
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 0,
+                "parameters": [
+                    14
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    116,
+                    0,
+                    1,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 1,
+                "parameters": [
+                    116,
+                    116,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
@@ -1654,6 +1830,218 @@
                 ]
             },
             {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "$gameVariables.setValue(106, Math.max(0, Math.min(100, $gameVariables.value(104) + $gameVariables.value(103))));"
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "$gameVariables.setValue(107, Math.floor(Math.random() * 100));"
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    107,
+                    1,
+                    106,
+                    4
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 1,
+                "parameters": [
+                    1,
+                    104,
+                    1,
+                    103,
+                    1
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    104,
+                    104,
+                    2,
+                    1,
+                    103
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    104,
+                    104,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 355,
+                "indent": 1,
+                "parameters": [
+                    "$gameVariables.setValue(105, $gameVariables.value(105) + $gameVariables.value(103) * 2);"
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 1,
+                "parameters": [
+                    103,
+                    103,
+                    1
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 1,
+                "parameters": [
+                    101,
+                    101,
+                    1,
+                    0,
+                    1
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 1,
+                "parameters": [
+                    6
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 1,
+                "parameters": [
+                    15
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 1,
+                "parameters": [
+                    1,
+                    116,
+                    0,
+                    1,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    116,
+                    116,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 411,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 1,
+                "parameters": [
+                    1,
+                    104,
+                    1,
+                    103,
+                    1
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    104,
+                    104,
+                    2,
+                    1,
+                    103
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 122,
+                "indent": 2,
+                "parameters": [
+                    104,
+                    104,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 121,
+                "indent": 1,
+                "parameters": [
+                    102,
+                    102,
+                    0
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 1,
+                "parameters": [
+                    17
+                ]
+            },
+            {
+                "code": 108,
+                "indent": 1,
+                "parameters": [
+                    "[TASK 6.1 PENDENTE] Call EV_Crash aqui quando F6 criar o CE."
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
@@ -1724,6 +2112,454 @@
         "name": "EV_KeyInput",
         "trigger": 2,
         "switchId": 100,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 14,
+        "list": [
+            {
+                "code": 223,
+                "indent": 0,
+                "parameters": [
+                    [
+                        -200,
+                        0,
+                        -200,
+                        0
+                    ],
+                    8,
+                    false
+                ]
+            },
+            {
+                "code": 223,
+                "indent": 0,
+                "parameters": [
+                    [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    12,
+                    false
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    12
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    1
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_ResolucaoSafe",
+        "trigger": 0,
+        "switchId": 1,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 15,
+        "list": [
+            {
+                "code": 223,
+                "indent": 0,
+                "parameters": [
+                    [
+                        0,
+                        0,
+                        -255,
+                        0
+                    ],
+                    6,
+                    false
+                ]
+            },
+            {
+                "code": 225,
+                "indent": 0,
+                "parameters": [
+                    3,
+                    5,
+                    8,
+                    false
+                ]
+            },
+            {
+                "code": 223,
+                "indent": 0,
+                "parameters": [
+                    [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    18,
+                    false
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    18
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    1
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_ResolucaoRiskOK",
+        "trigger": 0,
+        "switchId": 1,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 16,
+        "list": [
+            {
+                "code": 118,
+                "indent": 0,
+                "parameters": [
+                    "HOVER_LOOP"
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    101,
+                    0
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    22
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    23
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    24
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 1,
+                "parameters": [
+                    "$gameVariables.setValue(115, 0);"
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 1,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 119,
+                "indent": 1,
+                "parameters": [
+                    "HOVER_LOOP"
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "const p = $gameScreen.picture(42) || $gameScreen.picture(44); let nivel = 0; if (p) {   const bx = (p === $gameScreen.picture(42)) ? 440 : 440;   const by = (p === $gameScreen.picture(42)) ? 500 : 500;   const bw = 160;   const bh = 80;   const tx = TouchInput.x;   const ty = TouchInput.y;   const isHover = (tx >= bx && tx <= bx + bw && ty >= by && ty <= by + bh);   if (isHover) {     const taxa = $gameVariables.value(106);     nivel = (taxa >= 70) ? 1 : (taxa >= 40) ? 2 : 3;   } } $gameVariables.setValue(115, nivel);"
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    115,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    22
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    23
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    24
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    115,
+                    0,
+                    1,
+                    0
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    23
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    24
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 1,
+                "parameters": [
+                    22,
+                    "race/overlay_risk_low",
+                    0,
+                    0,
+                    420,
+                    500,
+                    100,
+                    100,
+                    80,
+                    0
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    115,
+                    0,
+                    2,
+                    0
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    22
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    24
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 1,
+                "parameters": [
+                    23,
+                    "race/overlay_risk_med",
+                    0,
+                    0,
+                    420,
+                    500,
+                    100,
+                    100,
+                    140,
+                    0
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    115,
+                    0,
+                    3,
+                    0
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    22
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 1,
+                "parameters": [
+                    23
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 1,
+                "parameters": [
+                    24,
+                    "race/overlay_risk_high",
+                    0,
+                    0,
+                    420,
+                    500,
+                    100,
+                    100,
+                    220,
+                    0
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 119,
+                "indent": 0,
+                "parameters": [
+                    "HOVER_LOOP"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_HoverRiskButton",
+        "trigger": 2,
+        "switchId": 100,
+        "autoErase": false,
+        "conditionString": ""
+    },
+    {
+        "id": 17,
+        "list": [
+            {
+                "code": 250,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "name": "Buzzer1",
+                        "volume": 80,
+                        "pitch": 100,
+                        "pan": 0
+                    }
+                ]
+            },
+            {
+                "code": 225,
+                "indent": 0,
+                "parameters": [
+                    5,
+                    5,
+                    8,
+                    false
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    1
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "EV_ResolucaoRiskFail",
+        "trigger": 0,
+        "switchId": 1,
         "autoErase": false,
         "conditionString": ""
     }
