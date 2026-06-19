@@ -266,14 +266,25 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 
 ### Fase 7 — Polish + Observabilidade
 **Objetivo:** audio feedback, indicador "TENTATIVA N" discreto, e logger estruturado para playtest.
-**Dependências:** F6 (loop completo funcional).
-**Validação visual:** a cada ação (Safe/Risk-sucesso/Risk-falha/Crash), o som correspondente toca (freada/motor/impacto); indicador "TENTATIVA N" aparece discreto no canto; ao abrir o console F12, cada ação registra um JSON estruturado (`RACE_EVENT`).
+**Dependências:** F6 (loop completo funcional — [[fase-6-completa]]).
+**Validação visual:** a cada ação (Safe/Risk-sucesso/Crash), o som correspondente toca (freada/pneu_cantando/ME Shock1); indicador "TENTATIVA N" aparece discreto no canto; ao abrir o console F12, cada ação registra um JSON estruturado (`RACE_EVENT`).
 
-> **STATUS: ARTEFATOS CRIADOS** (2026-06-18) — tasks .md geradas, prontas para execução pelo agente IA implementador.
+> **STATUS: IMPLEMENTADA — AGUARDANDO PLAYTEST MZ** (2026-06-19) — tasks 7.1/7.2/7.3 implementadas via `fase7/build_phase7_ces.py` + extensão do plugin `Jhonny_RaceHelper.js` (função `logRaceEvent` + `PluginManager.registerCommand`). **Gap F6 corrigido:** `setup_phase6_system.py` nunca tinha sido executado — System.json só tinha 117 slots (0-116); executado nesta sessão para criar `VAR_VITORIA_PASSOU` (Editor ID 117). **Task 7.1:** Play SE pneu_cantando removido do CE 12 e inserido no início do CE 15 (sincronizado com flash dourado da resolução Risk-OK); CE 11 (freada) e CE 18 (ME Shock1) confirmados sem alteração. **Task 7.2:** CE 6 (`EV_UpdateHud`) estendido com TextPicture "TENTATIVA N" (Picture ID 52, cinza `\C[7]`, opacidade 180, posição (350, 20)) via pattern 357+657+Show `name=""` replicado de CE 6 Glória; Comment stale `[TASK 5.4 MANUAL MZ]` removido (cmds 2-4 já implementam Glória desde F6). **Task 7.3:** plugin `Jhonny_RaceHelper.js` estendido com `logRaceEvent(args)` que captura frame + vars 100-117 + switches 100-105 + timestamp e imprime `RACE_EVENT: {json}` no F12; PluginManager.registerCommand registra `logRaceEvent` como Plugin Command MZ; CEs 5 (RACE_INIT), 11 (SAFE_CLICK), 12 (RISK_SUCCESS + RISK_FAIL), 18 (CRASH), 19 (VICTORY) receberam chamadas via Plugin Command (code 357 + 657). Idempotência validada (re-execução produz diff vazio). `node -c` no plugin OK. `python3 -m json.tool` OK. Próximo: **F10 → Ctrl+S → reiniciar Playtest** (bug F4 — refresh runtime obrigatório) e validar visualmente (ver [[fase-7-completa]]).
+>
+> **STATUS ANTIGO: ATUALIZADO** (2026-06-19) — tasks .md revisadas pós-F4.5/F6 para refletir estado real do projeto.
+>
+> **Heurística consolidada (F3+F4+F5+F6):** Todo trabalho em CEs é feito via **script gerador Python idempotente** (`build_phaseN_ces.py`) — JSON nunca é editado diretamente. F6 confirmou que Plugin Commands TextPicture (code 357 + 657 + Show Picture com `name=""`) PODEM ser inseridos via script — não há mais trabalho manual obrigatório no MZ Editor para esta fase.
 
-- task-7.1 — Adicionar `Play SE` nos handlers (Safe=freada, Risk-sucesso=motor, Risk-falha=impacto) · ~2h · deps: 2.2, 5.3
-- task-7.2 — Implementar indicador "TENTATIVA N" discreto via `TextPicture` · ~2h · deps: 5.4
-- task-7.3 — Adicionar plugin command `logRaceEvent` no `Jhonny_RaceHelper.js` (Apêndice B do Guia Técnico) · ~2h · deps: 1.2
+**Estado atual herdado (NÃO refazer):**
+- ✅ `Play SE: freada` já em CE 11 (`EV_OnSafe`) desde F4.5 — task 7.1 só confirma.
+- ✅ `Play SE: pneu_cantando` em CE 12 (`EV_OnRisk`) desde F4.5 — **DEVE ser movido para CE 15** (`EV_ResolucaoRiskOK`) nesta fase, conforme decisão do usuário (sincroniza com flash dourado).
+- ✅ CE 18 (`EV_Crash`) usa `ME: Shock1` desde F6 — **não adicionar SE crash_metal** (decisão do usuário: ME basta; crash_metal.ogg fica como asset sem uso neste MVP).
+- ✅ `VAR_ATTEMPT_N += 1` já em CE 18 cmd 14 desde F6 — task 7.2 não precisa adicionar increment.
+- ✅ `VAR_VITORIA_PASSOU` (Editor ID 117) existe desde F6 — task 7.3 captura vars até ID 117.
+
+- task-7.1 — Confirmar/mover `Play SE` nos handlers (Safe=✓freada/CE11, Risk=mover pneu_cantando CE12→CE15, Crash=manter ME Shock1/CE18) · ~30min · deps: 2.2, 5.3, 6.1
+- task-7.2 — Implementar indicador "TENTATIVA N" discreto via `TextPicture` (script gerador) · ~1h · deps: 5.4
+- task-7.3 — Adicionar plugin command `logRaceEvent` no `Jhonny_RaceHelper.js` + chamadas via script gerador · ~1.5h · deps: 1.2
 
 ## Tabela de Tasks
 
@@ -305,9 +316,9 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 | 6.2 | ~~Implementar Curva do Diabo~~ **FORA DE ESCOPO** (cena especial futura) | F6 | — | — | _reservado_ |
 | 6.3 | ~~Configurar variação de corridas (6/8/10 via Script inline no INIT Orchestrator)~~ ✅ | F6 | 3.1 | 2h | **Python+json** via `build_phase6_ces.py` (Opção B — Script inline) |
 | 6.4 | ~~Implementar `EV_VitoriaCorrida` (CE 19) + threshold pontuação + wire Renderer~~ ✅ | F6 | 5.4, 6.3 | 3h | **Python+json** (CE 19 + wire CE 7) + **MZ Editor** (TextPicture manual pendente) |
-| 7.1 | Adicionar `Play SE` nos handlers | F7 | 2.2, 5.3 | 2h | Python+json |
-| 7.2 | Indicador "TENTATIVA N" via `TextPicture` | F7 | 5.4 | 2h | **MZ Editor** (Plugin Cmd) |
-| 7.3 | Plugin command `logRaceEvent` | F7 | 1.2 | 2h | Write no plugin |
+| 7.1 | ~~Confirmar/mover `Play SE` nos handlers (CE 11 ✓, mover CE12→CE15, CE 18 manter ME)~~ ✅ | F7 | 2.2, 5.3, 6.1 | 30min | **Python+json** via `build_phase7_ces.py` (patch CE 12 + CE 15) |
+| 7.2 | ~~Indicador "TENTATIVA N" via `TextPicture` (Picture ID 52)~~ ✅ | F7 | 5.4 | 1h | **Python+json** via `build_phase7_ces.py` (extende CE 6, pattern 357+657+Show name="") |
+| 7.3 | ~~Plugin command `logRaceEvent` (Apêndice B) + chamadas nos CEs 5/11/12/18/19~~ ✅ | F7 | 1.2 | 1.5h | **Write** no plugin + **Python+json** (chamadas Plugin Cmd 357 nos CEs) |
 
 ## Ordem de Execução Recomendada
 

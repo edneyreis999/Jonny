@@ -1,5 +1,7 @@
 ---
 status: pending
+revisado: 2026-06-19
+revisao_motivo: "Refletir estado real do projeto pós-F4.5/F6 — ler §Estado Herdado abaixo"
 ---
 
 <task_context>
@@ -7,201 +9,185 @@ status: pending
 <type>implementation</type>
 <scope>core_feature</scope>
 <complexity>low</complexity>
-<dependencies>task-2.2, task-5.3</dependencies>
+<dependencies>task-2.2, task-5.3, task-6.1</dependencies>
 <prd_ref>[[Corrida - Core Loop]]</prd_ref>
 <techspec_ref>[[Guia de Implementação - Core Loop da Corrida]]</techspec_ref>
 </task_context>
 
-# Tarefa 7.1: Adicionar `Play SE` nos Handlers (Audio Feedback)
+# Tarefa 7.1: Confirmar/Mover `Play SE` nos Handlers (Audio Feedback)
 
 ## Referências de Origem
 
 - Spec de Domínio: [[Corrida - Core Loop]] §9 (feedback sensorial — áudio)
 - Guia Técnico: [[Guia de Implementação - Core Loop da Corrida]] §8.1 (Do's — usar SE para feedback de ações)
+- Retrospectivas relevantes: [[fase-4-completa]] (F4.5 adicionou Play SE), [[fase-6-completa]] (F6 definiu ME Shock1 no Crash)
+
+## ⚠️ Estado herdado (NÃO refazer) — ler antes de executar
+
+Antes de implementar, observar que parte do trabalho já foi feita em fases anteriores:
+
+| Handler | Áudio atual | Quando adicionado | Ação nesta task |
+|---------|-------------|-------------------|------------------|
+| **CE 11 (`EV_OnSafe`)** | `Play SE: freada` (vol 90) | **F4.5** ([[fase-4-completa]]) | ✅ Confirmar — **nenhuma ação** |
+| **CE 12 (`EV_OnRisk`)** | `Play SE: pneu_cantando` (vol 90) | **F4.5** ([[fase-4-completa]]) | ⚠️ **REMOVER daqui** (será movido para CE 15) |
+| **CE 15 (`EV_ResolucaoRiskOK`)** | (sem SE atualmente) | — | ⚠️ **ADICIONAR** `Play SE: pneu_cantando` aqui |
+| **CE 18 (`EV_Crash`)** | `Play ME: Shock1` (vol 90) | **F6** ([[fase-6-completa]]) | ✅ Confirmar — **NÃO adicionar SE crash_metal** (decisão do usuário) |
+
+### Decisões do usuário (2026-06-19)
+
+1. **Risk-sucesso sound (pneu_cantando):** mover de CE 12 para CE 15 (`EV_ResolucaoRiskOK`) — sincroniza com flash dourado da resolução. Razão: o flash e o som devem disparar no mesmo instante (início da animação de resolução).
+2. **Crash sound:** manter SOMENTE `ME Shock1` em CE 18. **NÃO adicionar** `SE crash_metal`. Razão: ME Shock1 já dá o impacto narrativo; adicionar crash_metal criaria sobreposição desnecessária. `crash_metal.ogg` (criado em task-2.2 como alias de Crash.ogg) fica disponível como asset sem uso neste MVP.
+3. **Safe sound (freada):** já está em CE 11 desde F4.5 — apenas confirmar, sem alteração.
 
 ## Visão Geral
 
-Adicionar **Sound Effects (SE)** nos handlers de input e resolução para dar feedback imediato ao jogador sobre cada ação:
+Após esta task, o áudio de feedback do core loop será:
 
-| Ação | SE | Significado narrativo |
-|------|-----|----------------------|
-| **Safe** (Parar/Direita) | `freada.ogg` | Som de freio — Opala reduzindo |
-| **Risk-sucesso** (Furar/Esquerda OK) | `pneu_cantando.ogg` | Pneu cantando — derrapada controlada |
-| **Risk-falha** (Crash) | `crash_metal.ogg` | Impacto metálico — batida |
-
-Estes 3 SEs já existem em `Jhonny/audio/se/` (criados em task-2.2 como aliases de sons padrão MZ).
-
-<requirements>
-- `Play SE: freada` no `EV_OnSafe` (task-5.1) após mutação de estado.
-- `Play SE: pneu_cantando` no `EV_ResolucaoRiskOK` (task-5.3) no início da animação.
-- `Play SE: crash_metal` no `EV_Crash` (task-6.1) — já incluído por padrão, confirmar.
-- Volume e pitch consistentes (não mudam entre ações).
-- Não tocar SE duplicado se handler é chamado múltiplas vezes no mesmo frame.
-- BGM da corrida permanece tocando (SEs são camada adicional).
-</requirements>
+| Ação | Áudio | Handler | Origem |
+|------|-------|---------|--------|
+| **Safe** (Parar/Direita) | `SE: freada` (vol 90, pitch 100) | CE 11 (`EV_OnSafe`) | F4.5 (manter) |
+| **Risk-sucesso** (Furar/Esquerda OK) | `SE: pneu_cantando` (vol 90, pitch 100) | CE 15 (`EV_ResolucaoRiskOK`) | **Esta task** (mover de CE 12) |
+| **Risk-falha/Crash** | `ME: Shock1` (vol 90, pitch 100) | CE 18 (`EV_Crash`) | F6 (manter) |
 
 ## Subtarefas
 
-- [ ] 7.1.1 Confirmar que `freada.ogg`, `pneu_cantando.ogg`, `crash_metal.ogg` existem em `Jhonny/audio/se/` (task-2.2)
-- [ ] 7.1.2 Adicionar `Play SE` no `EV_OnSafe` (task-5.1) — após mutação, antes de `EV_ResolucaoSafe`:
-  - [ ] SE: `"freada"`, volume 80, pitch 100, pan 0
-- [ ] 7.1.3 Adicionar `Play SE` no `EV_ResolucaoRiskOK` (task-5.3) — no início, antes de `Show Picture`:
-  - [ ] SE: `"pneu_cantando"`, volume 90, pitch 100, pan 0
-- [ ] 7.1.4 Confirmar que `EV_Crash` (task-6.1) já toca `crash_metal` (subtarefa 6.1.2)
-- [ ] 7.1.5 Validar que áudio não toca fora da corrida (handlers já têm guarda `SW_RACE_ACTIVE`)
-- [ ] 7.1.6 Testar com BGM ligado — confirmar mixagem aceitável
+- [ ] 7.1.1 Confirmar que `freada.ogg`, `pneu_cantando.ogg`, `Shock1.ogg` existem:
+  - `Jhonny/audio/se/freada.ogg` ✓ (task-2.2)
+  - `Jhonny/audio/se/pneu_cantando.ogg` ✓ (task-2.2)
+  - `Jhonny/audio/me/Shock1.ogg` ✓ (MZ default — verificar com `ls Jhonny/audio/me/ | grep -i shock`)
+- [ ] 7.1.2 **Remover** `Play SE: pneu_cantando` de CE 12 (`EV_OnRisk`) — está logo após `SW_INPUT_LOCKED = ON`
+- [ ] 7.1.3 **Adicionar** `Play SE: pneu_cantando` (vol 90, pitch 100, pan 0) no **início** de CE 15 (`EV_ResolucaoRiskOK`), antes do `Show Picture` do flash dourado
+- [ ] 7.1.4 **Confirmar** que CE 11 já tem `Play SE: freada` (manter — não mexer)
+- [ ] 7.1.5 **Confirmar** que CE 18 já tem `Play ME: Shock1` (manter — não adicionar SE crash_metal)
+- [ ] 7.1.6 Validar que áudio não toca fora da corrida (handlers já têm guarda `SW_RACE_ACTIVE`)
+- [ ] 7.1.7 Testar com BGM ligado — confirmar mixagem aceitável
+- [ ] 7.1.8 Refresh runtime MZ: F10 → Ctrl+S → reiniciar Playtest (bug F4 — `$dataCommonEvents` em runtime pode não refletir JSON em disco sem reload)
 
 ## Detalhes de Implementação
 
-### Ordem de inserção do `Play SE`
+### Abordagem: script gerador idempotente
 
-| Handler | Posição no evento | Razão |
-|---------|-------------------|-------|
-| `EV_OnSafe` | Após mutação de Consciência/Glória, antes de `EV_ResolucaoSafe` | SE dispara quando ação é "confirmada" (não no clique — clique pode ser rejeitado pelos guardas) |
-| `EV_ResolucaoRiskOK` | No início, antes de `Show Picture` flash | SE sincroniza com flash dourado |
-| `EV_Crash` | No início (já existente em 6.1) | SE sincroniza com flash branco |
+Criar `Jhonny/planos/001-prototipo-core-loop/fase7/build_phase7_audio.py`:
 
-### Pseudo-código (trechos a adicionar)
+- Patch **CE 12** (`EV_OnRisk`): detectar e remover o `Play SE: pneu_cantando` (code 249 com params contendo `"pneu_cantando"`). Detecção de padrão: procurar por cmd `code=249` cujo `parameters[0]` seja `"pneu_cantando"`. Se ausente, skip (idempotente).
+- Patch **CE 15** (`EV_ResolucaoRiskOK`): detectar se já tem `Play SE: pneu_cantando`. Se não, inserir como **cmd 0** (antes de tudo).
+- Patch **CE 11 / CE 18**: skip (já estão corretos desde F4.5/F6 — detecção por padrão confirma).
 
-**`EV_OnSafe` (task-5.1) — adicionar antes de `Call EV_ResolucaoSafe`:**
+### Pseudo-código da mudança
+
+**CE 12 (`EV_OnRisk`) — REMOVER o SE:**
+
 ```
-# Após VAR_SCENE_INDEX += 1 e EV_UpdateHud:
-
-Play SE: "freada", volume 80, pitch 100, pan 0
-
-Call Common Event: EV_ResolucaoSafe
+# Estado atual (F4.5):
+[guarda 1] If SW_RACE_ACTIVE OFF → Exit
+[guarda 2] If SW_INPUT_LOCKED ON → Exit
+ControlSwitch SW_INPUT_LOCKED ON
+Play SE: pneu_cantando, vol 90, pitch 100     ← REMOVER
+[placeholder lógica Risk — clamp, roll, etc.]
 ```
 
-**`EV_ResolucaoRiskOK` (task-5.3) — adicionar no início:**
+**CE 15 (`EV_ResolucaoRiskOK`) — ADICIONAR o SE no início:**
+
 ```
-# EV_ResolucaoRiskOK (Trigger: Call)
-
-Play SE: "pneu_cantando", volume 90, pitch 100, pan 0
-
-# Flash dourado: overlay fullscreen opacidade alta
+# Estado atual (F5):
+# (vazio no início)
 Show Picture: 31, "race/overlay_flash_gold", ...
-...
+Move Picture: 31 → opacity 0 over 6f
+Wait 6f
+ControlSwitch SW_INPUT_LOCKED OFF
+
+# Estado após task 7.1:
+Play SE: pneu_cantando, vol 90, pitch 100     ← ADICIONAR (novo cmd 0)
+Show Picture: 31, "race/overlay_flash_gold", ...
+Move Picture: 31 → opacity 0 over 6f
+Wait 6f
+ControlSwitch SW_INPUT_LOCKED OFF
 ```
 
-**`EV_Crash` (task-6.1) — já tem `crash_metal` (subtarefa 6.1.2):**
+### Formato do comando `Play SE` (code 249) em JSON
+
+```json
+{
+  "code": 249,
+  "indent": 0,
+  "parameters": ["pneu_cantando", 90, 100, 0]
+}
 ```
-# EV_Crash (Trigger: Call)
 
-Play SE: "crash_metal", volume 90, pitch 100, pan 0
+Onde `parameters = [name, volume, pitch, pan]`.
 
-Shake Screen: power 8, ...
-...
-```
+### Volume e pitch finais
 
-### Volume e pitch por SE
+| SE/ME | Volume | Pitch | Pan | Handler |
+|-------|--------|-------|-----|---------|
+| `freada` (SE) | 90 | 100 | 0 | CE 11 (manter) |
+| `pneu_cantando` (SE) | 90 | 100 | 0 | CE 15 (mover para aqui) |
+| `Shock1` (ME) | 90 | 100 | — | CE 18 (manter) |
 
-| SE | Volume | Pitch | Pan | Duração estimada |
-|----|--------|-------|-----|------------------|
-| `freada` | 80 | 100 | 0 | ~0,5s |
-| `pneu_cantando` | 90 | 100 | 0 | ~0,8s |
-| `crash_metal` | 90 | 100 | 0 | ~0,6s |
+> **Nota:** F4.5 usou volume 90 para freada e pneu_cantando. Spec original desta task sugeria 80 para freada, mas o estado real do projeto usa 90 — manter 90 para consistência com F4.5 (sem rework desnecessário).
 
-- **Volume:** 80-90 (de 0-100). 100 é muito alto; 70 já é médio.
-- **Pitch:** 100 (normal). 80 = grave, 120 = agudo.
-- **Pan:** 0 (centro). Negativo = esquerda, positivo = direita.
+### Por que mover pneu_cantando de CE 12 para CE 15?
 
-### Por que estes volumes/pitchs?
+**Antes (F4.5):** Som dispara no momento do clique, antes de saber se foi sucesso ou falha.
+**Depois (task 7.1):** Som dispara somente no ramo de **sucesso** (CE 15), sincronizado com o flash dourado da resolução.
 
-- **Safe (freada 80):** ação menos " intensa" que Risk — volume um pouco menor para não cansar em sequência de Safes.
-- **Risk-sucesso (pneu_cantando 90):** merece destaque — volume maior celebra a ousadia.
-- **Crash (crash_metal 90):** alto o suficiente para impactar, mas não machucar ouvidos.
-
-Calibrar em playtest.
-
-### Por que SE dispara DEPOIS dos guardas?
-
-Os guardas (`SW_RACE_ACTIVE`, `SW_INPUT_LOCKED`, `VAR_TIMER_FRAMES`) podem rejeitar o input antes de qualquer mutação. SE só deve tocar se a ação realmente acontece:
-
-- Clique fora da corrida → guardas rejeitam → sem SE. ✓
-- Clique durante lock → guardas rejeitam → sem SE. ✓
-- Clique com timer expirado → guardas rejeitam → sem SE. ✓
-
-Posicionar o `Play SE` **após** os guardas (mas antes da resolução) garante feedback apenas para ações válidas.
-
-### Por que `pneu_cantando` em vez de novo SE para Risk-sucesso?
-
-Task-2.2 criou apenas 3 SEs:
-
-- `crash_metal` (Crash)
-- `freada` (Safe)
-- `pneu_cantando` (inicialmente pensado para movimento, mas reusamos para Risk-sucesso)
-
-**Razão:** gerar/baixar novo áudio é caro. `pneu_cantando` (som de pneu derrapando) combina narrativamente com Risk-sucesso ("você furou o sinal e o pneu cantou controlado").
-
-Em v2, pode adicionar SEs distintos para Risk-sucesso (`motor_acelerando`) se playtest indicar necessidade.
+Vantagens:
+- **Semântica correta:** pneu_cantando significa "derrapada controlada" — só faz sentido no sucesso. Risk-falha usa Shock1 (CE 18) que significa impacto.
+- **Sincronia audiovisual:** flash dourado e pneu_cantando disparam no mesmo frame.
+- **Redução de ambiguidade:** jogador ouve pneu_cantando → sabe que foi sucesso; ouve Shock1 → sabe que foi crash.
 
 ### Erros comuns a evitar
 
 | Erro | Consequência | Solução |
 |------|--------------|---------|
-| Tocar SE antes dos guardas | Áudio dispara em cliques rejeitados | Colocar após guardas |
-| Volume 100 | Machuca ouvidos em sessões longas | Volume 80-90 |
-| Esquecer `pan 0` | Som tende a um lado | Sempre `pan 0` (centro) |
-| Tocar SE em loop (CE paralelo) | Som infinito | Handlers são `Trigger: Call` (uma vez) |
-| Tocar SE duplicado (2 vezes seguidas) | Efeito " metralhadora" | Guardas já protegem — mas validar |
-| Esquecer de testar com BGM | Mixagem ruim | Sempre testar com BGM ligado |
-| SE muito longo (>1s) | Sobreposta na próxima ação | Manter ≤ 0,8s |
-
-### Mixagem com BGM
-
-Cenário ideal durante a corrida:
-
-- **BGM da corrida** (a definir em task-7.x separada ou placeholder silencioso): volume ~70.
-- **SEs (freada/pneu/crash)**: volume 80-90 — claramente audíveis sobre o BGM.
-
-Se BGM muito alto cobre os SEs:
-
-- Reduzir volume BGM para 50-60.
-- Ou aumentar volume SE para 95.
-
-Playtest final decide calibração.
+| Esquecer de remover pneu_cantando do CE 12 | Som toca duas vezes (clique + resolução) | Patch CE 12 deve detectar e remover antes de adicionar em CE 15 |
+| Adicionar pneu_cantando no CE 15 antes do flash | Som "atrapalha" o efeito visual | Colocar como cmd 0 (antes de tudo) |
+| Volume 100 | Machuca ouvidos | Manter 90 (alinhado ao F4.5) |
+| Tocar SE em loop | Som infinito | Handlers são `Trigger: Call` (uma vez) |
+| Esquecer refresh runtime MZ | JSON atualizado mas runtime não reflete | F10 → Ctrl+S → reiniciar Playtest |
 
 ## visual_validation
 
-Ao concluir esta task (com 5.x, 6.1 prontos):
+Ao concluir esta task:
 
 1. **Ligue o som do computador.**
-2. Inicie a corrida (pode ter BGM de fundo ou não — testar ambos).
+2. Inicie a corrida.
 3. **Teste Safe:** clique em **Parar**.
-   - **Som de freada** toca (~0,5s).
-   - Sincronizado com flash verde (task-5.3).
-4. **Teste Risk-sucesso:** force roll=0 (`$gameVariables.setValue(108, 0)` no F12).
+   - **Som de freada** toca (~0,5s) — já funcionando desde F4.5.
+   - Sincronizado com flash verde (CE 14).
+4. **Teste Risk-sucesso:** force roll=0 (`$gameVariables.setValue(108, 0)` no F12 — debug only).
    - Clique em **Furar**.
-   - **Som de pneu cantando** toca (~0,8s).
-   - Sincronizado com flash dourado (task-5.3).
+   - **Som de pneu cantando** toca (~0,8s), **sincronizado com o flash dourado** (CE 15).
 5. **Teste Risk-falha:** force roll=99.
    - Clique em **Furar**.
-   - **Som de impacto metálico** toca (~0,6s).
-   - Sincronizado com flash branco + shake (task-6.1).
-6. **Teste cliques rejeitados:** durante o lock (após clique), tente clicar de novo.
+   - **ME Shock1** toca no início do Crash (CE 18), sincronizado com flash branco + shake.
+   - **NÃO deve tocar pneu_cantando** (correto — ramo de falha não tem sucesso).
+6. **Teste cliques rejeitados:** durante o lock, tente clicar de novo.
    - **Nenhum SE toca** (guarda `SW_INPUT_LOCKED` rejeita).
-7. **Teste fora da corrida:** com `SW_RACE_ACTIVE = OFF`, tente disparar handler manualmente (`$gameTemp.reserveCommonEvent(N)`).
-   - **Nenhum SE toca** (guarda `SW_RACE_ACTIVE` rejeita).
+7. **Teste fora da corrida:** com `SW_RACE_ACTIVE = OFF`, chame handler manualmente.
+   - **Nenhum SE/ME toca** (guarda `SW_RACE_ACTIVE` rejeita).
 8. Mixagem aceitável (SEs claros sobre BGM se houver).
 9. Console F12 sem erros.
 
 ## Critérios de Sucesso
 
-- [ ] `Play SE: freada` no `EV_OnSafe` após mutação, antes de resolução.
-- [ ] `Play SE: pneu_cantando` no `EV_ResolucaoRiskOK` no início.
-- [ ] `Play SE: crash_metal` confirmado no `EV_Crash` (subtarefa 6.1.2).
-- [ ] Volume 80-90, pitch 100, pan 0.
-- [ ] SE não toca em cliques rejeitados pelos guardas.
-- [ ] SE sincronizado com feedback visual correspondente.
+- [ ] `Play SE: freada` confirmado em CE 11 (sem alteração).
+- [ ] `Play SE: pneu_cantando` **removido** de CE 12.
+- [ ] `Play SE: pneu_cantando` **adicionado** no início de CE 15.
+- [ ] `Play ME: Shock1` confirmado em CE 18 (sem adicionar SE crash_metal).
+- [ ] Volume 90, pitch 100, pan 0 — consistentes em todos os handlers.
+- [ ] SE/ME não toca em cliques rejeitados pelos guardas.
+- [ ] SE sincronizado com feedback visual correspondente (flash verde/dourado/branco).
 - [ ] Mixagem aceitável com BGM.
 - [ ] Sem erros no console.
 - [ ] `visual_validation` (incluindo áudio) confirmada pelo usuário rodando o jogo.
 
 ## Fora de Escopo
 
-- BGM da corrida (a definir em task-7.x ou manter silencioso no MVP).
+- BGM da corrida (a definir em task futura ou manter silencioso no MVP).
 - Música especial na Curva do Diabo — fora do MVP.
-- Variação de pitch por Consciência (ex.: Risk fica mais agudo quando Consciência alta) — fora do MVP.
+- Variação de pitch por Consciência — fora do MVP.
 - Voice acting / narração — fora do MVP.
 - Áudio 3D / spatial — fora do MVP.
-- Opções de acessibilidade (mute SE, ajustar volume) — fora do MVP (assumir defaults).
+- Opções de acessibilidade (mute SE, ajustar volume) — fora do MVP.
+- **SE crash_metal** — explicitamente fora do escopo por decisão do usuário (ME Shock1 basta).

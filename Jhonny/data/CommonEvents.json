@@ -678,6 +678,25 @@
                 ]
             },
             {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "Jhonny_RaceHelper",
+                    "logRaceEvent",
+                    "Log Race Event",
+                    {
+                        "type": "RACE_INIT"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "type = RACE_INIT"
+                ]
+            },
+            {
                 "code": 355,
                 "indent": 0,
                 "parameters": [
@@ -799,13 +818,6 @@
                 ]
             },
             {
-                "code": 108,
-                "indent": 0,
-                "parameters": [
-                    "[TASK 5.4 MANUAL MZ] Inserir Plugin Command TextPicture: Set Text \"GLÓRIA: \\\\V[105]\" + Show (Pic ID 51, pos 560,20). Ver fase-5-completa.md."
-                ]
-            },
-            {
                 "code": 357,
                 "indent": 0,
                 "parameters": [
@@ -837,6 +849,41 @@
                     100,
                     100,
                     255,
+                    0
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "\\C[7]TENTATIVA \\V[112]"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Text = \\C[7]TENTATIVA \\V[112]"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    52,
+                    "",
+                    0,
+                    0,
+                    350,
+                    20,
+                    100,
+                    100,
+                    180,
                     0
                 ]
             },
@@ -1819,6 +1866,25 @@
                 ]
             },
             {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "Jhonny_RaceHelper",
+                    "logRaceEvent",
+                    "Log Race Event",
+                    {
+                        "type": "SAFE_CLICK"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "type = SAFE_CLICK"
+                ]
+            },
+            {
                 "code": 117,
                 "indent": 0,
                 "parameters": [
@@ -1912,18 +1978,6 @@
                     101,
                     101,
                     0
-                ]
-            },
-            {
-                "code": 250,
-                "indent": 0,
-                "parameters": [
-                    {
-                        "name": "pneu_cantando",
-                        "volume": 90,
-                        "pitch": 100,
-                        "pan": 0
-                    }
                 ]
             },
             {
@@ -2029,6 +2083,25 @@
                 ]
             },
             {
+                "code": 357,
+                "indent": 1,
+                "parameters": [
+                    "Jhonny_RaceHelper",
+                    "logRaceEvent",
+                    "Log Race Event",
+                    {
+                        "type": "RISK_SUCCESS"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "type = RISK_SUCCESS"
+                ]
+            },
+            {
                 "code": 117,
                 "indent": 1,
                 "parameters": [
@@ -2117,6 +2190,25 @@
                     102,
                     102,
                     0
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 1,
+                "parameters": [
+                    "Jhonny_RaceHelper",
+                    "logRaceEvent",
+                    "Log Race Event",
+                    {
+                        "type": "RISK_FAIL"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "type = RISK_FAIL"
                 ]
             },
             {
@@ -2267,6 +2359,18 @@
     {
         "id": 15,
         "list": [
+            {
+                "code": 250,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "name": "pneu_cantando",
+                        "volume": 90,
+                        "pitch": 100,
+                        "pan": 0
+                    }
+                ]
+            },
             {
                 "code": 223,
                 "indent": 0,
@@ -2624,6 +2728,25 @@
         "id": 18,
         "list": [
             {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "Jhonny_RaceHelper",
+                    "logRaceEvent",
+                    "Log Race Event",
+                    {
+                        "type": "CRASH"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "type = CRASH"
+                ]
+            },
+            {
                 "code": 249,
                 "indent": 0,
                 "parameters": [
@@ -2897,6 +3020,25 @@
     {
         "id": 19,
         "list": [
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "Jhonny_RaceHelper",
+                    "logRaceEvent",
+                    "Log Race Event",
+                    {
+                        "type": "VICTORY"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "type = VICTORY"
+                ]
+            },
             {
                 "code": 355,
                 "indent": 0,

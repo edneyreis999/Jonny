@@ -741,9 +741,10 @@
         "VAR_LAST_RENDERED_INDEX",
         "",
         "VAR_HOVER_LEVEL",
-        "VAR_TIMER_TIMEOUT_FLAG"
+        "VAR_TIMER_TIMEOUT_FLAG",
+        "VAR_VITORIA_PASSOU"
     ],
-    "versionId": 72787817,
+    "versionId": 17429115,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,

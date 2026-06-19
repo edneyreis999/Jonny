@@ -30,6 +30,20 @@
  *   - S (83) → down
  *   - A (65) → left
  *   - D (68) → right
+ *
+ * Plugin Commands:
+ *   - logRaceEvent { type: "STRING" } → registra evento estruturado no console (F12).
+ *     Captura frame, variaveis 100-117 e switches 100-105. Prefixo "RACE_EVENT:".
+ *
+ * @command logRaceEvent
+ * @text Log Race Event
+ * @desc Registra evento do minigame como JSON estruturado no console.
+ *
+ * @arg type
+ * @text Event Type
+ * @desc Tipo do evento (ex: SAFE_CLICK, RISK_SUCCESS, CRASH, VICTORY).
+ * @type string
+ * @default UNKNOWN
  */
 
 (function() {
@@ -105,14 +119,71 @@
     //=============================================================================
     // API Global
     //=============================================================================
+    const VAR_NAMES = {
+        100: "RACE_ID", 101: "SCENE_INDEX", 102: "SCENE_TYPE", 103: "P_CENA",
+        104: "CONSCIENCIA", 105: "PONTOS_GLORIA", 106: "TAXA_SUCESSO",
+        107: "ROLL_RESULT", 108: "TIMER_FRAMES", 109: "SCENE_START",
+        110: "SEED", 111: "RACE_N_CENAS", 112: "ATTEMPT_N",
+        113: "LAST_RENDERED_INDEX", 115: "HOVER_LEVEL",
+        116: "TIMER_TIMEOUT_FLAG", 117: "VITORIA_PASSOU"
+    };
+    const SWITCH_NAMES = {
+        100: "RACE_ACTIVE", 101: "INPUT_LOCKED", 102: "CRASH_FLAG",
+        103: "LAST_ACTION_SAFE", 104: "PAUSED", 105: "IS_CURVA_DIABO"
+    };
+
+    const captureRaceState = () => {
+        const vars = {};
+        for (const id in VAR_NAMES) {
+            if (VAR_NAMES.hasOwnProperty(id)) {
+                vars[VAR_NAMES[id]] = $gameVariables.value(parseInt(id, 10));
+            }
+        }
+        const switches = {};
+        for (const id in SWITCH_NAMES) {
+            if (SWITCH_NAMES.hasOwnProperty(id)) {
+                switches[SWITCH_NAMES[id]] = $gameSwitches.value(parseInt(id, 10));
+            }
+        }
+        return { vars, switches };
+    };
+
+    const logRaceEvent = (args) => {
+        try {
+            const type = args && args.type ? String(args.type) : "UNKNOWN";
+            const { vars, switches } = captureRaceState();
+            const entry = {
+                type,
+                frame: Graphics.frameCount,
+                vars,
+                switches,
+                timestamp: new Date().toISOString()
+            };
+            console.log("RACE_EVENT:", JSON.stringify(entry, null, 2));
+            return entry;
+        } catch (e) {
+            console.warn("RACE_EVENT: error logging:", e);
+            return null;
+        }
+    };
+
     window.JhonnyRace = {
         rollSceneType,
         rollPCena,
         rollD100,
         clamp,
         createPRNG,
-        logger: (level, ...args) => logger(enableDebugLogs, level, ...args)
+        logger: (level, ...args) => logger(enableDebugLogs, level, ...args),
+        logRaceEvent,
+        captureRaceState
     };
+
+    //=============================================================================
+    // Plugin Commands (MZ API)
+    //=============================================================================
+    if (typeof PluginManager !== "undefined") {
+        PluginManager.registerCommand(pluginName, "logRaceEvent", logRaceEvent);
+    }
 
     //=============================================================================
     // Inicializacao
