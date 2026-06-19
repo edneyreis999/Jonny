@@ -19,6 +19,17 @@ tags: [core-loop, corrida, roguelite, minigame, rpg-maker-mz, timer-based, proce
 > [!info] Consciência ≠ ConcernScore
 > ==Consciência== é a barra ==visível dentro da corrida== (recurso do minigame, reset a cada corrida). ==ConcernScore== é a variável ==oculta acumulada nas cenas VN== (define qual final o jogador acessa). São ==sistemas independentes== — uma não afeta a outra diretamente.
 
+> [!warning] Escopo do MVP — Fase Especial da Curva do Diabo adiada
+> Este spec descreve a ==visão completa do produto==, incluindo a ==Fase Especial da Curva do Diabo== (§6.4 — clímax fixo na última cena da Corrida 3 com `P_cena = 100`). No entanto, essa fase especial está ==fora de escopo do MVP== e será adicionada em iterações futuras do game.
+>
+> Para o MVP (Fase 6 do plano de implementação):
+> - A **Corrida 3 (Abismo)** tem ==10 cenas normais== — sorteio 60/40 Sinal/Curva, igual às corridas 1 e 2.
+> - Nenhuma cena recebe tratamento especial de clímax.
+> - `SW_IS_CURVA_DIABO` (Switch Editor ID 105) está ==reservada e intocada== para uso futuro.
+> - `placa_curva_dir.png` (criado em F2) fica no disco sem ser referenciado no MVP.
+>
+> Menções à Curva do Diabo ao longo deste spec (§1, §2, §6.1, §6.4, §9, §10, §11, §13) descrevem a ==visão de produto completa== e devem ser lidas como especificação futura, não como implementação atual. Ver `Jhonny/planos/001-prototipo-core-loop/core_loop_corrida/task-6.2.md` para o placeholder de implementação futura.
+
 ---
 
 ## Índice
@@ -30,14 +41,15 @@ tags: [core-loop, corrida, roguelite, minigame, rpg-maker-mz, timer-based, proce
 - [5. Mecânica — Cena de Curva](#5-mecânica-cena-de-curva)
 - [6. Geração Procedural](#6-geração-procedural)
 - [7. Restart / Roguelite Loop](#7-restart-roguelite-loop)
-- [8. Feedback Multimodal](#8-feedback-multimodal)
-- [9. Parâmetros Globais](#9-parâmetros-globais)
-- [10. Riscos de Balanceamento](#10-riscos-de-balanceamento)
-- [11. Dependências](#11-dependências)
-- [12. Implementação em RPG Maker MZ](#12-implementação-em-rpg-maker-mz)
-- [13. Decisões em aberto](#13-decisões-em-aberto)
-- [14. Referências](#14-referências)
-- [15. Próximos passos](#15-próximos-passos)
+- [8. Vitória e Derrota da Corrida](#8-vitória-e-derrota-da-corrida)
+- [9. Feedback Multimodal](#9-feedback-multimodal)
+- [10. Parâmetros Globais](#10-parâmetros-globais)
+- [11. Riscos de Balanceamento](#11-riscos-de-balanceamento)
+- [12. Dependências](#12-dependências)
+- [13. Implementação em RPG Maker MZ](#13-implementação-em-rpg-maker-mz)
+- [14. Decisões em aberto](#14-decisões-em-aberto)
+- [15. Referências](#15-referências)
+- [16. Próximos passos](#16-próximos-passos)
 
 ---
 
@@ -54,8 +66,8 @@ tags: [core-loop, corrida, roguelite, minigame, rpg-maker-mz, timer-based, proce
 | **Comprimento**       | Escalona: ==Corrida 1 = 6 cenas== · ==Corrida 2 = 8 cenas== · ==Corrida 3 = 10 cenas==.                    |
 | **Final fixo**        | Última cena da Corrida 3 é sempre ==Curva do Diabo== (`P_cena = 100`, não-reseteável).        |
 | **POV**               | Dissociativo — entre corridas você é o amigo; nas corridas você "vira" o João (ver [[Roleta Paulista]] §3 e §6). |
-| **Condição de vitória**| Ter a ==MAIOR pontuação total== ao final da corrida. Jogador compete por Pontos de Glória, não apenas por completar. |
-| **Condição de derrota**| Risk action com roll falho = ==crash== = restart imediato da corrida. Timer expira = jogada safe automática (Parar/Direita). ==Não chegar em 1º lugar ao final = derrota== = restart.   |
+| **Condição de vitória**| Completar todas as `N_cenas` cenas sem crashar ==E== atingir ==threshold mínimo de Pontos de Glória== (60/100/150 por corrida). Ver §8 para detalhes da tela cerimonial e progressão. |
+| **Condição de derrota**| Risk action com roll falho = ==crash== = restart imediato da corrida. Timer expira = jogada safe automática (Parar/Direita). ==Não atingir threshold ao final = derrota== (tela DERROTA + restart da mesma corrida via `EV_Crash`). |
 | **Input**             | Mouse (clique) + teclado (setas). RPG Maker MZ expõe ambos nativamente em HTML5.               |
 | **Implementação MZ**  | Eventos paralelos + `Show Picture` + `Move Picture` + variáveis + timer por evento. ==Sem plugins==. |
 
@@ -85,7 +97,7 @@ flowchart TD
     RiskOk --> Next
     Roll -->|d100 > taxa| Crash((CRASH))
     Input -->|Timer expira| SafePlus["+10 Consciência<br/>i++"]
-    Next -->|Não, última cena| End([Vitória da corrida])
+    Next -->|Não, última cena| End([Tela Vitória/Derrota — ver §8])
     Crash --> Restart[Restart: nova seed, C = 0]
     Restart --> InitC
 ```
@@ -379,7 +391,91 @@ for i in 0..N-1:
 
 ---
 
-## 8. Feedback Multimodal (consolidado) #feedback #multimodal
+## 8. Vitória e Derrota da Corrida #vitória #derrota #threshold
+
+> [!important] Critério de sucesso da corrida
+> Completar todas as `N_cenas` cenas sem crashar ==não garante vitória==. O jogador precisa atingir um ==threshold mínimo de Pontos de Glória== específico por corrida. Abaixo do threshold = derrota (restart da mesma corrida via `EV_Crash`).
+
+### 8.1 Trigger de fim de corrida
+
+Quando `VAR_SCENE_INDEX >= VAR_RACE_N_CENAS` (todas as cenas resolvidas, sem crash), o `EV_RaceRenderer` (CE 7) chama `EV_VitoriaCorrida` (CE 19). Não há transição direta para próxima corrida — passa pela tela cerimonial primeiro.
+
+### 8.2 Thresholds por corrida
+
+| `VAR_RACE_ID` | Corrida | Threshold de `VAR_PONTOS_GLORIA` | Pontuação máx teórica (Safe-only) | % Risk necessária |
+|---------------|---------|----------------------------------|------------------------------------|-------------------|
+| 1 | Lenda (6 cenas) | ==60== | 60 | 0% (Safe puro basta) |
+| 2 | Rachadura (8 cenas) | ==100== | 80 | ~25% (≥2 Risk-sucessos com `P_cena` médio) |
+| 3 | Abismo (10 cenas) | ==150== | 100 | ~50% (≥4 Risk-sucessos com `P_cena` altos) |
+
+> [!note] Por que esses números?
+> Threshold calibrado para forçar progressivamente mais Risk:
+> - **Corrida 1 (60):** tutorial disfarçado — Safe puro passa. Jogador aprende o sistema.
+> - **Corrida 2 (100):** Safe puro (80) não passa. Força pelo menos 2 Risk-sucessos (`P_cena × 2 ≥ 10` cada, então `P_cena ≥ 5`).
+> - **Corrida 3 (150):** Exige múltiplos Risk-sucessos com `P_cena` altos (60+). Alinhado ao arco "Abismo = abyss".
+>
+> Valores ==calibráveis em playtest== — defaults de F6 são ponto de partida.
+
+### 8.3 Tela cerimonial (VITÓRIA ou DERROTA)
+
+Ao disparar `EV_VitoriaCorrida` (CE 19):
+
+1. **Erase** de todas as pictures ativas (1-60).
+2. **Stop BGM** com 60 frames de fadeout.
+3. **Play ME "Victory"** (curto, ~2-3s).
+4. **Show Picture 5** — fundo de vitória/derrota (`race/bg_vitoria` ou fallback Tint Screen dourado/vermelho).
+5. **Threshold check** via Script inline compara `VAR_PONTOS_GLORIA` contra thresholds (§8.2), seta `VAR_VITORIA_PASSOU` (117) = 0 ou 1.
+6. **Mostra 4 TextPictures:**
+   - **Picture 53: "VITÓRIA!"** — só visível se `VAR_VITORIA_PASSOU == 1` (cor 6 = dourado).
+   - **Picture 56: "DERROTA!"** — só visível se `VAR_VITORIA_PASSOU == 0` (cor 18 = vermelho).
+   - **Picture 54: "Pontos de Glória: \\V[105]"** — sempre (cor 0 = branco).
+   - **Picture 55: "Pressione [Espaço] para continuar"** — sempre (cor 7 = cinza).
+   - Decisão F6 (2026-06-19): usar **2 TextPicture separados** (Picture 53 + 56) com If/Else Show Picture — TextPicture é fixo em edição, então estrutura condicional no `Show` em vez de alternar texto de uma mesma picture.
+7. **Loop de espera por input** (Label/Jump + `Wait 1 frame` + check `Input.isTriggered('ok')`).
+8. **Após input:** branch por `VAR_VITORIA_PASSOU` (§8.4).
+
+> [!info] Picture 53 e 56 nunca coexistem
+> Estrutura If/Else garante que apenas Picture 53 (VITÓRIA) **ou** Picture 56 (DERROTA) seja mostrada — nunca ambas. Após input, ambos são apagados via Script inline `for (let i of [5,53,54,55,56]) $gameScreen.erasePicture(i);` para limpeza defensiva.
+
+### 8.4 Branch pós-input (progressão entre corridas)
+
+| Condição | Ação |
+|----------|------|
+| `VAR_VITORIA_PASSOU == 1` AND `VAR_RACE_ID < 3` | Incrementa `VAR_RACE_ID += 1`, chama `EV_RaceOrchestrator` (CE 5) → começa próxima corrida |
+| `VAR_VITORIA_PASSOU == 1` AND `VAR_RACE_ID == 3` | Tela "FIM" + "Obrigado por jogar!" → loop infinito (jogador fecha janela). Sem endless mode no MVP. |
+| `VAR_VITORIA_PASSOU == 0` (qualquer corrida) | Chama `EV_Crash` (CE 18) → restart da ==mesma corrida== sem avançar `VAR_RACE_ID`, `VAR_ATTEMPT_N` incrementa +1 |
+
+### 8.5 Reset de `VAR_VITORIA_PASSOU` (defensivo)
+
+`VAR_VITORIA_PASSOU` (117) é resetada em ==dois lugares== (decisão F6 2026-06-19 — abordagem defensiva):
+
+1. **No `EV_Crash` (CE 18)** — bloco de reset, junto com `CONSCIENCIA=0`, `GLORIA=0`, etc.
+2. **No INIT do `EV_RaceOrchestrator` (CE 5)** — para garantir que nova corrida comece com estado limpo.
+
+Estado "passou" nunca persiste para a próxima corrida por engano.
+
+### 8.6 Progressão entre corridas (resumo)
+
+```
+Corrida 1 (Lenda, 6 cenas, threshold 60)
+  ├── Passou → Corrida 2
+  └── Não passou → Restart Corrida 1 (EV_Crash, mesma seed resetada, ATTEMPT_N++)
+
+Corrida 2 (Rachadura, 8 cenas, threshold 100)
+  ├── Passou → Corrida 3
+  └── Não passou → Restart Corrida 2
+
+Corrida 3 (Abismo, 10 cenas, threshold 150)
+  ├── Passou → Tela "FIM"
+  └── Não passou → Restart Corrida 3
+```
+
+> [!note] Sem endless mode no MVP
+> Após vencer Corrida 3 com pontuação suficiente, jogador vê tela "FIM". Modo NG+ / endless fica para v2.
+
+---
+
+## 9. Feedback Multimodal (consolidado) #feedback #multimodal
 
 > [!info] Barra de Consciência é o HUD principal #hud
 > A barra de Consciência é ==sempre visível== no topo da tela durante toda a corrida. É o único HUD além do timer. É sépia clara quando cheia, escurecendo para sépia escuro conforme esvazia.
@@ -393,9 +489,9 @@ for i in 0..N-1:
 | Safe — Sinal Parar  | Flash âmbar + Opala freia. **Barra Consciência: +10 em sépia claro.** | Freada curta + motor cai RPM       | —            |
 | Safe — Curva Direita| Opala inclina suave. **Barra Consciência: +10 em sépia claro.** | Pneu canta suave                   | —            |
 | Risk — sucesso      | Flash branco + Opala accel. **Barra Consciência: −P_cena em sépia escuro.** | Motor sobe RPM + pneu grita        | —            |
-| Crash               | Shake 0,3s + partículas sépia + fade preto | Impacto metálico + silêncio abrupto | 50–80ms vib. |
+| Crash               | Shake 0,3s + flash branco + tint preto momentâneo (fade cortado para restart <1s) | ==`Buzzer1` (ME)== toca sobre BGM — feedback negativo padrão MZ. ~~"Impacto metálico + silêncio abrupto"~~ é direção narrativa futura (v2 / polish); asset `crash_metal.ogg` da F2 fica reservado. | 50–80ms vib. |
 | Restart             | Fade-in direto cena 1. **Barra Consciência volta a 0.** | (opcional) respiração do João      | —            |
-| Vitória corrida     | Fade para próxima cena VN                  | Música transita para próxima fase  | —            |
+| Vitória corrida     | ==Tela cerimonial VITÓRIA/DERROTA (ver §8)== com threshold check. Não é mais "fade direto para próxima cena VN". | Stop BGM (1s fadeout) + Play ME "Victory"  | —            |
 
 > [!important] Barra de Consciência é o HUD principal
 > A barra de Consciência é **sempre visível** no topo da tela durante toda a corrida. É o único HUD além do timer. É sépia clara quando cheia, escurecendo para sépia escuro conforme esvazia.
@@ -484,49 +580,76 @@ for i in 0..N-1:
 - **1 Map event** por corrida (Corrida 1, 2, 3) que orquestra o fluxo: define `N_cenas`, rola seed, sorteia tipo + `P_cena` por cena, chama `EV_RaceRenderer`.
 - **Botões** são pictures com hitbox via evento `On Mouse Click` (MZ suporta via parâmetro de picture). Teclado via evento paralelo checando `Input.isTriggered('ok')` etc.
 
-### 12.2 Variáveis (sugestão de IDs)
-```
-VAR_RACE_ID             # 1, 2, ou 3
-VAR_SCENE_INDEX         # 0..N-1
-VAR_SCENE_TYPE          # 0 = sinal, 1 = curva, 2 = curva_do_diabo
-VAR_P_CENA              # 0, 10, 20, ..., 100 (sorteado por cena)
-VAR_CONSCIENCIA         # 0..100 (recurso do jogador, reset a cada corrida)
-VAR_PONTOS_GLORIA        # Pontuação total (Safe: +10, Risk-sucesso: +P_cena×2)
-VAR_TAXA_SUCESSO        # = clamp(CONSCIENCIA + P_CENA, 0, 100)
-VAR_TIMER_REMAINING     # em décimos de segundo (40 = 4,0s)
-VAR_ROLL_RESULT         # 0..99 (d100 roll)
-VAR_CRASH_FLAG          # 0/1
-VAR_SEED                # int aleatório por run
-```
+### 13.2 Variáveis (Editor IDs canônicos — snapshot pós-F6)
 
-### 12.3 Switches
-```
-SW_RACE_ACTIVE          # ON durante corrida; off em VN/menu
-SW_INPUT_LOCKED         # ON durante setup/resolução; previne input duplo
-SW_PAUSED               # menu aberto
-SW_LAST_ACTION_SAFE     # ON se última foi safe, OFF se risk (para feedback)
-```
+> [!important] Convenção de IDs (corrigida em F3)
+> RMMZ acessa `_data[id]` **diretamente** sem offset. Portanto, o índice do array em `System.json` **é igual ao Editor ID** exibido no MZ (`#0100 SW_RACE_ACTIVE`). Documentação pré-F3 confundia índice 0-based com Editor ID — desconsiderar. Para qualquer edição de Common Events, ==primeiro== imprimir `variables[95:117]` e `switches[95:107]` de `System.json` como fonte de verdade.
 
-### 12.4 Pseudo-código do loop principal (Common Event paralelo)
+**Variáveis (Editor IDs 100-117):**
+
+| Editor ID | Nome | Tipo | Reset |
+|-----------|------|------|-------|
+| 100 | `VAR_RACE_ID` | int (1, 2, 3) | Preservado entre restarts |
+| 101 | `VAR_SCENE_INDEX` | int (0..N-1) | Reset 0 no crash |
+| 102 | `VAR_SCENE_TYPE` | int (0=Sinal, 1=Curva, 2=Curva do Diabo — reservado) | Re-setado pelo Renderer |
+| 103 | `VAR_P_CENA` | int (0,10,...,100) | Re-sorteadado por cena |
+| 104 | `VAR_CONSCIENCIA` | int (0..100) | Reset 0 no crash e no INIT corrida |
+| 105 | `VAR_PONTOS_GLORIA` | int (acumula) | Reset 0 no crash e no INIT corrida |
+| 106 | `VAR_TAXA_SUCESSO` | int (0..100) | Reset 0 no crash |
+| 107 | `VAR_ROLL_RESULT` | int (0..99) | Reset 0 no crash |
+| 108 | `VAR_TIMER_FRAMES` | int (frames restantes, 240 = 4,0s) | Reset 240 no crash |
+| 109 | `VAR_SCENE_START` | int (timestamp frame) | Re-setado por cena |
+| 110 | `VAR_SEED` | int aleatório | ==Reset nova seed no crash== (spec §7.3, decisão F6 2026-06-19) |
+| 111 | `VAR_RACE_N_CENAS` | int (6, 8, ou 10) | Calculado no INIT Orchestrator |
+| 112 | `VAR_ATTEMPT_N` | int | ==Incrementado +1 no crash== (decisão F6) E no INIT corrida |
+| 113 | `VAR_LAST_RENDERED_INDEX` | int | Reset 0 no crash |
+| 114 | (livre) | — | Reservado para uso futuro |
+| 115 | `VAR_HOVER_LEVEL` | int (0, 1, 2, 3) | Criada em F5 — nível do hover vermelho |
+| 116 | `VAR_TIMER_TIMEOUT_FLAG` | int (0/1) | Criada em F4 — flag de timeout do timer |
+| 117 | `VAR_VITORIA_PASSOU` | int (0/1) | Criada em F6 — reset ==defensivo== no `EV_Crash` E no INIT Orchestrator |
+
+### 13.3 Switches (Editor IDs 100-105)
+
+| Editor ID | Nome | Função |
+|-----------|------|--------|
+| 100 | `SW_RACE_ACTIVE` | ON durante corrida; OFF em VN/menu |
+| 101 | `SW_INPUT_LOCKED` | ON durante setup/resolução; previne input duplo (invariante: 4 produtores ↔ 4 consumidores) |
+| 102 | `SW_CRASH_FLAG` | ON quando crash foi disparado; reset OFF no `EV_Crash` |
+| 103 | `SW_LAST_ACTION_SAFE` | ON se última foi Safe, OFF se Risk (para feedback) |
+| 104 | `SW_PAUSED` | Menu de pausa aberto |
+| 105 | `SW_IS_CURVA_DIABO` | ==Reservado para Fase Especial da Curva do Diabo (pós-MVP)== — intocada na F6 |
+
+> [!warning] Semântica do `ControlSwitch` (code 121) — bug crítico F5
+> `params[2] === 0` → switch **ON**; `params[2] === 1` → switch **OFF** (==oposto do intuitivo==). Sempre auditar comandos `121` no JSON gerado.
+
+### 13.4 Pseudo-código do loop principal (Common Event paralelo)
 ```
-# No início de cada corrida:
+# No início de cada corrida (EV_RaceOrchestrator INIT):
 VAR_CONSCIENCIA = 0
+VAR_PONTOS_GLORIA = 0
+VAR_SCENE_INDEX = 0
+VAR_VITORIA_PASSOU = 0  # reset defensivo (F6)
+VAR_ATTEMPT_N += 1
 VAR_SEED = Math.floor(Math.random() * 1e9)
+VAR_RACE_N_CENAS = id === 1 ? 6 : id === 2 ? 8 : id === 3 ? 10 : 6  # clamp id se fora de range
 # Para cada cena, sortear tipo + P_cena via seed
 
 while SW_RACE_ACTIVE:
-    if VAR_CRASH_FLAG == 1:
-        Call EV_Crash       # fade, restart, nova seed, C = 0
+    if VAR_SCENE_INDEX >= VAR_RACE_N_CENAS:
+        Call EV_VitoriaCorrida  # threshold check + tela cerimonial (§8)
+        break
+    if SW_CRASH_FLAG == 1:
+        Call EV_Crash  # Tint preto (não fade), restart, nova seed, C=0, ATTEMPT_N++, VITORIA_PASSOU=0
         continue
-    if VAR_TIMER_REMAINING <= 0:
-        VAR_CRASH_FLAG = 1
+    if VAR_TIMER_FRAMES <= 0:
+        VAR_TIMER_TIMEOUT_FLAG = 1
         continue
     if SW_INPUT_LOCKED:
-        Wait(0,1s)
+        Wait(1 frame)
         continue
-    # input handling no On Click / keypress handler (ver 12.5)
-    Wait(0,1s)
-    VAR_TIMER_REMAINING -= 1
+    # input handling no On Click / keypress handler (ver 13.5)
+    Wait(1 frame)
+    VAR_TIMER_FRAMES -= 1
 ```
 
 ### 12.5 Pseudo-código do handler de input (on click/keypress)
@@ -570,8 +693,23 @@ on input (RISK = Furar/Esquerda):
 
 Itens marcados para revisão após primeiro playtest vertical slice:
 
-1. **Re-roll em restart?** Default v2: nova seed + novo `P_cena` por cena + Consciência reset a cada restart. Alternativa: preservar seed. Manter re-roll para alinhamento ao tema *"let chance decide"*.
+1. ~~**Re-roll em restart?** Default v2: nova seed + novo `P_cena` por cena + Consciência reset a cada restart. Alternativa: preservar seed. Manter re-roll para alinhamento ao tema *"let chance decide"*.~~ ==DECIDIDO em F6 (2026-06-19):== **resetar seed a cada crash**, alinhado ao spec §7.3 literalmente. Implementação: `setValue(110, Math.floor(Math.random()*1e9))` no bloco de reset do `EV_Crash`.
 2. **Pesos SINAL/CURVA diferenciados por corrida** (ex.: Corrida 1 = 70/30, Corrida 3 = 40/60). Adiar para v3.
+3. ~~**Timer de Curva encurta na Corrida 3?** Default: 3,5s. Testar 3,0s.~~ Pendente playtest.
+4. ~~**Timer de Sinal encurta na Corrida 3?** Default: 4,0s. Testar 3,5s.~~ Pendente playtest.
+5. **Distribuição de `P_cena` uniforme vs triangular?** Default: uniforme. Se runs extremas prejudicarem, triangular centrada em 50.
+6. **Tick de timer audível?** Default: opcional (3 ticks finais). Testar se é线索 útil ou clutter.
+7. **Indicador de "TENTATIVA N"** na tela de corrida? Default: não. Testar se confunde ou ajuda. (Implementação: task-7.2 via TextPicture.)
+8. ~~**Curva do Diabo sempre na última cena da corrida 3?** Default: sim. Manter fixo para v2 — clímax controlado.~~ ==ADIADO para pós-MVP (F6 task-6.2)== — ver callout no topo do spec.
+9. **Consciência ↔ ConcernScore cross-talk?** Default v2: **independentes**. Alternativa: bônus de ConcernScore se terminar corrida com Consciência > 70. Adiar para v3.
+10. **`P_cena` mostrada visualmente?** Default: **não** numericamente. Intensidade do vermelho do sinal / "fechura" da curva poderiam escalar com P_cena. [PLAYTEST: comunicar sem revelar número].
+11. **Consciência inicial = 0 deixa a primeira cena sempre "Safe"?** Default: sim, é o warm-up narrativo. Testar se cena 1感觉 monótona.
+12. **Risk mesmo com Consciência = 0** permitido? Default: **sim** (aposta pura na sorte). Testar se frustra ou empolga.
+13. **Curva do Diabo com P_cena = 100** = sucesso garantido mas zera Consciência — essa releitura funciona narrativamente? Default: hypothesis a validar em playtest cego. ==ADIADO para pós-MVP.==
+14. **Sistema de Pontuação de Glória cria tensão suficiente para 1º lugar?** ==DECIDIDO em F6 (2026-06-19):== Sim, via thresholds 60/100/150 (§8.2). Risk é matematicamente necessário para passar corridas 2 e 3. Calibrável em playtest.
+15. ~~**Som de crash:** "Impacto metálico" (spec original) vs `Buzzer1` (ME padrão MZ)?~~ ==DECIDIDO em F6 (2026-06-19):== **Buzzer1 (ME)** para MVP — toca sobre BGM, compatível com janela <1s. Asset `crash_metal.ogg` reservado para v2/polish.
+16. ~~**Texto VITÓRIA vs DERROTA:** If/Else alternar texto de uma mesma picture vs 2 TextPicture separados?~~ ==DECIDIDO em F6 (2026-06-19):== **2 TextPicture separados** (Picture 53=VITÓRIA!, Picture 56=DERROTA!) com If/Else Show Picture. TextPicture é fixo em edição.
+17. ~~**Reset de `VAR_VITORIA_PASSOU`:** só no `EV_Crash`, só no INIT Orchestrator, ou nos dois?~~ ==DECIDIDO em F6 (2026-06-19):== **Defensivo nos dois lugares** — estado nunca persiste errado.
 3. **Timer de Curva encurta na Corrida 3?** Default: 3,5s. Testar 3,0s.
 4. **Timer de Sinal encurta na Corrida 3?** Default: 4,0s. Testar 3,5s.
 5. **Distribuição de `P_cena` uniforme vs triangular?** Default: uniforme. Se runs extremas prejudicarem, triangular centrada em 50.
