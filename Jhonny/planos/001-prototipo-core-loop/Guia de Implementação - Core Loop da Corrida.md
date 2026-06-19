@@ -1172,7 +1172,7 @@ Use em cada handler via `Plugin Command → Jhonny_RaceHelper → logRaceEvent`.
 
 - **Spec completo:** [[Corrida - Core Loop]]
 - **Pitch (contexto narrativo):** [[Roleta Paulista]]
-- **Prompt que originou este guia:** [[prompt-guia-implementacao-core-loop]]
+- **Prompt que originou este guia:** [[prompt geracao guia tecnico v1]]
 - **Plugins de referência:** [[Coreto_Core]], [[Coreto_Auto_Triggers]], `PKD_SimpleFishing.js`, `VisuMZ_1_EventsMoveCore.js`
 - **Plugins nativos MZ usados:** `ButtonPicture.js`, `TextPicture.js` (já em `Jhonny/js/plugins/`)
 - **Engine source:** `Jhonny/js/rmmz_core.js` (v1.10.0), `Jhonny/js/rmmz_objects.js`, `Jhonny/js/rmmz_sprites.js`, `Jhonny/js/rmmz_scenes.js`, `Jhonny/js/rmmz_managers.js`

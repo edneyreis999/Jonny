@@ -13,7 +13,7 @@ tags: [tech, indice, prompts, documentacao]
 
 ## Documentos
 
-- **[[prompt-guia-implementacao-core-loop]]** — Prompt otimizado para gerar guia técnico denso de implementação do minigame de corrida procedural
+- **[[prompt geracao guia tecnico v1]]** — Prompt otimizado para gerar guia técnico denso de implementação do minigame de corrida procedural
 
 ---
 
