@@ -1380,6 +1380,96 @@
                     },
                     "list": [
                         {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_EnterBust",
+                                "BASIC: Enter Bust",
+                                {
+                                    "PictureID:eval": "1",
+                                    "PictureName:str": "Jonny",
+                                    "Origin:str": "Bust",
+                                    "Position:num": "5",
+                                    "StartOffsetX:eval": "-200",
+                                    "StartOffsetY:eval": "0",
+                                    "EasingType:str": "OutSine",
+                                    "HorzMirror:str": "None",
+                                    "Duration:eval": "20"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jonny"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Origin = Bust"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Screen Position = 5"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset Y = 0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Entrance Easing = OutSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Horizontal Mirror = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1395,6 +1485,147 @@
                             "indent": 0,
                             "parameters": [
                                 "I got another warning from school today."
+                            ]
+                        },
+                        {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Move_MoveToPosition",
+                                "MOVE: Move Bust(s) to Position",
+                                {
+                                    "PictureID:arrayeval": "[\"1\"]",
+                                    "TargetPosition:eval": "1",
+                                    "EasingType:str": "InOutSine",
+                                    "FlipDirection:str": "None",
+                                    "Duration:eval": "20"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID(s) = [\"1\"]"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Target Position = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Move Easing = InOutSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Flip Direction = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_EnterBust",
+                                "BASIC: Enter Bust",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador",
+                                    "Origin:str": "Bust",
+                                    "Position:num": "9",
+                                    "StartOffsetX:eval": "-200",
+                                    "StartOffsetY:eval": "0",
+                                    "EasingType:str": "OutSine",
+                                    "HorzMirror:str": "None",
+                                    "Duration:eval": "20"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jogador"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Origin = Bust"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Screen Position = 9"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset Y = 0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Entrance Easing = OutSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Horizontal Mirror = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -1421,6 +1652,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 1,
                             "parameters": [
@@ -1436,6 +1674,13 @@
                             "indent": 1,
                             "parameters": [
                                 "Yeah, forget it..."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -1459,6 +1704,13 @@
                             "parameters": [
                                 0,
                                 "A diploma is just a piece of paper, Johnny."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1500,6 +1752,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 2,
                             "parameters": [
@@ -1538,6 +1797,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 2,
                             "parameters": [
@@ -1553,6 +1819,13 @@
                             "indent": 2,
                             "parameters": [
                                 "I don’t know. Lately it’s been hard to even get out of bed."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -1576,6 +1849,13 @@
                             "parameters": [
                                 0,
                                 "That’s why I never show up to first period."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1617,6 +1897,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 3,
                             "parameters": [
@@ -1652,6 +1939,13 @@
                             "parameters": [
                                 2,
                                 "You seem kinda down. If you wanna talk, I’m here, okay?"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1710,8 +2004,14 @@
                             "parameters": [
                                 1,
                                 "Don’t worry about it. You can make it up later."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -1729,6 +2029,13 @@
                             "indent": 1,
                             "parameters": [
                                 "Yeah, forget it..."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -1752,6 +2059,13 @@
                             "parameters": [
                                 0,
                                 "A diploma is just a piece of paper, Johnny."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1793,6 +2107,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 2,
                             "parameters": [
@@ -1831,6 +2152,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 2,
                             "parameters": [
@@ -1846,6 +2174,13 @@
                             "indent": 2,
                             "parameters": [
                                 "I don’t know. Lately it’s been hard to even get out of bed."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -1869,8 +2204,14 @@
                             "parameters": [
                                 0,
                                 "That’s why I never show up to first period."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -1908,8 +2249,14 @@
                             "parameters": [
                                 1,
                                 "Who even likes waking up early to study? haha"
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -1947,8 +2294,14 @@
                             "parameters": [
                                 2,
                                 "You seem kinda down. If you wanna talk, I’m here, okay?"
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2009,6 +2362,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 1,
                             "parameters": [
@@ -2034,6 +2394,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 102,
                             "indent": 1,
                             "parameters": [
@@ -2054,8 +2421,14 @@
                             "parameters": [
                                 0,
                                 "That’s why I never show up to first period."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2093,8 +2466,14 @@
                             "parameters": [
                                 1,
                                 "Who even likes waking up early to study? haha"
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2132,8 +2511,14 @@
                             "parameters": [
                                 2,
                                 "You seem kinda down. If you wanna talk, I’m here, okay?"
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2179,6 +2564,13 @@
                             "code": 404,
                             "indent": 0,
                             "parameters": []
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
                         },
                         {
                             "code": 101,
@@ -2261,6 +2653,13 @@
                     },
                     "list": [
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -2276,6 +2675,13 @@
                             "indent": 0,
                             "parameters": [
                                 "My girlfriend. We fought again."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -2299,8 +2705,14 @@
                             "parameters": [
                                 0,
                                 "Then just break up already! Stop complaining so much."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2341,8 +2753,14 @@
                             "parameters": [
                                 0,
                                 "A girlfriend and the whole school at your feet!"
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2373,8 +2791,14 @@
                             "parameters": [
                                 1,
                                 "No need to show off on your single friend, dude."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2405,8 +2829,14 @@
                             "parameters": [
                                 2,
                                 "So what did you fight about?"
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2461,8 +2891,7 @@
                             "parameters": [
                                 0,
                                 "That’s just your girlfriend being jealous and not wanting you to race anymore."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 0,
@@ -2475,8 +2904,7 @@
                             "parameters": [
                                 1,
                                 "You just need to race again and you’ll be back to normal."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 0,
@@ -2489,8 +2917,14 @@
                             "parameters": [
                                 2,
                                 "You don’t really seem okay with this..."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2580,8 +3014,14 @@
                             "parameters": [
                                 1,
                                 "Couples fight, that’s normal."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2622,8 +3062,14 @@
                             "parameters": [
                                 0,
                                 "A girlfriend and the whole school at your feet!"
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2654,8 +3100,14 @@
                             "parameters": [
                                 1,
                                 "No need to show off on your single friend, dude."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2686,8 +3138,14 @@
                             "parameters": [
                                 2,
                                 "So what did you fight about?"
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -2742,8 +3200,7 @@
                             "parameters": [
                                 0,
                                 "That’s just your girlfriend being jealous and not wanting you to race anymore."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 0,
@@ -2756,8 +3213,7 @@
                             "parameters": [
                                 1,
                                 "You just need to race again and you’ll be back to normal."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 0,
@@ -2770,8 +3226,14 @@
                             "parameters": [
                                 2,
                                 "You don’t really seem okay with this..."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -3026,6 +3488,13 @@
                             "parameters": []
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -3051,6 +3520,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 102,
                             "indent": 0,
                             "parameters": [
@@ -3071,8 +3547,14 @@
                             "parameters": [
                                 0,
                                 "You just need some adrenaline. You should race more."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -3103,8 +3585,14 @@
                             "parameters": [
                                 1,
                                 "It’s just a phase, Johnny. There’s a race tomorrow, you’ll forget all about this."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -3135,6 +3623,14 @@
                             "parameters": [
                                 2,
                                 "It’s weird that you’re not even excited about racing."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -3171,6 +3667,13 @@
                             "code": 404,
                             "indent": 0,
                             "parameters": []
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
                         },
                         {
                             "code": 101,
@@ -3253,6 +3756,13 @@
                     },
                     "list": [
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -3268,6 +3778,13 @@
                             "indent": 0,
                             "parameters": [
                                 "Devil’s Curve... I’m thinking of giving it a try."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -3291,8 +3808,14 @@
                             "parameters": [
                                 0,
                                 "You’d be the biggest legend in town."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -3310,6 +3833,13 @@
                             "indent": 1,
                             "parameters": [
                                 "Yeah... I know."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -3333,8 +3863,14 @@
                             "parameters": [
                                 0,
                                 "My friend Jonny is the best! You’re going to crush it tomorrow."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -3362,6 +3898,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 2,
                             "parameters": [
@@ -3384,6 +3927,13 @@
                             "indent": 2,
                             "parameters": [
                                 "See you tomorrow?"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -3422,8 +3972,14 @@
                             "parameters": [
                                 1,
                                 "That’s just like you, Jonny! The only possible winner tomorrow."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -3451,6 +4007,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 2,
                             "parameters": [
@@ -3473,6 +4036,13 @@
                             "indent": 2,
                             "parameters": [
                                 "See you tomorrow?"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -3511,8 +4081,14 @@
                             "parameters": [
                                 2,
                                 "But... The last guy who tried that turn died. Are you serious about this?"
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -3547,6 +4123,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 2,
                             "parameters": [
@@ -3569,6 +4152,13 @@
                             "indent": 2,
                             "parameters": [
                                 "There’s a race tomorrow. Promise me you won’t do this."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -3597,6 +4187,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 2,
                             "parameters": [
@@ -3622,6 +4219,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 2,
                             "parameters": [
@@ -3637,6 +4241,13 @@
                             "indent": 2,
                             "parameters": [
                                 "Alright, I promise. I’ll try not to wreck the Opala."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -3678,8 +4289,14 @@
                             "parameters": [
                                 1,
                                 "That’s so you, Jonny. If you say can do it..."
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -3710,8 +4327,14 @@
                             "parameters": [
                                 2,
                                 "The last guy who tried died. You’re not serious, right? "
-                            ],
-                            "collapsed": true
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
+                            ]
                         },
                         {
                             "code": 101,
@@ -3746,6 +4369,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 1,
                             "parameters": [
@@ -3768,6 +4398,13 @@
                             "indent": 1,
                             "parameters": [
                                 "There’s a race tomorrow. Promise me you won’t do this."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -3796,6 +4433,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 1,
                             "parameters": [
@@ -3821,6 +4465,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 1,
                             "parameters": [
@@ -3836,6 +4487,13 @@
                             "indent": 1,
                             "parameters": [
                                 "Alright, I promise. I’ll try not to wreck the Opala."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -3865,6 +4523,73 @@
                             "code": 404,
                             "indent": 0,
                             "parameters": []
+                        },
+                        {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_ExitBusts",
+                                "BASIC: Exit Bust(s)",
+                                {
+                                    "PictureID:arrayeval": "[\"1\",\"2\"]",
+                                    "EndOffsetX:eval": "-200",
+                                    "EndOffsetY:eval": "+0",
+                                    "EasingType:str": "InSine",
+                                    "FlipDirection:str": "None",
+                                    "Duration:eval": "20",
+                                    "AutoErase:eval": "true"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID(s) = [\"1\",\"2\"]"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "End Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "End Offset Y = +0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Exit Easing = InSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Flip Direction = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Auto-Erase? = true"
+                            ]
                         },
                         {
                             "code": 201,

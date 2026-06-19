@@ -51,7 +51,7 @@
     },
     {
         "id": 6,
-        "expanded": true,
+        "expanded": false,
         "name": "Estrada_VN4_sabotagem",
         "order": 9,
         "parentId": 1,
@@ -83,7 +83,7 @@
         "id": 9,
         "expanded": true,
         "name": "Celular",
-        "order": 14,
+        "order": 15,
         "parentId": 12,
         "scrollX": 412,
         "scrollY": 450.6666666666667,
@@ -113,7 +113,7 @@
         "id": 12,
         "expanded": true,
         "name": "Formatura_False",
-        "order": 13,
+        "order": 14,
         "parentId": 1,
         "scrollX": 0,
         "scrollY": 0,
@@ -129,7 +129,16 @@
         "scrollY": 0,
         "quick": false
     },
-    null,
+    {
+        "id": 14,
+        "expanded": true,
+        "name": "CelularVazio",
+        "order": 13,
+        "parentId": 6,
+        "scrollX": 412,
+        "scrollY": 450.6666666666667,
+        "quick": false
+    },
     {
         "id": 15,
         "expanded": true,

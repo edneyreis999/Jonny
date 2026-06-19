@@ -1380,176 +1380,28 @@
                     },
                     "list": [
                         {
-                            "code": 357,
+                            "code": 101,
                             "indent": 0,
                             "parameters": [
-                                "VisuMZ_2_VNPictureBusts",
-                                "Basic_EnterBust",
-                                "BASIC: Enter Bust",
-                                {
-                                    "PictureID:eval": "1",
-                                    "PictureName:str": "Jonny",
-                                    "Origin:str": "Bust",
-                                    "Position:num": "1",
-                                    "StartOffsetX:eval": "-200",
-                                    "StartOffsetY:eval": "0",
-                                    "EasingType:str": "OutSine",
-                                    "HorzMirror:str": "None",
-                                    "Duration:eval": "20"
-                                }
+                                "",
+                                0,
+                                1,
+                                2,
+                                "Player"
                             ]
                         },
                         {
-                            "code": 657,
+                            "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Picture ID = 1"
+                                "Maybe it wasn’t just Devil’s Curve. Maybe Johnny had "
                             ]
                         },
                         {
-                            "code": 657,
+                            "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Picture File = Jonny"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Origin = Bust"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Screen Position = 1"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Start Offset X = -200"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Start Offset Y = 0"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Entrance Easing = OutSine"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Horizontal Mirror = None"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Duration = 20"
-                            ]
-                        },
-                        {
-                            "code": 357,
-                            "indent": 0,
-                            "parameters": [
-                                "VisuMZ_2_VNPictureBusts",
-                                "Basic_EnterBust",
-                                "BASIC: Enter Bust",
-                                {
-                                    "PictureID:eval": "2",
-                                    "PictureName:str": "Jonny",
-                                    "Origin:str": "Bust",
-                                    "Position:num": "9",
-                                    "StartOffsetX:eval": "-200",
-                                    "StartOffsetY:eval": "0",
-                                    "EasingType:str": "OutSine",
-                                    "HorzMirror:str": "None",
-                                    "Duration:eval": "20"
-                                }
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Picture ID = 2"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Picture File = Jonny"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Origin = Bust"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Screen Position = 9"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Start Offset X = -200"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Start Offset Y = 0"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Entrance Easing = OutSine"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Horizontal Mirror = None"
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Duration = 20"
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                10
+                                "already been slipping away long before that night..."
                             ]
                         },
                         {
@@ -1558,115 +1410,16 @@
                             "parameters": [
                                 "",
                                 0,
-                                0,
+                                1,
                                 2,
-                                ""
+                                "Player"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Conversa"
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                11
-                            ]
-                        },
-                        {
-                            "code": 102,
-                            "indent": 0,
-                            "parameters": [
-                                [
-                                    "Opção 1",
-                                    "Opção 2",
-                                    "Opção 3"
-                                ],
-                                1,
-                                0,
-                                2,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 402,
-                            "indent": 0,
-                            "parameters": [
-                                0,
-                                "Opção 1"
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 1,
-                            "parameters": [
-                                10
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 1,
-                            "parameters": []
-                        },
-                        {
-                            "code": 402,
-                            "indent": 0,
-                            "parameters": [
-                                1,
-                                "Opção 2"
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 1,
-                            "parameters": [
-                                10
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 1,
-                            "parameters": []
-                        },
-                        {
-                            "code": 402,
-                            "indent": 0,
-                            "parameters": [
-                                2,
-                                "Opção 3"
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 1,
-                            "parameters": [
-                                10
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 1,
-                            "parameters": []
-                        },
-                        {
-                            "code": 404,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
-                            "code": 201,
-                            "indent": 0,
-                            "parameters": [
-                                0,
-                                6,
-                                0,
-                                0,
-                                0,
-                                0
+                                "I wish I had seen it sooner."
                             ]
                         },
                         {
@@ -1704,7 +1457,7 @@
     "note": "",
     "parallaxLoopX": false,
     "parallaxLoopY": false,
-    "parallaxName": "Estrada",
+    "parallaxName": "CelularVazio",
     "parallaxShow": true,
     "parallaxSx": 0,
     "parallaxSy": 0,

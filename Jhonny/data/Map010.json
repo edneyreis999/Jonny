@@ -1380,6 +1380,96 @@
                     },
                     "list": [
                         {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_EnterBust",
+                                "BASIC: Enter Bust",
+                                {
+                                    "PictureID:eval": "1",
+                                    "PictureName:str": "Jonny",
+                                    "Origin:str": "Bust",
+                                    "Position:num": "5",
+                                    "StartOffsetX:eval": "-200",
+                                    "StartOffsetY:eval": "0",
+                                    "EasingType:str": "OutSine",
+                                    "HorzMirror:str": "None",
+                                    "Duration:eval": "20"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jonny"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Origin = Bust"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Screen Position = 5"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset Y = 0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Entrance Easing = OutSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Horizontal Mirror = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1405,6 +1495,147 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Move_MoveToPosition",
+                                "MOVE: Move Bust(s) to Position",
+                                {
+                                    "PictureID:arrayeval": "[\"1\"]",
+                                    "TargetPosition:eval": "1",
+                                    "EasingType:str": "InOutSine",
+                                    "FlipDirection:str": "None",
+                                    "Duration:eval": "20"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID(s) = [\"1\"]"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Target Position = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Move Easing = InOutSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Flip Direction = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_EnterBust",
+                                "BASIC: Enter Bust",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador",
+                                    "Origin:str": "Bust",
+                                    "Position:num": "9",
+                                    "StartOffsetX:eval": "-200",
+                                    "StartOffsetY:eval": "0",
+                                    "EasingType:str": "OutSine",
+                                    "HorzMirror:str": "None",
+                                    "Duration:eval": "20"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jogador"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Origin = Bust"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Screen Position = 9"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset Y = 0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Entrance Easing = OutSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Horizontal Mirror = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1420,6 +1651,13 @@
                             "indent": 0,
                             "parameters": [
                                 "What historic moment?"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1441,6 +1679,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1456,6 +1701,13 @@
                             "indent": 0,
                             "parameters": [
                                 "You're getting more full of yourself every day."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1477,6 +1729,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1492,6 +1751,13 @@
                             "indent": 0,
                             "parameters": [
                                 "They're gonna hate you."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1520,6 +1786,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1535,6 +1808,13 @@
                             "indent": 0,
                             "parameters": [
                                 "Losing to the best driver in school hurts a little less."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -1556,6 +1836,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1574,6 +1861,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1589,6 +1883,13 @@
                             "indent": 0,
                             "parameters": [
                                 "Yeah, right. I heard you did pretty well on the last test."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1617,6 +1918,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1642,6 +1950,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1657,6 +1972,73 @@
                             "indent": 0,
                             "parameters": [
                                 "First I survive senior year. Then I'll figure out the rest."
+                            ]
+                        },
+                        {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_ExitBusts",
+                                "BASIC: Exit Bust(s)",
+                                {
+                                    "PictureID:arrayeval": "[\"1\",\"2\"]",
+                                    "EndOffsetX:eval": "-200",
+                                    "EndOffsetY:eval": "+0",
+                                    "EasingType:str": "InSine",
+                                    "FlipDirection:str": "None",
+                                    "Duration:eval": "20",
+                                    "AutoErase:eval": "true"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID(s) = [\"1\",\"2\"]"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "End Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "End Offset Y = +0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Exit Easing = InSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Flip Direction = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Auto-Erase? = true"
                             ]
                         },
                         {
@@ -1752,6 +2134,179 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_EnterBust",
+                                "BASIC: Enter Bust",
+                                {
+                                    "PictureID:eval": "1",
+                                    "PictureName:str": "Jonny",
+                                    "Origin:str": "Bust",
+                                    "Position:num": "1",
+                                    "StartOffsetX:eval": "-200",
+                                    "StartOffsetY:eval": "0",
+                                    "EasingType:str": "OutSine",
+                                    "HorzMirror:str": "None",
+                                    "Duration:eval": "20"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jonny"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Origin = Bust"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Screen Position = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset Y = 0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Entrance Easing = OutSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Horizontal Mirror = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_EnterBust",
+                                "BASIC: Enter Bust",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador",
+                                    "Origin:str": "Bust",
+                                    "Position:num": "9",
+                                    "StartOffsetX:eval": "-200",
+                                    "StartOffsetY:eval": "0",
+                                    "EasingType:str": "OutSine",
+                                    "HorzMirror:str": "None",
+                                    "Duration:eval": "20"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jogador"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Origin = Bust"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Screen Position = 9"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Start Offset Y = 0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Entrance Easing = OutSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Horizontal Mirror = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1767,6 +2322,13 @@
                             "indent": 0,
                             "parameters": [
                                 "Is that her? Your girlfriend?"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1788,6 +2350,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1803,6 +2372,13 @@
                             "indent": 0,
                             "parameters": [
                                 "You answer fast."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1824,6 +2400,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1839,6 +2422,13 @@
                             "indent": 0,
                             "parameters": [
                                 "Sure. That's the reason."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1860,6 +2450,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1875,6 +2472,13 @@
                             "indent": 0,
                             "parameters": [
                                 "That's actually kind of sweet."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
                             ]
                         },
                         {
@@ -1928,6 +2532,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1946,6 +2557,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -1961,6 +2579,13 @@
                             "indent": 0,
                             "parameters": [
                                 "The only thing I'm afraid of is running out of gas."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -2007,6 +2632,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -2022,6 +2654,13 @@
                             "indent": 0,
                             "parameters": [
                                 "I'm ready to win again."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                11
                             ]
                         },
                         {
@@ -2043,6 +2682,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 0,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
                             "code": 101,
                             "indent": 0,
                             "parameters": [
@@ -2058,6 +2704,73 @@
                             "indent": 0,
                             "parameters": [
                                 "Relax. I know what I'm doing."
+                            ]
+                        },
+                        {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_ExitBusts",
+                                "BASIC: Exit Bust(s)",
+                                {
+                                    "PictureID:arrayeval": "[\"1\",\"2\"]",
+                                    "EndOffsetX:eval": "-200",
+                                    "EndOffsetY:eval": "+0",
+                                    "EasingType:str": "InSine",
+                                    "FlipDirection:str": "None",
+                                    "Duration:eval": "20",
+                                    "AutoErase:eval": "true"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID(s) = [\"1\",\"2\"]"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "End Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "End Offset Y = +0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Exit Easing = InSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Flip Direction = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Auto-Erase? = true"
                             ]
                         },
                         {
