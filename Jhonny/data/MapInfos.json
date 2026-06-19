@@ -31,9 +31,59 @@
     },
     {
         "id": 4,
-        "expanded": false,
+        "expanded": true,
         "name": "Mapa-fase2",
         "order": 4,
+        "parentId": 0,
+        "scrollX": 0,
+        "scrollY": 0,
+        "quick": false
+    },
+    {
+        "id": 5,
+        "expanded": true,
+        "name": "Quarto",
+        "order": 5,
+        "parentId": 0,
+        "scrollX": 0,
+        "scrollY": 0,
+        "quick": false
+    },
+    {
+        "id": 6,
+        "expanded": true,
+        "name": "Estrada",
+        "order": 6,
+        "parentId": 0,
+        "scrollX": 0,
+        "scrollY": 0,
+        "quick": false
+    },
+    {
+        "id": 7,
+        "expanded": false,
+        "name": "Formatura",
+        "order": 7,
+        "parentId": 0,
+        "scrollX": 0,
+        "scrollY": 0,
+        "quick": false
+    },
+    {
+        "id": 8,
+        "expanded": false,
+        "name": "JonnyFormando",
+        "order": 8,
+        "parentId": 0,
+        "scrollX": 0,
+        "scrollY": 0,
+        "quick": false
+    },
+    {
+        "id": 9,
+        "expanded": false,
+        "name": "Celular",
+        "order": 9,
         "parentId": 0,
         "scrollX": 0,
         "scrollY": 0,
