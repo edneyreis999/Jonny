@@ -1418,8 +1418,7 @@
                             "parameters": [
                                 0,
                                 "You’re popular! Getting warnings is basically your middle name."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -3240,9 +3239,9 @@
                         "switch1Valid": false,
                         "switch2Id": 1,
                         "switch2Valid": false,
-                        "variableId": 1,
-                        "variableValid": false,
-                        "variableValue": 0
+                        "variableId": 2,
+                        "variableValid": true,
+                        "variableValue": 2
                     },
                     "directionFix": false,
                     "image": {
@@ -3866,6 +3865,18 @@
                             "code": 404,
                             "indent": 0,
                             "parameters": []
+                        },
+                        {
+                            "code": 201,
+                            "indent": 0,
+                            "parameters": [
+                                0,
+                                13,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
                         },
                         {
                             "code": 0,

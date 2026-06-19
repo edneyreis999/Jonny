@@ -111,7 +111,7 @@
     },
     {
         "id": 12,
-        "expanded": false,
+        "expanded": true,
         "name": "Formatura_False",
         "order": 13,
         "parentId": 1,
