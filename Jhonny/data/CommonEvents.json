@@ -736,7 +736,7 @@
                     "race/bar_consciencia_bg",
                     0,
                     0,
-                    48,
+                    64,
                     96,
                     100,
                     100,
@@ -752,8 +752,8 @@
                     "race/bar_consciencia_fill",
                     0,
                     0,
-                    56,
-                    104,
+                    72,
+                    103,
                     100,
                     100,
                     255,
@@ -783,12 +783,12 @@
                 "code": 231,
                 "indent": 0,
                 "parameters": [
-                    59,
+                    60,
                     "",
                     1,
                     0,
-                    80,
-                    150,
+                    100,
+                    148,
                     100,
                     100,
                     255,
@@ -895,7 +895,7 @@
                     "race/bg-ranking",
                     1,
                     0,
-                    1128,
+                    1144,
                     192,
                     100,
                     100,
@@ -1366,7 +1366,42 @@
                     "race/bar_luck_fill",
                     0,
                     0,
-                    600,
+                    601,
+                    403,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "\\V[106]%"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Text = \\V[106]%"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    61,
+                    "",
+                    1,
+                    0,
+                    648,
                     404,
                     100,
                     100,
@@ -1523,6 +1558,41 @@
                     0,
                     618,
                     290,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "\\V[106]%"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Text = \\V[106]%"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    61,
+                    "",
+                    1,
+                    0,
+                    664,
+                    292,
                     100,
                     100,
                     255,
