@@ -628,7 +628,7 @@
         "",
         "VN1",
         "VN2",
-        "",
+        "VN3",
         "",
         "",
         "",
@@ -740,7 +740,7 @@
         "VAR_ATTEMPT_N",
         "VAR_LAST_RENDERED_INDEX"
     ],
-    "versionId": 24577991,
+    "versionId": 98596424,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,
