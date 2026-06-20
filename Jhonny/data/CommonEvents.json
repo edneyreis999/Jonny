@@ -3227,6 +3227,29 @@
                 ]
             },
             {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    61
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    10,
+                    "race/opala_pov",
+                    0,
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
                 "code": 111,
                 "indent": 0,
                 "parameters": [
