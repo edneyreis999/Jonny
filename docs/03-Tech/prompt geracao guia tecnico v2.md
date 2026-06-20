@@ -42,6 +42,8 @@ Analisar o contexto fornecido e produzir um **guia de implementação denso e ac
 
 Use o histórico de sessão atual como insumo inicial para começar a analise.
 
+Aprendizados da execução do plano anteriror: (arquivos retrospectiva.md dos subdiretorios do diretorio Jhonny/planos/001-prototipo-core-loop)
+
 Caso você não tenha nenhum insumo inicial, responda que não tem insumos o suficiente e peça por um insumo inicial.
 
 ---

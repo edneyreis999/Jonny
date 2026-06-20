@@ -34,8 +34,8 @@ Transformar a análise técnica de implementação (Guia Técnico) em um conjunt
 
 As entradas são **fixas e restritas** a dois arquivos do vault:
 
-1. **Guia Técnico de Implementação** — [Guia de Implementação - Core Loop da Corrida](obsidian://open?vault=summer26&file=docs%2F03-Tech%2FGuia%20de%20Implementa%C3%A7%C3%A3o%20-%20Core%20Loop%20da%20Corrida) — esta é a **análise técnica de implementação** que origina o plano.
-2. **Documento de Domínio** — [Corrida - Core Loop](obsidian://open?vault=summer26&file=docs%2F02-Core-Loop%2FCorrida%20-%20Core%20Loop) — descreve o Core Loop da Corrida (regras, fluxo, feedback ao jogador).
+1. [**Guia Técnico de Implementação**](obsidian://open?vault=summer26&file=Jhonny%2Fplanos%2F001-prototipo-core-loop%2Ffase8%2Frace-feedback-impl-guide) — 
+2. [**Feedback do usuario** ](obsidian://open?vault=summer26&file=Jhonny%2Fplanos%2F001-prototipo-core-loop%2Ffase8%2FDraft)
 
 O executor do plano será **outro agente IA**, não um humano. Cada task deve ser autocontida o suficiente para esse agente começar sem perguntas adicionais.
 
@@ -54,22 +54,20 @@ A validação visual acontece no **RPG Maker MZ** — o usuário rodará o jogo 
 > 6. **Não inventar referências** — se não souber onde algo está, marcar como `TODO: localizar`.
 > 7. **Não pular fases** — cada fase precisa ser validável antes de a próxima fazer sentido; dependências devem ser honestas.
 > 8. **Não gerar tasks genéricas** ("implementar a corrida") — sempre quebrar em ações concretas de 2-4h.
-> 9. **Não usar `console.log`** nem código de debug em produção nas tasks.
-> 10. **Não salvar os artefatos** sem antes perguntar o diretório ao usuário e obter confirmação explícita.
+> 9. **Não salvar os artefatos** sem antes perguntar o diretório ao usuário e obter confirmação explícita.
 
 > [!abstract] Comportamento
-> 11. Idioma dos artefatos: **português (pt-BR)**.
-> 12. Identificadores e código: **inglês** (seguindo regras do projeto em `../../../.claude/rules/basci-rules.json`).
-> 13. Nome do diretório: você **propõe** um nome snake_case simples e pede confirmação antes de criar.
+> 10. Idioma dos artefatos: inglês.
 
 ## FLUXO DE EXECUÇÃO
 
 ### Passo 1 — Scan de Contexto
 
 Leia em paralelo os dois arquivos fixos:
-- [Guia de Implementação - Core Loop da Corrida](obsidian://open?vault=summer26&file=docs%2F03-Tech%2FGuia%20de%20Implementa%C3%A7%C3%A3o%20-%20Core%20Loop%20da%20Corrida)
-- [Corrida - Core Loop](obsidian://open?vault=summer26&file=docs%2F02-Core-Loop%2FCorrida%20-%20Core%20Loop)
 
+1. [**Guia Técnico de Implementação**](obsidian://open?vault=summer26&file=Jhonny%2Fplanos%2F001-prototipo-core-loop%2Ffase8%2Frace-feedback-impl-guide) — 
+2. [**Feedback do usuario** ](obsidian://open?vault=summer26&file=Jhonny%2Fplanos%2F001-prototipo-core-loop%2Ffase8%2FDraft)
+3. Aprendizados da execução do plano anteriror: (arquivos retrospectiva.md dos subdiretorios do diretorio Jhonny/planos/001-prototipo-core-loop)
 ### Passo 2 — Plano via PAL MCP Planner
 
 Use o MCP Sequential Thinking para organizar seus pensamentos referente ao contexto que foi coletado no passo 1. Em seguida
@@ -84,7 +82,6 @@ Invoque `mcp__pal__planner` em modo multi-step:
 
 **Estrutura obrigatória do plano:**
 
-- 3 a 7 fases (mais que isso indica granularidade errada — consolidar)
 - Cada fase tem: objetivo, tasks, validação visual esperada
 - Cada task tem: 2-4h de escopo, dependências explícitas, referências concretas
 
