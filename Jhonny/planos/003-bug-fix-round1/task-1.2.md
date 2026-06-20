@@ -9,20 +9,20 @@ task_id: 1.2
 ## Objective
 
 Produce an idempotent Python generator that applies three coordinated patches
-to halt the parallel race CEs the moment the cerimonial screen is entered,
-closing the infinite-glory exploit described in Implementation Guide §4.
+to lock race side effects while the cerimonial screen is waiting for input,
+closing the infinite-glory exploit without killing the CE 19 parallel owner.
 
 ## Dependencies
 
 - task-1.1 — `fase1/findings.md` provides confirmed CE indices (CE 19, timer
   CE, Safe-resolution CE) and Editor IDs (SW_RACE_ACTIVE=100, SW_INPUT_LOCKED=101,
-  SW_PAUSED=104, VAR_SCENE_INDEX=101? verify, VAR_RACE_N_CENAS=111).
+  SW_PAUSED=104), plus the CE that owns the parallel flow calling CE 19.
 
 ## References
 
-- Implementation Guide §4.3 (Change 1, 2, 3) — three coordinated changes.
-- Implementation Guide §4.4 — final CE 19 shape (pseudo-code).
-- Implementation Guide §13.3 — `ControlSwitch` code 121 inversion
+- Implementation Guide section "Fix — Three-Coordinated-Changes" — three coordinated changes.
+- Implementation Guide section "Pseudo-code — Final EV_VitoriaCorrida shape".
+- Implementation Guide section "Variables & Switches" — `ControlSwitch` code 121 inversion
   (`params[2] === 0` → ON, `params[2] === 1` → OFF).
 - Project memory `rpg-mz-indent-skipbranch` — inserted commands inside
   IF/ELSE must match surrounding indent.
@@ -33,20 +33,24 @@ closing the infinite-glory exploit described in Implementation Guide §4.
 
 ## Patch specification
 
-### Patch A — CE 19 top: freeze the race
+### Patch A — CE 19 top: lock ceremony side effects
 
 At index 0 of CE 19's list (before any existing command; remember list[0] is
-the canonical "header" indent 0 command in RMMZ CE JSON), insert three
+the canonical "header" indent 0 command in RMMZ CE JSON), insert two
 `ControlSwitch` (code 121) commands:
 
 | Switch | Value   | `params` (code 121)              |
 | ------ | ------- | -------------------------------- |
-| SW_RACE_ACTIVE (100)   | OFF | `[100, 100, 1]` |
 | SW_INPUT_LOCKED (101)  | ON  | `[101, 101, 0]` |
 | SW_PAUSED (104)        | ON  | `[104, 104, 0]` |
 
 Insert at indent 0. Idempotency check: detect by looking for an existing
-command tuple `(code=121, params=[100,100,1])` in the list; if present, skip.
+pair of command tuples `(code=121, params=[101,101,0])` and
+`(code=121, params=[104,104,0])` at the list head; if present, skip.
+
+Do **not** insert `SW_RACE_ACTIVE = OFF` in CE 19. CE 19 is reached through a
+parallel owner that depends on SW_RACE_ACTIVE; turning it off before `WAIT_INPUT`
+can stop the interpreter after the first `Wait 1 frame`.
 
 ### Patch B — Timer CE top: defensive early-return
 
@@ -54,6 +58,8 @@ At the top of the timer CE's loop body (look for the `Label` command that
 marks the TICK loop, or at index 1 if no label), insert a Conditional Branch
 (code 111) on `SW_RACE_ACTIVE == OFF` followed by
 `Exit Event Processing` (code 115) inside the branch, then `End` (code 412).
+Also verify the existing `SW_INPUT_LOCKED == ON` branch waits 1 frame and jumps
+back to `TICK` before any timer decrement.
 
 Pseudo-structure inside the branch:
 
@@ -66,22 +72,14 @@ End                              # code 412, indent 0
 Idempotency check: scan for an existing `code=111` branch whose condition
 references switch 100 followed within 3 commands by `code=115`. If present, skip.
 
-### Patch C — Safe-resolution CE top: invariant guard
+### Patch C — Safe-resolution CE top: lock guard
 
-At the top of the Safe-resolution CE body, insert a Conditional Branch
-comparing `VAR_SCENE_INDEX >= VAR_RACE_N_CENAS`. If true, `Exit Event
-Processing` — do not award `+10` glory.
-
-Editor IDs (verify from `fase1/findings.md`):
-- VAR_SCENE_INDEX = 101
-- VAR_RACE_N_CENAS = 111
-
-RMMZ branch on variable comparison (code 111 with `parameters[0] === 1` for
-game variable, source `parameters[1] = 101`, operation `>=`, value type =
-variable, value = 111).
+At the top of the Safe-resolution CE body, verify or insert a Conditional
+Branch on `SW_INPUT_LOCKED == ON`. If true, `Exit Event Processing` — do not
+award `+10` glory while the victory/defeat screen is active.
 
 Idempotency check: scan for an existing `code=111` branch whose condition
-references variables 101 and 111 with operation `>=`. If present, skip.
+references switch 101 followed within 3 commands by `code=115`. If present, skip.
 
 ## Step-by-step
 
@@ -91,10 +89,9 @@ references variables 101 and 111 with operation `>=`. If present, skip.
 2. Create `Jhonny/planos/003-bug-fix-round1/fase1/build_phase1_ces.py` with:
    - `CE_INDEX_VITORIA = 19`
    - `CE_INDEX_TIMER`, `CE_INDEX_SAFE` from `fase1/findings.md`
-   - `VAR_SCENE_INDEX = 101`, `VAR_RACE_N_CENAS = 111`
    - `SW_RACE_ACTIVE = 100`, `SW_INPUT_LOCKED = 101`, `SW_PAUSED = 104`
-   - Functions `patch_a_freeze_race(ces)`, `patch_b_timer_early_return(ces)`,
-     `patch_c_safe_invariant_guard(ces)`. Each returns
+   - Functions `patch_a_ceremony_lock(ces)`, `patch_b_timer_guards(ces)`,
+     `patch_c_safe_lock_guard(ces)`. Each returns
      `("applied" | "skipped", ces)`.
    - `main()` loads `Jhonny/data/CommonEvents.json`, runs the three patches in
      order, prints one line per patch with the result, and writes back only
@@ -119,8 +116,9 @@ function names.
 
 - [ ] `fase1/build_phase1_ces.py` exists and parses with `python3 -c "import
       ast; ast.parse(...)"`.
-- [ ] All three patch functions present (`patch_a_freeze_race`,
-      `patch_b_timer_early_return`, `patch_c_safe_invariant_guard`).
+- [ ] All three patch functions present (`patch_a_ceremony_lock`,
+      `patch_b_timer_guards`, `patch_c_safe_lock_guard`).
 - [ ] Each patch function has an idempotency check that returns "skipped" if
       the pattern is already present.
+- [ ] CE 19 Patch A never inserts or restores `SW_RACE_ACTIVE`.
 - [ ] No mutations performed against `data/*.json` in this task.

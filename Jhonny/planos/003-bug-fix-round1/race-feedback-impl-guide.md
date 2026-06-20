@@ -89,7 +89,7 @@ flowchart TD
 
 1. **Native events first.** Spec §1 explicitly mandates "Sem plugins" (no plugins) for the core loop. Where a fix can be expressed in `Show Picture` / `Move Picture` / `Control Variable` / `Control Switch` / `Play ME` commands inside an existing Common Event, prefer that over extending `Jhonny_RaceHelper.js`. The plugin exists to expose helpers that *cannot* be expressed event-side (RNG, threshold tables, complex branching).
 2. **The plugin is a configuration surface, not a logic owner.** `Jhonny_RaceHelper.js` should expose pure functions on `window.JhonnyRace.*`. Game state (`$gameVariables`, `$gameSwitches`) remains authoritative; the plugin reads, never owns.
-3. **Parallel Common Events must have a single kill switch.** `SW_RACE_ACTIVE` (Editor ID 100, spec §13.3) is the canonical pause signal. Every parallel CE in the race scene must early-return when this switch is OFF. Bug #3 exists because `EV_RaceTimer` violates this contract somewhere on the victory/defeat path.
+3. **Parallel Common Events have owner switches and operational locks.** `SW_RACE_ACTIVE` (Editor ID 100, spec §13.3) owns the race parallel CEs and must stay ON while a called flow still needs `Wait`, `Label/Jump`, or input polling. Use `SW_INPUT_LOCKED` (Editor ID 101) to pause timer/input side effects during ceremony screens.
 4. **Pictures 1–60 are owned by the race scene.** Per spec §8.3, `EV_VitoriaCorrida` erases pictures 1–60 defensively. Any new picture for HUD must either (a) live in this range and tolerate the wipe, or (b) live outside this range (61+) and manage its own lifecycle. Mixing the two is how pictures "disappear" (issue #6).
 
 ---
@@ -192,7 +192,7 @@ $gameVariables.setValue(117, window.JhonnyRace.isVictory(pontos, raceId) ? 1 : 0
 | 4 | Keep one literal reference alive as a **fallback assert** in `EV_VitoriaCorrida`: if `typeof window.JhonnyRace === 'undefined'`, fall back to the inline literal table and `console.warn` once. | Defensive against plugin-load-order regressions. Remove after F8 playtest confirms. |
 
 > [!warning] Plugin load order matters
-> `Jhonny_RaceHelper.js` must appear in `plugins.js` **before** any other plugin that consumes `window.JhonnyRace` at load time. RMMZ loads plugins in the order declared in `Jhonny/js/plugins/plugins.js`. Verify with `cat Jhonny/js/plugins/plugins.js | jq '.[] | select(.name | contains("Jhonny")) | .name'`. If `Jhonny_RaceHelper` is not first, the consumer pattern in §2.3 (IIFE-defensive `|| {}`) absorbs the ordering risk — but only at runtime, not at static-load time. For CE inline scripts this is irrelevant (CEs run after all plugins load).
+> `Jhonny_RaceHelper.js` must appear in `plugins.js` **before** any other plugin that consumes `window.JhonnyRace` at load time. RMMZ loads plugins in the order declared in `Jhonny/js/plugins.js`, which is also where active plugin parameter values are stored for runtime. Verify with `cat Jhonny/js/plugins.js | jq '.[] | select(.name | contains("Jhonny")) | .name'`. If `Jhonny_RaceHelper` is not first, the consumer pattern in §2.3 (IIFE-defensive `|| {}`) absorbs the ordering risk — but only at runtime, not at static-load time. For CE inline scripts this is irrelevant (CEs run after all plugins load).
 
 ---
 
@@ -303,8 +303,8 @@ This is the most severe bug in the batch. It is an **infinite-glory exploit**: a
 
 | Defect | Cause | Effect |
 |--------|-------|--------|
-| **3a. Timer leak** | `EV_RaceTimer` (parallel CE) does not early-return when the race has ended. | Timer continues decrementing `VAR_TIMER_FRAMES` on the victory/defeat screen. |
-| **3b. Input/gloria side-effect on timeout** | When `VAR_TIMER_FRAMES <= 0`, the timeout path (spec §13.4) executes Safe auto-action: `VAR_CONSCIENCIA += 10`, `VAR_PONTOS_GLORIA += 10`, `VAR_SCENE_INDEX += 1`. The `+= 10` to glory fires unconditionally. | Each timeout cycle awards +10 glory. Player idles → infinite glory. |
+| **3a. Missing ceremonial lock** | `EV_VitoriaCorrida` enters the victory/defeat screen without first setting `SW_INPUT_LOCKED = ON`. | `EV_RaceTimer` can continue decrementing `VAR_TIMER_FRAMES` while the screen is waiting for input. |
+| **3b. Input/gloria side-effect on timeout** | When `VAR_TIMER_FRAMES <= 0`, the timeout path (spec §13.4) executes Safe auto-action: `VAR_CONSCIENCIA += 10`, `VAR_PONTOS_GLORIA += 10`, `VAR_SCENE_INDEX += 1`. The `+= 10` to glory is only safe while race input is unlocked. | Each timeout cycle awards +10 glory. Player idles → infinite glory. |
 | **3c. Music gating bug** | The defeat ME (issue #2) plays only after the player presses space, which means the cerimonial sting is gated on input rather than on screen entry. | Player hears nothing (or stale BGM) until pressing space. |
 
 ### 4.2 The Glory Exploit Chain
@@ -321,7 +321,7 @@ sequenceDiagram
     Vis->>GS: erasePicture(1..60)
     Vis->>GS: stopBgm(60f)
     Note over Vis: Shows victory/defeat pictures. Loops on Input.isTriggered('ok').
-    Note over Timer: DANGER: SW_RACE_ACTIVE is still ON.
+    Note over Timer: DANGER: SW_INPUT_LOCKED is still OFF.
 
     loop Every 0.1s (timer tick)
         Timer->>GS: read VAR_TIMER_FRAMES
@@ -337,35 +337,38 @@ sequenceDiagram
     Note over Vis: NOW music plays (defect 3c) — too late.
 ```
 
-**Why `SW_RACE_ACTIVE` does not save us.** Spec §13.3 declares `SW_RACE_ACTIVE` (Editor ID 100) as "ON during race, OFF in VN/menu." The cerimonial screen is neither "race" nor "VN/menu" — it is a transitional state. The current implementation likely keeps `SW_RACE_ACTIVE = ON` during the cerimonial screen because `EV_VitoriaCorrida` was invoked *from within* the race orchestrator. **The fix is to treat the cerimonial screen as a non-race state and turn `SW_RACE_ACTIVE = OFF` at the top of `EV_VitoriaCorrida`.**
+**Why `SW_RACE_ACTIVE` must stay ON here.** `EV_VitoriaCorrida` is reached from a race parallel flow that depends on `SW_RACE_ACTIVE`. If CE 19 turns that switch OFF before its `WAIT_INPUT` loop, the first `Wait 1 frame` can stop the owning parallel interpreter before input is consumed. Treat the ceremony screen as a race-owned paused state: keep `SW_RACE_ACTIVE` ON, set `SW_INPUT_LOCKED = ON`, and release the lock only after the continue input is accepted.
 
 ### 4.3 Fix — Three-Coordinated-Changes
 
-The fix requires three coordinated mutations to `EV_VitoriaCorrida` (CE 19):
+The fix requires coordinated changes across `EV_VitoriaCorrida` (CE 19) and the timer/handler guards:
 
-#### Change 1 — Kill the parallel CEs on screen entry
+#### Change 1 — Lock race side effects on screen entry
 
 At the **top** of `EV_VitoriaCorrida` (before step 1 of spec §8.3):
 
 ```
-Control Switches: #001 SW_RACE_ACTIVE = OFF
-Control Switches: #002 SW_INPUT_LOCKED = ON     # defensive — no input during cerimonial
+Control Switches: #002 SW_INPUT_LOCKED = ON     # timer/handlers wait or exit
 Control Switches: #004 SW_PAUSED = ON           # canonical pause signal (spec §13.3)
 ```
 
-This causes `EV_RaceTimer` (and any other parallel CE gating on these switches) to early-return on its next 0.1s tick, halting defect 3a and 3b.
+Do **not** set `SW_RACE_ACTIVE = OFF` in CE 19. The ceremony still needs the race parallel owner alive while `WAIT_INPUT` loops. `SW_INPUT_LOCKED = ON` is the operational lock that makes `EV_RaceTimer` wait and makes Safe/Risk handlers exit without awarding glory.
 
 > [!warning] The controlSwitch code 121 inversion
 > Per spec §13.3 callout: `params[2] === 0` → switch **ON**; `params[2] === 1` → switch **OFF**. **Always audit raw JSON** after editing the CE in the editor. The bug history (F5) shows this inversion has bitten the project once already.
 
 #### Change 2 — Defensive abort in `EV_RaceTimer`
 
-Even with `SW_RACE_ACTIVE = OFF`, add a defensive abort at the top of `EV_RaceTimer`'s loop body:
+Keep the true non-race guard at the top of `EV_RaceTimer`'s loop body, and verify the existing `SW_INPUT_LOCKED` wait-loop remains before the decrement:
 
 ```
 # EV_RaceTimer (parallel CE), at top of Label TICK loop:
 If SW_RACE_ACTIVE == OFF:
     Exit Event Processing   # stop ticking immediately
+
+If SW_INPUT_LOCKED == ON:
+    Wait 1 frame
+    Jump to Label: TICK
 
 # Existing tick logic below:
 VAR_TIMER_FRAMES -= 1
@@ -375,7 +378,7 @@ If VAR_TIMER_FRAMES <= 0:
 Jump to Label: TICK
 ```
 
-This is belt-and-suspenders: if any future code path turns the switch back on without restarting the timer cleanly, the timer self-disables.
+This preserves the owner lifecycle (`SW_RACE_ACTIVE`) while stopping the side effect that caused the exploit (`VAR_TIMER_FRAMES` decrement and Safe auto-action).
 
 #### Change 3 — Defensive abort in the timeout path
 
@@ -383,6 +386,9 @@ In whichever CE handles the timeout (likely `EV_RaceTimer` itself calls inline l
 
 ```
 # At the very top of EV_ResolucaoSafe (or equivalent):
+If SW_INPUT_LOCKED == ON:
+    Exit Event Processing   # ceremony/input lock; do NOT award glory
+
 If VAR_SCENE_INDEX >= VAR_RACE_N_CENAS:
     Exit Event Processing   # we're past the end; do NOT award +10 glory
 
@@ -392,15 +398,14 @@ VAR_PONTOS_GLORIA += 10        # ⚠️ this is the exploit line — only safe i
 VAR_SCENE_INDEX += 1
 ```
 
-**Why this matters:** Even if 3a and 3b are fixed at the timer level, any other CE that calls `EV_ResolucaoSafe` while past the end of the race would re-introduce the bug. The check `VAR_SCENE_INDEX >= VAR_RACE_N_CENAS` is the invariant that defines "race is over."
+**Why this matters:** Even if the timer is fixed, any other CE that calls `EV_ResolucaoSafe` while the ceremony lock is active or while the race is past its final scene would re-introduce the bug.
 
 ### 4.4 Pseudo-code — Final `EV_VitoriaCorrida` shape
 
 ```
 # EV_VitoriaCorrida (CE 19) — revised top-to-bottom
 
-# === NEW: freeze the race ===
-Set Switch SW_RACE_ACTIVE = OFF
+# === NEW: lock race side effects while keeping the owner alive ===
 Set Switch SW_INPUT_LOCKED = ON
 Set Switch SW_PAUSED = ON
 
@@ -436,15 +441,16 @@ Show Picture 55: "Pressione [Espaço] para continuar"  (gray)
 
 # === Existing step 7: input wait loop ===
 Label WAIT_INPUT
+Script: if (window.JhonnyRace) JhonnyRace.logFrameDebug('RACE_WAIT_INPUT', payload)
 Wait 1 frame
-If Not Input.isTriggered('ok'):
+If Not continue input accepted:
     Jump to Label: WAIT_INPUT
 
 # === Existing step 8: cleanup + branch ===
 Script: for (let i of [5,53,54,55,56]) $gameScreen.erasePicture(i);
 Set Switch SW_PAUSED = OFF
 Set Switch SW_INPUT_LOCKED = OFF
-# (SW_RACE_ACTIVE stays OFF — next race will turn it ON via EV_RaceOrchestrator INIT)
+# SW_RACE_ACTIVE was never toggled here.
 
 If VAR_VITORIA_PASSOU == 1:
     If VAR_RACE_ID < 3:
@@ -705,6 +711,7 @@ Both `% always 0%` (#5) and `% disappears` (#6) resolve together.
 |------|-----|-----------------|
 | **#3 glory exploit** | Win race 1, idle on victory screen 30s, check `VAR_PONTOS_GLORIA` via F9. | Value unchanged. |
 | **#3 input still works** | Win race 1, press space immediately. | Transitions to race 2. |
+| **#3 wait loop alive** | Idle on victory/defeat screen before pressing continue; inspect throttled `RACE_WAIT_INPUT` logs. | Logs repeat with increasing `Graphics.frameCount`; one log only means the interpreter was interrupted. |
 | **#3 timer frozen on cerimonial** | F9 during cerimonial screen, watch `VAR_TIMER_FRAMES`. | Value does not decrement. |
 | **#2 defeat ME** | Lose race (intentionally fail Risk) → reach defeat screen. | Defeat ME plays immediately, distinct from victory ME. |
 | **#2 victory ME** | Win race → reach victory screen. | Victory ME plays (unchanged from before). |
@@ -786,11 +793,12 @@ These are the engine files and methods the implementing agent will need to navig
 - **Do** preserve the `EV_Crash` "reset VITORIA_PASSOU defensively in two places" pattern (spec §8.5) when adding new reset logic. The pattern is: every state variable that must start clean is reset in **both** `EV_Crash` and `EV_RaceOrchestrator` INIT.
 - **Do** use `Script: for (let i of [5,53,54,55,56]) $gameScreen.erasePicture(i);` for defensive multi-picture erase. Concise and grep-friendly.
 - **Do** expose new helpers on `window.JhonnyRace` (matches Coreto pattern, enables console testing).
+- **Do** route per-frame diagnostic logs through `JhonnyRace.logFrameDebug(type, payload)` or an equivalent throttled helper.
 - **Do** commit each issue's fix as a separate git commit with a conventional-commits message (`fix(race): stop timer leak on cerimonial screen`, `refactor(race): extract thresholds to window.JhonnyRace`, etc.). This makes playtest regression easy to bisect.
 
 ### 10.2 Don'ts
 
-- **Don't** use `console.log` for permanent logging — use the project's logging pattern (per global CLAUDE.md, the project bans `console.log`/`console.error` in production code; uses `winston`). For RMMZ inline scripts where winston isn't reachable, use `console.warn` for one-shot debug and remove before ship.
+- **Don't** use `console.log` for permanent or per-frame logging — use the project's logging pattern, and for RMMZ inline loop diagnostics use a throttled helper exposed by the race plugin.
 - **Don't** add new parallel CEs casually. Each parallel CE runs every frame (or every Wait tick). The current race scene already has `EV_RaceTimer` + `EV_RaceRenderer` + (per this guide) `EV_UpdateHud`. Three is the upper bound for a gamejam scene.
 - **Don't** put the HUD picture outside the 1–60 range without coordinating with `EV_Crash`. The erase-range is a contract.
 - **Don't** use `Wait` in a non-parallel CE during the race — it blocks input. All per-frame logic must be in parallel CEs.
@@ -818,12 +826,14 @@ Implement in this order. Tick each box only after the corresponding verification
 - [ ] Read `Jhonny_RaceHelper.js` end-to-end.
 - [ ] Read `Jhonny/data/CommonEvents.json` for CEs 5, 7, 18, 19 (orchestrator, renderer, crash, vitoria).
 - [ ] Read `Jhonny/data/System.json` slice: `jq '.variables[95:117], .switches[95:107]'`.
-- [ ] In `EV_VitoriaCorrida` (CE 19), add the three switch-offs at the top: `SW_RACE_ACTIVE = OFF`, `SW_INPUT_LOCKED = ON`, `SW_PAUSED = ON`. (§4.4)
+- [ ] In `EV_VitoriaCorrida` (CE 19), add `SW_INPUT_LOCKED = ON` and `SW_PAUSED = ON` at the top; do not toggle `SW_RACE_ACTIVE`. (§4.4)
 - [ ] Verify the JSON for those `ControlSwitch` (code 121) commands uses `params[2]` correctly (0 = ON, 1 = OFF). (§4.3 Change 1 callout)
-- [ ] In `EV_RaceTimer`, add the early-return at the top of the TICK loop. (§4.3 Change 2)
-- [ ] In the Safe-resolution CE (`EV_ResolucaoSafe` or inline), add the `VAR_SCENE_INDEX >= VAR_RACE_N_CENAS` early-return. (§4.3 Change 3)
+- [ ] In `EV_RaceTimer`, keep the `SW_RACE_ACTIVE == OFF` true non-race abort and verify the `SW_INPUT_LOCKED == ON` wait-loop runs before timer decrement. (§4.3 Change 2)
+- [ ] In the Safe-resolution CE (`EV_ResolucaoSafe` or inline), verify `SW_INPUT_LOCKED == ON` exits before any `+10` glory award. (§4.3 Change 3)
+- [ ] In `EV_VitoriaCorrida` `WAIT_INPUT`, use throttled `RACE_WAIT_INPUT` logging through `JhonnyRace.logFrameDebug`, not raw per-frame `console.log`.
 - [ ] Playtest: win race 1, idle 30s on victory screen, check `VAR_PONTOS_GLORIA` via F9 → unchanged. (§4.5)
 - [ ] Playtest: lose race 1 (crash), idle 30s on defeat screen, check `VAR_PONTOS_GLORIA` → unchanged.
+- [ ] Playtest: on both victory and defeat screens, continue input exits the screen; `RACE_WAIT_INPUT` must log more than once with increasing frames before input.
 - [ ] Commit: `fix(race): stop timer leak and glory exploit on cerimonial screen`.
 
 ### Phase 2 — Music Fix (Issue #2, bundled with Phase 1)
@@ -905,7 +915,7 @@ rg -n "TextPicture|textPicture" Jhonny/data/CommonEvents.json Jhonny/js/plugins/
 ls -la Jhonny/audio/me/
 
 # 9. Plugins.js load order
-jq '.[] | .name' Jhonny/js/plugins/plugins.js
+jq '.[] | .name' Jhonny/js/plugins.js
 ```
 
 ---

@@ -25,11 +25,11 @@ validation in Playtest.
 
 ### Phase 1 — Critical Glory Exploit Fix (#3)
 
-**Goal:** Stop timer and glory award on the cerimonial screen.
-**Visual validation:** Glory number on victory/defeat screen stays put during a 30s idle.
+**Goal:** Stop timer and glory award on the cerimonial screen without toggling the race-owner switch.
+**Visual validation:** Glory number on victory/defeat screen stays put during a 30s idle, then continue input exits the screen.
 
 - task-1.1 — Snapshot state + locate CE targets · ~1h · deps: none
-- task-1.2 — Write `fase1/build_phase1_ces.py` (3 patches) · ~3h · deps: 1.1
+- task-1.2 — Define idempotent CE ceremony-lock patch (3 checks) · ~3h · deps: 1.1
 - task-1.3 — Run generator + audit + Playtest · ~1h · deps: 1.2
 
 ### Phase 2 — Defeat Music (#2)
@@ -93,6 +93,10 @@ validation in Playtest.
   `skipBranch` will terminate the branch early.
 - **ControlSwitch inversion:** code 121 with `params[2] === 0` turns the switch
   ON; `params[2] === 1` turns it OFF. Always audit raw JSON after editing.
+- **Ceremony lock:** during victory/defeat `WAIT_INPUT`, keep `SW_RACE_ACTIVE`
+  unchanged and use `SW_INPUT_LOCKED=ON` to pause timer/handlers.
+- **Generated CE source:** when a task changes `CommonEvents.json`, update the
+  corresponding generator/patcher and run it once to prove idempotency.
 - **No auto-commit:** the user explicitly directs when to commit. Do not run
   `git commit` unless asked.
 

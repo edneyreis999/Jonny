@@ -17,6 +17,7 @@ tools:
   - Skill
 ---
 
+
 # Prompt — Gerar Plano de Ação Técnico
 
 > [!info] Quando usar
@@ -67,7 +68,7 @@ Leia em paralelo os dois arquivos fixos:
 
 1. [**Guia Técnico de Implementação**](obsidian://open?vault=summer26&file=Jhonny%2Fplanos%2F001-prototipo-core-loop%2Ffase8%2Frace-feedback-impl-guide) — 
 2. [**Feedback do usuario** ](obsidian://open?vault=summer26&file=Jhonny%2Fplanos%2F001-prototipo-core-loop%2Ffase8%2FDraft)
-3. Aprendizados da execução do plano anteriror: (arquivos retrospectiva.md dos subdiretorios do diretorio Jhonny/planos/001-prototipo-core-loop)
+3. Aprendizados consolidados de execuções anteriores, quando fornecidos como diretrizes neutras.
 ### Passo 2 — Plano via PAL MCP Planner
 
 Use o MCP Sequential Thinking para organizar seus pensamentos referente ao contexto que foi coletado no passo 1. Em seguida
@@ -84,6 +85,8 @@ Invoque `mcp__pal__planner` em modo multi-step:
 
 - Cada fase tem: objetivo, tasks, validação visual esperada
 - Cada task tem: 2-4h de escopo, dependências explícitas, referências concretas
+- Tasks que alterem `CommonEvents.json` devem exigir atualização do gerador/patcher correspondente e uma execução idempotente do script.
+- Validações de tela com loop/input devem cobrir também a continuidade após o input esperado, não apenas o estado estático durante a tela.
 
 ### Passo 3 — Propor Diretório e Confirmar
 
@@ -92,7 +95,7 @@ Pergunte ao usuário:
 > [!quote]
 > "Vou salvar o plano em `{{DIRETORIO_BASE}}/<nome-snake-case>`. Confirma o nome `<nome-snake-case>` ou prefere outro?"
 
-Sugira um nome simples baseado no escopo (ex: `core_loop_corrida`, `implementacao_corrida_fase1`). Aguarde confirmação explícita antes de criar qualquer arquivo.
+Sugira um nome simples baseado no escopo (ex: `core_loop_corrida`, `implementacao_corrida_base`). Aguarde confirmação explícita antes de criar qualquer arquivo.
 
 ### Passo 4 — Escrever Artefatos
 

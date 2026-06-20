@@ -18,8 +18,8 @@ None. This is the first task of the round.
 
 ## References
 
-- Implementation Guide §4.3 (Three-Coordinated-Changes)
-- Implementation Guide Appendix A (Pre-Implementation Discovery Commands)
+- Implementation Guide section "Fix — Three-Coordinated-Changes"
+- Implementation Guide appendix "Pre-Implementation Discovery Commands"
 - RMMZ Editor IDs (from spec `Corrida - Core Loop.md` §13.2):
   - Variables: 100 VAR_RACE_ID, 105 VAR_PONTOS_GLORIA, 111 VAR_RACE_N_CENAS,
     113 VAR_LAST_RENDERED_INDEX, 116 VAR_TIMER_TIMEOUT_FLAG, 117 VAR_VITORIA_PASSOU
@@ -36,16 +36,19 @@ None. This is the first task of the round.
    ```
    python3 -c "import json; s=json.load(open('Jhonny/data/System.json')); print('VARS 95-120:'); [print(f'  {i}: {s[\"variables\"][i]!r}') for i in range(95,120)]; print('SWITCHES 95-110:'); [print(f'  {i}: {s[\"switches\"][i]!r}') for i in range(95,110)]"
    ```
-3. Confirm CE names and command counts for indices 5, 7, 18, 19 and scan all
+3. Confirm CE names, triggers, switch owners, and command counts for indices 5, 7, 18, 19 and scan all
    slots for parallel CEs named like `EV_RaceTimer`, `EV_ResolucaoSafe`,
    `EV_TimeoutPath`, `EV_UpdateHud`:
    ```
    python3 -c "import json; c=json.load(open('Jhonny/data/CommonEvents.json')); [print(f'CE[{i}] {c[i].get(\"name\")!r} trigger={c[i].get(\"trigger\")} switch={c[i].get(\"switchId\")} cmds={len(c[i].get(\"list\",[]))}') for i in range(len(c)) if c[i]]"
    ```
-4. Dump CE 19 (EV_VitoriaCorrida), CE 5 (EV_RaceOrchestrator), CE 18 (EV_Crash)
+4. Dump CE 19 (EV_VitoriaCorrida), CE 5 (EV_RaceOrchestrator), CE 7
+   (renderer/parallel owner), CE 10 (timer), CE 11/12 (Safe/Risk handlers),
+   and CE 18 (EV_Crash)
    to a temporary text summary (one line per command: index, code, indent,
    parameters). Save the summaries inside `fase1/` as `ce19-dump.txt`,
-   `ce5-dump.txt`, `ce18-dump.txt`. These are scratch artifacts the next task
+   `ce5-dump.txt`, `ce7-dump.txt`, `ce10-dump.txt`, `ce11-dump.txt`,
+   `ce12-dump.txt`, `ce18-dump.txt`. These are scratch artifacts the next task
    consumes.
 5. Locate the timer CE: search for any CE that performs
    ` VAR_TIMER_FRAMES -= 1` (variable Editor ID 108). Record its CE index.
@@ -55,6 +58,9 @@ None. This is the first task of the round.
    - Plugin structure (functions exposed, helpers, constants).
    - Timer CE index + name.
    - Safe-resolution CE index + name.
+   - Which parallel CE calls CE 19 and which switch keeps that owner alive.
+   - Readers/writers of SW_RACE_ACTIVE, SW_INPUT_LOCKED, and SW_PAUSED in the
+     CEs touched by this phase.
    - Confirmed Editor IDs from step 2.
    - Current top-of-list commands of CE 19 (so task 1.2 knows where to insert).
 
@@ -71,6 +77,8 @@ step 7. Subsequent tasks will fail fast if this artifact is missing.
       (no empty strings in the 95-120 / 95-110 ranges used by the round).
 - [ ] CE index listing produced; timer CE and Safe-resolution CE indices
       identified and recorded.
-- [ ] CE 5/18/19 dumps written under `fase1/`.
+- [ ] CE 5/7/10/11/12/18/19 dumps written under `fase1/`.
 - [ ] `fase1/findings.md` exists with all sections filled.
+- [ ] `fase1/findings.md` identifies the CE 19 parallel owner and the
+      switch/lock readers relevant to the ceremony screen.
 - [ ] No edits made to runtime files (`data/*.json`, `js/plugins/*.js`).

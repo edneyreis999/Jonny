@@ -14,6 +14,7 @@ pasta_projeto: "/Users/edney/projects/coreto/summer26/Jhonny"
 plugins_ref: "/Users/edney/projects/coreto/projectX/frontend/js/plugins"
 ---
 
+
 # Prompt — Guia de Implementação: Core Loop da Corrida
 
 > [!info] Metadata
@@ -42,7 +43,7 @@ Analisar o contexto fornecido e produzir um **guia de implementação denso e ac
 
 Use o histórico de sessão atual como insumo inicial para começar a analise.
 
-Aprendizados da execução do plano anteriror: (arquivos retrospectiva.md dos subdiretorios do diretorio Jhonny/planos/001-prototipo-core-loop)
+Aprendizados consolidados de execuções anteriores, quando fornecidos como diretrizes neutras.
 
 Caso você não tenha nenhum insumo inicial, responda que não tem insumos o suficiente e peça por um insumo inicial.
 
@@ -81,6 +82,8 @@ Invoke agentes em paralelo, se possível usando `mcp__pal__thinkdeeper`. Consoli
 
 - **Mapeie** O que for retornado com base no contexto inicial
 - Sempre busque carregar arquivos como `CLAUDE.md` ou `Agents.md` em cada diretório que você entrar para contexto extra.
+- Em tarefas de guia/correção/refactor, leia primeiro o arquivo alvo de implementação; depois confirme IDs, nomes e contratos nos dados atuais (`CommonEvents.json`, `System.json`, `plugins.js`); só então leia specs seletivamente.
+- Para cada hipótese de bug, rode 1-2 buscas ou leituras direcionadas que discriminem a causa antes de escrever a análise. Hipótese confirmada vira fato; hipótese descartada não entra no relatório.
 - **Se preciso**, Busque nos arquivos `rmmz_*.js` por classes/métodos relevantes:
    - Input: `Input.*`, `TouchInput.*`
    - Timer: `Graphics.*`, `SceneManager.*`
@@ -90,6 +93,8 @@ Invoke agentes em paralelo, se possível usando `mcp__pal__thinkdeeper`. Consoli
    - Como estruturam parâmetros e configurações
    - Como fazem logging e debug
    - Como manipulam estado do jogo
+- Em RPG Maker MZ, parâmetros ativos de plugins já instalados são carregados de `js/plugins.js`; declarar `@param` no header do plugin não garante que o runtime atual use o novo default.
+- Logs repetitivos de loops por frame não devem ser especificados como `console.log` direto em Common Events; prefira uma API do plugin com enable/disable e throttle configuráveis.
 - **Se preciso**, Busque por informações no `context7` sobre `PixiJS v5.3.12`
 - **Se preciso**, busque por informação na pasta `/docs` do projeto.
 - **Sintetize**: combine conhecimento da engine com requirements do spec
