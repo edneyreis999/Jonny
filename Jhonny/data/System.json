@@ -343,9 +343,9 @@
             "volume": 90
         }
     ],
-    "startMapId": 11,
-    "startX": 7,
-    "startY": 5,
+    "startMapId": 13,
+    "startX": 3,
+    "startY": 7,
     "switches": [
         "",
         "",
@@ -740,7 +740,7 @@
         "VAR_ATTEMPT_N",
         "VAR_LAST_RENDERED_INDEX"
     ],
-    "versionId": 23353044,
+    "versionId": 20994498,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,

@@ -2580,7 +2580,7 @@
                                 0,
                                 1,
                                 1,
-                                "Player"
+                                "Chance"
                             ]
                         },
                         {
@@ -3683,7 +3683,7 @@
                                 0,
                                 1,
                                 1,
-                                "Player"
+                                "Chance"
                             ]
                         },
                         {
@@ -4021,7 +4021,7 @@
                                 0,
                                 1,
                                 1,
-                                "Player"
+                                "Chance"
                             ]
                         },
                         {
@@ -4144,14 +4144,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "Jonny, you’re not the kind of person who takes risks. "
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 2,
-                            "parameters": [
-                                "There’s a race tomorrow. Promise me you won’t do this."
+                                "Chance"
                             ]
                         },
                         {
@@ -4201,7 +4194,7 @@
                                 0,
                                 1,
                                 1,
-                                "Player"
+                                "Chance"
                             ]
                         },
                         {
@@ -4258,7 +4251,7 @@
                                 0,
                                 1,
                                 1,
-                                "Player"
+                                "Chance"
                             ]
                         },
                         {
@@ -4383,7 +4376,7 @@
                                 0,
                                 1,
                                 1,
-                                "Player"
+                                "Chance"
                             ]
                         },
                         {
@@ -4447,7 +4440,7 @@
                                 0,
                                 1,
                                 1,
-                                "Player"
+                                "Chance"
                             ]
                         },
                         {
@@ -4504,7 +4497,7 @@
                                 0,
                                 1,
                                 1,
-                                "Player"
+                                "Chance"
                             ]
                         },
                         {
