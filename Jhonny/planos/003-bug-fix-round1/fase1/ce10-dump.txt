@@ -1,0 +1,23 @@
+# CE[10] 'EV_RaceTimer'
+# trigger=2 switch=100 cmds=20
+
+[  0] Label ["TICK"]
+[  1] ConditionalBranch [0, 100, 1]
+[  2]   ExitEventProcessing []
+[  3] End []
+[  4] ConditionalBranch [0, 101, 0]
+[  5]   CODE_230 [1]
+[  6]   JumpToLabel ["TICK"]
+[  7] End []
+[  8] ConditionalBranch [1, 108, 0, 0, 2]
+[  9]   CODE_230 [1]
+[ 10]   JumpToLabel ["TICK"]
+[ 11] End []
+[ 12] ControlVariable [108, 108, 2, 0, 1]
+[ 13] ConditionalBranch [1, 108, 0, 0, 0]
+[ 14]   ControlVariable [116, 116, 0, 0, 1]
+[ 15]   CommonEvent [11]
+[ 16] End []
+[ 17] CODE_230 [1]
+[ 18] JumpToLabel ["TICK"]
+[ 19] EMPTY []

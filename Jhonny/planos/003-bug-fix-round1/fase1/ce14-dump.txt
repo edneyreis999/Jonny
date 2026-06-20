@@ -1,0 +1,8 @@
+# CE[14] 'EV_ResolucaoSafe'
+# trigger=0 switch=1 cmds=5
+
+[  0] EraseEvent [[-200, 0, -200, 0], 8, false]
+[  1] EraseEvent [[0, 0, 0, 0], 12, false]
+[  2] CODE_230 [12]
+[  3] ControlSwitch [101, 101, 1]
+[  4] EMPTY []

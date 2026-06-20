@@ -1691,6 +1691,34 @@
                 "indent": 0,
                 "parameters": [
                     0,
+                    104,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 1,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 119,
+                "indent": 1,
+                "parameters": [
+                    "TICK"
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
                     101,
                     0
                 ]
@@ -1818,6 +1846,25 @@
     {
         "id": 11,
         "list": [
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    104,
+                    0
+                ]
+            },
+            {
+                "code": 115,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
             {
                 "code": 111,
                 "indent": 0,
@@ -3126,6 +3173,24 @@
         "id": 19,
         "list": [
             {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    0
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    104,
+                    104,
+                    0
+                ]
+            },
+            {
                 "code": 357,
                 "indent": 0,
                 "parameters": [
@@ -3420,6 +3485,15 @@
                 "code": 412,
                 "indent": 0,
                 "parameters": []
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    104,
+                    104,
+                    1
+                ]
             },
             {
                 "code": 235,
