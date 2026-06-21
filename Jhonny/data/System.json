@@ -167,11 +167,11 @@
         true
     ],
     "optAutosave": true,
-    "optDisplayTp": true,
+    "optDisplayTp": false,
     "optDrawTitle": true,
     "optExtraExp": false,
     "optFloorDeath": false,
-    "optFollowers": true,
+    "optFollowers": false,
     "optKeyItemsNumber": false,
     "optSideView": false,
     "optSlipDeath": false,
@@ -611,7 +611,7 @@
         }
     ],
     "testTroopId": 1,
-    "title1Name": "Ruins",
+    "title1Name": "",
     "title2Name": "",
     "titleBgm": {
         "name": "Theme4",
@@ -620,9 +620,9 @@
         "volume": 90
     },
     "titleCommandWindow": {
-        "background": 0,
         "offsetX": 0,
-        "offsetY": 0
+        "offsetY": 0,
+        "background": 2
     },
     "variables": [
         "",
@@ -744,7 +744,7 @@
         "VAR_TIMER_TIMEOUT_FLAG",
         "VAR_VITORIA_PASSOU"
     ],
-    "versionId": 50034903,
+    "versionId": 34025711,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,
