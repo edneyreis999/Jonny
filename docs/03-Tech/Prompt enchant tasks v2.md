@@ -92,36 +92,122 @@ Se o ambiente não permitir execução paralela real, processe os arquivos seque
 
 ---
 
-## Fase 3 — Consolidação interna
+## **Fase 3 — Resolução de ambiguidades antes da edição**
 
-Consolide internamente os achados em três categorias:
+Antes de editar qualquer artefato da fase atual, resolva conflitos entre as informações encontradas nas tasks, no plano, na análise técnica, nos aprendizados anteriores, nas retrospectivas, nos builds ou em outros documentos do projeto.
 
-### Correção
+O objetivo desta fase é evitar que a LLM edite os artefatos com base em uma interpretação incerta, mas sem interromper o usuário com perguntas desnecessárias.
 
-Use para dados incorretos, instruções imprecisas, premissas falsas ou inconsistências nos artefatos atuais.
+### **3.1 Regra geral**
 
-### Complementação
+Você só deve perguntar ao usuário quando existir uma ambiguidade real que afete a execução da fase atual e que não possa ser resolvida com segurança pelas evidências disponíveis.
 
-Use para informações faltantes que, se ausentes, podem causar bug, retrabalho, regressão ou ambiguidade durante a implementação.
+Não pergunte ao usuário apenas porque duas fontes usam palavras diferentes. Pergunte somente quando a diferença alterar comportamento, escopo, arquitetura, arquivos, critérios de aceitação, ordem de execução ou risco técnico.
 
-### Adição
+### **3.2 Hierarquia de resolução**
 
-Use para regras, restrições ou cuidados técnicos relevantes que ainda não estão contemplados.
+Ao encontrar informações potencialmente conflitantes, avalie nesta ordem:
 
-Para cada item consolidado, determine:
+1. **Escopo da fase atual**
+    
+    - A informação se aplica diretamente às tasks da fase atual?
+    - Se não se aplica, não use a informação para alterar a task atual.
+    - Se a aplicabilidade for incerta e afetar a execução, pergunte ao usuário.
+    
+2. **Aprendizado validado por execução**
+    - Se uma task antiga, plano inicial ou documentação anterior diz X, mas um aprendizado posterior validado pela execução diz Y, considere Y como a informação mais confiável para evitar repetir erro.
+    - Nesse caso, não pergunte ao usuário, desde que o aprendizado Y se aplique claramente ao mesmo escopo da fase atual.
+3. **Conflito entre aprendizados**
+    - Se dois aprendizados anteriores aplicáveis à fase atual dizem coisas incompatíveis, como X e Y, e ambos parecem válidos, pergunte ao usuário qual é a verdade.
+    - Não escolha arbitrariamente um aprendizado apenas por ser mais recente, a menos que haja evidência clara de que ele substituiu o anterior.
+4. **Conflito entre aprendizado e documentação**
+    - Se um aprendizado diz X e um documento atual do projeto diz Y, verifique se eles tratam do mesmo escopo.
+    - Se o aprendizado reflete uma correção validada por execução e o documento parece desatualizado, use o aprendizado.
+    - Se ambos parecem atuais, aplicáveis e incompatíveis, pergunte ao usuário qual fonte representa a verdade.
+    - Se o aprendizado trata de outro escopo, não aplique automaticamente à fase atual; se isso ainda deixar dúvida relevante, pergunte ao usuário.
+5. **Conflito entre task e aprendizado**
+    
+    - Se a task diz X e um aprendizado anterior diz Y, use Y sem perguntar quando:
+        
+        - Y foi aprendido a partir de uma execução real;
+        - Y corrige ou refina X;
+        - Y se aplica claramente ao mesmo componente, comportamento ou escopo da task atual.
+    - Pergunte ao usuário quando:
+        - Y pode pertencer a outro escopo;
+        - não está claro se Y substitui X ou apenas vale para um caso específico;
+        - aplicar Y mudaria significativamente a intenção da task;
+        - X e Y implicam soluções incompatíveis e ambas parecem plausíveis.
 
-- arquivo alvo;
-- task alvo;
-- trecho atual, se existir;
-- alteração mínima necessária;
-- justificativa técnica;
-- nível de confiança: alto, médio ou baixo.
+### **3.3 Quando perguntar ao usuário**
 
-Apenas itens com confiança alta devem ser aplicados diretamente.
+Pergunte ao usuário somente se todas as condições abaixo forem verdadeiras:
 
-Se um item tiver confiança média ou baixa e puder alterar o comportamento esperado da implementação, pergunte ao usuário antes de editar.
+- Existe uma divergência real entre fontes relevantes.
+- A divergência afeta uma decisão necessária para editar ou executar a fase atual.
+- As fontes conflitantes parecem aplicáveis ao escopo atual.
+- Não há evidência suficiente para escolher uma fonte com segurança.
+- Prosseguir sem esclarecimento pode gerar retrabalho, implementação incorreta ou alteração indevida nos artefatos.
 
----
+Quando perguntar, faça uma pergunta objetiva, mostrando as opções e suas fontes conceituais, sem citar arquivos de retrospectiva nos artefatos finais.
+
+Formato recomendado:
+
+Encontrei uma ambiguidade que afeta a fase atual:
+
+>   
+
+- Opção A: [descrição objetiva da interpretação X]
+- Opção B: [descrição objetiva da interpretação Y]
+
+>   
+
+Pelo contexto, não é possível determinar com segurança qual é a verdade para esta fase. Qual das duas devo considerar correta?
+
+Não faça múltiplas perguntas separadas se elas pertencem ao mesmo conflito. Agrupe ambiguidades relacionadas em uma única pergunta.
+
+### **3.4 Quando não perguntar ao usuário**
+
+Não pergunte ao usuário quando:
+
+- A divergência não afeta a fase atual.
+- Uma fonte claramente corrige a outra com base em aprendizado validado por execução.
+- A informação conflitante pertence a outro componente, outra fase, outro módulo ou outro cenário.
+- A diferença é apenas terminológica e não muda a execução.
+- O próprio contexto já indica qual fonte está desatualizada.
+- A dúvida pode ser resolvida lendo os artefatos disponíveis.
+- A pergunta serviria apenas para confirmar uma decisão óbvia.
+
+Nesses casos, resolva internamente a divergência, registre a decisão de forma objetiva na análise da fase e prossiga.
+
+### **3.5 Classificação obrigatória dos conflitos**
+
+Para cada conflito relevante encontrado, classifique-o antes de agir:
+
+|**Tipo de conflito**|**Ação**|
+|---|---|
+|Task diz X, aprendizado validado aplicável diz Y|Usar Y sem perguntar|
+|Task diz X, aprendizado diz Y, mas escopo de Y é incerto|Perguntar ao usuário|
+|Aprendizado A diz X, aprendizado B diz Y, ambos aplicáveis|Perguntar ao usuário|
+|Aprendizado diz X, documento atual diz Y, ambos aplicáveis e plausíveis|Perguntar ao usuário|
+|Aprendizado diz X, documento antigo/desatualizado diz Y|Usar X sem perguntar|
+|Documento diz X, outro documento diz Y, ambos atuais e aplicáveis|Perguntar ao usuário|
+|Informação divergente pertence a outro escopo|Ignorar para a fase atual ou registrar como fora de escopo|
+|Divergência não altera execução|Não perguntar|
+
+### **3.6 Registro da decisão**
+
+Quando resolver uma divergência sem perguntar ao usuário, registre internamente:
+
+- Qual era a divergência.
+- Qual fonte foi considerada mais confiável.
+- Por que a decisão era segura.
+- Como isso afeta a edição da fase atual.
+
+Quando perguntar ao usuário, aguarde a resposta antes de editar os artefatos afetados.
+
+A resposta do usuário deve ser tratada como fonte de verdade para esta fase e deve prevalecer sobre interpretações anteriores conflitantes.
+
+----
 
 # Fase 4 — Edição cirúrgica
 
@@ -233,6 +319,13 @@ Se qualquer resposta indicar risco, corrija antes de finalizar ou pergunte ao us
 ## R8 — Paralelização da análise
 
 A análise de retrospectivas e builds deve ser paralelizada por arquivo ou por pequenos lotes sempre que houver suporte da ferramenta. Nenhuma edição deve ser feita antes da consolidação dos resultados de todas as análises.
+
+## R9 — Entrevista com usuario
+
+- Não trate toda divergência entre fontes como ambiguidade. Primeiro avalie escopo, atualidade, evidência de execução e aplicabilidade à fase atual.
+- Pergunte ao usuário somente quando a divergência afetar a fase atual e não puder ser resolvida com segurança pelas evidências disponíveis.
+- Quando um aprendizado validado por execução corrigir claramente uma informação anterior dentro do mesmo escopo, aplique o aprendizado sem pedir confirmação.
+- Quando fontes igualmente plausíveis e aplicáveis apontarem verdades incompatíveis, interrompa antes de editar e peça ao usuário para definir a fonte de verdade.
 
 ---
 
