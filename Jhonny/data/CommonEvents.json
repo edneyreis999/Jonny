@@ -1745,14 +1745,14 @@
                 "code": 355,
                 "indent": 0,
                 "parameters": [
-                    "const p3 = $gameScreen.picture(43); if (p3) p3.mzkp_commonEventId = 11;"
+                    "const p = $gameScreen.picture(43); if (p) p.mzkp_commonEventId = 12;"
                 ]
             },
             {
                 "code": 355,
                 "indent": 0,
                 "parameters": [
-                    "const p4 = $gameScreen.picture(44); if (p4) p4.mzkp_commonEventId = 12;"
+                    "const p = $gameScreen.picture(44); if (p) p.mzkp_commonEventId = 11;"
                 ]
             },
             {
@@ -2516,7 +2516,7 @@
                 "code": 355,
                 "indent": 0,
                 "parameters": [
-                    "if ($gameVariables.value(102) === 0) {  if (Input.isTriggered('down')) $gameTemp.reserveCommonEvent(11);  if (Input.isTriggered('up'))   $gameTemp.reserveCommonEvent(12);} else {  if (Input.isTriggered('right')) $gameTemp.reserveCommonEvent(11);  if (Input.isTriggered('left'))  $gameTemp.reserveCommonEvent(12);}"
+                    "if ($gameVariables.value(102) === 0) {  if (Input.isTriggered('down')) $gameTemp.reserveCommonEvent(11);  if (Input.isTriggered('up'))   $gameTemp.reserveCommonEvent(12);} else {  if (Input.isTriggered('right')) $gameTemp.reserveCommonEvent(12);  if (Input.isTriggered('left'))  $gameTemp.reserveCommonEvent(11);}"
                 ]
             },
             {

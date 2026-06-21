@@ -22,6 +22,30 @@ Apply the fix specified in `fase4/diagnosis.md`. The implementation choice
 - Project memory `never-delete-common-events` — applies if a CE must be
   cleaned (unlikely for this task).
 
+## Visual Context (from screenshots)
+
+The Curve choice UI shows two hand-drawn arrows:
+- A **right-pointing arrow** rendered on the RIGHT side of the screen.
+- A **left-pointing arrow** rendered on the LEFT side of the screen.
+
+Arrow **placement is visually correct**. The bug is in **event binding**:
+pressing Right (keyboard `→` or click) currently triggers the **Safe**
+event; pressing Left triggers the **Risk** event. This is inverted.
+
+**Expected convention (corrected):** Right → **Risk**, Left → **Safe**.
+
+**Reference — Sinaleiro scene** (already correct in-game):
+- Up arrow → Risk (Furar); Down arrow → Safe (Parar).
+- Layout: brake/Down on the LEFT, accelerate/Up on the RIGHT.
+
+By analogy, Curve must place the "aggressive" option on the RIGHT
+(Right = Risk) and the "cautious" option on the LEFT (Left = Safe),
+mirroring how Sinaleiro places "aggressive" (Furar/Up) on the right.
+
+> Note: the previous convention written into this plan
+> (`Direita = Safe, Esquerda = Risk`) matched the buggy implementation
+> and has been corrected in the spec `Corrida - Core Loop.md` §5.
+
 ## Implementation choice
 
 - **If H1 (coord swap, single line edit in one Show Picture command):**
@@ -42,11 +66,20 @@ Apply the fix specified in `fase4/diagnosis.md`. The implementation choice
     commands.
   - Patch function: `fix_curve_condition(ces)`.
   - Idempotency check: detect correct operator already in place.
+  - Before naming the patch function, identify the next free patch letter
+    by running `rg "patch_[a-z]_" fase*/build_phase*.py`; phase letters are
+    reserved per phase to avoid audit ambiguity in handoffs.
 
 ## Step-by-step
 
 1. Read `fase4/diagnosis.md` and follow the Recommended Implementation.
-2. **For H1:** Write `fase4/fix_curve_labels.py`:
+2. Before writing any patch, confirm the numeric code of every command it
+   touches by grepping `Game_Interpreter.prototype.commandNNN` in
+   `Jhonny/js/rmmz_objects.js`. For H1 that means `231` (Show Picture); for
+   H3 that means `111` (Conditional Branch). Specifications and textual
+   dumps can carry inverted or MV-era codes; the engine source is the only
+   authoritative mapping.
+3. **For H1:** Write `fase4/fix_curve_labels.py`:
    ```python
    import json, sys
    PATH = "Jhonny/data/CommonEvents.json"
@@ -74,12 +107,12 @@ Apply the fix specified in `fase4/diagnosis.md`. The implementation choice
        ces = swap_label_coords(ces)
        with open(PATH, "w") as f: json.dump(ces, f, indent=2, ensure_ascii=False)
    ```
-3. **For H2:** `git mv Jhonny/img/pictures/<wrong>.png Jhonny/img/pictures/<right>.png`
+4. **For H2:** `git mv Jhonny/img/pictures/<wrong>.png Jhonny/img/pictures/<right>.png`
    for each affected file. Confirm with `ls`.
-4. **For H3:** Write `fase4/build_phase4_ces.py` following the pattern from
+5. **For H3:** Write `fase4/build_phase4_ces.py` following the pattern from
    `fase1/build_phase1_ces.py`. The patch inverts the conditional operator
    (parameters[4]: 0 ↔ 1) on the relevant branch.
-5. Do not run the script in this task — task 4.3 runs and validates it.
+6. Do not run the script in this task — task 4.3 runs and validates it.
 
 ## visual_validation
 
