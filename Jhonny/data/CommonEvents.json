@@ -3776,18 +3776,314 @@
         "id": 20,
         "list": [
             {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Tone_NormalBust",
+                    "TONE: Normal Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"1\"]",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"1\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Scale_ScaleReset",
+                    "SCALE: Scale Reset Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"1\"]",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"1\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Tone_PresetBust",
+                    "TONE: Preset Tone for Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"2\",\"3\",\"4\"]",
+                        "Preset:str": "Dark",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"2\",\"3\",\"4\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Preset Name = Dark"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Scale_ScaleTo",
+                    "SCALE: Scale Bust(s) To",
+                    {
+                        "PictureID:arrayeval": "[\"2\",\"3\",\"4\"]",
+                        "TargetScaleX:str": "80",
+                        "TargetScaleY:str": "80",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"2\",\"3\",\"4\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Target Scale X = 80"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Target Scale Y = 80"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    43,
+                    43,
+                    1
+                ]
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
             }
         ],
         "name": "Fala-ID1",
-        "switchId": 1,
-        "trigger": 0
+        "switchId": 43,
+        "trigger": 2
     },
     {
         "id": 21,
         "list": [
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Tone_NormalBust",
+                    "TONE: Normal Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"2\"]",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"2\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Scale_ScaleReset",
+                    "SCALE: Scale Reset Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"2\"]",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"2\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Tone_PresetBust",
+                    "TONE: Preset Tone for Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"1\",\"3\",\"4\"]",
+                        "Preset:str": "Dark",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"1\",\"3\",\"4\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Preset Name = Dark"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Scale_ScaleTo",
+                    "SCALE: Scale Bust(s) To",
+                    {
+                        "PictureID:arrayeval": "[\"1\",\"3\",\"4\"]",
+                        "TargetScaleX:str": "80",
+                        "TargetScaleY:str": "80",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"1\",\"3\",\"4\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Target Scale X = 80"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Target Scale Y = 80"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    44,
+                    44,
+                    1
+                ]
+            },
             {
                 "code": 0,
                 "indent": 0,
@@ -3795,12 +4091,160 @@
             }
         ],
         "name": "Fala-ID2",
-        "switchId": 1,
-        "trigger": 0
+        "switchId": 44,
+        "trigger": 2
     },
     {
         "id": 22,
         "list": [
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Tone_NormalBust",
+                    "TONE: Normal Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"3\"]",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"3\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Scale_ScaleReset",
+                    "SCALE: Scale Reset Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"3\"]",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"3\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Tone_PresetBust",
+                    "TONE: Preset Tone for Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"1\",\"2\",\"4\"]",
+                        "Preset:str": "Dark",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"1\",\"2\",\"4\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Preset Name = Dark"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Scale_ScaleTo",
+                    "SCALE: Scale Bust(s) To",
+                    {
+                        "PictureID:arrayeval": "[\"1\",\"2\",\"4\"]",
+                        "TargetScaleX:str": "80",
+                        "TargetScaleY:str": "80",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"1\",\"2\",\"4\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Target Scale X = 80"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Target Scale Y = 80"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    45,
+                    45,
+                    1
+                ]
+            },
             {
                 "code": 0,
                 "indent": 0,
@@ -3808,12 +4252,160 @@
             }
         ],
         "name": "Fala-ID3",
-        "switchId": 1,
-        "trigger": 0
+        "switchId": 45,
+        "trigger": 2
     },
     {
         "id": 23,
         "list": [
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Tone_NormalBust",
+                    "TONE: Normal Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"4\"]",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"4\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Scale_ScaleReset",
+                    "SCALE: Scale Reset Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"4\"]",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"4\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Tone_PresetBust",
+                    "TONE: Preset Tone for Bust(s)",
+                    {
+                        "PictureID:arrayeval": "[\"1\",\"3\",\"2\"]",
+                        "Preset:str": "Dark",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"1\",\"3\",\"2\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Preset Name = Dark"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Scale_ScaleTo",
+                    "SCALE: Scale Bust(s) To",
+                    {
+                        "PictureID:arrayeval": "[\"1\",\"3\",\"2\"]",
+                        "TargetScaleX:str": "80",
+                        "TargetScaleY:str": "80",
+                        "Duration:eval": "20"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID(s) = [\"1\",\"3\",\"2\"]"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Target Scale X = 80"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Target Scale Y = 80"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Duration = 20"
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    46,
+                    46,
+                    1
+                ]
+            },
             {
                 "code": 0,
                 "indent": 0,
@@ -3821,8 +4413,8 @@
             }
         ],
         "name": "Fala-ID4",
-        "switchId": 1,
-        "trigger": 0
+        "switchId": 46,
+        "trigger": 2
     },
     {
         "id": 24,

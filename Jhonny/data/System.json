@@ -120,7 +120,7 @@
         "pitch": 100,
         "volume": 90
     },
-    "editMapId": 4,
+    "editMapId": 12,
     "elements": [
         "",
         "Físico",
@@ -343,9 +343,9 @@
             "volume": 90
         }
     ],
-    "startMapId": 1,
-    "startX": 7,
-    "startY": 7,
+    "startMapId": 13,
+    "startX": 6,
+    "startY": 6,
     "switches": [
         "",
         "",
@@ -626,9 +626,9 @@
     },
     "variables": [
         "",
-        "",
-        "",
-        "",
+        "VN1",
+        "VN2",
+        "VN3",
         "",
         "",
         "",
@@ -744,7 +744,7 @@
         "VAR_TIMER_TIMEOUT_FLAG",
         "VAR_VITORIA_PASSOU"
     ],
-    "versionId": 56565876,
+    "versionId": 85006425,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,
