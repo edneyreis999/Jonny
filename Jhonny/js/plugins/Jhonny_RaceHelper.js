@@ -167,7 +167,33 @@
         }
     };
 
-    window.JhonnyRace = {
+    //=============================================================================
+    // Config Namespace — THRESHOLDS table (single source of truth for victory)
+    // Mirrors the dict-with-fallback previously inlined in CE 19 (EV_VitoriaCorrida):
+    //   { 1: 200, 2: 400, 3: 600 } with fallback || 60.
+    // Refactor changes nothing about game balance; values match CE 19 verbatim.
+    //=============================================================================
+    const JhonnyRace = window.JhonnyRace || {};
+    JhonnyRace.Config = JhonnyRace.Config || {};
+
+    JhonnyRace.Config.THRESHOLDS = Object.freeze({
+        1: 200,
+        2: 400,
+        3: 600
+    });
+
+    JhonnyRace.Config.DEFAULT_THRESHOLD = 60;
+
+    JhonnyRace.isVictory = function (pontosGloria, raceId) {
+        const t = this.Config.THRESHOLDS[raceId] ?? this.Config.DEFAULT_THRESHOLD;
+        return (pontosGloria | 0) >= t;
+    };
+
+    JhonnyRace.thresholdFor = function (raceId) {
+        return this.Config.THRESHOLDS[raceId] ?? this.Config.DEFAULT_THRESHOLD;
+    };
+
+    Object.assign(JhonnyRace, {
         rollSceneType,
         rollPCena,
         rollD100,
@@ -176,7 +202,9 @@
         logger: (level, ...args) => logger(enableDebugLogs, level, ...args),
         logRaceEvent,
         captureRaceState
-    };
+    });
+
+    window.JhonnyRace = JhonnyRace;
 
     //=============================================================================
     // Plugin Commands (MZ API)

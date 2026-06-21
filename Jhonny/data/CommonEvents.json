@@ -3316,35 +3316,35 @@
                 "code": 355,
                 "indent": 0,
                 "parameters": [
-                    "const pontos = $gameVariables.value(105);"
+                    "if (typeof window.JhonnyRace === \"undefined\") { const pontos = $gameVariables.value(105); const raceId = $gameVariables.value(100); const thresholds = { 1: 200, 2: 400, 3: 600 }; const passou = pontos >= (thresholds[raceId] || 60); $gameVariables.setValue(117, passou ? 1 : 0); } else {"
                 ]
             },
             {
                 "code": 655,
                 "indent": 0,
                 "parameters": [
-                    "const raceId = $gameVariables.value(100);"
+                    "    const raceId = $gameVariables.value(100);"
                 ]
             },
             {
                 "code": 655,
                 "indent": 0,
                 "parameters": [
-                    "const thresholds = { 1: 200, 2: 400, 3: 600 };"
+                    "    const pontos = $gameVariables.value(105);"
                 ]
             },
             {
                 "code": 655,
                 "indent": 0,
                 "parameters": [
-                    "const passou = pontos >= (thresholds[raceId] || 60);"
+                    "    $gameVariables.setValue(117, window.JhonnyRace.isVictory(pontos, raceId) ? 1 : 0);"
                 ]
             },
             {
                 "code": 655,
                 "indent": 0,
                 "parameters": [
-                    "$gameVariables.setValue(117, passou ? 1 : 0);"
+                    "    }"
                 ]
             },
             {

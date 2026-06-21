@@ -62,9 +62,9 @@ validation in Playtest.
 ### Phase 5 — THRESHOLDS Refactor (#1)
 
 **Goal:** Extract magic numbers to `window.JhonnyRace.Config`.
-**Visual validation:** Victory screen at exactly 60 glory; defeat screen at 59.
+**Visual validation:** Victory screen at exactly 200 glory; defeat screen at 199.
 
-- task-5.1 — Inventory literal 60/100/150 sites · ~1h · deps: 4.3
+- task-5.1 — Inventory literal 60/100/150/200/400/600 sites · ~1h · deps: 4.3
 - task-5.2 — Add `window.JhonnyRace` namespace to plugin · ~2h · deps: 5.1
 - task-5.3 — Replace literal sites + Playtest · ~3h · deps: 5.2
 
@@ -104,8 +104,8 @@ validation in Playtest.
   the only authoritative source.
 - **Patch letter namespace:** letters are reserved per phase to avoid audit
   ambiguity in handoffs. State so far: Fase 1 v2 used A–F, Fase 2 used
-  G–H, Fase 3 starts at I. Before adding a new patch, run
-  `rg "patch_[a-z]_" fase*/build_phase*.py`.
+  G–H, Fase 3 used I–J, Fase 4 used K–L. Fase 5 starts at M. Before
+  adding a new patch, run `rg "patch_[a-z]_" fase*/build_phase*.py interaction/fase*/build_phase*.py`.
 - **Semantic audits:** audits must validate the param shape expected by
   the handler (dict for Play ME/SE, number for Wait/Fadeout, label string
   for Label/Jump), not just the numeric opcode. Audits that repeat the
