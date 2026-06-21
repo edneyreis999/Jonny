@@ -50,15 +50,17 @@ A validação visual acontece no **RPG Maker MZ** — o usuário rodará o jogo 
 > 3. Toda task deve listar **dependencies** com IDs das tasks anteriores obrigatórias.
 > 4. Toda task deve citar **referências concretas**: linha/seção do Guia Técnico, comando de evento do RMMZ, plugin Visustella relevante, ou arquivo do projeto.
 > 5. Invocar `mcp__pal__planner` em **modo multi-step** (preservando `continuation_id`) até convergir o plano completo antes de escrever qualquer artefato.
+> 6. Criar **obrigatoriamente** três pastas auxiliares ao lado de `tasks.md`: `retrospetivas/`, `builds/` e `interaction/` — cada uma com uma subpasta `fase1..faseN` para todas as fases do plano (mesmo que fiquem vazias no momento da geração).
 
 > [!warning] Proibições (nunca fazer)
-> 6. **Não inventar referências** — se não souber onde algo está, marcar como `TODO: localizar`.
-> 7. **Não pular fases** — cada fase precisa ser validável antes de a próxima fazer sentido; dependências devem ser honestas.
-> 8. **Não gerar tasks genéricas** ("implementar a corrida") — sempre quebrar em ações concretas de 2-4h.
-> 9. **Não salvar os artefatos** sem antes perguntar o diretório ao usuário e obter confirmação explícita.
+> 7. **Não inventar referências** — se não souber onde algo está, marcar como `TODO: localizar`.
+> 8. **Não pular fases** — cada fase precisa ser validável antes de a próxima fazer sentido; dependências devem ser honestas.
+> 9. **Não gerar tasks genéricas** ("implementar a corrida") — sempre quebrar em ações concretas de 2-4h.
+> 10. **Não salvar os artefatos** sem antes perguntar o diretório ao usuário e obter confirmação explícita.
+> 11. **Não omitir** nenhuma das três pastas auxiliares (`retrospetivas/`, `builds/`, `interaction/`) nem suas subpastas `fase1..faseN`, mesmo que o plano tenha uma única fase.
 
 > [!abstract] Comportamento
-> 10. Idioma dos artefatos: inglês.
+> 12. Idioma dos artefatos: inglês.
 
 ## FLUXO DE EXECUÇÃO
 
@@ -99,11 +101,21 @@ Sugira um nome simples baseado no escopo (ex: `core_loop_corrida`, `implementaca
 
 ### Passo 4 — Escrever Artefatos
 
-Crie a estrutura:
+Crie a estrutura principal e as três pastas auxiliares com subpastas por fase:
 
 ```bash
 mkdir -p {{DIRECTORY}}/<nome-snake-case>
+mkdir -p {{DIRECTORY}}/<nome-snake-case>/retrospetivas/fase{1..N}
+mkdir -p {{DIRECTORY}}/<nome-snake-case>/builds/fase{1..N}
+mkdir -p {{DIRECTORY}}/<nome-snake-case>/interaction/fase{1..N}
 ```
+
+> `N` = número total de fases definidas no plano (Passo 2). Subpastas seguem o padrão `fase1`, `fase2`, …, `faseN` (sem dash, em minúsculas).
+
+**Pasta auxiliares — propósito:**
+- `retrospetivas/faseN/` — retrospectiva técnica + de processo de cada fase, preenchida após concluir a fase.
+- `builds/faseN/` — scripts de build/patch (ex: geradores de `CommonEvents.json`, patchers idempotentes) específicos da fase.
+- `interaction/faseN/` — rascunhos de interação usuário-agente (entrevistas, validações visuais, perguntas e respostas) da fase.
 
 Gere os arquivos usando os templates:
 - `../../../.claude/templates/tasks-template.md` → `tasks.md` (índice)
@@ -121,7 +133,19 @@ Gere os arquivos usando os templates:
 ├── task-1.1.md
 ├── task-1.2.md
 ├── task-2.1.md
-└── ...
+├── ...
+├── retrospetivas/
+│   ├── fase1/            ← preenchida ao concluir a Fase 1
+│   ├── fase2/
+│   └── ...               ← uma subpasta por fase do plano
+├── builds/
+│   ├── fase1/            ← scripts de build/patch da Fase 1
+│   ├── fase2/
+│   └── ...               ← uma subpasta por fase do plano
+└── interaction/
+    ├── fase1/            ← rascunhos de interação usuário-agente da Fase 1
+    ├── fase2/
+    └── ...               ← uma subpasta por fase do plano
 ```
 
 ### Conteúdo esperado em `tasks.md`

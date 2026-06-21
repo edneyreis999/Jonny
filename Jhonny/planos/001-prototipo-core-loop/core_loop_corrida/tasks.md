@@ -64,7 +64,7 @@ Plano de execução para o protótipo jogável do minigame de Corrida (QTE timer
 
 > **STATUS: IMPLEMENTADA — AGUARDANDO PLAYTEST MZ** (2026-06-18)
 > Implementação JSON de todas as 5 tasks concluída e validada sintaticamente (`python -m json.tool` OK em System.json, CommonEvents.json, Map001.json).
-> **Validação visual pendente** — usuário precisa abrir o projeto no RPG Maker MZ e rodar Playtest (ver [[fase-3-completa]] para o checklist detalhado).
+> **Validação visual pendente** — usuário precisa abrir o projeto no RPG Maker MZ e rodar Playtest (ver [[Jhonny/planos/001-prototipo-core-loop/core_loop_corrida/fase-3-completa]] para o checklist detalhado).
 > **Correções vs spec original:** task specs 3.1/3.2 tinham formatos errados para o If MZ (exemplos usavam `[1, sw, 0]` para switch quando o canônico é `[0, sw, 1]`). Implementação segue o código-fonte MZ em `js/rmmz_objects.js`.
 >
 > **APRENDIZADO F1+F2 — Automação via JSON controlada:** Common Events simples (comandos MZ conhecidos) **podem ser criados diretamente em `Jhonny/data/CommonEvents.json`** quando houver slot vazio confirmado (IDs 4+ livres) — playbook validado na task 2.3. Eventos com `Parallel trigger`, loops `Label/Jump`, ou `Script` inline exigem maior cuidado — ver coluna "JSON" abaixo. **Sempre** validar com `python -m json.tool` + Playtest MZ obrigatório.

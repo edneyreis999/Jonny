@@ -729,6 +729,41 @@
                 ]
             },
             {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "\\V[104]%"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Text = \\V[104]%"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    60,
+                    "",
+                    1,
+                    0,
+                    100,
+                    148,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
                 "code": 231,
                 "indent": 0,
                 "parameters": [
@@ -846,6 +881,32 @@
         "id": 6,
         "list": [
             {
+                "code": 118,
+                "indent": 0,
+                "parameters": [
+                    "HUD_TICK"
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
+                    104,
+                    0
+                ]
+            },
+            {
+                "code": 115,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
                 "code": 355,
                 "indent": 0,
                 "parameters": [
@@ -939,14 +1000,63 @@
                 ]
             },
             {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "\\V[104]%"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Text = \\V[104]%"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    60,
+                    "",
+                    1,
+                    0,
+                    100,
+                    148,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    6
+                ]
+            },
+            {
+                "code": 119,
+                "indent": 0,
+                "parameters": [
+                    "HUD_TICK"
+                ]
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
             }
         ],
         "name": "EV_UpdateHud",
-        "trigger": 0,
-        "switchId": 1,
+        "trigger": 2,
+        "switchId": 100,
         "autoErase": false,
         "conditionString": ""
     },
@@ -1382,7 +1492,7 @@
                     "set",
                     "Set Text Picture",
                     {
-                        "text": "\\V[106]%"
+                        "text": "\\V[103]%"
                     }
                 ]
             },
@@ -1390,7 +1500,7 @@
                 "code": 657,
                 "indent": 0,
                 "parameters": [
-                    "Text = \\V[106]%"
+                    "Text = \\V[103]%"
                 ]
             },
             {
@@ -1572,7 +1682,7 @@
                     "set",
                     "Set Text Picture",
                     {
-                        "text": "\\V[106]%"
+                        "text": "\\V[103]%"
                     }
                 ]
             },
@@ -1580,7 +1690,7 @@
                 "code": 657,
                 "indent": 0,
                 "parameters": [
-                    "Text = \\V[106]%"
+                    "Text = \\V[103]%"
                 ]
             },
             {
@@ -2011,13 +2121,6 @@
                 ]
             },
             {
-                "code": 117,
-                "indent": 0,
-                "parameters": [
-                    6
-                ]
-            },
-            {
                 "code": 357,
                 "indent": 0,
                 "parameters": [
@@ -2225,13 +2328,6 @@
                     1,
                     0,
                     1
-                ]
-            },
-            {
-                "code": 117,
-                "indent": 1,
-                "parameters": [
-                    6
                 ]
             },
             {
@@ -3135,13 +3231,6 @@
                     ],
                     12,
                     false
-                ]
-            },
-            {
-                "code": 117,
-                "indent": 0,
-                "parameters": [
-                    6
                 ]
             },
             {

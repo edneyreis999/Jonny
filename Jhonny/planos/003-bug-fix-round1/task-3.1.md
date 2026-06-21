@@ -1,5 +1,5 @@
 ---
-status: pending
+status: done
 phase: 3
 task_id: 3.1
 ---
@@ -28,6 +28,13 @@ the INIT re-show).
   231 with `name=""` (empty picture name).
 
 ## Step-by-step
+
+> **Discovery hygiene:** any CE inspection in this task MUST be done via
+> direct Python query against `Jhonny/data/CommonEvents.json`
+> (e.g., `python3 -c "import json; ces=json.load(open(...)); print(json.dumps(ces[N], indent=2))"`).
+> Do NOT rely on pre-existing textual dumps — labels in those files have
+> been shown to mislabel opcodes (e.g., calling TintPicture an EraseEvent).
+> The JSON is the source of truth.
 
 1. Search for TextPicture usage in CommonEvents.json:
    ```

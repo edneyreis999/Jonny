@@ -21,18 +21,24 @@ Tudo isso **sem jamais referenciar arquivos de retrospectiva** em qualquer artef
 
 # WORKFLOW
 
+## Fase 1
 - Faça uma analise nas tasks que vão ser executadas na fase atual
-- Faça uma analise dos arquivos de build que foi usado nas fases anteriores
-- Faça uma analise minuciosa nos arquivos de retrospectiva e extraia informações valiosas que evitarão erros na execução da fase atual.
-- Faça sua própria analise com base nos aprendizados anterior. Releia arquivos implementados no jogo, revisite fontes e faça sua própria releitura dos aprendizados anteriores antes de alterar os arquivos referentes a fase atual.
-- Aplique correções cirúrgicas nos arquivos `tasks.md` e `task-x.y.md`
-   - **Corrigir** dados imprecisos ou inconsistências.
-   - **Completar** informações faltantes que tenham causado algum bug anteriormente que afeta a execução da fase atual
-   - **Adicionar** seções/linhas para fatos relevantes não contemplados.
+## Fase 2
+Invoke um agente em paralelo em cada um dos arquivos encontrados nos diretórios:
+	- Diretório de build
+	- Diretório de retrospectivas
+
+Cada agente deve analisar o seu arquivo buscando por informações valiosas que evitarão erros na execução da fase atual. E devolver um output de menos de 1000 tokens explicando o que deve ser alterado nos arquivos da fase atual e porque. Eles também devem fazer suas próprias analises com base nos aprendizados do arquivo que ele está analisando. Relendo arquivos implementados no jogo, revisando fontes de informações e fazendo sua própria leitura dos aprendizados anteriores antes de retornar o seu output. 
+
+## Fase 3
+Faça um apanhado de todas as respostas de todos os agentes categorizando-as internamente em tópicos como:
+- **Correção** dados imprecisos ou inconsistências.
+- **Complementação** informações faltantes que tenham causado algum bug anteriormente que afeta a execução da fase atual
+- **Adição** de seções/linhas para fatos relevantes não contemplados.
+
+Depois de classificar, Aplique correções cirúrgicas nos arquivos `tasks.md` e `task-x.y.md`.
 - Toda adição deve virar **afirmação técnica** no texto sem citar diretamente o arquivo da retrospectiva.
 - Não reescreva seções que já estão corretas.
-
-
 
 # REGRAS
 

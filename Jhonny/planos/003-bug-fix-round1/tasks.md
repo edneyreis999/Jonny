@@ -97,6 +97,27 @@ validation in Playtest.
   unchanged and use `SW_INPUT_LOCKED=ON` to pause timer/handlers.
 - **Generated CE source:** when a task changes `CommonEvents.json`, update the
   corresponding generator/patcher and run it once to prove idempotency.
+- **Opcode verification:** every RMMZ command code referenced in a patch
+  MUST be confirmed in `Jhonny/js/rmmz_objects.js` by grepping
+  `Game_Interpreter.prototype.commandNNN` before the patch is written.
+  Specifications can carry inverted or MV-era codes; the engine source is
+  the only authoritative source.
+- **Patch letter namespace:** letters are reserved per phase to avoid audit
+  ambiguity in handoffs. State so far: Fase 1 v2 used A–F, Fase 2 used
+  G–H, Fase 3 starts at I. Before adding a new patch, run
+  `rg "patch_[a-z]_" fase*/build_phase*.py`.
+- **Semantic audits:** audits must validate the param shape expected by
+  the handler (dict for Play ME/SE, number for Wait/Fadeout, label string
+  for Label/Jump), not just the numeric opcode. Audits that repeat the
+  implementation's opcode are tautological and miss regressions.
+- **Ceremony-lock invariant:** `SW_RACE_ACTIVE` (switch 100) is the owner
+  of every parallel CE in the race flow; never toggle it inside a CE that
+  still needs to traverse `Wait`/`Label`/`Jump` or an input loop. To pause
+  side effects during victory/defeat, use `SW_INPUT_LOCKED` (101) and
+  `SW_PAUSED` (104) — both are respected by CE 10 and CE 11.
+- **Hard-refresh in Playtest:** after any write to `data/*.json`, the user
+  must hard-refresh the browser (`Cmd+Shift+R`) before re-entering the
+  scene, or the cached JSON masks the fix.
 - **No auto-commit:** the user explicitly directs when to commit. Do not run
   `git commit` unless asked.
 
