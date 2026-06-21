@@ -17,6 +17,7 @@ tools:
   - Skill
 ---
 
+
 # Prompt — Gerar Plano de Ação Técnico
 
 > [!info] Quando usar
@@ -34,8 +35,8 @@ Transformar a análise técnica de implementação (Guia Técnico) em um conjunt
 
 As entradas são **fixas e restritas** a dois arquivos do vault:
 
-1. **Guia Técnico de Implementação** — [Guia de Implementação - Core Loop da Corrida](obsidian://open?vault=summer26&file=docs%2F03-Tech%2FGuia%20de%20Implementa%C3%A7%C3%A3o%20-%20Core%20Loop%20da%20Corrida) — esta é a **análise técnica de implementação** que origina o plano.
-2. **Documento de Domínio** — [Corrida - Core Loop](obsidian://open?vault=summer26&file=docs%2F02-Core-Loop%2FCorrida%20-%20Core%20Loop) — descreve o Core Loop da Corrida (regras, fluxo, feedback ao jogador).
+1. [**Guia Técnico de Implementação**](obsidian://open?vault=summer26&file=Jhonny%2Fplanos%2F001-prototipo-core-loop%2Ffase8%2Frace-feedback-impl-guide) — 
+2. [**Feedback do usuario** ](obsidian://open?vault=summer26&file=Jhonny%2Fplanos%2F001-prototipo-core-loop%2Ffase8%2FDraft)
 
 O executor do plano será **outro agente IA**, não um humano. Cada task deve ser autocontida o suficiente para esse agente começar sem perguntas adicionais.
 
@@ -49,27 +50,27 @@ A validação visual acontece no **RPG Maker MZ** — o usuário rodará o jogo 
 > 3. Toda task deve listar **dependencies** com IDs das tasks anteriores obrigatórias.
 > 4. Toda task deve citar **referências concretas**: linha/seção do Guia Técnico, comando de evento do RMMZ, plugin Visustella relevante, ou arquivo do projeto.
 > 5. Invocar `mcp__pal__planner` em **modo multi-step** (preservando `continuation_id`) até convergir o plano completo antes de escrever qualquer artefato.
+> 6. Criar **obrigatoriamente** três pastas auxiliares ao lado de `tasks.md`: `retrospetivas/`, `builds/` e `interaction/` — cada uma com uma subpasta `fase1..faseN` para todas as fases do plano (mesmo que fiquem vazias no momento da geração).
 
 > [!warning] Proibições (nunca fazer)
-> 6. **Não inventar referências** — se não souber onde algo está, marcar como `TODO: localizar`.
-> 7. **Não pular fases** — cada fase precisa ser validável antes de a próxima fazer sentido; dependências devem ser honestas.
-> 8. **Não gerar tasks genéricas** ("implementar a corrida") — sempre quebrar em ações concretas de 2-4h.
-> 9. **Não usar `console.log`** nem código de debug em produção nas tasks.
+> 7. **Não inventar referências** — se não souber onde algo está, marcar como `TODO: localizar`.
+> 8. **Não pular fases** — cada fase precisa ser validável antes de a próxima fazer sentido; dependências devem ser honestas.
+> 9. **Não gerar tasks genéricas** ("implementar a corrida") — sempre quebrar em ações concretas de 2-4h.
 > 10. **Não salvar os artefatos** sem antes perguntar o diretório ao usuário e obter confirmação explícita.
+> 11. **Não omitir** nenhuma das três pastas auxiliares (`retrospetivas/`, `builds/`, `interaction/`) nem suas subpastas `fase1..faseN`, mesmo que o plano tenha uma única fase.
 
 > [!abstract] Comportamento
-> 11. Idioma dos artefatos: **português (pt-BR)**.
-> 12. Identificadores e código: **inglês** (seguindo regras do projeto em `../../../.claude/rules/basci-rules.json`).
-> 13. Nome do diretório: você **propõe** um nome snake_case simples e pede confirmação antes de criar.
+> 12. Idioma dos artefatos: inglês.
 
 ## FLUXO DE EXECUÇÃO
 
 ### Passo 1 — Scan de Contexto
 
 Leia em paralelo os dois arquivos fixos:
-- [Guia de Implementação - Core Loop da Corrida](obsidian://open?vault=summer26&file=docs%2F03-Tech%2FGuia%20de%20Implementa%C3%A7%C3%A3o%20-%20Core%20Loop%20da%20Corrida)
-- [Corrida - Core Loop](obsidian://open?vault=summer26&file=docs%2F02-Core-Loop%2FCorrida%20-%20Core%20Loop)
 
+1. [**Guia Técnico de Implementação**](obsidian://open?vault=summer26&file=Jhonny%2Fplanos%2F001-prototipo-core-loop%2Ffase8%2Frace-feedback-impl-guide) — 
+2. [**Feedback do usuario** ](obsidian://open?vault=summer26&file=Jhonny%2Fplanos%2F001-prototipo-core-loop%2Ffase8%2FDraft)
+3. Aprendizados consolidados de execuções anteriores, quando fornecidos como diretrizes neutras.
 ### Passo 2 — Plano via PAL MCP Planner
 
 Use o MCP Sequential Thinking para organizar seus pensamentos referente ao contexto que foi coletado no passo 1. Em seguida
@@ -84,9 +85,10 @@ Invoque `mcp__pal__planner` em modo multi-step:
 
 **Estrutura obrigatória do plano:**
 
-- 3 a 7 fases (mais que isso indica granularidade errada — consolidar)
 - Cada fase tem: objetivo, tasks, validação visual esperada
 - Cada task tem: 2-4h de escopo, dependências explícitas, referências concretas
+- Tasks que alterem `CommonEvents.json` devem exigir atualização do gerador/patcher correspondente e uma execução idempotente do script.
+- Validações de tela com loop/input devem cobrir também a continuidade após o input esperado, não apenas o estado estático durante a tela.
 
 ### Passo 3 — Propor Diretório e Confirmar
 
@@ -95,15 +97,25 @@ Pergunte ao usuário:
 > [!quote]
 > "Vou salvar o plano em `{{DIRETORIO_BASE}}/<nome-snake-case>`. Confirma o nome `<nome-snake-case>` ou prefere outro?"
 
-Sugira um nome simples baseado no escopo (ex: `core_loop_corrida`, `implementacao_corrida_fase1`). Aguarde confirmação explícita antes de criar qualquer arquivo.
+Sugira um nome simples baseado no escopo (ex: `core_loop_corrida`, `implementacao_corrida_base`). Aguarde confirmação explícita antes de criar qualquer arquivo.
 
 ### Passo 4 — Escrever Artefatos
 
-Crie a estrutura:
+Crie a estrutura principal e as três pastas auxiliares com subpastas por fase:
 
 ```bash
 mkdir -p {{DIRECTORY}}/<nome-snake-case>
+mkdir -p {{DIRECTORY}}/<nome-snake-case>/retrospetivas/fase{1..N}
+mkdir -p {{DIRECTORY}}/<nome-snake-case>/builds/fase{1..N}
+mkdir -p {{DIRECTORY}}/<nome-snake-case>/interaction/fase{1..N}
 ```
+
+> `N` = número total de fases definidas no plano (Passo 2). Subpastas seguem o padrão `fase1`, `fase2`, …, `faseN` (sem dash, em minúsculas).
+
+**Pasta auxiliares — propósito:**
+- `retrospetivas/faseN/` — retrospectiva técnica + de processo de cada fase, preenchida após concluir a fase.
+- `builds/faseN/` — scripts de build/patch (ex: geradores de `CommonEvents.json`, patchers idempotentes) específicos da fase.
+- `interaction/faseN/` — rascunhos de interação usuário-agente (entrevistas, validações visuais, perguntas e respostas) da fase.
 
 Gere os arquivos usando os templates:
 - `../../../.claude/templates/tasks-template.md` → `tasks.md` (índice)
@@ -121,7 +133,19 @@ Gere os arquivos usando os templates:
 ├── task-1.1.md
 ├── task-1.2.md
 ├── task-2.1.md
-└── ...
+├── ...
+├── retrospetivas/
+│   ├── fase1/            ← preenchida ao concluir a Fase 1
+│   ├── fase2/
+│   └── ...               ← uma subpasta por fase do plano
+├── builds/
+│   ├── fase1/            ← scripts de build/patch da Fase 1
+│   ├── fase2/
+│   └── ...               ← uma subpasta por fase do plano
+└── interaction/
+    ├── fase1/            ← rascunhos de interação usuário-agente da Fase 1
+    ├── fase2/
+    └── ...               ← uma subpasta por fase do plano
 ```
 
 ### Conteúdo esperado em `tasks.md`

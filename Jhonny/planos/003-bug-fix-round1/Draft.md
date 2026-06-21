@@ -1,5 +1,4 @@
 
-Faça uma analise profunda no codebase atual. use o comando /mcp__pal__thinkdeeper para te ajudar a levantar as causas raizes dos bugs/sugestões
 
 Pontos de feedback levantados pelo usuario:
 
@@ -14,8 +13,7 @@ Pontos de feedback levantados pelo usuario:
 	};
 - Alterar musica da cena de `DERROTA`. quando o jogador perde, toca a mesma musica de quando ganha. A musica atual é mais legal para uma vitoria.
 - Se o Jogador ficar parado na tela de Vitoria/Derrota o contador continua rodando e jogador ganha gloria (porque quando o timer zera ele ganha 10 de gloria.) A musica de derrota só toca depois que o jogador aperta a barra de espaço.
+- Os assets na cena de Curva está invertido. na tela está certo, as setas, mas o da esquerda está com Risk e o da direita está com safe.
+- Valor da % de consiencia está sempre em 0% zerado
+- Depois da primeira tentativa, o asset que mostra a % da consiencia desaparece.
 - 
-
-
-
-Atualize o [plano](obsidian://open?vault=summer26&file=Jhonny%2Fplanos%2F001-prototipo-core-loop%2Fcore_loop_corrida%2Ftasks) Para a versão 2 com mais um fase onde vamos corrigir os bugs da implementação e adicionar alguma escalabilidade ao código.

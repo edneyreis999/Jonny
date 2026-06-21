@@ -1,11 +1,11 @@
 ---
-title: "Fase 4 — Implementação Completa (Input + Timer)"
+title: Fase 4 — Implementação Completa (Input + Timer)
 fase: 4
-data: "2026-06-18"
-status: "completa e validada em playtest MZ (2026-06-18)"
-executor: "Claude (glm-5.2)"
+data: 2026-06-18
+status: completa e validada em playtest MZ (2026-06-18)
+executor: Claude (glm-5.2)
 tipo: registro-implementacao
-depends_on: "[[fase-3-completa]]"
+depends_on: "[[Jhonny/planos/001-prototipo-core-loop/core_loop_corrida/fase-3-completa]]"
 origem_atualizacao: "[[fase4/Atualizacao-aplicada]]"
 ---
 
