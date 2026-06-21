@@ -1,9 +1,7 @@
+
 # Retrospectiva técnica — CE19 WAIT_INPUT e SW_RACE_ACTIVE
 
 Data: 2026-06-20
-
-Arquivo salvo em:
-`Jhonny/planos/003-bug-fix-round1/fase-planning/retrospectives/2026-06-20-retrospectiva-ce19-wait-input-race-active.md`
 
 ## 1. Resumo da tarefa
 
