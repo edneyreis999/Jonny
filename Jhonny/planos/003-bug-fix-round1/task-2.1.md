@@ -31,14 +31,25 @@ the defeat branch in CE 19.
    ```
    ls -la Jhonny/audio/me/
    ```
-2. Identify which file is currently used as the Victory ME. Inspect CE 19
-   (or the cerimonial CE that handles victory) for a `Play ME` command
-   (code 246) and record the `parameters[0]` (name) field.
+2. Identify which file is currently used as the Victory audio. Inspect
+   **CE 19 cmd[6]**: it is a `PlaySE` command (**code 249**, not Play ME /
+   code 246) with `parameters[0].name = "Victory1"`. The asset
+   `Victory1.ogg` lives in `audio/me/` only — there is no copy in
+   `audio/se/`. This folder mismatch means the current PlaySE command
+   cannot resolve the file through the SE channel; Phase 2 Patch H
+   converts the command to `Play ME` (code 246) so the file resolves
+   through the ME channel and the implementation-guide §3.2 BGM-resume
+   semantics apply. Record `Victory1` as the Victory ME name to be
+   excluded from defeat candidates.
 3. Confirm the candidate defeat ME file:
    - If a file named like `Defeat.*`, `Gameover.*`, `Lose.*` exists → use it.
    - Otherwise, pick any `.ogg` file in `audio/me/` whose name is not the
      Victory ME. Prefer names that suggest loss/somber tone if available
      (e.g. `Shock1`, `Mystery`, `Sad`); record the choice and the reason.
+   - **Canonical preference:** `System.json` declares
+     `defeatMe = {"name": "Defeat1", ...}`, so `Defeat1.ogg` is the
+     system-canonical defeat ME and wins over `Defeat2` / `Gameover1` /
+     `Gameover2` when more than one candidate matches.
 4. Write the choice to `fase2/me-asset-choice.md`:
    - Victory ME name (for exclusion in the next task).
    - Chosen Defeat ME name.
@@ -54,7 +65,9 @@ exists on disk.
 ## Definition of Done
 
 - [ ] `ls Jhonny/audio/me/` output captured.
-- [ ] Victory ME name identified from CE 19.
-- [ ] Defeat ME chosen (canonical name or any non-Victory file).
+- [ ] Victory ME name identified from CE 19 cmd[6] (currently `Victory1`
+      via PlaySE code 249 — Phase 2 will convert to Play ME code 246).
+- [ ] Defeat ME chosen (canonical `Defeat1` preferred; otherwise any
+      non-Victory file).
 - [ ] `fase2/me-asset-choice.md` written with all four fields.
 - [ ] Chosen ME file exists on disk (`test -f`).

@@ -3224,39 +3224,6 @@
                 ]
             },
             {
-                "code": 249,
-                "indent": 0,
-                "parameters": [
-                    {
-                        "name": "Victory1",
-                        "volume": 90,
-                        "pitch": 100,
-                        "pan": 0
-                    }
-                ]
-            },
-            {
-                "code": 223,
-                "indent": 0,
-                "parameters": [
-                    [
-                        60,
-                        20,
-                        -120,
-                        60
-                    ],
-                    12,
-                    false
-                ]
-            },
-            {
-                "code": 108,
-                "indent": 0,
-                "parameters": [
-                    "[F6.4] bg_vitoria.png ausente — fallback Tint dourado acima"
-                ]
-            },
-            {
                 "code": 355,
                 "indent": 0,
                 "parameters": [
@@ -3289,6 +3256,72 @@
                 "indent": 0,
                 "parameters": [
                     "$gameVariables.setValue(117, passou ? 1 : 0);"
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    117,
+                    0,
+                    1,
+                    0
+                ]
+            },
+            {
+                "code": 249,
+                "indent": 1,
+                "parameters": [
+                    {
+                        "name": "Victory1",
+                        "volume": 90,
+                        "pitch": 100,
+                        "pan": 0
+                    }
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 249,
+                "indent": 1,
+                "parameters": [
+                    {
+                        "name": "Defeat1",
+                        "volume": 90,
+                        "pitch": 100,
+                        "pan": 0
+                    }
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 223,
+                "indent": 0,
+                "parameters": [
+                    [
+                        60,
+                        20,
+                        -120,
+                        60
+                    ],
+                    12,
+                    false
+                ]
+            },
+            {
+                "code": 108,
+                "indent": 0,
+                "parameters": [
+                    "[F6.4] bg_vitoria.png ausente — fallback Tint dourado acima"
                 ]
             },
             {
