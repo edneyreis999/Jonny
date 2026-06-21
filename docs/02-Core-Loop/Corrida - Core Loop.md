@@ -12,7 +12,7 @@ tags: [core-loop, corrida, roguelite, minigame, rpg-maker-mz, timer-based, proce
 
 # Corrida — Core Loop v1
 
-> **TL;DR:** cada corrida é uma corrente procedural de cenas binárias com timer (==Sinal 4,0s== / ==Curva 3,5s== fixos). Há ==2 tipos de cena==: ==Sinal== (sempre vermelho → Parar/Furar) e ==Curva== (Direita/Esquerda). Toda cena tem uma ação ==safe== (Parar / Direita = +10 Consciência, +10 Pontos de Glória, avança 1 cena) e uma ação ==risk== (Furar / Esquerda = roll 0–99 contra `Consciência + P_cena`, consome `P_cena`, awards `P_cena × 2` Pontos de Glória). Sucesso se `roll < taxa`. Falha ou timer expira = crash ==reroll run== (nova seed + Consciência = 0, Pontos = 0). ==Vencer = chegar em 1º lugar== (maior pontuação). São ==3 corridas fixas na narrativa== (Lenda → Rachadura → Abismo) escalando em comprimento (6 → 8 → 10 cenas). `P_cena` é sorteada por cena em `{0,10,20,...,100}`. Sem itens, sem power-ups — Consciência (0–100, reset) + Pontos de Glória (soma cumulativa).
+> **TL;DR:** cada corrida é uma corrente procedural de cenas binárias com timer (==Sinal 4,0s== / ==Curva 3,5s== fixos). Há ==2 tipos de cena==: ==Sinal== (sempre vermelho → Parar/Furar) e ==Curva== (Direita/Esquerda). Toda cena tem uma ação ==safe== (Parar / Esquerda = +10 Consciência, +10 Pontos de Glória, avança 1 cena) e uma ação ==risk== (Furar / Direita = roll 0–99 contra `Consciência + P_cena`, consome `P_cena`, awards `P_cena × 2` Pontos de Glória). Sucesso se `roll < taxa`. Falha ou timer expira = crash ==reroll run== (nova seed + Consciência = 0, Pontos = 0). ==Vencer = chegar em 1º lugar== (maior pontuação). São ==3 corridas fixas na narrativa== (Lenda → Rachadura → Abismo) escalando em comprimento (6 → 8 → 10 cenas). `P_cena` é sorteada por cena em `{0,10,20,...,100}`. Sem itens, sem power-ups — Consciência (0–100, reset) + Pontos de Glória (soma cumulativa).
 >
 > Este doc cobre **só o core loop da corrida** (sinal + curva + Consciência + restart procedural). Cenas VN, ConcernScore, finais e direção de arte estão especificados em [[Roleta Paulista]].
 >
@@ -59,7 +59,7 @@ tags: [core-loop, corrida, roguelite, minigame, rpg-maker-mz, timer-based, proce
 | --------------------- | ---------------------------------------------------------------------------------------------- |
 | **Formato**           | ==Roguelite timer-based== de decisão binária com recurso. Não é racing steering — é QTE enfileirado. |
 | **Cena (unidade)**    | Decisão binária com timer fixo (==Sinal 4,0s== / ==Curva 3,5s==). Toda cena tem 1 ação ==safe== e 1 ação ==risk==. Safe avança e dá +10 Consciência. Risk rola 0–99 contra `Consciência + P_cena`; sucesso se `roll < taxa`. |
-| **Tipos de cena**     | ==Sinal== (sempre vermelho → Parar safe / Furar risk) e ==Curva== (Direita safe / Esquerda risk). |
+| **Tipos de cena**     | ==Sinal== (sempre vermelho → Parar safe / Furar risk) e ==Curva== (Direita risk / Esquerda safe). |
 | **Recurso central**   | ==Consciência== — barra visível 0–100. Reset a 0 no início de cada corrida e a cada restart. |
 | **RNG**               | ==Por cena==. A cada cena sorteia-se `P_cena ∈ {0,10,20,...,100}` (uniforme). Fixo para aquela cena só. |
 | **Geração**           | Procedural por corrida. Nova seed a cada início de corrida (incluindo restarts). Cada cena recebe tipo + `P_cena` via seed. |
@@ -67,7 +67,7 @@ tags: [core-loop, corrida, roguelite, minigame, rpg-maker-mz, timer-based, proce
 | **Final fixo**        | Última cena da Corrida 3 é sempre ==Curva do Diabo== (`P_cena = 100`, não-reseteável).        |
 | **POV**               | Dissociativo — entre corridas você é o amigo; nas corridas você "vira" o João (ver [[Roleta Paulista]] §3 e §6). |
 | **Condição de vitória**| Completar todas as `N_cenas` cenas sem crashar ==E== atingir ==threshold mínimo de Pontos de Glória== (60/100/150 por corrida). Ver §8 para detalhes da tela cerimonial e progressão. |
-| **Condição de derrota**| Risk action com roll falho = ==crash== = restart imediato da corrida. Timer expira = jogada safe automática (Parar/Direita). ==Não atingir threshold ao final = derrota== (tela DERROTA + restart da mesma corrida via `EV_Crash`). |
+| **Condição de derrota**| Risk action com roll falho = ==crash== = restart imediato da corrida. Timer expira = jogada safe automática (Parar/Esquerda). ==Não atingir threshold ao final = derrota== (tela DERROTA + restart da mesma corrida via `EV_Crash`). |
 | **Input**             | Mouse (clique) + teclado (setas). RPG Maker MZ expõe ambos nativamente em HTML5.               |
 | **Implementação MZ**  | Eventos paralelos + `Show Picture` + `Move Picture` + variáveis + timer por evento. ==Sem plugins==. |
 
@@ -90,9 +90,9 @@ flowchart TD
     Next -->|Sim| Scene[Apresenta cena i: tipo + P_cena]
     Scene --> Timer[Timer 3-5s]
     Timer --> Input{Jogador escolhe}
-    Input -->|Safe: Parar/Direita| SafePlus["+10 Consciência<br/>i++"]
+    Input -->|Safe: Parar/Esquerda| SafePlus["+10 Consciência<br/>i++"]
     SafePlus --> Next
-    Input -->|Risk: Furar/Esquerda| Roll["taxa = C + P_cena<br/>roll d100"]
+    Input -->|Risk: Furar/Direita| Roll["taxa = C + P_cena<br/>roll d100"]
     Roll -->|d100 <= taxa| RiskOk["i++<br/>C -= P_cena"]
     RiskOk --> Next
     Roll -->|d100 > taxa| Crash((CRASH))
@@ -103,7 +103,7 @@ flowchart TD
 ```
 
 > [!note] Curva do Diabo
-> Na Corrida 3, a cena final (`i = N-1 = 9`) é sempre a **Curva do Diabo** com `P_cena = 100` (não sorteadável, não-resetável). `taxa = clamp(C + 100, 0, 100) = 100%` → Esquerda **sempre succeede no roll**, mas `Consciência -= 100` zera a barra. Tensão é de custo, não de chance. Ver §6.4.
+> Na Corrida 3, a cena final (`i = N-1 = 9`) é sempre a **Curva do Diabo** com `P_cena = 100` (não sorteadável, não-resetável). `taxa = clamp(C + 100, 0, 100) = 100%` → Direita **sempre succeede no roll**, mas `Consciência -= 100` zera a barra. Tensão é de custo, não de chance. Ver §6.4.
 
 ---
 
@@ -114,7 +114,7 @@ Toda cena — sinal ou curva — compartilha o mesmo esqueleto. Timer é **fixo 
 | Fase                 | Duração        | O que acontece                                                                                       |
 | -------------------- | -------------- | ---------------------------------------------------------------------------------------------------- |
 | **1. Setup + botões**| 0,3s           | Fundo aparece (asfalto, sinal/placa, Opala em POV). **Botões Safe e Risk surgem imediatamente** (não há fase posterior de apresentação). Texto de contextualização sutil (1 linha). Barra de Consciência já visível. |
-| **2. Janela input**  | 4,0s (Sinal) / 3,5s (Curva) | Timer corre. Jogador clica/seta. Se não escolher → executa **ação safe automática** (Parar/Direita, ver §4 e §5). |
+| **2. Janela input**  | 4,0s (Sinal) / 3,5s (Curva) | Timer corre. Jogador clica/seta. Se não escolher → executa **ação safe automática** (Parar/Esquerda, ver §4 e §5). |
 | **3. Resolução**     | 0,4s           | Animação (safe: avança / risk-sucesso: avança + efeito / risk-falha: crash). Som de motor, pneu ou batida. Em caso de crash, **Consciência é reduzida visualmente antes do fade** (0,3s de hover da barra zerada/reduzida) para o jogador perceber o custo. |
 | **4. Atualização C** | instantâneo    | Consciência atualizada: +10 (safe, clamp 100) ou `−P_cena` (risk, mínimo 0). Barra reflete com flash discreto. |
 | **5. Transição**     | 0,2s           | Fade para próxima cena. Atualiza `current_scene_index`.                                              |
@@ -225,7 +225,7 @@ Toda cena de sinal é **vermelha** — é um sinal de parada obrigatória. O jog
 ## 5. Mecânica — Cena de Curva
 
 > [!summary]- Clique para expandir Overview
-> A segunda decisão binária. Apresenta uma curva à frente. ==Direita== = trajeto seguro (certeza, +10 Consciência, +10 Pontos de Glória). ==Esquerda== = risco com recompensa (roll `Consciência + P_cena`, consome `P_cena`, awards `P_cena × 2` Pontos de Glória). Esquerda bem-sucedida awards Pontos; Esquerda falha = crash. Espelha o Sinal (§4) com framing visual diferente. #curva #risco-recompensa
+> A segunda decisão binária. Apresenta uma curva à frente. ==Direita== = risco com recompensa (roll `Consciência + P_cena`, consome `P_cena`, awards `P_cena × 2` Pontos de Glória). Direita bem-sucedida awards Pontos; Direita falha = crash. ==Esquerda== = trajeto seguro (certeza, +10 Consciência, +10 Pontos de Glória). Espelha o Sinal (§4) com framing visual diferente. #curva #risco-recompensa
 
 ### Input
 - **Mouse:** clique em "Direita" ou "Esquerda".
@@ -239,49 +239,49 @@ Toda cena de sinal é **vermelha** — é um sinal de parada obrigatória. O jog
 
 | Ação    | Tipo | Efeito                                                                                                                |
 | ------- | ---- | --------------------------------------------------------------------------------------------------------------------- |
-| Direita | Safe | Avança 1 cena. `Consciência += 10` (clamp 100). Sempre funciona.                                                     |
-| Esquerda| Risk | `taxa = clamp(Consciência + P_cena, 0, 100)`. Roll `0–99`. Sucesso se `roll < taxa` → avança 1 cena e ganha `P_cena × 2` Pontos de Glória. Senão → crash. Após roll (qualquer resultado): `Consciência -= P_cena` (mínimo 0). |
+| Direita | Risk | `taxa = clamp(Consciência + P_cena, 0, 100)`. Roll `0–99`. Sucesso se `roll < taxa` → avança 1 cena e ganha `P_cena × 2` Pontos de Glória. Senão → crash. Após roll (qualquer resultado): `Consciência -= P_cena` (mínimo 0). |
+| Esquerda| Safe | Avança 1 cena. `Consciência += 10` (clamp 100). Sempre funciona.                                                     |
 
 > [!important] Pontuação de Glória #pontuação #glória
-> Recompensa proporcional ao risco: Esquerda-sucesso awards `P_cena × 2` ==Pontos de Glória==, enquanto Direita awards apenas +10 pontos fixos. Em uma corrida de 6 cenas, Esquerda com `P_cena = 80` awards +160 pontos — ==a diferença entre 1º e 4º lugar==.
+> Recompensa proporcional ao risco: Direita-sucesso awards `P_cena × 2` ==Pontos de Glória==, enquanto Esquerda awards apenas +10 pontos fixos. Em uma corrida de 6 cenas, Direita com `P_cena = 80` awards +160 pontos — ==a diferença entre 1º e 4º lugar==.
 >
 > ==Pontuação = determinante da posição==. Ao final da corrida, o jogador com a MAIOR pontuação total vence. Jogador que não alcançar 1º lugar sofre derrota e restart da corrida.
 
 **State changes:**
-- `current_scene_index += 1` (tanto Direita quanto Esquerda-sucesso).
-- `Consciência = clamp(Consciência + 10, 0, 100)` se Direita.
-- `Consciência = max(0, Consciência - P_cena)` se Esquerda (após o roll, qualquer resultado).
-- `pontos_gloria += 10` se Direita, `+= (P_cena × 2)` se Esquerda-sucesso.
-- `crash_flag = TRUE` se Esquerda-falha OU timer expira sem input.
+- `current_scene_index += 1` (tanto Esquerda quanto Direita-sucesso).
+- `Consciência = clamp(Consciência + 10, 0, 100)` se Esquerda.
+- `Consciência = max(0, Consciência - P_cena)` se Direita (após o roll, qualquer resultado).
+- `pontos_gloria += 10` se Esquerda, `+= (P_cena × 2)` se Direita-sucesso.
+- `crash_flag = TRUE` se Direita-falha OU timer expira sem input.
 
 **Edge cases:**
 
 | Situação                                              | Comportamento                                                       |
 | ----------------------------------------------------- | ------------------------------------------------------------------- |
 | Input duplo (Direita + Esquerda no mesmo tick)        | Vence o último input.                                               |
-| Timer expira sem input                                | Executa ação safe automática (Direita): +10 Consciência, avança 1 cena.                                                  |
-| Esquerda com `Consciência = 0`                        | Permitido. `taxa = P_cena`.                                         |
-| `P_cena = 0` na cena de curva                         | Esquerda = roll contra só `Consciência`. Quase sempre falha no início. |
-| `P_cena = 100` na cena de curva                       | Esquerda = sempre sucesso (clamp), mas zera a Consciência. Custo alto. |
+| Timer expira sem input                                | Executa ação safe automática (Esquerda): +10 Consciência, avança 1 cena.                                                  |
+| Direita com `Consciência = 0`                         | Permitido. `taxa = P_cena`.                                         |
+| `P_cena = 0` na cena de curva                         | Direita = roll contra só `Consciência`. Quase sempre falha no início. |
+| `P_cena = 100` na cena de curva                       | Direita = sempre sucesso (clamp), mas zera a Consciência. Custo alto. |
 
 ### Feedback
 
 **Visual:**
-- Direita: Opala inclina suave para a direita, asfalto curva em arco largo.
-- Esquerda-sucesso: Opala faz contra-volta rápida (motion blur + partículas de pneu). Barra de Consciência desce visivelmente.
-- Esquerda-falha: Opala derrapa, câmera vira 90°, fade para crash.
+- Esquerda: Opala inclina suave para a esquerda, asfalto curva em arco largo.
+- Direita-sucesso: Opala faz contra-volta rápida (motion blur + partículas de pneu). Barra de Consciência desce visivelmente.
+- Direita-falha: Opala derrapa, câmera vira 90°, fade para crash.
 - Crash: igual ao §4 (visual unificado).
 - O **timbre da Curva do Diabo** (corrida 3, cena final): motor engasga + baixo cai uma oitava, placa envelhecida visível. Reconhecível antes do jogador terminar de ler.
 
 **Áudio:**
-- Direita: pneu cantando suave (0,3s).
-- Esquerda-sucesso: pneu gritando + motor subindo RPM (0,5s).
-- Esquerda-falha: pneu gritando + impacto + silêncio.
+- Esquerda: pneu cantando suave (0,3s).
+- Direita-sucesso: pneu gritando + motor subindo RPM (0,5s).
+- Direita-falha: pneu gritando + impacto + silêncio.
 - Curva do Diabo: motor engasga + baixo cai uma oitava (pista diegética de áudio).
 
-**Haptic:** vibrar 80ms em Esquerda-falha (mais longo que Parar-falha no Sinal, pois a curva é mais comprometedora narrativamente).
+**Haptic:** vibrar 80ms em Direita-falha (mais longo que Parar-falha no Sinal, pois a curva é mais comprometedora narrativamente).
 
-**UI:** botões Direita/Esquerda com ícones de seta curva (estilo placa de trânsito envelhecida). Hover em Esquerda pisca Consciência em vermelho-sangue.
+**UI:** botões Direita/Esquerda com ícones de seta curva (estilo placa de trânsito envelhecida). Hover em Direita pisca Consciência em vermelho-sangue.
 
 ### Parameters
 
@@ -293,7 +293,7 @@ Toda cena de sinal é **vermelha** — é um sinal de parada obrigatória. O jog
 
 ### Balance notes
 
-> 🎮 **Designer's note:** a Curva é onde o jogo **fala com o jogador sobre o tema da jam**. "Esquerda" é literalmente "let chance decide". Quando o jogador escolhe Esquerda na corrida 3 sob POV do João, ele está **sentindo o impulso do João**. O custo em Consciência (`= P_cena`) cria uma economia interna: cada Esquerda awards `P_cena × 2` Pontos de Glória, mas drena o mesmo valor de Consciência. O arco Lenda → Rachadura → Abismo emerge naturalmente do padrão de gastos do jogador — mais Risk = mais Pontos = maior chance de 1º lugar.
+> 🎮 **Designer's note:** a Curva é onde o jogo **fala com o jogador sobre o tema da jam**. "Direita" é literalmente "let chance decide". Quando o jogador escolhe Direita na corrida 3 sob POV do João, ele está **sentindo o impulso do João**. O custo em Consciência (`= P_cena`) cria uma economia interna: cada Direita awards `P_cena × 2` Pontos de Glória, mas drena o mesmo valor de Consciência. O arco Lenda → Rachadura → Abismo emerge naturalmente do padrão de gastos do jogador — mais Risk = mais Pontos = maior chance de 1º lugar.
 
 **Comparable implementations:**
 - ***Slay the Spire* RNG de encontro:** opaco ao jogador → pegamos a opacidade do `P_cena`.
@@ -302,9 +302,9 @@ Toda cena de sinal é **vermelha** — é um sinal de parada obrigatória. O jog
 - **Rejeitado:** mostrar `P_cena` numericamente. Mata o drama e o tema. [Jogador sente na textura visual e na frequência de crashes.]
 
 **Riscos conhecidos:**
-- Cena com `P_cena = 0` é "Esquerda suicide" no início da corrida (0 pontos de glória). Mitigação: visivelmente diferente (sinal mais apagado, curva mais fechada). [PLAYTEST]
-- Cena com `P_cena = 100` é "Esquerda grátis" se tiver Consciência. Mitigação: zera a Consciência, mas awards +200 Pontos de Glória — trade-off claro.
-- Como Direita é sempre safe, jogador pode completar a corrida sem nunca arriscar Esquerda — mas **não alcançará 1º lugar** sem Pontos de Glória. Quem quer vencer precisa arriscar.
+- Cena com `P_cena = 0` é "Direita suicide" no início da corrida (0 pontos de glória). Mitigação: visivelmente diferente (sinal mais apagado, curva mais fechada). [PLAYTEST]
+- Cena com `P_cena = 100` é "Direita grátis" se tiver Consciência. Mitigação: zera a Consciência, mas awards +200 Pontos de Glória — trade-off claro.
+- Como Esquerda é sempre safe, jogador pode completar a corrida sem nunca arriscar Direita — mas **não alcançará 1º lugar** sem Pontos de Glória. Quem quer vencer precisa arriscar.
 
 ---
 
@@ -351,7 +351,7 @@ for i in 0..N-1:
 > - Não é sorteadável — sobrescreve qualquer composição procedural
 > - ==`P_cena = 100`== (fixo, não respeita o sorteio da §6.2)
 > - **Comportamento:** `taxa_sucesso = clamp(Consciência + 100, 0, 100)` = ==sempre 100%== (sucesso garantido). MAS `Consciência -= 100` = ==zera a barra==
-> - Cena **sempre apresentada como Curva** (não sinal). Direita = safe (sobrevive à corrida). Esquerda = sucesso garantido mas destrói a Consciência (zera a barra).
+> - Cena **sempre apresentada como Curva** (não sinal). Esquerda = safe (sobrevive à corrida). Direita = sucesso garantido mas destrói a Consciência (zera a barra).
 > - Visual diferenciado: placa envelhecida "CURVA DO DIABO", cruz à beira da estrada.
 > - Áudio diferenciado: motor engasga + baixo cai uma oitava (pista diegética — jogador reconhece antes de ver).
 
@@ -487,7 +487,7 @@ Corrida 3 (Abismo, 10 cenas, threshold 150)
 | Timer correndo      | Barra horizontal diminui                   | (opcional) 3 ticks finais          | —            |
 | Hover em Risk       | Barra Consciência pisca vermelho-sangue `#8B0000` (aviso de custo) | —                                  | —            |
 | Safe — Sinal Parar  | Flash âmbar + Opala freia. **Barra Consciência: +10 em sépia claro.** | Freada curta + motor cai RPM       | —            |
-| Safe — Curva Direita| Opala inclina suave. **Barra Consciência: +10 em sépia claro.** | Pneu canta suave                   | —            |
+| Safe — Curva Esquerda| Opala inclina suave. **Barra Consciência: +10 em sépia claro.** | Pneu canta suave                   | —            |
 | Risk — sucesso      | Flash branco + Opala accel. **Barra Consciência: −P_cena em sépia escuro.** | Motor sobe RPM + pneu grita        | —            |
 | Crash               | Shake 0,3s + flash branco + tint preto momentâneo (fade cortado para restart <1s) | ==`Shock1` (ME)== toca sobre BGM — feedback negativo. **`Buzzer1.ogg` não existe** em `Jhonny/audio/me/` (validado em F6 2026-06-19); Shock1 é o fallback semanticamente mais próximo (harsh, curto, sem melodia). ~~"Impacto metálico + silêncio abrupto"~~ é direção narrativa futura (v2 / polish); assets `crash_metal.ogg` (F2) e `Buzzer1.ogg` (se adicionado) ficam reservados. | 50–80ms vib. |
 | Restart             | Fade-in direto cena 1. **Barra Consciência volta a 0.** | (opcional) respiração do João      | —            |
@@ -538,7 +538,7 @@ Corrida 3 (Abismo, 10 cenas, threshold 150)
 | Run com sequência P_cena toda baixa = jogador nunca arrisca                   | Média | Médio   | [PLAYTEST] Considerar triangular centrada em 50 ou piso de P_cena = 20.                        |
 | Run com sequência P_cena toda alta = jogador sempre arrisca, Consciência evapora | Média | Médio   | Aceitável — alinhado ao arco Lenda → Rachadura → Abismo. Torna corrida 3 brutal.              |
 | Consciência inicial 0 desincentiva Risk na cena 1 (warm-up forçado)          | Média | Baixo   | Default intencional: warm-up safe é partitura da abertura narrativa. Cena 1 quase sempre safe. |
-| Jogador vence sem nunca arriscar Risk (run "safe" todo em Parar/Direita)      | Alta  | Baixo   | Aceitável e planejado. O jogo recompensa cautela. Quem quer ver o final escondido precisa arriscar. |
+| Jogador vence sem nunca arriscar Risk (run "safe" todo em Parar/Esquerda)      | Alta  | Baixo   | Aceitável e planejado. O jogo recompensa cautela. Quem quer ver o final escondido precisa arriscar. |
 | Restart sem VN entre tentativas confunde jogador                             | Média | Médio   | Indicador sutil "TENTATIVA N" no canto + Consciência volta a 0 de forma visível. [PLAYTEST].   |
 | Timer expira = safe automático pode tornar jogo muito fácil                      | Alta  | Médio   | Timer curto (3,5-4,0s) + aviso visual/sonoro mantém tensão. Jogador perde oportunidade de Risk.            |
 | Curva do Diabo agora "sempre success" perde tensão clímax                    | Alta  | Alto    | Releitura narrativa: sucesso zera Consciência. Tensão mudou para consequência, não chance. [PLAYTEST] |
@@ -654,7 +654,7 @@ while SW_RACE_ACTIVE:
 
 ### 12.5 Pseudo-código do handler de input (on click/keypress)
 ```
-on input (SAFE = Parar/Direita):
+on input (SAFE = Parar/Esquerda):
     if not SW_INPUT_LOCKED and VAR_TIMER_REMAINING > 0:
         SW_INPUT_LOCKED = ON
         VAR_CONSCIENCIA = min(100, VAR_CONSCIENCIA + 10)
@@ -663,7 +663,7 @@ on input (SAFE = Parar/Direita):
         VAR_PONTOS_GLORIA += 10  # Safe awards +10 pontos fixos
         Call EV_ResolucaoSafe
 
-on input (RISK = Furar/Esquerda):
+on input (RISK = Furar/Direita):
     if not SW_INPUT_LOCKED and VAR_TIMER_REMAINING > 0:
         SW_INPUT_LOCKED = ON
         VAR_TAXA_SUCESSO = min(100, VAR_CONSCIENCIA + VAR_P_CENA)
