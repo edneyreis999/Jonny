@@ -1605,8 +1605,7 @@
                             "parameters": [
                                 0,
                                 "That’s it! Take it out on the accelerator!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -3131,8 +3130,7 @@
                             "parameters": [
                                 1,
                                 "Devil's Curve! No sense at all. That's why you win everything."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 108,
@@ -4521,8 +4519,7 @@
                             "parameters": [
                                 2,
                                 "This is insane. Promise me you won’t take that curve. I don’t think it’s a good idea for you to race, you´'re not yourself..."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 108,
@@ -5925,8 +5922,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -7315,8 +7311,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -11873,8 +11868,7 @@
                             "parameters": [
                                 2,
                                 "You’re... different. Did something happen?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -23969,7 +23963,8 @@
                             "parameters": [
                                 1,
                                 "The final year of high school isn’t easy for anyone, not even for big Jonny."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,

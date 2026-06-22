@@ -1649,7 +1649,8 @@
                             "parameters": [
                                 0,
                                 "You’re popular! Getting warnings is basically your middle name."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -2004,7 +2005,8 @@
                             "parameters": [
                                 1,
                                 "Don’t worry about it. You can make it up later."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -2059,7 +2061,8 @@
                             "parameters": [
                                 0,
                                 "A diploma is just a piece of paper, Johnny."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -2359,7 +2362,8 @@
                             "parameters": [
                                 2,
                                 "You’ve never really cared about warnings before. Did something happen?"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -2705,7 +2709,8 @@
                             "parameters": [
                                 0,
                                 "Then just break up already! Stop complaining so much."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -2733,6 +2738,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 102,
                             "indent": 1,
                             "parameters": [
@@ -2753,7 +2765,8 @@
                             "parameters": [
                                 0,
                                 "A girlfriend and the whole school at your feet!"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -2791,7 +2804,8 @@
                             "parameters": [
                                 1,
                                 "No need to show off on your single friend, dude."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -2829,7 +2843,8 @@
                             "parameters": [
                                 2,
                                 "So what did you fight about?"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -2871,6 +2886,13 @@
                             ]
                         },
                         {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
                             "code": 102,
                             "indent": 2,
                             "parameters": [
@@ -2891,7 +2913,8 @@
                             "parameters": [
                                 0,
                                 "That’s just your girlfriend being jealous and not wanting you to race anymore."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 0,
@@ -2904,7 +2927,8 @@
                             "parameters": [
                                 1,
                                 "You just need to race again and you’ll be back to normal."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 0,
@@ -2917,7 +2941,8 @@
                             "parameters": [
                                 2,
                                 "You don’t really seem okay with this..."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -3014,7 +3039,8 @@
                             "parameters": [
                                 1,
                                 "Couples fight, that’s normal."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -3062,7 +3088,8 @@
                             "parameters": [
                                 0,
                                 "A girlfriend and the whole school at your feet!"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -3100,7 +3127,8 @@
                             "parameters": [
                                 1,
                                 "No need to show off on your single friend, dude."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -3138,7 +3166,8 @@
                             "parameters": [
                                 2,
                                 "So what did you fight about?"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -3200,7 +3229,8 @@
                             "parameters": [
                                 0,
                                 "That’s just your girlfriend being jealous and not wanting you to race anymore."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 0,
@@ -3213,7 +3243,8 @@
                             "parameters": [
                                 1,
                                 "You just need to race again and you’ll be back to normal."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 0,
@@ -3226,7 +3257,8 @@
                             "parameters": [
                                 2,
                                 "You don’t really seem okay with this..."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -3407,8 +3439,7 @@
                             "parameters": [
                                 2,
                                 "You don’t really seem okay with this..."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -3623,8 +3654,7 @@
                             "parameters": [
                                 2,
                                 "It’s weird that you’re not even excited about racing."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -3727,8 +3757,8 @@
                     "priorityType": 0,
                     "stepAnime": false,
                     "through": false,
-                    "trigger": 0,
-                    "walkAnime": true
+                    "trigger": 3,
+                    "walkAnime": false
                 },
                 {
                     "conditions": {
@@ -3808,7 +3838,8 @@
                             "parameters": [
                                 0,
                                 "You’d be the biggest legend in town."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -3863,7 +3894,8 @@
                             "parameters": [
                                 0,
                                 "My friend Jonny is the best! You’re going to crush it tomorrow."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -3912,7 +3944,7 @@
                                 0,
                                 1,
                                 1,
-                                "Player"
+                                "Chance"
                             ]
                         },
                         {
@@ -3972,7 +4004,8 @@
                             "parameters": [
                                 1,
                                 "That’s just like you, Jonny! The only possible winner tomorrow."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -4081,7 +4114,8 @@
                             "parameters": [
                                 2,
                                 "But... The last guy who tried that turn died. Are you serious about this?"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -4308,6 +4342,438 @@
                             "parameters": [
                                 "Yeah... "
                             ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 1,
+                            "parameters": [
+                                [
+                                    "My friend Jonny is the best! You’re going to crush it tomorrow.",
+                                    "That’s just like you, Jonny! The only possible winner tomorrow.",
+                                    "But... The last guy who tried that turn died. Are you serious about this?"
+                                ],
+                                -1,
+                                0,
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                0,
+                                "My friend Jonny is the best! You’re going to crush it tomorrow."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Wow, there’s a race tomorrow. I had almost "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "forgotten about it. I think I need to rest..."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Chance"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Are you sending me away? Haha It’s late, you’re right. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "See you tomorrow?"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "See you tomorrow. Maybe I’ll finally do something... "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "interesting there."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                1,
+                                "That’s just like you, Jonny! The only possible winner tomorrow."
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Wow, there’s a race tomorrow. I had almost "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "forgotten about it. I think I need to rest..."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Chance"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Are you sending me away? Haha It’s late, you’re right. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "See you tomorrow?"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "See you tomorrow. Maybe I’ll finally do something... "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "interesting there."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 1,
+                            "parameters": [
+                                2,
+                                "But... The last guy who tried that turn died. Are you serious about this?"
+                            ],
+                            "collapsed": true
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I’m just saying… the idea sounds more tempting than "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "it should. Sometimes I don’t really care "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "what happens after."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Player"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Chance"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Right… there’s a race tomorrow. I almost forgot. "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "I think I need some rest…"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Chance"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Don’t change the subject, Jonny. Promise me "
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "you won’t take Devil’s Curve."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                10
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Jonny"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "Alright, I promise. I’ll try not to wreck the Opala."
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 2,
+                            "parameters": [
+                                11
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                1,
+                                1,
+                                "Chance"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "See you tomorrow."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 1,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -4616,10 +5082,10 @@
                     },
                     "moveSpeed": 3,
                     "moveType": 0,
-                    "priorityType": 0,
+                    "priorityType": 2,
                     "stepAnime": false,
                     "through": false,
-                    "trigger": 0,
+                    "trigger": 3,
                     "walkAnime": true
                 }
             ],
