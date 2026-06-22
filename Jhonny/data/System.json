@@ -113,7 +113,7 @@
         "startX": 0,
         "startY": 0
     },
-    "currencyUnit": "G",
+    "currencyUnit": "",
     "defeatMe": {
         "name": "Defeat1",
         "pan": 0,
@@ -176,9 +176,7 @@
     "optSideView": false,
     "optSlipDeath": false,
     "optTransparent": false,
-    "partyMembers": [
-        1
-    ],
+    "partyMembers": [],
     "ship": {
         "bgm": {
             "name": "Ship2",
@@ -744,7 +742,7 @@
         "VAR_TIMER_TIMEOUT_FLAG",
         "VAR_VITORIA_PASSOU"
     ],
-    "versionId": 85006425,
+    "versionId": 26503824,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,
