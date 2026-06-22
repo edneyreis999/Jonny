@@ -4597,6 +4597,41 @@
                             ]
                         },
                         {
+                            "code": 108,
+                            "indent": 0,
+                            "parameters": [
+                                "## Comentario 2"
+                            ]
+                        },
+                        {
+                            "code": 408,
+                            "indent": 0,
+                            "parameters": [
+                                "O jogador não deve mais ir para a Estrada VN3. "
+                            ]
+                        },
+                        {
+                            "code": 408,
+                            "indent": 0,
+                            "parameters": [
+                                "Ele deve ir para segunda corrida. "
+                            ]
+                        },
+                        {
+                            "code": 408,
+                            "indent": 0,
+                            "parameters": [
+                                "e ao final da corrida ele deveriá ser "
+                            ]
+                        },
+                        {
+                            "code": 408,
+                            "indent": 0,
+                            "parameters": [
+                                "teletransportado para a Estrada NV3."
+                            ]
+                        },
+                        {
                             "code": 0,
                             "indent": 0,
                             "parameters": []

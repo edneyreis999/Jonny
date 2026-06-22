@@ -2779,6 +2779,20 @@
                             ]
                         },
                         {
+                            "code": 108,
+                            "indent": 0,
+                            "parameters": [
+                                "## Comentario 1"
+                            ]
+                        },
+                        {
+                            "code": 408,
+                            "indent": 0,
+                            "parameters": [
+                                "O jogador não deve mais ir para o Quarto_NV2. Ele deve ir para primeira corrida. e ao final da corrida ele deveriá ser teletransportado para o Quarto VN2."
+                            ]
+                        },
+                        {
                             "code": 0,
                             "indent": 0,
                             "parameters": []
