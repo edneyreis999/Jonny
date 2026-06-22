@@ -1423,6 +1423,11 @@
                             ]
                         },
                         {
+                            "code": 354,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
                             "code": 0,
                             "indent": 0,
                             "parameters": []
