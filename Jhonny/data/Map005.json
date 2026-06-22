@@ -3727,7 +3727,7 @@
                     "priorityType": 0,
                     "stepAnime": false,
                     "through": false,
-                    "trigger": 0,
+                    "trigger": 3,
                     "walkAnime": true
                 },
                 {
@@ -4585,11 +4585,22 @@
                             ]
                         },
                         {
+                            "code": 122,
+                            "indent": 0,
+                            "parameters": [
+                                100,
+                                100,
+                                0,
+                                0,
+                                2
+                            ]
+                        },
+                        {
                             "code": 201,
                             "indent": 0,
                             "parameters": [
                                 0,
-                                13,
+                                1,
                                 0,
                                 0,
                                 0,
@@ -4619,7 +4630,7 @@
                     "priorityType": 0,
                     "stepAnime": false,
                     "through": false,
-                    "trigger": 0,
+                    "trigger": 3,
                     "walkAnime": true
                 }
             ],

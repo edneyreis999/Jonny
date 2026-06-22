@@ -1875,6 +1875,36 @@
                             ]
                         },
                         {
+                            "code": 122,
+                            "indent": 3,
+                            "parameters": [
+                                100,
+                                100,
+                                0,
+                                0,
+                                3
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                5
+                            ]
+                        },
+                        {
+                            "code": 201,
+                            "indent": 3,
+                            "parameters": [
+                                0,
+                                12,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
                             "code": 0,
                             "indent": 3,
                             "parameters": []
@@ -11982,8 +12012,7 @@
                             "parameters": [
                                 1,
                                 "Forget it. It’s probably just another fight. It’ll be fine soon"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -16470,8 +16499,7 @@
                             "parameters": [
                                 1,
                                 "I can’t give dating advice, but I know racing. This track has Devil’s Curve: stay focused."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -17193,8 +17221,7 @@
                             "parameters": [
                                 1,
                                 "You’re crazy! Be careful, Jonny. Try to get out of it in one piece."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 108,
@@ -17330,8 +17357,7 @@
                             "parameters": [
                                 1,
                                 "Man, have you been drinking?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -23969,7 +23995,8 @@
                             "parameters": [
                                 1,
                                 "The final year of high school isn’t easy for anyone, not even for big Jonny."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -33878,8 +33905,7 @@
                             "parameters": [
                                 2,
                                 "What happened, Jonny?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -44150,8 +44176,7 @@
                             "parameters": [
                                 2,
                                 "You really liked her, didn’t you?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -52952,8 +52977,7 @@
                             "parameters": [
                                 2,
                                 "Let’s talk, Jonny. I don’t think it’s a good idea for you to race while you’re hot-headed."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54349,8 +54373,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -55739,8 +55762,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -55929,18 +55951,6 @@
                             "code": 404,
                             "indent": 0,
                             "parameters": []
-                        },
-                        {
-                            "code": 201,
-                            "indent": 0,
-                            "parameters": [
-                                0,
-                                6,
-                                0,
-                                0,
-                                0,
-                                0
-                            ]
                         },
                         {
                             "code": 0,
