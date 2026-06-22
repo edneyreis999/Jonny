@@ -2032,13 +2032,80 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_ExitBusts",
+                                "BASIC: Exit Bust(s)",
+                                {
+                                    "PictureID:arrayeval": "[\"1\",\"2\"]",
+                                    "EndOffsetX:eval": "-200",
+                                    "EndOffsetY:eval": "+0",
+                                    "EasingType:str": "InSine",
+                                    "FlipDirection:str": "None",
+                                    "Duration:eval": "20",
+                                    "AutoErase:eval": "true"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID(s) = [\"1\",\"2\"]"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "End Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "End Offset Y = +0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Exit Easing = InSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Flip Direction = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Auto-Erase? = true"
+                            ]
+                        },
+                        {
                             "code": 201,
                             "indent": 0,
                             "parameters": [
                                 0,
                                 7,
-                                0,
-                                0,
+                                2,
+                                1,
                                 0,
                                 0
                             ]

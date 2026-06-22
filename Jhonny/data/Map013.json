@@ -1351,7 +1351,7 @@
         null,
         {
             "id": 1,
-            "name": "EV001",
+            "name": " ",
             "note": "",
             "pages": [
                 {
@@ -1605,8 +1605,7 @@
                             "parameters": [
                                 0,
                                 "That’s it! Take it out on the accelerator!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -1654,8 +1653,7 @@
                             "parameters": [
                                 0,
                                 "Are you going to take Devil’s Curve, king of street racers?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -1717,8 +1715,7 @@
                             "parameters": [
                                 0,
                                 "That’s my Jonny! More insane than ever!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 0,
@@ -1731,8 +1728,7 @@
                             "parameters": [
                                 1,
                                 "You’re crazy! Be careful, Jonny. Try to get out of it in one piece."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 0,
@@ -1745,8 +1741,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, that is crazy."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 0,
@@ -1818,8 +1813,7 @@
                             "parameters": [
                                 0,
                                 "Alright! Let’s have a beer to get warmed up before the race!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -1885,8 +1879,7 @@
                             "parameters": [
                                 1,
                                 "Man, have you been drinking?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -1941,8 +1934,7 @@
                             "parameters": [
                                 0,
                                 "Then let’s have another beer!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -2008,8 +2000,7 @@
                             "parameters": [
                                 1,
                                 "Are you sure you should race like this? Maybe you should sit this one out..."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -2075,8 +2066,7 @@
                             "parameters": [
                                 2,
                                 "I’m not letting you race. Give me the keys to the Opala."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -11873,8 +11863,7 @@
                             "parameters": [
                                 2,
                                 "You’re... different. Did something happen?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -11936,8 +11925,7 @@
                             "parameters": [
                                 0,
                                 "Girls are waiting in line for Jonny. Take Devil’s Curve and you’ll have it all."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -11982,8 +11970,7 @@
                             "parameters": [
                                 1,
                                 "Forget it. It’s probably just another fight. It’ll be fine soon"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -16470,8 +16457,7 @@
                             "parameters": [
                                 1,
                                 "I can’t give dating advice, but I know racing. This track has Devil’s Curve: stay focused."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -17193,8 +17179,7 @@
                             "parameters": [
                                 1,
                                 "You’re crazy! Be careful, Jonny. Try to get out of it in one piece."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 108,
@@ -17330,8 +17315,7 @@
                             "parameters": [
                                 1,
                                 "Man, have you been drinking?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -23969,7 +23953,8 @@
                             "parameters": [
                                 1,
                                 "The final year of high school isn’t easy for anyone, not even for big Jonny."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -33878,8 +33863,7 @@
                             "parameters": [
                                 2,
                                 "What happened, Jonny?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -44150,8 +44134,7 @@
                             "parameters": [
                                 2,
                                 "You really liked her, didn’t you?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -52952,8 +52935,7 @@
                             "parameters": [
                                 2,
                                 "Let’s talk, Jonny. I don’t think it’s a good idea for you to race while you’re hot-headed."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54349,8 +54331,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54405,8 +54386,7 @@
                             "parameters": [
                                 0,
                                 "The adrenaline, of course... You’re the craziest guy I know!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -55072,8 +55052,7 @@
                             "parameters": [
                                 1,
                                 "Yeah, let’s drop it and focus on the race. You like that curve... you’re just crazy like that."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -55739,8 +55718,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -55846,6 +55824,90 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 5,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_ExitBusts",
+                                "BASIC: Exit Bust(s)",
+                                {
+                                    "PictureID:arrayeval": "[\"1\",\"2\"]",
+                                    "EndOffsetX:eval": "-200",
+                                    "EndOffsetY:eval": "+0",
+                                    "EasingType:str": "InSine",
+                                    "FlipDirection:str": "None",
+                                    "Duration:eval": "20",
+                                    "AutoErase:eval": "true"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 5,
+                            "parameters": [
+                                "Picture ID(s) = [\"1\",\"2\"]"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 5,
+                            "parameters": [
+                                "End Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 5,
+                            "parameters": [
+                                "End Offset Y = +0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 5,
+                            "parameters": [
+                                "Exit Easing = InSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 5,
+                            "parameters": [
+                                "Flip Direction = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 5,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 5,
+                            "parameters": [
+                                "Auto-Erase? = true"
+                            ]
+                        },
+                        {
+                            "code": 201,
+                            "indent": 5,
+                            "parameters": [
+                                0,
+                                6,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 5,
+                            "parameters": []
+                        },
+                        {
                             "code": 108,
                             "indent": 5,
                             "parameters": [
@@ -55931,11 +55993,78 @@
                             "parameters": []
                         },
                         {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_ExitBusts",
+                                "BASIC: Exit Bust(s)",
+                                {
+                                    "PictureID:arrayeval": "[\"1\",\"2\"]",
+                                    "EndOffsetX:eval": "-200",
+                                    "EndOffsetY:eval": "+0",
+                                    "EasingType:str": "InSine",
+                                    "FlipDirection:str": "None",
+                                    "Duration:eval": "20",
+                                    "AutoErase:eval": "true"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID(s) = [\"1\",\"2\"]"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "End Offset X = -200"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "End Offset Y = +0"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Exit Easing = InSine"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Flip Direction = None"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Duration = 20"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Auto-Erase? = true"
+                            ]
+                        },
+                        {
                             "code": 201,
                             "indent": 0,
                             "parameters": [
                                 0,
-                                6,
+                                12,
                                 0,
                                 0,
                                 0,
