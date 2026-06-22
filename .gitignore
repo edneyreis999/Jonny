@@ -1,6 +1,7 @@
 # Session artifacts — deny-by-default, never commit
 .agents/
 .claude/
+.codex/
 # macOS
 .DS_Store
 
