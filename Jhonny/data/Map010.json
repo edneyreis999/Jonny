@@ -2075,7 +2075,7 @@
                     "priorityType": 0,
                     "stepAnime": false,
                     "through": false,
-                    "trigger": 0,
+                    "trigger": 3,
                     "walkAnime": false
                 },
                 {
@@ -2826,7 +2826,7 @@
                     "priorityType": 0,
                     "stepAnime": false,
                     "through": false,
-                    "trigger": 0,
+                    "trigger": 3,
                     "walkAnime": true
                 }
             ],
