@@ -1,6 +1,6 @@
 ## markdown
 
-## status: pending
+## status: complete_structural_pending_playtest
 
 <task_context>
 <domain>rpg-maker-mz/data-json/common-events</domain>
@@ -44,12 +44,12 @@ Make `EV_VitoriaCorrida` the authoritative exit point for the race. Victory tran
 
 ## Subtasks
 
-- [ ] Audit CE19 command flow and print a before summary to `interaction/fase3/`.
-- [ ] Identify the branch that handles `VAR_VITORIA_PASSOU == 1`.
-- [ ] Replace auto-advance behavior with explicit transfer routing by `VAR_RACE_ID`.
-- [ ] Confirm the non-victory branch still calls CE18 or restarts the same race without transfer.
-- [ ] Validate that no victory branch increments `VAR_RACE_ID`.
-- [ ] Re-read `CommonEvents.json` and assert CE19 list ends with command code `0`.
+- [x] Audit CE19 command flow and print a before summary to `interaction/fase3/`.
+- [x] Identify the branch that handles `VAR_VITORIA_PASSOU == 1`.
+- [x] Replace auto-advance behavior with explicit transfer routing by `VAR_RACE_ID`.
+- [x] Confirm the non-victory branch still calls CE18 or restarts the same race without transfer.
+- [x] Validate that no victory branch increments `VAR_RACE_ID`.
+- [x] Re-read `CommonEvents.json` and assert CE19 list ends with command code `0`.
 
 ## Implementation Details
 
@@ -77,10 +77,10 @@ In RPG Maker MZ Playtest:
 
 ## Success Criteria
 
-- [ ] `CommonEvents.json` parses after the script runs.
-- [ ] CE19 no longer advances `VAR_RACE_ID` on victory.
-- [ ] CE19 no longer traps Race 3 victory in an infinite loop.
-- [ ] Defeat does not transfer out of `Map001`.
+- [x] `CommonEvents.json` parses after the script runs.
+- [x] CE19 no longer advances `VAR_RACE_ID` on victory.
+- [x] CE19 no longer traps Race 3 victory in an infinite loop.
+- [x] Defeat does not transfer out of `Map001` structurally because CE19 now preserves the CE18 retry path.
 - [ ] User confirms Race 1 and Race 2 win/loss routing in Playtest.
 
 ## Out of Scope
@@ -88,3 +88,13 @@ In RPG Maker MZ Playtest:
 - Do not wire `Map013` markers in this task.
 - Do not change plugin code.
 - Do not tune victory thresholds.
+
+## Execution Notes
+
+- Implemented via `builds/fase3/01_update_victory_defeat_routing.py`.
+- Saved the pre-mutation audit to `interaction/fase3/ce19-before-summary.md`.
+- Replaced the old `VAR_RACE_ID += 1 -> CE5` victory path with explicit transfers:
+  - Race 1 -> `Map005` using `Transfer Player [0, 5, 3, 2, 0, 0]`
+  - Race 2 -> `Map013` using `Transfer Player [0, 13, 4, 5, 0, 0]`
+  - Race 3 -> `Map012` using `Transfer Player [0, 12, 0, 0, 0, 0]`
+- Preserved defeat routing through CE18 so losses stay on `Map001` structurally.

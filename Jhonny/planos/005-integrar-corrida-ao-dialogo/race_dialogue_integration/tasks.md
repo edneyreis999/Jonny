@@ -37,16 +37,20 @@ This plan integrates the isolated race minigame on `Map001` with the narrative m
 
 **Visual validation:** losing a race restarts the same race on `Map001`; winning Race 1 transfers to `Map005`, winning Race 2 transfers to `Map013`, and no race HUD/buttons/audio continue on the narrative map.
 
-- [ ] task-3.1 - Update `EV_VitoriaCorrida` victory and defeat routing
-- [ ] task-3.2 - Add and validate race cleanup before narrative transfer
+**Implementation status:** complete structurally; RPG Maker MZ Playtest confirmation is still required.
+
+- [x] task-3.1 - Update `EV_VitoriaCorrida` victory and defeat routing
+- [x] task-3.2 - Add and validate race cleanup before narrative transfer
 
 ### Phase 4 - Race 3 Map013 Integration
 
-**Objective:** Convert confirmed `Map013` race markers into Race 3 entries and verify the final post-victory transfer to `Map012`.
+**Objective:** Fix the confirmed defeat-retry dead end on `Map001`, including the retry bootstrap stall inside `EV_Preload`, convert confirmed `Map013` race markers into Race 3 entries, and verify the final post-victory transfer to `Map012`.
 
-**Visual validation:** confirmed `Map013` markers start Race 3 on `Map001`; losing keeps retrying Race 3; winning transfers to `Map012` with no race state leaking into the dialogue map.
+**Visual validation:** losing Race 1, Race 2, or Race 3 never leaves the player on a dead black screen on `Map001`; the retry path does not stall inside preload before `SW_RACE_ACTIVE` turns on again; confirmed `Map013` markers start Race 3 on `Map001`; winning Race 1 transfers to `Map005`, winning Race 2 transfers to `Map013`, and winning Race 3 transfers to `Map012`, with no race state leaking into the dialogue map. Race 1 and Race 2 victories do not jump directly into Race 3 during this phase.
 
-- [ ] task-4.1 - Audit and patch `Map013` Race 3 markers
+**Implementation status:** retry-preload patch and `Map013` marker patch are applied structurally; RPG Maker MZ Playtest confirmation is still required.
+
+- [x] task-4.1 - Audit and patch `Map013` Race 3 markers
 - [ ] task-4.2 - Validate full race routing matrix
 
 ## Task Matrix
@@ -58,7 +62,7 @@ This plan integrates the isolated race minigame on `Map001` with the narrative m
 | task-2.2 | Wire `Map005` Race 2 entry | 2 | task-1.1 | 2-4h |
 | task-3.1 | Update `EV_VitoriaCorrida` victory and defeat routing | 3 | task-2.1, task-2.2 | 2-4h |
 | task-3.2 | Add and validate race cleanup before narrative transfer | 3 | task-3.1 | 2-4h |
-| task-4.1 | Audit and patch `Map013` Race 3 markers | 4 | task-3.2 | 2-4h |
+| task-4.1 | Fix defeat retry bootstrap and patch `Map013` Race 3 markers | 4 | task-3.2 | 3-5h |
 | task-4.2 | Validate full race routing matrix | 4 | task-4.1 | 2-4h |
 
 ## Recommended Execution Order
@@ -89,9 +93,11 @@ task-1.1
 - [ ] Player start on `Map011` remains unchanged.
 - [x] `Map010` marker structurally targets Race 1 on `Map001`.
 - [x] `Map005` marker structurally targets Race 2 on `Map001`.
-- [ ] Confirmed `Map013` markers start Race 3 on `Map001`.
+- [x] Confirmed `Map013` markers start Race 3 on `Map001`.
 - [ ] Losing any race never transfers out of `Map001` and never advances `VAR_RACE_ID`.
 - [ ] Winning Race 1 transfers to `Map005`.
 - [ ] Winning Race 2 transfers to `Map013`.
 - [ ] Winning Race 3 transfers to `Map012`.
+- [ ] Losing Race 1, Race 2, or Race 3 never leaves `Map001` in a dead black-screen state with `SW_RACE_ACTIVE` off and no bootstrap path.
+- [ ] The retry path never stalls inside `EV_Preload` before `SW_RACE_ACTIVE` is turned back on.
 - [ ] `SW_RACE_ACTIVE`, race pictures, race audio, and queued race inputs do not leak into narrative maps.

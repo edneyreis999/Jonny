@@ -31,6 +31,9 @@ Run the final validation matrix for all race entries, losses, victories, and sid
 - The script must parse all touched JSON files and print a routing summary.
 - Create a manual Playtest checklist at `interaction/fase4/playtest-routing-matrix.md`.
 - Confirm Race 1, Race 2, and Race 3 each handle entry, loss, victory, and cleanup.
+- Confirm defeat retry does not leave `Map001` in a dead black-screen state with `SW_RACE_ACTIVE OFF`, no running interpreter, and no bootstrap path.
+- Confirm defeat retry does not stall inside `CE3 EV_Preload` before `SW_RACE_ACTIVE` is turned back on.
+- Confirm Race 1 and Race 2 victories return to the narrative maps, not directly into Race 3.
 - Do not mark the phase complete until the user confirms Playtest behavior.
 </requirements>
 
@@ -42,6 +45,8 @@ Run the final validation matrix for all race entries, losses, victories, and sid
 
 - [ ] Validate JSON parsing for `Map001`, `Map005`, `Map010`, `Map012`, `Map013`, `CommonEvents`, `System`, and `MapInfos`.
 - [ ] Print the configured entry routes and victory routes.
+- [ ] Print the configured defeat retry bootstrap summary for CE19/CE18/Map001.
+- [ ] Print the configured retry-preload summary for CE3/CE5 around the `SW_RACE_ACTIVE` bootstrap point.
 - [ ] Write the Playtest checklist in `interaction/fase4/playtest-routing-matrix.md`.
 - [ ] Run or ask the user to run the matrix in RPG Maker MZ Playtest.
 - [ ] Record user-confirmed results in `retrospetivas/fase4/`.
@@ -69,6 +74,19 @@ Race 3:
   win: transfers to Map012
 ```
 
+Additional validation focus:
+
+```text
+On any loss:
+  pressing Space on the result screen must not leave the player idle on a black Map001
+  Map001 must regain a valid bootstrap path for the same race
+  the retry must not stop inside preload before the race parallels reactivate
+
+On Race 1 / Race 2 win:
+  transfer to the narrative destination is expected
+  no automatic jump to Race 3 should occur in Phase 4 validation
+```
+
 ## visual_validation
 
 In RPG Maker MZ Playtest:
@@ -77,6 +95,8 @@ In RPG Maker MZ Playtest:
 - Race 1 entry, loss, and victory match the matrix.
 - Race 2 entry, loss, and victory match the matrix.
 - Race 3 entry, loss, and victory match the matrix.
+- After every loss, the race restarts instead of leaving the player on a dead black screen.
+- After every loss, preload completes and the race HUD/parallels return normally.
 - After every victory transfer, no race HUD, buttons, sounds, tint, or delayed input appears on the destination narrative map.
 
 ## Success Criteria
@@ -84,6 +104,9 @@ In RPG Maker MZ Playtest:
 - [ ] All touched JSON files parse.
 - [ ] The read-only validation script prints the expected route matrix.
 - [ ] RPG Maker MZ Playtest loads without runtime errors.
+- [ ] User confirms that Race 1 and Race 2 wins go to `Map005` and `Map013`, not directly to Race 3.
+- [ ] User confirms that no defeat leaves `Map001` in a dead black-screen state.
+- [ ] User confirms that no defeat leaves the retry stalled before `SW_RACE_ACTIVE` turns on again.
 - [ ] User confirms the full visual validation matrix.
 - [ ] Any residual issue is documented in `retrospetivas/fase4/`.
 
@@ -92,3 +115,8 @@ In RPG Maker MZ Playtest:
 - Do not implement new changes in this validation task unless a separate follow-up task is created.
 - Do not tune race balance.
 - Do not change narrative dialogue content.
+
+## Execution Notes
+
+- The current validation scope must include the retry-preload path inside `CE3`/`CE5`, not only transfer routing and post-victory cleanup.
+- Structural parsing alone is insufficient for this phase until the retry preload stall is fixed and revalidated in Playtest.

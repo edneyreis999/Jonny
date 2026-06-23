@@ -342,8 +342,8 @@
         }
     ],
     "startMapId": 11,
-    "startX": 10,
-    "startY": 3,
+    "startX": 13,
+    "startY": 6,
     "switches": [
         "",
         "",
@@ -742,7 +742,7 @@
         "VAR_TIMER_TIMEOUT_FLAG",
         "VAR_VITORIA_PASSOU"
     ],
-    "versionId": 30861829,
+    "versionId": 90388804,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,

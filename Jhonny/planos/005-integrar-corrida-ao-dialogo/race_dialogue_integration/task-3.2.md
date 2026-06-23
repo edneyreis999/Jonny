@@ -1,6 +1,6 @@
 ## markdown
 
-## status: pending
+## status: complete_structural_pending_playtest
 
 <task_context>
 <domain>rpg-maker-mz/data-json/common-events</domain>
@@ -43,13 +43,13 @@ Ensure all race state is stopped and cleaned before transferring to narrative ma
 
 ## Subtasks
 
-- [ ] Audit CE19 cleanup commands before each transfer.
-- [ ] Add or confirm `SW_RACE_ACTIVE` is turned off before transfer.
-- [ ] Add or confirm picture cleanup covers IDs `1..61`.
-- [ ] Add or confirm tint/audio reset runs before narrative transfer.
-- [ ] Investigate whether `$gameTemp.clearCommonEventReservation()` can be safely called from an event script command.
-- [ ] If safe, add queue clearing before transfer; if not, document the residual risk.
-- [ ] Re-read `CommonEvents.json` and print cleanup command summaries.
+- [x] Audit CE19 cleanup commands before each transfer.
+- [x] Add or confirm `SW_RACE_ACTIVE` is turned off before transfer.
+- [x] Add or confirm picture cleanup covers IDs `1..61`.
+- [x] Add or confirm tint/audio reset runs before narrative transfer.
+- [x] Investigate whether `$gameTemp.clearCommonEventReservation()` can be safely called from an event script command.
+- [x] If safe, add queue clearing before transfer; if not, document the residual risk.
+- [x] Re-read `CommonEvents.json` and print cleanup command summaries.
 
 ## Implementation Details
 
@@ -79,9 +79,9 @@ In RPG Maker MZ Playtest:
 
 ## Success Criteria
 
-- [ ] `CommonEvents.json` parses after the script runs.
-- [ ] `SW_RACE_ACTIVE` is off before narrative transfer.
-- [ ] Race pictures through ID `61` are erased before narrative transfer.
+- [x] `CommonEvents.json` parses after the script runs.
+- [x] `SW_RACE_ACTIVE` is off before narrative transfer.
+- [x] Race pictures through ID `61` are erased before narrative transfer.
 - [ ] No race Common Event keeps running on the narrative map in Playtest.
 - [ ] User confirms `visual_validation` in RPG Maker MZ Playtest.
 
@@ -90,3 +90,11 @@ In RPG Maker MZ Playtest:
 - Do not change race scoring or thresholds.
 - Do not change narrative bust systems.
 - Do not wire `Map013` race markers.
+
+## Execution Notes
+
+- Implemented via `builds/fase3/02_add_race_cleanup_before_transfer.py`.
+- Expanded the early CE19 picture cleanup script from `1..60` to `1..61`.
+- Inserted `SW_RACE_ACTIVE OFF` immediately before the victory routing branch.
+- Inserted `$gameTemp.clearCommonEventReservation();` before every narrative transfer path.
+- Saved the post-mutation cleanup audit to `interaction/fase3/ce19-cleanup-summary.md`.
