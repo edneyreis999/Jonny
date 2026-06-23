@@ -1,0 +1,4 @@
+Patched /Users/edney/projects/coreto/summer26/Jhonny/data/Map005.json
+Event: 1 EV001, page 3
+Marker: command 104 keeps VAR 100 = 2; command 105 transfer [0, 13, 4, 5, 0, 0] -> [0, 1, 4, 5, 0, 0]
+Post-patch summary: {'eventId': 1, 'eventName': 'EV001', 'page': 3, 'variableCommandIndex': 104, 'transferCommandIndex': 105, 'variableParameters': [100, 100, 0, 0, 2], 'transferParameters': [0, 1, 4, 5, 0, 0]}

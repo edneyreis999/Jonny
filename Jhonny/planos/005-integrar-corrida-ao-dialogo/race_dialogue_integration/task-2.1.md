@@ -1,6 +1,6 @@
 ## markdown
 
-## status: pending
+## status: complete_structural_pending_playtest
 
 <task_context>
 <domain>rpg-maker-mz/data-json/maps</domain>
@@ -40,12 +40,12 @@ Update the confirmed `Map010` race marker so it sends the player into the isolat
 
 ## Subtasks
 
-- [ ] Load `Map010.json` in the script and locate `EV001`, page 2.
-- [ ] Assert that the current marker contains `VAR_RACE_ID = 1`.
-- [ ] Assert that the following transfer currently targets `Map005`.
-- [ ] Patch the transfer command to target `Map001`.
-- [ ] Re-read and print the updated command summary.
-- [ ] Record script output in `interaction/fase2/`.
+- [x] Load `Map010.json` in the script and locate `EV001`, page 2.
+- [x] Assert that the current marker contains `VAR_RACE_ID = 1`.
+- [x] Assert that the following transfer currently targets `Map005`.
+- [x] Patch the transfer command to target `Map001`.
+- [x] Re-read and print the updated command summary.
+- [x] Record script output in `interaction/fase2/`.
 
 ## Implementation Details
 
@@ -70,11 +70,17 @@ In RPG Maker MZ Playtest:
 
 ## Success Criteria
 
-- [ ] `Map010.json` parses after the script runs.
-- [ ] `VAR_RACE_ID = 1` remains intact.
-- [ ] The marker transfers to `Map001`.
-- [ ] No unrelated commands in `EV001` are changed.
+- [x] `Map010.json` parses after the script runs.
+- [x] `VAR_RACE_ID = 1` remains intact.
+- [x] The marker transfers to `Map001`.
+- [x] No unrelated commands in `EV001` are changed.
 - [ ] User confirms `visual_validation` in RPG Maker MZ Playtest.
+
+## Execution Notes
+
+- Mutation script: `builds/fase2/01_wire_map010_race1_entry.py`.
+- Execution log: `interaction/fase2/01_wire_map010_race1_entry.log`.
+- Updated command `80` from transfer parameters `[0, 5, 3, 2, 0, 0]` to `[0, 1, 3, 2, 0, 0]`.
 
 ## Out of Scope
 

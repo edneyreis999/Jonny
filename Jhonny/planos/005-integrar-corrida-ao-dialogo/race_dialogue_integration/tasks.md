@@ -26,8 +26,10 @@ This plan integrates the isolated race minigame on `Map001` with the narrative m
 
 **Visual validation:** the known dialogue marker on `Map010` starts Race 1 on `Map001`, and the known dialogue marker on `Map005` starts Race 2 on `Map001`; in both cases the player remains in the race loop.
 
-- [ ] task-2.1 - Wire `Map010` Race 1 entry
-- [ ] task-2.2 - Wire `Map005` Race 2 entry
+**Implementation status:** complete structurally; RPG Maker MZ Playtest confirmation is still required.
+
+- [x] task-2.1 - Wire `Map010` Race 1 entry
+- [x] task-2.2 - Wire `Map005` Race 2 entry
 
 ### Phase 3 - Victory, Defeat, and Cleanup Lifecycle
 
@@ -85,8 +87,8 @@ task-1.1
 
 - [ ] RPG Maker MZ loads the project without JSON parse errors.
 - [ ] Player start on `Map011` remains unchanged.
-- [ ] `Map010` marker starts Race 1 on `Map001`.
-- [ ] `Map005` marker starts Race 2 on `Map001`.
+- [x] `Map010` marker structurally targets Race 1 on `Map001`.
+- [x] `Map005` marker structurally targets Race 2 on `Map001`.
 - [ ] Confirmed `Map013` markers start Race 3 on `Map001`.
 - [ ] Losing any race never transfers out of `Map001` and never advances `VAR_RACE_ID`.
 - [ ] Winning Race 1 transfers to `Map005`.
