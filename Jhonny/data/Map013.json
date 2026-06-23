@@ -1605,7 +1605,8 @@
                             "parameters": [
                                 0,
                                 "That’s it! Take it out on the accelerator!"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -48569,8 +48570,7 @@
                             "parameters": [
                                 1,
                                 "I can’t give dating advice, but I know racing. This track has Devil’s Curve: stay focused."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -49959,8 +49959,7 @@
                             "parameters": [
                                 2,
                                 "This is insane. Promise me you won’t take that curve. I don’t think it’s a good idea for you to race, you´'re not yourself..."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 108,
@@ -51363,8 +51362,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -52753,8 +52751,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -52997,8 +52994,7 @@
                             "parameters": [
                                 0,
                                 "Now that’s the spirit, pure gasoline in your veins!!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -53664,8 +53660,7 @@
                             "parameters": [
                                 1,
                                 "Strange conversation. Enough of this, you’re crazy! Focus on the race."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -53727,8 +53722,7 @@
                             "parameters": [
                                 0,
                                 "Alright! Let’s have a beer to get warmed up before the race!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -53801,8 +53795,7 @@
                             "parameters": [
                                 1,
                                 "Man, have you been drinking?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -53857,8 +53850,7 @@
                             "parameters": [
                                 0,
                                 "Then let’s have another beer!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -53924,8 +53916,7 @@
                             "parameters": [
                                 1,
                                 "Are you sure you should race like this? Maybe you should sit this one out..."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -53991,8 +53982,7 @@
                             "parameters": [
                                 2,
                                 "I’m not letting you race. Give me the keys to the Opala."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -54061,8 +54051,7 @@
                             "parameters": [
                                 2,
                                 "You’re...drunk? Jonny, you can’t drive like this!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54117,8 +54106,7 @@
                             "parameters": [
                                 0,
                                 "Then let’s have another beer!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -54184,8 +54172,7 @@
                             "parameters": [
                                 1,
                                 "Are you sure you should race like this? Maybe you should sit this one out..."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54251,8 +54238,7 @@
                             "parameters": [
                                 2,
                                 "I’m not letting you race. Give me the keys to the Opala."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -54448,8 +54434,7 @@
                             "parameters": [
                                 0,
                                 "Alright! Let’s have a beer to get warmed up before the race!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54522,8 +54507,7 @@
                             "parameters": [
                                 1,
                                 "Man, have you been drinking?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54578,8 +54562,7 @@
                             "parameters": [
                                 0,
                                 "Then let’s have another beer!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -54645,8 +54628,7 @@
                             "parameters": [
                                 1,
                                 "Are you sure you should race like this? Maybe you should sit this one out..."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54712,8 +54694,7 @@
                             "parameters": [
                                 2,
                                 "I’m not letting you race. Give me the keys to the Opala."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -54782,8 +54763,7 @@
                             "parameters": [
                                 2,
                                 "You’re...drunk? Jonny, you can’t drive like this!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54838,8 +54818,7 @@
                             "parameters": [
                                 0,
                                 "Then let’s have another beer!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -54905,8 +54884,7 @@
                             "parameters": [
                                 1,
                                 "Are you sure you should race like this? Maybe you should sit this one out..."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54972,8 +54950,7 @@
                             "parameters": [
                                 2,
                                 "I’m not letting you race. Give me the keys to the Opala."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -55114,8 +55091,7 @@
                             "parameters": [
                                 0,
                                 "Alright! Let’s have a beer to get warmed up before the race!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -55188,8 +55164,7 @@
                             "parameters": [
                                 1,
                                 "Man, have you been drinking?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -55244,8 +55219,7 @@
                             "parameters": [
                                 0,
                                 "Then let’s have another beer!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -55311,8 +55285,7 @@
                             "parameters": [
                                 1,
                                 "Are you sure you should race like this? Maybe you should sit this one out..."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -55378,8 +55351,7 @@
                             "parameters": [
                                 2,
                                 "I’m not letting you race. Give me the keys to the Opala."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -55448,8 +55420,7 @@
                             "parameters": [
                                 2,
                                 "You’re...drunk? Jonny, you can’t drive like this!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -55504,8 +55475,7 @@
                             "parameters": [
                                 0,
                                 "Then let’s have another beer!"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -55571,8 +55541,7 @@
                             "parameters": [
                                 1,
                                 "Are you sure you should race like this? Maybe you should sit this one out..."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -55638,8 +55607,7 @@
                             "parameters": [
                                 2,
                                 "I’m not letting you race. Give me the keys to the Opala."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 101,
@@ -55822,6 +55790,87 @@
                             "parameters": [
                                 "Goodbye, Chance..."
                             ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 5,
+                            "parameters": [
+                                21
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 5,
+                            "parameters": [
+                                [
+                                    "Let Jonny race.",
+                                    "Slash the Opala's tire and stop Jonny from racing."
+                                ],
+                                -1,
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 5,
+                            "parameters": [
+                                0,
+                                "Let Jonny race."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 6,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 5,
+                            "parameters": [
+                                1,
+                                "Slash the Opala's tire and stop Jonny from racing."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 6,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 6,
+                            "parameters": [
+                                "ir final true"
+                            ]
+                        },
+                        {
+                            "code": 122,
+                            "indent": 6,
+                            "parameters": [
+                                4,
+                                4,
+                                0,
+                                0,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 6,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 5,
+                            "parameters": []
                         },
                         {
                             "code": 357,
