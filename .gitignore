@@ -8,3 +8,6 @@
 # Obsidian workspace cache (keep config, ignore volatile state)
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
+
+# RPG Maker local save files
+Jhonny/save/
