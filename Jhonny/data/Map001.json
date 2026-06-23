@@ -1,13 +1,13 @@
 {
-    "autoplayBgm": false,
+    "autoplayBgm": true,
     "autoplayBgs": false,
     "battleback1Name": "",
     "battleback2Name": "",
     "bgm": {
-        "name": "",
+        "name": "darkeletronic",
         "pan": 0,
-        "pitch": 100,
-        "volume": 90
+        "pitch": 120,
+        "volume": 40
     },
     "bgs": {
         "name": "",
