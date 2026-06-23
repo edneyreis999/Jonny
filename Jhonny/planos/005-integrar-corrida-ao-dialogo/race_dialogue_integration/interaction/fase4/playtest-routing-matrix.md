@@ -48,6 +48,9 @@ Validar manualmente a matriz final de entrada, derrota, vitoria e cleanup das tr
 
 - Apos cada transferencia de vitoria, confirmar ausencia de HUD da corrida.
 - Confirmar ausencia de botoes, overlays, tint residual e input atrasado da corrida no mapa narrativo.
+- Nas telas de vitoria/derrota, segurar Espaco antes do prompt e confirmar que o fluxo avanca sem travar.
+- Nas telas de vitoria/derrota, apertar Espaco rapidamente/repetidamente e confirmar que o fluxo avanca uma unica vez.
+- Nas telas de vitoria/derrota, apertar setas para cima, baixo, esquerda e direita e confirmar que nenhuma acao de corrida dispara.
 - Se ocorrer tela preta, abrir o console e conferir:
   - `mapId`, posicao, `SW_RACE_ACTIVE`, `SW_PAUSED`
   - `isRunning()`, `isCommonEventReserved()`

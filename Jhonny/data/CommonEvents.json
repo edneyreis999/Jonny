@@ -1535,13 +1535,27 @@
                 ]
             },
             {
-                "code": 121,
+                "code": 111,
                 "indent": 1,
+                "parameters": [
+                    0,
+                    104,
+                    1
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 2,
                 "parameters": [
                     101,
                     101,
                     1
                 ]
+            },
+            {
+                "code": 412,
+                "indent": 1,
+                "parameters": []
             },
             {
                 "code": 412,
@@ -2366,6 +2380,25 @@
                 "indent": 0,
                 "parameters": [
                     0,
+                    104,
+                    0
+                ]
+            },
+            {
+                "code": 115,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    0,
                     100,
                     1
                 ]
@@ -2689,7 +2722,7 @@
                 "code": 355,
                 "indent": 0,
                 "parameters": [
-                    "if ($gameVariables.value(102) === 0) {  if (Input.isTriggered('down')) $gameTemp.reserveCommonEvent(11);  if (Input.isTriggered('up'))   $gameTemp.reserveCommonEvent(12);} else {  if (Input.isTriggered('right')) $gameTemp.reserveCommonEvent(12);  if (Input.isTriggered('left'))  $gameTemp.reserveCommonEvent(11);}"
+                    "if (!$gameSwitches.value(101)) { if ($gameVariables.value(102) === 0) { if (Input.isTriggered('down')) $gameTemp.reserveCommonEvent(11); if (Input.isTriggered('up')) $gameTemp.reserveCommonEvent(12); } else { if (Input.isTriggered('right')) $gameTemp.reserveCommonEvent(12); if (Input.isTriggered('left')) $gameTemp.reserveCommonEvent(11); } }"
                 ]
             },
             {
@@ -3315,7 +3348,7 @@
                 "indent": 0,
                 "parameters": [
                     12,
-                    "!Input.isTriggered('ok')"
+                    "!Input.isPressed('ok')"
                 ]
             },
             {
@@ -3396,15 +3429,6 @@
                 ]
             },
             {
-                "code": 121,
-                "indent": 0,
-                "parameters": [
-                    100,
-                    100,
-                    1
-                ]
-            },
-            {
                 "code": 355,
                 "indent": 0,
                 "parameters": [
@@ -3443,6 +3467,15 @@
                 ]
             },
             {
+                "code": 121,
+                "indent": 2,
+                "parameters": [
+                    100,
+                    100,
+                    1
+                ]
+            },
+            {
                 "code": 201,
                 "indent": 2,
                 "parameters": [
@@ -3471,6 +3504,15 @@
                 ]
             },
             {
+                "code": 121,
+                "indent": 3,
+                "parameters": [
+                    100,
+                    100,
+                    1
+                ]
+            },
+            {
                 "code": 201,
                 "indent": 3,
                 "parameters": [
@@ -3496,6 +3538,15 @@
                     0,
                     3,
                     0
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 4,
+                "parameters": [
+                    100,
+                    100,
+                    1
                 ]
             },
             {

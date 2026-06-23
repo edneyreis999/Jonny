@@ -71,10 +71,15 @@ def main():
         for index, command in enumerate(ce19["list"])
         if command["code"] == 117 and command["parameters"] in ([5], [18])
     ]
-    ce5_preload_window = [
+    ce5_retry_bootstrap_window = [
         (index, command["code"], command["parameters"])
         for index, command in enumerate(ce5["list"])
-        if 18 <= index <= 22
+        if 27 <= index <= 31
+    ]
+    ce5_attempt_increment_indexes = [
+        index
+        for index, command in enumerate(ce5["list"])
+        if command["code"] == 122 and command["parameters"] == [112, 112, 1, 0, 1]
     ]
     ce5_attempt_guard_indexes = [
         index
@@ -108,14 +113,14 @@ def main():
 
     print("\nDefeat retry bootstrap:")
     print(f"- CE19 defeat call(s): {ce19_defeat_calls}")
-    print(f"- CE5 attempt increment command 4: {ce5['list'][4]['parameters']}")
+    print(f"- CE5 attempt increment indexes: {ce5_attempt_increment_indexes}")
     print(
         f"- Map001 Init Corrida pages: "
         f"{[(page['conditions']['variableValue'], page['list'][0]['parameters']) for page in map001_init['pages']]}"
     )
     print(f"- CE3 preload length: {len(ce3['list'])}")
     print(f"- CE5 attempt guard indexes: {ce5_attempt_guard_indexes}")
-    print(f"- CE5 preload window: {ce5_preload_window}")
+    print(f"- CE5 retry bootstrap window: {ce5_retry_bootstrap_window}")
 
 
 if __name__ == "__main__":

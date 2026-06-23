@@ -1,6 +1,6 @@
 ## markdown
 
-## status: pending
+## status: structural_validation_complete_pending_playtest
 
 <task_context>
 <domain>rpg-maker-mz/playtest-validation</domain>
@@ -43,11 +43,11 @@ Run the final validation matrix for all race entries, losses, victories, and sid
 
 ## Subtasks
 
-- [ ] Validate JSON parsing for `Map001`, `Map005`, `Map010`, `Map012`, `Map013`, `CommonEvents`, `System`, and `MapInfos`.
-- [ ] Print the configured entry routes and victory routes.
-- [ ] Print the configured defeat retry bootstrap summary for CE19/CE18/Map001.
-- [ ] Print the configured retry-preload summary for CE3/CE5 around the `SW_RACE_ACTIVE` bootstrap point.
-- [ ] Write the Playtest checklist in `interaction/fase4/playtest-routing-matrix.md`.
+- [x] Validate JSON parsing for `Map001`, `Map005`, `Map010`, `Map012`, `Map013`, `CommonEvents`, `System`, and `MapInfos`.
+- [x] Print the configured entry routes and victory routes.
+- [x] Print the configured defeat retry bootstrap summary for CE19/CE18/Map001.
+- [x] Print the configured retry-preload summary for CE3/CE5 around the `SW_RACE_ACTIVE` bootstrap point.
+- [x] Write the Playtest checklist in `interaction/fase4/playtest-routing-matrix.md`.
 - [ ] Run or ask the user to run the matrix in RPG Maker MZ Playtest.
 - [ ] Record user-confirmed results in `retrospetivas/fase4/`.
 
@@ -120,3 +120,4 @@ In RPG Maker MZ Playtest:
 
 - The current validation scope must include the retry-preload path inside `CE3`/`CE5`, not only transfer routing and post-victory cleanup.
 - Structural parsing alone is insufficient for this phase until the retry preload stall is fixed and revalidated in Playtest.
+- Structural validation was rerun after the Fase 5 result-screen input patch. The read-only script still confirms the routing matrix, defeat retry call to `CE5`, and the retry-preload guard before `SW_RACE_ACTIVE ON`.
