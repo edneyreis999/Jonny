@@ -1024,7 +1024,7 @@
                     "set",
                     "Set Text Picture",
                     {
-                        "text": "\\C[15] GLORY: \\V[105]/\\V[119]"
+                        "text": "\\FS[40]\\C[15] GLORY: \\V[105]/\\V[119]"
                     }
                 ]
             },
@@ -1032,7 +1032,7 @@
                 "code": 657,
                 "indent": 0,
                 "parameters": [
-                    "Text = \\C[15] GLORY: \\V[105]/\\V[119]"
+                    "Text = \\FS[40]\\C[15] GLORY: \\V[105]/\\V[119]"
                 ]
             },
             {
@@ -3194,7 +3194,7 @@
                     "set",
                     "Set Text Picture",
                     {
-                        "text": "\\C[6]VITÓRIA!"
+                        "text": "\\C[6]VICTORY!"
                     }
                 ]
             },
@@ -3202,7 +3202,7 @@
                 "code": 657,
                 "indent": 1,
                 "parameters": [
-                    "Text = \\C[6]VITÓRIA!"
+                    "Text = \\C[6]VICTORY!"
                 ]
             },
             {
@@ -3234,7 +3234,7 @@
                     "set",
                     "Set Text Picture",
                     {
-                        "text": "\\C[18]DERROTA!"
+                        "text": "\\C[18]DEFEAT!"
                     }
                 ]
             },
@@ -3242,7 +3242,7 @@
                 "code": 657,
                 "indent": 1,
                 "parameters": [
-                    "Text = \\C[18]DERROTA!"
+                    "Text = \\C[18]DEFEAT!"
                 ]
             },
             {
@@ -3274,7 +3274,7 @@
                     "set",
                     "Set Text Picture",
                     {
-                        "text": "Pontos de Glória: \\V[105]"
+                        "text": "Glory Score: \\V[105]"
                     }
                 ]
             },
@@ -3282,7 +3282,7 @@
                 "code": 657,
                 "indent": 0,
                 "parameters": [
-                    "Text = Pontos de Glória: \\V[105]"
+                    "Text = Glory Score: \\V[105]"
                 ]
             },
             {
@@ -3309,7 +3309,7 @@
                     "set",
                     "Set Text Picture",
                     {
-                        "text": "Pressione [Espaço] para continuar"
+                        "text": "Press [SPACE] to continue"
                     }
                 ]
             },
@@ -3317,7 +3317,7 @@
                 "code": 657,
                 "indent": 0,
                 "parameters": [
-                    "Text = Pressione [Espaço] para continuar"
+                    "Text = Press [SPACE] to continue"
                 ]
             },
             {
