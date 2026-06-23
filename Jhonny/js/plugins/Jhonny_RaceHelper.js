@@ -4,7 +4,7 @@
 
 /*:
  * @target MZ
- * @plugindesc Helpers para o minigame de Corrida (sem logica de jogo). RNG, clamp, W/S/A/D, logger.
+ * @plugindesc Helpers para o minigame de Corrida. RNG, clamp, W/S/A/D, logger, HUD e transicao.
  * @author Coreto Team
  *
  * @param EnableDebugLogs
@@ -23,6 +23,7 @@
  *   - rollD100()         → 0..99
  *   - clamp(val, min, max) → valor restringido
  *   - createPRNG(seed)   → gerador PRNG mulberry32 (reservado v2)
+ *   - playRaceStartEffect() → toca a transicao visual/sonora antes da corrida
  *   - logger(enabled, level, ...args) → log estruturado
  *
  * Input.keyMapper estendido:
@@ -85,6 +86,28 @@
     };
 
     //=============================================================================
+    // Race start transition
+    //=============================================================================
+    const RACE_START_EFFECT_DURATION = 60;
+
+    const playRaceStartEffect = () => {
+        const scene = SceneManager && SceneManager._scene;
+        if (!(scene instanceof Scene_Map)) {
+            return false;
+        }
+        if (typeof SoundManager !== "undefined" && SoundManager.playBattleStart) {
+            SoundManager.playBattleStart();
+        }
+        scene._jhonnyRaceStartEffect = {
+            duration: RACE_START_EFFECT_DURATION,
+            speed: RACE_START_EFFECT_DURATION,
+            zoomX: Math.floor(Graphics.boxWidth / 2),
+            zoomY: Math.floor(Graphics.boxHeight / 2)
+        };
+        return true;
+    };
+
+    //=============================================================================
     // Utilitario: clamp
     //=============================================================================
     const clamp = (value, min, max) => {
@@ -125,7 +148,8 @@
         107: "ROLL_RESULT", 108: "TIMER_FRAMES", 109: "SCENE_START",
         110: "SEED", 111: "RACE_N_CENAS", 112: "ATTEMPT_N",
         113: "LAST_RENDERED_INDEX", 115: "HOVER_LEVEL",
-        116: "TIMER_TIMEOUT_FLAG", 117: "VITORIA_PASSOU"
+        116: "TIMER_TIMEOUT_FLAG", 117: "VITORIA_PASSOU",
+        119: "GLORIA_META", 120: "TIMER_SECONDS", 121: "SCENE_DISPLAY"
     };
     const SWITCH_NAMES = {
         100: "RACE_ACTIVE", 101: "INPUT_LOCKED", 102: "CRASH_FLAG",
@@ -199,12 +223,45 @@
         rollD100,
         clamp,
         createPRNG,
+        playRaceStartEffect,
         logger: (level, ...args) => logger(enableDebugLogs, level, ...args),
         logRaceEvent,
         captureRaceState
     });
 
     window.JhonnyRace = JhonnyRace;
+
+    //=============================================================================
+    // Scene_Map patch: encounter-like race transition without entering battle
+    //=============================================================================
+    const _Scene_Map_update = Scene_Map.prototype.update;
+    Scene_Map.prototype.update = function() {
+        _Scene_Map_update.call(this);
+        this.updateJhonnyRaceStartEffect();
+    };
+
+    Scene_Map.prototype.updateJhonnyRaceStartEffect = function() {
+        const effect = this._jhonnyRaceStartEffect;
+        if (!effect || effect.duration <= 0) {
+            return;
+        }
+        effect.duration--;
+        const n = effect.speed - effect.duration;
+        const p = n / effect.speed;
+        const q = ((p - 1) * 20 * p + 5) * p + 1;
+        if (n === 2 || n === Math.floor(effect.speed / 6)) {
+            $gameScreen.startFlash([255, 255, 255, 255], Math.floor(effect.speed / 2));
+        }
+        if (n === Math.floor(effect.speed / 2)) {
+            this.startFadeOut(this.fadeSpeed(), false);
+        }
+        $gameScreen.setZoom(effect.zoomX, effect.zoomY, q);
+        if (effect.duration <= 0) {
+            this._jhonnyRaceStartEffect = null;
+            $gameScreen.setZoom(0, 0, 1);
+            this.startFadeIn(12, false);
+        }
+    };
 
     //=============================================================================
     // Plugin Commands (MZ API)

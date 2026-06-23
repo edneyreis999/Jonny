@@ -537,6 +537,86 @@
         "id": 5,
         "list": [
             {
+                "code": 242,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "if (window.JhonnyRace && window.JhonnyRace.playRaceStartEffect) window.JhonnyRace.playRaceStartEffect();"
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    72
+                ]
+            },
+            {
+                "code": 241,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "name": "Battle3",
+                        "volume": 90,
+                        "pitch": 100,
+                        "pan": 0
+                    }
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
+                    "const raceId = $gameVariables.value(100); const fallback = { 1: 200, 2: 400, 3: 600 }; const meta = window.JhonnyRace ? window.JhonnyRace.thresholdFor(raceId) : (fallback[raceId] || 60); $gameVariables.setValue(119, meta);"
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    120,
+                    120,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 122,
+                "indent": 0,
+                "parameters": [
+                    121,
+                    121,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    102,
+                    102,
+                    1
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    105,
+                    105,
+                    1
+                ]
+            },
+            {
                 "code": 122,
                 "indent": 0,
                 "parameters": [
@@ -926,6 +1006,13 @@
                 "code": 355,
                 "indent": 0,
                 "parameters": [
+                    "const raceId = $gameVariables.value(100); const maxScenes = Math.max(1, $gameVariables.value(111)); const sceneNow = Math.max(1, Math.min(maxScenes, $gameVariables.value(101) + 1)); const frames = Math.max(0, $gameVariables.value(108)); const fallback = { 1: 200, 2: 400, 3: 600 }; const meta = window.JhonnyRace ? window.JhonnyRace.thresholdFor(raceId) : (fallback[raceId] || 60); $gameVariables.setValue(119, meta); $gameVariables.setValue(120, Math.ceil(frames / 60)); $gameVariables.setValue(121, sceneNow);"
+                ]
+            },
+            {
+                "code": 355,
+                "indent": 0,
+                "parameters": [
                     "const c = $gameVariables.value(104); const p = $gameScreen.picture(21); if (p) p.move(310, 18, Math.max(0, Math.min(100, c)), 100, 255, 0, 6);"
                 ]
             },
@@ -937,7 +1024,7 @@
                     "set",
                     "Set Text Picture",
                     {
-                        "text": "\\C[15] GLÓRIA: \\V[105]"
+                        "text": "\\C[15] GLÓRIA: \\V[105]/\\V[119]"
                     }
                 ]
             },
@@ -945,7 +1032,7 @@
                 "code": 657,
                 "indent": 0,
                 "parameters": [
-                    "Text = \\C[15] GLÓRIA: \\V[105]"
+                    "Text = \\C[15] GLÓRIA: \\V[105]/\\V[119]"
                 ]
             },
             {
@@ -1044,6 +1131,76 @@
                     0,
                     100,
                     148,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "\\C[0]TEMPO: \\V[120]s"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Text = \\C[0]TEMPO: \\V[120]s"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    62,
+                    "",
+                    1,
+                    0,
+                    640,
+                    36,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "TextPicture",
+                    "set",
+                    "Set Text Picture",
+                    {
+                        "text": "\\C[0]\\V[121]/\\V[111]"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Text = \\C[0]\\V[121]/\\V[111]"
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    63,
+                    "",
+                    1,
+                    0,
+                    640,
+                    676,
                     100,
                     100,
                     255,
@@ -2712,248 +2869,17 @@
                 ]
             },
             {
-                "code": 111,
-                "indent": 0,
-                "parameters": [
-                    0,
-                    101,
-                    0
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    22
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    23
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    24
-                ]
-            },
-            {
-                "code": 355,
-                "indent": 1,
-                "parameters": [
-                    "$gameVariables.setValue(115, 0);"
-                ]
-            },
-            {
-                "code": 230,
-                "indent": 1,
-                "parameters": [
-                    1
-                ]
-            },
-            {
-                "code": 119,
-                "indent": 1,
-                "parameters": [
-                    "HOVER_LOOP"
-                ]
-            },
-            {
-                "code": 412,
-                "indent": 0,
-                "parameters": []
-            },
-            {
                 "code": 355,
                 "indent": 0,
                 "parameters": [
-                    "const p = $gameScreen.picture(42) || $gameScreen.picture(44); let nivel = 0; if (p) {   const bx = (p === $gameScreen.picture(42)) ? 440 : 440;   const by = (p === $gameScreen.picture(42)) ? 500 : 500;   const bw = 160;   const bh = 80;   const tx = TouchInput.x;   const ty = TouchInput.y;   const isHover = (tx >= bx && tx <= bx + bw && ty >= by && ty <= by + bh);   if (isHover) {     const taxa = $gameVariables.value(106);     nivel = (taxa >= 70) ? 1 : (taxa >= 40) ? 2 : 3;   } } $gameVariables.setValue(115, nivel);"
+                    "$gameVariables.setValue(115, 0); $gameScreen.erasePicture(22); $gameScreen.erasePicture(23); $gameScreen.erasePicture(24);"
                 ]
-            },
-            {
-                "code": 111,
-                "indent": 0,
-                "parameters": [
-                    1,
-                    115,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    22
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    23
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    24
-                ]
-            },
-            {
-                "code": 412,
-                "indent": 0,
-                "parameters": []
-            },
-            {
-                "code": 111,
-                "indent": 0,
-                "parameters": [
-                    1,
-                    115,
-                    0,
-                    1,
-                    0
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    23
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    24
-                ]
-            },
-            {
-                "code": 231,
-                "indent": 1,
-                "parameters": [
-                    22,
-                    "race/overlay_risk_low",
-                    0,
-                    0,
-                    420,
-                    500,
-                    100,
-                    100,
-                    80,
-                    0
-                ]
-            },
-            {
-                "code": 412,
-                "indent": 0,
-                "parameters": []
-            },
-            {
-                "code": 111,
-                "indent": 0,
-                "parameters": [
-                    1,
-                    115,
-                    0,
-                    2,
-                    0
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    22
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    24
-                ]
-            },
-            {
-                "code": 231,
-                "indent": 1,
-                "parameters": [
-                    23,
-                    "race/overlay_risk_med",
-                    0,
-                    0,
-                    420,
-                    500,
-                    100,
-                    100,
-                    140,
-                    0
-                ]
-            },
-            {
-                "code": 412,
-                "indent": 0,
-                "parameters": []
-            },
-            {
-                "code": 111,
-                "indent": 0,
-                "parameters": [
-                    1,
-                    115,
-                    0,
-                    3,
-                    0
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    22
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 1,
-                "parameters": [
-                    23
-                ]
-            },
-            {
-                "code": 231,
-                "indent": 1,
-                "parameters": [
-                    24,
-                    "race/overlay_risk_high",
-                    0,
-                    0,
-                    420,
-                    500,
-                    100,
-                    100,
-                    220,
-                    0
-                ]
-            },
-            {
-                "code": 412,
-                "indent": 0,
-                "parameters": []
             },
             {
                 "code": 230,
                 "indent": 0,
                 "parameters": [
-                    1
+                    6
                 ]
             },
             {
@@ -3011,195 +2937,11 @@
                 ]
             },
             {
-                "code": 249,
-                "indent": 0,
-                "parameters": [
-                    {
-                        "name": "Shock1",
-                        "volume": 90,
-                        "pitch": 100,
-                        "pan": 0
-                    }
-                ]
-            },
-            {
-                "code": 225,
-                "indent": 0,
-                "parameters": [
-                    8,
-                    6,
-                    18,
-                    false
-                ]
-            },
-            {
-                "code": 231,
-                "indent": 0,
-                "parameters": [
-                    32,
-                    "race/overlay_flash_white",
-                    0,
-                    0,
-                    0,
-                    0,
-                    100,
-                    100,
-                    255,
-                    0
-                ]
-            },
-            {
-                "code": 232,
-                "indent": 0,
-                "parameters": [
-                    32,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    100,
-                    100,
-                    0,
-                    0,
-                    6,
-                    false,
-                    0
-                ]
-            },
-            {
-                "code": 223,
-                "indent": 0,
-                "parameters": [
-                    [
-                        -255,
-                        -255,
-                        -255,
-                        0
-                    ],
-                    6,
-                    false
-                ]
-            },
-            {
-                "code": 230,
-                "indent": 0,
-                "parameters": [
-                    18
-                ]
-            },
-            {
-                "code": 122,
-                "indent": 0,
-                "parameters": [
-                    104,
-                    104,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            {
-                "code": 122,
-                "indent": 0,
-                "parameters": [
-                    105,
-                    105,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            {
-                "code": 122,
-                "indent": 0,
-                "parameters": [
-                    101,
-                    101,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            {
-                "code": 122,
-                "indent": 0,
-                "parameters": [
-                    113,
-                    113,
-                    0,
-                    0,
-                    -1
-                ]
-            },
-            {
-                "code": 122,
-                "indent": 0,
-                "parameters": [
-                    108,
-                    108,
-                    0,
-                    0,
-                    240
-                ]
-            },
-            {
-                "code": 122,
-                "indent": 0,
-                "parameters": [
-                    106,
-                    106,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            {
-                "code": 122,
-                "indent": 0,
-                "parameters": [
-                    107,
-                    107,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            {
-                "code": 122,
-                "indent": 0,
-                "parameters": [
-                    117,
-                    117,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            {
-                "code": 122,
-                "indent": 0,
-                "parameters": [
-                    112,
-                    112,
-                    1,
-                    0,
-                    1
-                ]
-            },
-            {
-                "code": 355,
-                "indent": 0,
-                "parameters": [
-                    "$gameVariables.setValue(110, Math.floor(Math.random() * 1000000000));"
-                ]
-            },
-            {
                 "code": 121,
                 "indent": 0,
                 "parameters": [
-                    102,
-                    102,
+                    100,
+                    100,
                     1
                 ]
             },
@@ -3209,7 +2951,16 @@
                 "parameters": [
                     101,
                     101,
-                    1
+                    0
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    102,
+                    102,
+                    0
                 ]
             },
             {
@@ -3222,45 +2973,35 @@
                 ]
             },
             {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    104,
+                    104,
+                    1
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    105,
+                    105,
+                    1
+                ]
+            },
+            {
                 "code": 355,
                 "indent": 0,
                 "parameters": [
-                    "for (let i = 1; i <= 60; i++) $gameScreen.erasePicture(i);"
-                ]
-            },
-            {
-                "code": 235,
-                "indent": 0,
-                "parameters": [
-                    32
-                ]
-            },
-            {
-                "code": 223,
-                "indent": 0,
-                "parameters": [
-                    [
-                        0,
-                        0,
-                        0,
-                        0
-                    ],
-                    12,
-                    false
+                    "for (let i = 1; i <= 63; i++) $gameScreen.erasePicture(i);"
                 ]
             },
             {
                 "code": 117,
                 "indent": 0,
                 "parameters": [
-                    8
-                ]
-            },
-            {
-                "code": 230,
-                "indent": 0,
-                "parameters": [
-                    6
+                    19
                 ]
             },
             {
@@ -3318,7 +3059,7 @@
                 "code": 355,
                 "indent": 0,
                 "parameters": [
-                    "for (let i = 1; i <= 61; i++) $gameScreen.erasePicture(i);"
+                    "for (let i = 1; i <= 63; i++) $gameScreen.erasePicture(i);"
                 ]
             },
             {
@@ -3332,35 +3073,7 @@
                 "code": 355,
                 "indent": 0,
                 "parameters": [
-                    "if (typeof window.JhonnyRace === \"undefined\") { const pontos = $gameVariables.value(105); const raceId = $gameVariables.value(100); const thresholds = { 1: 200, 2: 400, 3: 600 }; const passou = pontos >= (thresholds[raceId] || 60); $gameVariables.setValue(117, passou ? 1 : 0); } else {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 0,
-                "parameters": [
-                    "    const raceId = $gameVariables.value(100);"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 0,
-                "parameters": [
-                    "    const pontos = $gameVariables.value(105);"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 0,
-                "parameters": [
-                    "    $gameVariables.setValue(117, window.JhonnyRace.isVictory(pontos, raceId) ? 1 : 0);"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 0,
-                "parameters": [
-                    "    }"
+                    "const forcedDefeat = $gameSwitches.value(102); if (forcedDefeat) { $gameVariables.setValue(117, 0); } else if (typeof window.JhonnyRace === \"undefined\") { const pontos = $gameVariables.value(105); const raceId = $gameVariables.value(100); const thresholds = { 1: 200, 2: 400, 3: 600 }; const passou = pontos >= (thresholds[raceId] || 60); $gameVariables.setValue(117, passou ? 1 : 0); } else { const raceId = $gameVariables.value(100); const pontos = $gameVariables.value(105); $gameVariables.setValue(117, window.JhonnyRace.isVictory(pontos, raceId) ? 1 : 0); }"
                 ]
             },
             {
@@ -3696,6 +3409,15 @@
                 "indent": 0,
                 "parameters": [
                     "$gameTemp.clearCommonEventReservation();"
+                ]
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    102,
+                    102,
+                    1
                 ]
             },
             {

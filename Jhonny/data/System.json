@@ -740,9 +740,13 @@
         "",
         "VAR_HOVER_LEVEL",
         "VAR_TIMER_TIMEOUT_FLAG",
-        "VAR_VITORIA_PASSOU"
+        "VAR_VITORIA_PASSOU",
+        "",
+        "VAR_GLORIA_META",
+        "VAR_TIMER_SECONDS",
+        "VAR_SCENE_DISPLAY"
     ],
-    "versionId": 90388804,
+    "versionId": 87848851,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,
