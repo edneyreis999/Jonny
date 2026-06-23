@@ -1380,49 +1380,6 @@
                     },
                     "list": [
                         {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                1,
-                                2,
-                                "Chance"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "Maybe it wasn’t just Devil’s Curve. Maybe Johnny had "
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "already been slipping away long before that night..."
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                1,
-                                2,
-                                "Chance"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "I wish I had seen it sooner."
-                            ]
-                        },
-                        {
                             "code": 354,
                             "indent": 0,
                             "parameters": []

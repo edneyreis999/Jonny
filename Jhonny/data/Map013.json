@@ -2409,7 +2409,8 @@
                             "parameters": [
                                 1,
                                 "You say that every time, show-off."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -3124,8 +3125,7 @@
                             "parameters": [
                                 1,
                                 "Devil's Curve! No sense at all. That's why you win everything."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 108,
@@ -4514,8 +4514,7 @@
                             "parameters": [
                                 2,
                                 "This is insane. Promise me you won’t take that curve. I don’t think it’s a good idea for you to race, you´'re not yourself..."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 108,
@@ -5918,8 +5917,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -7308,8 +7306,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -7467,6 +7464,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 7,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -11703,8 +11705,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -11864,6 +11865,11 @@
                             ]
                         },
                         {
+                            "code": 115,
+                            "indent": 7,
+                            "parameters": []
+                        },
+                        {
                             "code": 0,
                             "indent": 7,
                             "parameters": []
@@ -11924,8 +11930,7 @@
                             "parameters": [
                                 2,
                                 "You’re... different. Did something happen?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -12742,7 +12747,8 @@
                             "parameters": [
                                 1,
                                 "Forget it. It’s probably just another fight. It’ll be fine soon"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -13457,8 +13463,7 @@
                             "parameters": [
                                 1,
                                 "Devil's Curve! No sense at all. That's why you win everything."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 108,
@@ -17641,8 +17646,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -17800,6 +17804,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 8,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -20646,8 +20655,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -22036,8 +22044,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -22197,6 +22204,11 @@
                             ]
                         },
                         {
+                            "code": 115,
+                            "indent": 8,
+                            "parameters": []
+                        },
+                        {
                             "code": 0,
                             "indent": 8,
                             "parameters": []
@@ -22257,8 +22269,7 @@
                             "parameters": [
                                 2,
                                 "You really liked her, didn’t you?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -29527,8 +29538,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -30917,8 +30927,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -31064,8 +31073,7 @@
                             "parameters": [
                                 1,
                                 "Slash the Opala's tire and stop Jonny from racing."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 122,
@@ -31089,6 +31097,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 8,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -33926,8 +33939,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -34073,8 +34085,7 @@
                             "parameters": [
                                 1,
                                 "Slash the Opala's tire and stop Jonny from racing."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 201,
@@ -34087,6 +34098,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 7,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -34963,8 +34979,7 @@
                             "parameters": [
                                 1,
                                 "You say that every time, show-off."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -38473,8 +38488,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -39863,8 +39877,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -40010,8 +40023,7 @@
                             "parameters": [
                                 1,
                                 "Slash the Opala's tire and stop Jonny from racing."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 201,
@@ -40024,6 +40036,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 7,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -42870,8 +42887,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -44260,8 +44276,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -44407,8 +44422,7 @@
                             "parameters": [
                                 1,
                                 "Slash the Opala's tire and stop Jonny from racing."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 201,
@@ -44421,6 +44435,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 7,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -44483,7 +44502,8 @@
                             "parameters": [
                                 2,
                                 "You’re... different. Did something happen?"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -48810,8 +48830,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -50200,8 +50219,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -50359,6 +50377,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 8,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -53205,8 +53228,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54595,8 +54617,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -54756,6 +54777,11 @@
                             ]
                         },
                         {
+                            "code": 115,
+                            "indent": 8,
+                            "parameters": []
+                        },
+                        {
                             "code": 0,
                             "indent": 8,
                             "parameters": []
@@ -54879,7 +54905,8 @@
                             "parameters": [
                                 0,
                                 "You’re getting distracted. Focus on the race! Are you going to take Devil’s Curve?"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 108,
@@ -59239,6 +59266,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 8,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -63622,8 +63654,7 @@
                             "parameters": [
                                 1,
                                 "Slash the Opala's tire and stop Jonny from racing."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 122,
@@ -63647,6 +63678,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 8,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -66484,8 +66520,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -66631,8 +66666,7 @@
                             "parameters": [
                                 1,
                                 "Slash the Opala's tire and stop Jonny from racing."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 201,
@@ -66645,6 +66679,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 7,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -72590,6 +72629,11 @@
                             ]
                         },
                         {
+                            "code": 115,
+                            "indent": 7,
+                            "parameters": []
+                        },
+                        {
                             "code": 0,
                             "indent": 7,
                             "parameters": []
@@ -75434,8 +75478,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -76824,8 +76867,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -76996,6 +77038,11 @@
                             ]
                         },
                         {
+                            "code": 115,
+                            "indent": 7,
+                            "parameters": []
+                        },
+                        {
                             "code": 0,
                             "indent": 7,
                             "parameters": []
@@ -77056,7 +77103,8 @@
                             "parameters": [
                                 2,
                                 "You really liked her, didn’t you?"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -77188,7 +77236,8 @@
                             "parameters": [
                                 0,
                                 "That’s my Jonny! More insane than ever!"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 108,
@@ -79918,8 +79967,7 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -81308,8 +81356,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -81478,6 +81525,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 7,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -82920,7 +82972,8 @@
                             "parameters": [
                                 2,
                                 "This is insane. Promise me you won’t take that curve. I don’t think it’s a good idea for you to race, you´'re not yourself..."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 108,
@@ -84323,7 +84376,8 @@
                             "parameters": [
                                 2,
                                 "Jonny, what are you talking about? It almost sounds like... are you okay, man?"
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -85712,7 +85766,8 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -85858,8 +85913,7 @@
                             "parameters": [
                                 1,
                                 "Slash the Opala's tire and stop Jonny from racing."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 122,
@@ -85883,6 +85937,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 7,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -85935,7 +85994,8 @@
                             "parameters": [
                                 2,
                                 "Let’s talk, Jonny. I don’t think it’s a good idea for you to race while you’re hot-headed."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -88718,7 +88778,8 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 117,
@@ -88850,7 +88911,8 @@
                             "parameters": [
                                 0,
                                 "Let Jonny race."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 0,
@@ -88863,7 +88925,8 @@
                             "parameters": [
                                 1,
                                 "Slash the Opala's tire and stop Jonny from racing."
-                            ]
+                            ],
+                            "collapsed": true
                         },
                         {
                             "code": 201,
@@ -88876,6 +88939,11 @@
                                 0,
                                 0
                             ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 6,
+                            "parameters": []
                         },
                         {
                             "code": 0,
