@@ -562,7 +562,7 @@
                 "indent": 0,
                 "parameters": [
                     {
-                        "name": "Battle3",
+                        "name": "darkeletronic",
                         "volume": 90,
                         "pitch": 100,
                         "pan": 0
@@ -1024,7 +1024,7 @@
                     "set",
                     "Set Text Picture",
                     {
-                        "text": "\\C[15] GLÓRIA: \\V[105]/\\V[119]"
+                        "text": "\\C[15] GLORY: \\V[105]/\\V[119]"
                     }
                 ]
             },
@@ -1032,7 +1032,7 @@
                 "code": 657,
                 "indent": 0,
                 "parameters": [
-                    "Text = \\C[15] GLÓRIA: \\V[105]/\\V[119]"
+                    "Text = \\C[15] GLORY: \\V[105]/\\V[119]"
                 ]
             },
             {
@@ -1075,7 +1075,7 @@
                     "set",
                     "Set Text Picture",
                     {
-                        "text": "TENTATIVA \\V[112]"
+                        "text": "TRIAL \\V[112]"
                     }
                 ]
             },
@@ -1083,7 +1083,7 @@
                 "code": 657,
                 "indent": 0,
                 "parameters": [
-                    "Text = TENTATIVA \\V[112]"
+                    "Text = TRIAL \\V[112]"
                 ]
             },
             {
@@ -1145,7 +1145,7 @@
                     "set",
                     "Set Text Picture",
                     {
-                        "text": "\\C[0]TEMPO: \\V[120]s"
+                        "text": "\\C[0]TIMER: \\V[120]s"
                     }
                 ]
             },
@@ -1153,7 +1153,7 @@
                 "code": 657,
                 "indent": 0,
                 "parameters": [
-                    "Text = \\C[0]TEMPO: \\V[120]s"
+                    "Text = \\C[0]TIMER: \\V[120]s"
                 ]
             },
             {
