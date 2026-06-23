@@ -1,0 +1,8 @@
+Patched /Users/edney/projects/coreto/summer26/Jhonny/data/Map001.json
+Event: 1 Init Corrida
+Removed immediate transfer: page 1 -> Map005
+Removed immediate transfer: page 2 -> Map013
+Removed immediate transfer: page 3 -> Map012
+Post-patch page 1: VAR 100 >= 1, command codes [117, 0]
+Post-patch page 2: VAR 100 >= 2, command codes [117, 0]
+Post-patch page 3: VAR 100 >= 3, command codes [117, 0]

@@ -1,0 +1,6 @@
+Patched /Users/edney/projects/coreto/summer26/Jhonny/data/Map001.json
+Event: 1 Init Corrida
+Inserted Erase Event command on pages: [1, 2, 3]
+Post-patch page 1: VAR 100 >= 1, command codes [117, 214, 0]
+Post-patch page 2: VAR 100 >= 2, command codes [117, 214, 0]
+Post-patch page 3: VAR 100 >= 3, command codes [117, 214, 0]
