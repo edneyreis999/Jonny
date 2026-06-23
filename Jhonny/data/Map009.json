@@ -1423,6 +1423,700 @@
                             ]
                         },
                         {
+                            "code": 105,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                false
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[40]\\C[6]Game Director"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Edney Reis"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[40]\\C[6]Producer"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Edney Reis"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[40]\\C[6]Game Design"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Edney Reis"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Lucas Heinen"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Patricia Eiterer"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Poliana Sanches"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[40]\\C[6]Level Design"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Edney Reis"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Poliana Sanches"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[40]\\C[6]Narrative Design"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Poliana Sanches"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Lucas Heinen"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[40]\\C[6]Lead Programmer"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Edney Reis"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[40]\\C[6]Graphic Design"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Lucas Heinen"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Patricia Eiterer"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[40]\\C[6]UI/UX Design"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Patricia Eiterer"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[40]\\C[6]Composer"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Fern Music"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[40]\\C[6]Plugin Design"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Edney A. Reis Filho"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]VisuStella MZ"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[40]\\C[6]Marketing"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Edney Reis"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Lucas Heinen"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Patricia Eiterer"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[30]\\C[0]Poliana Sanches"
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 405,
+                            "indent": 0,
+                            "parameters": [
+                                "\\FS[50]\\C[6]THANK YOU FOR PLAYING!"
+                            ]
+                        },
+                        {
                             "code": 354,
                             "indent": 0,
                             "parameters": []

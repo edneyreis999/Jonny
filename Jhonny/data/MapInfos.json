@@ -51,7 +51,7 @@
     },
     {
         "id": 6,
-        "expanded": false,
+        "expanded": true,
         "name": "FIM_TRUE_Estrada_VN4_SABOTAGEM",
         "order": 9,
         "parentId": 1,
@@ -111,7 +111,7 @@
     },
     {
         "id": 12,
-        "expanded": false,
+        "expanded": true,
         "name": "FIM_FALSE_Formatura_False",
         "order": 14,
         "parentId": 1,
