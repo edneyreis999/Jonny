@@ -92,6 +92,15 @@ When a task references a phase retrospectiva, treat it as reusable execution kno
 - Validation that depends on the engine, visuals, input, picture loading, audio playback, or Common Events requires RPG Maker MZ Playtest confirmation.
 - Do not mark a phase as "validada" until the user confirms Playtest results.
 
+## Durable project docs
+
+Before changing race runtime, Common Events, data JSON, helper plugins, thresholds, retry, result screen, or debug probes, consult `../docs/index.xml` first. Key durable docs:
+- `../docs/02-Core-Loop/Corrida - Core Loop.md` for mechanics, thresholds, variables and switches.
+- `../docs/02-Core-Loop/Corrida - Runtime e Eventos.md` for Common Event lifecycle, `SW_RACE_ACTIVE`, `SW_INPUT_LOCKED`, `command117`, retry and result-screen contracts.
+- `../docs/03-Tech/RPG Maker MZ - Debug Playtest.md` for Playtest/debug evidence, F12 visibility, snapshots and log probes.
+
+Keep detailed runtime rules in `docs/`; keep this file as routing and project constraints.
+
 ## File Modification Guidelines
 
 ### When modifying core engine files (`rmmz_*.js`):

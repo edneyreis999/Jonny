@@ -66,7 +66,7 @@ tags: [core-loop, corrida, roguelite, minigame, rpg-maker-mz, timer-based, proce
 | **Comprimento**       | Escalona: ==Corrida 1 = 6 cenas== · ==Corrida 2 = 8 cenas== · ==Corrida 3 = 10 cenas==.                    |
 | **Final fixo**        | Última cena da Corrida 3 é sempre ==Curva do Diabo== (`P_cena = 100`, não-reseteável).        |
 | **POV**               | Dissociativo — entre corridas você é o amigo; nas corridas você "vira" o João (ver [[Roleta Paulista]] §3 e §6). |
-| **Condição de vitória**| Completar todas as `N_cenas` cenas sem crashar ==E== atingir ==threshold mínimo de Pontos de Glória== (60/100/150 por corrida). Ver §8 para detalhes da tela cerimonial e progressão. |
+| **Condição de vitória**| Completar todas as `N_cenas` cenas sem crashar ==E== atingir ==threshold mínimo de Pontos de Glória==. Runtime atual validado: 200/400/600 por corrida; spec histórica anterior: 60/100/150. Ver §8 para detalhes da tela cerimonial e progressão. |
 | **Condição de derrota**| Risk action com roll falho = ==crash== = restart imediato da corrida. Timer expira = jogada safe automática (Parar/Esquerda). ==Não atingir threshold ao final = derrota== (tela DERROTA + restart da mesma corrida via `EV_Crash`). |
 | **Input**             | Mouse (clique) + teclado (setas). RPG Maker MZ expõe ambos nativamente em HTML5.               |
 | **Implementação MZ**  | Eventos paralelos + `Show Picture` + `Move Picture` + variáveis + timer por evento. ==Sem plugins==. |
@@ -402,19 +402,17 @@ Quando `VAR_SCENE_INDEX >= VAR_RACE_N_CENAS` (todas as cenas resolvidas, sem cra
 
 ### 8.2 Thresholds por corrida
 
-| `VAR_RACE_ID` | Corrida | Threshold de `VAR_PONTOS_GLORIA` | Pontuação máx teórica (Safe-only) | % Risk necessária |
-|---------------|---------|----------------------------------|------------------------------------|-------------------|
-| 1 | Lenda (6 cenas) | ==60== | 60 | 0% (Safe puro basta) |
-| 2 | Rachadura (8 cenas) | ==100== | 80 | ~25% (≥2 Risk-sucessos com `P_cena` médio) |
-| 3 | Abismo (10 cenas) | ==150== | 100 | ~50% (≥4 Risk-sucessos com `P_cena` altos) |
+> [!warning] Estado runtime atual vs spec histórica
+> A implementação validada usa thresholds `200/400/600` para `VAR_RACE_ID` 1/2/3. A spec histórica citava `60/100/150`; não reintroduza esses valores durante refactor sem uma decisão explícita de balanceamento. O fallback de código observado para race id inesperado continua separado do tuning principal.
 
-> [!note] Por que esses números?
-> Threshold calibrado para forçar progressivamente mais Risk:
-> - **Corrida 1 (60):** tutorial disfarçado — Safe puro passa. Jogador aprende o sistema.
-> - **Corrida 2 (100):** Safe puro (80) não passa. Força pelo menos 2 Risk-sucessos (`P_cena × 2 ≥ 10` cada, então `P_cena ≥ 5`).
-> - **Corrida 3 (150):** Exige múltiplos Risk-sucessos com `P_cena` altos (60+). Alinhado ao arco "Abismo = abyss".
->
-> Valores ==calibráveis em playtest== — defaults de F6 são ponto de partida.
+| `VAR_RACE_ID` | Corrida | Threshold de `VAR_PONTOS_GLORIA` atual | Pontuação máx teórica (Safe-only) | Observação de balanceamento |
+|---------------|---------|----------------------------------------|------------------------------------|-----------------------------|
+| 1 | Lenda (6 cenas) | ==200== | 60 | Risk é necessário mesmo na primeira corrida. |
+| 2 | Rachadura (8 cenas) | ==400== | 80 | Exige múltiplos Risk-sucessos ou valores altos de `P_cena`. |
+| 3 | Abismo (10 cenas) | ==600== | 100 | Exige sequência agressiva de Risk-sucessos. |
+
+> [!note] Tuning futuro
+> Se o objetivo voltar a ser "Corrida 1 passa com Safe puro" ou reduzir a exigência de Risk, trate como mudança de balanceamento com Playtest. Não faça essa alteração como correção incidental de JSON ou refactor de CE19.
 
 ### 8.3 Tela cerimonial (VITÓRIA ou DERROTA)
 
@@ -457,15 +455,15 @@ Estado "passou" nunca persiste para a próxima corrida por engano.
 ### 8.6 Progressão entre corridas (resumo)
 
 ```
-Corrida 1 (Lenda, 6 cenas, threshold 60)
+Corrida 1 (Lenda, 6 cenas, threshold 200)
   ├── Passou → Corrida 2
   └── Não passou → Restart Corrida 1 (EV_Crash, mesma seed resetada, ATTEMPT_N++)
 
-Corrida 2 (Rachadura, 8 cenas, threshold 100)
+Corrida 2 (Rachadura, 8 cenas, threshold 400)
   ├── Passou → Corrida 3
   └── Não passou → Restart Corrida 2
 
-Corrida 3 (Abismo, 10 cenas, threshold 150)
+Corrida 3 (Abismo, 10 cenas, threshold 600)
   ├── Passou → Tela "FIM"
   └── Não passou → Restart Corrida 3
 ```
@@ -706,7 +704,7 @@ Itens marcados para revisão após primeiro playtest vertical slice:
 11. **Consciência inicial = 0 deixa a primeira cena sempre "Safe"?** Default: sim, é o warm-up narrativo. Testar se cena 1感觉 monótona.
 12. **Risk mesmo com Consciência = 0** permitido? Default: **sim** (aposta pura na sorte). Testar se frustra ou empolga.
 13. **Curva do Diabo com P_cena = 100** = sucesso garantido mas zera Consciência — essa releitura funciona narrativamente? Default: hypothesis a validar em playtest cego. ==ADIADO para pós-MVP.==
-14. **Sistema de Pontuação de Glória cria tensão suficiente para 1º lugar?** ==DECIDIDO em F6 (2026-06-19):== Sim, via thresholds 60/100/150 (§8.2). Risk é matematicamente necessário para passar corridas 2 e 3. Calibrável em playtest.
+14. **Sistema de Pontuação de Glória cria tensão suficiente para 1º lugar?** ==DECIDIDO em F6 (2026-06-19), atualizado por validação runtime:== Sim, via thresholds atuais 200/400/600 (§8.2). Risk é matematicamente necessário para passar todas as corridas. Calibrável em playtest.
 15. ~~**Som de crash:** "Impacto metálico" (spec original) vs `Buzzer1` (ME padrão MZ)?~~ ==DECIDIDO em F6 (2026-06-19):== **`Shock1` (ME)** para MVP — `Buzzer1.ogg` não existe em `Jhonny/audio/me/`, Shock1 é o fallback semanticamente mais próximo. Toca sobre BGM, compatível com janela <1s. Assets `crash_metal.ogg` e `Buzzer1.ogg` (se adicionado) reservados para v2/polish.
 16. ~~**Texto VITÓRIA vs DERROTA:** If/Else alternar texto de uma mesma picture vs 2 TextPicture separados?~~ ==DECIDIDO em F6 (2026-06-19):== **2 TextPicture separados** (Picture 53=VITÓRIA!, Picture 56=DERROTA!) com If/Else Show Picture. TextPicture é fixo em edição.
 17. ~~**Reset de `VAR_VITORIA_PASSOU`:** só no `EV_Crash`, só no INIT Orchestrator, ou nos dois?~~ ==DECIDIDO em F6 (2026-06-19):== **Defensivo nos dois lugares** — estado nunca persiste errado.
@@ -721,7 +719,7 @@ Itens marcados para revisão após primeiro playtest vertical slice:
 11. **Consciência inicial = 0 deixa a primeira cena sempre "Safe"?** Default: sim, é o warm-up narrativo. Testar se cena 1感觉 monótona.
 12. **Risk mesmo com Consciência = 0** permitido? Default: **sim** (aposta pura na sorte). Testar se frustra ou empolga.
 13. **Curva do Diabo com P_cena = 100** = sucesso garantido mas zera Consciência — essa releitura funciona narrativamente? Default: hypothesis a validar em playtest cego.
-14. **Sistema de Pontuação de Glória cria tensão suficiente para 1º lugar?** Default: hypothesis a validar em playtest — Risk precisa ser matematicamente necessário para 1º lugar, não apenas opcional.
+14. **Sistema de Pontuação de Glória cria tensão suficiente para 1º lugar?** Estado atual: thresholds 200/400/600 tornam Risk matematicamente necessário. Ajustar isso é tuning futuro, não correção incidental.
 
 ---
 
