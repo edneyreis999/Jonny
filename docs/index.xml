@@ -4,7 +4,7 @@
     <scope>project-docs</scope>
     <summary>Catalogo navegavel da documentacao duradoura do projeto Jhonny.</summary>
     <owner>catalogador</owner>
-    <updated_at>2026-06-26</updated_at>
+    <updated_at>2026-06-27</updated_at>
   </metadata>
   <documents>
     <document
@@ -70,6 +70,28 @@
         <section anchor="preflight" tokens="500" purpose="Precondicoes do ambiente antes de diagnosticar." />
         <section anchor="snapshot-minimo" tokens="800" purpose="Estado minimo a coletar para tela preta e bugs de fluxo." />
         <section anchor="probes-e-logs" tokens="650" purpose="Como adicionar logs focados, limitados e removiveis." />
+      </sections>
+    </document>
+    <document
+      id="rmmz-scripts-plano"
+      path="docs/03-Tech/RPG Maker MZ - Scripts de Plano.md"
+      type="historical-script-procedure"
+      priority="high"
+    >
+      <summary>Procedimento para auditar, reutilizar ou reaplicar scripts Python historicos em Jhonny/planos sem tratar migracoes de fase como ferramentas atuais.</summary>
+      <use_when>Use antes de rodar scripts Python de planos, adaptar build scripts, investigar co-commits, editar data JSON por script ou reaplicar migracoes historicas.</use_when>
+      <not_covered>Regras de gameplay da corrida e procedimento de debug perceptivel em Playtest.</not_covered>
+      <keywords>
+        <keyword>scripts Python</keyword>
+        <keyword>planos</keyword>
+        <keyword>migracao historica</keyword>
+        <keyword>git log --follow</keyword>
+        <keyword>data JSON</keyword>
+      </keywords>
+      <sections>
+        <section anchor="classificacao" tokens="350" purpose="Diferenciar auditoria read-only, validador, mutador, gerador historico e cleanup/debug." />
+        <section anchor="preflight-minimo" tokens="800" purpose="Checklist antes de reexecutar ou adaptar scripts mutadores historicos." />
+        <section anchor="relatorio-de-patch" tokens="450" purpose="Formato minimo de evidencia para scripts que alteram data JSON." />
       </sections>
     </document>
   </documents>
