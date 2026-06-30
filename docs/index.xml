@@ -2,17 +2,12 @@
 <documentation-catalog version="1.0">
   <metadata>
     <scope>project-docs</scope>
-    <summary>Catalogo navegavel da documentacao duradoura do projeto Jhonny e dos artefatos Loki init.</summary>
+    <summary>Catalogo navegavel da documentacao duradoura do projeto Jhonny e dos artefatos Loki init materializados.</summary>
     <owner>catalogador</owner>
     <updated_at>2026-06-30</updated_at>
   </metadata>
   <documents>
-    <document
-      id="corrida-core-loop"
-      path="docs/02-Core-Loop/Corrida - Core Loop.md"
-      type="game-design-and-runtime-spec"
-      priority="high"
-    >
+    <document id="corrida-core-loop" path="docs/02-Core-Loop/Corrida - Core Loop.md" type="game-design-and-runtime-spec" priority="high">
       <summary>Spec principal da corrida: mecanica, pontuacao, thresholds, variaveis, switches e estrutura de Common Events.</summary>
       <use_when>Use antes de alterar balanceamento, pontuacao, fluxo de vitoria/derrota, variaveis ou switches da corrida.</use_when>
       <not_covered>Debug operacional de Playtest e contrato detalhado de lifecycle dos Common Events.</not_covered>
@@ -28,12 +23,7 @@
         <section anchor="12-implementacao-em-rpg-maker-mz" tokens="1200" purpose="IDs canonicos de variaveis, switches e pseudo-codigo do loop." />
       </sections>
     </document>
-    <document
-      id="corrida-runtime-eventos"
-      path="docs/02-Core-Loop/Corrida - Runtime e Eventos.md"
-      type="runtime-architecture"
-      priority="high"
-    >
+    <document id="corrida-runtime-eventos" path="docs/02-Core-Loop/Corrida - Runtime e Eventos.md" type="runtime-architecture" priority="high">
       <summary>Contratos runtime da corrida: grafo de Common Events, lifecycle paralelo, input lock, retry e tela de resultado.</summary>
       <use_when>Use antes de editar CommonEvents.json, mapas que chamam a corrida, preload, retry, tela preta, input da tela de resultado ou command 117.</use_when>
       <not_covered>Balanceamento de thresholds e roteiro narrativo completo.</not_covered>
@@ -50,12 +40,7 @@
         <section anchor="gates-antes-de-editar-json" tokens="650" purpose="Checklist para edicoes estruturadas em data JSON." />
       </sections>
     </document>
-    <document
-      id="rmmz-debug-playtest"
-      path="docs/03-Tech/RPG Maker MZ - Debug Playtest.md"
-      type="runtime-debug-procedure"
-      priority="high"
-    >
+    <document id="rmmz-debug-playtest" path="docs/03-Tech/RPG Maker MZ - Debug Playtest.md" type="runtime-debug-procedure" priority="high">
       <summary>Procedimento de debug e Playtest para bugs perceptiveis de runtime em RPG Maker MZ.</summary>
       <use_when>Use antes de investigar tela preta, input travado, pictures invisiveis, logs por frame, plugin helper ativo, cache ou divergencia entre console e jogo visivel.</use_when>
       <not_covered>Como implementar a correcao final; este doc define coleta de evidencia e gates.</not_covered>
@@ -72,12 +57,7 @@
         <section anchor="probes-e-logs" tokens="650" purpose="Como adicionar logs focados, limitados e removiveis." />
       </sections>
     </document>
-    <document
-      id="rmmz-scripts-plano"
-      path="docs/03-Tech/RPG Maker MZ - Scripts de Plano.md"
-      type="historical-script-procedure"
-      priority="high"
-    >
+    <document id="rmmz-scripts-plano" path="docs/03-Tech/RPG Maker MZ - Scripts de Plano.md" type="historical-script-procedure" priority="high">
       <summary>Procedimento para auditar, reutilizar ou reaplicar scripts Python historicos em Jhonny/planos sem tratar migracoes de fase como ferramentas atuais.</summary>
       <use_when>Use antes de rodar scripts Python de planos, adaptar build scripts, investigar co-commits, editar data JSON por script ou reaplicar migracoes historicas.</use_when>
       <not_covered>Regras de gameplay da corrida e procedimento de debug perceptivel em Playtest.</not_covered>
@@ -95,328 +75,148 @@
       </sections>
     </document>
     <document id="loki-init-readme" path="docs/loki-init/README.md" type="workflow-summary" priority="high">
-      <summary>Resumo do resultado do workflow loki:init, classificacao game-dev e proximos passos recomendados.</summary>
-      <use_when>Use para retomar rapidamente o estado do init antes de analise tecnica ou plano.</use_when>
-      <not_covered>Validacao runtime perceptivel.</not_covered>
+      <summary>Resumo do resultado do workflow loki:init, classificacao game-dev, ponto de retomada e proximo comando recomendado.</summary>
+      <use_when>Use para retomar rapidamente o estado final do init antes de analise tecnica ou plano.</use_when>
+      <not_covered>Validacao runtime perceptivel ou decisao final dos conflitos.</not_covered>
       <keywords><keyword>loki-init</keyword><keyword>resumo</keyword><keyword>game-dev</keyword></keywords>
     </document>
+    <document id="loki-init-agent-fanout-summary" path="docs/loki-init/agent-fanout-summary.md" type="agent-fanout-summary" priority="high">
+      <summary>Resumo de agentes available, inventory_required, planned, invoked, skipped e blocked, com folders alvo materializados.</summary>
+      <use_when>Use para entender cobertura de perspectivas, lacunas de fan-out e onde cada inventario vive.</use_when>
+      <not_covered>Conteudo completo de cada inventario.</not_covered>
+      <keywords><keyword>agent-fanout</keyword><keyword>inventory-required</keyword><keyword>target-folders</keyword></keywords>
+    </document>
+    <document id="loki-init-conflicts-and-decisions" path="docs/loki-init/conflicts-and-decisions.md" type="conflict-register" priority="high">
+      <summary>Registro final de decisoes, conflitos e drift: stale index, git state, Curva do Diabo, timeout, plugins, crash audio e validacao runtime.</summary>
+      <use_when>Use antes de gerar tech analysis, requisitos, plano ou qualquer edicao em runtime.</use_when>
+      <not_covered>Decisoes humanas finais para conflitos abertos.</not_covered>
+      <keywords><keyword>conflitos</keyword><keyword>decisoes</keyword><keyword>timeout</keyword><keyword>Curva do Diabo</keyword></keywords>
+    </document>
+    <document id="loki-init-open-questions" path="docs/loki-init/open-questions.md" type="open-questions" priority="high">
+      <summary>Questoes abertas de produto, runtime, narrativa, audio, UX e tecnica, com gates humanos pendentes.</summary>
+      <use_when>Use para orientar entrevistas, tech analysis, validacao humana ou decisoes de produto.</use_when>
+      <not_covered>Respostas finais, validacao por Playtest ou aceite de implementacao.</not_covered>
+      <keywords><keyword>questoes-abertas</keyword><keyword>human-validation</keyword><keyword>tech-analysis</keyword></keywords>
+    </document>
     <document id="loki-init-project-inventory" path="docs/loki-init/project-inventory.md" type="project-inventory" priority="high">
-      <summary>Inventario comum do workspace, limites de escrita, docs existentes, stack e superficies sensiveis.</summary>
+      <summary>Inventario comum do workspace, limites de escrita, docs existentes, stack, Git state observado e superficies sensiveis.</summary>
       <use_when>Use antes de classificar escopo, tocar runtime Jhonny ou validar writes do init.</use_when>
       <not_covered>Auditoria profunda de data JSON, assets e Playtest.</not_covered>
       <keywords><keyword>inventario</keyword><keyword>Jhonny</keyword><keyword>write-scope</keyword></keywords>
     </document>
     <document id="loki-init-technology-context" path="docs/loki-init/technology-context.md" type="technology-context" priority="high">
-      <summary>Contexto tecnico do init: selected_project_type, stack RPG Maker MZ, plugins e catalogo de agentes.</summary>
-      <use_when>Use antes de escolher agentes, skills tecnicas ou validar tipo de projeto.</use_when>
+      <summary>Contexto tecnico do init: selected_project_type, stack RPG Maker MZ, plugins, skills candidatas e catalogo de agentes.</summary>
+      <use_when>Use antes de escolher agentes, skills tecnicas, project type ou validators.</use_when>
       <not_covered>Runtime behavior e Playtest.</not_covered>
       <keywords><keyword>technology</keyword><keyword>RPG Maker MZ</keyword><keyword>agents</keyword></keywords>
     </document>
-    <document id="loki-init-agent-fanout-summary" path="docs/loki-init/agent-fanout-summary.md" type="agent-fanout-summary" priority="medium">
-      <summary>Resumo dos 24 agentes invocados, status, batch policy e resultado operacional.</summary>
-      <use_when>Use para entender a cobertura de perspectivas do init.</use_when>
-      <not_covered>Conteudo completo de cada handoff.</not_covered>
-      <keywords><keyword>agent-fanout</keyword><keyword>core</keyword><keyword>game-dev</keyword></keywords>
-    </document>
-    <document id="loki-init-conflicts-and-decisions" path="docs/loki-init/conflicts-and-decisions.md" type="conflict-register" priority="high">
-      <summary>Registro de decisoes do init e conflitos abertos sobre git, timeout, Curva do Diabo, plugins, safe-only e narrativa.</summary>
-      <use_when>Use antes de gerar action plan ou requisitos que dependam desses conflitos.</use_when>
-      <not_covered>Decisoes humanas finais para conflitos abertos.</not_covered>
-      <keywords><keyword>conflitos</keyword><keyword>decisoes</keyword><keyword>timeout</keyword></keywords>
-    </document>
-    <document id="loki-init-open-questions" path="docs/loki-init/open-questions.md" type="open-questions" priority="high">
-      <summary>Questoes abertas de produto, narrativa, runtime, UX, audio, arte e proximo workflow.</summary>
-      <use_when>Use para orientar entrevistas, tech analysis ou gates humanos.</use_when>
-      <not_covered>Respostas finais ou validacao runtime.</not_covered>
-      <keywords><keyword>questoes-abertas</keyword><keyword>human-gate</keyword><keyword>tech-analysis</keyword></keywords>
-    </document>
-    <document id="loki-init-standards-curator-context" path="docs/loki-init/standards-curator-context.md" type="agent-context" priority="low">
-      <summary>Contexto do agente standards-curator para limites de promocao e writes.</summary>
-      <use_when>Use ao retomar init ou avaliar promocao de aprendizados locais.</use_when>
-      <not_covered>Promocao aprovada para pacote ou regra global.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>standards-curator</keyword></keywords>
-    </document>
-    <document id="loki-init-retrospective-digester-context" path="docs/loki-init/retrospective-digester-context.md" type="agent-context" priority="low">
-      <summary>Contexto do agente retrospective-digester sobre uso de retrospectivas como evidencia local.</summary>
-      <use_when>Use ao preparar fases que reaproveitem learnings historicos.</use_when>
-      <not_covered>Auditoria completa de retrospectivas.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>retrospective-digester</keyword></keywords>
-    </document>
-    <document id="loki-init-runtime-qa-context" path="docs/loki-init/runtime-qa-context.md" type="agent-context" priority="medium">
-      <summary>Contexto do agente runtime-qa sobre gates de Playtest e limites de validacao estatica.</summary>
-      <use_when>Use antes de declarar comportamento perceptivel validado.</use_when>
+    <document id="loki-init-runtime-qa" path="docs/loki-init/runtime-qa/inventory.md" type="agent-inventory" priority="high">
+      <summary>Inventario runtime QA sobre Playtest, comportamento perceptivel e limites de validacao estatica.</summary>
+      <use_when>Use antes de declarar gameplay, UI, audio, input, Common Events, save/load ou deploy validados.</use_when>
       <not_covered>Playtest executado.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>runtime-qa</keyword></keywords>
+      <keywords><keyword>runtime-qa</keyword><keyword>Playtest</keyword><keyword>human-validation</keyword></keywords>
     </document>
-    <document id="loki-init-execution-context-reader-context" path="docs/loki-init/execution-context-reader-context.md" type="agent-context" priority="low">
-      <summary>Contexto do agente execution-context-reader sobre root workspace versus runtime Jhonny.</summary>
-      <use_when>Use para roteamento de writes e leitura minima em proximas fases.</use_when>
-      <not_covered>Inventario runtime profundo.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>execution-context-reader</keyword></keywords>
+    <document id="loki-init-technical-implementer" path="docs/loki-init/technical-implementer/inventory.md" type="agent-inventory" priority="high">
+      <summary>Inventario tecnico de arquitetura, entry points, data JSON, plugins, constraints e validadores futuros.</summary>
+      <use_when>Use antes de planejar edicoes em data JSON, plugins, Common Events, helper plugin ou runtime.</use_when>
+      <not_covered>Patch tecnico implementado ou runtime validado.</not_covered>
+      <keywords><keyword>technical-implementer</keyword><keyword>CommonEvents</keyword><keyword>plugins</keyword></keywords>
     </document>
-    <document id="loki-init-source-researcher-context" path="docs/loki-init/source-researcher-context.md" type="agent-context" priority="medium">
-      <summary>Contexto do agente source-researcher sobre fontes, lacunas e conflitos locais.</summary>
-      <use_when>Use antes de resolver conflitos de timeout, plugins, thresholds ou narrativa.</use_when>
-      <not_covered>Leitura direta de data JSON e maps.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>source-researcher</keyword></keywords>
-    </document>
-    <document id="loki-init-technical-implementer-context" path="docs/loki-init/technical-implementer-context.md" type="agent-context" priority="medium">
-      <summary>Contexto do agente technical-implementer sobre constraints de implementacao futura.</summary>
-      <use_when>Use antes de planejar edicoes em data JSON, plugins ou runtime.</use_when>
-      <not_covered>Patch tecnico implementado.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>technical-implementer</keyword></keywords>
-    </document>
-    <document id="loki-init-bibliotecario-context" path="docs/loki-init/bibliotecario-context.md" type="agent-context" priority="medium">
-      <summary>Contexto do agente bibliotecario sobre menor leitura suficiente via docs/index.xml.</summary>
-      <use_when>Use antes de buscar documentacao duradoura.</use_when>
-      <not_covered>Docs nao catalogados.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>bibliotecario</keyword></keywords>
-    </document>
-    <document id="loki-init-catalogador-context" path="docs/loki-init/catalogador-context.md" type="agent-context" priority="medium">
-      <summary>Contexto do agente catalogador sobre catalogacao dos docs do init.</summary>
-      <use_when>Use ao manter docs/index.xml.</use_when>
-      <not_covered>Catalogacao de planos operacionais.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>catalogador</keyword></keywords>
-    </document>
-    <document id="loki-init-game-product-owner-context" path="docs/loki-init/game-product-owner-context.md" type="agent-context" priority="low">
-      <summary>Contexto do game-product-owner sobre promessa, publico, prioridade e escopo.</summary>
-      <use_when>Use antes de decisoes de MVP, Curva do Diabo ou produto.</use_when>
+    <document id="loki-init-game-product-owner" path="docs/loki-init/game-product-owner/index.md" type="agent-inventory" priority="medium">
+      <summary>Inventario de produto sobre promessa jogavel, MVP, prioridades, publico, milestones e gates.</summary>
+      <use_when>Use antes de decidir escopo MVP, Curva do Diabo, publico, prioridade ou aceite de produto.</use_when>
       <not_covered>Decisao final de produto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>game-product-owner</keyword></keywords>
+      <keywords><keyword>game-product-owner</keyword><keyword>MVP</keyword><keyword>produto</keyword></keywords>
     </document>
-    <document id="loki-init-game-business-analyst-context" path="docs/loki-init/game-business-analyst-context.md" type="agent-context" priority="low">
-      <summary>Contexto do game-business-analyst sobre requisitos testaveis e conflitos.</summary>
-      <use_when>Use antes de escrever stories ou criterios de aceite.</use_when>
-      <not_covered>Matriz formal de requisitos.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>game-business-analyst</keyword></keywords>
+    <document id="loki-init-game-business-analyst" path="docs/loki-init/game-business-analyst/inventory.md" type="agent-inventory" priority="medium">
+      <summary>Inventario de requisitos, aceite, conflitos testaveis e dependencias de decisao.</summary>
+      <use_when>Use antes de escrever stories, criterios de aceite ou matriz de requisitos.</use_when>
+      <not_covered>Matriz formal aprovada.</not_covered>
+      <keywords><keyword>game-business-analyst</keyword><keyword>requirements</keyword><keyword>acceptance</keyword></keywords>
     </document>
-    <document id="loki-init-game-designer-context" path="docs/loki-init/game-designer-context.md" type="agent-context" priority="low">
-      <summary>Contexto do game-designer sobre loop safe/risk e economia de risco.</summary>
-      <use_when>Use antes de balancear thresholds, risco ou feedback.</use_when>
+    <document id="loki-init-game-designer" path="docs/loki-init/game-designer/inventory.md" type="agent-inventory" priority="high">
+      <summary>Inventario de design do loop safe/risk, economia de risco, timeout, Curva do Diabo e balanceamento pendente.</summary>
+      <use_when>Use antes de alterar design, thresholds, risk/safe, feedback ou dificuldade.</use_when>
       <not_covered>Balance validado por Playtest.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>game-designer</keyword></keywords>
+      <keywords><keyword>game-designer</keyword><keyword>safe-risk</keyword><keyword>balance</keyword></keywords>
     </document>
-    <document id="loki-init-narrative-designer-context" path="docs/loki-init/narrative-designer-context.md" type="agent-context" priority="low">
-      <summary>Contexto do narrative-designer sobre limites de historia e fonte canonica ausente.</summary>
-      <use_when>Use antes de tarefas narrativas ou de voz.</use_when>
-      <not_covered>Script VN e endings.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>narrative-designer</keyword></keywords>
+    <document id="loki-init-narrative-designer" path="docs/loki-init/narrative-designer/inventory.md" type="agent-inventory" priority="medium">
+      <summary>Inventario narrativo sobre historia, temas, rotas, voz e lacunas canonicas.</summary>
+      <use_when>Use antes de tarefas narrativas, endings, tom, lore ou voz.</use_when>
+      <not_covered>Script final ou route matrix validada.</not_covered>
+      <keywords><keyword>narrative-designer</keyword><keyword>narrativa</keyword><keyword>endings</keyword></keywords>
     </document>
-    <document id="loki-init-ux-ui-designer-context" path="docs/loki-init/ux-ui-designer-context.md" type="agent-context" priority="low">
-      <summary>Contexto do ux-ui-designer sobre HUD, resultado, input e save/load.</summary>
-      <use_when>Use antes de alterar UI da corrida ou tela de resultado.</use_when>
-      <not_covered>Preview visual validado.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>ux-ui-designer</keyword></keywords>
+    <document id="loki-init-ux-ui-designer" path="docs/loki-init/ux-ui-designer/inventory.md" type="agent-inventory" priority="high">
+      <summary>Inventario UX/UI sobre HUD, TextPictures, input, resultado, copy, acessibilidade e drift de P_cena.</summary>
+      <use_when>Use antes de alterar UI da corrida, tela de resultado, input, copy ou affordances.</use_when>
+      <not_covered>Preview visual, contraste e input feel validados.</not_covered>
+      <keywords><keyword>ux-ui-designer</keyword><keyword>HUD</keyword><keyword>TextPicture</keyword></keywords>
     </document>
-    <document id="loki-init-gameplay-engineer-context" path="docs/loki-init/gameplay-engineer-context.md" type="agent-context" priority="medium">
-      <summary>Contexto do gameplay-engineer sobre ownership runtime da corrida.</summary>
-      <use_when>Use antes de analise tecnica de Common Events, helper plugin ou input lock.</use_when>
-      <not_covered>Auditoria runtime completa.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>gameplay-engineer</keyword></keywords>
+    <document id="loki-init-gameplay-engineer" path="docs/loki-init/gameplay-engineer/inventory.md" type="agent-inventory" priority="high">
+      <summary>Inventario de gameplay engineering sobre mecanicas implementadas, estado, Common Events, plugins, save/load e runtime surfaces.</summary>
+      <use_when>Use antes de analise tecnica de Common Events, helper plugin, input lock, retry ou save/load.</use_when>
+      <not_covered>Auditoria runtime completa e Playtest.</not_covered>
+      <keywords><keyword>gameplay-engineer</keyword><keyword>save-load</keyword><keyword>Jhonny_RaceHelper</keyword></keywords>
     </document>
-    <document id="loki-init-narrative-qa-context" path="docs/loki-init/narrative-qa-context.md" type="agent-context" priority="low">
-      <summary>Contexto do narrative-qa sobre rotas, retry, endings e continuidade.</summary>
-      <use_when>Use antes de QA narrativo ou route matrix.</use_when>
-      <not_covered>Route matrix validada.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>narrative-qa</keyword></keywords>
+    <document id="loki-init-narrative-qa" path="docs/loki-init/narrative-qa/inventory.md" type="agent-inventory" priority="medium">
+      <summary>Inventario de QA narrativo sobre rotas, retry, continuidade, endings e lacunas de alcance.</summary>
+      <use_when>Use antes de QA narrativo, route matrix ou validacao de continuidade.</use_when>
+      <not_covered>Route matrix validada por Playtest.</not_covered>
+      <keywords><keyword>narrative-qa</keyword><keyword>routes</keyword><keyword>continuity</keyword></keywords>
     </document>
-    <document id="loki-init-level-designer-context" path="docs/loki-init/level-designer-context.md" type="agent-context" priority="low">
-      <summary>Contexto do level-designer sobre ritmo temporal e mapas nao auditados.</summary>
-      <use_when>Use antes de mapear entry points ou pacing de cenas.</use_when>
-      <not_covered>Map event audit.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>level-designer</keyword></keywords>
+    <document id="loki-init-level-designer" path="docs/loki-init/level-designer/inventory.md" type="agent-inventory" priority="medium">
+      <summary>Inventario de level design sobre mapas, pacing, entry points e ritmo de cenas.</summary>
+      <use_when>Use antes de mapear fluxo de mapas, pacing ou entry points.</use_when>
+      <not_covered>Map event audit completo.</not_covered>
+      <keywords><keyword>level-designer</keyword><keyword>maps</keyword><keyword>pacing</keyword></keywords>
     </document>
-    <document id="loki-init-balance-economy-designer-context" path="docs/loki-init/balance-economy-designer-context.md" type="agent-context" priority="low">
-      <summary>Contexto do balance-economy-designer sobre thresholds e economia safe/risk.</summary>
-      <use_when>Use antes de simular ou alterar pontuacao.</use_when>
-      <not_covered>Simulacao completa.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>balance-economy-designer</keyword></keywords>
+    <document id="loki-init-balance-economy-designer" path="docs/loki-init/balance-economy-designer/index.md" type="agent-inventory" priority="high">
+      <summary>Inventario de economia e balanceamento sobre thresholds, safe-only, P_cena, progressao e tuning risks.</summary>
+      <use_when>Use antes de simular, alterar pontuacao, thresholds, progressao ou custo/recompensa.</use_when>
+      <not_covered>Simulacao completa e Playtest de dificuldade.</not_covered>
+      <keywords><keyword>balance-economy</keyword><keyword>thresholds</keyword><keyword>safe-only</keyword></keywords>
     </document>
-    <document id="loki-init-branching-narrative-designer-context" path="docs/loki-init/branching-narrative-designer-context.md" type="agent-context" priority="low">
-      <summary>Contexto do branching-narrative-designer sobre flags, escolhas e endings ainda nao mapeados.</summary>
-      <use_when>Use antes de desenhar matriz de rotas.</use_when>
-      <not_covered>Endings canonicos.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>branching-narrative-designer</keyword></keywords>
+    <document id="loki-init-branching-narrative-designer" path="docs/loki-init/branching-narrative-designer/inventory.md" type="agent-inventory" priority="medium">
+      <summary>Inventario de narrativa ramificada sobre escolhas, estados, consequencias, ConcernScore e endings.</summary>
+      <use_when>Use antes de desenhar matriz de rotas, escolhas, flags ou consequencias.</use_when>
+      <not_covered>Alcancabilidade runtime e endings canonicos.</not_covered>
+      <keywords><keyword>branching-narrative</keyword><keyword>ConcernScore</keyword><keyword>choices</keyword></keywords>
     </document>
-    <document id="loki-init-scene-presentation-designer-context" path="docs/loki-init/scene-presentation-designer-context.md" type="agent-context" priority="low">
-      <summary>Contexto do scene-presentation-designer sobre staging, timing, pictures e cues.</summary>
-      <use_when>Use antes de alterar apresentacao visual/audio da corrida.</use_when>
-      <not_covered>Assets e runtime validados.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>scene-presentation-designer</keyword></keywords>
+    <document id="loki-init-scene-presentation-designer" path="docs/loki-init/scene-presentation-designer/presentation-inventory.md" type="agent-inventory" priority="medium">
+      <summary>Inventario de apresentacao de cena sobre staging, pictures, timing, efeitos, resultado e cues.</summary>
+      <use_when>Use antes de alterar apresentacao visual/audio da corrida ou tela de resultado.</use_when>
+      <not_covered>Assets, timing e runtime validados por Playtest.</not_covered>
+      <keywords><keyword>scene-presentation</keyword><keyword>pictures</keyword><keyword>timing</keyword></keywords>
     </document>
-    <document id="loki-init-audio-designer-context" path="docs/loki-init/audio-designer-context.md" type="agent-context" priority="low">
-      <summary>Contexto do audio-designer sobre cue sheet, canais RPG Maker e audio Playtest.</summary>
-      <use_when>Use antes de escolher SE, ME, BGM, BGS ou timer ticks.</use_when>
-      <not_covered>Inventario de arquivos de audio.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>audio-designer</keyword></keywords>
+    <document id="loki-init-audio-designer" path="docs/loki-init/audio-designer/audio-inventory.md" type="agent-inventory" priority="high">
+      <summary>Inventario de audio sobre assets, cues, canais RPG Maker, crash audio drift, timer ticking e mix pendente.</summary>
+      <use_when>Use antes de escolher SE, ME, BGM, BGS, crash cues, timer ticks ou validar audio.</use_when>
+      <not_covered>Playback, loudness, loop points, mix e Playtest.</not_covered>
+      <keywords><keyword>audio-designer</keyword><keyword>crash audio</keyword><keyword>ME</keyword></keywords>
     </document>
-    <document id="loki-init-quest-content-designer-context" path="docs/loki-init/quest-content-designer-context.md" type="agent-context" priority="low">
-      <summary>Contexto do quest-content-designer sobre corrida como quest chain ou subsistema.</summary>
-      <use_when>Use antes de mapear objetivos, NPCs, rewards ou quest log.</use_when>
-      <not_covered>NPCs e full quest log.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>quest-content-designer</keyword></keywords>
+    <document id="loki-init-quest-content-designer" path="docs/loki-init/quest-content-designer/inventory.md" type="agent-inventory" priority="medium">
+      <summary>Inventario de quest/content sobre corrida como quest chain, objetivos, rewards, NPCs e lacunas.</summary>
+      <use_when>Use antes de mapear objetivos, rewards, quest log, NPCs ou integrações de conteúdo.</use_when>
+      <not_covered>Quest log completo e NPCs aprovados.</not_covered>
+      <keywords><keyword>quest-content</keyword><keyword>objectives</keyword><keyword>rewards</keyword></keywords>
     </document>
-    <document id="loki-init-dialogue-editor-context" path="docs/loki-init/dialogue-editor-context.md" type="agent-context" priority="low">
-      <summary>Contexto do dialogue-editor sobre microcopy, termos e fonte de voz ausente.</summary>
-      <use_when>Use antes de revisar labels, TextPictures ou dialogo.</use_when>
-      <not_covered>Texto final de dialogo.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>dialogue-editor</keyword></keywords>
+    <document id="loki-init-dialogue-editor" path="docs/loki-init/dialogue-editor/inventory.md" type="agent-inventory" priority="medium">
+      <summary>Inventario editorial de dialogo, microcopy, termos, personas, idioma e drift de nomes.</summary>
+      <use_when>Use antes de revisar labels, TextPictures, falas, glossario ou idioma.</use_when>
+      <not_covered>Texto final aprovado e LQA.</not_covered>
+      <keywords><keyword>dialogue-editor</keyword><keyword>microcopy</keyword><keyword>localization</keyword></keywords>
     </document>
-    <document id="loki-init-tools-pipeline-engineer-context" path="docs/loki-init/tools-pipeline-engineer-context.md" type="agent-context" priority="medium">
-      <summary>Contexto do tools-pipeline-engineer sobre scripts historicos e pipeline seguro.</summary>
-      <use_when>Use antes de executar/adaptar scripts ou mutadores de data JSON.</use_when>
-      <not_covered>Script audit completo.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>tools-pipeline-engineer</keyword></keywords>
+    <document id="loki-init-tools-pipeline-engineer" path="docs/loki-init/tools-pipeline-engineer/inventory.md" type="agent-inventory" priority="medium">
+      <summary>Inventario de pipeline sobre scripts historicos, automacao, validadores candidatos e gates para reuso.</summary>
+      <use_when>Use antes de executar, adaptar ou auditar scripts que leem ou alteram runtime/data JSON.</use_when>
+      <not_covered>Execucao de scripts, export, build ou Playtest.</not_covered>
+      <keywords><keyword>tools-pipeline</keyword><keyword>scripts</keyword><keyword>validators</keyword></keywords>
     </document>
-    <document id="loki-init-technical-artist-context" path="docs/loki-init/technical-artist-context.md" type="agent-context" priority="low">
-      <summary>Contexto do technical-artist sobre Picture IDs, assets, memoria e fronteira visual-runtime.</summary>
-      <use_when>Use antes de inventariar assets visuais ou layer/picture ownership.</use_when>
-      <not_covered>Dimensoes e performance de assets.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>technical-artist</keyword></keywords>
-    </document>
-    <document id="loki-init-standards-curator-inventory" path="docs/loki-init/inventories/standards-curator-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do standards-curator.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>standards-curator</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-retrospective-digester-inventory" path="docs/loki-init/inventories/retrospective-digester-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do retrospective-digester.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>retrospective-digester</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-runtime-qa-inventory" path="docs/loki-init/inventories/runtime-qa-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do runtime-qa.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>runtime-qa</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-execution-context-reader-inventory" path="docs/loki-init/inventories/execution-context-reader-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do execution-context-reader.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>execution-context-reader</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-source-researcher-inventory" path="docs/loki-init/inventories/source-researcher-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do source-researcher.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>source-researcher</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-technical-implementer-inventory" path="docs/loki-init/inventories/technical-implementer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do technical-implementer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>technical-implementer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-bibliotecario-inventory" path="docs/loki-init/inventories/bibliotecario-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do bibliotecario.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>bibliotecario</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-catalogador-inventory" path="docs/loki-init/inventories/catalogador-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do catalogador.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>catalogador</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-game-product-owner-inventory" path="docs/loki-init/inventories/game-product-owner-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do game-product-owner.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>game-product-owner</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-game-business-analyst-inventory" path="docs/loki-init/inventories/game-business-analyst-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do game-business-analyst.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>game-business-analyst</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-game-designer-inventory" path="docs/loki-init/inventories/game-designer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do game-designer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>game-designer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-narrative-designer-inventory" path="docs/loki-init/inventories/narrative-designer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do narrative-designer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>narrative-designer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-ux-ui-designer-inventory" path="docs/loki-init/inventories/ux-ui-designer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do ux-ui-designer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>ux-ui-designer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-gameplay-engineer-inventory" path="docs/loki-init/inventories/gameplay-engineer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do gameplay-engineer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>gameplay-engineer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-narrative-qa-inventory" path="docs/loki-init/inventories/narrative-qa-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do narrative-qa.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>narrative-qa</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-level-designer-inventory" path="docs/loki-init/inventories/level-designer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do level-designer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>level-designer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-balance-economy-designer-inventory" path="docs/loki-init/inventories/balance-economy-designer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do balance-economy-designer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>balance-economy-designer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-branching-narrative-designer-inventory" path="docs/loki-init/inventories/branching-narrative-designer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do branching-narrative-designer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>branching-narrative-designer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-scene-presentation-designer-inventory" path="docs/loki-init/inventories/scene-presentation-designer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do scene-presentation-designer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>scene-presentation-designer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-audio-designer-inventory" path="docs/loki-init/inventories/audio-designer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do audio-designer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>audio-designer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-quest-content-designer-inventory" path="docs/loki-init/inventories/quest-content-designer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do quest-content-designer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>quest-content-designer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-dialogue-editor-inventory" path="docs/loki-init/inventories/dialogue-editor-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do dialogue-editor.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>dialogue-editor</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-tools-pipeline-engineer-inventory" path="docs/loki-init/inventories/tools-pipeline-engineer-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do tools-pipeline-engineer.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>tools-pipeline-engineer</keyword><keyword>inventory</keyword></keywords>
-    </document>
-    <document id="loki-init-technical-artist-inventory" path="docs/loki-init/inventories/technical-artist-inventory.md" type="agent-inventory" priority="low">
-      <summary>Inventario do technical-artist.</summary>
-      <use_when>Use para checar fontes, lacunas e do-not-assume dessa perspectiva.</use_when>
-      <not_covered>Handoff completo bruto.</not_covered>
-      <keywords><keyword>loki-init</keyword><keyword>technical-artist</keyword><keyword>inventory</keyword></keywords>
+    <document id="loki-init-technical-artist" path="docs/loki-init/technical-artist/inventory.md" type="agent-inventory" priority="medium">
+      <summary>Inventario de technical art sobre assets, Picture IDs, preload, efeitos, plugin ownership e riscos visuais.</summary>
+      <use_when>Use antes de alterar assets visuais, picture stack, preload, efeitos ou performance visual.</use_when>
+      <not_covered>Dimensoes, performance e render validados por runtime.</not_covered>
+      <keywords><keyword>technical-artist</keyword><keyword>Picture IDs</keyword><keyword>assets</keyword></keywords>
     </document>
   </documents>
 </documentation-catalog>

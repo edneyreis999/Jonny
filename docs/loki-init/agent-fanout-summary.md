@@ -1,65 +1,114 @@
 ---
-title: "Loki Init - Agent Fan-out Summary"
-tipo: "agent-fanout-summary"
-status: "complete"
+title: "Loki Init - Agent Fanout Summary"
+tipo: "consolidacao"
+status: "concluido"
 tags:
   - loki-init
   - agent-fanout
   - game-dev
 ---
 
-# Loki Init - Agent Fan-out Summary
+# Loki Init - Agent Fanout Summary
 
 Data: 2026-06-30
+Adapter evidence: Codex com `multi_agent_v1` conforme `planos/000-init-loki/interaction/fase1/agent-fanout-plan.md`
+Catalog source: `/Users/edney/projects/coreto/loki-framework/manifest.yaml`
 
-## Preflight
+## Selection
 
-- Fonte de catalogo: `/Users/edney/projects/coreto/loki-framework/manifest.yaml`.
-- Tipos suportados: `game-dev`, `software-development`.
-- Tipo selecionado: `game-dev`.
-- Regra: agentes com tag `core` + agentes com tag `game-dev`.
-- Adapter usado: `multi_agent_v1`.
-- Batch ceiling usado: 6.
-- Escrita por agentes: desabilitada. O orquestrador materializou os handoffs.
+- Supported project types: `game-dev`, `software-development`.
+- Selected project type: `game-dev`.
+- Base tag: `core`.
+- Selection rule: união ordenada de agentes `core` + agentes `game-dev`, sem duplicatas.
 
-## Agentes Core
+## Classes
 
-| Agente | Status | Ponto central |
+### Available
+
+O preflight registrou roles Loki disponíveis via `multi_agent_v1` para os agentes requeridos. Arquivos locais de adapter em `.agents/agents`, `.codex/agents`, `agents/` e `codex/agents` não foram usados como fonte normativa.
+
+### Inventory Required
+
+Agentes requeridos por `core`:
+
+- `standards-curator`
+- `retrospective-digester`
+- `runtime-qa`
+- `execution-context-reader`
+- `source-researcher`
+- `technical-implementer`
+- `bibliotecario`
+- `catalogador`
+
+Agentes requeridos por `game-dev`:
+
+- `game-product-owner`
+- `game-business-analyst`
+- `game-designer`
+- `narrative-designer`
+- `ux-ui-designer`
+- `gameplay-engineer`
+- `narrative-qa`
+- `level-designer`
+- `balance-economy-designer`
+- `branching-narrative-designer`
+- `scene-presentation-designer`
+- `audio-designer`
+- `quest-content-designer`
+- `dialogue-editor`
+- `tools-pipeline-engineer`
+- `technical-artist`
+
+### Planned
+
+- Batch 1: `standards-curator`, `retrospective-digester`, `runtime-qa`, `execution-context-reader`, `source-researcher`, `technical-implementer`.
+- Batch 2: `game-product-owner`, `game-business-analyst`, `game-designer`, `narrative-designer`, `ux-ui-designer`, `gameplay-engineer`.
+- Batch 3: `narrative-qa`, `level-designer`, `balance-economy-designer`, `branching-narrative-designer`, `scene-presentation-designer`, `audio-designer`.
+- Batch 4: `quest-content-designer`, `dialogue-editor`, `tools-pipeline-engineer`, `technical-artist`.
+- Serial final: `catalogador`.
+
+### Invoked
+
+Inventários de domínio validados para consolidação:
+
+| Agent | Class | Target summary |
 | --- | --- | --- |
-| `standards-curator` | complete | Limites de promocao e writes permitidos. |
-| `retrospective-digester` | complete | Retrospectivas como evidencia local, nao standards. |
-| `runtime-qa` | complete | Playtest humano requerido para runtime perceptivel. |
-| `execution-context-reader` | complete | Root e workspace; `Jhonny/` e runtime. |
-| `source-researcher` | complete | Conflitos e lacunas de fontes. |
-| `technical-implementer` | complete | Proximas edicoes runtime exigem skills RPG Maker. |
-| `bibliotecario` | complete | `docs/index.xml` como entrada minima. |
-| `catalogador` | complete | Docs do init devem entrar no catalogo; `planos/**` nao. |
+| `runtime-qa` | `init_inventory_domain_writer` | `docs/loki-init/runtime-qa/inventory.md` |
+| `technical-implementer` | `init_inventory_domain_writer` | `docs/loki-init/technical-implementer/inventory.md` |
+| `game-product-owner` | `init_inventory_domain_writer` | `docs/loki-init/game-product-owner/index.md` |
+| `game-business-analyst` | `init_inventory_domain_writer` | `docs/loki-init/game-business-analyst/inventory.md` |
+| `game-designer` | `init_inventory_domain_writer` | `docs/loki-init/game-designer/inventory.md` |
+| `narrative-designer` | `init_inventory_domain_writer` | `docs/loki-init/narrative-designer/inventory.md` |
+| `ux-ui-designer` | `init_inventory_domain_writer` | `docs/loki-init/ux-ui-designer/inventory.md` |
+| `gameplay-engineer` | `init_inventory_domain_writer` | `docs/loki-init/gameplay-engineer/inventory.md` |
+| `narrative-qa` | `init_inventory_domain_writer` | `docs/loki-init/narrative-qa/inventory.md` |
+| `level-designer` | `init_inventory_domain_writer` | `docs/loki-init/level-designer/inventory.md` |
+| `balance-economy-designer` | `init_inventory_domain_writer` | `docs/loki-init/balance-economy-designer/index.md` |
+| `branching-narrative-designer` | `init_inventory_domain_writer` | `docs/loki-init/branching-narrative-designer/inventory.md` |
+| `scene-presentation-designer` | `init_inventory_domain_writer` | `docs/loki-init/scene-presentation-designer/presentation-inventory.md` |
+| `audio-designer` | `init_inventory_domain_writer` | `docs/loki-init/audio-designer/audio-inventory.md` |
+| `quest-content-designer` | `init_inventory_domain_writer` | `docs/loki-init/quest-content-designer/inventory.md` |
+| `dialogue-editor` | `init_inventory_domain_writer` | `docs/loki-init/dialogue-editor/inventory.md` |
+| `tools-pipeline-engineer` | `init_inventory_domain_writer` | `docs/loki-init/tools-pipeline-engineer/inventory.md` |
+| `technical-artist` | `init_inventory_domain_writer` | `docs/loki-init/technical-artist/inventory.md` |
+| `catalogador` | `init_final_cataloger` | `docs/index.xml` and concise consolidation docs |
 
-## Agentes Game-dev
+Support-only agents invoked with retrospective-only writes:
 
-| Agente | Status | Ponto central |
-| --- | --- | --- |
-| `game-product-owner` | complete | Promessa e escopo do timed binary loop. |
-| `game-business-analyst` | complete | Requisitos devem separar fato, conflito, decisao e gate. |
-| `game-designer` | complete | Corrida e economia de risco, nao steering. |
-| `narrative-designer` | complete | Fonte narrativa canonica ainda falta. |
-| `ux-ui-designer` | complete | HUD/result/save-load precisam Playtest. |
-| `gameplay-engineer` | complete | Runtime cruza Common Events, helper plugin e pictures. |
-| `narrative-qa` | complete | Route/ending QA depende de fonte narrativa. |
-| `level-designer` | complete | Level surface atual e temporal/cenico. |
-| `balance-economy-designer` | complete | Thresholds atuais tornam risco obrigatorio. |
-| `branching-narrative-designer` | complete | Branching real nao pode ser inferido so da corrida. |
-| `scene-presentation-designer` | complete | Janelas curtas podem causar sobrecarga visual. |
-| `audio-designer` | complete | Precisa cue sheet por canal BGM/BGS/ME/SE. |
-| `quest-content-designer` | complete | Corrida pode ser quest chain ou subsistema; decidir. |
-| `dialogue-editor` | complete | Microcopy precisa fonte canonica de voz. |
-| `tools-pipeline-engineer` | complete | Scripts historicos exigem dry-run/diff/rollback antes de reuso. |
-| `technical-artist` | complete | Picture ID ownership e asset/runtime boundary sao riscos centrais. |
+- `standards-curator`
+- `retrospective-digester`
+- `execution-context-reader`
+- `source-researcher`
 
-## Resultado operacional
+### Skipped
 
-Todos os agentes selecionados possuem:
+- `bibliotecario`: required by `core`, but no validated inventory folder or retrospective was present in the sources available to final consolidation. Treat as not materialized for this init pass.
 
-- `docs/loki-init/<agent>-context.md`
-- `docs/loki-init/inventories/<agent>-inventory.md`
-- `planos/000-init-loki/retrospetivas/fase1/<agent>-retrospectiva.md`
+### Blocked
+
+- No blocked agent folder was delivered to this final cataloger.
+- Runtime validation remains blocked on human Playtest, not on agent execution.
+
+## Retrospectives Observed
+
+Retrospectives were present for invoked domain writers and support-only agents under `planos/000-init-loki/retrospetivas/fase1/`, except `bibliotecario` and this final `catalogador` before this write.

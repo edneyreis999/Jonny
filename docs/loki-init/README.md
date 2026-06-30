@@ -1,56 +1,45 @@
 ---
 title: "Loki Init - README"
-tipo: "workflow-summary"
-status: "complete"
+tipo: "consolidacao"
+status: "concluido"
 tags:
   - loki-init
-  - resumo
   - game-dev
+  - jhonny
 ---
 
 # Loki Init - README
 
-Data: 2026-06-30  
-Workflow: `loki:init`  
-Workspace: `/Users/edney/projects/coreto/summer26`
+Data: 2026-06-30
+Selected project type: `game-dev`
+Consumer root: `/Users/edney/projects/coreto/summer26`
 
-## Resultado
+## Outcome
 
-`loki:init` inicializou documentacao e estado operacional para o workspace. O projeto foi classificado como `game-dev` porque o runtime real identificado e `Jhonny/`, um projeto RPG Maker MZ. O root continua sendo um workspace de agentes/Obsidian, nao uma aplicacao buildavel.
+`loki:init` catalogou este workspace como um projeto de game-dev com runtime real em `Jhonny/`, um jogo RPG Maker MZ chamado "Bye Bye Jhonny", e documentação duradoura em `docs/`.
 
-## Artefatos principais
+O init produziu inventários estáticos e consolidados para o subsistema de corrida, sem editar runtime, dados JSON, plugins, assets, saves, `.agents/**`, `.codex/**`, `.claude/**`, `AGENTS.md` ou `CLAUDE.md`.
 
-- `docs/loki-init/project-inventory.md`
-- `docs/loki-init/technology-context.md`
-- `docs/loki-init/agent-fanout-summary.md`
-- `docs/loki-init/conflicts-and-decisions.md`
-- `docs/loki-init/open-questions.md`
-- `docs/loki-init/*-context.md`
-- `docs/loki-init/inventories/*-inventory.md`
-- `planos/000-init-loki/tasks.md`
-- `planos/000-init-loki/interaction/fase1/agent-fanout-plan.md`
-- `planos/000-init-loki/retrospetivas/fase1/*-retrospectiva.md`
+## Where To Start
 
-## Selecao de projeto
+Para retomar o contexto:
 
-`selected_project_type`: `game-dev`
+1. Leia `docs/index.xml` como catálogo principal.
+2. Leia `docs/loki-init/project-inventory.md` para limites, fontes e superfície sensível.
+3. Leia `docs/loki-init/technology-context.md` para classificação, stack e agentes requeridos.
+4. Leia `docs/loki-init/conflicts-and-decisions.md` antes de transformar qualquer achado em plano.
+5. Leia o inventário de domínio relevante em `docs/loki-init/<agent-name>/`.
 
-Evidencias:
+## Current Boundaries
 
-- `Jhonny/game.rmmzproject`
-- RPG Maker MZ `1.10.0` em `Jhonny/js/rmmz_core.js`
-- PixiJS `5.3.12` em `Jhonny/js/libs/pixi.js`
-- Docs duradouros sobre corrida, Common Events, Playtest e scripts de plano em `docs/index.xml`
+- `Jhonny/` é o root runtime do jogo; o root do consumidor é um workspace de agentes e vault.
+- O init fez análise estática. Nenhum Playtest validou gameplay, input, UI, audio, Common Events, save/load, deploy ou comportamento perceptível.
+- Edits futuros em `Jhonny/data/*.json` exigem workflow RPG Maker MZ data JSON.
+- Edits futuros em `Jhonny/js/plugins/**` ou `Jhonny/js/plugins.js` exigem workflow RPG Maker MZ plugin.
+- `docs/index.xml` foi atualizado para o layout materializado atual de `docs/loki-init/<agent-name>/...`.
 
-## Agentes invocados
+## Next Recommended Command
 
-Foram materializados artefatos para 24 agentes: 8 `core` e 16 `game-dev`. Cada agente tem contexto, inventario e retrospectiva.
+Próximo comando recomendado: `loki:tech-analysis`.
 
-## Estado de validacao
-
-- Validado: estrutura de arquivos, XML de catalogo, escopo de writes do init.
-- Nao validado: gameplay, UI, audio, input, pictures, Common Events, save/load, deploy e assets.
-
-## Proximo passo recomendado
-
-Executar `loki:tech-analysis` focado em ownership runtime da corrida em `Jhonny/`, antes de qualquer action plan que toque data JSON, plugins, mapas, assets ou comportamento perceptivel.
+Foco sugerido: corrida runtime ownership, timeout, retry, Curva do Diabo, plugin/no-plugin drift, crash audio, save/load e matriz mínima de Playtest antes de qualquer `loki:generate-action-plan` ou `loki:run-plan`.

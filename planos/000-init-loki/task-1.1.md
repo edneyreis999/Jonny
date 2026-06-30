@@ -1,26 +1,48 @@
-# Task 1.1 - Bootstrap Loki Init Artifacts
+# Task 1.1 - Execute Loki Init Fase 1
 
-Status: complete  
+Status: complete-static-init
 Date: 2026-06-30
 
-## Objective
+## Scope
 
-Initialize durable Loki context for the workspace without touching runtime or hidden agent/package state.
+Bootstrap consumer documentation and resumable init state for
+`/Users/edney/projects/coreto/summer26`, with writes restricted to:
 
-## Completed Work
+- `docs/**`
+- `planos/000-init-loki/**`
 
-- Created common docs under `docs/loki-init/`.
-- Classified the project as `game-dev`.
-- Invoked all selected `core` and `game-dev` agents through `multi_agent_v1`.
-- Materialized 24 context docs, 24 inventories and 24 retrospectives.
-- Updated `docs/index.xml` with init docs.
-- Recorded conflicts and open questions for future analysis.
+## Completed
+
+- Created/audited common inventory and technology context.
+- Classified `selected_project_type` as `game-dev`.
+- Ran multi-agent domain inventory fan-out with a batch ceiling of 6.
+- Materialized 18 domain inventory folders under `docs/loki-init/<agent>/`.
+- Materialized 23 agent retrospectives under
+  `planos/000-init-loki/retrospetivas/fase1/`.
+- Ran `catalogador` serially after domain inventory validation.
+- Updated `docs/index.xml` to the current per-agent folder layout.
+- Created consolidation docs:
+  - `docs/loki-init/README.md`
+  - `docs/loki-init/agent-fanout-summary.md`
+  - `docs/loki-init/conflicts-and-decisions.md`
+  - `docs/loki-init/open-questions.md`
 
 ## Validation
 
-Validation evidence is recorded in `planos/000-init-loki/builds/fase1/init-validation.md`.
+- `docs/index.xml` parses as XML.
+- Catalog has 28 entries and 0 missing cataloged paths.
+- Every selected domain writer has a materialized inventory folder.
+- Every invoked agent has an exact retrospective file.
+- `git diff --check -- docs planos/000-init-loki` passed after formatting cleanup.
 
-## Stop Conditions
+## Not Validated
 
-- Do not continue directly to runtime implementation from this task.
-- Run `loki:tech-analysis` before any plan that touches `Jhonny/data/*.json`, `Jhonny/js/plugins/**`, maps, assets, audio or gameplay behavior.
+No Playtest or runtime validation was performed. Gameplay, input, UI, audio,
+pictures, Common Events, save/load, deploy and perceptible behavior remain
+pending `human-validation`.
+
+## Next
+
+Run `loki:tech-analysis` before implementation planning, focused on race runtime
+ownership, timeout semantics, retry/result flow, Curva do Diabo scope,
+plugin/no-plugin drift, crash audio, save/load and the minimum Playtest matrix.
