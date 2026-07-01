@@ -66,7 +66,7 @@ var $plugins =
             "BreakSettings": "----------------------------------",
             "Anchor": "",
             "AnchorX:num": "0.5",
-            "AnchorY:num": "0.95",
+            "AnchorY:num": "0.5",
             "Scale": "",
             "ScaleX:num": "90",
             "ScaleY:num": "90",
