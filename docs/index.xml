@@ -111,13 +111,13 @@
       <keywords><keyword>technology</keyword><keyword>RPG Maker MZ</keyword><keyword>agents</keyword></keywords>
     </document>
     <document id="loki-init-runtime-qa" path="docs/loki-init/runtime-qa/inventory.md" type="agent-inventory" priority="high">
-      <summary>Inventario runtime QA sobre Playtest, comportamento perceptivel e limites de validacao estatica.</summary>
+      <summary>Indice local splitado do inventario runtime QA sobre Playtest, comportamento perceptivel e limites de validacao estatica.</summary>
       <use_when>Use antes de declarar gameplay, UI, audio, input, Common Events, save/load ou deploy validados.</use_when>
       <not_covered>Playtest executado.</not_covered>
       <keywords><keyword>runtime-qa</keyword><keyword>Playtest</keyword><keyword>human-validation</keyword></keywords>
     </document>
     <document id="loki-init-technical-implementer" path="docs/loki-init/technical-implementer/inventory.md" type="agent-inventory" priority="high">
-      <summary>Inventario tecnico de arquitetura, entry points, data JSON, plugins, constraints e validadores futuros.</summary>
+      <summary>Indice local splitado do inventario tecnico de arquitetura, entry points, data JSON, plugins, constraints e validadores futuros.</summary>
       <use_when>Use antes de planejar edicoes em data JSON, plugins, Common Events, helper plugin ou runtime.</use_when>
       <not_covered>Patch tecnico implementado ou runtime validado.</not_covered>
       <keywords><keyword>technical-implementer</keyword><keyword>CommonEvents</keyword><keyword>plugins</keyword></keywords>
@@ -135,7 +135,7 @@
       <keywords><keyword>game-business-analyst</keyword><keyword>requirements</keyword><keyword>acceptance</keyword></keywords>
     </document>
     <document id="loki-init-game-designer" path="docs/loki-init/game-designer/inventory.md" type="agent-inventory" priority="high">
-      <summary>Inventario de design do loop safe/risk, economia de risco, timeout, Curva do Diabo e balanceamento pendente.</summary>
+      <summary>Indice local splitado do inventario de design do loop safe/risk, economia de risco, timeout, Curva do Diabo e balanceamento pendente.</summary>
       <use_when>Use antes de alterar design, thresholds, risk/safe, feedback ou dificuldade.</use_when>
       <not_covered>Balance validado por Playtest.</not_covered>
       <keywords><keyword>game-designer</keyword><keyword>safe-risk</keyword><keyword>balance</keyword></keywords>
@@ -147,13 +147,13 @@
       <keywords><keyword>narrative-designer</keyword><keyword>narrativa</keyword><keyword>endings</keyword></keywords>
     </document>
     <document id="loki-init-ux-ui-designer" path="docs/loki-init/ux-ui-designer/inventory.md" type="agent-inventory" priority="high">
-      <summary>Inventario UX/UI sobre HUD, TextPictures, input, resultado, copy, acessibilidade e drift de P_cena.</summary>
+      <summary>Indice local splitado do inventario UX/UI sobre HUD, TextPictures, input, resultado, copy, acessibilidade e drift de P_cena.</summary>
       <use_when>Use antes de alterar UI da corrida, tela de resultado, input, copy ou affordances.</use_when>
       <not_covered>Preview visual, contraste e input feel validados.</not_covered>
       <keywords><keyword>ux-ui-designer</keyword><keyword>HUD</keyword><keyword>TextPicture</keyword></keywords>
     </document>
     <document id="loki-init-gameplay-engineer" path="docs/loki-init/gameplay-engineer/inventory.md" type="agent-inventory" priority="high">
-      <summary>Inventario de gameplay engineering sobre mecanicas implementadas, estado, Common Events, plugins, save/load e runtime surfaces.</summary>
+      <summary>Indice local splitado do inventario de gameplay engineering sobre mecanicas implementadas, estado, Common Events, plugins, save/load e runtime surfaces.</summary>
       <use_when>Use antes de analise tecnica de Common Events, helper plugin, input lock, retry ou save/load.</use_when>
       <not_covered>Auditoria runtime completa e Playtest.</not_covered>
       <keywords><keyword>gameplay-engineer</keyword><keyword>save-load</keyword><keyword>Jhonny_RaceHelper</keyword></keywords>
@@ -183,7 +183,7 @@
       <keywords><keyword>branching-narrative</keyword><keyword>ConcernScore</keyword><keyword>choices</keyword></keywords>
     </document>
     <document id="loki-init-scene-presentation-designer" path="docs/loki-init/scene-presentation-designer/presentation-inventory.md" type="agent-inventory" priority="medium">
-      <summary>Inventario de apresentacao de cena sobre staging, pictures, timing, efeitos, resultado e cues.</summary>
+      <summary>Indice local splitado do inventario de apresentacao de cena sobre staging, pictures, timing, efeitos, resultado e cues.</summary>
       <use_when>Use antes de alterar apresentacao visual/audio da corrida ou tela de resultado.</use_when>
       <not_covered>Assets, timing e runtime validados por Playtest.</not_covered>
       <keywords><keyword>scene-presentation</keyword><keyword>pictures</keyword><keyword>timing</keyword></keywords>
@@ -201,7 +201,7 @@
       <keywords><keyword>quest-content</keyword><keyword>objectives</keyword><keyword>rewards</keyword></keywords>
     </document>
     <document id="loki-init-dialogue-editor" path="docs/loki-init/dialogue-editor/inventory.md" type="agent-inventory" priority="medium">
-      <summary>Inventario editorial de dialogo, microcopy, termos, personas, idioma e drift de nomes.</summary>
+      <summary>Indice local splitado do inventario editorial de dialogo, microcopy, termos, personas, idioma e drift de nomes.</summary>
       <use_when>Use antes de revisar labels, TextPictures, falas, glossario ou idioma.</use_when>
       <not_covered>Texto final aprovado e LQA.</not_covered>
       <keywords><keyword>dialogue-editor</keyword><keyword>microcopy</keyword><keyword>localization</keyword></keywords>
@@ -213,7 +213,7 @@
       <keywords><keyword>tools-pipeline</keyword><keyword>scripts</keyword><keyword>validators</keyword></keywords>
     </document>
     <document id="loki-init-technical-artist" path="docs/loki-init/technical-artist/inventory.md" type="agent-inventory" priority="medium">
-      <summary>Inventario de technical art sobre assets, Picture IDs, preload, efeitos, plugin ownership e riscos visuais.</summary>
+      <summary>Indice local splitado do inventario de technical art sobre assets, Picture IDs, preload, efeitos, plugin ownership e riscos visuais.</summary>
       <use_when>Use antes de alterar assets visuais, picture stack, preload, efeitos ou performance visual.</use_when>
       <not_covered>Dimensoes, performance e render validados por runtime.</not_covered>
       <keywords><keyword>technical-artist</keyword><keyword>Picture IDs</keyword><keyword>assets</keyword></keywords>
