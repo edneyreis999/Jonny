@@ -120,7 +120,7 @@
         "pitch": 100,
         "volume": 90
     },
-    "editMapId": 16,
+    "editMapId": 11,
     "elements": [
         "",
         "Físico",
@@ -341,9 +341,9 @@
             "volume": 90
         }
     ],
-    "startMapId": 11,
-    "startX": 13,
-    "startY": 6,
+    "startMapId": 10,
+    "startX": 0,
+    "startY": 1,
     "switches": [
         "",
         "",
@@ -609,7 +609,7 @@
         }
     ],
     "testTroopId": 1,
-    "title1Name": "",
+    "title1Name": "byebyeJohnny",
     "title2Name": "",
     "titleBgm": {
         "name": "Theme4",
@@ -746,7 +746,7 @@
         "VAR_TIMER_SECONDS",
         "VAR_SCENE_DISPLAY"
     ],
-    "versionId": 57733153,
+    "versionId": 32247019,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,
