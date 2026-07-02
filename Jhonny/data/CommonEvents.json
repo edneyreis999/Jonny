@@ -4260,5 +4260,164 @@
         "name": "teste",
         "switchId": 1,
         "trigger": 0
+    },
+    {
+        "id": 25,
+        "list": [
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "",
+        "switchId": 1,
+        "trigger": 0
+    },
+    {
+        "id": 26,
+        "list": [
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "",
+        "switchId": 1,
+        "trigger": 0
+    },
+    {
+        "id": 27,
+        "list": [
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "",
+        "switchId": 1,
+        "trigger": 0
+    },
+    {
+        "id": 28,
+        "list": [
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Basic_GraphicChange",
+                    "BASIC: Graphic Change",
+                    {
+                        "PictureID:eval": "1",
+                        "PictureName:str": "Jonny_2"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID = 1"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture File = Jonny_2"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "Johnny Feliz",
+        "switchId": 1,
+        "trigger": 0
+    },
+    {
+        "id": 29,
+        "list": [
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Basic_GraphicChange",
+                    "BASIC: Graphic Change",
+                    {
+                        "PictureID:eval": "1",
+                        "PictureName:str": "Jonny_7"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID = 1"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture File = Jonny_7"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "Johnny Neutro",
+        "switchId": 1,
+        "trigger": 0
+    },
+    {
+        "id": 30,
+        "list": [
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Basic_GraphicChange",
+                    "BASIC: Graphic Change",
+                    {
+                        "PictureID:eval": "1",
+                        "PictureName:str": "Jonny_6"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID = 1"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture File = Jonny_6"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "Johnny Triste",
+        "switchId": 1,
+        "trigger": 0
     }
 ]
