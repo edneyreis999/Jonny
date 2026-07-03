@@ -1,19 +1,19 @@
 {
     "autoplayBgm": true,
-    "autoplayBgs": false,
+    "autoplayBgs": true,
     "battleback1Name": "",
     "battleback2Name": "",
     "bgm": {
-        "name": "Town4",
+        "name": "SadEnding",
         "pan": 0,
         "pitch": 100,
         "volume": 90
     },
     "bgs": {
-        "name": "",
+        "name": "People1",
         "pan": 0,
         "pitch": 100,
-        "volume": 90
+        "volume": 35
     },
     "data": [
         0,
@@ -1379,6 +1379,11 @@
                         "tileId": 0
                     },
                     "list": [
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
                         {
                             "code": 101,
                             "indent": 0,

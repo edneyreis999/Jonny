@@ -1,19 +1,19 @@
 {
     "autoplayBgm": true,
-    "autoplayBgs": false,
+    "autoplayBgs": true,
     "battleback1Name": "",
     "battleback2Name": "",
     "bgm": {
-        "name": "Scene1",
+        "name": "Fight1",
         "pan": 0,
         "pitch": 100,
         "volume": 90
     },
     "bgs": {
-        "name": "",
+        "name": "People1",
         "pan": 0,
-        "pitch": 100,
-        "volume": 90
+        "pitch": 70,
+        "volume": 25
     },
     "data": [
         0,
@@ -1380,18 +1380,6 @@
                     },
                     "list": [
                         {
-                            "code": 250,
-                            "indent": 0,
-                            "parameters": [
-                                {
-                                    "name": "pneu_cantando",
-                                    "volume": 90,
-                                    "pitch": 100,
-                                    "pan": 0
-                                }
-                            ]
-                        },
-                        {
                             "code": 357,
                             "indent": 0,
                             "parameters": [
@@ -1563,6 +1551,11 @@
                             "parameters": [
                                 20
                             ]
+                        },
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
                         },
                         {
                             "code": 101,

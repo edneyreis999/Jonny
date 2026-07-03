@@ -1,10 +1,10 @@
 {
     "autoplayBgm": true,
-    "autoplayBgs": false,
+    "autoplayBgs": true,
     "battleback1Name": "",
     "battleback2Name": "",
     "bgm": {
-        "name": "Town3",
+        "name": "Racha4",
         "pan": 0,
         "pitch": 100,
         "volume": 90

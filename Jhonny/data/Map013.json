@@ -1,19 +1,19 @@
 {
     "autoplayBgm": true,
-    "autoplayBgs": false,
+    "autoplayBgs": true,
     "battleback1Name": "",
     "battleback2Name": "",
     "bgm": {
-        "name": "Scene7",
+        "name": "Racha3",
         "pan": 0,
         "pitch": 100,
         "volume": 90
     },
     "bgs": {
-        "name": "",
+        "name": "Wind1",
         "pan": 0,
         "pitch": 100,
-        "volume": 90
+        "volume": 20
     },
     "data": [
         0,
@@ -1351,7 +1351,7 @@
         null,
         {
             "id": 1,
-            "name": " ",
+            "name": "     ",
             "note": "",
             "pages": [
                 {
@@ -72617,6 +72617,11 @@
                             ]
                         },
                         {
+                            "code": 221,
+                            "indent": 7,
+                            "parameters": []
+                        },
+                        {
                             "code": 201,
                             "indent": 7,
                             "parameters": [
@@ -72626,6 +72631,18 @@
                                 0,
                                 0,
                                 0
+                            ]
+                        },
+                        {
+                            "code": 250,
+                            "indent": 7,
+                            "parameters": [
+                                {
+                                    "name": "flat tire",
+                                    "volume": 100,
+                                    "pitch": 100,
+                                    "pan": 0
+                                }
                             ]
                         },
                         {

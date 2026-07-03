@@ -1,6 +1,6 @@
 {
     "autoplayBgm": false,
-    "autoplayBgs": false,
+    "autoplayBgs": true,
     "battleback1Name": "",
     "battleback2Name": "",
     "bgm": {
@@ -10,10 +10,10 @@
         "volume": 90
     },
     "bgs": {
-        "name": "",
+        "name": "City",
         "pan": 0,
         "pitch": 100,
-        "volume": 90
+        "volume": 35
     },
     "data": [
         0,
