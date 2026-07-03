@@ -5,10 +5,10 @@
         "screenHeight": 720,
         "uiAreaWidth": 1280,
         "uiAreaHeight": 720,
-        "numberFontFilename": "JollyLodger-Regular.ttf",
+        "numberFontFilename": "Sweetest Cat Ever.ttf",
         "fallbackFonts": "Verdana, sans-serif",
-        "fontSize": 48,
-        "mainFontFilename": "JollyLodger-Regular.ttf",
+        "fontSize": 35,
+        "mainFontFilename": "Sweetest Cat Ever.ttf",
         "screenScale": 1,
         "windowOpacity": 192,
         "picturesUpperLimit": 100
@@ -120,7 +120,7 @@
         "pitch": 100,
         "volume": 90
     },
-    "editMapId": 11,
+    "editMapId": 1,
     "elements": [
         "",
         "Físico",
@@ -168,7 +168,7 @@
     ],
     "optAutosave": true,
     "optDisplayTp": false,
-    "optDrawTitle": true,
+    "optDrawTitle": false,
     "optExtraExp": false,
     "optFloorDeath": false,
     "optFollowers": false,
@@ -341,8 +341,8 @@
             "volume": 90
         }
     ],
-    "startMapId": 10,
-    "startX": 0,
+    "startMapId": 11,
+    "startX": 1,
     "startY": 1,
     "switches": [
         "",
@@ -612,7 +612,7 @@
     "title1Name": "byebyeJohnny",
     "title2Name": "",
     "titleBgm": {
-        "name": "Theme4",
+        "name": "JonnyMenuMusic",
         "pan": 0,
         "pitch": 100,
         "volume": 90
@@ -620,7 +620,7 @@
     "titleCommandWindow": {
         "offsetX": 0,
         "offsetY": 0,
-        "background": 2
+        "background": 0
     },
     "variables": [
         "",
@@ -746,7 +746,7 @@
         "VAR_TIMER_SECONDS",
         "VAR_SCENE_DISPLAY"
     ],
-    "versionId": 32247019,
+    "versionId": 16992914,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,

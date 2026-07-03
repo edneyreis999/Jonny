@@ -2498,7 +2498,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\C[6]Content Warning: This game contains themes of suicide, "
+                                "\\C[6]<Bypass Message Log><Hide Buttons><center>Content Warning: This game contains themes of suicide, "
                             ]
                         },
                         {
@@ -2519,7 +2519,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "person or a crisis helpline in your region."
+                                "person or a crisis helpline in your region.</center>"
                             ]
                         },
                         {
