@@ -120,7 +120,7 @@
         "pitch": 100,
         "volume": 90
     },
-    "editMapId": 11,
+    "editMapId": 1,
     "elements": [
         "",
         "Físico",
@@ -168,7 +168,7 @@
     ],
     "optAutosave": true,
     "optDisplayTp": false,
-    "optDrawTitle": true,
+    "optDrawTitle": false,
     "optExtraExp": false,
     "optFloorDeath": false,
     "optFollowers": false,
@@ -612,7 +612,7 @@
     "title1Name": "byebyeJohnny",
     "title2Name": "",
     "titleBgm": {
-        "name": "Theme4",
+        "name": "JonnyMenuMusic",
         "pan": 0,
         "pitch": 100,
         "volume": 90
@@ -620,7 +620,7 @@
     "titleCommandWindow": {
         "offsetX": 0,
         "offsetY": 0,
-        "background": 2
+        "background": 0
     },
     "variables": [
         "",
@@ -746,7 +746,7 @@
         "VAR_TIMER_SECONDS",
         "VAR_SCENE_DISPLAY"
     ],
-    "versionId": 19485353,
+    "versionId": 16992914,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,
