@@ -2498,28 +2498,28 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\C[6]<Bypass Message Log><Hide Buttons><center>Content Warning: This game contains themes of suicide, "
+                                "\\tl{maps.Map011.content_warning_this_game_contains_theme_b17eb7c4ab}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "depression, and loss. If you are struggling or experiencing "
+                                "\\tl{maps.Map011.depression_and_loss_if_you_are_strugglin_93375b2998}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "emotional distress, please seek support from a trusted "
+                                "\\tl{maps.Map011.emotional_distress_please_seek_support_f_759d684af8}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "person or a crisis helpline in your region.</center>"
+                                "\\tl{maps.Map011.person_or_a_crisis_helpline_in_your_regi_5b6d7e6d82}"
                             ]
                         },
                         {

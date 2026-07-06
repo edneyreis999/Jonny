@@ -19,8 +19,9 @@ Source index: [inventory.md](inventory.md)
 - Playtest is required before claiming validation for engine, visuals, input,
   picture loading, audio playback, Common Events, save/load, retry, result
   screen, or deployment.
-- Historical scripts in `Jhonny/planos/**` require classification before any
-  execution. Mutators require explicit preflight and approval.
+- Historical scripts from transient Jhonny plan artifacts require
+  classification before any execution. Mutators require explicit preflight and
+  approval.
 - The root workspace instructions said this repository is not a Git repo, but
   the init inventory reports a valid Git worktree. Future agents should check
   current Git state directly before relying on either statement.

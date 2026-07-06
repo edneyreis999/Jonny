@@ -88,12 +88,12 @@ Este inventario e factual e separa inferencias de fatos. Ele nao decide implemen
 - Fontes de brief/roadmap encontradas nas fontes permitidas:
   - `Corrida - Core Loop.md`, com roadmap explicito em "Proximos passos sugeridos".
   - `docs/index.xml`, que cataloga documentos de corrida, runtime, debug e init.
-  - `Jhonny/CLAUDE.md`, que aponta planos historicos em `Jhonny/planos/` mas os trata como contexto de desenvolvimento, nao como fonte duradoura primaria.
+  - `Jhonny/CLAUDE.md`, que aponta artefatos historicos transientes como contexto de desenvolvimento, nao como fonte duradoura primaria.
 - Fontes referenciadas mas nao lidas por restricao do envelope:
   - `Roleta Paulista`
   - `Direcao de arte`
   - `Inspiracoes`
-  - `Jhonny/planos/001-prototipo-core-loop/core_loop_corrida/task-6.2.md`
+  - Placeholder transiente da implementacao futura da Curva do Diabo, path omitido em docs duradouros.
   - `RPG Maker MZ - Scripts de Plano.md`
 
 ## Criterios De Aceite E Gates Existentes
@@ -102,7 +102,7 @@ Este inventario e factual e separa inferencias de fatos. Ele nao decide implemen
 | --- | --- | --- |
 | `human-validation` antes de declarar gameplay, UI, audio, input, Common Events, save/load ou deploy validado | `technology-context.md`, `Debug Playtest.md`, `Jhonny/CLAUDE.md` | Pendente; nenhum Playtest executado por este agente. |
 | `technical-review` antes de alterar contratos Loki, package, agentes, skills, templates ou validators | `technology-context.md` | Pendente para mudancas de contrato; nao aplicavel a este inventario factual. |
-| `approval` para writes fora de `docs/**` e `planos/000-init-loki/**` | `technology-context.md`, contrato Loki | Nao solicitado; este agente nao escreveu fora do escopo. |
+| `approval` para writes fora de `docs/**` e `transient init artifacts (path omitted)` | `technology-context.md`, contrato Loki | Nao solicitado; este agente nao escreveu fora do escopo. |
 | Playtest humano como gate final para visual, input, audio, pictures, plugins e Common Events | `Debug Playtest.md` | Pendente. |
 | Antes de editar JSON: confirmar IDs em `System.json`, command codes em `rmmz_objects.js`, parse JSON, diff restrito e Playtest quando afetar engine/input/pictures/audio/plugins/CEs | `Corrida - Runtime e Eventos.md` | Gate documentado para workflows futuros; nao executado aqui. |
 | Product feel: se o tema "let chance decide" emerge organicamente em playtest cego | `Corrida - Core Loop.md` | Pendente e nao validado por inventario estatico. |
@@ -186,7 +186,7 @@ parallel_agent_response:
       - "docs/loki-init/game-product-owner/index.md"
     allowed_writes:
       - "docs/loki-init/game-product-owner/**"
-      - "planos/000-init-loki/retrospetivas/fase1/game-product-owner-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     scoped_write_domains:
       - "requirements"
       - "acceptance-criteria"

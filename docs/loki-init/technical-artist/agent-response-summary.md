@@ -17,7 +17,7 @@ parallel_agent_response:
       - "docs/loki-init/technical-artist/inventory.md"
     allowed_writes:
       - "docs/loki-init/technical-artist/**"
-      - "planos/000-init-loki/retrospetivas/fase1/technical-artist-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     scoped_write_domains:
       - "presentation-tech-notes"
       - "asset-pipeline-config"

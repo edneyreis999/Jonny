@@ -4,6 +4,12 @@ Source index: [inventory.md](inventory.md)
 
 ## Idioma e localizacao
 
+Atualizacao 2026-07-06: a demanda de localizacao PT/EN foi parcialmente
+implementada via VisuStella Message Core. O estado runtime estatico promovido
+esta em [localization-runtime-state.md](../localization-runtime-state.md).
+As observacoes abaixo permanecem como inventario do estado original do
+`loki:init` em 2026-06-30, antes dessa implementacao.
+
 Fatos observados:
 
 - `docs/loki-init/project-inventory.md` registra `Jhonny/data/System.json` com

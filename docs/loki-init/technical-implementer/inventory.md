@@ -26,6 +26,7 @@ This file is a navigation index for the split inventory. Use the section files b
 - [Fact And Inference Boundary](fact-and-inference-boundary.md)
 - [Entry Points](entry-points.md)
 - [Modules And Runtime Surfaces](modules-and-runtime-surfaces.md)
+- [Estado runtime de localizacao](../localization-runtime-state.md)
 - [Scripts, Configs, And Dependencies](scripts-configs-and-dependencies.md)
 - [Build And Test Surfaces](build-and-test-surfaces.md)
 - [Technical Constraints](technical-constraints.md)

@@ -1484,14 +1484,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Took you long enough. Thought you were gonna miss "
+                                "\\tl{maps.Map010.took_you_long_enough_thought_you_were_go_bdecf78eb5}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "this historic moment."
+                                "\\tl{maps.Map010.this_historic_moment_7c7f86d7f0}"
                             ]
                         },
                         {
@@ -1658,7 +1658,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "What historic moment?"
+                                "\\tl{maps.Map010.what_historic_moment_d31ee8f9d8}"
                             ]
                         },
                         {
@@ -1710,7 +1710,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "My next victory."
+                                "\\tl{maps.Map010.my_next_victory_24efc9c23e}"
                             ]
                         },
                         {
@@ -1762,7 +1762,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "You're getting more full of yourself every day."
+                                "\\tl{maps.Map010.you_re_getting_more_full_of_yourself_eve_23a4f846ff}"
                             ]
                         },
                         {
@@ -1814,7 +1814,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Not my fault nobody around here knows how to drive."
+                                "\\tl{maps.Map010.not_my_fault_nobody_around_here_knows_ho_11efd8a4f7}"
                             ]
                         },
                         {
@@ -1866,7 +1866,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "They're gonna hate you."
+                                "\\tl{maps.Map010.they_re_gonna_hate_you_cb0ecbb163}"
                             ]
                         },
                         {
@@ -1918,14 +1918,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "They already do, hahaha. "
+                                "\\tl{maps.Map010.they_already_do_hahaha_83cbc0f5b3}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "But today they've got a reason."
+                                "\\tl{maps.Map010.but_today_they_ve_got_a_reason_83e157ceac}"
                             ]
                         },
                         {
@@ -1943,7 +1943,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Losing to the best driver in school hurts a little less."
+                                "\\tl{maps.Map010.losing_to_the_best_driver_in_school_hurt_b35de8f4f3}"
                             ]
                         },
                         {
@@ -1995,7 +1995,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Speaking of that, how's school going?"
+                                "\\tl{maps.Map010.speaking_of_that_how_s_school_going_fbb4593a50}"
                             ]
                         },
                         {
@@ -2047,7 +2047,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Surviving"
+                                "\\tl{maps.Map010.surviving_34e680a6df}"
                             ]
                         },
                         {
@@ -2072,7 +2072,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Yeah, right. I heard you did pretty well on the last test."
+                                "\\tl{maps.Map010.yeah_right_i_heard_you_did_pretty_well_o_9ed5d079f8}"
                             ]
                         },
                         {
@@ -2124,14 +2124,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Don't go spreading that around. I've got a "
+                                "\\tl{maps.Map010.don_t_go_spreading_that_around_i_ve_got__1a546caf93}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "reputation to keep."
+                                "\\tl{maps.Map010.reputation_to_keep_2f892ef3c5}"
                             ]
                         },
                         {
@@ -2183,14 +2183,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Hard to keep your bad-boy image when you score higher "
+                                "\\tl{maps.Map010.hard_to_keep_your_bad_boy_image_when_you_7255a2f4c3}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "than half the class."
+                                "\\tl{maps.Map010.than_half_the_class_f8dd51d952}"
                             ]
                         },
                         {
@@ -2242,7 +2242,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "First I survive senior year. Then I'll figure out the rest."
+                                "\\tl{maps.Map010.first_i_survive_senior_year_then_i_ll_fi_c0987b12ec}"
                             ]
                         },
                         {
@@ -2317,9 +2317,9 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "Feliz <Choice Common Event: 28>",
-                                    "Neutro <Choice Common Event: 29>",
-                                    "Triste <Choice Common Event: 30>"
+                                    "\\tl{maps.Map010.choice.feliz_3093ffe85c}",
+                                    "\\tl{maps.Map010.choice.neutro_fb6c6efdea}",
+                                    "\\tl{maps.Map010.choice.triste_4896fe122d}"
                                 ],
                                 1,
                                 0,
@@ -2460,7 +2460,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "<Hide Buttons><center>New message received.</center>"
+                                "\\tl{maps.Map010.new_message_received_21bc4c7167}"
                             ]
                         },
                         {
@@ -2651,7 +2651,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Is that her? Your girlfriend?"
+                                "\\tl{maps.Map010.is_that_her_your_girlfriend_6c01d94849}"
                             ]
                         },
                         {
@@ -2703,7 +2703,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Yeah."
+                                "\\tl{maps.Map010.yeah_7169a9fe24}"
                             ]
                         },
                         {
@@ -2728,7 +2728,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "You answer fast."
+                                "\\tl{maps.Map010.you_answer_fast_6edfbb0184}"
                             ]
                         },
                         {
@@ -2753,7 +2753,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Only because she gets mad if I don't."
+                                "\\tl{maps.Map010.only_because_she_gets_mad_if_i_don_t_4a225e4c33}"
                             ]
                         },
                         {
@@ -2805,7 +2805,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Sure. That's the reason."
+                                "\\tl{maps.Map010.sure_that_s_the_reason_fea16994b3}"
                             ]
                         },
                         {
@@ -2857,7 +2857,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Okay, fine. I just like talking to her."
+                                "\\tl{maps.Map010.okay_fine_i_just_like_talking_to_her_22c1b9233c}"
                             ]
                         },
                         {
@@ -2882,7 +2882,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "That's actually kind of sweet."
+                                "\\tl{maps.Map010.that_s_actually_kind_of_sweet_621d241a5b}"
                             ]
                         },
                         {
@@ -2907,7 +2907,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Don't make it weird."
+                                "\\tl{maps.Map010.don_t_make_it_weird_f80e6ed7ac}"
                             ]
                         },
                         {
@@ -2952,21 +2952,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Look! The guys up ahead are talking about "
+                                "\\tl{maps.Map010.look_the_guys_up_ahead_are_talking_about_0a5133916b}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Devil's Curve again."
+                                "\\tl{maps.Map010.devil_s_curve_again_5e9f138f02}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Those kids freak out just hearing about that place."
+                                "\\tl{maps.Map010.those_kids_freak_out_just_hearing_about__ebf97cf4a1}"
                             ]
                         },
                         {
@@ -3018,7 +3018,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "And you don't?"
+                                "\\tl{maps.Map010.and_you_don_t_e0102a61f9}"
                             ]
                         },
                         {
@@ -3043,7 +3043,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "The only thing I'm afraid of is running out of gas."
+                                "\\tl{maps.Map010.the_only_thing_i_m_afraid_of_is_running__78205f940f}"
                             ]
                         },
                         {
@@ -3068,7 +3068,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "They say nobody survives racing through it."
+                                "\\tl{maps.Map010.they_say_nobody_survives_racing_through__ff1e328b8b}"
                             ]
                         },
                         {
@@ -3086,7 +3086,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Come on! It's time!"
+                                "\\tl{maps.Map010.come_on_it_s_time_16a92c19a0}"
                             ]
                         },
                         {
@@ -3111,7 +3111,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "I'm ready to win again."
+                                "\\tl{maps.Map010.i_m_ready_to_win_again_9eae940710}"
                             ]
                         },
                         {
@@ -3136,7 +3136,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Go get 'em, king of street races. And be careful."
+                                "\\tl{maps.Map010.go_get_em_king_of_street_races_and_be_ca_035beba145}"
                             ]
                         },
                         {
@@ -3161,7 +3161,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Relax. I know what I'm doing."
+                                "\\tl{maps.Map010.relax_i_know_what_i_m_doing_90b4a4585e}"
                             ]
                         },
                         {

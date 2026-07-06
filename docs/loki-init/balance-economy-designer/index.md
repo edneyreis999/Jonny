@@ -194,15 +194,15 @@ parallel_agent_response:
   summary: "Inventario static-only da economia interna da corrida: Consciência, Pontos de Gloria, P_cena, thresholds 200/400/600, timers, sources/sinks e lacunas de validacao."
   affected_files:
     - "docs/loki-init/balance-economy-designer/index.md"
-    - "planos/000-init-loki/retrospetivas/fase1/balance-economy-designer-retrospectiva.md"
+    - "transient retrospective artifact (path omitted)"
   write_scope:
     mode: "init_context_scoped_writer"
     target_files:
       - "docs/loki-init/balance-economy-designer/index.md"
-      - "planos/000-init-loki/retrospetivas/fase1/balance-economy-designer-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     allowed_writes:
       - "docs/loki-init/balance-economy-designer/**"
-      - "planos/000-init-loki/retrospetivas/fase1/balance-economy-designer-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     scoped_write_domains:
       - "balance-tables"
       - "economy-config"

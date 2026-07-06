@@ -11,7 +11,7 @@ tags:
 
 # RPG Maker MZ - Scripts de Plano
 
-Use este procedimento antes de reutilizar, auditar ou reaplicar scripts Python em `Jhonny/planos/`.
+Use este procedimento antes de reutilizar, auditar ou reaplicar scripts Python historicos de fases transientes do projeto Jhonny.
 
 Scripts de plano sao evidencia historica por padrao. Eles mostram como uma fase alterou `data/*.json`, plugins, mapas ou artefatos de suporte naquele snapshot do projeto. Eles nao sao automaticamente ferramentas reexecutaveis no estado atual.
 

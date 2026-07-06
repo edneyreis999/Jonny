@@ -11,7 +11,7 @@ tags:
 # Loki Init - Agent Fanout Summary
 
 Data: 2026-06-30
-Adapter evidence: Codex com `multi_agent_v1` conforme `planos/000-init-loki/interaction/fase1/agent-fanout-plan.md`
+Adapter evidence: Codex com `multi_agent_v1` conforme `transient agent fan-out plan artifact (path omitted)`
 Catalog source: `/Users/edney/projects/coreto/loki-framework/manifest.yaml`
 
 ## Selection
@@ -111,4 +111,4 @@ Support-only agents invoked with retrospective-only writes:
 
 ## Retrospectives Observed
 
-Retrospectives were present for invoked domain writers and support-only agents under `planos/000-init-loki/retrospetivas/fase1/`, except `bibliotecario` and this final `catalogador` before this write.
+Retrospectives were present for invoked domain writers and support-only agents in transient init state, except `bibliotecario` and this final `catalogador` before this write. Paths are omitted in durable docs.

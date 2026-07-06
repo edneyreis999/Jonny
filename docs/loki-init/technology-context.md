@@ -129,7 +129,7 @@ Projeto `game-dev`:
 Validadores estruturais para o init:
 
 - Confirmar que writes finais ficaram em `docs/**` e
-  `planos/000-init-loki/**`.
+  `transient init artifacts (path omitted)`.
 - Confirmar que `selected_project_type` pertence a `supported_project_types`.
 - Confirmar que `agent_project_tag_policy.base_tag` e `core` e que `core` nao e
   tipo suportado.
@@ -137,8 +137,8 @@ Validadores estruturais para o init:
   motivo.
 - Confirmar que cada `init_inventory_domain_writer` materializou
   `docs/loki-init/<agent-name>/**` ou falha estruturada na propria pasta.
-- Confirmar que cada agente invocado possui retrospectiva propria em
-  `planos/000-init-loki/retrospetivas/fase1/`.
+- Confirmar que cada agente invocado possui retrospectiva propria no estado
+  transiente do init, com path omitido em docs duradouros.
 - Confirmar que nenhum comportamento perceptivel ou runtime foi declarado
   validado.
 
@@ -149,7 +149,7 @@ Human gates pendentes:
 - `technical-review` antes de alterar contratos Loki, package, agentes, skills,
   templates ou validators.
 - `approval` para qualquer destino fora de `docs/**` e
-  `planos/000-init-loki/**`.
+  `transient init artifacts (path omitted)`.
 
 ## Do Not Assume
 
@@ -157,6 +157,6 @@ Human gates pendentes:
   identificado e `Jhonny/`.
 - Nao assumir que validacao estrutural em JSON ou JavaScript prova
   comportamento jogavel.
-- Nao assumir que scripts historicos em `Jhonny/planos/**` sao reexecutaveis.
+- Nao assumir que scripts historicos transientes sao reexecutaveis.
 - Nao assumir que o `docs/index.xml` inicial esta sincronizado com o
   filesystem.

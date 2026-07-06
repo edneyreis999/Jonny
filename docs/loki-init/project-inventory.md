@@ -29,7 +29,7 @@ artefatos locais proibidos.
 Allowed writes declarados para esta execucao:
 
 - `docs/**`
-- `planos/000-init-loki/**`
+- `transient init artifacts (path omitted)`
 
 Forbidden writes preservados:
 
@@ -46,8 +46,8 @@ Forbidden writes preservados:
 | --- | --- | --- |
 | `docs/` | Vault Obsidian com `docs/index.xml`, docs de core loop e docs tecnicos. | Fonte duradoura principal. |
 | `Jhonny/` | Projeto RPG Maker MZ com `game.rmmzproject`, `index.html`, `package.json`, `data/*.json`, `js/rmmz_*.js`, `js/plugins/` e assets. | Runtime sensivel; somente leitura neste init. |
-| `Jhonny/planos/` | Planos historicos, scripts e retrospectivas de desenvolvimento do jogo. | Evidencia historica; scripts nao sao reexecutaveis sem preflight futuro. |
-| `planos/` | Nao existia no root antes desta execucao. | `planos/000-init-loki/**` e o estado operacional retomavel do init. |
+| Artefatos historicos transientes de Jhonny | Planos historicos, scripts e retrospectivas de desenvolvimento do jogo. | Evidencia historica; scripts nao sao reexecutaveis sem preflight futuro. |
+| Estado transiente do init | Nao existia no root antes desta execucao. | Estado operacional retomavel do init, com path omitido em docs duradouros. |
 | `.agents/`, `.codex/`, `.claude/` | Superficies de agente/config locais quando presentes. | Leitura apenas como evidencia de capacidade; escrita proibida. |
 | `.obsidian/` e `docs/.obsidian/` | Configuracao local do Obsidian. | Machine/vault state; nao editar neste init. |
 | `Excalidraw/` | Artefatos Excalidraw fora de `docs/`. | Fora do escopo de escrita do init. |
@@ -68,7 +68,7 @@ Docs duradouros principais consultados:
 - [[RPG Maker MZ - Debug Playtest]]: procedimento de debug e Playtest para bugs
   perceptiveis.
 - [[RPG Maker MZ - Scripts de Plano]]: procedimento para auditar ou reutilizar
-  scripts historicos em `Jhonny/planos`.
+  scripts historicos transientes.
 
 ## Evidencias tecnicas lidas
 
@@ -90,7 +90,7 @@ Docs duradouros principais consultados:
 ## Git e ambiente
 
 - `git status --short` mostrou muitos arquivos `docs/loki-init/**` e
-  `planos/000-init-loki/**` como deletados antes desta recriacao.
+  `transient init artifacts (path omitted)` como deletados antes desta recriacao.
 - Conflito de ambiente: a instrucao de workspace dizia que o repo nao tinha
   `.git/`, mas o estado atual e um worktree Git valido.
 - Git foi usado apenas como evidencia auxiliar, sem `checkout`, `reset` ou
@@ -103,8 +103,8 @@ Nao declarar validado sem gate humano:
 - Gameplay, input, UI, audio, pictures, TextPicture, VisuMZ, Common Events,
   save/load, deploy e estado persistido.
 - Qualquer alteracao futura em `Jhonny/data/*.json`, `Jhonny/js/plugins*.js`,
-  `Jhonny/img/**`, `Jhonny/audio/**`, `Jhonny/save/**` ou scripts mutadores em
-  `Jhonny/planos/**`.
+  `Jhonny/img/**`, `Jhonny/audio/**`, `Jhonny/save/**` ou scripts mutadores
+  historicos transientes.
 
 ## Lacunas
 

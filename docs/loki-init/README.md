@@ -34,6 +34,9 @@ Para retomar o contexto:
 
 - `Jhonny/` é o root runtime do jogo; o root do consumidor é um workspace de agentes e vault.
 - O init fez análise estática. Nenhum Playtest validou gameplay, input, UI, audio, Common Events, save/load, deploy ou comportamento perceptível.
+- Em 2026-07-06, mudanças de localização PT/EN foram promovidas para
+  `docs/loki-init/localization-runtime-state.md`; elas seguem sem Playtest ou
+  LQA humano.
 - Edits futuros em `Jhonny/data/*.json` exigem workflow RPG Maker MZ data JSON.
 - Edits futuros em `Jhonny/js/plugins/**` ou `Jhonny/js/plugins.js` exigem workflow RPG Maker MZ plugin.
 - `docs/index.xml` foi atualizado para o layout materializado atual de `docs/loki-init/<agent-name>/...`.

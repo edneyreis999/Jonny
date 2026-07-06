@@ -17,6 +17,6 @@ Source index: [inventory.md](inventory.md)
 | Event runtime behavior | `Jhonny/data/CommonEvents.json`, `Jhonny/data/Map*.json` |
 | Plugin activation | `Jhonny/js/plugins.js` |
 | Helper plugin | `Jhonny/js/plugins/Jhonny_RaceHelper.js` |
-| Historical plans/scripts | `Jhonny/planos/**` |
+| Historical plans/scripts | Transient Jhonny plan artifacts; paths intentionally omitted in durable docs |
 | Assets | `Jhonny/audio/**`, `Jhonny/img/**`, `Jhonny/fonts/**`, `Jhonny/effects/**`, `Jhonny/movies/**` |
 | Save/local state | `Jhonny/save/**`, browser/localforage runtime state |

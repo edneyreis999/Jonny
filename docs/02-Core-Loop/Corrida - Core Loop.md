@@ -28,7 +28,7 @@ tags: [core-loop, corrida, roguelite, minigame, rpg-maker-mz, timer-based, proce
 > - `SW_IS_CURVA_DIABO` (Switch Editor ID 105) está ==reservada e intocada== para uso futuro.
 > - `placa_curva_dir.png` (criado em F2) fica no disco sem ser referenciado no MVP.
 >
-> Menções à Curva do Diabo ao longo deste spec (§1, §2, §6.1, §6.4, §9, §10, §11, §13) descrevem a ==visão de produto completa== e devem ser lidas como especificação futura, não como implementação atual. Ver `Jhonny/planos/001-prototipo-core-loop/core_loop_corrida/task-6.2.md` para o placeholder de implementação futura.
+> Menções à Curva do Diabo ao longo deste spec (§1, §2, §6.1, §6.4, §9, §10, §11, §13) descrevem a ==visão de produto completa== e devem ser lidas como especificação futura, não como implementação atual. A implementação futura depende de nova decisão/plano e não é referenciada por path transiente neste documento.
 
 ---
 

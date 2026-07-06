@@ -4,7 +4,7 @@
     <scope>project-docs</scope>
     <summary>Catalogo navegavel da documentacao duradoura do projeto Jhonny e dos artefatos Loki init materializados.</summary>
     <owner>catalogador</owner>
-    <updated_at>2026-06-30</updated_at>
+    <updated_at>2026-07-06</updated_at>
   </metadata>
   <documents>
     <document id="corrida-core-loop" path="docs/02-Core-Loop/Corrida - Core Loop.md" type="game-design-and-runtime-spec" priority="high">
@@ -58,7 +58,7 @@
       </sections>
     </document>
     <document id="rmmz-scripts-plano" path="docs/03-Tech/RPG Maker MZ - Scripts de Plano.md" type="historical-script-procedure" priority="high">
-      <summary>Procedimento para auditar, reutilizar ou reaplicar scripts Python historicos em Jhonny/planos sem tratar migracoes de fase como ferramentas atuais.</summary>
+      <summary>Procedimento para auditar, reutilizar ou reaplicar scripts Python historicos de artefatos transientes de Jhonny sem tratar migracoes de fase como ferramentas atuais.</summary>
       <use_when>Use antes de rodar scripts Python de planos, adaptar build scripts, investigar co-commits, editar data JSON por script ou reaplicar migracoes historicas.</use_when>
       <not_covered>Regras de gameplay da corrida e procedimento de debug perceptivel em Playtest.</not_covered>
       <keywords>
@@ -72,6 +72,28 @@
         <section anchor="classificacao" tokens="350" purpose="Diferenciar auditoria read-only, validador, mutador, gerador historico e cleanup/debug." />
         <section anchor="preflight-minimo" tokens="800" purpose="Checklist antes de reexecutar ou adaptar scripts mutadores historicos." />
         <section anchor="relatorio-de-patch" tokens="450" purpose="Formato minimo de evidencia para scripts que alteram data JSON." />
+      </sections>
+    </document>
+    <document id="rmmz-visustella-message-core-localization" path="docs/03-Tech/RPG Maker MZ - VisuStella Message Core Localization.md" type="plugin-localization-reference" priority="high">
+      <summary>Referencia duradoura para configurar e usar VisuStella Message Core Text Language Switching em RPG Maker MZ, incluindo plano CSV para TSV.</summary>
+      <use_when>Use antes de editar Message Core, Languages.csv, Languages.tsv, chaves \tl{}, opcoes de idioma, word wrap, text codes ou localizacao PT/EN.</use_when>
+      <not_covered>Traducao final aprovada, LQA, Playtest, runtime behavior validado ou referencia completa de todos os plugin commands.</not_covered>
+      <keywords>
+        <keyword>VisuMZ_1_MessageCore</keyword>
+        <keyword>Text Language Switching</keyword>
+        <keyword>Languages.csv</keyword>
+        <keyword>Languages.tsv</keyword>
+        <keyword>\tl</keyword>
+        <keyword>Portuguese</keyword>
+        <keyword>English</keyword>
+      </keywords>
+      <sections>
+        <section anchor="estado-local-observado" tokens="450" purpose="Versao local do Message Core e caveat sobre suporte TSV." />
+        <section anchor="configuracao-minima" tokens="500" purpose="Parametros necessarios para habilitar localizacao." />
+        <section anchor="contrato-do-csv" tokens="450" purpose="Formato CSV atual com separador semicolon." />
+        <section anchor="contrato-do-tsv" tokens="450" purpose="Formato TSV esperado e restricoes de tab em celulas." />
+        <section anchor="plano-para-migrar-de-csv-para-tsv" tokens="1000" purpose="Plano executavel para migrar a solucao atual para TSV." />
+        <section anchor="gates-de-escrita" tokens="250" purpose="Gates para plugins.js, data JSON, tabela de idioma e Playtest." />
       </sections>
     </document>
     <document id="loki-init-readme" path="docs/loki-init/README.md" type="workflow-summary" priority="high">
@@ -103,6 +125,28 @@
       <use_when>Use antes de classificar escopo, tocar runtime Jhonny ou validar writes do init.</use_when>
       <not_covered>Auditoria profunda de data JSON, assets e Playtest.</not_covered>
       <keywords><keyword>inventario</keyword><keyword>Jhonny</keyword><keyword>write-scope</keyword></keywords>
+    </document>
+    <document id="loki-init-localization-runtime-state" path="docs/loki-init/localization-runtime-state.md" type="runtime-localization-inventory" priority="high">
+      <summary>Estado estatico da implementacao de localizacao PT/EN em Jhonny: Message Core habilitado, Languages.csv criado e textos de System/Map substituidos por \tl{}.</summary>
+      <use_when>Use antes de revisar traducao, fazer LQA, alterar mapas, mexer em System.json, editar Languages.csv, migrar para TSV ou validar o menu de idioma.</use_when>
+      <not_covered>Qualidade final das traducoes, cobertura total de assets com texto embutido, screenshots, Playtest e troca de idioma validada em runtime.</not_covered>
+      <keywords>
+        <keyword>localization-runtime</keyword>
+        <keyword>Languages.csv</keyword>
+        <keyword>Languages.tsv</keyword>
+        <keyword>System.json</keyword>
+        <keyword>Map013</keyword>
+        <keyword>Idioma / Language</keyword>
+        <keyword>LQA</keyword>
+      </keywords>
+      <sections>
+        <section anchor="plugin-state" tokens="650" purpose="Plugins ativos observados e versao local do Message Core." />
+        <section anchor="localization-struct" tokens="350" purpose="Parametros efetivos de localizacao no Message Core." />
+        <section anchor="language-table" tokens="350" purpose="Estrutura e validacao estatica da tabela CSV atual." />
+        <section anchor="localized-surfaces" tokens="700" purpose="Arquivos e superficies convertidos para \tl{}." />
+        <section anchor="validation-gates" tokens="450" purpose="Gates tecnicos e humanos pendentes." />
+        <section anchor="relacao-com-csv-para-tsv" tokens="250" purpose="Bloqueio de migracao TSV enquanto plugin local nao expuser suporte." />
+      </sections>
     </document>
     <document id="loki-init-technology-context" path="docs/loki-init/technology-context.md" type="technology-context" priority="high">
       <summary>Contexto tecnico do init: selected_project_type, stack RPG Maker MZ, plugins, skills candidatas e catalogo de agentes.</summary>

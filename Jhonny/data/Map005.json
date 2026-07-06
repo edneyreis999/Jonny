@@ -1484,7 +1484,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "I got another warning from school today."
+                                "\\tl{maps.Map005.i_got_another_warning_from_school_today_7b24698deb}"
                             ]
                         },
                         {
@@ -1633,9 +1633,9 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "You’re popular! Getting warnings is basically your middle name.",
-                                    "Don’t worry about it. You can make it up later.",
-                                    "You’ve never really cared about warnings before. Did something happen?"
+                                    "\\tl{maps.Map005.choice.you_re_popular_getting_warnings_is_basic_1bf982799a}",
+                                    "\\tl{maps.Map005.choice.don_t_worry_about_it_you_can_make_it_up__f57f1d3689}",
+                                    "\\tl{maps.Map005.choice.you_ve_never_really_cared_about_warnings_243bd3eec4}"
                                 ],
                                 -1,
                                 0,
@@ -1673,7 +1673,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "Yeah, forget it..."
+                                "\\tl{maps.Map005.yeah_forget_it_8e9fdad6ae}"
                             ]
                         },
                         {
@@ -1688,9 +1688,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "A diploma is just a piece of paper, Johnny.",
-                                    "The Johnny I know doesn’t care about that kind of stuff.",
-                                    "Do you want to talk about it?"
+                                    "\\tl{maps.Map005.choice.a_diploma_is_just_a_piece_of_paper_johnn_c029f9c3f8}",
+                                    "\\tl{maps.Map005.choice.the_johnny_i_know_doesn_t_care_about_tha_1227f0e7e1}",
+                                    "\\tl{maps.Map005.choice.do_you_want_to_talk_about_it_2458a686af}"
                                 ],
                                 -1,
                                 0,
@@ -1728,14 +1728,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -1773,14 +1773,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -1818,7 +1818,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "I don’t know. Lately it’s been hard to even get out of bed."
+                                "\\tl{maps.Map005.i_don_t_know_lately_it_s_been_hard_to_ev_8837c20341}"
                             ]
                         },
                         {
@@ -1833,9 +1833,9 @@
                             "indent": 2,
                             "parameters": [
                                 [
-                                    "That’s why I never show up to first period.",
-                                    "Who even likes waking up early to study? haha",
-                                    "You seem kinda down. If you wanna talk, I’m here, okay?"
+                                    "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}",
+                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}",
+                                    "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}"
                                 ],
                                 -1,
                                 0,
@@ -1873,14 +1873,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -1918,14 +1918,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -1963,14 +1963,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -2028,7 +2028,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "Yeah, forget it..."
+                                "\\tl{maps.Map005.yeah_forget_it_8e9fdad6ae}"
                             ]
                         },
                         {
@@ -2043,9 +2043,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "A diploma is just a piece of paper, Johnny.",
-                                    "That’s right, tThe Johnny I know doesn’t care about that kind of stuff.",
-                                    "Do you want to talk about it?"
+                                    "\\tl{maps.Map005.choice.a_diploma_is_just_a_piece_of_paper_johnn_c029f9c3f8}",
+                                    "\\tl{maps.Map005.choice.that_s_right_tthe_johnny_i_know_doesn_t__a755244444}",
+                                    "\\tl{maps.Map005.choice.do_you_want_to_talk_about_it_2458a686af}"
                                 ],
                                 -1,
                                 0,
@@ -2083,14 +2083,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -2128,14 +2128,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -2173,7 +2173,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "I don’t know. Lately it’s been hard to even get out of bed."
+                                "\\tl{maps.Map005.i_don_t_know_lately_it_s_been_hard_to_ev_8837c20341}"
                             ]
                         },
                         {
@@ -2188,9 +2188,9 @@
                             "indent": 2,
                             "parameters": [
                                 [
-                                    "That’s why I never show up to first period.",
-                                    "Who even likes waking up early to study? haha",
-                                    "You seem kinda down. If you wanna talk, I’m here, okay?"
+                                    "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}",
+                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}",
+                                    "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}"
                                 ],
                                 -1,
                                 0,
@@ -2228,14 +2228,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -2273,14 +2273,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -2318,14 +2318,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -2383,14 +2383,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "I don’t know. Lately it’s been hard to even get "
+                                "\\tl{maps.Map005.i_don_t_know_lately_it_s_been_hard_to_ev_2da7d9d0a7}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "out of bed."
+                                "\\tl{maps.Map005.out_of_bed_0c01f77684}"
                             ]
                         },
                         {
@@ -2405,9 +2405,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "That’s why I never show up to first period.",
-                                    "Who even likes waking up early to study? haha",
-                                    "You seem kinda down. If you wanna talk, I’m here, okay?"
+                                    "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}",
+                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}",
+                                    "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}"
                                 ],
                                 -1,
                                 0,
@@ -2445,14 +2445,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -2490,14 +2490,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -2535,14 +2535,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "So I skip class, show up late..."
+                                "\\tl{maps.Map005.so_i_skip_class_show_up_late_9f6994815c}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "And when I do, she gets on my case."
+                                "\\tl{maps.Map005.and_when_i_do_she_gets_on_my_case_1a82f596a9}"
                             ]
                         },
                         {
@@ -2587,7 +2587,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Who?"
+                                "\\tl{maps.Map005.who_c3d8cf2ba6}"
                             ]
                         },
                         {
@@ -2674,7 +2674,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "My girlfriend. We fought again."
+                                "\\tl{maps.Map005.my_girlfriend_we_fought_again_2bd4094165}"
                             ]
                         },
                         {
@@ -2689,9 +2689,9 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "Then just break up already! Stop complaining so much.",
-                                    "Couples fight, that’s normal.",
-                                    "So what did you guys fight about?"
+                                    "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}",
+                                    "\\tl{maps.Map005.choice.couples_fight_that_s_normal_5e3b723e03}",
+                                    "\\tl{maps.Map005.choice.so_what_did_you_guys_fight_about_f675815263}"
                                 ],
                                 -1,
                                 0,
@@ -2729,7 +2729,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "At least I’ve got a girlfriend, right?"
+                                "\\tl{maps.Map005.at_least_i_ve_got_a_girlfriend_right_8945f908ff}"
                             ]
                         },
                         {
@@ -2744,9 +2744,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "A girlfriend and the whole school at your feet!",
-                                    "No need to show off on your single friend, dude.",
-                                    "So what did you fight about?"
+                                    "\\tl{maps.Map005.choice.a_girlfriend_and_the_whole_school_at_you_d042fdd88b}",
+                                    "\\tl{maps.Map005.choice.no_need_to_show_off_on_your_single_frien_f371f3d42a}",
+                                    "\\tl{maps.Map005.choice.so_what_did_you_fight_about_b579e00fbb}"
                                 ],
                                 -1,
                                 0,
@@ -2784,7 +2784,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "What can I do? I’m awesome like that, right?"
+                                "\\tl{maps.Map005.what_can_i_do_i_m_awesome_like_that_righ_a3312a3cff}"
                             ]
                         },
                         {
@@ -2822,7 +2822,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "What can I do? I’m awesome like that, right?"
+                                "\\tl{maps.Map005.what_can_i_do_i_m_awesome_like_that_righ_a3312a3cff}"
                             ]
                         },
                         {
@@ -2860,21 +2860,21 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "She says I’ve been distant. That I’ve been pulling away. "
+                                "\\tl{maps.Map005.she_says_i_ve_been_distant_that_i_ve_bee_ee02e76dbe}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "That I’m not the same guy she used to know. "
+                                "\\tl{maps.Map005.that_i_m_not_the_same_guy_she_used_to_kn_c9c4a609b7}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "I guess she’s right."
+                                "\\tl{maps.Map005.i_guess_she_s_right_8dd42a7e6e}"
                             ]
                         },
                         {
@@ -2889,9 +2889,9 @@
                             "indent": 2,
                             "parameters": [
                                 [
-                                    "That’s just your girlfriend being jealous and not wanting you to race anymore.",
-                                    "You just need to race again and you’ll be back to normal.",
-                                    "You don’t really seem okay with this..."
+                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}",
+                                    "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}",
+                                    "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}"
                                 ],
                                 -1,
                                 0,
@@ -2955,21 +2955,21 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "I don’t know... it feels like I’m watching my life "
+                                "\\tl{maps.Map005.i_don_t_know_it_feels_like_i_m_watching__3ffcf9dc87}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "from far away. I don’t even feel like doing the things "
+                                "\\tl{maps.Map005.from_far_away_i_don_t_even_feel_like_doi_a98597b4a6}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "I used to love anymore."
+                                "\\tl{maps.Map005.i_used_to_love_anymore_bcf50d0441}"
                             ]
                         },
                         {
@@ -2987,14 +2987,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "I used to only think about the next race. "
+                                "\\tl{maps.Map005.i_used_to_only_think_about_the_next_race_4f189f2e67}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "Now even that doesn’t seem to matter much. "
+                                "\\tl{maps.Map005.now_even_that_doesn_t_seem_to_matter_muc_86c18fede0}"
                             ]
                         },
                         {
@@ -3052,7 +3052,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "At least I’ve got a girlfriend, right?"
+                                "\\tl{maps.Map005.at_least_i_ve_got_a_girlfriend_right_8945f908ff}"
                             ]
                         },
                         {
@@ -3060,9 +3060,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "A girlfriend and the whole school at your feet!",
-                                    "No need to show off on your single friend, dude.",
-                                    "So what did you fight about?"
+                                    "\\tl{maps.Map005.choice.a_girlfriend_and_the_whole_school_at_you_d042fdd88b}",
+                                    "\\tl{maps.Map005.choice.no_need_to_show_off_on_your_single_frien_f371f3d42a}",
+                                    "\\tl{maps.Map005.choice.so_what_did_you_fight_about_b579e00fbb}"
                                 ],
                                 -1,
                                 0,
@@ -3100,7 +3100,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "What can I do? I’m awesome like that, right?"
+                                "\\tl{maps.Map005.what_can_i_do_i_m_awesome_like_that_righ_a3312a3cff}"
                             ]
                         },
                         {
@@ -3138,7 +3138,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "What can I do? I’m awesome like that, right?"
+                                "\\tl{maps.Map005.what_can_i_do_i_m_awesome_like_that_righ_a3312a3cff}"
                             ]
                         },
                         {
@@ -3176,21 +3176,21 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "She says I’ve been distant. That I’ve been pulling away. "
+                                "\\tl{maps.Map005.she_says_i_ve_been_distant_that_i_ve_bee_ee02e76dbe}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "That I’m not the same guy she used to know. "
+                                "\\tl{maps.Map005.that_i_m_not_the_same_guy_she_used_to_kn_c9c4a609b7}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "I guess she’s right."
+                                "\\tl{maps.Map005.i_guess_she_s_right_8dd42a7e6e}"
                             ]
                         },
                         {
@@ -3205,9 +3205,9 @@
                             "indent": 2,
                             "parameters": [
                                 [
-                                    "That’s just your girlfriend being jealous and not wanting you to race anymore.",
-                                    "You just need to race again and you’ll be back to normal.",
-                                    "You don’t really seem okay with this..."
+                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}",
+                                    "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}",
+                                    "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}"
                                 ],
                                 -1,
                                 0,
@@ -3273,21 +3273,21 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "I don’t know... it feels like I’m watching my life "
+                                "\\tl{maps.Map005.i_don_t_know_it_feels_like_i_m_watching__3ffcf9dc87}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "from far away. I don’t even feel like doing the things "
+                                "\\tl{maps.Map005.from_far_away_i_don_t_even_feel_like_doi_a98597b4a6}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "I used to love anymore."
+                                "\\tl{maps.Map005.i_used_to_love_anymore_bcf50d0441}"
                             ]
                         },
                         {
@@ -3305,14 +3305,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "I used to only think about the next race. "
+                                "\\tl{maps.Map005.i_used_to_only_think_about_the_next_race_4f189f2e67}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "Now even that doesn’t seem to matter much. "
+                                "\\tl{maps.Map005.now_even_that_doesn_t_seem_to_matter_muc_86c18fede0}"
                             ]
                         },
                         {
@@ -3364,21 +3364,21 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "She says I’ve been distant. That I’ve been pulling away. "
+                                "\\tl{maps.Map005.she_says_i_ve_been_distant_that_i_ve_bee_ee02e76dbe}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "That I’m not the same guy she used to know. "
+                                "\\tl{maps.Map005.that_i_m_not_the_same_guy_she_used_to_kn_c9c4a609b7}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "I guess she’s right."
+                                "\\tl{maps.Map005.i_guess_she_s_right_8dd42a7e6e}"
                             ]
                         },
                         {
@@ -3386,9 +3386,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "That’s just your girlfriend being jealous and not wanting you to race anymore.",
-                                    "You just need to race again and you’ll be back to normal.",
-                                    "You don’t really seem okay with this..."
+                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}",
+                                    "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}",
+                                    "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}"
                                 ],
                                 -1,
                                 0,
@@ -3448,21 +3448,21 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "I don’t know... it feels like I’m watching my life "
+                                "\\tl{maps.Map005.i_don_t_know_it_feels_like_i_m_watching__3ffcf9dc87}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "from far away. I don’t even feel like doing the things "
+                                "\\tl{maps.Map005.from_far_away_i_don_t_even_feel_like_doi_a98597b4a6}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "I used to love anymore."
+                                "\\tl{maps.Map005.i_used_to_love_anymore_bcf50d0441}"
                             ]
                         },
                         {
@@ -3480,14 +3480,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "I used to only think about the next race. "
+                                "\\tl{maps.Map005.i_used_to_only_think_about_the_next_race_4f189f2e67}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "Now even that doesn’t seem to matter much. "
+                                "\\tl{maps.Map005.now_even_that_doesn_t_seem_to_matter_muc_86c18fede0}"
                             ]
                         },
                         {
@@ -3532,14 +3532,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Remember when I used to spend the whole week "
+                                "\\tl{maps.Map005.remember_when_i_used_to_spend_the_whole__7d7b5543b7}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "waiting for the street races?"
+                                "\\tl{maps.Map005.waiting_for_the_street_races_253f52f41e}"
                             ]
                         },
                         {
@@ -3554,9 +3554,9 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "You just need some adrenaline. You should race more.",
-                                    "It’s just a phase, Johnny. There’s a race tomorrow, you’ll forget all about this.",
-                                    "It’s weird that you’re not even excited about racing."
+                                    "\\tl{maps.Map005.choice.you_just_need_some_adrenaline_you_should_59ce7c87da}",
+                                    "\\tl{maps.Map005.choice.it_s_just_a_phase_johnny_there_s_a_race__825299e0f6}",
+                                    "\\tl{maps.Map005.choice.it_s_weird_that_you_re_not_even_excited__08bda81766}"
                                 ],
                                 -1,
                                 0,
@@ -3594,7 +3594,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "Speaking of which... I was thinking about that curve..."
+                                "\\tl{maps.Map005.speaking_of_which_i_was_thinking_about_t_08142a9f97}"
                             ]
                         },
                         {
@@ -3632,7 +3632,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "Speaking of which... I was thinking about that curve..."
+                                "\\tl{maps.Map005.speaking_of_which_i_was_thinking_about_t_08142a9f97}"
                             ]
                         },
                         {
@@ -3671,14 +3671,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "Yeah... I’ve even been thinking about selling the Opala. "
+                                "\\tl{maps.Map005.yeah_i_ve_even_been_thinking_about_selli_a71c902617}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "But not before I try the last curve..."
+                                "\\tl{maps.Map005.but_not_before_i_try_the_last_curve_75e452621c}"
                             ]
                         },
                         {
@@ -3713,7 +3713,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "What curve, Jonny?"
+                                "\\tl{maps.Map005.what_curve_jonny_aea9d0830c}"
                             ]
                         },
                         {
@@ -3800,7 +3800,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Devil’s Curve... I’m thinking of giving it a try."
+                                "\\tl{maps.Map005.devil_s_curve_i_m_thinking_of_giving_it__4407d40eeb}"
                             ]
                         },
                         {
@@ -3815,9 +3815,9 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "You’d be the biggest legend in town.",
-                                    "That’s so you, Jonny. If you say can do it...",
-                                    "The last guy who tried died. You’re not serious, right? "
+                                    "\\tl{maps.Map005.choice.you_d_be_the_biggest_legend_in_town_609312188e}",
+                                    "\\tl{maps.Map005.choice.that_s_so_you_jonny_if_you_say_can_do_it_b6f8fde3cd}",
+                                    "\\tl{maps.Map005.choice.the_last_guy_who_tried_died_you_re_not_s_a378f3056a}"
                                 ],
                                 -1,
                                 0,
@@ -3855,7 +3855,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "Yeah... I know."
+                                "\\tl{maps.Map005.yeah_i_know_06a8b84236}"
                             ]
                         },
                         {
@@ -3870,9 +3870,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "My friend Jonny is the best! You’re going to crush it tomorrow.",
-                                    "That’s just like you, Jonny! The only possible winner tomorrow.",
-                                    "But... The last guy who tried that turn died. Are you serious about this?"
+                                    "\\tl{maps.Map005.choice.my_friend_jonny_is_the_best_you_re_going_79fa1ed75f}",
+                                    "\\tl{maps.Map005.choice.that_s_just_like_you_jonny_the_only_poss_abd9f3b744}",
+                                    "\\tl{maps.Map005.choice.but_the_last_guy_who_tried_that_turn_die_b3c153ee01}"
                                 ],
                                 -1,
                                 0,
@@ -3910,14 +3910,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "Wow, there’s a race tomorrow. I had almost "
+                                "\\tl{maps.Map005.wow_there_s_a_race_tomorrow_i_had_almost_ca178cd2b0}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "forgotten about it. I think I need to rest..."
+                                "\\tl{maps.Map005.forgotten_about_it_i_think_i_need_to_res_090fd08765}"
                             ]
                         },
                         {
@@ -3942,14 +3942,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "Are you sending me away? Haha It’s late, you’re right. "
+                                "\\tl{maps.Map005.are_you_sending_me_away_haha_it_s_late_y_f8565ff39d}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "See you tomorrow?"
+                                "\\tl{maps.Map005.see_you_tomorrow_dcef9cffd6}"
                             ]
                         },
                         {
@@ -3974,14 +3974,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "See you tomorrow. Maybe I’ll finally do something... "
+                                "\\tl{maps.Map005.see_you_tomorrow_maybe_i_ll_finally_do_s_326a69a43a}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "interesting there."
+                                "\\tl{maps.Map005.interesting_there_eadc8385ae}"
                             ]
                         },
                         {
@@ -4019,14 +4019,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "Wow, there’s a race tomorrow. I had almost "
+                                "\\tl{maps.Map005.wow_there_s_a_race_tomorrow_i_had_almost_ca178cd2b0}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "forgotten about it. I think I need to rest..."
+                                "\\tl{maps.Map005.forgotten_about_it_i_think_i_need_to_res_090fd08765}"
                             ]
                         },
                         {
@@ -4051,14 +4051,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "Are you sending me away? Haha It’s late, you’re right. "
+                                "\\tl{maps.Map005.are_you_sending_me_away_haha_it_s_late_y_f8565ff39d}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "See you tomorrow?"
+                                "\\tl{maps.Map005.see_you_tomorrow_dcef9cffd6}"
                             ]
                         },
                         {
@@ -4083,14 +4083,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "See you tomorrow. Maybe I’ll finally do something... "
+                                "\\tl{maps.Map005.see_you_tomorrow_maybe_i_ll_finally_do_s_326a69a43a}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "interesting there."
+                                "\\tl{maps.Map005.interesting_there_eadc8385ae}"
                             ]
                         },
                         {
@@ -4128,21 +4128,21 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "I’m just saying… the idea sounds more tempting than "
+                                "\\tl{maps.Map005.i_m_just_saying_the_idea_sounds_more_tem_779d8aede4}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "it should. Sometimes I don’t really care "
+                                "\\tl{maps.Map005.it_should_sometimes_i_don_t_really_care_b89c84ee84}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "what happens after."
+                                "\\tl{maps.Map005.what_happens_after_d10398ae41}"
                             ]
                         },
                         {
@@ -4167,7 +4167,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "Chance"
+                                "\\tl{maps.Map005.chance_826b07e8e3}"
                             ]
                         },
                         {
@@ -4192,14 +4192,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "Right… there’s a race tomorrow. I almost forgot. "
+                                "\\tl{maps.Map005.right_there_s_a_race_tomorrow_i_almost_f_c619618713}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "I think I need some rest…"
+                                "\\tl{maps.Map005.i_think_i_need_some_rest_72b2562c9a}"
                             ]
                         },
                         {
@@ -4224,14 +4224,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "Don’t change the subject, Jonny. Promise me "
+                                "\\tl{maps.Map005.don_t_change_the_subject_jonny_promise_m_c1f975bcd6}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "you won’t take Devil’s Curve."
+                                "\\tl{maps.Map005.you_won_t_take_devil_s_curve_16a1b1e6f5}"
                             ]
                         },
                         {
@@ -4256,7 +4256,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "Alright, I promise. I’ll try not to wreck the Opala."
+                                "\\tl{maps.Map005.alright_i_promise_i_ll_try_not_to_wreck__c80a8e9b8d}"
                             ]
                         },
                         {
@@ -4281,7 +4281,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "See you tomorrow."
+                                "\\tl{maps.Map005.see_you_tomorrow_cb74f132a2}"
                             ]
                         },
                         {
@@ -4329,7 +4329,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "Yeah... "
+                                "\\tl{maps.Map005.yeah_3bac6c1fa5}"
                             ]
                         },
                         {
@@ -4367,21 +4367,21 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "I’m just saying… the idea sounds more tempting than "
+                                "\\tl{maps.Map005.i_m_just_saying_the_idea_sounds_more_tem_779d8aede4}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "it should. Sometimes I don’t really care "
+                                "\\tl{maps.Map005.it_should_sometimes_i_don_t_really_care_b89c84ee84}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "what happens after."
+                                "\\tl{maps.Map005.what_happens_after_d10398ae41}"
                             ]
                         },
                         {
@@ -4406,14 +4406,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "Jonny, you’re not the kind of person who takes risks. "
+                                "\\tl{maps.Map005.jonny_you_re_not_the_kind_of_person_who__73d5ad4cc3}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "There’s a race tomorrow. Promise me you won’t do this."
+                                "\\tl{maps.Map005.there_s_a_race_tomorrow_promise_me_you_w_95d351909b}"
                             ]
                         },
                         {
@@ -4438,14 +4438,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "Right… there’s a race tomorrow. I almost forgot. "
+                                "\\tl{maps.Map005.right_there_s_a_race_tomorrow_i_almost_f_c619618713}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "I think I need some rest…"
+                                "\\tl{maps.Map005.i_think_i_need_some_rest_72b2562c9a}"
                             ]
                         },
                         {
@@ -4470,14 +4470,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "Don’t change the subject, Jonny. Promise me "
+                                "\\tl{maps.Map005.don_t_change_the_subject_jonny_promise_m_c1f975bcd6}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "you won’t take Devil’s Curve."
+                                "\\tl{maps.Map005.you_won_t_take_devil_s_curve_16a1b1e6f5}"
                             ]
                         },
                         {
@@ -4502,7 +4502,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "Alright, I promise. I’ll try not to wreck the Opala."
+                                "\\tl{maps.Map005.alright_i_promise_i_ll_try_not_to_wreck__c80a8e9b8d}"
                             ]
                         },
                         {
@@ -4527,7 +4527,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "See you tomorrow."
+                                "\\tl{maps.Map005.see_you_tomorrow_cb74f132a2}"
                             ]
                         },
                         {

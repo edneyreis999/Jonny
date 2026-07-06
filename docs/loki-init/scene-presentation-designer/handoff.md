@@ -11,15 +11,15 @@ parallel_agent_response:
   summary: "Inventario factual de apresentacao da corrida criado a partir de docs, CommonEvents.json, MapInfos.json e listing de race pictures; nenhuma validacao perceptivel foi declarada."
   affected_files:
     - "docs/loki-init/scene-presentation-designer/presentation-inventory.md"
-    - "planos/000-init-loki/retrospetivas/fase1/scene-presentation-designer-retrospectiva.md"
+    - "transient retrospective artifact (path omitted)"
   write_scope:
     mode: "init_context_scoped_writer"
     target_files:
       - "docs/loki-init/scene-presentation-designer/**"
-      - "planos/000-init-loki/retrospetivas/fase1/scene-presentation-designer-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     allowed_writes:
       - "docs/loki-init/scene-presentation-designer/**"
-      - "planos/000-init-loki/retrospetivas/fase1/scene-presentation-designer-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     scoped_write_domains:
       - "scene-scripts"
       - "beat-timing"

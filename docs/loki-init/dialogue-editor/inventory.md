@@ -24,6 +24,7 @@ This file is a navigation index for the split inventory. Use the section files b
 - [Concentracao e repeticao](concentracao-e-repeticao.md)
 - [Vozes e personas observadas](vozes-e-personas-observadas.md)
 - [Idioma e localizacao](idioma-e-localizacao.md)
+- [Estado runtime de localizacao](../localization-runtime-state.md)
 - [Tom observado](tom-observado.md)
 - [Superficies de UI com texto](superficies-de-ui-com-texto.md)
 - [Cobertura](cobertura.md)

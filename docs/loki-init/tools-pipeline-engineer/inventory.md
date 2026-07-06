@@ -49,9 +49,10 @@ Fontes duradouras e de contexto:
 Fontes de pipeline inspecionadas estaticamente:
 
 - Listagem de `Jhonny/scripts/**`.
-- Listagem de `Jhonny/planos/**`.
+- Listagem de artefatos historicos transientes de Jhonny, com path omitido em
+  docs duradouros.
 - Cabecalhos e padroes estaticos selecionados de scripts Python em
-  `Jhonny/scripts/**` e `Jhonny/planos/**`.
+  `Jhonny/scripts/**` e nos artefatos historicos transientes de Jhonny.
 
 Nao lido em profundidade:
 
@@ -68,21 +69,21 @@ Nao lido em profundidade:
 | --- | --- | --- |
 | App shell | `Jhonny/package.json` | Declara `main: index.html`, janela 1280x720 e titulo `Bye Bye Jhonny`; nao declara `scripts`, dependencias ou comandos npm. |
 | Projeto RPG Maker MZ | `Jhonny/` | Projeto real; runtime sensivel e fora do escopo de escrita deste init. |
-| Procedimento de scripts historicos | `docs/03-Tech/RPG Maker MZ - Scripts de Plano.md` | Fonte duradoura para classificar e aprovar reuso de scripts em `Jhonny/planos/`. |
+| Procedimento de scripts historicos | `docs/03-Tech/RPG Maker MZ - Scripts de Plano.md` | Fonte duradoura para classificar e aprovar reuso de scripts historicos transientes. |
 | Scripts locais soltos | `Jhonny/scripts/` | Um script Python encontrado: `merge_pr4_data_resolution.py`. |
-| Scripts historicos de plano | `Jhonny/planos/**` | 40 scripts Python encontrados por listagem; evidencia historica por padrao. |
-| Planos e retrospectivas historicas | `Jhonny/planos/**` | Existem muitos docs de fase, interacoes e retrospectivas; foram tratados como contexto historico/listagem, nao como ferramenta atual. |
+| Scripts historicos de plano | Artefatos historicos transientes de Jhonny | 40 scripts Python encontrados por listagem; evidencia historica por padrao. |
+| Planos e retrospectivas historicas | Artefatos historicos transientes de Jhonny | Existem muitos docs de fase, interacoes e retrospectivas; foram tratados como contexto historico/listagem, nao como ferramenta atual. |
 
 ## Inventario de Scripts
 
-`find Jhonny/planos Jhonny/scripts -type f -name '*.py'` encontrou 41 scripts
-Python:
+Uma listagem estatica dos artefatos historicos transientes de Jhonny e de
+`Jhonny/scripts/**` encontrou 41 scripts Python:
 
-- 40 sob `Jhonny/planos/**`.
+- 40 sob artefatos historicos transientes de Jhonny.
 - 1 sob `Jhonny/scripts/**`.
 
-`find Jhonny/planos Jhonny/scripts` nao encontrou scripts `.sh`, `.js`, `.mjs`,
-`.ts`, `.rb` ou `.lua` nessas duas superficies.
+A mesma listagem nao encontrou scripts `.sh`, `.js`, `.mjs`, `.ts`, `.rb` ou
+`.lua` nessas duas superficies.
 
 ### Script fora de planos
 
@@ -217,15 +218,15 @@ parallel_agent_response:
   summary: "Inventario estatico de scripts, automacoes, validadores, geradores historicos, import/export e gates de uso futuro produzido sem executar scripts."
   affected_files:
     - "docs/loki-init/tools-pipeline-engineer/inventory.md"
-    - "planos/000-init-loki/retrospetivas/fase1/tools-pipeline-engineer-retrospectiva.md"
+    - "transient retrospective artifact (path omitted)"
   write_scope:
     mode: "init_context_scoped_writer"
     target_files:
       - "docs/loki-init/tools-pipeline-engineer/inventory.md"
-      - "planos/000-init-loki/retrospetivas/fase1/tools-pipeline-engineer-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     allowed_writes:
       - "docs/loki-init/tools-pipeline-engineer/**"
-      - "planos/000-init-loki/retrospetivas/fase1/tools-pipeline-engineer-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     scoped_write_domains:
       - "tools-code"
       - "pipeline-scripts"
@@ -255,7 +256,7 @@ parallel_agent_response:
     - "Jhonny/CLAUDE.md"
     - "Jhonny/package.json"
     - "Jhonny/scripts/** listing"
-    - "Jhonny/planos/** Python script listing and selected headers"
+    - "historical transient Jhonny script listing and selected headers"
   findings:
     - type: "pipeline"
       detail: "No npm automation scripts were declared in Jhonny/package.json."

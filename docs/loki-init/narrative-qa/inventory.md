@@ -188,15 +188,15 @@ parallel_agent_response:
   summary: "Inventario estatico de QA narrativo criado para continuidade, flags, rotas documentadas, regressao de conteudo, alcance documentado e lacunas."
   affected_files:
     - "docs/loki-init/narrative-qa/inventory.md"
-    - "planos/000-init-loki/retrospetivas/fase1/narrative-qa-retrospectiva.md"
+    - "transient retrospective artifact (path omitted)"
   write_scope:
     mode: "init_context_scoped_writer"
     target_files:
       - "docs/loki-init/narrative-qa/**"
-      - "planos/000-init-loki/retrospetivas/fase1/narrative-qa-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     allowed_writes:
       - "docs/loki-init/narrative-qa/**"
-      - "planos/000-init-loki/retrospetivas/fase1/narrative-qa-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     scoped_write_domains:
       - "narrative-qa-reports"
       - "task-local-evidence"

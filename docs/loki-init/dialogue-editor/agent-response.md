@@ -11,15 +11,15 @@ parallel_agent_response:
   summary: "Inventario factual de corpus de dialogo, speakers, idioma/localizacao, tom observado, fontes de texto, concentracao de dialogos, UI text e lacunas editoriais para Jhonny/RPG Maker MZ."
   affected_files:
     - "docs/loki-init/dialogue-editor/inventory.md"
-    - "planos/000-init-loki/retrospetivas/fase1/dialogue-editor-retrospectiva.md"
+    - "transient retrospective artifact (path omitted)"
   write_scope:
     mode: "init_context_scoped_writer"
     target_files:
       - "docs/loki-init/dialogue-editor/**"
-      - "planos/000-init-loki/retrospetivas/fase1/dialogue-editor-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     allowed_writes:
       - "docs/loki-init/dialogue-editor/**"
-      - "planos/000-init-loki/retrospetivas/fase1/dialogue-editor-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     scoped_write_domains:
       - "character-dialogue"
       - "choice-text"

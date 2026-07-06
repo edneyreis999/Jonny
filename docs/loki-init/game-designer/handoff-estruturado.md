@@ -17,7 +17,7 @@ parallel_agent_response:
       - "docs/loki-init/game-designer/inventory.md"
     allowed_writes:
       - "docs/loki-init/game-designer/**"
-      - "planos/000-init-loki/retrospetivas/fase1/game-designer-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     scoped_write_domains:
       - "gameplay-specs"
       - "mechanic-rules"

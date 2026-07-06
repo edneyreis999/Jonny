@@ -88,13 +88,21 @@ Plugin command code `357` references include:
 
 ### Plugins
 
-Active plugins from `plugins.js`:
+Active plugins from `plugins.js` observed during `loki:init` on 2026-06-30:
 
 - `TextPicture`
 - `ButtonPicture`
 - `Jhonny_RaceHelper`
 - `VisuMZ_0_CoreEngine`
 - `VisuMZ_2_VNPictureBusts`
+
+Localization update observed on 2026-07-06 added a broader active VisuStella
+stack, including `VisuMZ_1_MessageCore`, `VisuMZ_1_OptionsCore`,
+`VisuMZ_1_SaveCore`, `VisuMZ_2_PictureChoices`, `VisuMZ_2_ExtMessageFunc`,
+`VisuMZ_3_ChoiceCmnEvts`, `VisuMZ_3_MessageLog`,
+`VisuMZ_3_MsgLetterSounds` and `VisuMZ_4_MessageVisibility`. See
+`docs/loki-init/localization-runtime-state.md` before planning plugin,
+localization or Options changes.
 
 `Jhonny_RaceHelper.js` facts:
 

@@ -14,8 +14,8 @@ Configuration surfaces:
   position configuration.
 - `Jhonny/data/CommonEvents.json`: event-command runtime behavior.
 
-Historical scripts found under `Jhonny/planos/**` include Python builders and
-mutators such as:
+Historical scripts from transient Jhonny plan artifacts include Python builders
+and mutators such as:
 
 - `build_phase3_ces.py`
 - `build_phase4_ces.py`

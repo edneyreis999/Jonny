@@ -100,7 +100,7 @@ Fora do escopo por contrato desta execucao:
 | BA-REQ-010 | A tela canonica de resultado deve ser `EV_VitoriaCorrida` e deve decidir VITORIA/DERROTA antes de progredir ou reiniciar. | `Corrida - Runtime e Eventos` | Estatico, runtime pendente |
 | BA-REQ-011 | `SW_INPUT_LOCKED` deve bloquear input de gameplay durante resultado, resolucao e transicoes. | `Corrida - Runtime e Eventos` | Estatico, runtime pendente |
 | BA-REQ-012 | Retry nao deve repetir a VN nem preload completo quando o caminho validado pula esse trecho. | `Corrida - Runtime e Eventos` | Estatico, runtime pendente |
-| BA-REQ-013 | Scripts historicos em `Jhonny/planos` nao devem ser reexecutados sem classificacao, preflight e autorizacao explicita. | `RPG Maker MZ - Scripts de Plano` | Processo documentado |
+| BA-REQ-013 | Scripts historicos de artefatos transientes nao devem ser reexecutados sem classificacao, preflight e autorizacao explicita. | `RPG Maker MZ - Scripts de Plano` | Processo documentado |
 | BA-REQ-014 | Bugs perceptiveis devem coletar snapshot minimo antes de correcao. | `RPG Maker MZ - Debug Playtest` | Processo documentado |
 | BA-REQ-015 | Qualquer comportamento visual, input, audio, pictures, plugins e Common Events requer Playtest humano como gate final. | `RPG Maker MZ - Debug Playtest` | Gate pendente |
 
@@ -124,7 +124,7 @@ As fontes nao usam um formato formal unico de "Given/When/Then". Existem, porem,
 - Alteracoes futuras em `Jhonny/data/*.json` exigem workflow/skill de data JSON e parser estruturado.
 - Alteracoes futuras em `Jhonny/js/plugins/**` ou `Jhonny/js/plugins.js` exigem workflow/skill de plugin.
 - Validacao estrutural de JSON ou JavaScript nao prova comportamento jogavel.
-- Scripts historicos em `Jhonny/planos/**` sao evidencia historica por padrao, nao ferramentas reexecutaveis automaticamente.
+- Scripts historicos de artefatos transientes sao evidencia historica por padrao, nao ferramentas reexecutaveis automaticamente.
 - `docs/index.xml` deve ser consultado antes de mudar runtime da corrida.
 - `SW_IS_CURVA_DIABO` esta reservada para uso futuro no MVP documentado.
 - `placa_curva_dir.png` existe como asset reservado e nao deve ser referenciado no MVP.
@@ -204,7 +204,7 @@ Apenas mapeado:
 
 Nao inspecionado:
 
-- `data/System.json`, `data/CommonEvents.json`, `Map*.json`, `js/plugins.js`, `Jhonny_RaceHelper.js`, assets, saves e scripts em `Jhonny/planos/**`, porque nao estavam no conjunto de fontes permitido para este agente.
+- `data/System.json`, `data/CommonEvents.json`, `Map*.json`, `js/plugins.js`, `Jhonny_RaceHelper.js`, assets, saves e scripts historicos transientes, porque nao estavam no conjunto de fontes permitido para este agente.
 
 ## Agent Contract Snapshot
 
@@ -215,15 +215,15 @@ parallel_agent_response:
   summary: "Inventario factual de objetivos, publico, requisitos, criterios de aceite, restricoes, decisoes, conflitos e lacunas testaveis para Jhonny/corrida."
   affected_files:
     - "docs/loki-init/game-business-analyst/inventory.md"
-    - "planos/000-init-loki/retrospetivas/fase1/game-business-analyst-retrospectiva.md"
+    - "transient retrospective artifact (path omitted)"
   write_scope:
     mode: "init_context_scoped_writer"
     target_files:
       - "docs/loki-init/game-business-analyst/**"
-      - "planos/000-init-loki/retrospetivas/fase1/game-business-analyst-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     allowed_writes:
       - "docs/loki-init/game-business-analyst/**"
-      - "planos/000-init-loki/retrospetivas/fase1/game-business-analyst-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     scoped_write_domains:
       - "requirements"
       - "rules-specs"

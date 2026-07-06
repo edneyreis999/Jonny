@@ -224,10 +224,10 @@ parallel_agent_response:
     mode: "init_context_scoped_writer"
     target_files:
       - "docs/loki-init/level-designer/inventory.md"
-      - "planos/000-init-loki/retrospetivas/fase1/level-designer-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     allowed_writes:
       - "docs/loki-init/level-designer/**"
-      - "planos/000-init-loki/retrospetivas/fase1/level-designer-retrospectiva.md"
+      - "transient retrospective artifact (path omitted)"
     scoped_write_domains:
       - "level-layouts"
       - "encounter-placement"
