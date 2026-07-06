@@ -8,12 +8,12 @@ Imported.VisuMZ_0_CoreEngine = true;
 
 var VisuMZ = VisuMZ || {};
 VisuMZ.CoreEngine = VisuMZ.CoreEngine || {};
-VisuMZ.CoreEngine.version = 1.85;
+VisuMZ.CoreEngine.version = 1.90;
 
 //=============================================================================
-/*:
+ /*:
  * @target MZ
- * @plugindesc [RPG Maker MZ] [Tier 0] [Version 1.85] [CoreEngine]
+ * @plugindesc [RPG Maker MZ] [Tier 0] [Version 1.90] [CoreEngine]
  * @author VisuStella
  * @url http://www.yanfly.moe/wiki/Core_Engine_VisuStella_MZ
  *
@@ -94,75 +94,75 @@ VisuMZ.CoreEngine.version = 1.85;
  * manual input.
  *
  * ---
- *
+ * 
  * Auto Battle Attack Seal Bypass
- *
+ * 
  * By default, if the attack skill is sealed via a trait and an actor has
  * auto-battle, the action can still be used via auto-battle. This is now fixed
  * and actors should not be able to attack via auto-battle if their attack
  * ability is sealed.
- *
+ * 
  * ---
- *
+ * 
  * Auto Battle Lock Up
- *
+ * 
  * If an auto battle Actor fights against an enemy whose DEF/MDF is too high,
  * they will not use any actions at all. This can cause potential game freezing
  * and softlocks. This plugin will change that and have them default to a
  * regular Attack.
- *
+ * 
  * ---
- *
+ * 
  * Auto Save After New Game
- *
+ * 
  * Normally, when starting a new game through the "New Game" option, there is
  * no auto save trigger. However, if you start a new game or load a saved game,
  * then go to the Game End screen, return back to the title screen, then start
  * a New Game, the auto save trigger occurs when it shouldn't. The Core Engine
  * will now patch this and prevent the trigger from taking place.
- *
+ * 
  * ---
- *
+ * 
  * Battle Forced End Action Crash
- *
+ * 
  * Depending on various circumstances, currently active battlers can be cleared
  * from the battle system at will due to a number of reasons. However, if it
  * just so happens that the targets are cleared, too, with actions remaining,
  * then a crash will follow up. This plugin will prevent that change. Fix made
  * by Olivia.
- *
+ * 
  * ---
- *
+ * 
  * Debug Console Refresh Bug
- *
+ * 
  * When pressing F5 to refresh while the debug console (DevTools) is open,
  * some graphics will fail to load properly. This started occurring since the
  * RPG Maker MZ 1.5.0 update and the code for loading the images has now been
  * reverted to the 1.4.4 version where it was last stable.
- *
+ * 
  * ---
- *
+ * 
  * Gamepad Repeat Input
- *
+ * 
  * Cleared inputs on gamepads do not have a downtime and will trigger the
  * following input frame. The causes problems with certain RPG Maker MZ menus
  * where the inputs have to be cleared as the next immediate frame will have
  * them inputted again. This plugin changes it so that whenever inputs are
  * cleared, there is a downtime equal to the keyboard clear frames before the
  * gamepad input is registered once more.
- *
+ * 
  * ---
- *
+ * 
  * Invisible Battle Sprites
- *
+ * 
  * If you removed a party member during battle and added that exact party
  * member back into the same slot, their sprite would appear invisible. The
  * VisuStella Core Engine will fix this problem and prevent it from happening.
- *
+ * 
  * ---
- *
+ * 
  * Instant Text Discrepancy for Window_Message
- *
+ * 
  * Window_Message displays text differently when it draws letters one by one
  * versus when the text is displayed instantly. This isn't noticeable with the
  * default font, but it's very visible when using something like Arial. The
@@ -172,11 +172,11 @@ VisuMZ.CoreEngine.version = 1.85;
  * number values when determining the width of each letter, whether or not it
  * is shown instantly. This change will only affect Window_Message and not any
  * other window in order to prevent unintended side effects.
- *
+ * 
  * This can be disabled through the Plugin Parameters:
- *
+ * 
  * Plugin Parameters > QoL Settings > Misc > Font Width Fix
- *
+ * 
  * ---
  *
  * Move Picture, Origin Differences
@@ -188,144 +188,144 @@ VisuMZ.CoreEngine.version = 1.85;
  * them. This plugin will create that clean transition between origins.
  *
  * ---
- *
+ * 
  * Overly-Protective Substitute
- *
+ * 
  * When an ally with critical health is being targeted by a friendly non-
  * Certain Hit skill (such as a heal or buff) and another ally has the
  * substitute state, the other ally would "protect" the originally targeted
  * ally and take the heal or buff.
- *
+ * 
  * The new changed behavior is that now, substitute will not trigger for any
  * actions whose scope targets allies.
- *
+ * 
  * ---
- *
+ * 
  * Skill List Active After Party Member Change
- *
+ * 
  * If the skill list is active (ie. the player can move the cursor around) and
  * the party member currently being viewed is changed via the button commands,
  * then previously, RPG Maker MZ would still have that window be active despite
  * having the cursor hidden temporarily. Upon pressing direction buttons, the
  * cursor reveals itself and both the skill type window and skill list window
  * are both active, making way for lots of potential problems to happen.
- *
+ * 
  * ---
- *
+ * 
  * Sprite Removal and Destroy Crash
- *
+ * 
  * A texture check will now occur for sprites that are being removed and
  * destroyed in order to prevent crashes. In the off chance that someone
  * creates a sprite through a script call and removes it through such, the
  * likelihood of this occurance becomes higher. This makes the "destroy"
  * property take into account a texture check in order to see if the sprite
  * removal is taking extra steps and will reduce those extra steps.
- *
+ * 
  * ---
- *
+ * 
  * Status Window Name Vertical Cutoffs
- *
+ * 
  * In the battle status windows, whenever actor names are displayed, the bitmap
  * used to display their name text do not extend vertically all the way,
  * causing letters like lowercase "Q" and "G" to be cut off, making them hard
  * to distinguish from one another. The Core Engine will remedy this by
  * extending the bitmap to allow enough room. Fix made by Irina.
- *
+ * 
  * ---
- *
+ * 
  * Termination Clear Effects
- *
+ * 
  * In RPG Maker MZ, requesting an animation while transitioning between
  * scenes, such as going from the map scene to the battle scene, can cause
  * crashes. This is because the animation queue does not take off immediately
  * and will likely register incorrect targets for the scene. This plugin will
  * forcefully clear any registered animations and balloon effects when
  * terminating a scene in order to prevent crashes.
- *
+ * 
  * ---
- *
+ * 
  * Timer Sprite
- *
+ * 
  * By default, RPG Maker MZ adds Sprite_Timer into its spriteset, either for
  * maps or for battles. There is one major problem with this: when spritesets
  * are affected by filters, zooms, and/or blurs, this hinders how readable the
  * timer sprite is, making the information perceived by the player to be much
  * harder than it needs to be. The Core Engine adds the sprite to the parent
  * scene instead of the spriteset to ensure it's unobscured by anything else.
- *
+ * 
  * ---
- *
+ * 
  * Unusable Battle Items
- *
+ * 
  * If any party member is able to use an item in battle, then all party members
  * are able to use said item, even if that party member is supposed to be
  * unable to use that item. This is now changed so that battle items are
  * checked on an individual basis and not on a party-wide basis.
- *
+ * 
  * ---
- *
+ * 
  * Water Tile Bug
- *
+ * 
  * It seems like there's a new bug that occurs if you create a tileset from
  * scratch in RPG Maker MZ version 1.5.0+ and version 1.6.0+! What this bug
  * does is it causes many tiles to become water tiles without intending to.
  * You can find this out by turning off all the plugins in your project,
  * putting a Ship or Boat on what are normally ground tiles, and then seeing
  * the Ship or Boat traverse through it.
- *
+ * 
  * There are two ways to fix this. We cannot fix it through code in this plugin
  * as it's a problem that involves the tileset json data there are ways to work
  * around it so that you can get the proper water-flags to go where they need
  * to be at.
- *
+ * 
  * 1. Copy a working un-bugged tileset onto the currently bugged one and
  *    reapply the tile features like passability, terrain tags, etc. This will
  *    make sure the water-passability tiles get copied over correctly.
- *
+ * 
  * 2. If you're on RPG Maker MZ version 1.5.0 or above, select a working
  *    un-bugged tileset (usually a pre-existing tileset when a new project is
  *    made), click the "Copy Page" button, go to the bugged tileset and press
  *    "Paste Page". You'll have to reapply any different properties like
  *    passabilities and terrain tags, but the water tile flags should now be
  *    working properly.
- *
+ * 
  * The plugin will not fix the problem itself since flag data is delicate and
  * should not be tampered with midgame as the changes made by the plugin might
  * not match the desired settings.
- *
+ * 
  * This plugin, however, will also send out an alert message when coming across
  * such a tile. Pay attention to it and do one of the following two steps above
  * to fix the problem.
- *
+ * 
  * ---
- *
+ * 
  * Window Arrows Sprite Tearing
- *
+ * 
  * If a window object in RPG Maker MZ were to have an odd number for width size
  * then the arrow elements found for the window would be positioned on a half
  * pixel, giving it a blurry look and also have sprite tearing issues. This is
  * now fixed by rounding the number to the nearest whole number.
- *
+ * 
  * ---
- *
+ * 
  * Window Client Area Scaling Bug
- *
+ * 
  * If the window has a scale value different from 1.0, the client area (the
  * interactable parts) will not scale properly and appear clipped out. This
  * is now fixed by adjusting the client area to the window's scale values and
  * rounding upward to the nearest whole number.
- *
+ * 
  * ---
- *
+ * 
  * Window Skin Bleeding
- *
+ * 
  * This bug is fixed in the core scripts for RPG Maker MZ v1.3.0+.
- *
+ * 
  * Since the v1.2.0 update, Window.prototype._refreshBack's frame value has
  * been set from 96 to 95. This results in the window skin bleeding past the
  * window's intended borders. The Core Engine now reverts this change to
  * prevent the bleeding effect from happening.
- *
+ * 
  * ---
  *
  * ============================================================================
@@ -352,63 +352,63 @@ VisuMZ.CoreEngine.version = 1.85;
  * the error inside the console.
  *
  * ---
- *
+ * 
  * Script Call Failsafes
- *
+ * 
  * - If code found in Conditional Branches, Control Variables, and/or Script
  * Calls fail to activate, instead of crashing the game, it will now act as if
  * nothing happened except to display the cause of the error inside the
  * console.
- *
+ * 
  * ---
- *
+ * 
  * Digit Grouping
- *
+ * 
  * - There exists an option to change how numbers are displayed and converted
  * in your game. This option can be enabled or disabled by going into the
  * Plugin Manager > VisuMZ_0_OptionsCore > Quality of Life Settings >
  * Digit Grouping and toggling on/off whichever ones you want.
- *
+ * 
  * - Digit Grouping will follow the rules of whatever country/locale the Plugin
  * Parameters are set to. If it's to default 'en-US', then 1234567.123456 will
  * become 1,234,567.123456. Set it to 'es-ES' and it becomes 1.234.567,123456
  * instead.
- *
+ * 
  * - This uses JavaScript's Number.toLocaleString() function and will therefore
  * follow whatever rules it has. This means if there are trailing zeroes at the
  * end of a decimal, it will cut them off. Numbers like 123.45000 will become
  * 123.45 instead. Excess numbers past 6 decimal places will be rounded. A
  * number like 0.123456789 will become 0.123457 instead.
- *
+ * 
  * - Numbers in between [ and ], < and > will be excluded from digit grouping
  * in order for text codes to be preserved accurately. \I[1234] will remain as
  * \I[1234].
- *
+ * 
  * - If you would like to enter in a number without digit grouping, surround it
  * with {{ and }}. Typing in {{1234567890}} will yield 1234567890.
- *
+ * 
  * ---
- *
+ * 
  * Show Scrolling Text, additional functionality
- *
+ * 
  * The event command "Show Scrolling Text" now has additional functionality as
  * long as the VisuStella MZ Core Engine is installed. If the game dev inserts
  * "// Script Call" (without the quotes) inside the scrolling text, then the
  * entirity of the Show Scrolling Text event command will be ran as a giant
  * script call event command.
- *
+ * 
  * The reason why this functionality is added is because the "Script..." event
  * command contains only 12 lines maximum. This means for any script call
  * larger than 12 lines of code cannot be done by normal means as each script
  * call is ran as a separate instance.
- *
+ * 
  * By repurposing the "Show Scrolling Text" event command to be able to
  * function as an extended "Script..." event command, such a thing is now
  * possible with less hassle and more lines to code with.
- *
+ * 
  * This effect does not occur if the Show Scrolling Text event command does not
  * have "// Script Call" in its contents.
- *
+ * 
  * ---
  *
  * ============================================================================
@@ -417,7 +417,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *
  * The following are notetags that have been added through this plugin. These
  * notetags will not work with your game if this plugin is OFF or not present.
- *
+ * 
  * ---
  *
  * === Actors-Related Notetags ===
@@ -454,7 +454,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * past 99, too.
  *
  * ---
- *
+ * 
  * <Learn At Level: x>
  *
  * - Used for: Class Skill Learn Notetags
@@ -507,83 +507,83 @@ VisuMZ.CoreEngine.version = 1.85;
  * - If these notetags aren't used, default to the enemy's database value.
  *
  * ---
- *
+ * 
  * === Animations-Related Notetags ===
- *
+ * 
  * Animations in RPG Maker MZ are done by Effekseer and the animation system
  * has been revamped. However, the animations are only centered on the targets
  * now, and cannot be attached to the head or foot. Insert these tags into
  * the names of the animations in the database to adjust their positions.
- *
+ * 
  * ---
- *
+ * 
  * <Head>
  * <Foot>
- *
+ * 
  * - Used for: Animation Name Tags
  * - Will set the animation to anchor on top of the sprite (if <Head> is used)
  *   or at the bottom of the sprite (if <Foot> is used).
- *
+ * 
  * ---
- *
+ * 
  * <Anchor X: x>
  * <Anchor Y: y>
- *
+ * 
  * <Anchor: x, y>
- *
+ * 
  * - Used for: Animation Name Tags
  * - Will anchor the animation at a specific point within the sprite based on
  *   the 'x' and 'y' values.
  * - Replace 'x' and 'y' with numeric values representing their positions based
  *   on a rate where 0.0 is the furthest left/up (x, y respectively) to 1.0 for
  *   the furthest right/down (x, y respectively).
- *
+ * 
  * Examples:
- *
+ * 
  * <Anchor X: 0.4>
  * <Anchor Y: 0.8>
- *
+ * 
  * <Anchor: 0.2, 0.9>
- *
+ * 
  * ---
- *
+ * 
  * <Offset X: +x>
  * <Offset X: -x>
  * <Offset Y: +y>
  * <Offset Y: -y>
- *
+ * 
  * <Offset: +x, +y>
  * <Offset: -x, -y>
- *
+ * 
  * - Used for: Animation Name Tags
  * - Will anchor the animation to be offset by an exact number of pixels.
  * - This does the same the editor does, except it lets you input values
  *   greater than 999 and lower than -999.
  * - Replace 'x' and 'y' with numeric values the exact number of pixels to
  *   offset the animation's x and y coordinates by.
- *
+ * 
  * Examples:
- *
+ * 
  * <Offset X: +20>
  * <Offset Y: -50>
- *
+ * 
  * <Offset: +10, -30>
- *
+ * 
  * ---
- *
+ * 
  * <Mirror Offset X>
  * <No Mirror Offset X>
- *
+ * 
  * - Used for: Animation Name Tags
  * - If an animation is mirrored, you can choose to have the animation's Offset
  *   X value be mirrored, too (or not at all).
  * - If no name tag is discovered, this will use the setting found in the
  *   Plugin Parameters > QoL Settings > Misc > Ani: Mirror Offset X setting.
- *
+ * 
  * ---
- *
+ * 
  * <Rate: x>
- *
+ * 
  * - Used for: MV Animation Name Tags
  * - Allows you to adjust the update for this MV Animation.
  *   - Does NOT work with Effekseer animations.
@@ -592,7 +592,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *   - Default rate: 4.
  *   - Minimum rate: 1.
  *   - Maximum rate: 10.
- *
+ * 
  * ---
  *
  * === Quality of Life-Related Notetags ===
@@ -631,10 +631,10 @@ VisuMZ.CoreEngine.version = 1.85;
  *   will default to Quality of Life Settings => No Tile Shadows.
  *
  * ---
- *
+ * 
  * <Scroll Lock X>
  * <Scroll Lock Y>
- *
+ * 
  * - Used for: Map Notetags
  * - Will prevent the map from being able to scroll left/right(x) or up/down(y)
  *   if these notetags are present.
@@ -642,12 +642,12 @@ VisuMZ.CoreEngine.version = 1.85;
  *   scrolling is distracting.
  * - This will use the display nudge setting found in the Plugin Parameters.
  * - This setting will be disabled if the map is zoomed in.
- *
+ * 
  * ---
- *
+ * 
  * <Scroll Lock X: x>
  * <Scroll Lock Y: y>
- *
+ * 
  * - Used for: Map Notetags
  * - Will prevent the map from being able to scroll left/right(x) or up/down(y)
  *   if these notetags are present and will nudge the map camera slightly.
@@ -659,7 +659,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *     from a nudge of 0.15625. Play with these numbers to determine the best
  *     value for your maps.
  * - This setting will be disabled if the map is zoomed in.
- *
+ * 
  * ---
  *
  * === Basic, X, and S Parameters-Related Notetags ===
@@ -808,15 +808,15 @@ VisuMZ.CoreEngine.version = 1.85;
  * - Replace 'x' with a percentage (ie. 150%) or a rate (ie. 1.5).
  * - This is used to calculate the 'flatBonus' portion in Parameter Settings =>
  *   S Parameter => Formula.
- *
+ * 
  * ---
- *
+ * 
  * === Tileset-Related Notetags ===
- *
+ * 
  * ---
- *
+ * 
  * <Taller By x: id>
- *
+ * 
  * - Used for: Tileset Notetags
  * - Changes any page B, C, D, E tile marked by terrain tag 'id' to be taller
  *   by 'x' tiles.
@@ -840,7 +840,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * - This does not work with events using tiles as graphics. Instead, if you
  *   want to do similar, use the Event & Movement Core's <Tile Expand> notetags
  *   for better control.
- *
+ * 
  * ---
  *
  * === JavaScript Notetags: Basic, X, and S Parameters ===
@@ -860,6 +860,15 @@ VisuMZ.CoreEngine.version = 1.85;
  *   plus amount for the parameter's total calculation.
  * - This is used to calculate the 'plus' portion in the Parameter Settings =>
  *   Basic Parameter => Formula.
+ * - Use 'user' to refer to the currently equipping actor.
+ *   - If you use code to refer to an actor's other stats like 'atk' and 'def',
+ *     there is the potential to cause an infinite loop.
+ *   - Use 'user.paramBase(x)' instead of 'user.atk', 'user.def', etc.
+ *   - Plugin Parameter setting Parameters > "Convert JS To Base?" will
+ *     automatically convert any instances of 'user.mhp', 'user.mmp',
+ *     'user.atk', etc. to their base parameters.
+ *   - Turn this off if you do not want to use it automatically.
+ *   - You are responsible for any infinite loops this may cause.
  *
  * ---
  *
@@ -873,6 +882,15 @@ VisuMZ.CoreEngine.version = 1.85;
  *   param rate amount for the parameter's total calculation.
  * - This is used to calculate the 'paramRate' portion in Parameter Settings =>
  *   Basic Parameter => Formula.
+ * - Use 'user' to refer to the currently equipping actor.
+ *   - If you use code to refer to an actor's other stats like 'atk' and 'def',
+ *     there is the potential to cause an infinite loop.
+ *   - Use 'user.paramBase(x)' instead of 'user.atk', 'user.def', etc.
+ *   - Plugin Parameter setting Parameters > "Convert JS To Base?" will
+ *     automatically convert any instances of 'user.mhp', 'user.mmp',
+ *     'user.atk', etc. to their base parameters.
+ *   - Turn this off if you do not want it.
+ *   - You are responsible for any infinite loops this may cause.
  *
  * ---
  *
@@ -886,6 +904,15 @@ VisuMZ.CoreEngine.version = 1.85;
  *   flat bonus amount for the parameter's total calculation.
  * - This is used to calculate the 'flatBonus' portion in Parameter Settings =>
  *   Basic Parameter => Formula.
+ * - Use 'user' to refer to the currently equipping actor.
+ *   - If you use code to refer to an actor's other stats like 'atk' and 'def',
+ *     there is the potential to cause an infinite loop.
+ *   - Use 'user.paramBase(x)' instead of 'user.atk', 'user.def', etc.
+ *   - Plugin Parameter setting Parameters > "Convert JS To Base?" will
+ *     automatically convert any instances of 'user.mhp', 'user.mmp',
+ *     'user.atk', etc. to their base parameters.
+ *   - Turn this off if you do not want it.
+ *   - You are responsible for any infinite loops this may cause.
  *
  * ---
  *
@@ -898,6 +925,15 @@ VisuMZ.CoreEngine.version = 1.85;
  *   or 'LUK' to determine which parameter to modify.
  * - Replace 'code' with JavaScript code to determine the max cap for the
  *   desired parameter.
+ * - Use 'user' to refer to the currently equipping actor.
+ *   - If you use code to refer to an actor's other stats like 'atk' and 'def',
+ *     there is the potential to cause an infinite loop.
+ *   - Use 'user.paramBase(x)' instead of 'user.atk', 'user.def', etc.
+ *   - Plugin Parameter setting Parameters > "Convert JS To Base?" will
+ *     automatically convert any instances of 'user.mhp', 'user.mmp',
+ *     'user.atk', etc. to their base parameters.
+ *   - Turn this off if you do not want it.
+ *   - You are responsible for any infinite loops this may cause.
  *
  * ---
  *
@@ -911,6 +947,15 @@ VisuMZ.CoreEngine.version = 1.85;
  *   plus amount for the X parameter's total calculation.
  * - This is used to calculate the 'plus' portion in the Parameter Settings =>
  *   X Parameter => Formula.
+ * - Use 'user' to refer to the currently equipping actor.
+ *   - If you use code to refer to an actor's other stats like 'atk' and 'def',
+ *     there is the potential to cause an infinite loop.
+ *   - Use 'user.paramBase(x)' instead of 'user.atk', 'user.def', etc.
+ *   - Plugin Parameter setting Parameters > "Convert JS To Base?" will
+ *     automatically convert any instances of 'user.mhp', 'user.mmp',
+ *     'user.atk', etc. to their base parameters.
+ *   - Turn this off if you do not want it.
+ *   - You are responsible for any infinite loops this may cause.
  *
  * ---
  *
@@ -924,6 +969,15 @@ VisuMZ.CoreEngine.version = 1.85;
  *   param rate amount for the X parameter's total calculation.
  * - This is used to calculate the 'paramRate' portion in Parameter Settings =>
  *   X Parameter => Formula.
+ * - Use 'user' to refer to the currently equipping actor.
+ *   - If you use code to refer to an actor's other stats like 'atk' and 'def',
+ *     there is the potential to cause an infinite loop.
+ *   - Use 'user.paramBase(x)' instead of 'user.atk', 'user.def', etc.
+ *   - Plugin Parameter setting Parameters > "Convert JS To Base?" will
+ *     automatically convert any instances of 'user.mhp', 'user.mmp',
+ *     'user.atk', etc. to their base parameters.
+ *   - Turn this off if you do not want it.
+ *   - You are responsible for any infinite loops this may cause.
  *
  * ---
  *
@@ -936,6 +990,15 @@ VisuMZ.CoreEngine.version = 1.85;
  *   flat bonus amount for the X parameter's total calculation.
  * - This is used to calculate the 'flatBonus' portion in Parameter Settings =>
  *   X Parameter => Formula.
+ * - Use 'user' to refer to the currently equipping actor.
+ *   - If you use code to refer to an actor's other stats like 'atk' and 'def',
+ *     there is the potential to cause an infinite loop.
+ *   - Use 'user.paramBase(x)' instead of 'user.atk', 'user.def', etc.
+ *   - Plugin Parameter setting Parameters > "Convert JS To Base?" will
+ *     automatically convert any instances of 'user.mhp', 'user.mmp',
+ *     'user.atk', etc. to their base parameters.
+ *   - Turn this off if you do not want it.
+ *   - You are responsible for any infinite loops this may cause.
  *
  * ---
  *
@@ -949,6 +1012,15 @@ VisuMZ.CoreEngine.version = 1.85;
  *   plus amount for the S parameter's total calculation.
  * - This is used to calculate the 'plus' portion in the Parameter Settings =>
  *   S Parameter => Formula.
+ * - Use 'user' to refer to the currently equipping actor.
+ *   - If you use code to refer to an actor's other stats like 'atk' and 'def',
+ *     there is the potential to cause an infinite loop.
+ *   - Use 'user.paramBase(x)' instead of 'user.atk', 'user.def', etc.
+ *   - Plugin Parameter setting Parameters > "Convert JS To Base?" will
+ *     automatically convert any instances of 'user.mhp', 'user.mmp',
+ *     'user.atk', etc. to their base parameters.
+ *   - Turn this off if you do not want it.
+ *   - You are responsible for any infinite loops this may cause.
  *
  * ---
  *
@@ -962,6 +1034,15 @@ VisuMZ.CoreEngine.version = 1.85;
  *   param rate amount for the S parameter's total calculation.
  * - This is used to calculate the 'paramRate' portion in Parameter Settings =>
  *   S Parameter => Formula.
+ * - Use 'user' to refer to the currently equipping actor.
+ *   - If you use code to refer to an actor's other stats like 'atk' and 'def',
+ *     there is the potential to cause an infinite loop.
+ *   - Use 'user.paramBase(x)' instead of 'user.atk', 'user.def', etc.
+ *   - Plugin Parameter setting Parameters > "Convert JS To Base?" will
+ *     automatically convert any instances of 'user.mhp', 'user.mmp',
+ *     'user.atk', etc. to their base parameters.
+ *   - Turn this off if you do not want it.
+ *   - You are responsible for any infinite loops this may cause.
  *
  * ---
  *
@@ -975,23 +1056,32 @@ VisuMZ.CoreEngine.version = 1.85;
  *   flat bonus amount for the S parameter's total calculation.
  * - This is used to calculate the 'flatBonus' portion in Parameter Settings =>
  *   S Parameter => Formula.
+ * - Use 'user' to refer to the currently equipping actor.
+ *   - If you use code to refer to an actor's other stats like 'atk' and 'def',
+ *     there is the potential to cause an infinite loop.
+ *   - Use 'user.paramBase(x)' instead of 'user.atk', 'user.def', etc.
+ *   - Plugin Parameter setting Parameters > "Convert JS To Base?" will
+ *     automatically convert any instances of 'user.mhp', 'user.mmp',
+ *     'user.atk', etc. to their base parameters.
+ *   - Turn this off if you do not want it.
+ *   - You are responsible for any infinite loops this may cause.
  *
  * ---
- *
+ * 
  * === Battle Setting-Related Notetags ===
- *
+ * 
  * These tags will change the settings for battle regardless of how the battle
  * system is set up normally. Insert these tags in either the noteboxes of maps
  * or the names of troops for them to take effect. If both are present for a
  * specific battle, then priority goes to the setting found in the troop name.
- *
+ * 
  * ---
- *
+ * 
  * <FV>
  * <Front View>
  * <Battle View: FV>
  * <Battle View: Front View>
- *
+ * 
  * - Used for: Map Notetags, Troop Name Tags, and Troop Comment Tags
  * - Changes the perspective of battle to front view for this specific map or
  *   battle.
@@ -1000,14 +1090,14 @@ VisuMZ.CoreEngine.version = 1.85;
  * - If using Troop Comment Tags, then as long as the tag appears in a comment
  *   found on any of the Troop's pages (even if they don't run), the tag will
  *   be considered in effect.
- *
+ * 
  * ---
- *
+ * 
  * <SV>
  * <Side View>
  * <Battle View: SV>
  * <Battle View: Side View>
- *
+ * 
  * - Used for: Map Notetags, Troop Name Tags, and Troop Comment Tags
  * - Changes the perspective of battle to side view for this specific map or
  *   battle.
@@ -1017,30 +1107,30 @@ VisuMZ.CoreEngine.version = 1.85;
  * - If using Troop Comment Tags, then as long as the tag appears in a comment
  *   found on any of the Troop's pages (even if they don't run), the tag will
  *   be considered in effect.
- *
+ * 
  * ---
- *
+ * 
  * <DTB>
  * <Battle System: DTB>
- *
+ * 
  * - Used for: Map Notetags, Troop Name Tags, and Troop Comment Tags
  * - Changes the battle system to the default battle system (DTB).
  * - If using Troop Comment Tags, then as long as the tag appears in a comment
  *   found on any of the Troop's pages (even if they don't run), the tag will
  *   be considered in effect.
- *
+ * 
  * ---
- *
+ * 
  * <TPB Active>
  * <ATB Active>
  * <Battle System: TPB Active>
  * <Battle System: ATB Active>
- *
+ * 
  * <TPB Wait>
  * <ATB Wait>
  * <Battle System: TPB Wait>
  * <Battle System: ATB Wait>
- *
+ * 
  * - Used for: Map Notetags, Troop Name Tags, and Troop Comment Tags
  * - Changes the battle system to the time progress battle system (TPB) or
  *   active turn battle system (ATB) if you have VisuMZ_2_BattleSystemATB
@@ -1048,45 +1138,45 @@ VisuMZ.CoreEngine.version = 1.85;
  * - If using Troop Comment Tags, then as long as the tag appears in a comment
  *   found on any of the Troop's pages (even if they don't run), the tag will
  *   be considered in effect.
- *
+ * 
  * ---
- *
+ * 
  * <BTB>
  * <Battle System: BTB>
- *
+ * 
  * <CTB>
  * <Battle System: CTB>
- *
+ * 
  * <ETB>
  * <Battle System: ETB>
- *
+ * 
  * <FTB>
  * <Battle System: FTB>
- *
+ * 
  * <OTB>
  * <Battle System: OTB>
- *
+ * 
  * <PTB>
  * <Battle System: PTB>
- *
+ * 
  * <STB>
  * <Battle System: STB>
- *
+ * 
  * - Used for: Map Notetags, Troop Name Tags, and Troop Comment Tags
  * - Changes the battle system to the respective battle system as long as you
  *   have those plugins installed in the current project.
  * - If using Troop Comment Tags, then as long as the tag appears in a comment
  *   found on any of the Troop's pages (even if they don't run), the tag will
  *   be considered in effect.
- *
+ * 
  * ---
- *
+ * 
  * <Grid>
  * <Battle Grid>
- *
+ * 
  * <No Grid>
  * <No Battle Grid>
- *
+ * 
  * - Used for: Map Notetags, Troop Name Tags, and Troop Comment Tags
  * - Requires VisuMZ_2_BattleGridSystem!
  * - Changes the battle system to utilize the Battle Grid System or not.
@@ -1095,7 +1185,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *   be considered in effect.
  * - If none of these notetags or comment tags are found, refer to the default
  *   settings found in the Plugin Parameters.
- *
+ * 
  * ---
  *
  * ============================================================================
@@ -1106,149 +1196,149 @@ VisuMZ.CoreEngine.version = 1.85;
  * accessed through the Plugin Command event command.
  *
  * ---
- *
+ * 
  * === Animation Commands ===
- *
+ * 
  * ---
- *
+ * 
  * Animation: Play at Coordinate
  * - Plays an animation on the screen at a specific x, y coordinate even if
  *   there is no sprite attached.
- *
+ * 
  *   Animation ID:
  *   - Plays this animation.
- *
+ * 
  *   Coordinates:
- *
+ * 
  *     X:
  *     Y:
  *     - X/Y coordinate used for the animation.
  *       You may use JavaScript code.
- *
+ * 
  *   Mirror Animation?:
  *   - Mirror the animation?
- *
+ * 
  *   Mute Animation?:
  *   - Mute the animation?
- *
+ * 
  * ---
- *
+ * 
  * === Audio Plugin Commands ===
- *
+ * 
  * ---
- *
+ * 
  * Audio: Change Current BGM Volume
  * - Changes the current BGM volume without changing any of the current BGM's
  *   other properties and without restarting the BGM.
- *
+ * 
  *   Volume:
  *   - Change the current BGM's volume to what amount?
  *   - You may use JavaScript code.
  *   - Use numbers from 0 to 100.
- *
+ * 
  * ---
- *
+ * 
  * Audio: Change Current BGM Pitch
  * - Changes the current BGM pitch without changing any of the current BGM's
  *   other properties and without restarting the BGM.
- *
+ * 
  *   Pitch:
  *   - Change the current BGM's pitch to what amount?
  *   - You may use JavaScript code.
  *   - Use numbers from 50 to 150.
- *
+ * 
  * ---
- *
+ * 
  * Audio: Change Current BGM Pan
  * - Changes the current BGM pan without changing any of the current BGM's
  *   other properties and without restarting the BGM.
- *
+ * 
  *   Pan:
  *   - Change the current BGM's pan to what amount?
  *   - You may use JavaScript code.
  *   - Use numbers from -100 to 100.
- *
+ * 
  * ---
- *
- * Audio: Change Current BGM Volume
- * - Changes the current BGM volume without changing any of the current BGM's
- *   other properties and without restarting the BGM.
- *
+ * 
+ * Audio: Change Current BGS Volume
+ * - Changes the current BGS volume without changing any of the current BGS's
+ *   other properties and without restarting the BGS.
+ * 
  *   Volume:
- *   - Change the current BGM's volume to what amount?
+ *   - Change the current BGS's volume to what amount?
  *   - You may use JavaScript code.
  *   - Use numbers from 0 to 100.
- *
+ * 
  * ---
- *
- * Audio: Change Current BGM Pitch
- * - Changes the current BGM pitch without changing any of the current BGM's
- *   other properties and without restarting the BGM.
- *
+ * 
+ * Audio: Change Current BGS Pitch
+ * - Changes the current BGS pitch without changing any of the current BGS's
+ *   other properties and without restarting the BGS.
+ * 
  *   Pitch:
- *   - Change the current BGM's pitch to what amount?
+ *   - Change the current BGS's pitch to what amount?
  *   - You may use JavaScript code.
  *   - Use numbers from 50 to 150.
- *
+ * 
  * ---
- *
- * Audio: Change Current BGM Pan
- * - Changes the current BGM pan without changing any of the current BGM's
- *   other properties and without restarting the BGM.
- *
+ * 
+ * Audio: Change Current BGS Pan
+ * - Changes the current BGS pan without changing any of the current BGS's
+ *   other properties and without restarting the BGS.
+ * 
  *   Pan:
- *   - Change the current BGM's pan to what amount?
+ *   - Change the current BGS's pan to what amount?
  *   - You may use JavaScript code.
  *   - Use numbers from -100 to 100.
- *
+ * 
  * ---
- *
+ * 
  * === Debug Plugin Commands ===
- *
+ * 
  * ---
- *
+ * 
  * Debug: Current Controller ID
  * - PLAY TEST ONLY.
  * - Shows current controller ID in debug console.
  * - If you press a key on the keyboard, this data will be erased.
  * - Also copies to computer clipboard if possible.
- *
+ * 
  * ---
- *
+ * 
  * === Export Plugin Commands ===
- *
+ * 
  * ---
- *
+ * 
  * Export: All Maps Text
  * - PLAY TEST ONLY. Exports all of the text from all maps,
  *   their events, event pages, and any associated Common Events.
- *
+ * 
  *   - Exports 'Show Text' event commands.
  *   - Exports 'Show Choices' event commands.
  *   - Exports 'Show Scrolling Text' event commands.
  *   - Exports 'Comments' event commands.
  *   - Only the raw text will be exported.
  *   - Only usable during Play Test.
- *
+ * 
  * ---
- *
+ * 
  * Export: All Troops Text
  * - PLAY TEST ONLY. Exports all of the text from all troops,
  *   their event pages, and any associated Common Events.
- *
+ * 
  *   - Exports 'Show Text' event commands.
  *   - Exports 'Show Choices' event commands.
  *   - Exports 'Show Scrolling Text' event commands.
  *   - Exports 'Comments' event commands.
  *   - Only the raw text will be exported.
  *   - Only usable during Play Test.
- *
+ * 
  * ---
- *
+ * 
  * Export: Current Map Text
  * - PLAY TEST ONLY. Exports all of the text on the current map,
  *   its events, the event pages, and any associated Common Events.
- *
+ * 
  *   - Exports 'Show Text' event commands.
  *   - Exports 'Show Choices' event commands.
  *   - Exports 'Show Scrolling Text' event commands.
@@ -1256,13 +1346,13 @@ VisuMZ.CoreEngine.version = 1.85;
  *   - Only the raw text will be exported.
  *   - Only usable during Play Test.
  *   - If not in battle, this Plugin Command will not work.
- *
+ * 
  * ---
- *
+ * 
  * Export: Current Troop Text
  * - PLAY TEST ONLY. Exports all of the text on the current troop,
  *   the troop's event pages, and any associated Common Events.
- *
+ * 
  *   - Exports 'Show Text' event commands.
  *   - Exports 'Show Choices' event commands.
  *   - Exports 'Show Scrolling Text' event commands.
@@ -1270,11 +1360,11 @@ VisuMZ.CoreEngine.version = 1.85;
  *   - Only the raw text will be exported.
  *   - Only usable during Play Test.
  *   - If not in battle, this Plugin Command will not work.
- *
+ * 
  * ---
- *
+ * 
  * === Game Plugin Commands ===
- *
+ * 
  * ---
  *
  * Game: Open URL
@@ -1284,9 +1374,9 @@ VisuMZ.CoreEngine.version = 1.85;
  *   - Where do you want to take the player?
  *
  * ---
- *
+ * 
  * === Gold Plugin Commands ===
- *
+ * 
  * ---
  *
  * Gold: Gain/Lose
@@ -1297,36 +1387,36 @@ VisuMZ.CoreEngine.version = 1.85;
  *   - Use negative values to remove gold.
  *
  * ---
- *
+ * 
  * === Map Plugin Commands ===
- *
+ * 
  * ---
- *
+ * 
  * Map: Once Parallel
  * - Plays a Common Event parallel to the event once without repeating itself
  *   when done.
  * - Map only!
- *
+ * 
  *   Common Event ID:
  *   - The ID of the parallel Common Event to play.
  *   - Does NOT repeat itself when finished.
  *   - When exiting map scene or changing maps, all Once Parallels are cleared.
  *   - Once Parallels are not retained upon reentering the scene or map.
  *   - Once Parallels are not stored in memory and cannot be saved.
- *
+ * 
  * ---
- *
+ * 
  * === Picture Plugin Commands ===
- *
+ * 
  * ---
- *
+ * 
  * Picture: Coordinates Mode
  * - Play Test Mode only! Gets the coordinates of a specific picture as you
  *   move it across the screen.
- *
- *   Picture ID:
+ * 
+ *   Picture ID: 
  *   - The ID of the pictures to track the coordinates of.
- *
+ * 
  * ---
  *
  * Picture: Easing Type
@@ -1344,83 +1434,83 @@ VisuMZ.CoreEngine.version = 1.85;
  *   - You may have to add in your own "Wait" event command after.
  *
  * ---
- *
+ * 
  * Picture: Erase All
  * - Erases all pictures on the screen because it's extremely tedious to do it
  *   one by one.
- *
+ * 
  * ---
- *
+ * 
  * Picture: Erase Range
  * - Erases all pictures within a range of numbers because it's extremely
  *   tedious to do it one by one.
- *
+ * 
  *   Starting ID:
  *   - The starting ID of the pictures to erase.
- *
+ * 
  *   Ending ID:
  *   - The ending ID of the pictures to erase.
- *
+ * 
  * ---
- *
+ * 
  * Picture: Rotate by Angle
  * - Rotates target picture by a amount angle over a set duration instead of
  *   continuously.
- *
+ * 
  *   Picture ID Number:
  *   - What is the ID of the picture you wish to rotate?
  *   - Use a number between 1 and 100.
  *   - You may use JavaScript code.
- *
+ * 
  *   Adjust Angle:
  *   - What is the angle you wish to rotate the picture by?
  *   - Use degrees (360 degrees per full rotation).
  *   - You may use JavaScript code.
- *
+ * 
  *   Easing Type:
  *   - Select which easing type you wish to apply.
- *
+ * 
  *   Duration:
  *   - Duration of rotation effect in frames.
  *   - 60 frames = 1 second.
  *   - You may use JavaScript code.
- *
+ * 
  *   Wait for Completion:
  *   - Wait until completion before moving onto the next event?
- *
+ * 
  * ---
- *
+ * 
  * Picture: Rotate to Angle
  * - Rotates target picture to a certain angle over a set duration
  *   instead of continuously.
- *
+ * 
  *   Picture ID Number:
  *   - What is the ID of the picture you wish to rotate?
  *   - Use a number between 1 and 100.
  *   - You may use JavaScript code.
- *
+ * 
  *   Target Angle:
  *   - What is the target angle you wish to rotate the picture?
  *   - Use degrees (360 degrees per full rotation).
  *   - You may use JavaScript code.
- *
+ * 
  *   Easing Type:
  *   - Select which easing type you wish to apply.
- *
+ * 
  *   Duration:
  *   - Duration of rotation effect in frames.
  *   - 60 frames = 1 second.
  *   - You may use JavaScript code.
- *
+ * 
  *   Wait for Completion:
  *   - Wait until completion before moving onto the next event?
- *
+ * 
  * ---
- *
+ * 
  * Picture: Show Icon
  * - Shows an icon instead of a picture image.
  * - The picture icon can be controlled like any other picture.
- *
+ * 
  *   General:
  *
  *     Picture ID Number:
@@ -1434,9 +1524,9 @@ VisuMZ.CoreEngine.version = 1.85;
  *
  *     Smooth Icon?:
  *     - This will make the icon smoothed out or pixelated.
- *
+ * 
  *   Picture Settings:
- *
+ * 
  *     Position:
  *
  *       Origin:
@@ -1451,7 +1541,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *       Position Y:
  *       - Y coordinate of the picture.
  *       - You may use JavaScript code.
- *
+ * 
  *     Scale:
  *
  *       Width %:
@@ -1463,7 +1553,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *       - Vertical scale of the picture.
  *       - You may use JavaScript code.
  *       - 100 is 100%
- *
+ * 
  *     Blend:
  *
  *       Opacity:
@@ -1473,52 +1563,52 @@ VisuMZ.CoreEngine.version = 1.85;
  *
  *       Blend Mode:
  *       - What kind of blend mode do you wish to apply to the picture?
- *
+ * 
  * ---
- *
+ * 
  * === Screen Shake Plugin Commands ===
- *
+ * 
  * ---
- *
+ * 
  * Screen Shake: Custom:
  * - Creates a custom screen shake effect and also sets the following uses of
  *   screen shake to this style.
- *
+ * 
  *   Shake Style:
  *   - Select shake style type.
  *   - Original
  *   - Random
  *   - Horizontal
  *   - Vertical
- *
+ * 
  *   Power:
  *   - Power level for screen shake.
- *
+ * 
  *   Speed:
  *   - Speed level for screen shake.
- *
+ * 
  *   Duration:
  *   - Duration of screenshake.
  *   - You can use code as well.
- *
+ * 
  *   Wait for Completion:
  *   - Wait until completion before moving onto the next event?
- *
+ * 
  * ---
- *
+ * 
  * === Switch Plugin Commands ===
- *
+ * 
  * ---
- *
+ * 
  * Switches: Randomize ID(s)
  * - Select specific Switch ID's to randomize ON/OFF.
- *
+ * 
  *   Switch ID(s):
  *   - Select which Switch ID(s) to toggle.
- *
+ * 
  *   Chance for ON:
  *   - Chance out of 100 that determines the switches to be ON.
- *
+ * 
  * ---
  *
  * Switches: Randomize Range
@@ -1556,9 +1646,9 @@ VisuMZ.CoreEngine.version = 1.85;
  *   - The ending ID of the Switch to toggle.
  *
  * ---
- *
+ * 
  * === System Plugin Commands ===
- *
+ * 
  * ---
  *
  * System: Battle System Change
@@ -1579,7 +1669,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *     - STB: Standard Turn Battle (Req VisuMZ_2_BattleSystemSTB)
  *
  * ---
- *
+ * 
  * System: Load Images
  * - Allows you to (pre) load up images ahead of time.
  *
@@ -1597,7 +1687,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *   img/titles1/:
  *   img/titles2/:
  *   - Which files do you wish to load from this directory?
- *
+ * 
  * ---
  *
  * System: Main Font Size
@@ -1623,64 +1713,64 @@ VisuMZ.CoreEngine.version = 1.85;
  *   - Change the game's standard window padding to this value.
  *
  * ---
- *
+ * 
  * === Text Popup Command ===
- *
+ * 
  * ---
- *
+ * 
  * Text Popup: Show Text
  * - Adds text to a text popup window to briefly appear.
  * - Multiple text popups will be queued.
  * - Does not halt the game and works parallel to game activity.
- *
+ * 
  *   Text:
  *   - Write the text that you want to appear here.
  *   - You may use text codes.
- *
+ * 
  * ---
- *
+ * 
  * === Variable Plugin Commands ===
- *
+ * 
  * ---
- *
+ * 
  * Variable: JS Eval
  * - Pick a variable ID and value to alter through JS.
  * - Allows one line of code for variable ID and operand.
  * - Functions like RM2k3's Variable Pointers.
- *
+ * 
  *   Variable ID:
  *   - This is the target variable to alter.
  *   - You may use JavaScript.
  *   - ie: $gameVariables.value(1)
- *
+ * 
  *   Operation Type:
  *   - What operation do you wish to use for this Plugin Command?
- *
+ * 
  *   Operand Modifier:
  *   - Value to be used in calculating the target variable.
  *   - You may use JavaScript.
  *   - ie: $gameVariables.value(1)
- *
+ * 
  * ---
- *
+ * 
  * Variable: JS Block
  * - Pick a variable ID and value to alter through JS.
  * - Allows JS block code for variable ID and operand.
  * - Functions like RM2k3's Variable Pointers.
- *
+ * 
  *   Variable ID:
  *   - This is the target variable to alter.
  *   - You may use JavaScript.
  *   - ie: $gameVariables.value(1)
- *
+ * 
  *   Operation Type:
  *   - What operation do you wish to use for this Plugin Command?
- *
+ * 
  *   Operand Modifier:
  *   - Value to be used in calculating the target variable.
  *   - You may use JavaScript.
  *   - ie: $gameVariables.value(1)
- *
+ * 
  * ---
  *
  * ============================================================================
@@ -1693,14 +1783,14 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Play Test
- *
+ * 
  *   New Game on Boot:
  *   - Automatically start a new game on Play Test?
  *   - Only enabled during Play Test.
  *
  *   No Play Test Mode:
  *   - Force the game to be out of Play Test mode when play testing.
- *
+ * 
  *   Open Console on Boot:
  *   - Open the Debug Console upon booting up your game?
  *   - Only enabled during Play Test.
@@ -1713,7 +1803,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *   F7: Toggle Fast Mode:
  *   - F7 Key Function: Toggle fast mode.
  *   - Only enabled during Play Test.
- *
+ * 
  *   CTRL + n: Quick Load:
  *   - CTRL + a number from 1 to 9 will yield a quick load of that safe file.
  *   - Does not count auto saves.
@@ -1723,28 +1813,28 @@ VisuMZ.CoreEngine.version = 1.85;
  *   - Only enabled during Play Test.
  *
  * ---
- *
+ * 
  * Battle Test
- *
+ * 
  *   Add Item Type:
  *   Add Weapon Type:
  *   Add Armor Type:
  *   - Add copies of each database item, weapon, and/or armor?
  *   - Effective only during battle test.
- *
+ * 
  *   Added Quantity:
  *   - Determines how many items are added during a battle test instead of
  *     the maximum amount.
- *
+ * 
  *   Shift+R: Recover All:
  *   - For Play Test only!
  *   - During battle, pressing SHIFT + R will refill the whole party's HP
  *     and MP and status.
- *
+ * 
  *   Shift+T: Full TP
- *   - For Play Test only!
+ *   - For Play Test only! 
  *   - During battle, pressing SHIFT + T will refill the whole party's TP.
- *
+ * 
  * ---
  *
  * Digit Grouping
@@ -1764,7 +1854,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *   Gauge Sprites:
  *   - Make numbers like 1234567 appear like 1,234,567 for visible gauge
  *     sprites such as HP, MP, and TP gauges?
- *
+ * 
  *   Country/Locale
  *   - Base the digit grouping on which country/locale?
  *   - This will follow all of the digit grouping rules found here:
@@ -1794,28 +1884,28 @@ VisuMZ.CoreEngine.version = 1.85;
  *   - Recovers full HP or MP when an actor levels up.
  *
  * ---
- *
+ * 
  * Picture-Related
- *
+ * 
  *   Anti-Zoom Pictures:
  *   - If on, prevents pictures from being affected by zoom.
- *
+ * 
  *   Picture Containers > Detach in Battle:
  *   - If detached, picture container will be separated from the spriteset
  *     while on the battle scene.
  *   - This will prevent any visual effects that alter the entire spriteset
  *     from affecting the detached picture container.
- *
+ * 
  *   Picture Containers > Detach in Map:
  *   - If detached, picture container will be separated from the spriteset
  *     while on the map scene.
  *   - This will prevent any visual effects that alter the entire spriteset
  *     from affecting the detached picture container.
- *
+ * 
  * ---
  *
  * Misc
- *
+ * 
  *   Animation: Mirror Offset X:
  *   - When animations are mirrored, mirror their Offset X values, too.
  *   - The animation name tags <Mirror Offset X> and <No Mirror Offset X> will
@@ -1826,7 +1916,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *
  *   Font Smoothing:
  *   - If on, smoothes fonts shown in-game.
- *
+ * 
  *   Font Width Fix:
  *   - Fixes the font width issue with instant display non-monospaced fonts
  *     in the Message Window.
@@ -1834,7 +1924,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *   Key Item Protection:
  *   - If on, prevents Key Items from being able to be sold and from being
  *     able to be consumed.
- *
+ * 
  *   Map Name Text Code:
  *   - If on, map names will use text codes.
  *   - If off, only the raw map name will be used.
@@ -1851,7 +1941,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *   - Default: 4.
  *   - Lower for faster.
  *   - Higher for slower.
- *
+ * 
  *   NewGame > CommonEvent:
  *   - Runs a common event each time a new game during any session is started.
  *   - Applies to all types of sessions, play test or not.
@@ -1865,12 +1955,12 @@ VisuMZ.CoreEngine.version = 1.85;
  *   Require Focus?
  *   - Requires the game to be focused? If the game isn't focused, it will
  *     pause if it's not the active window.
- *
+ * 
  *   Shortcut Scripts:
  *   - Enables shortcut-based script variables and functions that can be used
  *     for script calls.
  *   - Shortcut list enabled for this is as follows:
- *
+ * 
  *     $commonEvent(id)
  *     - Queues a common event.
  *     - This does not interrupt the current event to run the desired common
@@ -1878,7 +1968,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *       has finished.
  *     - Replace 'id' with the ID of the common event you wish to queue.
  *     - Common events only run in the map scene and battle scene.
- *
+ * 
  *     $onceParallel(id)
  *     - Runs a common event in the background as a once parallel event.
  *     - Once parallel events will run in the background like a parallel
@@ -1886,30 +1976,32 @@ VisuMZ.CoreEngine.version = 1.85;
  *     - Replace 'id' with the ID of the common event you wish to run.
  *     - Only works in the map scene and battle scene. Battle scene usage will
  *       require VisuMZ_1_BattleCore.
- *
+ * 
  *     $scene
  *     - Returns current scene.
- *
+ * 
  *     $spriteset
  *     - Returns current scene's spriteset if there is one.
- *
+ * 
  *     $subject
  *     - Returns last recorded identity of the battle's subject/user.
- *
+ * 
  *     $targets
  *     - Returns last recorded targets marked in battle.
- *
+ * 
  *     $target
  *     - Returns last recorded target marked in battle.
+ *     - If multiple targets are recorded, then the first of the recorded
+ *       targets will be set for this variable.
  *     - Works better with VisuMZ_1_BattleCore.
- *
+ * 
  *     $event
  *     - Returns currently initiated map event.
  *
  *   Smart Event Collision:
  *   - Makes events only able to collide with one another if they're
  *    'Same as characters' priority.
- *
+ * 
  *   Subfolder Name Purge:
  *   - Purge subfolder name from Plugin Parameters when reading data to let
  *     Plugin Commands work properly.
@@ -1922,26 +2014,26 @@ VisuMZ.CoreEngine.version = 1.85;
  * ============================================================================
  * Plugin Parameters: Battle System
  * ============================================================================
- *
+ * 
  * Choose which battle system to use for your game.
- *
+ * 
  * Some battle systems REQUIRE their specific plugins! This means if you do not
  * have the required battle system plugin installed, it will not change over.
  * The Core Engine plugin does not contain data for all of the battle systems
  * inside its code.
- *
+ * 
  * ---
- *
+ * 
  *   Database Default (Use game database setting)
- *
+ * 
  *   -
- *
+ * 
  *   DTB: Default Turn Battle
  *   TPB Active: Time Progress Battle (Active)
  *   TPB Wait: Time Progress Battle (Wait)
- *
+ * 
  *   -
- *
+ * 
  *   BTB: Brave Turn Battle (Req VisuMZ_2_BattleSystemBTB)
  *   CTB: Charge Turn Battle (Req VisuMZ_2_BattleSystemCTB)
  *   ETB: Energy Turn Battle (Req VisuMZ_2_BattleSystemETB)
@@ -1949,9 +2041,9 @@ VisuMZ.CoreEngine.version = 1.85;
  *   OTB: Order Turn Battle (Req VisuMZ_2_BattleSystemOTB)
  *   PTB: Press Turn Battle (Req VisuMZ_2_BattleSystemPTB)
  *   STB: Standard Turn Battle (Req VisuMZ_2_BattleSystemSTB)
- *
+ * 
  *   -
- *
+ * 
  * ---
  *
  * ============================================================================
@@ -1962,7 +2054,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * colors appear for what conditions found in the game. You can use regular
  * numbers to use the colors predetermined by the game's Window Skin or you
  * can use the #rrggbb format for a hex color code.
- *
+ * 
  * If the game's Window Skin is changed mid-game, the colors used will still be
  * based off the default Window Skin's colors. This is due to storing them in a
  * cache and preventing extra processing and reduces lag.
@@ -2003,7 +2095,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * - Replace 'green' with a number between 0-255 (integer).
  * - Replace 'blue' with a number between 0-255 (integer).
  * - Replace 'alpha' with a number between 0 and 1 (decimal).
- *
+ * 
  *   Window Font Outline:
  *   Gauge Number Outline:
  *   Dim Color:
@@ -2017,7 +2109,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * - These require a bit of JavaScript knowledge. These determine what colors
  *   to use under which situations and uses such as different values of HP, MP,
  *   TP, for comparing equipment, and determine damage popup colors.
- *
+ * 
  *   JS: Actor HP Color:
  *   JS: Actor MP Color:
  *   JS: Actor TP Color:
@@ -2100,46 +2192,46 @@ VisuMZ.CoreEngine.version = 1.85;
  * settings have only been tested on English keyboards and may or may not be
  * compatible with other languages, so please disable these features if they do
  * not fit in with your game.
- *
+ * 
  * If a controller is connected upon entering the name change scene, it will
  * use the default manual-entry mode instead of the keyboard-entry mode. If a
  * controller button is pressed during the keyboard-entry mode, it will
  * automatically switch to the manual-entry mode.
- *
+ * 
  * This plugin does not provide support for controllers that are undetected by
  * RPG Maker MZ's default controller support.
  *
  * ---
- *
+ * 
  * Controls
- *
+ * 
  *   WASD Movement:
  *   - Enables or disables WASD movement for your game project.
  *   - Moves the W page down button to E.
- *
+ * 
  *   R Button: Dash Toggle:
  *   - Enables or disables R button as an Always Dash option toggle.
- *
+ * 
  * ---
  *
  * Name Input
- *
+ * 
  *   Enable?:
  *   - Enables keyboard input for name entry.
  *   - Only tested with English keyboards.
- *
+ * 
  *   Default Mode:
  *   - Select default mode when entering the scene.
  *     - Default - Uses Arrow Keys to select letters.
  *     - Keyboard - Uses Keyboard to type in letters.
- *
+ * 
  *   QWERTY Layout:
  *   - Uses the QWERTY layout for manual entry.
- *
+ * 
  *   Keyboard Message:
  *   - The message displayed when allowing keyboard entry.
  *   - You may use text codes here.
- *
+ * 
  *   Banned Words:
  *   - Players cannot use these words for names.
  *   - These include words inside the names.
@@ -2148,27 +2240,27 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Number Input
- *
+ * 
  *   Enable?:
  *   - Enables keyboard input for number entry.
  *   - Only tested with English keyboards.
  *
  * ---
- *
+ * 
  * Button Assist
- *
+ * 
  *   Finish Entry:
  *   - Text used to describe finish entry.
- *
+ * 
  *   Page Change:
  *   - Text used to describe character page changing.
- *
+ * 
  *   Switch to Keyboard:
  *   - Text used to describe the keyboard switch.
- *
+ * 
  *   Switch To Manual:
  *   - Text used to describe the manual entry switch.
- *
+ * 
  * ---
  *
  * ============================================================================
@@ -2185,7 +2277,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Menu Background Settings:
- *
+ * 
  *   Blur Strength:
  *   - Strength used for menu background snapshots.
  *   - Default: 8. Higher is stronger. Lower is weaker.
@@ -2235,34 +2327,41 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * General
- *
+ * 
  *   Enable:
  *   - Enable the Menu Button Assist Window.
- *
+ * 
  *   Location:
  *   - Determine the location of the Button Assist Window.
  *   - Requires Plugin Parameters => UI => Side Buttons ON.
  *
  *   Background Type:
  *   - Select background type for this window.
- *
+ * 
  *   Split "Escape":
  *   - Used ONLY for those making their own custom keyboard key input maps.
+ *     - This means you need to go to your own project's rmmz_core.js and
+ *       modify Input.keyMapper to have buttons with "cancel" and "menu"
+ *       instead of only "escape".
+ *     - If there are none found, an error message will appear telling you to
+ *       do so, or set the 'Split "Escape"' option to false.
+ *     - If you are using Options Core's Rebind Keyboard option, be sure to
+ *       have those have "cancel" and "menu" options inside there, too.
  *   - "Split" option makes separate instances of "Cancel" and "Menu" keys.
  *   - "Don't" option will consolidate both into "Escape" keys.
  *
  * ---
  *
  * Text
- *
+ * 
  *   Text Format:
  *   - Format on how the buttons are displayed.
  *   - Text codes allowed. %1 - Key, %2 - Text
- *
+ * 
  *   Multi-Key Format:
  *   - Format for actions with multiple keys.
  *   - Text codes allowed. %1 - Key 1, %2 - Key 2
- *
+ * 
  *   OK Text:
  *   Cancel Text:
  *   Switch Actor Text:
@@ -2271,11 +2370,11 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Keys
- *
+ * 
  *   Key: Unlisted Format:
  *   - If a key is not listed below, use this format.
  *   - Text codes allowed. %1 - Key
- *
+ * 
  *   Key: Up:
  *   Key: Down:
  *   Key: Left:
@@ -2295,23 +2394,23 @@ VisuMZ.CoreEngine.version = 1.85;
  * These are sub-settings for the Button Assist Window Plugin Parameters. Where
  * the Button Assist Window Plugin Parameters are focused on keyboard entries,
  * these sections are focused on gamepad controllers.
- *
+ * 
  * Add multiple gamepads to the list to give them different button assist text.
  * If a gamepad is being used but not listed here, the button assist text will
  * default to the keyboard version.
- *
+ * 
  * For those looking for more information regarding controllers, visit this
  * site: https://gamepad-tester.com/
  *
  * ---
  *
  * ID Information
- *
+ * 
  *   Controller ID Name:
  *   - Exact string used for this controller ID.
  *   - Plugin Command "Debug: Current Controller ID" for ID help.
  *   - Example: Xbox 360 Controller (XInput STANDARD GAMEPAD)
- *
+ * 
  *   Similarity Match:
  *   - Partial string used to check for controller ID.
  *   - Plugin Command "Debug: Current Controller ID" for ID help.
@@ -2321,7 +2420,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Directions
- *
+ * 
  *   Up:
  *   Left:
  *   Right:
@@ -2332,7 +2431,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Actions
- *
+ * 
  *   OK:
  *   Cancel:
  *   Menu:
@@ -2401,19 +2500,19 @@ VisuMZ.CoreEngine.version = 1.85;
  *
  *   Subtitle:
  *   - Subtitle to be displayed under the title name.
- *
+ *   
  *   Version:
  *   - Version to be display in the title screen corner.
- *
+ *   
  *   JS: Draw Title:
  *   - Code used to draw the game title.
- *
+ *   
  *   JS: Draw Subtitle:
  *   - Code used to draw the game subtitle.
- *
+ *   
  *   JS: Draw Version:
  *   - Code used to draw the game version.
- *
+ *   
  *   Button Fade Speed:
  *   - Speed at which the buttons fade in at (1-255).
  *
@@ -2421,7 +2520,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *
  * Scene_GameEnd Settings
  * - The following are settings unique to Scene_GameEnd.
- *
+ *   
  *   Command Window List:
  *   - Window commands used by the title screen.
  *   - Add new commands here.
@@ -2433,31 +2532,31 @@ VisuMZ.CoreEngine.version = 1.85;
  *
  *   Symbol:
  *   - The symbol used for this command.
- *
+ * 
  *   STR: Text:
  *   - Displayed text used for this title command.
  *   - If this has a value, ignore the JS: Text version.
- *
+ * 
  *   JS: Text:
  *   - JavaScript code used to determine string used for the displayed name.
- *
+ * 
  *   JS: Show:
  *   - JavaScript code used to determine if the item is shown or not.
- *
+ * 
  *   JS: Enable:
  *   - JavaScript code used to determine if the item is enabled or not.
- *
+ * 
  *   JS: Ext:
  *   - JavaScript code used to determine any ext data that should be added.
- *
+ * 
  *   JS: Run Code:
  *   - JavaScript code that runs once this command is selected.
- *
+ * 
  * ---
  *
  * Title Picture Buttons:
  * - This is found under Scene_Title settings.
- *
+ * 
  *   Picture's Filename:
  *   - Filename used for the picture.
  *
@@ -2561,10 +2660,14 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Basic Parameters
- *
+ * 
  *   Show Actor Level?:
  *   - Show the actor level when displaying actors?
  *   - Affects for most windows in-game.
+ * 
+ *   Convert JS To Base?:
+ *   - Automatically convert <JS param Plus/Rate/Flat: code> to use base
+ *     parameters to prevent infinite loops.
  *
  *   HP Crisis Rate:
  *   - HP Ratio at which a battler can be considered in crisis mode.
@@ -2768,7 +2871,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Icons
- *
+ * 
  *   Draw Icons?
  *   - Draw icons next to parameter names?
  *
@@ -2788,7 +2891,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * have variable functionality depending on how you code it. More importantly,
  * these are compatible with the VisuStella MZ menus and the VisuStella Core
  * Engine's Parameters settings.
- *
+ * 
  * For clarification, these settings do NOT create brand-new parameters for you
  * to use and add to your game nor are the bonuses supported by other plugins
  * in the VisuStella MZ library. These settings exist to function as a bridge
@@ -2798,71 +2901,71 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Custom Parameter
- *
+ * 
  *   Parameter Name:
  *   - What's the parameter's name?
  *   - Used for VisuStella MZ menus.
- *
+ * 
  *   Abbreviation:
  *   - What abbreviation do you want to use for the parameter?
  *   - Do not use special characters. Avoid numbers if possible.
- *
+ * 
  *   Icon:
  *   - What icon do you want to use to represent this parameter?
  *   - Used for VisuStella MZ menus.
- *
+ * 
  *   Type:
  *   - What kind of number value will be returned with this parameter?
  *     - Integer (Whole Numbers Only)
  *     - Float (Decimals are Allowed)
- *
+ * 
  *   JS: Value:
  *   - Run this code when this parameter is to be returned.
  *
  * ---
- *
+ * 
  * Instructions on Adding Custom Parameters to VisuStella Menus
- *
+ * 
  * In the Core Engine and Elements and Status Menu Core plugins, there are
  * plugin parameter fields for you to insert the parameters you want displayed
  * and visible to the player.
- *
+ * 
  * Insert in those the abbreviation of the custom parameter. For example, if
  * you want to add the "Strength" custom parameter and the abbreviation is
  * "str", then add "str" to the Core Engine/Elements and Status Menu Core's
  * plugin parameter field for "Strength" to appear in-game. Case does not
  * matter here so you can insert "str" or "STR" and it will register all the
  * same to make them appear in-game.
- *
+ * 
  * ---
- *
+ * 
  * Instructions on Using Custom Parameters as Mechanics
- *
+ * 
  * If you want to use a custom parameter in, say, a damage formula, refer to
  * the abbreviation you have set for the custom parameter. For example, if you
  * want to call upon the "Strength" custom parameter's value and its set
  * abbreviation is "str", then refer to it as such. This is case sensitive.
- *
+ * 
  * An example damage formula would be something like the following if using
  * "str" for "Strength" and "con" for "Constitution":
- *
+ * 
  *   a.str - b.con
- *
+ * 
  * These values are attached to the Game_Battlerbase prototype class.
- *
+ * 
  * ---
- *
+ * 
  * Instructions on Setting Custom Parameter Values
- *
+ * 
  * This requires JavaScript knowledge. There is no way around it. Whatever code
  * you insert into the "JS: Value" field will return the value desired. The
  * 'user' variable will refer to the Game_Battlerbase prototype object in which
  * the information is to be drawn from.
- *
+ * 
  * Depending on the "type" you've set for the Custom Parameter, the returned
  * value will be rounded using Math.round for integers and left alone if set as
  * a float number.
- *
+ * 
  * ---
  *
  * ============================================================================
@@ -2875,9 +2978,9 @@ VisuMZ.CoreEngine.version = 1.85;
  * the System 2 Database tab.
  *
  * ---
- *
+ * 
  * Maps
- *
+ * 
  *   Scroll Lock Small X?:
  *   Scroll Lock Small Y?:
  *   - Automatically scroll lock X/Y scrolling if the map is too small?
@@ -2885,16 +2988,16 @@ VisuMZ.CoreEngine.version = 1.85;
  *     - This will get rid of the subtle scrolling when moving from one half of
  *       the screen to the other.
  *   - This setting will be disabled if the map is zoomed in.
- *
+ * 
  *   Locked Display X?:
  *   Locked Display Y?:
  *   - What display X/Y value do you want for auto-scroll locked maps?
  *   - Use a number between 0 and 1 for best results.
- *
+ * 
  * ---
  *
  * Troops
- *
+ * 
  *   Reposition Actors:
  *   - Update the position of actors in battle if the screen resolution
  *     has changed to become larger than 816x624.
@@ -2905,7 +3008,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *   Reposition Enemies:
  *   - Update the position of enemies in battle if the screen resolution
  *     has changed to become larger than 816x624.
- *
+ * 
  *     For MZ 1.3.0+?:
  *     - Both this parameter and its parent parameter need to be on when using
  *       RPG Maker MZ 1.3.0+.
@@ -2920,20 +3023,20 @@ VisuMZ.CoreEngine.version = 1.85;
  * ============================================================================
  *
  * Get more screen shake effects into your game!
- *
+ * 
  * These effects have been added by Aries of Sheratan!
  *
  * ---
  *
  * Settings
- *
+ * 
  *   Default Style:
  *   - The default style used for screen shakes.
  *   - Original
  *   - Random
  *   - Horizontal
  *   - Vertical
- *
+ * 
  *   JS: Original Style:
  *   JS: Random Style
  *   JS: Horizontal Style
@@ -2953,26 +3056,26 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Title Command
- *
+ * 
  *   Symbol:
  *   - The symbol used for this command.
- *
+ * 
  *   STR: Text:
  *   - Displayed text used for this title command.
  *   - If this has a value, ignore the JS: Text version.
- *
+ * 
  *   JS: Text:
  *   - JavaScript code used to determine string used for the displayed name.
- *
+ * 
  *   JS: Show:
  *   - JavaScript code used to determine if the item is shown or not.
- *
+ * 
  *   JS: Enable:
  *   - JavaScript code used to determine if the item is enabled or not.
- *
+ * 
  *   JS: Ext:
  *   - JavaScript code used to determine any ext data that should be added.
- *
+ * 
  *   JS: Run Code:
  *   - JavaScript code that runs once this command is selected.
  *
@@ -2988,19 +3091,19 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Settings
- *
+ * 
  *   Picture's Filename:
  *   - Filename used for the picture.
- *
+ * 
  *   Button URL:
  *   - URL for the button to go to upon being clicked.
- *
+ * 
  *   JS: Position:
  *   - JavaScript code that helps determine the button's Position.
- *
+ * 
  *   JS: On Load:
  *   - JavaScript code that runs once this button bitmap is loaded.
- *
+ * 
  *   JS: Run Code:
  *   - JavaScript code that runs once this button is pressed.
  *
@@ -3036,7 +3139,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *
  *   Show Buttons:
  *   - Show clickable buttons in your game?
- *
+ * 
  *     Show Cancel Button:
  *     Show Menu Button:
  *     Show Page Up/Down:
@@ -3052,7 +3155,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *
  *   Side Buttons:
  *   - Push buttons to the side of the UI if there is room.
- *
+ * 
  *   State Icons Non-Frame:
  *   - Replace sprite frame system for non-frame.
  *   - Better for any instances where icons are zoomed.
@@ -3090,7 +3193,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * Adjust the default settings of the windows in-game. This ranges from things
  * such as the line height (to better fit your font size) to the opacity level
  * (to fit your window skins).
- *
+ * 
  * These settings also allow you to add scroll bars to scrollable windows,
  * letting the player know how much of the window's contents there are left for
  * scrolling. The scroll bar can be enabled, disabled, have its thickness
@@ -3099,131 +3202,131 @@ VisuMZ.CoreEngine.version = 1.85;
  * ---
  *
  * Window Defaults
- *
+ * 
  *   Enable Masking:
  *   - Enable window masking (windows hide other windows behind them)?
  *   - WARNING: Turning it on can obscure data.
- *
+ * 
  *   Correct Skin Bleed:
  *   - Allows you to enable/disable the window skin bleeding correction for
  *     those who wish to use the 95 calculator instead of 96 to augment higher
  *     and larger screen resolutions.
  *   - Read the "Bug Fixes" section if you don't understand what the window
  *     skin bleeding problem is.
- *
+ * 
  *   Line Height:
  *   - Default line height used for standard windows.
  *   - Avoid using odd numbers.
  *   - Visuals in RPG Maker and general game dev don't work well with odd
  *     numbers so avoid them unless you want your game's visuals to behave
  *     inconsistently.
- *
+ * 
  *   Item Padding:
  *   - Default line padding used for standard windows.
  *   - Avoid using odd numbers.
  *   - Visuals in RPG Maker and general game dev don't work well with odd
  *     numbers so avoid them unless you want your game's visuals to behave
  *     inconsistently.
- *
+ * 
  *   Back Opacity:
  *   - Default back opacity used for standard windows.
  *   - As of version 1.3.0, this is no longer needed.
  *   - This will still work for lower versions.
- *
+ * 
  *   Translucent Opacity:
  *   - Default translucent opacity used for standard windows.
- *
+ * 
  *   Window Opening Speed:
  *   - Default open speed used for standard windows.
  *   - Default: 32 (Use a number between 0-255)
- *
+ * 
  *   Column Spacing:
  *   - Default column spacing for selectable windows.
  *   - Default: 8
- *
+ * 
  *   Row Spacing:
  *   - Default row spacing for selectable windows.
  *   - Default: 4
  *
  * ---
- *
+ * 
  * Scroll Bar
- *
+ * 
  *   Show Scroll Bar?:
  *   - Show the scroll bar for scrollable windows?
- *
+ * 
  *   Thickness:
  *   - How thick do you want the scroll bar to be?
- *
+ * 
  *   Offset:
  *   - How much do you want to offset the scroll bar by?
- *
+ * 
  *   Bar Body Color:
  *   - Use #rrggbb for custom colors or regular numbers for text colors from
  *     the Window Skin.
- *
+ * 
  *   Off Bar Color:
  *   - Use #rrggbb for custom colors or regular numbers for text colors from
  *     the Window Skin.
- *
+ * 
  *   Off Bar Opacity:
  *   - What opacity value do you want the off bar opacity to be?
  *   - Use a number between 0 and 255.
- *
+ * 
  * ---
- *
+ * 
  * Selectable Items:
- *
+ * 
  *   Show Background?:
  *   - Selectable menu items have dark boxes behind them. Show them?
- *
+ * 
  *   Item Height Padding:
  *   - Default padding for selectable items.
  *   - Avoid using odd numbers.
  *   - Visuals in RPG Maker and general game dev don't work well with odd
  *     numbers so avoid them unless you want your game's visuals to behave
  *     inconsistently.
- *
+ * 
  *   JS: Draw Background:
  *   - Code used to draw the background rectangle behind clickable menu objects
- *
+ * 
  * ---
  *
  * ============================================================================
  * Plugin Parameters: JS: Quick Functions
  * ============================================================================
- *
+ * 
  * WARNING: This feature is highly experimental! Use it at your own risk!
- *
+ * 
  * JavaScript Quick Functions allow you to quickly declare functions in the
  * global namespace for ease of access. It's so that these functions can be
  * used in Script Calls, Control Variable Script Inputs, Conditional Branch
  * Script Inputs, Damage Formulas, and more.
- *
+ * 
  * ---
- *
+ * 
  * JS: Quick Function
- *
+ * 
  *   Function Name:
  *   - The function's name in the global namespace.
  *   - Will not overwrite functions/variables of the same name.
- *
+ * 
  *   JS: Code:
  *   - Run this code when using the function.
- *
+ * 
  * ---
- *
+ * 
  * If you have a Function Name of "Example", then typing "Example()" in a
  * Script Call, Conditional Branch Script Input, or similar field will yield
  * whatever the code is instructed to return.
- *
+ * 
  * If a function or variable of a similar name already exists in the global
  * namespace, then the quick function will be ignored and not created.
- *
+ * 
  * If a quick function contains bad code that would otherwise crash the game,
  * a fail safe has been implemented to prevent it from doing so, display an
  * error log, and then return a 0 value.
- *
+ * 
  * ---
  *
  * ============================================================================
@@ -3234,18 +3337,18 @@ VisuMZ.CoreEngine.version = 1.85;
  * have been acquired through legitimate means at VisuStella.com and/or any
  * other official approved VisuStella sources. Exceptions and special
  * circumstances that may prohibit usage will be listed on VisuStella.com.
- *
+ * 
  * 2. All of the listed coders found in the Credits section of this plugin must
  * be given credit in your games or credited as a collective under the name:
  * "VisuStella".
- *
+ * 
  * 3. You may edit the source code to suit your needs, so long as you do not
  * claim the source code belongs to you. VisuStella also does not take
  * responsibility for the plugin if any changes have been made to the plugin's
  * code, nor does VisuStella take responsibility for user-provided custom code
  * used for custom control effects including advanced JavaScript notetags
  * and/or plugin parameters that allow custom JavaScript code.
- *
+ * 
  * 4. You may NOT redistribute these plugins nor take code from this plugin to
  * use as your own. These plugins and their code are only to be downloaded from
  * VisuStella.com and other official/approved VisuStella sources. A list of
@@ -3269,7 +3372,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ============================================================================
  * Credits
  * ============================================================================
- *
+ * 
  * If you are using this plugin, credit the following people in your game:
  *
  * Team VisuStella
@@ -3281,11 +3384,73 @@ VisuMZ.CoreEngine.version = 1.85;
  * ============================================================================
  * Changelog
  * ============================================================================
- *
+ * 
+ * Version 1.90: February 16, 2026
+ * * Feature Update!
+ * ** Battle System settings for "TPB Active" and "TPB Wait" will no longer
+ *    conflict with VisuMZ_2_BattleSystemATB and VisuMZ_1_OptionsCore "Active"
+ *    or "Wait" mode options set by the player.
+ * 
+ * Version 1.89: December 15, 2025
+ * * Feature Update!
+ * ** Added extra failsafes to ensure TPB Charge Time does not become NaN or
+ *    an illegal value. Update made by Arisu.
+ * 
+ * Version 1.88: September 18, 2025
+ * * Documentation Update!
+ * ** Extra notes for <JS param Plus/Rate/Flat: code> notetags
+ * *** Use 'user' to refer to the currently equipping actor.
+ * *** If you use code to refer to an actor's other stats like 'atk' and 'def',
+ *     there is the potential to cause an infinite loop.
+ * *** Use 'user.paramBase(x)' instead of 'user.atk', 'user.def', etc.
+ * *** Plugin Parameter setting Parameters > "Convert JS To Base?" will
+ *     automatically convert any instances of 'user.mhp', 'user.mmp',
+ *     'user.atk', etc. to their base parameters.
+ * *** Turn this off if you do not want it.
+ * *** You are responsible for any infinite loops this may cause.
+ * * Feature Update!
+ * ** <JS param Plus/Rate/Flat: code> now support 'user' as a variable.
+ * * New Features!
+ * ** New Plugin Parameter added by Arisu:
+ * *** Plugin Parameters > Parameters > Convert JS To Base?
+ * **** Automatically convert <JS param Plus/Rate/Flat: code> to use base
+ *      parameters to prevent infinite loops.
+ * 
+ * Version 1.87: February 20, 2025
+ * * Compatibility Update!
+ * ** Updated for RPG Maker MZ Core Scripts 1.9.0!
+ * *** Removed picture limit of 100 from Picture-related Plugin Commands.
+ * *** Better compatibility with different icon sizes.
+ * * Documentation Update!
+ * ** Under Plugin Parameters: Menu Button Assist Window
+ * *** Added text segments under Split "Escape"
+ * **** This means you need to go to your own project's rmmz_core.js and
+ *      modify Input.keyMapper to have buttons with "cancel" and "menu"
+ *      instead of only "escape".
+ * **** If there are none found, an error message will appear telling you to
+ *      do so, or set the 'Split "Escape"' option to false.
+ * **** If you are using Options Core's Rebind Keyboard option, be sure to
+ *      have those have "cancel" and "menu" options inside there, too.
+ * * Feature Update!
+ * ** Plugin Parameters > Button Assist > Split "Escape" will now show an error
+ *    message if a custom Input.keyMapper is not found with the "cancel" and
+ *    "menu" keys implemented. Update made by Irina.
+ * ** Updated Plugin Parameters > Button Assist > Split "Escape" description
+ *    for Plugin Parameters to add in the following text: Requires custom
+ *    Input.keyMapper with "cancel" and "menu".
+ * ** Added better compatibility with WASD controls as to prioritize showing
+ *    the arrow keys rather than the W, A, S, D keys. Also applies to any other
+ *    rebindings.
+ * 
+ * Version 1.86: January 16, 2025
+ * * Bug Fixes!
+ * ** Fixed an issue where certain icons were not aligning properly at
+ *    different line height settings. Fix made by Olivia.
+ * 
  * Version 1.85: October 17, 2024
  * * Feature Updates!
  * ** Updated to fit RPG Maker MZ's updated 1.8.1 version better.
- *
+ * 
  * Version 1.84: August 29, 2024
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3305,7 +3470,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * **** This does not work with events using tiles as graphics. Instead, if
  *      you want to do similar, use the Event & Movement Core's <Tile Expand>
  *      notetags for better control.
- *
+ * 
  * Version 1.83: June 13, 2024
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3316,7 +3481,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** Plugin Parameters > UI Settings > State Icons Non-Frame
  * **** Replace sprite frame system for non-frame.
  * **** Better for any instances where icons are zoomed.
- *
+ * 
  * Version 1.82: April 18, 2024
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3330,7 +3495,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * **** Does not count auto saves.
  * * Optimization Update!
  * ** Plugin should run more optimized.
- *
+ * 
  * Version 1.81: February 15, 2024
  * * Compatibility Update!
  * ** Added compatibility functionality for future plugins.
@@ -3349,7 +3514,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *      and larger screen resolutions.
  * **** Read the "Bug Fixes" section if you don't understand what the window
  *      skin bleeding problem is.
- *
+ * 
  * Version 1.80: January 18, 2024
  * * Bug Fixes!
  * ** RPG Maker MZ Bug Fix!
@@ -3360,7 +3525,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *      screen, then start a New Game, the auto save trigger occurs when it
  *      shouldn't. The Core Engine will now patch this and prevent the trigger
  *      from taking place.
- *
+ * 
  * Version 1.79: November 16, 2023
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3369,7 +3534,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** Adds text to a text popup window to briefly appear.
  * *** Multiple text popups will be queued.
  * *** Does not halt the game and works parallel to game activity.
- *
+ * 
  * Version 1.78: October 12, 2023
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3381,7 +3546,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** QoL Settings > Battle Test > Shift+T: Full TP
  * **** For Play Test only! During battle, pressing SHIFT + T will refill the
  *      whole party's TP.
- *
+ * 
  * Version 1.77: August 17, 2023
  * * Bug Fixes!
  * ** Fixed a bug that would cause the BGS related Plugin Commands to crash.
@@ -3406,12 +3571,12 @@ VisuMZ.CoreEngine.version = 1.85;
  * **** Used ONLY for those making their own custom keyboard key input maps.
  * **** "Split" option makes separate instances of "Cancel" and "Menu" keys.
  * **** "Don't" option will consolidate both into "Escape" keys.
- *
+ * 
  * Version 1.76: June 15, 2023
  * * Bug Fixes!
  * ** Fixed a bug that displayed the incorrect button press key for name input
  *    processing's cancel action. Fix made by Olivia.
- *
+ * 
  * Version 1.75: March 16, 2023
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3432,17 +3597,17 @@ VisuMZ.CoreEngine.version = 1.85;
  *      letting the player know how much of the window's contents there are
  *      left for scrolling. The scroll bar can be enabled, disabled, have its
  *      thickness changed, colors changed, etc.
- *
+ * 
  * Version 1.74: February 16, 2023
  * * Compatibility Update!
  * ** Plugin Commands for: Audio: Change Current BGM/BGS Volume/Pitch/Pan
  *    should now work properly with the updated RPG Maker MZ version and
  *    WebAudio changes. Update made by Arisu.
- *
+ * 
  * Version 1.73: January 20, 2023
  * * Compatibility Update!
  * ** Added better Effekseer version compatibility.
- *
+ * 
  * Version 1.72: December 15, 2022
  * * Bug Fixes!
  * ** RPG Maker MZ Bug Fix!
@@ -3490,14 +3655,14 @@ VisuMZ.CoreEngine.version = 1.85;
  * ** New Plugin Parameter added by Irina:
  * *** Plugin Parameters > Menu Backgrounds > Blur Strength
  * **** Strength used for menu background snapshots.
- *
+ * 
  * Version 1.71: November 10, 2022
  * * Bug Fixes!
  * ** Title Command Window should now allow for more than 4 custom commands
  *    without hidden commands. Fix made by Irina.
  * ** Fixed a problem with repeating animations from Visual State Effects
  *    causing softlocks. Fix made by Olivia.
- *
+ * 
  * Version 1.70: October 6, 2022
  * * Bug Fixes!
  * ** RPG Maker MZ Bug Fix!
@@ -3512,12 +3677,12 @@ VisuMZ.CoreEngine.version = 1.85;
  *    Changes: Bug Fixes" section.
  * * Optimization Update!
  * ** Plugin should run more optimized.
- *
+ * 
  * Version 1.69: September 8, 2022
  * * Bug Fixes!
  * ** Fixed the combination of Button Assist Location: Top with Help Location:
  *    Bottom combination not working properly. Fix made by Irina.
- *
+ * 
  * Version 1.68: August 4, 2022
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3531,7 +3696,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** Audio: Change Current BGS Pan
  * **** Changes the current BGM/BGS volume/pitch/pan without changing any of
  *      the current BGM/BGS's other properties and without restarting BGM/BGS.
- *
+ * 
  * Version 1.67: July 28, 2022
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3566,7 +3731,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** Visuals in RPG Maker and general game dev don't work well with odd
  *     numbers so avoid them unless you want your game's visuals to behave
  *     inconsistently.
- *
+ * 
  * Version 1.66: July 14, 2022
  * * Bug Fixes!
  * ** RPG Maker MZ Bug Fix!
@@ -3577,7 +3742,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *      now been reverted to the 1.4.4 version where it was last stable.
  * * Documentation Update!
  * ** Help file updated for new major bug fix.
- *
+ * 
  * Version 1.65: June 30, 2022
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3586,7 +3751,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** Plugin Parameters > Parameter Settings > Show Actor Level?
  * **** Show the actor level when displaying actors?
  * **** Used for most windows in-game.
- *
+ * 
  * Version 1.64: June 9, 2022
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3605,7 +3770,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * **** Add multiple gamepads to the list to give them different button assist
  *      text. If a gamepad is being used but not listed here, the button assist
  *      text will default to the keyboard version.
- *
+ * 
  * Version 1.63: May 2, 2022
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3617,7 +3782,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * * Feature Update!
  * ** The map name text code change will no longer be on forcefully. It is now
  *    something that can be toggled by Plugin Parameters. Update by Irina.
- *
+ * 
  * Version 1.62: April 28, 2022
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3632,7 +3797,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * **** Allows JS block code for variable ID and operand.
  * **** Functions like RM2k3's Variable Pointers.
  * ** Map names can now use text codes. Made by Arisu and sponsored by Archeia.
- *
+ * 
  * Version 1.61: April 21, 2022
  * * Bug Fixes!
  * ** RPG Maker MZ Bug Fix!
@@ -3642,27 +3807,27 @@ VisuMZ.CoreEngine.version = 1.85;
  *      However, if it just so happens that the targets are cleared, too, with
  *      actions remaining, then a crash will follow up. This plugin will
  *      prevent that change. Fix made by Olivia.
- *
+ * 
  * Version 1.60: April 14, 2022
  * * Bug Fixes!
  * ** Number Input window will now respond to Home/End keys properly.
  *    Fix made by Olivia.
- *
+ * 
  * Version 1.59: April 7, 2022
  * * Compatibility Update!
  * ** RPG Maker MZ 1.4.4 compatibility update!
  * *** "Shutdown" command should now be more compatible with other aspects of
  *     the client when running from Node JS client on other OS's.
- *
+ * 
  * Version 1.58: March 24, 2022
  * * Feature Update!
  * ** Plugin Commands now have separators for easier selection.
- *
+ * 
  * Version 1.57: March 3, 2022
  * * Compatibility Update!
  * ** The "Shutdown" command from the title screen should now be compatible
  *    with RPG Maker MZ 1.4.4 and up. Update made by Olivia.
- *
+ * 
  * Version 1.56: February 10, 2022
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3672,15 +3837,15 @@ VisuMZ.CoreEngine.version = 1.85;
  * **** Enables shortcut-based script variables and functions that can be used
  *      for script calls.
  * **** Shortcut list enabled for this is as follows:
- * ***** $commonEvent(id), $onceParallel(id), $scene, $spriteset, $subject,
+ * ***** $commonEvent(id), $onceParallel(id), $scene, $spriteset, $subject, 
  *       $targets, $target, $event
  * ***** For more information on how to use them, review the help file.
- *
+ * 
  * Version 1.55: January 27, 2022
  * * Feature Update!
  * ** Once Parallels for the map are now able to update even while other events
  *    are running. Update made by Arisu.
- *
+ * 
  * Version 1.54: January 13, 2022
  * * Bug Fixes!
  * ** RPG Maker MZ Bug Fix!
@@ -3697,7 +3862,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * * Feature Update!
  * ** Added a failsafe for those who did not update the plugin parameter
  *    settings and are using MV Animations.
- *
+ * 
  * Version 1.53: December 30, 2021
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3717,13 +3882,13 @@ VisuMZ.CoreEngine.version = 1.85;
  * **** Default: 4. Lower for faster. Higher for slower.
  * * Optimization Update!
  * ** MV Animations should run more optimized.
- *
+ * 
  * Version 1.52: December 16, 2021
  * * Compatibility Update!
  * ** RPG Maker MZ 1.4.0 compatibility update!
  * *** MV Animations played on screen level will now show up properly in the
  *     center of the screen.
- *
+ * 
  * Version 1.51: December 9, 2021
  * * Bug Fixes!
  * ** RPG Maker MZ Bug Fix!
@@ -3732,7 +3897,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *     way, causing letters like lowercase "Q" and "G" to be cut off, making
  *     them hard to distinguish from one another. The Core Engine will remedy
  *     this by extending the bitmap to allow enough room. Fix made by Irina.
- *
+ * 
  * Version 1.50: November 4, 2021
  * * Bug Fixes!
  * ** RPG Maker MZ Bug Fix!
@@ -3742,7 +3907,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *     attack ability is sealed. Fix made by Yanfly.
  * * Documentation Update!
  * ** Help file updated for new RPG Maker MZ bug fix.
- *
+ * 
  * Version 1.49: October 28, 2021
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3754,12 +3919,12 @@ VisuMZ.CoreEngine.version = 1.85;
  * **** When exiting map scene or changing maps, all Once Parallels are cleared
  * **** Once Parallels are not retained upon reentering the scene or map.
  * **** Once Parallels are not stored in memory and cannot be saved.
- *
+ * 
  * Version 1.48: October 21, 2021
  * * Feature Update!
  * ** Bitmap.blt function will now have source coordinates and destination X
  *    and Y coordinates rounded to prevent blurring. Update made by Olivia.
- *
+ * 
  * Version 1.47: October 14, 2021
  * * Bug Fixes!
  * ** Prevents Number Input window from having a NaN value due to holding down
@@ -3773,7 +3938,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** Plugin Parameters > QoL Settings > Misc > Font Width Fix
  * **** Fixes the font width issue with non-monospaced fonts in the Message
  *      Window. This is now an optional fix.
- *
+ * 
  * Version 1.46: September 23, 2021
  * * Documentation Update!
  * ** Added line to Plugin Command: "System: Battle System Change":
@@ -3783,7 +3948,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *     not have the required battle system plugin installed, it will not change
  *     over. The Core Engine plugin does not contain data for all of the battle
  *     systems inside its code.
- *
+ * 
  * Version 1.45: September 17, 2021
  * * Bug Fixes!
  * ** Fixed a problem with "Picture: Coordinates Mode" to properly utilize the
@@ -3806,7 +3971,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** Updated how gauges are drawn.
  * * Documentation Update!
  * ** Help file updated for new RPG Maker MZ bug fix.
- *
+ * 
  * Version 1.44: August 20, 2021
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3815,7 +3980,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** "Animation: Play at Coordinate"
  * **** Plays an animation on the screen at a specific x, y coordinate even if
  *      there is no sprite attached.
- *
+ * 
  * Version 1.43: July 23, 2021
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3827,14 +3992,14 @@ VisuMZ.CoreEngine.version = 1.85;
  *      screen.
  * **** Helpful for those who don't want to do guess work on the screen
  *      coordinates when it comes to placing down pictures.
- *
+ * 
  * Version 1.42: July 16, 2021
  * * Documentation Update
  * ** Added text to "Plugin Parameters: Color Settings" for clarification:
  * *** If the game's Window Skin is changed mid-game, the colors used will
  *     still be based off the default Window Skin's colors. This is due to
  *     storing them in a cache and preventing extra processing and reduces lag.
- *
+ * 
  * Version 1.41: July 2, 2021
  * * Compatibility Update
  * ** Further compatibility update with RPG Maker MZ 1.3.0+.
@@ -3842,7 +4007,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ** Added extra notes to "Important Changes: Bug Fixes" section for the
  *    "Window Skin Bleeding" bug:
  * *** This bug is fixed in the core scripts for RPG Maker MZ v1.3.0+.
- *
+ * 
  * Version 1.40: June 25, 2021
  * * Compatibility Update
  * ** Compatibility update with RPG Maker MZ 1.3.0+.
@@ -3865,7 +4030,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * **** If the Core Script is below 1.3.0, this setting is ignored. This does
  *      not take into account what version the editor is on. Pay attention to
  *      that as the plugin will not auto adjust for it.
- *
+ * 
  * Version 1.39: June 18, 2021
  * * Bug Fixes!
  * ** Number Inputs should now work with the controller if keyboard Number
@@ -3883,7 +4048,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ** <Battle View: x> Troop Name tags can now work with comment tags.
  * ** <Battle System: x> Troop Name tags can now work with comment tags.
  * *** Updates made by Irina.
- *
+ * 
  * Version 1.38: June 11, 2021
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3892,7 +4057,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** Picture: Show Icon
  * **** Shows an icon instead of a picture image.
  * **** The picture icon can be controlled like any other picture.
- *
+ * 
  * Version 1.37: May 21, 2021
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3904,7 +4069,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** Switches: Toggle Range
  * **** These Plugin Commands allow you to randomize the ON/OFF positions of
  *      switches or toggle them so that they flip their ON/OFF status.
- *
+ * 
  * Version 1.36: May 14, 2021
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3918,7 +4083,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *      extracting all messages, show choices, comments, and scrolling text to
  *      parse and export them as a TXT file. Useful for getting a game's script
  *      to a voice actor or voice actress.
- *
+ * 
  * Version 1.35: May 7, 2021
  * * Documentation Update!
  * ** Added the following text to "Parameter Settings" Plugin Parameters for
@@ -3926,7 +4091,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** These settings DO NOT raise the editor's maximum values. If you want to
  *     raise an enemy's maximum parameter value past their default cap, use the
  *     associated notetag for them instead.
- *
+ * 
  * Version 1.34: April 23, 2021
  * * Bug Fixes!
  * ** For the vanilla Equip Status window, custom parameters with integer
@@ -3935,7 +4100,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ** Added clarity to the <param: x> notetag for enemies.
  * *** This notetag does NOT work with X Parameters, S Parameters, or any
  *     custom parameters. This notetag ONLY works with the base parameters.
- *
+ * 
  * Version 1.33: April 9, 2021
  * * Bug Fixes!
  * ** RPG Maker MZ Bug: Window Skin Bleeding
@@ -3946,7 +4111,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * * Feature Update!
  * ** "Encounter Rate Minimum" now has a valid minimum value of 1. Update made
  *    by Olivia.
- *
+ * 
  * Version 1.32: April 2, 2021
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -3960,12 +4125,12 @@ VisuMZ.CoreEngine.version = 1.85;
  *      making it awkward for testing specific battle mechanics. These settings
  *      allow you to add in custom amounts of items, weapons, and/or armors if
  *      you so wish.
- *
+ * 
  * Version 1.31: March 26, 2021
  * * Feature Update!
  * ** Title screen buttons will now become fully opaque when hovered over them
  *    instead of only when pressed. Update made by Yanfly.
- *
+ * 
  * Version 1.30: March 19, 2021
  * * Bug Fixes!
  * ** RPG Maker MZ Bug: Invisible Battle Sprites
@@ -3986,7 +4151,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * **** If these text tags are placed in an animation's name, it will cause the
  *      offset X value to be mirrored when the animation is mirrored or have it
  *      ignored despite being mirrored.
- *
+ * 
  * Version 1.29: March 12, 2021
  * * Bug Fixes!
  * ** RPG Maker MZ Bug: Interactable window client area does not conform to the
@@ -4005,7 +4170,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *    by RPG Maker MZ's default controller support.
  * ** This feature was already implemented since version 1.27 but wasn't
  *    documented so here we are. Update made by Irina.
- *
+ * 
  * Version 1.28: March 5, 2021
  * * Bug Fixes!
  * ** RPG Maker MZ Bug: The arrows drawn by a window skin will no longer by
@@ -4013,7 +4178,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *    cause sprite tearing problems and look awful. Fix made by Irina.
  * * Documentation Update!
  * ** Added documentation for new RPG Maker MZ bug fixes!
- *
+ * 
  * Version 1.27: February 26, 2021
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -4023,7 +4188,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ** New Plugin Parameter added by Yanfly.
  * *** Plugin Parameters > Keyboard Input > Name Input > Banned Words
  * **** Insert words you don't want your players to use for character names.
- *
+ * 
  * Version 1.26: February 19, 2021
  * * Bug Fixes!
  * ** Certain Plugin Parameters no longer have settings that restrict them to
@@ -4031,7 +4196,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * * Feature Update!
  * ** Changed the default value for a New Game > Common Event upon Play Testing
  *    to 0 to prevent confusion. Update made by Arisu.
- *
+ * 
  * Version 1.25: February 5, 2021
  * * Documentation Update!
  * ** Help file updated for new features.
@@ -4051,7 +4216,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *     possible with less hassle and more lines to code with.
  * *** This effect does not occur if the Show Scrolling Text event command does
  *     not have "// Script Call" in its contents.
- *
+ * 
  * Version 1.24: January 29, 2021
  * * Documentation Update!
  * ** Plugin Parameters: Custom Parameters Settings added the following note:
@@ -4070,11 +4235,11 @@ VisuMZ.CoreEngine.version = 1.85;
  *     client deployed game versions.
  * ** Disabled some bug fixes made by the Core Engine for the default RMMZ code
  *    base since the 1.1.1 version now contains those very same fixes.
- *
+ * 
  * Version 1.23: January 22, 2021
  * * Optimization Update!
  * ** Plugin should run more optimized.
- *
+ * 
  * Version 1.22: January 15, 2021
  * * Documentation Update!
  * ** Added documentation for new RPG Maker MZ bug fixes!
@@ -4082,7 +4247,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ** RPG Maker MZ Bug: Sprite_Timer is added to the spriteset for the parent
  *    scene, making it affected by any filers, zooms, and/or blurs, hindering
  *    its readability.
- *
+ * 
  * Version 1.21: January 8, 2021
  * * Documentation Update!
  * ** Added documentation for new feature(s)!
@@ -4090,11 +4255,11 @@ VisuMZ.CoreEngine.version = 1.85;
  * ** New Plugin Parameters added by Arisu:
  * *** Plugin Parameters > Keyboard Input > Controls > WASD Movement
  * *** Plugin Parameters > Keyboard Input > Controls > R Button: Dash Toggle
- *
+ * 
  * Version 1.20: January 1, 2021
  * * Compatibility Update!
  * ** Added compatibility functionality for future plugins.
- *
+ * 
  * Version 1.19: December 25, 2020
  * * Documentation Update!
  * ** Added documentation for new feature(s) and feature updates!
@@ -4106,7 +4271,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * * New Features!
  * ** New Plugin Parameters added by Shaz!
  * *** Plugin Parameters > Color Settings > Gauge Number Outline
- *
+ * 
  * Version 1.18: December 18, 2020
  * * Bug Fixes!
  * ** Compatible string text from the Items and Equips Core will no longer
@@ -4131,11 +4296,11 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** Plugin Parameters > QoL Settings > Misc > NewGame > CommonEvent
  * **** For an all version (including non-play test) common event to start new
  *      games with.
- *
+ * 
  * Version 1.17: December 11, 2020
  * * Compatibility Update!
  * ** Added compatibility functionality for future plugins.
- *
+ * 
  * Version 1.16: December 4, 2020
  * * Compatibility Update!
  * ** Plugins should be more compatible with one another.
@@ -4148,7 +4313,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ** New Plugin Parameter added by Yanfly:
  * *** Plugin Parameters > Keyboard Input > Default Mode
  * **** Select default mode when entering the scene.
- *
+ * 
  * Version 1.15: November 29, 2020
  * * Bug Fixes!
  * ** Pressing "Enter" in the change name scene while the actor's name is
@@ -4167,7 +4332,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * **** Button Assist window now takes into consideration for these texts.
  * * Optimization Update!
  * ** Plugin should run more optimized.
- *
+ * 
  * Version 1.14: November 22, 2020
  * * Documentation Update!
  * ** Added documentation for new feature(s)!
@@ -4175,11 +4340,11 @@ VisuMZ.CoreEngine.version = 1.85;
  * ** New Plugin Command added by Yanfly!
  * *** System: Load Images
  * **** Allows you to (pre) load up images ahead of time.
- *
+ * 
  * Version 1.13: November 15, 2020
  * * Optimization Update!
  * ** Plugin should run more optimized.
- *
+ * 
  * Version 1.12: November 8, 2020
  * * Compatibility Update!
  * ** Plugins should be more compatible with one another.
@@ -4196,14 +4361,14 @@ VisuMZ.CoreEngine.version = 1.85;
  *      command. These settings have only been tested on English keyboards and
  *      may or may not be compatible with other languages, so please disable
  *      these features if they do not fit in with your game.
- *
+ * 
  * Version 1.11: November 1, 2020
  * * Compatibility Update!
  * ** Plugins should be more compatible with one another.
  * * Feature Update!
  * ** Bitmap smoothing now takes into consideration for rounding coordinates.
  *    Update made by Irina.
- *
+ * 
  * Version 1.10: October 25, 2020
  * * Feature Update!
  * ** Sprite animation location now adjusts position relative to the sprite's
@@ -4218,7 +4383,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *     default to a regular Attack.
  * * Compatibility Update!
  * ** Plugins should be more compatible with one another.
- *
+ * 
  * Version 1.08: October 11, 2020
  * * Feature Update!
  * ** Altered sprite bitmaps via the various draw functions will now be marked
@@ -4226,7 +4391,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *    upon a sprite's removal to free up more resources. Change made by Yanfly.
  * ** Picture Sprite Origin anchors are now tied to the Game_Picture show and
  *    move commands instead of the Game_Interpretter commands. Change by Arisu.
- *
+ * 
  * Version 1.07: October 4, 2020
  * * Documentation Update!
  * ** New documentation added for the new Plugin Parameter category:
@@ -4235,7 +4400,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ** New Plugin Parameter "Custom Parameters" added by Yanfly.
  * *** Create custom parameters for your game! These will appear in
  *     VisuStella MZ menus.
- *
+ * 
  * Version 1.06: September 27, 2020
  * * Bug Fixes!
  * ** Battler evasion pose can now occur if there is a miss. These were made
@@ -4247,7 +4412,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *     or troop regardless of what other settings are.
  * *** <DTB>, <TPB Active>, <TPB Wait> to change the battle system for that
  *     specific map or troop regardless of what other settings are.
- *
+ * 
  * Version 1.05: September 20, 2020
  * * Bug Fixes!
  * ** <Level: x> notetag for enemies is now fixed! Fix made by Arisu.
@@ -4265,7 +4430,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *    used. This will default to whatever is the game database's setting. This
  *    feature is used for the future when new battle systems are made. Feature
  *    added by Yanfly.
- *
+ * 
  * Version 1.04: September 13, 2020
  * * Documentation Update!
  * ** Added new documentation for the "Title Command List" and Title Picture
@@ -4276,7 +4441,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *    users had a hard time finding them. Update made by Yanfly.
  * *** Users who have customized these settings before will need to readjust
  *     them again. We apologize for the inconvenience.
- *
+ * 
  * Version 1.03: September 6, 2020
  * * Bug Fixes!
  * ** Having QoL > Modern Controls disabled (why would you) used to prevent the
@@ -4294,7 +4459,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * *** We'll be expanding on more screen shaking options in the future.
  * * Optimization Update
  * ** Digit Grouping now works more efficiently.
- *
+ * 
  * Version 1.02: August 30, 2020
  * * New Feature!
  * ** New Plugin Command: "Picture: Erase All". Added by Olivia.
@@ -4311,7 +4476,7 @@ VisuMZ.CoreEngine.version = 1.85;
  *    Digit Grouping and explaining its intricacies.
  * ** Added a note to Plugin Parameters > UI > Reposition Actors to ignore the
  *    setting if using the Battle Core.
- *
+ * 
  * Version 1.01: August 23, 2020
  * * Bug Fixes!
  * ** Digit grouping fixed to allow text codes to detect values larger than
@@ -4346,7 +4511,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @type animation
  * @desc Plays this animation.
  * @default 1
- *
+ * 
  * @arg Coordinates
  *
  * @arg pointX:eval
@@ -4380,7 +4545,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @off Normal
  * @desc Mute the animation?
  * @default false
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command Separator_Audio
@@ -4399,7 +4564,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc Change the current BGM's volume to what amount?
  * You may use JavaScript code. Use numbers from 0 to 100.
  * @default 100
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command AudioChangeBgmPitch
@@ -4412,7 +4577,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc Change the current BGM's pitch to what amount?
  * You may use JavaScript code. Use numbers from 50 to 150.
  * @default 100
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command AudioChangeBgmPan
@@ -4425,7 +4590,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc Change the current BGM's pan to what amount?
  * You may use JavaScript code. Use numbers from -100 to 100.
  * @default 0
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command AudioChangeBgsVolume
@@ -4438,7 +4603,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc Change the current BGS's volume to what amount?
  * You may use JavaScript code. Use numbers from 0 to 100.
  * @default 100
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command AudioChangeBgsPitch
@@ -4451,7 +4616,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc Change the current BGS's pitch to what amount?
  * You may use JavaScript code. Use numbers from 50 to 150.
  * @default 100
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command AudioChangeBgsPan
@@ -4464,7 +4629,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc Change the current BGS's pan to what amount?
  * You may use JavaScript code. Use numbers from -100 to 100.
  * @default 0
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command Separator_Debug
@@ -4477,7 +4642,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @text Debug: Current Controller ID
  * @desc PLAY TEST ONLY. Shows current controller ID in debug console.
  * Also copies to computer clipboard if possible.
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command Separator_Export
@@ -4490,28 +4655,28 @@ VisuMZ.CoreEngine.version = 1.85;
  * @text Export: All Maps Text
  * @desc PLAY TEST ONLY. Exports all of the text from all maps,
  * their events, event pages, and any associated Common Events.
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command ExportAllTroopText
  * @text Export: All Troops Text
  * @desc PLAY TEST ONLY. Exports all of the text from all troops,
  * their event pages, and any associated Common Events.
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command ExportCurMapText
  * @text Export: Current Map Text
  * @desc PLAY TEST ONLY. Exports all of the text on the current map,
  * its events, the event pages, and any associated Common Events.
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command ExportCurTroopText
  * @text Export: Current Troop Text
  * @desc PLAY TEST ONLY. Exports all of the text on the current troop,
  * the troop's event pages, and any associated Common Events.
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command Separator_Game
@@ -4528,7 +4693,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @text URL
  * @desc Where do you want to take the player?
  * @default https://www.google.com/
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command Separator_Gold
@@ -4584,7 +4749,6 @@ VisuMZ.CoreEngine.version = 1.85;
  * @text Picture ID
  * @type number
  * @min 1
- * @max 100
  * @desc The ID of the pictures to track the coordinates of.
  * @default 1
  *
@@ -4598,7 +4762,6 @@ VisuMZ.CoreEngine.version = 1.85;
  * @text Picture ID
  * @type number
  * @min 1
- * @max 100
  * @desc Which picture do you wish to apply this easing to?
  * @default 1
  *
@@ -4650,7 +4813,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @arg Instructions2
  * @text -
  * @default a "Move Picture" event command.
- *
+ * 
  * @arg Instructions3
  * @text -
  * @default Turn off "Wait for Completion"
@@ -4685,7 +4848,6 @@ VisuMZ.CoreEngine.version = 1.85;
  * @text Starting ID
  * @type number
  * @min 1
- * @max 100
  * @desc The starting ID of the pictures to erase.
  * @default 1
  *
@@ -4693,7 +4855,6 @@ VisuMZ.CoreEngine.version = 1.85;
  * @text Ending ID
  * @type number
  * @min 1
- * @max 100
  * @desc The ending ID of the pictures to erase.
  * @default 100
  *
@@ -4703,13 +4864,13 @@ VisuMZ.CoreEngine.version = 1.85;
  * @text Picture: Rotate By Angle
  * @desc Rotates target picture by a amount angle over a set duration
  * instead of continuously.
- *
+ * 
  * @arg PictureID:eval
  * @text Picture ID Number
  * @desc What is the ID of the picture you wish to rotate? Use a
  * number between 1 and 100. You may use JavaScript code.
  * @default 1
- *
+ * 
  * @arg AdjustAngle:eval
  * @text Adjust Angle
  * @desc What is the angle you wish to rotate the picture by?
@@ -4774,13 +4935,13 @@ VisuMZ.CoreEngine.version = 1.85;
  * @text Picture: Rotate to Angle
  * @desc Rotates target picture to a certain angle over a set duration
  * instead of continuously.
- *
+ * 
  * @arg PictureID:eval
  * @text Picture ID Number
  * @desc What is the ID of the picture you wish to rotate? Use a
  * number between 1 and 100. You may use JavaScript code.
  * @default 1
- *
+ * 
  * @arg TargetAngle:eval
  * @text Target Angle
  * @desc What is the target angle you wish to rotate the picture?
@@ -4840,21 +5001,21 @@ VisuMZ.CoreEngine.version = 1.85;
  * @default true
  *
  * @ --------------------------------------------------------------------------
- *
+ * 
  * @command PictureShowIcon
  * @text Picture: Show Icon
  * @desc Shows an icon instead of a picture image.
  * The picture icon can be controlled like any other picture.
- *
+ * 
  * @arg General
- *
+ * 
  * @arg PictureID:eval
  * @text Picture ID Number
  * @parent General
  * @desc What is the ID of the picture you wish to show at? Use a
  * number between 1 and 100. You may use JavaScript code.
  * @default 1
- *
+ * 
  * @arg IconIndex:eval
  * @text Icon Index
  * @parent General
@@ -4870,7 +5031,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @off Pixelate
  * @desc This will make the icon smoothed out or pixelated.
  * @default false
- *
+ * 
  * @arg PictureSettings
  * @text Picture Settings
  *
@@ -4880,7 +5041,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @type struct<ShowPicture>
  * @desc Alter the settings for how the picture will be shown.
  * @default {"Position":"","Origin:num":"0","PositionX:eval":"0","PositionY:eval":"0","Scale":"","ScaleX:eval":"100","ScaleY:eval":"100","Blend":"","Opacity:eval":"255","BlendMode:num":"0"}
- *
+ * 
  * @ --------------------------------------------------------------------------
  *
  * @command Separator_ScreenShake
@@ -5350,7 +5511,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @type struct<QoLSettings>
  * @desc Quality of Life settings for both developers and players.
  * @default {"PlayTest":"","NewGameBoot:eval":"false","ForceNoPlayTest:eval":"false","OpenConsole:eval":"true","F6key:eval":"true","F7key:eval":"true","NewGameCommonEvent:num":"0","BattleTest":"","BTestItems:eval":"true","BTestWeapons:eval":"true","BTestArmors:eval":"true","BTestAddedQuantity:num":"90","ShiftR_Toggle:eval":"true","ShiftT_Toggle:eval":"true","DigitGrouping":"","DigitGroupingStandardText:eval":"true","DigitGroupingExText:eval":"true","DigitGroupingDamageSprites:eval":"true","DigitGroupingGaugeSprites:eval":"true","DigitGroupingLocale:str":"en-US","PlayerBenefit":"","EncounterRateMinimum:num":"10","EscapeAlways:eval":"true","ImprovedAccuracySystem:eval":"true","AccuracyBoost:eval":"true","LevelUpFullHp:eval":"true","LevelUpFullMp:eval":"true","Pictures":"","AntiZoomPictures:eval":"true","PictureContainers":"","DetachBattlePictureContainer:eval":"false","DetachMapPictureContainer:eval":"false","Misc":"","AnimationMirrorOffset:eval":"false","AutoStretch:str":"default","FontShadows:eval":"false","FontSmoothing:eval":"true","FontWidthFix:eval":"true","KeyItemProtect:eval":"true","MapNameTextCode:eval":"true","ModernControls:eval":"true","MvAnimationRate:num":"4","NewGameCommonEventAll:num":"0","NoTileShadows:eval":"false","PixelateImageRendering:eval":"false","RequireFocus:eval":"false","ShortcutScripts:eval":"true","SmartEventCollisionPriority:eval":"true","SubfolderParse:eval":"true"}
- *
+ * 
  * @param BattleSystem:str
  * @text Battle System
  * @type select
@@ -5809,7 +5970,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @off Normal
  * @desc If on, prevents pictures from being affected by zoom.
  * @default true
- *
+ * 
  * @param PictureContainers
  * @text Picture Containers
  * @parent Pictures
@@ -6437,7 +6598,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc Enables keyboard input for name entry.
  * Only tested with English keyboards.
  * @default true
- *
+ * 
  * @param DefaultMode:str
  * @text Default Mode
  * @parent NameInput
@@ -6465,7 +6626,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc The message displayed when allowing keyboard entry.
  * You may use text codes here.
  * @default "Type in this character's name.\nPress \\c[5]ENTER\\c[0] when you're done.\n\n-or-\n\nPress \\c[5]arrow keys\\c[0]/\\c[5]TAB\\c[0] to switch\nto manual character entry.\n\nPress \\c[5]ESC\\c[0]/\\c[5]TAB\\c[0] to use to keyboard."
- *
+ * 
  * @param BannedWords:arraystr
  * @text Banned Words
  * @parent NameInput
@@ -6489,25 +6650,25 @@ VisuMZ.CoreEngine.version = 1.85;
  *
  * @param ButtonAssist
  * @text Button Assist
- *
+ * 
  * @param Finish:str
  * @text Finish Entry
  * @parent ButtonAssist
  * @desc Text used to describe finish entry.
  * @default Finish
- *
+ * 
  * @param PageChange:str
  * @text Page Change
  * @parent ButtonAssist
  * @desc Text used to describe character page changing.
  * @default Page
- *
+ * 
  * @param Keyboard:str
  * @text Switch To Keyboard
  * @parent ButtonAssist
  * @desc Text used to describe the keyboard switch.
  * @default Keyboard
- *
+ * 
  * @param Manual:str
  * @text Switch To Manual
  * @parent ButtonAssist
@@ -6520,7 +6681,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ----------------------------------------------------------------------------
  */
 /*~struct~MenuBg:
- *
+ * 
  * @param BlurStrength:num
  * @text Blur Strength
  * @desc Strength used for menu background snapshots.
@@ -6620,7 +6781,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @dir img/titles1/
  * @desc Filename used for the bottom background image.
  * Leave empty if you don't wish to use one.
- * @default
+ * @default 
  *
  * @param BgFilename2:str
  * @text Background 2
@@ -6628,7 +6789,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @dir img/titles2/
  * @desc Filename used for the upper background image.
  * Leave empty if you don't wish to use one.
- * @default
+ * @default 
  *
  */
 /* ----------------------------------------------------------------------------
@@ -6680,7 +6841,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @on Split
  * @off Don't
  * @desc "Split" makes separate instances of "Cancel" and "Menu".
- * "Don't" will consolidate both into "Escape".
+ * Requires custom Input.keyMapper with "cancel" and "menu".
  * @default false
  *
  * @param Text
@@ -6976,7 +7137,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc Similar text used for this controller ID. Plugin Command
  * "Debug: Current Controller ID" for ID help.
  * @default Untitled
- *
+ * 
  * @param Directions
  *
  * @param up:str
@@ -6984,29 +7145,29 @@ VisuMZ.CoreEngine.version = 1.85;
  * @parent Directions
  * @desc How this button is shown in-game.
  * Text codes allowed.
- * @default
+ * @default 
  *
  * @param left:str
  * @text Left
  * @parent Directions
  * @desc How this button is shown in-game.
  * Text codes allowed.
- * @default
+ * @default 
  *
  * @param right:str
  * @text Right
  * @parent Directions
  * @desc How this button is shown in-game.
  * Text codes allowed.
- * @default
+ * @default 
  *
  * @param down:str
  * @text Down
  * @parent Directions
  * @desc How this button is shown in-game.
  * Text codes allowed.
- * @default
- *
+ * @default 
+ * 
  * @param Actions
  *
  * @param ok:str
@@ -7014,42 +7175,42 @@ VisuMZ.CoreEngine.version = 1.85;
  * @parent Actions
  * @desc How this button is shown in-game.
  * Text codes allowed.
- * @default
+ * @default 
  *
  * @param cancel:str
  * @text Cancel
  * @parent Actions
  * @desc How this button is shown in-game.
  * Text codes allowed.
- * @default
+ * @default 
  *
  * @param menu:str
  * @text Menu
  * @parent Actions
  * @desc How this button is shown in-game.
  * Text codes allowed.
- * @default
+ * @default 
  *
  * @param shift:str
  * @text Shift
  * @parent Actions
  * @desc How this button is shown in-game.
  * Text codes allowed.
- * @default
+ * @default 
  *
  * @param pageup:str
  * @text Page Up
  * @parent Actions
  * @desc How this button is shown in-game.
  * Text codes allowed.
- * @default
+ * @default 
  *
  * @param pagedown:str
  * @text Page Down
  * @parent Actions
  * @desc How this button is shown in-game.
  * Text codes allowed.
- * @default
+ * @default 
  *
  */
 /* ----------------------------------------------------------------------------
@@ -8252,6 +8413,16 @@ VisuMZ.CoreEngine.version = 1.85;
  * Affects for most windows in-game.
  * @default true
  *
+ * @param ConvertToBase:eval
+ * @text Convert JS To Base?
+ * @parent BasicParameters
+ * @type boolean
+ * @on Convert
+ * @off Don't
+ * @desc Automatically convert <JS param Plus/Rate/Flat: code>
+ * to use base parameters to prevent infinite loops.
+ * @default true
+ *
  * @param CrisisRate:num
  * @text HP Crisis Rate
  * @parent BasicParameters
@@ -8777,7 +8948,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @type file
  * @dir img/pictures/
  * @desc Filename used for the picture.
- * @default
+ * @default 
  *
  * @param ButtonURL:str
  * @text Button URL
@@ -8996,7 +9167,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @type boolean
  * @on Masking On
  * @off Masking Off
- * @desc Enable window masking (windows hide other windows behind
+ * @desc Enable window masking (windows hide other windows behind 
  * them)? WARNING: Turning it on can obscure data.
  * @default false
  *
@@ -9059,7 +9230,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc Default row spacing for selectable windows.
  * Default: 4
  * @default 4
- *
+ * 
  * @param ScrollBar
  * @text Scroll Bar
  *
@@ -9109,7 +9280,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc What opacity value do you want the off bar opacity
  * to be? Use a number between 0 and 255.
  * @default 128
- *
+ * 
  * @param SelectableItems
  * @text Selectable Items
  *
@@ -9160,7 +9331,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @min 1
  * @desc Maximum duration for window to stay on the screen.
  * @default 300
- *
+ * 
  */
 /* ----------------------------------------------------------------------------
  * Screen Resolution Settings
@@ -9169,7 +9340,7 @@ VisuMZ.CoreEngine.version = 1.85;
 /*~struct~ScreenResolution:
  *
  * @param Maps
- *
+ * 
  * @param AutoScrollLockX:eval
  * @text Scroll Lock Small X?
  * @parent Maps
@@ -9178,7 +9349,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @off Keep As Is
  * @desc Automatically scroll lock X scrolling if the map is too small?
  * @default true
- *
+ * 
  * @param AutoScrollLockY:eval
  * @text Scroll Lock Small Y?
  * @parent Maps
@@ -9187,21 +9358,21 @@ VisuMZ.CoreEngine.version = 1.85;
  * @off Keep As Is
  * @desc Automatically scroll lock Y scrolling if the map is too small?
  * @default true
- *
+ * 
  * @param DisplayLockX:num
  * @text Locked Display X?
  * @parent Maps
  * @desc What display X value do you want for auto-scroll locked
  * maps? Use a number between 0 and 1 for best results.
  * @default 0.15625
- *
+ * 
  * @param DisplayLockY:num
  * @text Locked Display Y?
  * @parent Maps
  * @desc What display Y value do you want for auto-scroll locked
  * maps? Use a number between 0 and 1 for best results.
  * @default 0.00000
- *
+ * 
  * @param Troops
  *
  * @param RepositionActors:eval
@@ -9330,7 +9501,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * ----------------------------------------------------------------------------
  */
 /*~struct~ShowPicture:
- *
+ * 
  * @param Position
  *
  * @param Origin:num
@@ -9357,7 +9528,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc Y coordinate of the picture.
  * You may use JavaScript code.
  * @default 0
- *
+ * 
  * @param Scale
  *
  * @param ScaleX:eval
@@ -9373,7 +9544,7 @@ VisuMZ.CoreEngine.version = 1.85;
  * @desc Vertical scale of the picture.
  * You may use JavaScript code.
  * @default 100
- *
+ * 
  * @param Blend
  *
  * @param Opacity:eval
@@ -9420,8528 +9591,4 @@ VisuMZ.CoreEngine.version = 1.85;
  */
 //=============================================================================
 
-function _0x55f7(_0x1adab5, _0x13b21a) {
-  const _0x43c8b7 = _0x43c8();
-  return (
-    (_0x55f7 = function (_0x55f763, _0x21f309) {
-      _0x55f763 = _0x55f763 - 0xdf;
-      let _0x1d2220 = _0x43c8b7[_0x55f763];
-      return _0x1d2220;
-    }),
-    _0x55f7(_0x1adab5, _0x13b21a)
-  );
-}
-const _0x17b060 = _0x55f7;
-(function (_0x4a1a2e, _0x444b5b) {
-  const _0x4d75f7 = _0x55f7,
-    _0x3fe1e6 = _0x4a1a2e();
-  while (!![]) {
-    try {
-      const _0xe77c4d =
-        (-parseInt(_0x4d75f7(0x2f1)) / 0x1) * (-parseInt(_0x4d75f7(0x34d)) / 0x2) +
-        (parseInt(_0x4d75f7(0x838)) / 0x3) * (parseInt(_0x4d75f7(0x1ff)) / 0x4) +
-        (-parseInt(_0x4d75f7(0x3e5)) / 0x5) * (-parseInt(_0x4d75f7(0x117)) / 0x6) +
-        parseInt(_0x4d75f7(0xf0)) / 0x7 +
-        (parseInt(_0x4d75f7(0xee)) / 0x8) * (parseInt(_0x4d75f7(0x397)) / 0x9) +
-        (parseInt(_0x4d75f7(0x376)) / 0xa) * (-parseInt(_0x4d75f7(0x6e5)) / 0xb) +
-        -parseInt(_0x4d75f7(0x815)) / 0xc;
-      if (_0xe77c4d === _0x444b5b) break;
-      else _0x3fe1e6['push'](_0x3fe1e6['shift']());
-    } catch (_0x4fa499) {
-      _0x3fe1e6['push'](_0x3fe1e6['shift']());
-    }
-  }
-})(_0x43c8, 0x7e53f);
-function _0x43c8() {
-  const _0x32af4b = [
-    'system',
-    'Sprite_Animation_setViewport',
-    'successRate',
-    'updateClose',
-    '\x0a\x0a\x0a\x0a\x0a',
-    'DigitGroupingDamageSprites',
-    'TimeProgress',
-    'EREOF',
-    '_mapX',
-    'sparamPlus',
-    'setCoreEngineUpdateWindowBg',
-    '_closing',
-    'IconParam4',
-    'isBottomHelpMode',
-    'SCROLLBAR',
-    'valueOutlineColor',
-    'exp',
-    'INBACK',
-    'tpGaugeColor1',
-    'EnableMasking',
-    'bind',
-    '_startDecrypting',
-    'cursorLeft',
-    'battlebacks1',
-    '%1〘End\x20Choice\x20Selection〙%1',
-    'yScrollLinkedOffset',
-    '_logWindow',
-    'GoldFontSize',
-    'isScrollBarVisible',
-    'OkText',
-    'SEPARATOR',
-    'boxWidth',
-    'MultiKeyFmt',
-    'CoreEngine',
-    'paramWidth',
-    'ShowScrollBar',
-    '_bypassCanCounterCheck',
-    '_hovered',
-    '_previousClass',
-    'xparamFlatJS',
-    'addChild',
-    'PERIOD',
-    'ScreenShake',
-    'buttonAssistWindowButtonRect',
-    'updatePositionCoreEngine',
-    'picture',
-    'MvAnimationRate',
-    'bitmapHeight',
-    'Game_Interpreter_command355',
-    'ItemMenu',
-    'setAttack',
-    'Scene_Boot_onDatabaseLoaded',
-    '(\x5cd+)([%％])>',
-    'MainMenu',
-    'createDimmerSprite',
-    'measureTextWidth',
-    'ColorExpGauge2',
-    'updateKeyText',
-    'gold',
-    '_animationQueue',
-    'playTestF6',
-    'isNormalPriority',
-    'log',
-    'gaugeLineHeight',
-    'centerSprite',
-    'Window_Base_createContents',
-    '_targetScaleY',
-    'PreserveNumbers',
-    'playMiss',
-    'index',
-    'ScreenResolution',
-    'onDatabaseLoaded',
-    'param',
-    'ParseWeaponNotetags',
-    'send',
-    'deselect',
-    'Game_Interpreter_updateWaitMode',
-    'isBottomButtonMode',
-    'F17',
-    'Game_Actor_paramBase',
-    '_addSpotTile',
-    'SCALE_MODES',
-    'setTargetAnchor',
-    'Game_BattlerBase_refresh',
-    'setHome',
-    'QoL',
-    'NUMPAD9',
-    'ColSpacing',
-    'OPEN_BRACKET',
-    'EnableJS',
-    'background',
-    'END',
-    'setSideView',
-    'refreshWithTextCodeSupport',
-    '_commandWindow',
-    'playOnceParallelInterpreter',
-    'restore',
-    'paramY',
-    '_battleField',
-    'Flat',
-    '_buttonType',
-    'destroyContents',
-    'Manual',
-    'EISU',
-    'F13',
-    'number',
-    'catchException',
-    'setColorTone',
-    'pagedown',
-    'NewGameCommonEventAll',
-    '_action',
-    'ColorDeath',
-    'doesNameContainBannedWords',
-    'F15',
-    '_createInternalTextures',
-    'ColorGaugeBack',
-    '_playTestFastMode',
-    'result',
-    'loadMapData',
-    'LoadError',
-    'InputBgType',
-    'Flat1',
-    'bitmap',
-    'createWindowLayer',
-    'AutoScrollLockY',
-    'BaseTexture',
-    'makeFontBigger',
-    'gameTitle',
-    'contains',
-    '%1\x20is\x20missing\x20a\x20required\x20plugin.\x0aPlease\x20install\x20%2\x20into\x20the\x20Plugin\x20Manager.',
-    '_cacheScaleX',
-    'SCROLL_LOCK',
-    'INCUBIC',
-    '_pagedownButton',
-    'xparamRate1',
-    'VariableEvalReference',
-    'DigitGroupingExText',
-    'Sprite_Animation_processSoundTimings',
-    'NUMPAD4',
-    'setAction',
-    'Scene_Menu_create',
-    'test',
-    'ParseClassNotetags',
-    'Game_Map_scrollUp',
-    'ShowDevTools',
-    'setEvent',
-    '_stored_mpGaugeColor2',
-    'bgsVolume',
-    'EndingID',
-    'PictureShowIcon',
-    'onInputOk',
-    'requestPointAnimation',
-    'itemPadding',
-    'apply',
-    'Layer',
-    'shift',
-    'paramchangeTextColor',
-    'originalJS',
-    'repositionEnemiesByResolution',
-    'setMoveEasingType',
-    'max',
-    'Sprite_AnimationMV_updatePosition',
-    '_shiftY',
-    'isGamepadAxisMoved',
-    'canUse',
-    'Window_Selectable_drawBackgroundRect',
-    'GET',
-    'sparamFlat1',
-    'Plus2',
-    'Game_Map_setDisplayPos',
-    'FTB',
-    'padding',
-    'sparamRateJS',
-    'getControllerInputButtonString',
-    '_lastX',
-    'Smooth',
-    'mute',
-    'ENTER_SPECIAL',
-    'loadBitmap',
-    '_CoreEngineSettings',
-    '_forcedBattleGridSystem',
-    'refresh',
-    'textWidth',
-    'SmartEventCollisionPriority',
-    'getCoreEngineScreenShakeStyle',
-    '_forcedTroopView',
-    'setLastPluginCommandInterpreter',
-    'fromCharCode',
-    '21144792aNjvCA',
-    'focus',
-    'maxCols',
-    'isSideButtonLayout',
-    '〖〖〖\x20Map\x20%1:\x20%2\x20Script\x20〗〗〗\x0a\x0a',
-    'exit',
-    '_startPlaying',
-    'child_process',
-    'itemRect',
-    'goldWindowRect',
-    'markCoreEngineModified',
-    'GoldChange',
-    '_animationSprites',
-    'onXhrError',
-    'ItemBgType',
-    'cos',
-    'setCommonEvent',
-    'paramBaseAboveLevel99',
-    'imageSmoothingEnabled',
-    'TCR',
-    'processDigitChange',
-    'scale',
-    'DigitGroupingLocale',
-    '_cacheScaleY',
-    'areButtonsOutsideMainUI',
-    'MINUS',
-    'DamageColor',
-    'backOpacity',
-    'setupFont',
-    '_muteSound',
-    '_shouldPreventDefault',
-    'clearForcedGameTroopSettingsCoreEngine',
-    'lineHeight',
-    '_stored_expGaugeColor2',
-    'adjustX',
-    '13431fFHzQW',
-    'Exported_Script_%1.txt',
-    'maxBattleMembers',
-    'makeFontSmaller',
-    'makeDeepCopy',
-    'WIN_OEM_FJ_ROYA',
-    'concat',
-    'removeAnimationFromContainer',
-    'Scene_Boot_startNormalGame',
-    'retreat',
-    'ButtonHeight',
-    'EXR',
-    '_backSprite1',
-    'Tilemap_addShadow',
-    'BarThickness',
-    'requestFauxAnimation',
-    'tilesets',
-    'randomInt',
-    'offsetY',
-    'Window_TitleCommand_selectLast',
-    '_timerSprite',
-    'GoldRect',
-    'ActorMPColor',
-    'turn',
-    'textBaseline',
-    'origin',
-    '_lastPluginCommandInterpreter',
-    'toLowerCase',
-    'BannedWords',
-    'Max',
-    'onKeyDown',
-    'blendFunc',
-    'paintOpacity',
-    'ARRAYNUM',
-    'updateFrameCoreEngine',
-    '_anchor',
-    'context',
-    'note',
-    'applyEasing',
-    'title',
-    '_onKeyPress',
-    'COMMA',
-    'ButtonAssist',
-    'string',
-    'Window_NameInput_cursorPagedown',
-    'statusWindowRect',
-    'loadWindowskin',
-    'alpha',
-    '_backSprite2',
-    '_patternHeight',
-    '_anglePlus',
-    'F20',
-    'setupScrollBarBitmap',
-    'OutlineColorGauge',
-    'BattleManager_invokeCounterAttack',
-    'xdg-open',
-    'initRotationCoreEngine',
-    '_downArrowSprite',
-    'AutoStretch',
-    'playCursorSound',
-    'OpenConsole',
-    '([\x5c+\x5c-]\x5cd+)>',
-    'QwertyLayout',
-    '_texture',
-    'EscapeAlways',
-    'makeEncounterCount',
-    'isEventTest',
-    'onInputBannedWords',
-    'createExtendedTileSprite',
-    'updatePositionCoreEngineShakeHorz',
-    'Window_NameInput_cursorDown',
-    '_bitmap',
-    'SwitchToggleRange',
-    'processSoundTimings',
-    'IconSParam1',
-    'Scene_Options_create',
-    '_storedStack',
-    'ActorBgType',
-    'Scene_MenuBase_helpAreaTop',
-    'IconSParam6',
-    'removeOnceParallelInterpreter',
-    'HIT',
-    'reservePlayTestNewGameCommonEvent',
-    'STRUCT',
-    'ShowButtons',
-    '_pictureName',
-    'isKeyItem',
-    'EXCLAMATION',
-    'initRotation',
-    'isForFriend',
-    'addLoadListener',
-    'setupCustomRateCoreEngine',
-    'isPlaying',
-    'faces',
-    'scrollLeft',
-    'code',
-    'updateScrollBars',
-    '_windowskin',
-    '<%1\x20%2:[\x20]',
-    'Input_pollGamepads',
-    'checkCacheKey',
-    'ParamChange',
-    'WIN_OEM_FJ_TOUROKU',
-    'helpAreaHeight',
-    'buttonAssistText1',
-    '_scrollDuration',
-    'Game_Picture_angle',
-    'updateMainMultiply',
-    '(\x5cd+\x5c.?\x5cd+)>',
-    'animationShouldMirror',
-    'pan',
-    'playTestShiftT',
-    'xparamPlus',
-    'FontSize',
-    'Scene_Battle_createCancelButton',
-    'IconSParam5',
-    'BTestAddedQuantity',
-    'CLOSE_BRACKET',
-    '_moveEasingType',
-    'drawIcon',
-    '_buyWindow',
-    'Scene_Map_shouldAutosave',
-    'Game_Interpreter_command105',
-    '_destroyCanvas',
-    'MenuBg',
-    'drawActorClass',
-    'PositionY',
-    'anglePlus',
-    '_statusEquipWindow',
-    'PGDN',
-    'playOk',
-    'Scene_Map_createSpriteset',
-    '_centerElementCoreEngine',
-    'original',
-    'Wait',
-    'backgroundBitmap',
-    'Scene_Name_onInputOk',
-    'BgFilename1',
-    'titleCommandWindow',
-    'drawCurrentParam',
-    'currentLevelExp',
-    'showPointAnimations',
-    'EXECUTE',
-    '_pointAnimationQueue',
-    'alignBottom',
-    'Window_NameInput_initialize',
-    'paramRate2',
-    'escape',
-    'LUK',
-    'updateAnglePlus',
-    '1016936MHBUBU',
-    'nw.gui',
-    '6470688UJWloy',
-    'setBattleSystem',
-    'currentExp',
-    '_data',
-    'scrollbarHeight',
-    'updatePositionCoreEngineShakeVert',
-    '_targets',
-    'getColor',
-    'fontSize',
-    'mainFontSize',
-    'Y:\x20%1',
-    'Match',
-    'StatusParamsRect',
-    'BattleManager_update',
-    'Bitmap_strokeRect',
-    'Window_Selectable_cursorDown',
-    'CRSEL',
-    'CodeJS',
-    '_stored_gaugeBackColor',
-    'asin',
-    'drawActorNickname',
-    'sparamRate2',
-    'createFauxAnimationQueue',
-    'alwaysDash',
-    'defaultInputMode',
-    'isAnimationPlaying',
-    '%1\x20is\x20incorrectly\x20placed\x20on\x20the\x20plugin\x20list.\x0aIt\x20is\x20a\x20Tier\x20%2\x20plugin\x20placed\x20over\x20other\x20Tier\x20%3\x20plugins.\x0aPlease\x20reorder\x20the\x20plugin\x20list\x20from\x20smallest\x20to\x20largest\x20tier\x20numbers.',
-    '_spriteset',
-    'getLevel',
-    'encounterStepsMinimum',
-    '_opacity',
-    'cursorPagedown',
-    '_stored_crisisColor',
-    'ControllerMatches',
-    'IconXParam7',
-    'characters',
-    '_mirror',
-    'URL',
-    'overallHeight',
-    '18cYdPXZ',
-    'offOpacity',
-    'Spriteset_Base_updatePosition',
-    'PDR',
-    'isOpening',
-    'setMute',
-    'Scene_Base_terminateAnimationClearBugFix',
-    'setupTileExtendTerrainTags',
-    'MRF',
-    'OPEN_CURLY_BRACKET',
-    'MDR',
-    'pop',
-    'drawGauge',
-    'actor',
-    'Graphics_centerElement',
-    'wholeDuration',
-    '_defaultStretchMode',
-    'SkillMenu',
-    'F14',
-    'mpGaugeColor1',
-    'BgType',
-    'sparam',
-    'setBackgroundType',
-    'encounterStep',
-    'active',
-    'META',
-    'command111',
-    '_clickHandler',
-    'itemSuccessRate',
-    'IconSParam4',
-    'ATK',
-    'updateScrollBarVisibility',
-    'mainAreaTop',
-    'framesPerChar',
-    'button',
-    'processPointAnimationRequests',
-    'Key%1',
-    'itemLineRect',
-    'toLocaleString',
-    'makeAutoBattleActions',
-    'onload',
-    'IconParam1',
-    'openness',
-    'name',
-    'BuyBgType',
-    'BTestArmors',
-    'Bitmap_clearRect',
-    'home',
-    'drawIconBySize',
-    'MAXMP',
-    'SParamVocab2',
-    'volume',
-    'createTextPopupWindow',
-    '_backSprite',
-    '\x5c}❪TAB❫\x5c{',
-    '_targetOffsetY',
-    '_onKeyDown',
-    'gaugeBackColor',
-    '_lastOrigin',
-    'slice',
-    'checkPassage',
-    '_saveFileID',
-    'menu',
-    'VisuMZ_2_BattleSystemSTB',
-    'Scene_Map_updateMainMultiply',
-    'mpCostColor',
-    'keys',
-    'titles2',
-    'Basic',
-    'scrollX',
-    'updateFrame',
-    'ValueJS',
-    'ShiftT_Toggle',
-    'Window_NameInput_processTouch',
-    'removeTileExtendSprites',
-    'maxItems',
-    'ctGaugeColor1',
-    'processKeyboardDigitChange',
-    'getInputMultiButtonStrings',
-    'horzJS',
-    'Window_NameInput_cursorLeft',
-    'Sprite_Button_initialize',
-    'AudioChangeBgmPan',
-    'onKeyDownKeysF6F7',
-    'DELETE',
-    'IconXParam0',
-    'enableDigitGrouping',
-    'contents',
-    'updateBgsParameters',
-    'allTiles',
-    '_stored_hpGaugeColor2',
-    'isMaxLevel',
-    'isCursorMovable',
-    'initialLevel',
-    'createPointAnimationTargets',
-    'resetTextColor',
-    'CallHandlerJS',
-    '〘Show\x20Text〙\x0a',
-    'RIGHT',
-    'CLEAR',
-    'Scene_Name_create',
-    'Game_Picture_x',
-    'MEV',
-    'removeAllPointAnimations',
-    'text%1',
-    'paramRateJS',
-    'initCoreEngine',
-    'Mirror',
-    'makeInputButtonString',
-    'textAlign',
-    'isNwjs',
-    'updateOpen',
-    'destroyScrollBarBitmaps',
-    'drawCharacter',
-    'BTB',
-    'subject',
-    'ARRAYSTRUCT',
-    '_iconIndex',
-    'INOUTQUINT',
-    'Tilemap_addSpotTile',
-    'ColorHPGauge2',
-    'process_VisuMZ_CoreEngine_RegExp',
-    'hpGaugeColor1',
-    'Version',
-    'gaugeHeight',
-    '_backgroundFilter',
-    'down',
-    '_animation',
-    'KeyboardInput',
-    'show',
-    '_baseTexture',
-    'ETB',
-    'processKeyboardDelete',
-    'filter',
-    'itypeId',
-    'pendingColor',
-    'remove',
-    'F24',
-    'renderNoMask',
-    '_stored_mpGaugeColor1',
-    'processKeyboardHome',
-    'status',
-    'BlendMode',
-    '_isWindow',
-    'dimColor2',
-    'FDR',
-    'drawText',
-    'processTouchModernControls',
-    'Total',
-    'PictureRotate',
-    'QUOTE',
-    'includes',
-    'resize',
-    'target',
-    'clearRect',
-    'Sprite_Gauge_gaugeRate',
-    'calcEasing',
-    'VisuMZ_2_BattleSystemETB',
-    'GoldIcon',
-    'showDevTools',
-    '_lastGamepad',
-    'INOUTELASTIC',
-    'CONVERT',
-    'updateScrollBarPosition',
-    'EditRect',
-    'RegExp',
-    '_opening',
-    'Scene_SingleLoadTransition',
-    'addAnimationSpriteToContainer',
-    'isCollidedWithEvents',
-    'isDying',
-    'jsQuickFunc',
-    'INQUART',
-    'Game_Action_numRepeats',
-    '_drawTextBody',
-    'Item-%1-%2',
-    'Bitmap_gradientFillRect',
-    'GRD',
-    'command357',
-    'TitlePicButtons',
-    '_skillTypeWindow',
-    '_profileWindow',
-    'processCursorHomeEndTrigger',
-    'Untitled',
-    'quit',
-    'prepare',
-    'SHIFT',
-    'canAttack',
-    'setAnglePlusData',
-    '_dimmerSprite',
-    'Mute',
-    'parameters',
-    'targetScaleX',
-    'makeActionList',
-    'redraw',
-    'thickness',
-    'SlotBgType',
-    'Game_Picture_show',
-    '_fauxAnimationSprites',
-    'onButtonImageLoad',
-    'format',
-    '_pauseSignSprite',
-    'currentClass',
-    'rgba(0,\x200,\x200,\x201.0)',
-    'makeDocumentTitle',
-    '_baseSprite',
-    'Game_Interpreter_command111',
-    'AudioChangeBgsVolume',
-    'F6key',
-    '《《《\x20Event\x20%1:\x20%2,\x20Page\x20%3\x20》》》\x0a%4\x0a',
-    'isOpenAndActive',
-    'eventsXyNt',
-    'initButtonHidden',
-    'tilesetFlags',
-    'Map%1',
-    'createFauxAnimation',
-    'loadSystem',
-    'ColorPowerUp',
-    'tileWidth',
-    'CreateBattleSystemID',
-    'clearOnceParallelInterpreters',
-    'buttonAssistWindowRect',
-    'startAutoNewGame',
-    'targetObjects',
-    'processCursorMove',
-    'Scene_MenuBase_mainAreaTop',
-    'DisplayLockX',
-    'buttonAssistOk',
-    'buttonAssistKey1',
-    'NoTileShadows',
-    'F7key',
-    'getCustomBackgroundSettings',
-    '188ncXhOs',
-    'HYPHEN_MINUS',
-    'isOptionValid',
-    'Bitmap_fillRect',
-    'IconXParam9',
-    'LESS_THAN',
-    'setMainFontSize',
-    'transform',
-    'OPEN_PAREN',
-    'itemBackColor1',
-    'AnimationMirrorOffset',
-    'Enable',
-    'XParamVocab8',
-    '_scrollBarHorz',
-    'mmp',
-    'Scene_MenuBase_createCancelButton',
-    'canEquip',
-    'HANJA',
-    'stretch',
-    'NameInputMessage',
-    'updateCurrentEvent',
-    'sparamRate',
-    'MinDuration',
-    'coreEngineRepositionEnemies',
-    'playBuzzer',
-    'HELP',
-    '_updateGamepadState',
-    '_blank',
-    '_movementDuration',
-    'TextFmt',
-    'buttonAssistText4',
-    'PGUP',
-    'Troop%1',
-    'createKeyJS',
-    'floor',
-    'VisuMZ_2_BattleSystemCTB',
-    'substring',
-    'getLastUsedGamepadType',
-    'buttonAssistCancel',
-    'refreshSpritesetForExtendedTiles',
-    'Page',
-    'GameEnd',
-    'Scene_Equip_create',
-    'requiredWtypeId1',
-    'Scene_Map_updateScene',
-    'Window_Base_drawCharacter',
-    'AnimationID',
-    'textSizeEx',
-    'sparamRate1',
-    'SaveMenu',
-    'SystemLoadAudio',
-    'RPGMAKER_VERSION',
-    '_cache',
-    '_listWindow',
-    'ItemBackColor2',
-    '_stored_tpCostColor',
-    '_digitGroupingEx',
-    'fillStyle',
-    '_offsetX',
-    'determineSideButtonLayoutValid',
-    'Padding',
-    'processTouch',
-    'option',
-    'checkSmartEventCollision',
-    'targetOpacity',
-    'BACK_QUOTE',
-    'isItemStyle',
-    'Abbreviation',
-    'BarOffset',
-    'enableDigitGroupingEx',
-    'lastAnimationSprite',
-    'GoldOverlap',
-    '_centerElement',
-    'isMenuButtonAssistEnabled',
-    'terminate',
-    '_textQueue',
-    'CLOSE_CURLY_BRACKET',
-    'return\x200',
-    'CommandBgType',
-    'Game_Picture_updateRotation',
-    '_refreshBack',
-    'BasicParameterFormula',
-    'tileHeight',
-    'IconSParam2',
-    'TextManager_param',
-    '_digitGrouping',
-    'textHeight',
-    'scrollRight',
-    '_cancelButton',
-    'LINEAR',
-    'isMaskingEnabled',
-    'createMenuButton',
-    'PixelateImageRendering',
-    'worldTransform',
-    'setupButtonImage',
-    'save',
-    'setWindowPadding',
-    'TGR',
-    '【%1】\x0a',
-    '_pageupButton',
-    'WIN_ICO_00',
-    'createTitleButtons',
-    '\x20Origin:\x20%1',
-    'isInputting',
-    'BuyRect',
-    'STENCIL_BUFFER_BIT',
-    'Spriteset_Base_isAnimationPlaying',
-    'gainItem',
-    'isLoopHorizontal',
-    'ShortcutScripts',
-    'contentsBack',
-    'maxLvGaugeColor1',
-    'isGameActive',
-    'buttonAssistOffset%1',
-    '_tile',
-    'drawItem',
-    'Subtitle',
-    'join',
-    'iconHeight',
-    'horizontal',
-    '_onLoad',
-    'members',
-    '_shakePower',
-    'ShowJS',
-    'Window_EquipItem_isEnabled',
-    'useDigitGrouping',
-    '_hp',
-    'center',
-    'F21',
-    '_stored_systemColor',
-    'updateShadow',
-    'keyCode',
-    'nickname',
-    'IconSet',
-    'isPressed',
-    'Window_Scrollable_update',
-    'BKSP',
-    '_isButtonHidden',
-    'ParseTilesetNotetags',
-    'CIRCUMFLEX',
-    'paramFlatJS',
-    'areButtonsHidden',
-    '_itemWindow',
-    'playtestQuickLoad',
-    'INCIRC',
-    'skillId',
-    'FadeSpeed',
-    'isBusy',
-    'ParseArmorNotetags',
-    'TextStr',
-    'helpWindowRect',
-    '_effectsContainer',
-    'MAT',
-    'consumable',
-    'scrollUp',
-    'MAX_SAFE_INTEGER',
-    'ActorHPColor',
-    'createPointAnimation',
-    'createPointAnimationQueue',
-    'toUpperCase',
-    'Click\x20\x22Copy\x20Page\x22\x20from\x20another\x20tileset\x27s\x20pages',
-    'moveRelativeToResolutionChange',
-    'helpAreaBottom',
-    'targetBackOpacity',
-    'isSpecialCode',
-    'createTileExtendSprites',
-    'destroy',
-    'bitmapWidth',
-    'measureText',
-    'Window_Base_initialize',
-    '》Comment《\x0a%1\x0a',
-    'process_VisuMZ_CoreEngine_Functions',
-    'iconWidth',
-    'tileset',
-    'ARRAYFUNC',
-    'Window_NameInput_cursorRight',
-    '_subject',
-    'left',
-    'loadTitle2',
-    '(\x5cd+)>',
-    'processAlwaysEscape',
-    'VisuMZ_1_BattleCore',
-    'style',
-    'EditBgType',
-    '_shakeSpeed',
-    'sqrt',
-    'CommandWidth',
-    'match',
-    'updateFauxAnimations',
-    'adjustBoxSize',
-    'Scene_Base_createWindowLayer',
-    'getLastPluginCommandInterpreter',
-    'buttonAssistOffset1',
-    'AccuracyBoost',
-    'SEMICOLON',
-    'IconXParam6',
-    'PRESERVCONVERSION(%1)',
-    'FontShadows',
-    'height',
-    'responseText',
-    'pressed',
-    'SParamVocab8',
-    'reserveNewGameCommonEvent',
-    'CustomParamAbb',
-    'updateEffekseer',
-    '_displayY',
-    'reserveCommonEvent',
-    'EVA',
-    'Type',
-    'end',
-    'StatusParamsBgType',
-    'Unnamed',
-    '_inputString',
-    'seVolume',
-    'clear',
-    'savefileInfo',
-    'SideView',
-    'SParamVocab5',
-    'DEFAULT_SHIFT_Y',
-    'Sprite_Button_updateOpacity',
-    'WIN_OEM_PA3',
-    'updateScene',
-    'outlineColorDmg',
-    'levelUp',
-    'selectLast',
-    '_duration',
-    'clearZoom',
-    'PictureEraseRange',
-    'makeCoreEngineCommandList',
-    'ShowActorLevel',
-    '_offsetY',
-    'KeyItemProtect',
-    'DIVIDE',
-    'XParamVocab7',
-    'Bitmap_initialize',
-    'TextCodeNicknames',
-    'createTextState',
-    'numRepeats',
-    'createCustomParameter',
-    'OUTELASTIC',
-    '%1〘Choice\x20%2〙\x20%3%1',
-    'Game_BattlerBase_initMembers',
-    '1kaJhrQ',
-    'pitch',
-    '_actor',
-    'EQUAL',
-    'ESC',
-    'initVisuMZCoreEngine',
-    'item',
-    'ConvertParams',
-    '_scene',
-    'VOLUME_DOWN',
-    'Window_Base_destroyContents',
-    '_targetX',
-    'PageChange',
-    'ENTER',
-    'randomJS',
-    'ctrlKey',
-    'isTriggered',
-    'PLAY',
-    'BattleManager_processEscape',
-    'AutoScrollLockX',
-    '_targetAnchor',
-    'profileWindowRect',
-    'useDigitGroupingEx',
-    'RightMenus',
-    'prepareNextScene',
-    'AGI',
-    'ApplyEasing',
-    'isAlive',
-    'sv_enemies',
-    'DisplayLockY',
-    'vertJS',
-    'isOpen',
-    'runCombinedScrollingTextAsCode',
-    'Game_Picture_initBasic',
-    'PictureRotateBy',
-    'cancel',
-    'default',
-    'framebuffer',
-    'BACKSPACE',
-    'SnapshotOpacity',
-    'update',
-    'altKey',
-    'BACK_SLASH',
-    'loadTileset',
-    '%1\x27s\x20version\x20does\x20not\x20match\x20plugin\x27s.\x20Please\x20update\x20it\x20in\x20the\x20Plugin\x20Manager.',
-    'registerCommand',
-    'INELASTIC',
-    'missed',
-    'width',
-    'ProfileRect',
-    'HOME',
-    'updatePictureCoordinates',
-    '1.4.4',
-    'setupBattleTestItems',
-    '\x0a\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20%2\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20($gameTemp.isPlaytest())\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20console.log(\x27JS\x20Quick\x20Function\x20\x22%1\x22\x20Error!\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20console.log(e);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20',
-    'DummyBgType',
-    '_encounterCount',
-    'INBOUNCE',
-    'createChildSprite',
-    '_hideButtons',
-    'Game_Picture_y',
-    'Game_Picture_calcEasing',
-    'isHandled',
-    'OpenURL',
-    '<JS\x20%1\x20%2:[\x20](.*)>',
-    '_lastCommandSymbol',
-    'playCursor',
-    '_rate',
-    'repeat',
-    'up2',
-    'SplitEscape',
-    'PictureID',
-    'clearStencil',
-    'sin',
-    'darwin',
-    'initMembersCoreEngine',
-    'Input_onKeyDown',
-    'KeySHIFT',
-    'PositionX',
-    'startAnimation',
-    'Game_Map_scrollLeft',
-    '_refreshPauseSign',
-    'RequireFocus',
-    'SystemSetFontSize',
-    '_stored_maxLvGaugeColor2',
-    'textColor',
-    'targetEvaRate',
-    '_targetOpacity',
-    'StatusBgType',
-    'isArrowPressed',
-    'overallWidth',
-    '_fauxAnimationQueue',
-    '799438koyMAm',
-    'paramBase',
-    'AudioChangeBgmVolume',
-    'buttonAssistKey5',
-    'Window_Base_drawIcon',
-    'Window_Selectable_processCursorMove',
-    'exportAllTroopStrings',
-    '_maxDigits',
-    'onlyfilename',
-    'WIN_OEM_FINISH',
-    'executeLoad',
-    'process_VisuMZ_CoreEngine_Notetags',
-    'removeChild',
-    'ATTN',
-    'NUM',
-    'Game_Action_setAttack',
-    'damageColor',
-    'Sprite_Battler_startMove',
-    '_pictureCoordinatesMode',
-    'createCancelButton',
-    'platform',
-    '_allTextHeight',
-    'contentsOpacity',
-    'keyboard',
-    'addEventListener',
-    'deathColor',
-    'NUMPAD3',
-    'maxTurns',
-    'Graphics_defaultStretchMode',
-    '_stored_tpGaugeColor1',
-    'gainSilentTp',
-    'process_VisuMZ_CoreEngine_CustomParameters',
-    'playBgm',
-    '_editWindow',
-    'movePageButtonSideButtonLayout',
-    '_helpWindow',
-    'addCommand',
-    'object',
-    'updateDashToggle',
-    '_currentBgm',
-    '_onceParallelInterpreters',
-    '11810mdpeOh',
-    'connected',
-    'Game_Map_scrollDown',
-    'resetBattleSystem',
-    'WIN_OEM_ATTN',
-    'UpdatePictureCoordinates',
-    'SceneManager_isGameActive',
-    'Speed',
-    'setTopRow',
-    'updateMove',
-    'Center',
-    'setupNewGame',
-    'Settings',
-    'equips',
-    'drawBackground',
-    'VisuMZ_2_BattleSystemBTB',
-    'TAB',
-    'offset',
-    'initCoreEngineScreenShake',
-    'itemHit',
-    'getKeyboardInputButtonString',
-    'indexOf',
-    '_repositioned',
-    'drawRightArrow',
-    'Scene_Shop_create',
-    'paramPlus',
-    'NON_FRAME',
-    'GoldBgType',
-    'PRINT',
-    'Sprite_Gauge_currentValue',
-    'updateBackOpacity',
-    'adjustY',
-    'Sprite_Picture_loadBitmap',
-    '9VpyMGN',
-    '_onError',
-    'ExportCurMapText',
-    'ParseActorNotetags',
-    'editWindowRect',
-    '0.00',
-    'replace',
-    'EnableNumberInput',
-    'gaugeRate',
-    '_url',
-    '_commonEventLayers',
-    'Game_Character_processMoveCommand',
-    'destroyed',
-    'isExpGaugeDrawn',
-    '_lastScrollBarValues',
-    'Scene_Item_create',
-    'ParseItemNotetags',
-    'map',
-    'onEscapeSuccess',
-    'makeCommandList',
-    'isClosing',
-    'Bitmap_drawText',
-    'MODECHANGE',
-    'zoomScale',
-    'addChildToBack',
-    'LevelUpFullMp',
-    'paramPlusJS',
-    '_srcBitmap',
-    'updatePosition',
-    'numActions',
-    'popScene',
-    'parse',
-    'helpAreaTop',
-    'updateOpacity',
-    'ALWAYS',
-    'createBackground',
-    'pointY',
-    'OUTBOUNCE',
-    'processKeyboardHandling',
-    'MDF',
-    'ColorHPGauge1',
-    'expRate',
-    'LevelUpFullHp',
-    'IconSParam8',
-    '%1%2',
-    'setEasingType',
-    '_timeDuration',
-    'faceWidth',
-    'Graphics_printError',
-    'XParamVocab4',
-    'BgFilename2',
-    'setAnchor',
-    '_changingClass',
-    'applyForcedGameTroopSettingsCoreEngine',
-    'MAXHP',
-    'buttonAssistSwitch',
-    'currentValue',
-    'createSubSprite',
-    'EnableNameInput',
-    'OptionsRect',
-    'moveMenuButtonSideButtonLayout',
-    'Bitmap_measureTextWidth',
-    'colSpacing',
-    'Scene_Map_initialize',
-    'ParseAllNotetags',
-    'ParseStateNotetags',
-    'Bitmap_resize',
-    'WASD',
-    'Export\x20Troop\x20Text\x20operation\x20will\x20finish\x20in\x20%1\x20ms(s)',
-    'NewGameBoot',
-    'font-smooth',
-    'ACCEPT',
-    'xparamFlat2',
-    'initialize',
-    'showIncompleteTilesetError',
-    'maxVert',
-    'createScrollBarSprites',
-    'EncounterRateMinimum',
-    '1445095mwOYJz',
-    'destroyCoreEngineMarkedBitmaps',
-    'paramRate',
-    'opacity',
-    '_name',
-    '_battlerName',
-    'areTileShadowsHidden',
-    'buttonAreaHeight',
-    'scaleX',
-    'WARNING:\x20%1\x20has\x20already\x20been\x20declared\x0aand\x20cannot\x20be\x20used\x20as\x20a\x20Quick\x20JS\x20Function',
-    'IconSParam9',
-    'drawCircle',
-    'terms',
-    'setHandler',
-    'rightArrowWidth',
-    'stencilOp',
-    'updateText',
-    'create',
-    'ColorTPCost',
-    'blt',
-    'DrawItemBackgroundJS',
-    'SELECT',
-    'maxScrollbar',
-    '_displayX',
-    'isMagical',
-    'round',
-    'image-rendering',
-    '_pressed',
-    'WIN_OEM_PA2',
-    'SLASH',
-    'isEnabled',
-    'buttonAssistOffset2',
-    'ExportAllTroopText',
-    'deactivate',
-    'setActorHomeRepositioned',
-    'updatePlayTestF7',
-    'outlineColor',
-    'activate',
-    'TargetAngle',
-    'buttonAssistOffset5',
-    'get',
-    'version',
-    'ItemHeight',
-    'seek',
-    'updateDocumentTitle',
-    'tab',
-    'erasePicture',
-    'onNameOk',
-    'sv_actors',
-    'updateTransform',
-    '_bgmBuffer',
-    'mainAreaHeight',
-    'DigitGroupingGaugeSprites',
-    'ColorCTGauge2',
-    'buttonAssistWindowSideRect',
-    'OUTCUBIC',
-    '_viewportSize',
-    'advanced',
-    'loadSystemImages',
-    'ImprovedAccuracySystem',
-    '_shakeDuration',
-    'updatePadding',
-    'updatePictureSettings',
-    'battlebacks2',
-    'smooth',
-    'WIN_OEM_WSCTRL',
-    'setValue',
-    'OS_KEY',
-    'Scene_Boot_updateDocumentTitle',
-    'DetachBattlePictureContainer',
-    'clamp',
-    'Game_Interpreter_PluginCommand',
-    'CustomParamNames',
-    'COLON',
-    '%1:\x20Exit\x20',
-    'setBackgroundOpacity',
-    'SceneManager_initialize',
-    'HelpRect',
-    'Scene_Map_createMenuButton',
-    'XParamVocab0',
-    'anchor',
-    'XParamVocab1',
-    'xparamRate2',
-    'Symbol',
-    'JSON',
-    'CONTEXT_MENU',
-    '%1\x0a',
-    'getBattleSystem',
-    'sceneTerminationClearEffects',
-    'Game_Map_setup',
-    'This\x20scene\x20cannot\x20utilize\x20a\x20Once\x20Parallel!',
-    '_mode',
-    'PictureFilename',
-    'isTileExtended',
-    'NUMPAD8',
-    'ShiftR_Toggle',
-    'Window_StatusBase_drawActorSimpleStatus',
-    '_showDevTools',
-    'TextJS',
-    'Game_Screen_initialize',
-    'DisplayedParams',
-    '_coreEasing',
-    'IconXParam2',
-    'isMapScrollLinked',
-    'needsUpdate',
-    'animationNextDelay',
-    'setupCoreEngine',
-    'valueOutlineWidth',
-    'Export\x20Map\x20Text\x20operation\x20will\x20finish\x20in\x20%1\x20ms(s)',
-    'VisuMZ_2_BattleSystemOTB',
-    'drawAllParams',
-    '_pictureContainer',
-    'Sprite_Actor_setActorHome',
-    'fillRect',
-    'processBack',
-    'VisuMZ_2_BattleSystemFTB',
-    'dummyWindowRect',
-    'inBattle',
-    'bgs',
-    'getPointAnimationLayer',
-    'PRINTSCREEN',
-    'Scene_Title',
-    'smoothSelect',
-    'OUTQUAD',
-    'requestMotion',
-    'outlineColorGauge',
-    'playLoad',
-    'windowOpacity',
-    '_screenY',
-    'Duration',
-    'exportAllMapStrings',
-    'etypeId',
-    'setSideButtonLayout',
-    'Window_Base_drawFace',
-    'Scene_Boot_loadSystemImages',
-    'INOUTBACK',
-    'Game_Picture_scaleY',
-    'padZero',
-    '_sideButtonLayout',
-    'setCoreEngineScreenShakeStyle',
-    'OutlineColor',
-    'cursorPageup',
-    '_isPlaytest',
-    'smallParamFontSize',
-    'easingType',
-    'pow',
-    'xparam',
-    'ColorCrisis',
-    'Input_shouldPreventDefault',
-    'paramFlatBonus',
-    'AudioChangeBgsPitch',
-    'actorWindowRect',
-    'updateRotation',
-    'statusEquipWindowRect',
-    'gainGold',
-    'Game_Picture_updateMove',
-    'ParseSkillNotetags',
-    'isSceneMap',
-    'maxScrollY',
-    'isActiveTpb',
-    'TranslucentOpacity',
-    '〘Common\x20Event\x20%1:\x20%2〙\x20End',
-    'playBgs',
-    'crisisColor',
-    'drawTextEx',
-    '_optionsWindow',
-    'paramRate1',
-    'isPointAnimationPlaying',
-    'drawNewParam',
-    'IconParam0',
-    'NONCONVERT',
-    'Sprite_AnimationMV_processTimingData',
-    'buyWindowRect',
-    'TRAIT_PARAM',
-    'rowSpacing',
-    'NUMPAD0',
-    'PA1',
-    'NumberRect',
-    'ZERO',
-    'updateBgmParameters',
-    'setEnemyAction',
-    'SystemSetSideView',
-    'applyCoreEasing',
-    'OffBarColor',
-    'loading',
-    'Game_Event_isCollidedWithEvents',
-    'pictureId',
-    'SystemSetWindowPadding',
-    'isSideView',
-    'showFauxAnimations',
-    'Enemy-%1-%2',
-    'EXSEL',
-    'paramX',
-    'Window_ShopSell_isEnabled',
-    '_stored_ctGaugeColor1',
-    'subjectHitRate',
-    'ALTGR',
-    'ColorMaxLvGauge2',
-    'Scene_Battle_update',
-    'Scene_Map_createSpritesetFix',
-    'Title',
-    'drawFace',
-    'Upper\x20Left',
-    'ControllerButtons',
-    'IDs',
-    'isMVAnimation',
-    '_commandList',
-    'level',
-    'ExtractStrFromTroop',
-    'startNormalGame',
-    'Chance',
-    'switchModes',
-    'isGamepadConnected',
-    'ExtDisplayedParams',
-    'CEV',
-    'NEAREST',
-    'GroupDigits',
-    'enabled',
-    'expGaugeColor1',
-    'ctrl',
-    '_coreEasingType',
-    '_text',
-    'cursorUp',
-    'playTestF7',
-    'updatePositionCoreEngineShakeRand',
-    'battleSystem',
-    'arePageButtonsEnabled',
-    'VisuMZ_3_EventChainReact',
-    '_image',
-    'systemColor',
-    'MaxDuration',
-    'cursorDown',
-    'itemEva',
-    'EquipMenu',
-    'INEXPO',
-    'rgba(0,\x200,\x200,\x200.7)',
-    'changeAnglePlusData',
-    'removePointAnimation',
-    'buttonAssistOffset4',
-    'paramValueByName',
-    'subtitle',
-    'skillTypeWindowRect',
-    'hpGaugeColor2',
-    'allowShiftScrolling',
-    'globalAlpha',
-    'expGaugeColor2',
-    'traitsPi',
-    'isActor',
-    'initialBattleSystem',
-    'endAction',
-    'ActorTPColor',
-    'refreshScrollBarBitmap',
-    'DOWN',
-    'commandWindowRect',
-    'scrollbar',
-    'pages',
-    'changeClass',
-    '_categoryWindow',
-    'retrievePointAnimation',
-    'getControllerInputButtonMatch',
-    'Game_Party_consumeItem',
-    'cursorRight',
-    '_stored_deathColor',
-    'REC',
-    '_textPopupWindow',
-    '_scaleY',
-    'slotWindowRect',
-    'buttonAssistText2',
-    'adjustSprite',
-    'inputWindowRect',
-    'key%1',
-    'TextPopupShow',
-    'enemies',
-    'move',
-    'CategoryBgType',
-    'NameMenu',
-    'moveCancelButtonSideButtonLayout',
-    'makeTargetSprites',
-    '_lastIconIndex',
-    'startMove',
-    '_tempActor',
-    'Window_NameInput_cursorPageup',
-    'titles1',
-    'fadeSpeed',
-    '_statusWindow',
-    'BattleManager_checkSubstitute',
-    'xScrollLinkedOffset',
-    'drawParamName',
-    'Window_Selectable_itemRect',
-    '_targetScaleX',
-    '_tileExtendSprites',
-    'OUTQUART',
-    'boxHeight',
-    'Scene_GameEnd_createBackground',
-    '_setupEventHandlers',
-    'CorrectSkinBleeding',
-    'HASH',
-    '_height',
-    'createFauxAnimationSprite',
-    'initDigitGrouping',
-    'ALT',
-    'right',
-    'Game_Actor_levelUp',
-    'Window_Selectable_processTouch',
-    'createPointAnimationSprite',
-    'Name',
-    'isLoopVertical',
-    'pictureButtons',
-    'isFullDocumentTitle',
-    'ItemRect',
-    'updateMain',
-    '_troopId',
-    'keyMapper',
-    'isSceneBattle',
-    'State-%1-%2',
-    'LoadMenu',
-    '_tileSprite',
-    'stringKeyMap',
-    'flush',
-    'IconXParam8',
-    'maxTp',
-    'Finish',
-    'DefaultStyle',
-    'StateIconsNonFrame',
-    'WIN_ICO_HELP',
-    'buttonAssistText3',
-    'command355',
-    'currencyUnit',
-    '_inputWindow',
-    'drawActorExpGauge',
-    'checkSubstitute',
-    'atypeId',
-    'updateMotion',
-    '%1〘Choice\x20Cancel〙%1',
-    'scaleSprite',
-    'F11',
-    '_makeFontNameText',
-    'parseForcedGameTroopSettingsCoreEngine',
-    'BoxMargin',
-    '_clientArea',
-    'description',
-    'sparamFlatBonus',
-    'targets',
-    'list',
-    'Input_clear',
-    'NUMPAD2',
-    'strokeRect',
-    'length',
-    'Window_MapName_refresh',
-    'xparamFlat1',
-    'isAutoColorAffected',
-    'hideButtonFromView',
-    'Bitmap_blt',
-    'Keyboard',
-    'innerWidth',
-    'toString',
-    'F12',
-    'prototype',
-    'targetY',
-    'removeFauxAnimation',
-    'SceneManager_exit',
-    'createPageButtons',
-    '\x5c}❪SHIFT❫\x5c{',
-    'SideButtons',
-    'stypeId',
-    'Sprite_StateIcon_loadBitmap',
-    'filterArea',
-    '_upArrowSprite',
-    'cancelShowButton',
-    'WIN_OEM_FJ_LOYA',
-    'INSINE',
-    '_currentMap',
-    'Window_NumberInput_start',
-    '_tilemap',
-    'PositionJS',
-    'processEscape',
-    'setLastGamepadUsed',
-    'render',
-    'KEEP',
-    'initBasic',
-    'ParseEnemyNotetags',
-    'dashToggle',
-    'isInstanceOfSceneMap',
-    'categoryWindowRect',
-    'isClosed',
-    'drawParamText',
-    'Game_System_initialize',
-    '_inputSpecialKeyCode',
-    'centerY',
-    'scrollDown',
-    'offColor',
-    'font',
-    'setDisplayPos',
-    'applyEasingAnglePlus',
-    'buttonAssistKey3',
-    'ExportCurTroopText',
-    'Window_refreshBack',
-    'WIN_OEM_FJ_JISHO',
-    'DimColor1',
-    '_pointAnimationSprites',
-    'ExtJS',
-    'Rate2',
-    'X:\x20%1',
-    '_context',
-    'RowSpacing',
-    'INOUTCUBIC',
-    '%1/',
-    'powerDownColor',
-    'levelUpRecovery',
-    'framesMax',
-    'animations',
-    'drawTextTopAligned',
-    'StatusEquipBgType',
-    'addQueue',
-    'BattleSystem',
-    'getCombinedScrollingText',
-    'Icon',
-    'printError',
-    'dimColor1',
-    'getGamepads',
-    'xparamPlusJS',
-    'Scene_Unlisted',
-    'Scene_Map_update',
-    'EQUALS',
-    'Window_NumberInput_processDigitChange',
-    'BarBodyColor',
-    'DimColor2',
-    '_slotWindow',
-    'Plus',
-    'waiting',
-    'TitleCommandList',
-    'atbActive',
-    'pageup',
-    'current',
-    'Game_Action_updateLastTarget',
-    '_windowLayer',
-    'HRG',
-    'animationBaseDelay',
-    'ARRAYEVAL',
-    'ColorTPGauge2',
-    'SkillTypeRect',
-    'windowPadding',
-    'centerCameraCheckData',
-    'process_VisuMZ_CoreEngine_jsQuickFunctions',
-    'SETTINGS',
-    '_buttonAssistWindow',
-    'updateOnceParallelInterpreters',
-    'Game_Map_scrollRight',
-    'updatePointAnimations',
-    'createCustomBackgroundImages',
-    '_drawTextOutline',
-    'drawActorLevel',
-    'displayName',
-    'params',
-    'random',
-    'Spriteset_Base_destroy',
-    '_width',
-    'integer',
-    'ShopMenu',
-    'MenuLayout',
-    'traitObjects',
-    'toFixed',
-    'STENCIL_TEST',
-    'position',
-    'RepositionEnemies',
-    'down2',
-    '_coreEngineShakeStyle',
-    'Scene_MenuBase_mainAreaHeight',
-    'setViewportCoreEngineFix',
-    'Window_NameInput_processHandling',
-    'openURL',
-    'isNumpadPressed',
-    'centerX',
-    'itemWindowRect',
-    'SParamVocab9',
-    'resetFontSettings',
-    'OpenSpeed',
-    'OUTCIRC',
-    'FontSmoothing',
-    'mhp',
-    'updateLastTarget',
-    'retrieveFauxAnimation',
-    'SPACE',
-    'meVolume',
-    'Window_Base_drawText',
-    'itemHitImprovedAccuracy',
-    'RevertPreserveNumbers',
-    'ColorCTGauge1',
-    'duration',
-    'nextLevelExp',
-    '_hideTileShadows',
-    'DETACH_PICTURE_CONTAINER',
-    'updateOrigin',
-    'createJsQuickFunction',
-    'checkPlayerLocation',
-    'updateData',
-    'ADD',
-    '《《《\x20Page\x20%1\x20》》》\x0a%2\x0a',
-    'angle',
-    'ColorManager_loadWindowskin',
-    'XParamVocab9',
-    'IconParam2',
-    'drawGameTitle',
-    'itemBackColor2',
-    'createCommandWindow',
-    'numberShowButton',
-    'ModernControls',
-    'Window_StatusBase_drawActorLevel',
-    'CustomParamIcons',
-    'WIN_OEM_CLEAR',
-    'helpAreaTopSideButtonLayout',
-    'MIN_SAFE_INTEGER',
-    '_phase',
-    'scaleMode',
-    'Game_Picture_scaleX',
-    'IconIndex',
-    'ListRect',
-    'sparamFlat2',
-    'command105',
-    '_sellWindow',
-    'setupRate',
-    'CommonEventID',
-    '_list',
-    'STB',
-    'createContents',
-    'keyRepeatWait',
-    'expParams',
-    'CANCEL',
-    'updatePictureAntiZoom',
-    'maxVisibleItems',
-    'addOnceParallelInterpreter',
-    'pictures',
-    'touchUI',
-    'drawValue',
-    'DataManager_setupNewGame',
-    'enable',
-    'QUESTION_MARK',
-    'windowRect',
-    'targetX',
-    'loadBitmapCoreEngine',
-    'Scene_Title_drawGameTitle',
-    'catchLoadError',
-    'XParamVocab5',
-    'updateDuration',
-    'forceOutOfPlaytest',
-    'createDigits',
-    'Window',
-    'catchUnknownError',
-    '_stored_pendingColor',
-    '_playtestF7Looping',
-    'split',
-    'constructor',
-    'maxLvGaugeColor2',
-    'BlurFilter',
-    'onMoveEnd',
-    'mainCommandWidth',
-    '#%1',
-    'hasEncryptedImages',
-    'removeAnimation',
-    'img/%1/',
-    'loadTitle1',
-    'ColorNormal',
-    '_storedMapText',
-    '_menuButton',
-    'IconXParam5',
-    'command122',
-    'getBackgroundOpacity',
-    'GetParamIcon',
-    '_numberWindow',
-    'Map%1.json',
-    'SellRect',
-    'tpCostColor',
-    'Armor-%1-%2',
-    'initCoreEasing',
-    'drawActorSimpleStatus',
-    '_colorCache',
-    'displayY',
-    'fillText',
-    'pos',
-    'Color',
-    'type',
-    'ItemBackColor1',
-    'SubfolderParse',
-    'Game_Actor_changeClass',
-    'win32',
-    'isSmartEventCollisionOn',
-    'removeAllFauxAnimations',
-    'CTB',
-    'Scene_Base_terminate',
-    'baseTextRect',
-    'Bitmap_drawTextOutline',
-    '([\x5c+\x5c-]\x5cd+)([%％])>',
-    'WIN_ICO_CLEAR',
-    'calcCoreEasing',
-    'numberWindowRect',
-    'Window_NameInput_refresh',
-    '_tileExtendTerrainTags',
-    'reduce',
-    'checkScrollBarBitmap',
-    'drawGameSubtitle',
-    '_drawTextShadow',
-    '_gamepadWait',
-    'ExtractStrFromMap',
-    'Game_Troop_setup',
-    'bodyColor',
-    '_currentBgs',
-    'getParameter',
-    'PictureEasingType',
-    'updateAnchor',
-    'ExtractStrFromList',
-    'processMoveCommand',
-    'OTB',
-    'drawGameVersion',
-    'Show\x20Scrolling\x20Text\x20Script\x20Error',
-    'innerHeight',
-    'Game_Action_itemHit',
-    'defineProperty',
-    'call',
-    'isTouchedInsideFrame',
-    'animationId',
-    'targetContentsOpacity',
-    '_forcedBattleSys',
-    'layoutSettings',
-    'setSize',
-    'TRG',
-    'isRepeated',
-    '_updateFilterArea',
-    'Bitmap_drawCircle',
-    'menuShowButton',
-    'ParamMax',
-    'PTB',
-    'charAt',
-    'OptionsBgType',
-    'Window_Selectable_cursorUp',
-    'NUM_LOCK',
-    'ONE',
-    'Spriteset_Map_createTilemap',
-    'Scene_Base_create',
-    'isEnemy',
-    'displayX',
-    'SUBTRACT',
-    'ButtonFadeSpeed',
-    'isAnimationOffsetXMirrored',
-    'gradientFillRect',
-    'PAUSE',
-    'saveViewport',
-    'OptionsMenu',
-    'Input_updateGamepadState',
-    'Rate1',
-    'Input_update',
-    'Pixelated',
-    'process_VisuMZ_CoreEngine_Settings',
-    'FontWidthFix',
-    'getButtonAssistLocation',
-    'showPicture',
-    'setFrame',
-    '$dataMap',
-    '_bgsBuffer',
-    'Window_Gold_refresh',
-    'Flat2',
-    'isCancelled',
-    'HelpBgType',
-    'shake',
-    'select',
-    'setup',
-    'framesMin',
-    'isPhysical',
-    'VisuMZ_1_OptionsCore',
-    'VisuMZ_2_BattleSystemPTB',
-    'GREATER_THAN',
-    'Actor-%1-%2',
-    '_origin',
-    '_screenX',
-    'SParamVocab1',
-    'DocumentTitleFmt',
-    'Scene_MenuBase_createBackground',
-    'DEF',
-    'process_VisuMZ_CoreEngine_ControllerButtons',
-    'Scene_Skill_create',
-    'getColorDataFromPluginParameters',
-    'sellWindowRect',
-    'clearCachedKeys',
-    'dropItems',
-    'INOUTQUART',
-    'createEnemies',
-    'optSideView',
-    'Window_Base_update',
-    'guardSkillId',
-    'ExportStrFromAllTroops',
-    'itemHeight',
-    'open',
-    'F19',
-    'WIN_OEM_COPY',
-    'statusParamsWindowRect',
-    'MRG',
-    'Game_Picture_move',
-    'getTileExtendTerrainTags',
-    'ASTERISK',
-    'Game_Event_start',
-    '_scaleX',
-    'Gold',
-    'mainAreaBottom',
-    'filters',
-    'mpGaugeColor2',
-    'processCursorMoveModernControls',
-    'processFauxAnimationRequests',
-    'Scene_Map_updateMain',
-    'Linear',
-    'addWindow',
-    'VisuMZ_4_UniqueTileEffects',
-    'F16',
-    'operand',
-    'hit',
-    'start',
-    'CRI',
-    'drawGoldItemStyle',
-    'SwitchActorText',
-    'top',
-    'createButtonAssistWindow',
-    'createTilemap',
-    '_eventId',
-    'en-US',
-    'ActorRect',
-    '_centerCameraCheck',
-    'mapId',
-    'AudioChangeBgsPan',
-    'AMPERSAND',
-    '_originalViewport',
-    '%2%1%3',
-    'listWindowRect',
-    '_actorWindow',
-    'CategoryRect',
-    'abs',
-    'playEscape',
-    'isGamepadButtonPressed',
-    'Power',
-    'OffBarOpacity',
-    'batch',
-    'drawBackgroundRect',
-    'ctGaugeColor2',
-    'Current\x20tileset\x20has\x20incomplete\x20flag\x20data.',
-    'F23',
-    'autoRemovalTiming',
-    'catchNormalError',
-    '_movementWholeDuration',
-    'Renderer',
-    'Game_Interpreter_command122',
-    'createSpriteset',
-    'wait',
-    'scaleY',
-    'SceneManager_onKeyDown',
-    'targetScaleY',
-    'DigitGroupingStandardText',
-    'MCR',
-    'isGamepadTriggered',
-    'faceHeight',
-    'XParamVocab3',
-    '_goldWindow',
-    'isFauxAnimationPlaying',
-    'isPlaytest',
-    'setViewport',
-    '_customModified',
-    'IconSParam0',
-    'StartID',
-    'buttonAssistKey%1',
-    'ItemPadding',
-    '_active',
-    'recoverAll',
-    '2321yxmMCC',
-    'Scene_MenuBase_createPageButtons',
-    'onerror',
-    'WIN_OEM_ENLW',
-    'processTimingData',
-    'learnings',
-    'WindowLayer_render',
-    'IconSParam7',
-    'maxLevel',
-    'isWindowMaskingEnabled',
-    'tilesetNames',
-    'buttonAssistKey4',
-    'changeTextColor',
-    'push',
-    'Scene_Load',
-    'bgm',
-    '_lastY',
-    'setClickHandler',
-    'CustomParamType',
-    'WIN_OEM_BACKTAB',
-    'eva',
-    'LEFT',
-    'FINAL',
-    'value',
-    '_realScale',
-    '_targetOffsetX',
-    'isUseModernControls',
-    'DebugConsoleLastControllerID',
-    'min',
-    'sparamPlusJS',
-    'ColorTPGauge1',
-    'checkCoreEngineDisplayCenter',
-    '_pictureCoordinatesWindow',
-    'outbounce',
-    '_scrollBarVert',
-    'mirror',
-    'wtypeId',
-    'createTroopNote',
-    'shouldAutosave',
-    'children',
-    'visible',
-    'CommandRect',
-    'skillTypes',
-    'WIN_OEM_AUTO',
-    'trim',
-    'setTileFrame',
-    'getInputButtonString',
-    'drawCurrencyValue',
-    'xparamRateJS',
-    'disable',
-    '_stored_maxLvGaugeColor1',
-    'endAnimation',
-    'tpGaugeColor2',
-    'KeyUnlisted',
-    'StatusRect',
-    'ColorMPGauge1',
-    'Param',
-    'loadGameImagesCoreEngine',
-    'Origin',
-    'ceil',
-    'KeyTAB',
-    'Sprite_StateIcon_updateFrame',
-    'stencilFunc',
-    'CTRL',
-    'XParameterFormula',
-    'sparamPlus1',
-    'AnimationPoint',
-    'PHA',
-    '_backgroundSprite',
-    'processHandling',
-    'buttonAssistText%1',
-    'onActorChange',
-    'GoldMax',
-    'useFontWidthFix',
-    'vert',
-    'DATABASE',
-    'PictureEraseAll',
-    'storeMapData',
-    'updateCoreEasing',
-    'XParamVocab6',
-    'ExportString',
-    'Scene_Battle_createSpriteset',
-    'buttons',
-    'measureTextWidthNoRounding',
-    'INOUTEXPO',
-    'ParamArrow',
-    'getLastGamepadUsed',
-    'anchorCoreEasing',
-    'Spriteset_Base_initialize',
-    'INQUINT',
-    'ARRAYSTR',
-    'processKeyboardBackspace',
-    '_registerKeyInput',
-    'xparamFlatBonus',
-    'normalColor',
-    'Sprite_destroy',
-    'Sprite_Picture_updateOrigin',
-    'enter',
-    '_colorTone',
-    'SParamVocab0',
-    'Scene_Map_createSpriteset_detach',
-    'openingSpeed',
-    'JUNJA',
-    '_number',
-    'pixelated',
-    '_mapNameWindow',
-    'close',
-    'OUTQUINT',
-    'text',
-    'REPLACE',
-    'evaluate',
-    '_margin',
-    'invokeCounterAttack',
-    'isItem',
-    'Scene_Battle_createSpritesetFix',
-    'ForceNoPlayTest',
-  ];
-  _0x43c8 = function () {
-    return _0x32af4b;
-  };
-  return _0x43c8();
-}
-var label = _0x17b060(0x77a),
-  tier = tier || 0x0,
-  dependencies = [],
-  pluginData = $plugins['filter'](function (_0x5560a) {
-    const _0x285477 = _0x17b060;
-    return _0x5560a[_0x285477(0x1a4)] && _0x5560a[_0x285477(0x539)][_0x285477(0x1ae)]('[' + label + ']');
-  })[0x0];
-(VisuMZ[label][_0x17b060(0x382)] = VisuMZ[label]['Settings'] || {}),
-  (VisuMZ[_0x17b060(0x2f8)] = function (_0x3b4416, _0xacddb4) {
-    const _0x5360a9 = _0x17b060;
-    for (const _0x585a11 in _0xacddb4) {
-      if (_0x585a11[_0x5360a9(0x2ba)](/(.*):(.*)/i)) {
-        const _0x1de12d = String(RegExp['$1']),
-          _0x5fc5f1 = String(RegExp['$2'])[_0x5360a9(0x29e)]()[_0x5360a9(0x711)]();
-        let _0x2d7712, _0xc11f1b, _0x1d9206;
-        switch (_0x5fc5f1) {
-          case _0x5360a9(0x35b):
-            _0x2d7712 = _0xacddb4[_0x585a11] !== '' ? Number(_0xacddb4[_0x585a11]) : 0x0;
-            break;
-          case _0x5360a9(0x859):
-            (_0xc11f1b = _0xacddb4[_0x585a11] !== '' ? JSON[_0x5360a9(0x3b6)](_0xacddb4[_0x585a11]) : []), (_0x2d7712 = _0xc11f1b['map'](_0x1ed892 => Number(_0x1ed892)));
-            break;
-          case 'EVAL':
-            _0x2d7712 = _0xacddb4[_0x585a11] !== '' ? eval(_0xacddb4[_0x585a11]) : null;
-            break;
-          case _0x5360a9(0x59b):
-            (_0xc11f1b = _0xacddb4[_0x585a11] !== '' ? JSON[_0x5360a9(0x3b6)](_0xacddb4[_0x585a11]) : []), (_0x2d7712 = _0xc11f1b[_0x5360a9(0x3a8)](_0x4534c4 => eval(_0x4534c4)));
-            break;
-          case _0x5360a9(0x439):
-            _0x2d7712 = _0xacddb4[_0x585a11] !== '' ? JSON[_0x5360a9(0x3b6)](_0xacddb4[_0x585a11]) : '';
-            break;
-          case 'ARRAYJSON':
-            (_0xc11f1b = _0xacddb4[_0x585a11] !== '' ? JSON['parse'](_0xacddb4[_0x585a11]) : []), (_0x2d7712 = _0xc11f1b[_0x5360a9(0x3a8)](_0x5a3aee => JSON[_0x5360a9(0x3b6)](_0x5a3aee)));
-            break;
-          case 'FUNC':
-            _0x2d7712 = _0xacddb4[_0x585a11] !== '' ? new Function(JSON[_0x5360a9(0x3b6)](_0xacddb4[_0x585a11])) : new Function(_0x5360a9(0x24c));
-            break;
-          case _0x5360a9(0x2ad):
-            (_0xc11f1b = _0xacddb4[_0x585a11] !== '' ? JSON[_0x5360a9(0x3b6)](_0xacddb4[_0x585a11]) : []),
-              (_0x2d7712 = _0xc11f1b[_0x5360a9(0x3a8)](_0x3511c3 => new Function(JSON[_0x5360a9(0x3b6)](_0x3511c3))));
-            break;
-          case 'STR':
-            _0x2d7712 = _0xacddb4[_0x585a11] !== '' ? String(_0xacddb4[_0x585a11]) : '';
-            break;
-          case _0x5360a9(0x73f):
-            (_0xc11f1b = _0xacddb4[_0x585a11] !== '' ? JSON['parse'](_0xacddb4[_0x585a11]) : []), (_0x2d7712 = _0xc11f1b[_0x5360a9(0x3a8)](_0x289ea1 => String(_0x289ea1)));
-            break;
-          case _0x5360a9(0x88b):
-            (_0x1d9206 = _0xacddb4[_0x585a11] !== '' ? JSON[_0x5360a9(0x3b6)](_0xacddb4[_0x585a11]) : {}), (_0x3b4416[_0x1de12d] = {}), VisuMZ['ConvertParams'](_0x3b4416[_0x1de12d], _0x1d9206);
-            continue;
-          case _0x5360a9(0x18b):
-            (_0xc11f1b = _0xacddb4[_0x585a11] !== '' ? JSON[_0x5360a9(0x3b6)](_0xacddb4[_0x585a11]) : []),
-              (_0x2d7712 = _0xc11f1b[_0x5360a9(0x3a8)](_0x47faf2 => VisuMZ[_0x5360a9(0x2f8)]({}, JSON[_0x5360a9(0x3b6)](_0x47faf2))));
-            break;
-          default:
-            continue;
-        }
-        _0x3b4416[_0x1de12d] = _0x2d7712;
-      }
-    }
-    return _0x3b4416;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x54d)] = SceneManager[_0x17b060(0x81a)]),
-  (SceneManager[_0x17b060(0x81a)] = function () {
-    const _0x224270 = _0x17b060;
-    VisuMZ[_0x224270(0x77a)][_0x224270(0x54d)][_0x224270(0x64e)](this);
-    if (Utils[_0x224270(0x232)] >= _0x224270(0x325)) {
-      if (typeof nw === _0x224270(0x372)) nw['App'][_0x224270(0x1cf)]();
-    }
-  }),
-  (_0x1936a0 => {
-    const _0x30be9d = _0x17b060,
-      _0x8eb08b = _0x1936a0[_0x30be9d(0x142)];
-    for (const _0x597fa4 of dependencies) {
-      if (!Imported[_0x597fa4]) {
-        alert(_0x30be9d(0x7da)[_0x30be9d(0x1df)](_0x8eb08b, _0x597fa4)), SceneManager[_0x30be9d(0x81a)]();
-        break;
-      }
-    }
-    const _0x28b32d = _0x1936a0['description'];
-    if (_0x28b32d[_0x30be9d(0x2ba)](/\[Version[ ](.*?)\]/i)) {
-      const _0x141fa1 = Number(RegExp['$1']);
-      _0x141fa1 !== VisuMZ[label]['version'] && (alert(_0x30be9d(0x31d)[_0x30be9d(0x1df)](_0x8eb08b, _0x141fa1)), SceneManager[_0x30be9d(0x81a)]());
-    }
-    if (_0x28b32d[_0x30be9d(0x2ba)](/\[Tier[ ](\d+)\]/i)) {
-      const _0x27f33a = Number(RegExp['$1']);
-      _0x27f33a < tier ? (alert(_0x30be9d(0x10a)['format'](_0x8eb08b, _0x27f33a, tier)), SceneManager['exit']()) : (tier = Math[_0x30be9d(0x7f9)](_0x27f33a, tier));
-    }
-    VisuMZ['ConvertParams'](VisuMZ[label][_0x30be9d(0x382)], _0x1936a0[_0x30be9d(0x1d6)]);
-  })(pluginData),
-  (() => {
-    const _0xc74098 = _0x17b060;
-    if (VisuMZ[_0xc74098(0x77a)][_0xc74098(0x382)][_0xc74098(0x7ae)][_0xc74098(0x62b)] ?? !![])
-      for (const _0x27c508 in $plugins) {
-        const _0x1995e8 = $plugins[_0x27c508];
-        _0x1995e8[_0xc74098(0x142)][_0xc74098(0x2ba)](/(.*)\/(.*)/i) && (_0x1995e8[_0xc74098(0x142)] = String(RegExp['$2']['trim']()));
-      }
-  })(),
-  PluginManager['registerCommand'](pluginData[_0x17b060(0x142)], _0x17b060(0x727), _0x39f637 => {
-    const _0x39ef5f = _0x17b060;
-    if (!SceneManager[_0x39ef5f(0x2f9)]) return;
-    if (!SceneManager['_scene'][_0x39ef5f(0x10b)]) return;
-    VisuMZ[_0x39ef5f(0x2f8)](_0x39f637, _0x39f637);
-    const _0x33a688 = Math[_0x39ef5f(0x3fe)](_0x39f637['pointX']),
-      _0x1ee92e = Math[_0x39ef5f(0x3fe)](_0x39f637[_0x39ef5f(0x3bb)]);
-    $gameTemp[_0x39ef5f(0x7f0)](_0x33a688, _0x1ee92e, _0x39f637[_0x39ef5f(0x22d)], _0x39f637[_0x39ef5f(0x182)], _0x39f637[_0x39ef5f(0x1d5)]);
-  }),
-  PluginManager['registerCommand'](pluginData[_0x17b060(0x142)], _0x17b060(0x34f), _0x1e09de => {
-    const _0xf5a14 = _0x17b060;
-    VisuMZ[_0xf5a14(0x2f8)](_0x1e09de, _0x1e09de);
-    const _0x2cfd77 = Math[_0xf5a14(0x3fe)](_0x1e09de[_0xf5a14(0x14a)])[_0xf5a14(0x42b)](0x0, 0x64),
-      _0xd7f252 = AudioManager[_0xf5a14(0x374)];
-    _0xd7f252 &&
-      ((_0xd7f252['volume'] = _0x2cfd77),
-      (_0xd7f252['pos'] = AudioManager[_0xf5a14(0x417)][_0xf5a14(0x410)]()),
-      AudioManager['updateBgmParameters'](_0xd7f252),
-      AudioManager[_0xf5a14(0x36d)](_0xd7f252, _0xd7f252[_0xf5a14(0x627)]),
-      AudioManager['_bgmBuffer'][_0xf5a14(0x81b)](_0xd7f252[_0xf5a14(0x627)]));
-  }),
-  PluginManager['registerCommand'](pluginData[_0x17b060(0x142)], 'AudioChangeBgmPitch', _0x392e6d => {
-    const _0x507a47 = _0x17b060;
-    VisuMZ['ConvertParams'](_0x392e6d, _0x392e6d);
-    const _0x38af8b = Math[_0x507a47(0x3fe)](_0x392e6d[_0x507a47(0x2f2)])[_0x507a47(0x42b)](0x32, 0x96),
-      _0x5c304c = AudioManager[_0x507a47(0x374)];
-    _0x5c304c &&
-      ((_0x5c304c[_0x507a47(0x2f2)] = _0x38af8b),
-      (_0x5c304c[_0x507a47(0x627)] = AudioManager[_0x507a47(0x417)][_0x507a47(0x410)]()),
-      AudioManager[_0x507a47(0x498)](_0x5c304c),
-      AudioManager[_0x507a47(0x36d)](_0x5c304c, _0x5c304c[_0x507a47(0x627)]),
-      AudioManager[_0x507a47(0x417)][_0x507a47(0x81b)](_0x5c304c[_0x507a47(0x627)]));
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x169), _0x44633d => {
-    const _0x3a2324 = _0x17b060;
-    VisuMZ[_0x3a2324(0x2f8)](_0x44633d, _0x44633d);
-    const _0x3a87bc = Math[_0x3a2324(0x3fe)](_0x44633d[_0x3a2324(0x8a6)])['clamp'](-0x64, 0x64),
-      _0x1afea9 = AudioManager[_0x3a2324(0x374)];
-    _0x1afea9 &&
-      ((_0x1afea9[_0x3a2324(0x8a6)] = _0x3a87bc),
-      (_0x1afea9[_0x3a2324(0x627)] = AudioManager[_0x3a2324(0x417)][_0x3a2324(0x410)]()),
-      AudioManager[_0x3a2324(0x498)](_0x1afea9),
-      AudioManager[_0x3a2324(0x36d)](_0x1afea9, _0x1afea9[_0x3a2324(0x627)]),
-      AudioManager['_bgmBuffer']['_startPlaying'](_0x1afea9['pos']));
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData['name'], _0x17b060(0x1e6), _0x16b684 => {
-    const _0x7a179d = _0x17b060;
-    VisuMZ[_0x7a179d(0x2f8)](_0x16b684, _0x16b684);
-    const _0x4a03b5 = Math[_0x7a179d(0x3fe)](_0x16b684[_0x7a179d(0x14a)])[_0x7a179d(0x42b)](0x0, 0x64),
-      _0x5800d7 = AudioManager[_0x7a179d(0x642)];
-    _0x5800d7 &&
-      ((_0x5800d7[_0x7a179d(0x14a)] = _0x4a03b5),
-      (_0x5800d7[_0x7a179d(0x627)] = AudioManager['_bgsBuffer']['seek']()),
-      AudioManager[_0x7a179d(0x16f)](_0x5800d7),
-      AudioManager[_0x7a179d(0x487)](_0x5800d7, _0x5800d7[_0x7a179d(0x627)]),
-      AudioManager['_bgsBuffer'][_0x7a179d(0x81b)](_0x5800d7[_0x7a179d(0x627)]));
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x47b), _0x1b0393 => {
-    const _0x522e50 = _0x17b060;
-    VisuMZ['ConvertParams'](_0x1b0393, _0x1b0393);
-    const _0x40915f = Math[_0x522e50(0x3fe)](_0x1b0393[_0x522e50(0x2f2)])['clamp'](0x32, 0x96),
-      _0x4ea46e = AudioManager[_0x522e50(0x642)];
-    _0x4ea46e &&
-      ((_0x4ea46e[_0x522e50(0x2f2)] = _0x40915f),
-      (_0x4ea46e['pos'] = AudioManager['_bgsBuffer'][_0x522e50(0x410)]()),
-      AudioManager[_0x522e50(0x16f)](_0x4ea46e),
-      AudioManager['playBgs'](_0x4ea46e, _0x4ea46e[_0x522e50(0x627)]),
-      AudioManager[_0x522e50(0x676)][_0x522e50(0x81b)](_0x4ea46e[_0x522e50(0x627)]));
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x6ba), _0x3c3a7f => {
-    const _0xfd4976 = _0x17b060;
-    VisuMZ[_0xfd4976(0x2f8)](_0x3c3a7f, _0x3c3a7f);
-    const _0x279e5b = Math[_0xfd4976(0x3fe)](_0x3c3a7f['pan'])[_0xfd4976(0x42b)](-0x64, 0x64),
-      _0x42555f = AudioManager[_0xfd4976(0x642)];
-    _0x42555f &&
-      ((_0x42555f[_0xfd4976(0x8a6)] = _0x279e5b),
-      (_0x42555f['pos'] = AudioManager[_0xfd4976(0x676)]['seek']()),
-      AudioManager[_0xfd4976(0x16f)](_0x42555f),
-      AudioManager[_0xfd4976(0x487)](_0x42555f, _0x42555f[_0xfd4976(0x627)]),
-      AudioManager[_0xfd4976(0x676)][_0xfd4976(0x81b)](_0x42555f['pos']));
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x700), _0x472807 => {
-    const _0x5589fc = _0x17b060;
-    if (!$gameTemp['isPlaytest']()) return;
-    const _0x3900ed = Input[_0x5589fc(0x224)]();
-    console[_0x5589fc(0x797)](_0x3900ed);
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], 'ExportAllMapText', _0x1e691c => {
-    const _0x189d5c = _0x17b060;
-    if (!$gameTemp[_0x189d5c(0x6dc)]()) return;
-    if (!Utils[_0x189d5c(0x185)]()) return;
-    (SceneManager['_scene']['_active'] = ![]), VisuMZ[_0x189d5c(0x77a)]['ExportStrFromAllMaps']();
-  }),
-  PluginManager['registerCommand'](pluginData[_0x17b060(0x142)], _0x17b060(0x405), _0x29fe51 => {
-    const _0xe1df04 = _0x17b060;
-    if (!$gameTemp['isPlaytest']()) return;
-    if (!Utils[_0xe1df04(0x185)]()) return;
-    (SceneManager[_0xe1df04(0x2f9)]['_active'] = ![]), VisuMZ[_0xe1df04(0x77a)][_0xe1df04(0x695)]();
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x399), _0x20c5d8 => {
-    const _0x113bb7 = _0x17b060;
-    if (!$gameTemp[_0x113bb7(0x6dc)]()) return;
-    if (!Utils[_0x113bb7(0x185)]()) return;
-    if (!$gameMap) return;
-    if ($gameMap[_0x113bb7(0x6b9)]() <= 0x0) return;
-    VisuMZ[_0x113bb7(0x2f8)](_0x20c5d8, _0x20c5d8);
-    const _0x36df58 = _0x113bb7(0x1ed)[_0x113bb7(0x1df)]($gameMap['mapId']()['padZero'](0x3)),
-      _0xeb8a16 = VisuMZ[_0x113bb7(0x77a)]['ExtractStrFromMap']($gameMap[_0x113bb7(0x6b9)]());
-    VisuMZ[_0x113bb7(0x77a)]['ExportString'](_0xeb8a16, _0x36df58, !![]);
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x570), _0xbaa6cf => {
-    const _0x3d363a = _0x17b060;
-    if (!$gameTemp[_0x3d363a(0x6dc)]()) return;
-    if (!Utils[_0x3d363a(0x185)]()) return;
-    if (!$gameParty['inBattle']()) return;
-    VisuMZ[_0x3d363a(0x2f8)](_0xbaa6cf, _0xbaa6cf);
-    const _0x369d69 = _0x3d363a(0x21f)[_0x3d363a(0x1df)]($gameTroop[_0x3d363a(0x51c)][_0x3d363a(0x46e)](0x4)),
-      _0x1f55f3 = VisuMZ[_0x3d363a(0x77a)][_0x3d363a(0x4b5)]($gameTroop['_troopId']);
-    VisuMZ[_0x3d363a(0x77a)]['ExportString'](_0x1f55f3, _0x369d69, !![]);
-  }),
-  (VisuMZ['CoreEngine']['ExportString'] = function (_0x573d12, _0xb434fb, _0x30e773) {
-    const _0xdc521b = _0x17b060,
-      _0x30c812 = require('fs');
-    let _0x1b5431 = _0xdc521b(0x839)[_0xdc521b(0x1df)](_0xb434fb || '0');
-    _0x30c812['writeFile'](_0x1b5431, _0x573d12, _0x43a32b => {
-      const _0x5bd402 = _0xdc521b;
-      if (_0x43a32b) throw err;
-      else _0x30e773 && alert('Saved\x20file\x20as\x20%1\x20in\x20project\x20folder.'[_0x5bd402(0x1df)](_0x1b5431));
-    });
-  }),
-  (VisuMZ['CoreEngine']['ExportStrFromAllMaps'] = function () {
-    const _0x504625 = _0x17b060,
-      _0x5c9921 = [];
-    for (const _0x272617 of $dataMapInfos) {
-      if (!_0x272617) continue;
-      _0x5c9921[_0x504625(0x6f2)](_0x272617['id']);
-    }
-    const _0x178373 = _0x5c9921[_0x504625(0x540)] * 0x64 + Math['randomInt'](0x64);
-    alert(_0x504625(0x451)['format'](_0x178373)), (this[_0x504625(0x617)] = []), (this[_0x504625(0x558)] = $dataMap);
-    for (const _0x1030fa of _0x5c9921) {
-      VisuMZ[_0x504625(0x77a)][_0x504625(0x7cf)](_0x1030fa);
-    }
-    setTimeout(VisuMZ[_0x504625(0x77a)][_0x504625(0x467)][_0x504625(0x76d)](this), _0x178373);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['loadMapData'] = function (_0x32fd3d) {
-    const _0x1fd1d3 = _0x17b060,
-      _0x1b28dc = _0x1fd1d3(0x61e)[_0x1fd1d3(0x1df)](_0x32fd3d[_0x1fd1d3(0x46e)](0x3)),
-      _0x15a275 = new XMLHttpRequest(),
-      _0x5e1a20 = 'data/' + _0x1b28dc;
-    _0x15a275['open'](_0x1fd1d3(0x7ff), _0x5e1a20),
-      _0x15a275['overrideMimeType']('application/json'),
-      (_0x15a275[_0x1fd1d3(0x13f)] = () => this[_0x1fd1d3(0x732)](_0x15a275, _0x32fd3d, _0x1b28dc, _0x5e1a20)),
-      (_0x15a275['onerror'] = () => DataManager[_0x1fd1d3(0x822)](_0x1fd1d3(0x675), _0x1b28dc, _0x5e1a20)),
-      _0x15a275[_0x1fd1d3(0x7a3)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x732)] = function (_0x33f047, _0x2240f0, _0x2fe6b1, _0x16bf30) {
-    const _0x572f89 = _0x17b060;
-    ($dataMap = JSON['parse'](_0x33f047[_0x572f89(0x2c6)])),
-      DataManager['onLoad']($dataMap),
-      (this[_0x572f89(0x617)][_0x2240f0] = VisuMZ[_0x572f89(0x77a)][_0x572f89(0x63f)](_0x2240f0)),
-      ($dataMap = this[_0x572f89(0x558)]);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x467)] = function () {
-    const _0x420d07 = _0x17b060,
-      _0x44928e = 'AllMaps';
-    this[_0x420d07(0x617)][_0x420d07(0x19f)](undefined)[_0x420d07(0x19f)]('')[_0x420d07(0x19f)](null);
-    const _0xa75ce = this['_storedMapText'][_0x420d07(0x274)](_0x420d07(0x75d))[_0x420d07(0x711)]();
-    VisuMZ[_0x420d07(0x77a)][_0x420d07(0x735)](_0xa75ce, _0x44928e, !![]), (SceneManager[_0x420d07(0x2f9)][_0x420d07(0x6e3)] = !![]);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x63f)] = function (_0x896c42) {
-    const _0x55ffc8 = _0x17b060;
-    if (!$dataMap) return '';
-    let _0x329386 = '█'['repeat'](0x46) + '\x0a\x0a',
-      _0x1b57dd = '═'['repeat'](0x46) + '\x0a\x0a',
-      _0x408faa = '';
-    this['_commonEventLayers'] = 0x0;
-    for (const _0x34a266 of $dataMap['events']) {
-      if (!_0x34a266) continue;
-      let _0x3c5f6e = _0x34a266['id'],
-        _0x2b81e4 = _0x34a266[_0x55ffc8(0x142)],
-        _0x44a33c = _0x34a266[_0x55ffc8(0x4e4)];
-      for (const _0x3814d8 of _0x44a33c) {
-        const _0x5aa0a5 = _0x44a33c[_0x55ffc8(0x38b)](_0x3814d8) + 0x1;
-        let _0x5750ba = _0x1b57dd + _0x55ffc8(0x1e8),
-          _0x4d143f = VisuMZ[_0x55ffc8(0x77a)][_0x55ffc8(0x646)](_0x3814d8[_0x55ffc8(0x53c)]);
-        if (_0x4d143f[_0x55ffc8(0x540)] > 0x0) {
-          if (_0x408faa[_0x55ffc8(0x540)] > 0x0) _0x408faa += _0x1b57dd + _0x55ffc8(0x75d);
-          else {
-            const _0x4e8a0a = $dataMapInfos[_0x896c42]['name'];
-            _0x408faa += _0x329386 + _0x55ffc8(0x819)[_0x55ffc8(0x1df)](_0x896c42, _0x4e8a0a || _0x55ffc8(0x2d2)) + _0x329386;
-          }
-          _0x408faa += _0x5750ba['format'](_0x3c5f6e, _0x2b81e4, _0x5aa0a5, _0x4d143f);
-        }
-      }
-    }
-    return _0x408faa['length'] > 0x0 && (_0x408faa += _0x1b57dd), _0x408faa;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x695)] = function () {
-    const _0x5db182 = _0x17b060,
-      _0x3910c4 = $dataTroops['length'] * 0xa + Math['randomInt'](0xa);
-    alert(_0x5db182(0x3db)[_0x5db182(0x1df)](_0x3910c4));
-    const _0x168642 = [];
-    for (const _0x1bdd82 of $dataTroops) {
-      if (!_0x1bdd82) continue;
-      const _0x4d1fdd = _0x1bdd82['id'];
-      _0x168642[_0x4d1fdd] = VisuMZ[_0x5db182(0x77a)]['ExtractStrFromTroop'](_0x4d1fdd);
-    }
-    setTimeout(VisuMZ['CoreEngine'][_0x5db182(0x353)][_0x5db182(0x76d)](this, _0x168642), _0x3910c4);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['ExtractStrFromTroop'] = function (_0x51a765) {
-    const _0x5a3590 = _0x17b060;
-    if (!$dataTroops[_0x51a765]) return '';
-    let _0x25ebad = '█'[_0x5a3590(0x335)](0x46) + '\x0a\x0a',
-      _0x4aafe5 = '═'['repeat'](0x46) + '\x0a\x0a',
-      _0x44620f = '';
-    this[_0x5a3590(0x3a1)] = 0x0;
-    const _0x2b1fd6 = $dataTroops[_0x51a765];
-    let _0x3658a8 = _0x2b1fd6[_0x5a3590(0x4e4)];
-    for (const _0x519103 of _0x3658a8) {
-      const _0x39ce02 = _0x3658a8['indexOf'](_0x519103) + 0x1;
-      let _0x574bf2 = _0x4aafe5 + _0x5a3590(0x5d6),
-        _0x1bcd5b = VisuMZ['CoreEngine']['ExtractStrFromList'](_0x519103[_0x5a3590(0x53c)]);
-      _0x1bcd5b[_0x5a3590(0x540)] > 0x0 &&
-        (_0x44620f[_0x5a3590(0x540)] > 0x0
-          ? (_0x44620f += _0x4aafe5 + '\x0a\x0a\x0a\x0a\x0a')
-          : (_0x44620f += _0x25ebad + '〖〖〖\x20Troop\x20%1:\x20%2\x20Script\x20〗〗〗\x0a\x0a'['format'](_0x51a765, _0x2b1fd6['name'] || _0x5a3590(0x2d2)) + _0x25ebad),
-        (_0x44620f += _0x574bf2[_0x5a3590(0x1df)](_0x39ce02, _0x1bcd5b)));
-    }
-    return _0x44620f[_0x5a3590(0x540)] > 0x0 && (_0x44620f += _0x4aafe5), _0x44620f;
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x353)] = function (_0x4a7ec1) {
-    const _0x33d522 = _0x17b060,
-      _0x5269d2 = 'AllTroops';
-    _0x4a7ec1[_0x33d522(0x19f)](undefined)[_0x33d522(0x19f)]('')[_0x33d522(0x19f)](null);
-    const _0x156c79 = _0x4a7ec1[_0x33d522(0x274)](_0x33d522(0x75d))[_0x33d522(0x711)]();
-    VisuMZ['CoreEngine'][_0x33d522(0x735)](_0x156c79, _0x5269d2, !![]), (SceneManager[_0x33d522(0x2f9)][_0x33d522(0x6e3)] = !![]);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x646)] = function (_0xc1f7cd) {
-    const _0x45ea67 = _0x17b060;
-    let _0x5bae25 = '\x0a' + '─'[_0x45ea67(0x335)](0x46) + '\x0a',
-      _0x3426b4 = '\x0a' + '┄'[_0x45ea67(0x335)](0x46) + '\x0a',
-      _0x22591d = '';
-    for (const _0x50df28 of _0xc1f7cd) {
-      if (!_0x50df28) continue;
-      if (_0x50df28[_0x45ea67(0x897)] === 0x65)
-        (_0x22591d += _0x5bae25 + '\x0a'),
-          (_0x22591d += _0x45ea67(0x178)),
-          _0x50df28[_0x45ea67(0x1d6)][0x4] !== '' && _0x50df28[_0x45ea67(0x1d6)][0x4] !== undefined && (_0x22591d += _0x45ea67(0x261)[_0x45ea67(0x1df)](_0x50df28['parameters'][0x4]));
-      else {
-        if (_0x50df28[_0x45ea67(0x897)] === 0x191) _0x22591d += _0x45ea67(0x43b)['format'](_0x50df28['parameters'][0x0]);
-        else {
-          if (_0x50df28[_0x45ea67(0x897)] === 0x192)
-            (_0x22591d += _0x5bae25), (_0x22591d += _0x45ea67(0x2ef)['format'](_0x3426b4, _0x50df28[_0x45ea67(0x1d6)][0x0] + 0x1, _0x50df28[_0x45ea67(0x1d6)][0x1]));
-          else {
-            if (_0x50df28[_0x45ea67(0x897)] === 0x193) (_0x22591d += _0x5bae25), (_0x22591d += _0x45ea67(0x532)[_0x45ea67(0x1df)](_0x3426b4));
-            else {
-              if (_0x50df28[_0x45ea67(0x897)] === 0x194) (_0x22591d += _0x5bae25), (_0x22591d += _0x45ea67(0x771)['format'](_0x3426b4));
-              else {
-                if (_0x50df28['code'] === 0x69) (_0x22591d += _0x5bae25 + '\x0a'), (_0x22591d += '〘Scrolling\x20Text〙\x0a');
-                else {
-                  if (_0x50df28['code'] === 0x6c) (_0x22591d += _0x5bae25 + '\x0a'), (_0x22591d += _0x45ea67(0x2a9)['format'](_0x50df28[_0x45ea67(0x1d6)][0x0]));
-                  else {
-                    if (_0x50df28[_0x45ea67(0x897)] === 0x198) _0x22591d += _0x45ea67(0x43b)[_0x45ea67(0x1df)](_0x50df28['parameters'][0x0]);
-                    else {
-                      if (_0x50df28['code'] === 0x75) {
-                        const _0x319d61 = $dataCommonEvents[_0x50df28['parameters'][0x0]];
-                        if (_0x319d61 && this['_commonEventLayers'] <= 0xa) {
-                          this[_0x45ea67(0x3a1)]++;
-                          let _0x3eb5ac = VisuMZ[_0x45ea67(0x77a)][_0x45ea67(0x646)](_0x319d61[_0x45ea67(0x53c)]);
-                          _0x3eb5ac[_0x45ea67(0x540)] > 0x0 &&
-                            ((_0x22591d += _0x5bae25),
-                            (_0x22591d += _0x3426b4),
-                            (_0x22591d += '〘Common\x20Event\x20%1:\x20%2〙\x20Start'[_0x45ea67(0x1df)](_0x319d61['id'], _0x319d61[_0x45ea67(0x142)])),
-                            (_0x22591d += _0x3426b4),
-                            (_0x22591d += _0x3eb5ac),
-                            (_0x22591d += _0x3426b4),
-                            (_0x22591d += _0x45ea67(0x486)[_0x45ea67(0x1df)](_0x319d61['id'], _0x319d61[_0x45ea67(0x142)])),
-                            (_0x22591d += _0x3426b4)),
-                            this[_0x45ea67(0x3a1)]--;
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    return _0x22591d[_0x45ea67(0x540)] > 0x0 && (_0x22591d += _0x5bae25), _0x22591d;
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x330), _0x48e636 => {
-    const _0x5e2423 = _0x17b060;
-    VisuMZ[_0x5e2423(0x2f8)](_0x48e636, _0x48e636);
-    const _0xdeb104 = _0x48e636[_0x5e2423(0x115)];
-    VisuMZ[_0x5e2423(0x5bb)](_0xdeb104);
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x820), _0x3473ba => {
-    const _0x2172e2 = _0x17b060;
-    VisuMZ[_0x2172e2(0x2f8)](_0x3473ba, _0x3473ba);
-    const _0x5eccb8 = _0x3473ba[_0x2172e2(0x6fc)] || 0x0;
-    $gameParty[_0x2172e2(0x47f)](_0x5eccb8);
-  }),
-  PluginManager['registerCommand'](pluginData[_0x17b060(0x142)], 'MapOnceParallel', _0x531786 => {
-    const _0xfd994e = _0x17b060;
-    if (!SceneManager['isSceneMap']()) return;
-    VisuMZ['ConvertParams'](_0x531786, _0x531786);
-    const _0x1128fd = _0x531786[_0xfd994e(0x5ee)];
-    SceneManager[_0xfd994e(0x2f9)][_0xfd994e(0x7b8)](_0x1128fd);
-  }),
-  PluginManager['registerCommand'](pluginData[_0x17b060(0x142)], 'PictureCoordinatesMode', _0x47e259 => {
-    const _0x1c2443 = _0x17b060;
-    if (!$gameTemp['isPlaytest']()) return;
-    if (!Utils['isNwjs']()) return;
-    VisuMZ['ConvertParams'](_0x47e259, _0x47e259);
-    const _0x4c11a7 = _0x47e259[_0x1c2443(0x338)] || 0x1;
-    $gameTemp[_0x1c2443(0x35f)] = _0x4c11a7;
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x644), _0xe75448 => {
-    const _0x45e3ea = _0x17b060;
-    VisuMZ[_0x45e3ea(0x2f8)](_0xe75448, _0xe75448);
-    const _0x5a26e5 = _0xe75448[_0x45e3ea(0x49f)] || 0x1,
-      _0x1e58b3 = _0xe75448['easingType'] || _0x45e3ea(0x6a8),
-      _0x454055 = $gameScreen['picture'](_0x5a26e5);
-    _0x454055 && _0x454055['setEasingType'](_0x1e58b3);
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x731), _0x1107fd => {
-    const _0x553ddf = _0x17b060;
-    for (let _0x171233 = 0x1; _0x171233 <= 0x64; _0x171233++) {
-      $gameScreen[_0x553ddf(0x413)](_0x171233);
-    }
-  }),
-  PluginManager['registerCommand'](pluginData['name'], _0x17b060(0x2e2), _0x246b91 => {
-    const _0x470cad = _0x17b060;
-    VisuMZ[_0x470cad(0x2f8)](_0x246b91, _0x246b91);
-    const _0x33cc27 = Math[_0x470cad(0x701)](_0x246b91[_0x470cad(0x6e0)], _0x246b91['EndingID']),
-      _0x116197 = Math[_0x470cad(0x7f9)](_0x246b91[_0x470cad(0x6e0)], _0x246b91['EndingID']);
-    for (let _0x1006f4 = _0x33cc27; _0x1006f4 <= _0x116197; _0x1006f4++) {
-      $gameScreen[_0x470cad(0x413)](_0x1006f4);
-    }
-  }),
-  PluginManager['registerCommand'](pluginData[_0x17b060(0x142)], _0x17b060(0x313), _0x1240ae => {
-    const _0x55f73a = _0x17b060;
-    VisuMZ[_0x55f73a(0x2f8)](_0x1240ae, _0x1240ae);
-    const _0x38909b = Math['round'](_0x1240ae[_0x55f73a(0x338)])['clamp'](0x1, 0x64),
-      _0x4ac008 = -Number(_0x1240ae['AdjustAngle'] || 0x0),
-      _0x464127 = Math['max'](_0x1240ae['Duration'] || 0x0, 0x0),
-      _0x5a4fb4 = _0x1240ae['easingType'] || _0x55f73a(0x6a8),
-      _0x156ffd = _0x1240ae[_0x55f73a(0x8be)],
-      _0x5d17eb = $gameScreen[_0x55f73a(0x786)](_0x38909b);
-    if (!_0x5d17eb) return;
-    _0x5d17eb[_0x55f73a(0x4d1)](_0x4ac008, _0x464127, _0x5a4fb4);
-    if (_0x156ffd) {
-      const _0x24028f = $gameTemp[_0x55f73a(0x2be)]();
-      if (_0x24028f) _0x24028f[_0x55f73a(0x6d1)](_0x464127);
-    }
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x1ac), _0x1e71df => {
-    const _0x40ec59 = _0x17b060;
-    VisuMZ[_0x40ec59(0x2f8)](_0x1e71df, _0x1e71df);
-    const _0x14ca3c = Math[_0x40ec59(0x3fe)](_0x1e71df[_0x40ec59(0x338)])[_0x40ec59(0x42b)](0x1, 0x64),
-      _0x4982e1 = -Number(_0x1e71df[_0x40ec59(0x40b)] || 0x0),
-      _0x5d109b = Math[_0x40ec59(0x7f9)](_0x1e71df['Duration'] || 0x0, 0x0),
-      _0x3732c8 = _0x1e71df[_0x40ec59(0x475)] || 'Linear',
-      _0x313b56 = _0x1e71df['Wait'],
-      _0x2a9038 = $gameScreen[_0x40ec59(0x786)](_0x14ca3c);
-    if (!_0x2a9038) return;
-    _0x2a9038[_0x40ec59(0x1d3)](_0x4982e1, _0x5d109b, _0x3732c8);
-    if (_0x313b56) {
-      const _0x52b81c = $gameTemp[_0x40ec59(0x2be)]();
-      if (_0x52b81c) _0x52b81c[_0x40ec59(0x6d1)](_0x5d109b);
-    }
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x7ee), _0x2c7a46 => {
-    const _0x1559ce = _0x17b060;
-    VisuMZ[_0x1559ce(0x2f8)](_0x2c7a46, _0x2c7a46);
-    const _0x652a1 = Math[_0x1559ce(0x3fe)](_0x2c7a46[_0x1559ce(0x338)])[_0x1559ce(0x42b)](0x1, 0x64),
-      _0x33eb33 = _0x2c7a46[_0x1559ce(0x382)],
-      _0x9853c = _0x33eb33[_0x1559ce(0x71f)][_0x1559ce(0x42b)](0x0, 0x1),
-      _0x33e247 = Math[_0x1559ce(0x3fe)](_0x33eb33[_0x1559ce(0x33f)] || 0x0),
-      _0xd89c24 = Math[_0x1559ce(0x3fe)](_0x33eb33[_0x1559ce(0x8b6)] || 0x0),
-      _0x346e07 = Math['round'](_0x33eb33['ScaleX'] || 0x0),
-      _0x2b1c84 = Math[_0x1559ce(0x3fe)](_0x33eb33['ScaleY'] || 0x0),
-      _0x58bf67 = Math[_0x1559ce(0x3fe)](_0x33eb33['Opacity'])[_0x1559ce(0x42b)](0x0, 0xff),
-      _0x5e638d = _0x33eb33[_0x1559ce(0x1a5)],
-      _0x205451 = 'VisuMZ\x20CoreEngine\x20PictureIcon\x20%1\x20%2',
-      _0x362650 = _0x2c7a46[_0x1559ce(0x808)] ? _0x1559ce(0x808) : _0x1559ce(0x66f),
-      _0x3f47e1 = _0x205451[_0x1559ce(0x1df)](_0x2c7a46[_0x1559ce(0x5e8)], _0x362650);
-    $gameScreen[_0x1559ce(0x673)](_0x652a1, _0x3f47e1, _0x9853c, _0x33e247, _0xd89c24, _0x346e07, _0x2b1c84, _0x58bf67, _0x5e638d);
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x783), _0x3f449d => {
-    const _0x38529d = _0x17b060;
-    VisuMZ[_0x38529d(0x2f8)](_0x3f449d, _0x3f449d);
-    const _0x2ac1d6 = _0x3f449d['Type'] || _0x38529d(0x5ab),
-      _0x313efb = _0x3f449d[_0x38529d(0x6c4)][_0x38529d(0x42b)](0x1, 0x9),
-      _0x4409b3 = _0x3f449d[_0x38529d(0x37d)]['clamp'](0x1, 0x9),
-      _0xff260c = _0x3f449d[_0x38529d(0x466)] || 0x1,
-      _0x3bd023 = _0x3f449d[_0x38529d(0x8be)];
-    $gameScreen[_0x38529d(0x470)](_0x2ac1d6), $gameScreen['startShake'](_0x313efb, _0x4409b3, _0xff260c);
-    if (_0x3bd023) {
-      const _0x28789b = $gameTemp[_0x38529d(0x2be)]();
-      if (_0x28789b) _0x28789b[_0x38529d(0x6d1)](_0xff260c);
-    }
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], 'SwitchRandomizeOne', _0x5f06f2 => {
-    const _0x27d73c = _0x17b060;
-    if ($gameParty[_0x27d73c(0x45a)]()) return;
-    VisuMZ[_0x27d73c(0x2f8)](_0x5f06f2, _0x5f06f2);
-    const _0x2dcfed = _0x5f06f2[_0x27d73c(0x4b1)],
-      _0x2efd1c = (_0x5f06f2[_0x27d73c(0x4b7)] || 0x0) / 0x64;
-    for (const _0x5f2333 of _0x2dcfed) {
-      const _0x29c570 = Math[_0x27d73c(0x5ab)]() <= _0x2efd1c;
-      $gameSwitches[_0x27d73c(0x427)](_0x5f2333, _0x29c570);
-    }
-  }),
-  PluginManager['registerCommand'](pluginData[_0x17b060(0x142)], 'SwitchRandomizeRange', _0x48341c => {
-    const _0x32b3aa = _0x17b060;
-    if ($gameParty['inBattle']()) return;
-    VisuMZ[_0x32b3aa(0x2f8)](_0x48341c, _0x48341c);
-    const _0x24a50e = Math[_0x32b3aa(0x701)](_0x48341c[_0x32b3aa(0x6e0)], _0x48341c[_0x32b3aa(0x7ed)]),
-      _0x1991e2 = Math[_0x32b3aa(0x7f9)](_0x48341c['StartID'], _0x48341c[_0x32b3aa(0x7ed)]),
-      _0x39dcfb = (_0x48341c['Chance'] || 0x0) / 0x64;
-    for (let _0x40c7e4 = _0x24a50e; _0x40c7e4 <= _0x1991e2; _0x40c7e4++) {
-      const _0x28daac = Math[_0x32b3aa(0x5ab)]() <= _0x39dcfb;
-      $gameSwitches[_0x32b3aa(0x427)](_0x40c7e4, _0x28daac);
-    }
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], 'SwitchToggleOne', _0x3a76e0 => {
-    const _0x515dbe = _0x17b060;
-    if ($gameParty['inBattle']()) return;
-    VisuMZ[_0x515dbe(0x2f8)](_0x3a76e0, _0x3a76e0);
-    const _0xd280fa = _0x3a76e0[_0x515dbe(0x4b1)];
-    for (const _0xe931c0 of _0xd280fa) {
-      const _0x451aaf = $gameSwitches['value'](_0xe931c0);
-      $gameSwitches['setValue'](_0xe931c0, !_0x451aaf);
-    }
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x880), _0x32cb91 => {
-    const _0x43327a = _0x17b060;
-    if ($gameParty[_0x43327a(0x45a)]()) return;
-    VisuMZ[_0x43327a(0x2f8)](_0x32cb91, _0x32cb91);
-    const _0x2e7e32 = Math[_0x43327a(0x701)](_0x32cb91[_0x43327a(0x6e0)], _0x32cb91[_0x43327a(0x7ed)]),
-      _0x5239c7 = Math[_0x43327a(0x7f9)](_0x32cb91[_0x43327a(0x6e0)], _0x32cb91[_0x43327a(0x7ed)]);
-    for (let _0x455698 = _0x2e7e32; _0x455698 <= _0x5239c7; _0x455698++) {
-      const _0x3a92be = $gameSwitches[_0x43327a(0x6fc)](_0x455698);
-      $gameSwitches['setValue'](_0x455698, !_0x3a92be);
-    }
-  }),
-  PluginManager['registerCommand'](pluginData[_0x17b060(0x142)], _0x17b060(0x344), _0x50b234 => {
-    const _0x3593a4 = _0x17b060;
-    VisuMZ['ConvertParams'](_0x50b234, _0x50b234);
-    const _0x4e202f = _0x50b234[_0x3593a4(0x23d)] || 0x1;
-    $gameSystem[_0x3593a4(0x205)](_0x4e202f);
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x49a), _0x422888 => {
-    const _0x4171ad = _0x17b060;
-    if ($gameParty[_0x4171ad(0x45a)]()) return;
-    VisuMZ[_0x4171ad(0x2f8)](_0x422888, _0x422888);
-    const _0x71a913 = _0x422888['option'];
-    if (_0x71a913[_0x4171ad(0x2ba)](/Front/i)) $gameSystem[_0x4171ad(0x7b5)](![]);
-    else _0x71a913[_0x4171ad(0x2ba)](/Side/i) ? $gameSystem[_0x4171ad(0x7b5)](!![]) : $gameSystem[_0x4171ad(0x7b5)](!$gameSystem[_0x4171ad(0x4a1)]());
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData['name'], _0x17b060(0x231), _0x3dd95c => {
-    const _0x11ce04 = _0x17b060;
-    if ($gameParty['inBattle']()) return;
-    VisuMZ['ConvertParams'](_0x3dd95c, _0x3dd95c);
-    const _0x37e212 = [_0x11ce04(0x6f4), _0x11ce04(0x45b), 'me', 'se'];
-    for (const _0x5f5d3c of _0x37e212) {
-      const _0x3ddfa0 = _0x3dd95c[_0x5f5d3c],
-        _0x2054d7 = _0x11ce04(0x57b)[_0x11ce04(0x1df)](_0x5f5d3c);
-      for (const _0x14fb78 of _0x3ddfa0) {
-        AudioManager['createBuffer'](_0x2054d7, _0x14fb78);
-      }
-    }
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], 'SystemLoadImages', _0x3803d0 => {
-    const _0xb37514 = _0x17b060;
-    if ($gameParty['inBattle']()) return;
-    VisuMZ['ConvertParams'](_0x3803d0, _0x3803d0);
-    const _0x126f32 = [
-      'animations',
-      'battlebacks1',
-      _0xb37514(0x424),
-      'characters',
-      _0xb37514(0x4f5),
-      _0xb37514(0x895),
-      'parallaxes',
-      _0xb37514(0x5f8),
-      _0xb37514(0x415),
-      _0xb37514(0x30d),
-      _0xb37514(0x759),
-      _0xb37514(0x848),
-      _0xb37514(0x4ff),
-      _0xb37514(0x15a),
-    ];
-    for (const _0x2e02f9 of _0x126f32) {
-      const _0x3708fe = _0x3803d0[_0x2e02f9],
-        _0x38b68a = _0xb37514(0x614)[_0xb37514(0x1df)](_0x2e02f9);
-      for (const _0x4bafce of _0x3708fe) {
-        ImageManager[_0xb37514(0x80b)](_0x38b68a, _0x4bafce);
-      }
-    }
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData['name'], 'SystemSetBattleSystem', _0x472344 => {
-    const _0x3cb4dd = _0x17b060;
-    if ($gameParty['inBattle']()) return;
-    VisuMZ[_0x3cb4dd(0x2f8)](_0x472344, _0x472344);
-    const _0x290eb5 = _0x472344['option'][_0x3cb4dd(0x29e)]()[_0x3cb4dd(0x711)](),
-      _0x4ec3b7 = VisuMZ[_0x3cb4dd(0x77a)][_0x3cb4dd(0x1f2)](_0x290eb5);
-    $gameSystem[_0x3cb4dd(0xf1)](_0x4ec3b7);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x1f2)] = function (_0x199539) {
-    const _0x286930 = _0x17b060;
-    (_0x199539 = _0x199539 || _0x286930(0x730)), (_0x199539 = String(_0x199539)[_0x286930(0x29e)]()['trim']());
-    switch (_0x199539) {
-      case 'DTB':
-        return 0x0;
-      case 'TPB\x20ACTIVE':
-        Imported[_0x286930(0x680)] && (ConfigManager['atbActive'] = !![]);
-        return 0x1;
-      case 'TPB\x20WAIT':
-        Imported[_0x286930(0x680)] && (ConfigManager[_0x286930(0x594)] = ![]);
-        return 0x2;
-      case _0x286930(0x630):
-        if (Imported[_0x286930(0x222)]) return 'CTB';
-        break;
-      case _0x286930(0x5f0):
-        if (Imported['VisuMZ_2_BattleSystemSTB']) return 'STB';
-        break;
-      case _0x286930(0x189):
-        if (Imported[_0x286930(0x385)]) return _0x286930(0x189);
-        break;
-      case 'FTB':
-        if (Imported[_0x286930(0x458)]) return _0x286930(0x803);
-        break;
-      case 'OTB':
-        if (Imported[_0x286930(0x452)]) return _0x286930(0x648);
-        break;
-      case 'ETB':
-        if (Imported[_0x286930(0x1b4)]) return 'ETB';
-        break;
-      case _0x286930(0x65b):
-        if (Imported[_0x286930(0x681)]) return 'PTB';
-        break;
-    }
-    return $dataSystem[_0x286930(0x4c6)];
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData['name'], _0x17b060(0x4a0), _0x5eb197 => {
-    const _0x37a84f = _0x17b060;
-    VisuMZ[_0x37a84f(0x2f8)](_0x5eb197, _0x5eb197);
-    const _0x28c875 = _0x5eb197[_0x37a84f(0x23d)] || 0x1;
-    $gameSystem[_0x37a84f(0x25f)](_0x28c875);
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], _0x17b060(0x4f4), _0x3b0c97 => {
-    const _0xca3703 = _0x17b060;
-    VisuMZ[_0xca3703(0x2f8)](_0x3b0c97, _0x3b0c97);
-    const _0x4bd6e8 = _0x3b0c97[_0xca3703(0x751)] || '';
-    $textPopup(_0x4bd6e8);
-  }),
-  PluginManager['registerCommand'](pluginData[_0x17b060(0x142)], _0x17b060(0x7e0), _0x588db5 => {
-    const _0x4ef43d = _0x17b060;
-    VisuMZ[_0x4ef43d(0x2f8)](_0x588db5, _0x588db5);
-    const _0x16010d = _0x588db5['id'] || 0x1,
-      _0x5f0bc7 = _0x588db5['operation'],
-      _0xc6afce = _0x588db5[_0x4ef43d(0x6ac)] || 0x0;
-    let _0x1dc901 = $gameVariables['value'](_0x16010d) || 0x0;
-    switch (_0x5f0bc7) {
-      case '=':
-        _0x1dc901 = _0xc6afce;
-        break;
-      case '+':
-        _0x1dc901 += _0xc6afce;
-        break;
-      case '-':
-        _0x1dc901 -= _0xc6afce;
-        break;
-      case '*':
-        _0x1dc901 *= _0xc6afce;
-        break;
-      case '/':
-        _0x1dc901 /= _0xc6afce;
-        break;
-      case '%':
-        _0x1dc901 %= _0xc6afce;
-        break;
-    }
-    (_0x1dc901 = _0x1dc901 || 0x0), $gameVariables[_0x4ef43d(0x427)](_0x16010d, _0x1dc901);
-  }),
-  PluginManager[_0x17b060(0x31e)](pluginData[_0x17b060(0x142)], 'VariableJsBlock', _0x4d9c3e => {
-    const _0x3c2884 = _0x17b060;
-    VisuMZ['ConvertParams'](_0x4d9c3e, _0x4d9c3e);
-    const _0x3934a6 = _0x4d9c3e['id']() || 0x1,
-      _0x15bfea = _0x4d9c3e['operation'],
-      _0xa75b82 = _0x4d9c3e['operand']() || 0x0;
-    let _0x514bc2 = $gameVariables[_0x3c2884(0x6fc)](_0x3934a6) || 0x0;
-    switch (_0x15bfea) {
-      case '=':
-        _0x514bc2 = _0xa75b82;
-        break;
-      case '+':
-        _0x514bc2 += _0xa75b82;
-        break;
-      case '-':
-        _0x514bc2 -= _0xa75b82;
-        break;
-      case '*':
-        _0x514bc2 *= _0xa75b82;
-        break;
-      case '/':
-        _0x514bc2 /= _0xa75b82;
-        break;
-      case '%':
-        _0x514bc2 %= _0xa75b82;
-        break;
-    }
-    (_0x514bc2 = _0x514bc2 || 0x0), $gameVariables[_0x3c2884(0x427)](_0x3934a6, _0x514bc2);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x78c)] = Scene_Boot['prototype']['onDatabaseLoaded']),
-  (Scene_Boot[_0x17b060(0x54a)][_0x17b060(0x7a0)] = function () {
-    const _0x1fb9ce = _0x17b060;
-    VisuMZ[_0x1fb9ce(0x77a)]['Scene_Boot_onDatabaseLoaded'][_0x1fb9ce(0x64e)](this),
-      this[_0x1fb9ce(0x190)](),
-      this[_0x1fb9ce(0x358)](),
-      this['process_VisuMZ_CoreEngine_Settings'](),
-      this[_0x1fb9ce(0x2aa)](),
-      this[_0x1fb9ce(0x36c)](),
-      this[_0x1fb9ce(0x68a)](),
-      VisuMZ[_0x1fb9ce(0x3d7)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['RegExp'] = {}),
-  (Scene_Boot[_0x17b060(0x54a)]['process_VisuMZ_CoreEngine_RegExp'] = function () {
-    const _0x5ace87 = _0x17b060,
-      _0x29326d = ['MAXHP', _0x5ace87(0x148), _0x5ace87(0x135), _0x5ace87(0x689), _0x5ace87(0x297), _0x5ace87(0x3be), 'AGI', _0x5ace87(0xec)],
-      _0x37596f = [_0x5ace87(0x889), _0x5ace87(0x2ce), _0x5ace87(0x6af), 'CEV', _0x5ace87(0x17d), _0x5ace87(0x11f), 'CNT', _0x5ace87(0x599), _0x5ace87(0x69b), _0x5ace87(0x655)],
-      _0x2c5c1a = [_0x5ace87(0x260), _0x5ace87(0x1c8), _0x5ace87(0x4ec), _0x5ace87(0x728), _0x5ace87(0x6d6), _0x5ace87(0x828), _0x5ace87(0x11a), _0x5ace87(0x121), 'FDR', 'EXR'],
-      _0x34d5f = [_0x29326d, _0x37596f, _0x2c5c1a],
-      _0x515c61 = [_0x5ace87(0x591), 'Plus1', _0x5ace87(0x801), _0x5ace87(0x855), 'Rate', _0x5ace87(0x66d), _0x5ace87(0x576), _0x5ace87(0x7bc), 'Flat1', _0x5ace87(0x678)];
-    for (const _0xe43769 of _0x34d5f) {
-      let _0x4dd7e1 = '';
-      if (_0xe43769 === _0x29326d) _0x4dd7e1 = 'param';
-      if (_0xe43769 === _0x37596f) _0x4dd7e1 = 'xparam';
-      if (_0xe43769 === _0x2c5c1a) _0x4dd7e1 = _0x5ace87(0x12c);
-      for (const _0x2ed46f of _0x515c61) {
-        let _0x122106 = _0x5ace87(0x3c3)[_0x5ace87(0x1df)](_0x4dd7e1, _0x2ed46f);
-        (VisuMZ[_0x5ace87(0x77a)][_0x5ace87(0x1bc)][_0x122106] = []), (VisuMZ[_0x5ace87(0x77a)][_0x5ace87(0x1bc)][_0x122106 + 'JS'] = []);
-        let _0x1c1ea2 = _0x5ace87(0x89a);
-        if ([_0x5ace87(0x591), 'Flat'][_0x5ace87(0x1ae)](_0x2ed46f)) _0x1c1ea2 += _0x5ace87(0x875);
-        else {
-          if (['Plus1', _0x5ace87(0x7d2)][_0x5ace87(0x1ae)](_0x2ed46f)) _0x1c1ea2 += _0x5ace87(0x634);
-          else {
-            if ([_0x5ace87(0x801), _0x5ace87(0x678)][_0x5ace87(0x1ae)](_0x2ed46f)) _0x1c1ea2 += '([\x5c+\x5c-]\x5cd+\x5c.?\x5cd+)>';
-            else {
-              if (_0x2ed46f === 'Max') _0x1c1ea2 += _0x5ace87(0x2b2);
-              else {
-                if (_0x2ed46f === _0x5ace87(0x66d)) _0x1c1ea2 += _0x5ace87(0x78d);
-                else _0x2ed46f === _0x5ace87(0x576) && (_0x1c1ea2 += _0x5ace87(0x8a4));
-              }
-            }
-          }
-        }
-        for (const _0x334e14 of _0xe43769) {
-          let _0x202b57 = _0x2ed46f[_0x5ace87(0x39d)](/[\d+]/g, '')[_0x5ace87(0x29e)]();
-          const _0x5b6828 = _0x1c1ea2['format'](_0x334e14, _0x202b57);
-          VisuMZ[_0x5ace87(0x77a)][_0x5ace87(0x1bc)][_0x122106]['push'](new RegExp(_0x5b6828, 'i'));
-          const _0x15fc7b = _0x5ace87(0x331)[_0x5ace87(0x1df)](_0x334e14, _0x202b57);
-          VisuMZ[_0x5ace87(0x77a)][_0x5ace87(0x1bc)][_0x122106 + 'JS'][_0x5ace87(0x6f2)](new RegExp(_0x15fc7b, 'i'));
-        }
-      }
-    }
-  }),
-  (Scene_Boot['prototype'][_0x17b060(0x358)] = function () {
-    const _0x52e800 = _0x17b060;
-    if (VisuMZ[_0x52e800(0x3d7)]) return;
-  }),
-  (Scene_Boot[_0x17b060(0x54a)][_0x17b060(0x670)] = function () {
-    const _0x3735f2 = _0x17b060,
-      _0xdf3565 = VisuMZ['CoreEngine']['Settings'];
-    _0xdf3565[_0x3735f2(0x7ae)][_0x3735f2(0x874)] && VisuMZ[_0x3735f2(0x7e9)](!![]);
-    _0xdf3565[_0x3735f2(0x7ae)]['ModernControls'] && ((Input[_0x3735f2(0x51d)][0x23] = 'end'), (Input['keyMapper'][0x24] = _0x3735f2(0x146)));
-    if (_0xdf3565[_0x3735f2(0x862)]) {
-      const _0x5a426d = _0xdf3565['ButtonAssist'];
-      (_0x5a426d[_0x3735f2(0x33e)] = _0x5a426d[_0x3735f2(0x33e)] || _0x3735f2(0x54f)), (_0x5a426d[_0x3735f2(0x721)] = _0x5a426d[_0x3735f2(0x721)] || _0x3735f2(0x14d));
-    }
-    _0xdf3565[_0x3735f2(0x197)][_0x3735f2(0x3da)] &&
-      ((Input[_0x3735f2(0x51d)][0x57] = 'up'),
-      (Input[_0x3735f2(0x51d)][0x41] = _0x3735f2(0x2b0)),
-      (Input[_0x3735f2(0x51d)][0x53] = 'down'),
-      (Input['keyMapper'][0x44] = _0x3735f2(0x512)),
-      (Input[_0x3735f2(0x51d)][0x45] = _0x3735f2(0x7c5))),
-      _0xdf3565[_0x3735f2(0x197)]['DashToggleR'] && (Input[_0x3735f2(0x51d)][0x52] = _0x3735f2(0x562)),
-      (_0xdf3565[_0x3735f2(0x71d)]['DisplayedParams'] = _0xdf3565['Param'][_0x3735f2(0x449)]['map'](_0x4de857 => _0x4de857[_0x3735f2(0x29e)]()[_0x3735f2(0x711)]())),
-      (_0xdf3565[_0x3735f2(0x71d)][_0x3735f2(0x4ba)] = _0xdf3565[_0x3735f2(0x71d)][_0x3735f2(0x4ba)][_0x3735f2(0x3a8)](_0x3e329c => _0x3e329c[_0x3735f2(0x29e)]()['trim']())),
-      (_0xdf3565[_0x3735f2(0x7ae)][_0x3735f2(0x444)] = _0xdf3565[_0x3735f2(0x7ae)][_0x3735f2(0x444)] ?? !![]),
-      (_0xdf3565[_0x3735f2(0x7ae)][_0x3735f2(0x15f)] = _0xdf3565[_0x3735f2(0x7ae)]['ShiftT_Toggle'] ?? !![]);
-  }),
-  (Scene_Boot['prototype'][_0x17b060(0x2aa)] = function () {
-    this['process_VisuMZ_CoreEngine_jsQuickFunctions']();
-  }),
-  (Scene_Boot[_0x17b060(0x54a)][_0x17b060(0x5a0)] = function () {
-    const _0x57c94d = _0x17b060,
-      _0x5a3f3f = VisuMZ[_0x57c94d(0x77a)]['Settings'][_0x57c94d(0x1c2)];
-    for (const _0x518fbd of _0x5a3f3f) {
-      const _0x10f2db = _0x518fbd['FunctionName'][_0x57c94d(0x39d)](/[ ]/g, ''),
-        _0x296eca = _0x518fbd[_0x57c94d(0x101)];
-      VisuMZ['CoreEngine'][_0x57c94d(0x5d2)](_0x10f2db, _0x296eca);
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x5d2)] = function (_0x25f348, _0x5f4929) {
-    const _0x516fc1 = _0x17b060;
-    if (!!window[_0x25f348]) {
-      if ($gameTemp[_0x516fc1(0x6dc)]()) console[_0x516fc1(0x797)](_0x516fc1(0x3ee)['format'](_0x25f348));
-    }
-    const _0x4baf97 = _0x516fc1(0x327)['format'](_0x25f348, _0x5f4929);
-    window[_0x25f348] = new Function(_0x4baf97);
-  }),
-  (Scene_Boot[_0x17b060(0x54a)]['process_VisuMZ_CoreEngine_CustomParameters'] = function () {
-    const _0x476fd3 = _0x17b060,
-      _0x20f506 = VisuMZ['CoreEngine'][_0x476fd3(0x382)]['CustomParam'];
-    if (!_0x20f506) return;
-    for (const _0x185cb2 of _0x20f506) {
-      if (!_0x185cb2) continue;
-      VisuMZ[_0x476fd3(0x77a)][_0x476fd3(0x2ed)](_0x185cb2);
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x42d)] = {}),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x5e1)] = {}),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x6f7)] = {}),
-  (VisuMZ[_0x17b060(0x77a)]['CustomParamAbb'] = {}),
-  (VisuMZ[_0x17b060(0x77a)]['createCustomParameter'] = function (_0x1f8ed7) {
-    const _0x4ed798 = _0x17b060,
-      _0x3bf3db = _0x1f8ed7[_0x4ed798(0x242)],
-      _0x1d2bd9 = _0x1f8ed7['ParamName'],
-      _0x68f719 = _0x1f8ed7[_0x4ed798(0x585)],
-      _0x581d78 = _0x1f8ed7[_0x4ed798(0x2cf)],
-      _0x36e0e1 = new Function(_0x1f8ed7[_0x4ed798(0x15e)]);
-    (VisuMZ[_0x4ed798(0x77a)][_0x4ed798(0x42d)][_0x3bf3db[_0x4ed798(0x29e)]()[_0x4ed798(0x711)]()] = _0x1d2bd9),
-      (VisuMZ[_0x4ed798(0x77a)][_0x4ed798(0x5e1)][_0x3bf3db['toUpperCase']()[_0x4ed798(0x711)]()] = _0x68f719),
-      (VisuMZ['CoreEngine'][_0x4ed798(0x6f7)][_0x3bf3db[_0x4ed798(0x29e)]()[_0x4ed798(0x711)]()] = _0x581d78),
-      (VisuMZ[_0x4ed798(0x77a)]['CustomParamAbb'][_0x3bf3db['toUpperCase']()[_0x4ed798(0x711)]()] = _0x3bf3db),
-      Object[_0x4ed798(0x64d)](Game_BattlerBase[_0x4ed798(0x54a)], _0x3bf3db, {
-        get() {
-          const _0x2c7d1f = _0x4ed798,
-            _0x1af904 = _0x36e0e1[_0x2c7d1f(0x64e)](this);
-          return _0x581d78 === 'integer' ? Math[_0x2c7d1f(0x3fe)](_0x1af904) : _0x1af904;
-        },
-      });
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['ControllerButtons'] = {}),
-  (VisuMZ['CoreEngine'][_0x17b060(0x111)] = {}),
-  (Scene_Boot[_0x17b060(0x54a)][_0x17b060(0x68a)] = function () {
-    const _0x230318 = _0x17b060,
-      _0x28398b = VisuMZ['CoreEngine'][_0x230318(0x382)][_0x230318(0x4b0)];
-    for (const _0x39d6fc of _0x28398b) {
-      const _0x58c40e = (_0x39d6fc[_0x230318(0x516)] || '')['toLowerCase']()[_0x230318(0x711)](),
-        _0x462b79 = (_0x39d6fc[_0x230318(0xfb)] || '')[_0x230318(0x853)]()[_0x230318(0x711)]();
-      (VisuMZ[_0x230318(0x77a)][_0x230318(0x4b0)][_0x58c40e] = _0x39d6fc), (VisuMZ[_0x230318(0x77a)][_0x230318(0x111)][_0x462b79] = _0x58c40e);
-    }
-  }),
-  (VisuMZ[_0x17b060(0x3d7)] = function () {
-    const _0x293081 = _0x17b060;
-    for (const _0x55810f of $dataActors) {
-      if (_0x55810f) VisuMZ[_0x293081(0x39a)](_0x55810f);
-    }
-    for (const _0x3ad72a of $dataClasses) {
-      if (_0x3ad72a) VisuMZ[_0x293081(0x7e7)](_0x3ad72a);
-    }
-    for (const _0x505e5d of $dataSkills) {
-      if (_0x505e5d) VisuMZ[_0x293081(0x481)](_0x505e5d);
-    }
-    for (const _0xbc4ede of $dataItems) {
-      if (_0xbc4ede) VisuMZ[_0x293081(0x3a7)](_0xbc4ede);
-    }
-    for (const _0x25d20c of $dataWeapons) {
-      if (_0x25d20c) VisuMZ[_0x293081(0x7a2)](_0x25d20c);
-    }
-    for (const _0x5e6354 of $dataArmors) {
-      if (_0x5e6354) VisuMZ[_0x293081(0x293)](_0x5e6354);
-    }
-    for (const _0x486bad of $dataEnemies) {
-      if (_0x486bad) VisuMZ[_0x293081(0x561)](_0x486bad);
-    }
-    for (const _0x4b3b14 of $dataStates) {
-      if (_0x4b3b14) VisuMZ[_0x293081(0x3d8)](_0x4b3b14);
-    }
-    for (const _0x3c2da3 of $dataTilesets) {
-      if (_0x3c2da3) VisuMZ[_0x293081(0x289)](_0x3c2da3);
-    }
-  }),
-  (VisuMZ[_0x17b060(0x39a)] = function (_0x352f16) {}),
-  (VisuMZ[_0x17b060(0x7e7)] = function (_0x384fab) {}),
-  (VisuMZ[_0x17b060(0x481)] = function (_0x3b0c16) {}),
-  (VisuMZ[_0x17b060(0x3a7)] = function (_0x1e8cb9) {}),
-  (VisuMZ[_0x17b060(0x7a2)] = function (_0x2496cb) {}),
-  (VisuMZ['ParseArmorNotetags'] = function (_0x5caf26) {}),
-  (VisuMZ['ParseEnemyNotetags'] = function (_0x47d788) {}),
-  (VisuMZ[_0x17b060(0x3d8)] = function (_0xfb77de) {}),
-  (VisuMZ['ParseTilesetNotetags'] = function (_0x29d5f2) {}),
-  (VisuMZ[_0x17b060(0x77a)]['ParseActorNotetags'] = VisuMZ[_0x17b060(0x39a)]),
-  (VisuMZ[_0x17b060(0x39a)] = function (_0x583f00) {
-    const _0x23001b = _0x17b060;
-    VisuMZ[_0x23001b(0x77a)]['ParseActorNotetags']['call'](this, _0x583f00);
-    const _0x3b896e = _0x583f00[_0x23001b(0x85d)];
-    if (_0x3b896e[_0x23001b(0x2ba)](/<MAX LEVEL:[ ](\d+)>/i)) {
-      _0x583f00[_0x23001b(0x6ed)] = Number(RegExp['$1']);
-      if (_0x583f00[_0x23001b(0x6ed)] === 0x0) _0x583f00[_0x23001b(0x6ed)] = Number[_0x23001b(0x29a)];
-    }
-    _0x3b896e['match'](/<INITIAL LEVEL:[ ](\d+)>/i) && (_0x583f00[_0x23001b(0x174)] = Math[_0x23001b(0x701)](Number(RegExp['$1']), _0x583f00[_0x23001b(0x6ed)]));
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x7e7)] = VisuMZ[_0x17b060(0x7e7)]),
-  (VisuMZ[_0x17b060(0x7e7)] = function (_0x3526dd) {
-    const _0x360d00 = _0x17b060;
-    VisuMZ[_0x360d00(0x77a)]['ParseClassNotetags'][_0x360d00(0x64e)](this, _0x3526dd);
-    if (_0x3526dd[_0x360d00(0x6ea)])
-      for (const _0x21e2af of _0x3526dd[_0x360d00(0x6ea)]) {
-        _0x21e2af['note'][_0x360d00(0x2ba)](/<LEARN AT LEVEL:[ ](\d+)>/i) && (_0x21e2af[_0x360d00(0x4b4)] = Math[_0x360d00(0x7f9)](Number(RegExp['$1']), 0x1));
-      }
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x561)] = VisuMZ['ParseEnemyNotetags']),
-  (VisuMZ[_0x17b060(0x561)] = function (_0x21ff67) {
-    const _0x5cc252 = _0x17b060;
-    VisuMZ[_0x5cc252(0x77a)][_0x5cc252(0x561)][_0x5cc252(0x64e)](this, _0x21ff67), (_0x21ff67['level'] = 0x1);
-    const _0x160a0b = _0x21ff67['note'];
-    if (_0x160a0b[_0x5cc252(0x2ba)](/<LEVEL:[ ](\d+)>/i)) _0x21ff67[_0x5cc252(0x4b4)] = Number(RegExp['$1']);
-    if (_0x160a0b[_0x5cc252(0x2ba)](/<MAXHP:[ ](\d+)>/i)) _0x21ff67[_0x5cc252(0x5aa)][0x0] = Number(RegExp['$1']);
-    if (_0x160a0b['match'](/<MAXMP:[ ](\d+)>/i)) _0x21ff67[_0x5cc252(0x5aa)][0x1] = Number(RegExp['$1']);
-    if (_0x160a0b[_0x5cc252(0x2ba)](/<ATK:[ ](\d+)>/i)) _0x21ff67['params'][0x2] = Number(RegExp['$1']);
-    if (_0x160a0b[_0x5cc252(0x2ba)](/<DEF:[ ](\d+)>/i)) _0x21ff67[_0x5cc252(0x5aa)][0x3] = Number(RegExp['$1']);
-    if (_0x160a0b['match'](/<MAT:[ ](\d+)>/i)) _0x21ff67['params'][0x4] = Number(RegExp['$1']);
-    if (_0x160a0b[_0x5cc252(0x2ba)](/<MDF:[ ](\d+)>/i)) _0x21ff67[_0x5cc252(0x5aa)][0x5] = Number(RegExp['$1']);
-    if (_0x160a0b['match'](/<AGI:[ ](\d+)>/i)) _0x21ff67[_0x5cc252(0x5aa)][0x6] = Number(RegExp['$1']);
-    if (_0x160a0b['match'](/<LUK:[ ](\d+)>/i)) _0x21ff67[_0x5cc252(0x5aa)][0x7] = Number(RegExp['$1']);
-    if (_0x160a0b[_0x5cc252(0x2ba)](/<EXP:[ ](\d+)>/i)) _0x21ff67[_0x5cc252(0x769)] = Number(RegExp['$1']);
-    if (_0x160a0b[_0x5cc252(0x2ba)](/<GOLD:[ ](\d+)>/i)) _0x21ff67[_0x5cc252(0x793)] = Number(RegExp['$1']);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x369)] = Graphics[_0x17b060(0x127)]),
-  (Graphics[_0x17b060(0x127)] = function () {
-    const _0x234fbe = _0x17b060;
-    switch (VisuMZ[_0x234fbe(0x77a)]['Settings'][_0x234fbe(0x7ae)][_0x234fbe(0x872)]) {
-      case _0x234fbe(0x211):
-        return !![];
-      case 'normal':
-        return ![];
-      default:
-        return VisuMZ[_0x234fbe(0x77a)][_0x234fbe(0x369)][_0x234fbe(0x64e)](this);
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x3c7)] = Graphics[_0x17b060(0x586)]),
-  (Graphics[_0x17b060(0x586)] = function (_0x4d7078, _0x119b37, _0x52e825 = null) {
-    const _0x141ad1 = _0x17b060;
-    VisuMZ[_0x141ad1(0x77a)][_0x141ad1(0x3c7)]['call'](this, _0x4d7078, _0x119b37, _0x52e825), VisuMZ['ShowDevTools'](![]);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x125)] = Graphics[_0x17b060(0x247)]),
-  (Graphics[_0x17b060(0x247)] = function (_0x1efcb3) {
-    const _0x17c5c2 = _0x17b060;
-    VisuMZ[_0x17c5c2(0x77a)][_0x17c5c2(0x125)]['call'](this, _0x1efcb3), this[_0x17c5c2(0x8bc)](_0x1efcb3);
-  }),
-  (Graphics[_0x17b060(0x8bc)] = function (_0x49b98a) {
-    const _0x5f17df = _0x17b060;
-    VisuMZ[_0x5f17df(0x77a)][_0x5f17df(0x382)]['QoL'][_0x5f17df(0x5c3)] && (_0x49b98a['style'][_0x5f17df(0x3dd)] = 'none');
-    VisuMZ[_0x5f17df(0x77a)][_0x5f17df(0x382)][_0x5f17df(0x7ae)][_0x5f17df(0x25b)] && (_0x49b98a[_0x5f17df(0x2b5)][_0x5f17df(0x3ff)] = _0x5f17df(0x74d));
-    const _0x7f113c = Math['max'](0x0, Math[_0x5f17df(0x221)](_0x49b98a[_0x5f17df(0x321)] * this[_0x5f17df(0x6fd)])),
-      _0x368442 = Math[_0x5f17df(0x7f9)](0x0, Math[_0x5f17df(0x221)](_0x49b98a[_0x5f17df(0x2c5)] * this[_0x5f17df(0x6fd)]));
-    (_0x49b98a['style'][_0x5f17df(0x321)] = _0x7f113c + 'px'), (_0x49b98a[_0x5f17df(0x2b5)]['height'] = _0x368442 + 'px');
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x2e9)] = Bitmap[_0x17b060(0x54a)][_0x17b060(0x3e0)]),
-  (Bitmap[_0x17b060(0x54a)][_0x17b060(0x3e0)] = function (_0x2e7b39, _0x5a9f1d) {
-    const _0x334ae7 = _0x17b060;
-    VisuMZ[_0x334ae7(0x77a)][_0x334ae7(0x2e9)]['call'](this, _0x2e7b39, _0x5a9f1d), (this['_smooth'] = !(VisuMZ[_0x334ae7(0x77a)][_0x334ae7(0x382)][_0x334ae7(0x7ae)][_0x334ae7(0x25b)] ?? !![]));
-  }),
-  (Bitmap[_0x17b060(0x54a)][_0x17b060(0x81f)] = function () {
-    const _0x5c3f13 = _0x17b060;
-    this[_0x5c3f13(0x6de)] = !![];
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x744)] = Sprite[_0x17b060(0x54a)][_0x17b060(0x2a5)]),
-  (Sprite[_0x17b060(0x54a)][_0x17b060(0x2a5)] = function () {
-    const _0x46b16d = _0x17b060;
-    if (this[_0x46b16d(0x877)]) VisuMZ[_0x46b16d(0x77a)][_0x46b16d(0x744)]['call'](this);
-    this[_0x46b16d(0x3e6)]();
-  }),
-  (Sprite[_0x17b060(0x54a)][_0x17b060(0x3e6)] = function () {
-    const _0x2c29a3 = _0x17b060;
-    if (!this['bitmap']) return;
-    if (!this['bitmap'][_0x2c29a3(0x6de)]) return;
-    this[_0x2c29a3(0x7d3)][_0x2c29a3(0x199)] && !this[_0x2c29a3(0x87f)]['_baseTexture'][_0x2c29a3(0x3a3)] && this[_0x2c29a3(0x7d3)][_0x2c29a3(0x2a5)]();
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x3d9)] = Bitmap[_0x17b060(0x54a)]['resize']),
-  (Bitmap['prototype'][_0x17b060(0x1af)] = function (_0x474b8c, _0x7ee6d4) {
-    const _0x11a23f = _0x17b060;
-    VisuMZ['CoreEngine'][_0x11a23f(0x3d9)][_0x11a23f(0x64e)](this, _0x474b8c, _0x7ee6d4), this['markCoreEngineModified']();
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x545)] = Bitmap[_0x17b060(0x54a)]['blt']),
-  (Bitmap[_0x17b060(0x54a)][_0x17b060(0x3f8)] = function (_0x5ef1e2, _0x22e1dd, _0x13e10e, _0x1cf98a, _0x31c555, _0x2bb588, _0x2dfdd1, _0xf23487, _0x26f9f5) {
-    const _0x53fa81 = _0x17b060;
-    (_0x22e1dd = Math['round'](_0x22e1dd)),
-      (_0x13e10e = Math[_0x53fa81(0x3fe)](_0x13e10e)),
-      (_0x1cf98a = Math[_0x53fa81(0x3fe)](_0x1cf98a)),
-      (_0x31c555 = Math[_0x53fa81(0x3fe)](_0x31c555)),
-      (_0x2bb588 = Math[_0x53fa81(0x3fe)](_0x2bb588)),
-      (_0x2dfdd1 = Math[_0x53fa81(0x3fe)](_0x2dfdd1)),
-      VisuMZ[_0x53fa81(0x77a)][_0x53fa81(0x545)][_0x53fa81(0x64e)](this, _0x5ef1e2, _0x22e1dd, _0x13e10e, _0x1cf98a, _0x31c555, _0x2bb588, _0x2dfdd1, _0xf23487, _0x26f9f5),
-      this[_0x53fa81(0x81f)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x145)] = Bitmap[_0x17b060(0x54a)][_0x17b060(0x1b1)]),
-  (Bitmap[_0x17b060(0x54a)][_0x17b060(0x1b1)] = function (_0x1553fe, _0x3b0ecd, _0x40beda, _0x29d5bd) {
-    const _0x5d41a2 = _0x17b060;
-    VisuMZ[_0x5d41a2(0x77a)][_0x5d41a2(0x145)][_0x5d41a2(0x64e)](this, _0x1553fe, _0x3b0ecd, _0x40beda, _0x29d5bd), this[_0x5d41a2(0x81f)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x202)] = Bitmap['prototype'][_0x17b060(0x456)]),
-  (Bitmap[_0x17b060(0x54a)][_0x17b060(0x456)] = function (_0x24f9fe, _0x31904c, _0x3a63f8, _0x15d93a, _0x5d1286) {
-    const _0x49fb83 = _0x17b060;
-    VisuMZ[_0x49fb83(0x77a)][_0x49fb83(0x202)][_0x49fb83(0x64e)](this, _0x24f9fe, _0x31904c, _0x3a63f8, _0x15d93a, _0x5d1286), this[_0x49fb83(0x81f)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Bitmap_strokeRect'] = Bitmap[_0x17b060(0x54a)]['strokeRect']),
-  (Bitmap[_0x17b060(0x54a)][_0x17b060(0x53f)] = function (_0x3d6850, _0x922595, _0x3ca704, _0x15aa62, _0x4e3478) {
-    const _0x519bd5 = _0x17b060;
-    VisuMZ['CoreEngine'][_0x519bd5(0xfe)][_0x519bd5(0x64e)](this, _0x3d6850, _0x922595, _0x3ca704, _0x15aa62, _0x4e3478), this[_0x519bd5(0x81f)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x1c7)] = Bitmap['prototype'][_0x17b060(0x668)]),
-  (Bitmap[_0x17b060(0x54a)][_0x17b060(0x668)] = function (_0x4af518, _0x546f44, _0x555be7, _0x2f90eb, _0x2f5d80, _0x37985d, _0x408c5e) {
-    const _0xb0f006 = _0x17b060;
-    VisuMZ[_0xb0f006(0x77a)]['Bitmap_gradientFillRect'][_0xb0f006(0x64e)](this, _0x4af518, _0x546f44, _0x555be7, _0x2f90eb, _0x2f5d80, _0x37985d, _0x408c5e), this['markCoreEngineModified']();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x658)] = Bitmap[_0x17b060(0x54a)][_0x17b060(0x3f0)]),
-  (Bitmap[_0x17b060(0x54a)][_0x17b060(0x3f0)] = function (_0x389e71, _0x830bbf, _0x30ebf6, _0x2688be) {
-    const _0xa485b1 = _0x17b060;
-    (_0x389e71 = Math[_0xa485b1(0x3fe)](_0x389e71)),
-      (_0x830bbf = Math[_0xa485b1(0x3fe)](_0x830bbf)),
-      (_0x30ebf6 = Math[_0xa485b1(0x3fe)](_0x30ebf6)),
-      VisuMZ[_0xa485b1(0x77a)][_0xa485b1(0x658)][_0xa485b1(0x64e)](this, _0x389e71, _0x830bbf, _0x30ebf6, _0x2688be),
-      this[_0xa485b1(0x81f)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Bitmap_measureTextWidth'] = Bitmap[_0x17b060(0x54a)][_0x17b060(0x790)]),
-  (Bitmap['prototype'][_0x17b060(0x790)] = function (_0x38725a) {
-    const _0x1718f8 = _0x17b060;
-    return Math[_0x1718f8(0x720)](VisuMZ[_0x1718f8(0x77a)][_0x1718f8(0x3d4)][_0x1718f8(0x64e)](this, _0x38725a));
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x3ac)] = Bitmap[_0x17b060(0x54a)][_0x17b060(0x1a9)]),
-  (Bitmap[_0x17b060(0x54a)]['drawText'] = function (_0x55c3b, _0xe82e56, _0x298c26, _0x35abdc, _0x45ccde, _0x12c324) {
-    const _0x1cd7e0 = _0x17b060;
-    (_0xe82e56 = Math[_0x1cd7e0(0x3fe)](_0xe82e56)),
-      (_0x298c26 = Math[_0x1cd7e0(0x3fe)](_0x298c26)),
-      (_0x35abdc = Math[_0x1cd7e0(0x720)](_0x35abdc)),
-      (_0x45ccde = Math[_0x1cd7e0(0x720)](_0x45ccde)),
-      VisuMZ[_0x1cd7e0(0x77a)]['Bitmap_drawText'][_0x1cd7e0(0x64e)](this, _0x55c3b, _0xe82e56, _0x298c26, _0x35abdc, _0x45ccde, _0x12c324),
-      this[_0x1cd7e0(0x81f)]();
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x633)] = Bitmap['prototype']['_drawTextOutline']),
-  (Bitmap[_0x17b060(0x54a)][_0x17b060(0x5a7)] = function (_0x2aeeb4, _0x262abc, _0x31642d, _0x371448) {
-    const _0x405cd1 = _0x17b060;
-    VisuMZ['CoreEngine'][_0x405cd1(0x382)][_0x405cd1(0x7ae)][_0x405cd1(0x2c4)]
-      ? this['_drawTextShadow'](_0x2aeeb4, _0x262abc, _0x31642d, _0x371448)
-      : VisuMZ[_0x405cd1(0x77a)][_0x405cd1(0x633)][_0x405cd1(0x64e)](this, _0x2aeeb4, _0x262abc, _0x31642d, _0x371448);
-  }),
-  (Bitmap[_0x17b060(0x54a)][_0x17b060(0x63d)] = function (_0x311fbe, _0x1fe5c2, _0xc52b59, _0x5f163c) {
-    const _0x475c40 = _0x17b060,
-      _0x43999d = this[_0x475c40(0x85c)];
-    (_0x43999d[_0x475c40(0x238)] = this['outlineColor']), _0x43999d[_0x475c40(0x626)](_0x311fbe, _0x1fe5c2 + 0x2, _0xc52b59 + 0x2, _0x5f163c);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x53d)] = Input[_0x17b060(0x2d5)]),
-  (Input[_0x17b060(0x2d5)] = function () {
-    const _0xc700c2 = _0x17b060;
-    VisuMZ[_0xc700c2(0x77a)][_0xc700c2(0x53d)]['call'](this), (this[_0xc700c2(0x2d3)] = undefined), (this['_inputSpecialKeyCode'] = undefined), (this[_0xc700c2(0x63e)] = Input[_0xc700c2(0x5f2)]);
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x66e)] = Input[_0x17b060(0x319)]),
-  (Input[_0x17b060(0x319)] = function () {
-    const _0x4e0b17 = _0x17b060;
-    VisuMZ[_0x4e0b17(0x77a)][_0x4e0b17(0x66e)][_0x4e0b17(0x64e)](this);
-    if (this[_0x4e0b17(0x63e)]) this[_0x4e0b17(0x63e)]--;
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x89b)] = Input['_pollGamepads']),
-  (Input['_pollGamepads'] = function () {
-    const _0x2f0024 = _0x17b060;
-    if (this[_0x2f0024(0x63e)]) return;
-    VisuMZ[_0x2f0024(0x77a)]['Input_pollGamepads'][_0x2f0024(0x64e)](this);
-  }),
-  (VisuMZ['CoreEngine']['Input_setupEventHandlers'] = Input['_setupEventHandlers']),
-  (Input[_0x17b060(0x50b)] = function () {
-    const _0x36d1da = _0x17b060;
-    VisuMZ['CoreEngine']['Input_setupEventHandlers']['call'](this), document[_0x36d1da(0x365)]('keypress', this[_0x36d1da(0x860)][_0x36d1da(0x76d)](this));
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x33d)] = Input['_onKeyDown']),
-  (Input[_0x17b060(0x14f)] = function (_0x3f180e) {
-    const _0x121686 = _0x17b060;
-    (this[_0x121686(0x568)] = _0x3f180e[_0x121686(0x282)]), VisuMZ[_0x121686(0x77a)]['Input_onKeyDown'][_0x121686(0x64e)](this, _0x3f180e), this[_0x121686(0x55d)](null);
-  }),
-  (Input[_0x17b060(0x860)] = function (_0x386217) {
-    const _0x446160 = _0x17b060;
-    this[_0x446160(0x741)](_0x386217);
-  }),
-  (Input['_registerKeyInput'] = function (_0x4a1fe8) {
-    const _0x566cff = _0x17b060;
-    this[_0x566cff(0x568)] = _0x4a1fe8[_0x566cff(0x282)];
-    let _0x20721c = String[_0x566cff(0x814)](_0x4a1fe8['charCode']);
-    this['_inputString'] === undefined ? (this['_inputString'] = _0x20721c) : (this[_0x566cff(0x2d3)] += _0x20721c);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x479)] = Input['_shouldPreventDefault']),
-  (Input[_0x17b060(0x833)] = function (_0x575253) {
-    const _0x15fed4 = _0x17b060;
-    if (_0x575253 === 0x8) return ![];
-    return VisuMZ[_0x15fed4(0x77a)][_0x15fed4(0x479)]['call'](this, _0x575253);
-  }),
-  (Input[_0x17b060(0x2a3)] = function (_0x311559) {
-    const _0x191afb = _0x17b060;
-    if (_0x311559[_0x191afb(0x2ba)](/backspace/i)) return this[_0x191afb(0x568)] === 0x8;
-    if (_0x311559['match'](/enter/i)) return this[_0x191afb(0x568)] === 0xd;
-    if (_0x311559['match'](/escape/i)) return this[_0x191afb(0x568)] === 0x1b;
-  }),
-  (Input[_0x17b060(0x5bc)] = function () {
-    const _0x473f59 = _0x17b060;
-    return [0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39][_0x473f59(0x7d9)](this[_0x473f59(0x568)]);
-  }),
-  (Input[_0x17b060(0x34a)] = function () {
-    const _0x495bbc = _0x17b060;
-    return [0x25, 0x26, 0x27, 0x28][_0x495bbc(0x7d9)](this[_0x495bbc(0x568)]);
-  }),
-  (Input[_0x17b060(0x4b9)] = function () {
-    const _0x23a803 = _0x17b060;
-    if (navigator['getGamepads']) {
-      const _0x363f7b = navigator['getGamepads']();
-      if (_0x363f7b)
-        for (const _0x27db76 of _0x363f7b) {
-          if (_0x27db76 && _0x27db76[_0x23a803(0x377)]) return !![];
-        }
-    }
-    return ![];
-  }),
-  (Input[_0x17b060(0x6d7)] = function () {
-    const _0x942640 = _0x17b060;
-    if (navigator[_0x942640(0x588)]) {
-      const _0xda76e8 = navigator[_0x942640(0x588)]();
-      if (_0xda76e8)
-        for (const _0x533173 of _0xda76e8) {
-          if (_0x533173 && _0x533173['connected']) {
-            if (this[_0x942640(0x6c3)](_0x533173)) return !![];
-            if (this[_0x942640(0x7fc)](_0x533173)) return !![];
-          }
-        }
-    }
-    return ![];
-  }),
-  (Input[_0x17b060(0x6c3)] = function (_0x32217e) {
-    const _0x3549c2 = _0x17b060,
-      _0x3a650e = _0x32217e[_0x3549c2(0x737)];
-    for (let _0x368bd7 = 0x0; _0x368bd7 < _0x3a650e['length']; _0x368bd7++) {
-      if (_0x3a650e[_0x368bd7][_0x3549c2(0x2c7)]) return !![];
-    }
-    return ![];
-  }),
-  (Input[_0x17b060(0x7fc)] = function (_0x1d9d1f) {
-    const _0x470373 = _0x1d9d1f['axes'],
-      _0x1763ed = 0.5;
-    if (_0x470373[0x0] < -_0x1763ed) return !![];
-    if (_0x470373[0x0] > _0x1763ed) return !![];
-    if (_0x470373[0x1] < -_0x1763ed) return !![];
-    if (_0x470373[0x1] > _0x1763ed) return !![];
-    return ![];
-  }),
-  (Input[_0x17b060(0x73b)] = function () {
-    return this['_lastGamepad'] || null;
-  }),
-  (Input['setLastGamepadUsed'] = function (_0x5beb23) {
-    const _0x5226ba = _0x17b060;
-    this[_0x5226ba(0x1b7)] = _0x5beb23;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x66c)] = Input['_updateGamepadState']),
-  (Input[_0x17b060(0x219)] = function (_0x3838db) {
-    const _0x29091e = _0x17b060;
-    VisuMZ[_0x29091e(0x77a)][_0x29091e(0x66c)][_0x29091e(0x64e)](this, _0x3838db), (this[_0x29091e(0x6c3)](_0x3838db) || this[_0x29091e(0x7fc)](_0x3838db)) && this[_0x29091e(0x55d)](_0x3838db);
-  }),
-  (Input[_0x17b060(0x224)] = function () {
-    const _0x2b861d = _0x17b060;
-    return this[_0x2b861d(0x1b7)] ? this[_0x2b861d(0x1b7)]['id'] : _0x2b861d(0x546);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x845)] = Tilemap[_0x17b060(0x54a)]['_addShadow']),
-  (Tilemap['prototype']['_addShadow'] = function (_0x26687d, _0x4e93ba, _0x479bed, _0x663b7c) {
-    const _0x251567 = _0x17b060;
-    if ($gameMap && $gameMap[_0x251567(0x3eb)]()) return;
-    VisuMZ['CoreEngine'][_0x251567(0x845)][_0x251567(0x64e)](this, _0x26687d, _0x4e93ba, _0x479bed, _0x663b7c);
-  }),
-  (Tilemap[_0x17b060(0x6ce)][_0x17b060(0x54a)][_0x17b060(0x7cb)] = function () {
-    const _0x9bdbfc = _0x17b060;
-    this['_destroyInternalTextures']();
-    for (let _0xeedd8f = 0x0; _0xeedd8f < Tilemap[_0x9bdbfc(0x7f3)]['MAX_GL_TEXTURES']; _0xeedd8f++) {
-      const _0x156d53 = new PIXI[_0x9bdbfc(0x7d6)]();
-      _0x156d53[_0x9bdbfc(0x654)](0x800, 0x800),
-        VisuMZ[_0x9bdbfc(0x77a)]['Settings'][_0x9bdbfc(0x7ae)][_0x9bdbfc(0x25b)] && (_0x156d53[_0x9bdbfc(0x5e6)] = PIXI[_0x9bdbfc(0x7aa)][_0x9bdbfc(0x4bc)]),
-        this['_internalTextures'][_0x9bdbfc(0x6f2)](_0x156d53);
-    }
-  }),
-  (WindowLayer['prototype'][_0x17b060(0x259)] = function () {
-    const _0x1cd621 = _0x17b060;
-    return SceneManager && SceneManager[_0x1cd621(0x2f9)] ? SceneManager['_scene'][_0x1cd621(0x6ee)]() : !![];
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x6eb)] = WindowLayer[_0x17b060(0x54a)][_0x17b060(0x55e)]),
-  (WindowLayer[_0x17b060(0x54a)][_0x17b060(0x55e)] = function render(_0x4dff3e) {
-    const _0x1095ba = _0x17b060;
-    this[_0x1095ba(0x259)]() ? VisuMZ[_0x1095ba(0x77a)][_0x1095ba(0x6eb)][_0x1095ba(0x64e)](this, _0x4dff3e) : this[_0x1095ba(0x1a1)](_0x4dff3e);
-  }),
-  (WindowLayer[_0x17b060(0x54a)][_0x17b060(0x1a1)] = function render(_0x179cdd) {
-    const _0x55eaf9 = _0x17b060;
-    if (!this[_0x55eaf9(0x70d)]) return;
-    const _0x115129 = new PIXI['Graphics'](),
-      _0x32c8b8 = _0x179cdd['gl'],
-      _0x5543c6 = this[_0x55eaf9(0x70c)]['clone']();
-    _0x179cdd[_0x55eaf9(0x316)]['forceStencil'](),
-      (_0x115129['transform'] = this[_0x55eaf9(0x206)]),
-      _0x179cdd[_0x55eaf9(0x6c6)][_0x55eaf9(0x523)](),
-      _0x32c8b8[_0x55eaf9(0x5fc)](_0x32c8b8['STENCIL_TEST']);
-    while (_0x5543c6[_0x55eaf9(0x540)] > 0x0) {
-      const _0x487f7c = _0x5543c6[_0x55eaf9(0x7f4)]();
-      _0x487f7c[_0x55eaf9(0x1a6)] &&
-        _0x487f7c[_0x55eaf9(0x70d)] &&
-        _0x487f7c[_0x55eaf9(0x141)] > 0x0 &&
-        (_0x32c8b8[_0x55eaf9(0x723)](_0x32c8b8[_0x55eaf9(0x2f4)], 0x0, ~0x0),
-        _0x32c8b8[_0x55eaf9(0x3f4)](_0x32c8b8[_0x55eaf9(0x55f)], _0x32c8b8['KEEP'], _0x32c8b8['KEEP']),
-        _0x487f7c[_0x55eaf9(0x55e)](_0x179cdd),
-        _0x179cdd['batch'][_0x55eaf9(0x523)](),
-        _0x115129['clear'](),
-        _0x32c8b8[_0x55eaf9(0x723)](_0x32c8b8[_0x55eaf9(0x3b9)], 0x1, ~0x0),
-        _0x32c8b8[_0x55eaf9(0x3f4)](_0x32c8b8[_0x55eaf9(0x752)], _0x32c8b8[_0x55eaf9(0x752)], _0x32c8b8[_0x55eaf9(0x752)]),
-        _0x32c8b8[_0x55eaf9(0x857)](_0x32c8b8[_0x55eaf9(0x497)], _0x32c8b8[_0x55eaf9(0x660)]),
-        _0x115129[_0x55eaf9(0x55e)](_0x179cdd),
-        _0x179cdd['batch'][_0x55eaf9(0x523)](),
-        _0x32c8b8[_0x55eaf9(0x857)](_0x32c8b8[_0x55eaf9(0x660)], _0x32c8b8['ONE_MINUS_SRC_ALPHA']));
-    }
-    _0x32c8b8[_0x55eaf9(0x716)](_0x32c8b8[_0x55eaf9(0x5b3)]),
-      _0x32c8b8[_0x55eaf9(0x2d5)](_0x32c8b8[_0x55eaf9(0x268)]),
-      _0x32c8b8[_0x55eaf9(0x339)](0x0),
-      _0x179cdd[_0x55eaf9(0x6c6)][_0x55eaf9(0x523)]();
-    for (const _0xb99c56 of this[_0x55eaf9(0x70c)]) {
-      !_0xb99c56[_0x55eaf9(0x1a6)] && _0xb99c56[_0x55eaf9(0x70d)] && _0xb99c56[_0x55eaf9(0x55e)](_0x179cdd);
-    }
-    _0x179cdd[_0x55eaf9(0x6c6)][_0x55eaf9(0x523)]();
-  }),
-  (DataManager[_0x17b060(0x88e)] = function (_0x416760) {
-    return this['isItem'](_0x416760) && _0x416760['itypeId'] === 0x2;
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['DataManager_setupNewGame'] = DataManager[_0x17b060(0x381)]),
-  (DataManager['setupNewGame'] = function () {
-    const _0x24aa04 = _0x17b060;
-    VisuMZ['CoreEngine'][_0x24aa04(0x5fb)][_0x24aa04(0x64e)](this), this[_0x24aa04(0x88a)](), this[_0x24aa04(0x2c9)]();
-  }),
-  (DataManager['reservePlayTestNewGameCommonEvent'] = function () {
-    const _0x2a5bc1 = _0x17b060;
-    if ($gameTemp[_0x2a5bc1(0x6dc)]()) {
-      const _0x24d25a = VisuMZ[_0x2a5bc1(0x77a)][_0x2a5bc1(0x382)][_0x2a5bc1(0x7ae)]['NewGameCommonEvent'];
-      if (_0x24d25a > 0x0) $gameTemp[_0x2a5bc1(0x2cd)](_0x24d25a);
-    }
-  }),
-  (DataManager[_0x17b060(0x2c9)] = function () {
-    const _0x4bbcc8 = _0x17b060,
-      _0x50ae8b = VisuMZ[_0x4bbcc8(0x77a)]['Settings'][_0x4bbcc8(0x7ae)][_0x4bbcc8(0x7c6)] || 0x0;
-    if (_0x50ae8b > 0x0) $gameTemp[_0x4bbcc8(0x2cd)](_0x50ae8b);
-  }),
-  (DataManager[_0x17b060(0x70a)] = function (_0x4b9848) {
-    const _0x3f469a = _0x17b060,
-      _0x29e4ad = $dataTroops[_0x4b9848];
-    if (!_0x29e4ad) return '';
-    let _0x185d2d = '';
-    _0x185d2d += _0x29e4ad[_0x3f469a(0x142)];
-    for (const _0x2118cb of _0x29e4ad['pages']) {
-      for (const _0x29e1c9 of _0x2118cb[_0x3f469a(0x53c)]) {
-        [0x6c, 0x198]['includes'](_0x29e1c9['code']) && ((_0x185d2d += '\x0a'), (_0x185d2d += _0x29e1c9[_0x3f469a(0x1d6)][0x0]));
-      }
-    }
-    return _0x185d2d;
-  });
-(VisuMZ['CoreEngine'][_0x17b060(0x382)]['QoL'][_0x17b060(0x26c)] ?? !![]) &&
-  (($scene = null),
-  (VisuMZ['CoreEngine']['Scene_Base_create'] = Scene_Base[_0x17b060(0x54a)][_0x17b060(0x3f6)]),
-  (Scene_Base['prototype'][_0x17b060(0x3f6)] = function () {
-    const _0x641582 = _0x17b060;
-    VisuMZ['CoreEngine'][_0x641582(0x662)][_0x641582(0x64e)](this), ($scene = this);
-  }),
-  ($spriteset = null),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x8bb)] = Scene_Map[_0x17b060(0x54a)][_0x17b060(0x6d0)]),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x6d0)] = function () {
-    const _0x28f609 = _0x17b060;
-    VisuMZ[_0x28f609(0x77a)][_0x28f609(0x8bb)][_0x28f609(0x64e)](this), ($spriteset = this[_0x28f609(0x10b)]);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x736)] = Scene_Battle[_0x17b060(0x54a)][_0x17b060(0x6d0)]),
-  (Scene_Battle[_0x17b060(0x54a)][_0x17b060(0x6d0)] = function () {
-    const _0x2c73c7 = _0x17b060;
-    VisuMZ[_0x2c73c7(0x77a)][_0x2c73c7(0x736)][_0x2c73c7(0x64e)](this), ($spriteset = this[_0x2c73c7(0x10b)]);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x631)] = Scene_Base[_0x17b060(0x54a)][_0x17b060(0x249)]),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x249)] = function () {
-    const _0x3545b4 = _0x17b060;
-    VisuMZ[_0x3545b4(0x77a)][_0x3545b4(0x631)][_0x3545b4(0x64e)](this), ($spriteset = null), ($subject = null), ($targets = null), ($target = null);
-  }),
-  ($subject = null),
-  ($targets = null),
-  ($target = null),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0xfd)] = BattleManager[_0x17b060(0x319)]),
-  (BattleManager['update'] = function (_0x3794c4) {
-    const _0x4a754b = _0x17b060;
-    VisuMZ[_0x4a754b(0x77a)][_0x4a754b(0xfd)][_0x4a754b(0x64e)](this, _0x3794c4),
-      ($subject = this[_0x4a754b(0x2af)]),
-      ($targets = this[_0x4a754b(0xf6)]),
-      ($target = this['_target'] || this['_targets'][0x0]);
-  }),
-  ($event = null),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x69f)] = Game_Event[_0x17b060(0x54a)]['start']),
-  (Game_Event[_0x17b060(0x54a)][_0x17b060(0x6ae)] = function () {
-    const _0x1ce59a = _0x17b060;
-    VisuMZ['CoreEngine'][_0x1ce59a(0x69f)][_0x1ce59a(0x64e)](this), ($event = this);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x58b)] = Scene_Map[_0x17b060(0x54a)][_0x17b060(0x319)]),
-  (Scene_Map[_0x17b060(0x54a)]['update'] = function () {
-    const _0x46eb85 = _0x17b060;
-    VisuMZ[_0x46eb85(0x77a)][_0x46eb85(0x58b)][_0x46eb85(0x64e)](this), $gameMap[_0x46eb85(0x213)]();
-  }),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x213)] = function () {
-    !this['isEventRunning']() && $event !== null && ($event = null);
-  }),
-  ($commonEvent = function (_0x44453e) {
-    const _0x360f9a = _0x17b060;
-    if ($gameTemp) $gameTemp[_0x360f9a(0x2cd)](_0x44453e);
-  }));
-($onceParallel = function (_0x1c4631, _0x39b91c) {
-  const _0x1f6e41 = _0x17b060;
-  if (SceneManager[_0x1f6e41(0x482)]()) SceneManager[_0x1f6e41(0x2f9)][_0x1f6e41(0x7b8)](_0x1c4631, _0x39b91c);
-  else {
-    if (SceneManager[_0x1f6e41(0x51e)]()) {
-      if (Imported[_0x1f6e41(0x2b4)]) SceneManager[_0x1f6e41(0x2f9)][_0x1f6e41(0x7b8)](_0x1c4631);
-      else $gameTemp && $gameTemp[_0x1f6e41(0x6dc)]() && alert('Once\x20Parallel\x20for\x20Battle\x20requires\x20VisuMZ_1_BattleCore!');
-    } else $gameTemp && $gameTemp[_0x1f6e41(0x6dc)]() && alert(_0x1f6e41(0x43f));
-  }
-}),
-  (StorageManager['jsonToZip'] = function (_0x43f675) {
-    return new Promise((_0x5e9df1, _0x201f8d) => {
-      const _0x158795 = _0x55f7;
-      try {
-        const _0x773f30 = pako['deflate'](_0x43f675, { to: _0x158795(0x863), level: 0x1 });
-        if (_0x773f30[_0x158795(0x540)] >= 0xc350) {
-        }
-        _0x5e9df1(_0x773f30);
-      } catch (_0x2590c2) {
-        _0x201f8d(_0x2590c2);
-      }
-    });
-  }),
-  (TextManager['stringKeyMap'] = [
-    '',
-    '',
-    '',
-    _0x17b060(0x5f4),
-    '',
-    '',
-    _0x17b060(0x218),
-    '',
-    _0x17b060(0x317),
-    _0x17b060(0x386),
-    '',
-    '',
-    _0x17b060(0x17a),
-    _0x17b060(0x2fe),
-    _0x17b060(0x80a),
-    '',
-    _0x17b060(0x1d1),
-    _0x17b060(0x724),
-    _0x17b060(0x511),
-    _0x17b060(0x669),
-    'CAPSLOCK',
-    'KANA',
-    _0x17b060(0x7c0),
-    _0x17b060(0x74b),
-    _0x17b060(0x6fb),
-    _0x17b060(0x210),
-    '',
-    _0x17b060(0x2f5),
-    _0x17b060(0x1b9),
-    _0x17b060(0x48f),
-    _0x17b060(0x3de),
-    _0x17b060(0x3ad),
-    _0x17b060(0x5c7),
-    _0x17b060(0x21e),
-    _0x17b060(0x8b9),
-    _0x17b060(0x7b4),
-    _0x17b060(0x323),
-    _0x17b060(0x6fa),
-    'UP',
-    _0x17b060(0x179),
-    _0x17b060(0x4e1),
-    _0x17b060(0x3fa),
-    _0x17b060(0x392),
-    _0x17b060(0xe6),
-    _0x17b060(0x45d),
-    'INSERT',
-    _0x17b060(0x16b),
-    '',
-    '0',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    _0x17b060(0x42e),
-    'SEMICOLON',
-    _0x17b060(0x204),
-    _0x17b060(0x58c),
-    _0x17b060(0x682),
-    _0x17b060(0x5fd),
-    'AT',
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-    'R',
-    'S',
-    'T',
-    'U',
-    'V',
-    'W',
-    'X',
-    'Y',
-    'Z',
-    _0x17b060(0x428),
-    '',
-    _0x17b060(0x43a),
-    '',
-    'SLEEP',
-    _0x17b060(0x494),
-    'NUMPAD1',
-    _0x17b060(0x53e),
-    _0x17b060(0x367),
-    _0x17b060(0x7e3),
-    'NUMPAD5',
-    'NUMPAD6',
-    'NUMPAD7',
-    _0x17b060(0x443),
-    _0x17b060(0x7af),
-    'MULTIPLY',
-    _0x17b060(0x5d5),
-    _0x17b060(0x777),
-    _0x17b060(0x665),
-    'DECIMAL',
-    _0x17b060(0x2e7),
-    'F1',
-    'F2',
-    'F3',
-    'F4',
-    'F5',
-    'F6',
-    'F7',
-    'F8',
-    'F9',
-    'F10',
-    _0x17b060(0x534),
-    _0x17b060(0x549),
-    _0x17b060(0x7c1),
-    _0x17b060(0x129),
-    _0x17b060(0x7ca),
-    _0x17b060(0x6ab),
-    _0x17b060(0x7a7),
-    'F18',
-    _0x17b060(0x698),
-    _0x17b060(0x86b),
-    _0x17b060(0x27f),
-    'F22',
-    _0x17b060(0x6ca),
-    _0x17b060(0x1a0),
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    _0x17b060(0x65f),
-    _0x17b060(0x7dc),
-    _0x17b060(0x572),
-    'WIN_OEM_FJ_MASSHOU',
-    _0x17b060(0x89e),
-    _0x17b060(0x556),
-    _0x17b060(0x83d),
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    _0x17b060(0x28a),
-    _0x17b060(0x88f),
-    'DOUBLE_QUOTE',
-    _0x17b060(0x50d),
-    'DOLLAR',
-    'PERCENT',
-    _0x17b060(0x6bb),
-    'UNDERSCORE',
-    _0x17b060(0x207),
-    'CLOSE_PAREN',
-    _0x17b060(0x69e),
-    'PLUS',
-    'PIPE',
-    _0x17b060(0x200),
-    _0x17b060(0x120),
-    _0x17b060(0x24b),
-    'TILDE',
-    '',
-    '',
-    '',
-    '',
-    'VOLUME_MUTE',
-    _0x17b060(0x2fa),
-    'VOLUME_UP',
-    '',
-    '',
-    _0x17b060(0x2c1),
-    'EQUALS',
-    _0x17b060(0x861),
-    _0x17b060(0x82e),
-    _0x17b060(0x782),
-    _0x17b060(0x402),
-    _0x17b060(0x240),
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    _0x17b060(0x7b1),
-    _0x17b060(0x31b),
-    _0x17b060(0x8ad),
-    _0x17b060(0x1ad),
-    '',
-    _0x17b060(0x130),
-    _0x17b060(0x4a9),
-    '',
-    _0x17b060(0x529),
-    _0x17b060(0x263),
-    '',
-    _0x17b060(0x635),
-    '',
-    '',
-    'WIN_OEM_RESET',
-    'WIN_OEM_JUMP',
-    'WIN_OEM_PA1',
-    _0x17b060(0x401),
-    _0x17b060(0x2db),
-    _0x17b060(0x426),
-    'WIN_OEM_CUSEL',
-    _0x17b060(0x37a),
-    _0x17b060(0x356),
-    _0x17b060(0x699),
-    _0x17b060(0x710),
-    _0x17b060(0x6e8),
-    _0x17b060(0x6f8),
-    _0x17b060(0x35a),
-    _0x17b060(0x100),
-    _0x17b060(0x4a4),
-    _0x17b060(0x760),
-    _0x17b060(0x302),
-    'ZOOM',
-    '',
-    _0x17b060(0x495),
-    _0x17b060(0x5e2),
-    '',
-  ]),
-  (TextManager['buttonAssistOk'] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x862)][_0x17b060(0x776)]),
-  (TextManager[_0x17b060(0x225)] = VisuMZ['CoreEngine']['Settings']['ButtonAssist']['CancelText']),
-  (TextManager[_0x17b060(0x3ce)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x862)][_0x17b060(0x6b1)]),
-  (VisuMZ['CoreEngine'][_0x17b060(0x253)] = TextManager[_0x17b060(0x7a1)]),
-  (TextManager[_0x17b060(0x7a1)] = function (_0x2c1915) {
-    const _0x43b79e = _0x17b060;
-    return typeof _0x2c1915 === _0x43b79e(0x7c2) ? VisuMZ[_0x43b79e(0x77a)]['TextManager_param'][_0x43b79e(0x64e)](this, _0x2c1915) : this['paramName'](_0x2c1915);
-  }),
-  (TextManager['paramName'] = function (_0x548bd2) {
-    const _0x213e4f = _0x17b060;
-    _0x548bd2 = String(_0x548bd2 || '')['toUpperCase']();
-    const _0x447ca3 = VisuMZ[_0x213e4f(0x77a)][_0x213e4f(0x382)]['Param'];
-    if (_0x548bd2 === _0x213e4f(0x3cd)) return $dataSystem[_0x213e4f(0x3f1)][_0x213e4f(0x5aa)][0x0];
-    if (_0x548bd2 === _0x213e4f(0x148)) return $dataSystem[_0x213e4f(0x3f1)]['params'][0x1];
-    if (_0x548bd2 === _0x213e4f(0x135)) return $dataSystem[_0x213e4f(0x3f1)][_0x213e4f(0x5aa)][0x2];
-    if (_0x548bd2 === _0x213e4f(0x689)) return $dataSystem[_0x213e4f(0x3f1)][_0x213e4f(0x5aa)][0x3];
-    if (_0x548bd2 === 'MAT') return $dataSystem[_0x213e4f(0x3f1)][_0x213e4f(0x5aa)][0x4];
-    if (_0x548bd2 === _0x213e4f(0x3be)) return $dataSystem['terms'][_0x213e4f(0x5aa)][0x5];
-    if (_0x548bd2 === _0x213e4f(0x30a)) return $dataSystem[_0x213e4f(0x3f1)][_0x213e4f(0x5aa)][0x6];
-    if (_0x548bd2 === _0x213e4f(0xec)) return $dataSystem[_0x213e4f(0x3f1)][_0x213e4f(0x5aa)][0x7];
-    if (_0x548bd2 === _0x213e4f(0x889)) return _0x447ca3[_0x213e4f(0x434)];
-    if (_0x548bd2 === _0x213e4f(0x2ce)) return _0x447ca3[_0x213e4f(0x436)];
-    if (_0x548bd2 === 'CRI') return _0x447ca3['XParamVocab2'];
-    if (_0x548bd2 === _0x213e4f(0x4bb)) return _0x447ca3[_0x213e4f(0x6d9)];
-    if (_0x548bd2 === _0x213e4f(0x17d)) return _0x447ca3[_0x213e4f(0x3c8)];
-    if (_0x548bd2 === _0x213e4f(0x11f)) return _0x447ca3[_0x213e4f(0x603)];
-    if (_0x548bd2 === 'CNT') return _0x447ca3[_0x213e4f(0x734)];
-    if (_0x548bd2 === _0x213e4f(0x599)) return _0x447ca3[_0x213e4f(0x2e8)];
-    if (_0x548bd2 === _0x213e4f(0x69b)) return _0x447ca3[_0x213e4f(0x20b)];
-    if (_0x548bd2 === _0x213e4f(0x655)) return _0x447ca3[_0x213e4f(0x5d9)];
-    if (_0x548bd2 === _0x213e4f(0x260)) return _0x447ca3[_0x213e4f(0x748)];
-    if (_0x548bd2 === 'GRD') return _0x447ca3[_0x213e4f(0x686)];
-    if (_0x548bd2 === 'REC') return _0x447ca3[_0x213e4f(0x149)];
-    if (_0x548bd2 === _0x213e4f(0x728)) return _0x447ca3['SParamVocab3'];
-    if (_0x548bd2 === 'MCR') return _0x447ca3['SParamVocab4'];
-    if (_0x548bd2 === _0x213e4f(0x828)) return _0x447ca3[_0x213e4f(0x2d8)];
-    if (_0x548bd2 === _0x213e4f(0x11a)) return _0x447ca3['SParamVocab6'];
-    if (_0x548bd2 === _0x213e4f(0x121)) return _0x447ca3['SParamVocab7'];
-    if (_0x548bd2 === _0x213e4f(0x1a8)) return _0x447ca3[_0x213e4f(0x2c8)];
-    if (_0x548bd2 === 'EXR') return _0x447ca3[_0x213e4f(0x5bf)];
-    if (VisuMZ[_0x213e4f(0x77a)][_0x213e4f(0x42d)][_0x548bd2]) return VisuMZ[_0x213e4f(0x77a)][_0x213e4f(0x42d)][_0x548bd2];
-    return '';
-  }),
-  (TextManager['getInputButtonString'] = function (_0x4789b2) {
-    const _0x4f3be0 = _0x17b060,
-      _0x2dcaaf = Input['getLastUsedGamepadType']();
-    return _0x2dcaaf === 'Keyboard' ? this['getKeyboardInputButtonString'](_0x4789b2) : this[_0x4f3be0(0x806)](_0x2dcaaf, _0x4789b2);
-  }),
-  (TextManager[_0x17b060(0x38a)] = function (_0x41e1a6) {
-    const _0x1c6085 = _0x17b060,
-      _0x50544a = VisuMZ[_0x1c6085(0x77a)][_0x1c6085(0x382)][_0x1c6085(0x862)][_0x1c6085(0x337)];
-    if (!_0x50544a) {
-      if (_0x41e1a6 === _0x1c6085(0x314)) _0x41e1a6 = _0x1c6085(0xeb);
-      if (_0x41e1a6 === 'menu') _0x41e1a6 = _0x1c6085(0xeb);
-    }
-    let _0x1b2287 = [];
-    for (let _0x1ddb59 in Input[_0x1c6085(0x51d)]) {
-      _0x1ddb59 = Number(_0x1ddb59);
-      if (_0x1ddb59 >= 0x60 && _0x1ddb59 <= 0x69) continue;
-      if ([0x12, 0x20][_0x1c6085(0x1ae)](_0x1ddb59)) continue;
-      _0x41e1a6 === Input[_0x1c6085(0x51d)][_0x1ddb59] && _0x1b2287[_0x1c6085(0x6f2)](_0x1ddb59);
-    }
-    for (let _0x49eee4 = 0x0; _0x49eee4 < _0x1b2287['length']; _0x49eee4++) {
-      _0x1b2287[_0x49eee4] = TextManager[_0x1c6085(0x522)][_0x1b2287[_0x49eee4]];
-    }
-    return this[_0x1c6085(0x183)](_0x1b2287);
-  }),
-  (TextManager[_0x17b060(0x183)] = function (_0x3f4f2d) {
-    const _0x3d691f = _0x17b060,
-      _0x2d03c2 = VisuMZ[_0x3d691f(0x77a)][_0x3d691f(0x382)]['ButtonAssist'],
-      _0x30f15a = _0x2d03c2[_0x3d691f(0x71a)],
-      _0xee4f66 = _0x3f4f2d[_0x3d691f(0x122)](),
-      _0x23ac41 = _0x3d691f(0x13b)[_0x3d691f(0x1df)](_0xee4f66);
-    return _0x2d03c2[_0x23ac41] ? _0x2d03c2[_0x23ac41] : _0x30f15a[_0x3d691f(0x1df)](_0xee4f66);
-  }),
-  (TextManager[_0x17b060(0x165)] = function (_0x54b7cf, _0x470e3a) {
-    const _0x12b7c2 = _0x17b060,
-      _0x5c9745 = VisuMZ[_0x12b7c2(0x77a)][_0x12b7c2(0x382)][_0x12b7c2(0x862)],
-      _0xf79293 = _0x5c9745[_0x12b7c2(0x779)],
-      _0x54c0d4 = this[_0x12b7c2(0x713)](_0x54b7cf),
-      _0x2abf08 = this[_0x12b7c2(0x713)](_0x470e3a);
-    return _0xf79293[_0x12b7c2(0x1df)](_0x54c0d4, _0x2abf08);
-  }),
-  (TextManager[_0x17b060(0x806)] = function (_0x38aa38, _0x3fe345) {
-    const _0x42a932 = _0x17b060,
-      _0x4dd6c0 = _0x38aa38['toLowerCase']()[_0x42a932(0x711)](),
-      _0x380080 = VisuMZ[_0x42a932(0x77a)][_0x42a932(0x4b0)][_0x4dd6c0];
-    if (!_0x380080) return this[_0x42a932(0x4e8)](_0x38aa38, _0x3fe345);
-    return _0x380080[_0x3fe345] || this[_0x42a932(0x38a)](_0x38aa38, _0x3fe345);
-  }),
-  (TextManager[_0x17b060(0x4e8)] = function (_0x3db79a, _0x3cc328) {
-    const _0x2042ed = _0x17b060,
-      _0x482976 = _0x3db79a[_0x2042ed(0x853)]()['trim']();
-    for (const _0x28a5fd in VisuMZ[_0x2042ed(0x77a)][_0x2042ed(0x111)]) {
-      if (_0x482976[_0x2042ed(0x1ae)](_0x28a5fd)) {
-        const _0x5b90d9 = VisuMZ[_0x2042ed(0x77a)][_0x2042ed(0x111)][_0x28a5fd],
-          _0x344f5e = VisuMZ[_0x2042ed(0x77a)][_0x2042ed(0x4b0)][_0x5b90d9];
-        return _0x344f5e[_0x3cc328] || this['getKeyboardInputButtonString'](_0x3cc328);
-      }
-    }
-    return this['getKeyboardInputButtonString'](_0x3cc328);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x5d8)] = ColorManager[_0x17b060(0x866)]),
-  (ColorManager['loadWindowskin'] = function () {
-    const _0x9e4713 = _0x17b060;
-    VisuMZ['CoreEngine'][_0x9e4713(0x5d8)]['call'](this), (this[_0x9e4713(0x624)] = this[_0x9e4713(0x624)] || {});
-  }),
-  (ColorManager['getColorDataFromPluginParameters'] = function (_0x5c941d, _0x312ef4) {
-    const _0x5a4669 = _0x17b060;
-    return (
-      (_0x312ef4 = String(_0x312ef4)),
-      (this['_colorCache'] = this[_0x5a4669(0x624)] || {}),
-      _0x312ef4[_0x5a4669(0x2ba)](/#(.*)/i)
-        ? (this[_0x5a4669(0x624)][_0x5c941d] = _0x5a4669(0x611)[_0x5a4669(0x1df)](String(RegExp['$1'])))
-        : (this[_0x5a4669(0x624)][_0x5c941d] = this[_0x5a4669(0x346)](Number(_0x312ef4))),
-      this['_colorCache'][_0x5c941d]
-    );
-  }),
-  (ColorManager[_0x17b060(0xf7)] = function (_0x1bc991) {
-    const _0x52353b = _0x17b060;
-    return (_0x1bc991 = String(_0x1bc991)), _0x1bc991[_0x52353b(0x2ba)](/#(.*)/i) ? _0x52353b(0x611)[_0x52353b(0x1df)](String(RegExp['$1'])) : this[_0x52353b(0x346)](Number(_0x1bc991));
-  }),
-  (ColorManager[_0x17b060(0x68e)] = function () {
-    this['_colorCache'] = {};
-  }),
-  (ColorManager[_0x17b060(0x743)] = function () {
-    const _0x1cecea = _0x17b060,
-      _0x472e84 = '_stored_normalColor';
-    this['_colorCache'] = this[_0x1cecea(0x624)] || {};
-    if (this[_0x1cecea(0x624)][_0x472e84]) return this[_0x1cecea(0x624)][_0x472e84];
-    const _0x57c1d8 = VisuMZ[_0x1cecea(0x77a)][_0x1cecea(0x382)][_0x1cecea(0x628)][_0x1cecea(0x616)];
-    return this[_0x1cecea(0x68c)](_0x472e84, _0x57c1d8);
-  }),
-  (ColorManager[_0x17b060(0x4ca)] = function () {
-    const _0x155b6c = _0x17b060,
-      _0x327076 = _0x155b6c(0x280);
-    this['_colorCache'] = this['_colorCache'] || {};
-    if (this['_colorCache'][_0x327076]) return this[_0x155b6c(0x624)][_0x327076];
-    const _0x5c3d8b = VisuMZ[_0x155b6c(0x77a)]['Settings']['Color']['ColorSystem'];
-    return this[_0x155b6c(0x68c)](_0x327076, _0x5c3d8b);
-  }),
-  (ColorManager[_0x17b060(0x488)] = function () {
-    const _0x4e4a6f = _0x17b060,
-      _0x562045 = _0x4e4a6f(0x110);
-    this[_0x4e4a6f(0x624)] = this[_0x4e4a6f(0x624)] || {};
-    if (this[_0x4e4a6f(0x624)][_0x562045]) return this['_colorCache'][_0x562045];
-    const _0x3cd747 = VisuMZ['CoreEngine'][_0x4e4a6f(0x382)]['Color'][_0x4e4a6f(0x478)];
-    return this[_0x4e4a6f(0x68c)](_0x562045, _0x3cd747);
-  }),
-  (ColorManager[_0x17b060(0x366)] = function () {
-    const _0x3c3384 = _0x17b060,
-      _0x1e034b = _0x3c3384(0x4eb);
-    this[_0x3c3384(0x624)] = this[_0x3c3384(0x624)] || {};
-    if (this[_0x3c3384(0x624)][_0x1e034b]) return this[_0x3c3384(0x624)][_0x1e034b];
-    const _0x918163 = VisuMZ[_0x3c3384(0x77a)][_0x3c3384(0x382)][_0x3c3384(0x628)][_0x3c3384(0x7c8)];
-    return this[_0x3c3384(0x68c)](_0x1e034b, _0x918163);
-  }),
-  (ColorManager['gaugeBackColor'] = function () {
-    const _0x232d56 = _0x17b060,
-      _0x3188b5 = _0x232d56(0x102);
-    this[_0x232d56(0x624)] = this['_colorCache'] || {};
-    if (this[_0x232d56(0x624)][_0x3188b5]) return this[_0x232d56(0x624)][_0x3188b5];
-    const _0x4f594e = VisuMZ[_0x232d56(0x77a)][_0x232d56(0x382)][_0x232d56(0x628)][_0x232d56(0x7cc)];
-    return this['getColorDataFromPluginParameters'](_0x3188b5, _0x4f594e);
-  }),
-  (ColorManager[_0x17b060(0x191)] = function () {
-    const _0x26083e = _0x17b060,
-      _0x367ced = '_stored_hpGaugeColor1';
-    this[_0x26083e(0x624)] = this[_0x26083e(0x624)] || {};
-    if (this[_0x26083e(0x624)][_0x367ced]) return this[_0x26083e(0x624)][_0x367ced];
-    const _0x18ce34 = VisuMZ['CoreEngine'][_0x26083e(0x382)][_0x26083e(0x628)][_0x26083e(0x3bf)];
-    return this[_0x26083e(0x68c)](_0x367ced, _0x18ce34);
-  }),
-  (ColorManager[_0x17b060(0x4d7)] = function () {
-    const _0x1fdfc3 = _0x17b060,
-      _0x10cf62 = _0x1fdfc3(0x171);
-    this[_0x1fdfc3(0x624)] = this[_0x1fdfc3(0x624)] || {};
-    if (this[_0x1fdfc3(0x624)][_0x10cf62]) return this[_0x1fdfc3(0x624)][_0x10cf62];
-    const _0x2d18de = VisuMZ[_0x1fdfc3(0x77a)][_0x1fdfc3(0x382)][_0x1fdfc3(0x628)][_0x1fdfc3(0x18f)];
-    return this[_0x1fdfc3(0x68c)](_0x10cf62, _0x2d18de);
-  }),
-  (ColorManager[_0x17b060(0x12a)] = function () {
-    const _0x15d6d6 = _0x17b060,
-      _0x5bf613 = _0x15d6d6(0x1a2);
-    this['_colorCache'] = this['_colorCache'] || {};
-    if (this[_0x15d6d6(0x624)][_0x5bf613]) return this[_0x15d6d6(0x624)][_0x5bf613];
-    const _0x4ff817 = VisuMZ['CoreEngine'][_0x15d6d6(0x382)][_0x15d6d6(0x628)][_0x15d6d6(0x71c)];
-    return this[_0x15d6d6(0x68c)](_0x5bf613, _0x4ff817);
-  }),
-  (ColorManager[_0x17b060(0x6a4)] = function () {
-    const _0x116caf = _0x17b060,
-      _0x453915 = _0x116caf(0x7eb);
-    this[_0x116caf(0x624)] = this[_0x116caf(0x624)] || {};
-    if (this[_0x116caf(0x624)][_0x453915]) return this[_0x116caf(0x624)][_0x453915];
-    const _0x59fe6f = VisuMZ[_0x116caf(0x77a)]['Settings']['Color']['ColorMPGauge2'];
-    return this[_0x116caf(0x68c)](_0x453915, _0x59fe6f);
-  }),
-  (ColorManager[_0x17b060(0x158)] = function () {
-    const _0x4d2d4f = _0x17b060,
-      _0x1bc893 = '_stored_mpCostColor';
-    this[_0x4d2d4f(0x624)] = this[_0x4d2d4f(0x624)] || {};
-    if (this[_0x4d2d4f(0x624)][_0x1bc893]) return this[_0x4d2d4f(0x624)][_0x1bc893];
-    const _0x2e5e82 = VisuMZ[_0x4d2d4f(0x77a)][_0x4d2d4f(0x382)]['Color']['ColorMPCost'];
-    return this[_0x4d2d4f(0x68c)](_0x1bc893, _0x2e5e82);
-  }),
-  (ColorManager['powerUpColor'] = function () {
-    const _0x12aea8 = _0x17b060,
-      _0x1c8e65 = '_stored_powerUpColor';
-    this[_0x12aea8(0x624)] = this[_0x12aea8(0x624)] || {};
-    if (this['_colorCache'][_0x1c8e65]) return this[_0x12aea8(0x624)][_0x1c8e65];
-    const _0x3e602a = VisuMZ[_0x12aea8(0x77a)][_0x12aea8(0x382)][_0x12aea8(0x628)][_0x12aea8(0x1f0)];
-    return this[_0x12aea8(0x68c)](_0x1c8e65, _0x3e602a);
-  }),
-  (ColorManager[_0x17b060(0x57c)] = function () {
-    const _0x3e310c = _0x17b060,
-      _0x55cc26 = '_stored_powerDownColor';
-    this['_colorCache'] = this['_colorCache'] || {};
-    if (this[_0x3e310c(0x624)][_0x55cc26]) return this[_0x3e310c(0x624)][_0x55cc26];
-    const _0x28e0b6 = VisuMZ[_0x3e310c(0x77a)][_0x3e310c(0x382)][_0x3e310c(0x628)]['ColorPowerDown'];
-    return this['getColorDataFromPluginParameters'](_0x55cc26, _0x28e0b6);
-  }),
-  (ColorManager[_0x17b060(0x163)] = function () {
-    const _0x2544ab = _0x17b060,
-      _0x28453c = _0x2544ab(0x4a7);
-    this[_0x2544ab(0x624)] = this[_0x2544ab(0x624)] || {};
-    if (this['_colorCache'][_0x28453c]) return this[_0x2544ab(0x624)][_0x28453c];
-    const _0x15d943 = VisuMZ[_0x2544ab(0x77a)]['Settings'][_0x2544ab(0x628)][_0x2544ab(0x5cc)];
-    return this[_0x2544ab(0x68c)](_0x28453c, _0x15d943);
-  }),
-  (ColorManager[_0x17b060(0x6c8)] = function () {
-    const _0x4d5b13 = _0x17b060,
-      _0x15403a = '_stored_ctGaugeColor2';
-    this[_0x4d5b13(0x624)] = this[_0x4d5b13(0x624)] || {};
-    if (this[_0x4d5b13(0x624)][_0x15403a]) return this['_colorCache'][_0x15403a];
-    const _0x65bde = VisuMZ[_0x4d5b13(0x77a)]['Settings'][_0x4d5b13(0x628)][_0x4d5b13(0x41a)];
-    return this['getColorDataFromPluginParameters'](_0x15403a, _0x65bde);
-  }),
-  (ColorManager[_0x17b060(0x76b)] = function () {
-    const _0x4ba0a3 = _0x17b060,
-      _0x2851a3 = _0x4ba0a3(0x36a);
-    this['_colorCache'] = this[_0x4ba0a3(0x624)] || {};
-    if (this[_0x4ba0a3(0x624)][_0x2851a3]) return this[_0x4ba0a3(0x624)][_0x2851a3];
-    const _0x4028b5 = VisuMZ[_0x4ba0a3(0x77a)][_0x4ba0a3(0x382)][_0x4ba0a3(0x628)][_0x4ba0a3(0x703)];
-    return this['getColorDataFromPluginParameters'](_0x2851a3, _0x4028b5);
-  }),
-  (ColorManager[_0x17b060(0x719)] = function () {
-    const _0x1bd3ee = _0x17b060,
-      _0x3c6e11 = '_stored_tpGaugeColor2';
-    this[_0x1bd3ee(0x624)] = this[_0x1bd3ee(0x624)] || {};
-    if (this['_colorCache'][_0x3c6e11]) return this[_0x1bd3ee(0x624)][_0x3c6e11];
-    const _0x48c8e8 = VisuMZ[_0x1bd3ee(0x77a)][_0x1bd3ee(0x382)]['Color'][_0x1bd3ee(0x59c)];
-    return this[_0x1bd3ee(0x68c)](_0x3c6e11, _0x48c8e8);
-  }),
-  (ColorManager[_0x17b060(0x620)] = function () {
-    const _0x410fd0 = _0x17b060,
-      _0x3158d6 = _0x410fd0(0x236);
-    this[_0x410fd0(0x624)] = this[_0x410fd0(0x624)] || {};
-    if (this['_colorCache'][_0x3158d6]) return this[_0x410fd0(0x624)][_0x3158d6];
-    const _0x31fad1 = VisuMZ['CoreEngine'][_0x410fd0(0x382)]['Color'][_0x410fd0(0x3f7)];
-    return this[_0x410fd0(0x68c)](_0x3158d6, _0x31fad1);
-  }),
-  (ColorManager[_0x17b060(0x19e)] = function () {
-    const _0x411454 = _0x17b060,
-      _0x5363db = _0x411454(0x609);
-    this[_0x411454(0x624)] = this[_0x411454(0x624)] || {};
-    if (this[_0x411454(0x624)][_0x5363db]) return this[_0x411454(0x624)][_0x5363db];
-    const _0x510f99 = VisuMZ[_0x411454(0x77a)][_0x411454(0x382)][_0x411454(0x628)][_0x411454(0x3f7)];
-    return this[_0x411454(0x68c)](_0x5363db, _0x510f99);
-  }),
-  (ColorManager[_0x17b060(0x4bf)] = function () {
-    const _0x14a5f3 = _0x17b060,
-      _0x189443 = '_stored_expGaugeColor1';
-    this['_colorCache'] = this[_0x14a5f3(0x624)] || {};
-    if (this[_0x14a5f3(0x624)][_0x189443]) return this[_0x14a5f3(0x624)][_0x189443];
-    const _0x30c189 = VisuMZ[_0x14a5f3(0x77a)][_0x14a5f3(0x382)][_0x14a5f3(0x628)]['ColorExpGauge1'];
-    return this[_0x14a5f3(0x68c)](_0x189443, _0x30c189);
-  }),
-  (ColorManager[_0x17b060(0x4da)] = function () {
-    const _0x54d49c = _0x17b060,
-      _0x7c9d6a = _0x54d49c(0x836);
-    this[_0x54d49c(0x624)] = this[_0x54d49c(0x624)] || {};
-    if (this[_0x54d49c(0x624)][_0x7c9d6a]) return this[_0x54d49c(0x624)][_0x7c9d6a];
-    const _0x225b2c = VisuMZ[_0x54d49c(0x77a)][_0x54d49c(0x382)][_0x54d49c(0x628)][_0x54d49c(0x791)];
-    return this[_0x54d49c(0x68c)](_0x7c9d6a, _0x225b2c);
-  }),
-  (ColorManager[_0x17b060(0x26e)] = function () {
-    const _0x538e0c = _0x17b060,
-      _0x1813ae = _0x538e0c(0x717);
-    this['_colorCache'] = this[_0x538e0c(0x624)] || {};
-    if (this[_0x538e0c(0x624)][_0x1813ae]) return this[_0x538e0c(0x624)][_0x1813ae];
-    const _0x3e53d1 = VisuMZ[_0x538e0c(0x77a)]['Settings'][_0x538e0c(0x628)]['ColorMaxLvGauge1'];
-    return this[_0x538e0c(0x68c)](_0x1813ae, _0x3e53d1);
-  }),
-  (ColorManager[_0x17b060(0x60d)] = function () {
-    const _0x35ef46 = _0x17b060,
-      _0xbca6f8 = _0x35ef46(0x345);
-    this[_0x35ef46(0x624)] = this[_0x35ef46(0x624)] || {};
-    if (this[_0x35ef46(0x624)][_0xbca6f8]) return this[_0x35ef46(0x624)][_0xbca6f8];
-    const _0xf3ac20 = VisuMZ[_0x35ef46(0x77a)][_0x35ef46(0x382)][_0x35ef46(0x628)][_0x35ef46(0x4aa)];
-    return this[_0x35ef46(0x68c)](_0xbca6f8, _0xf3ac20);
-  }),
-  (ColorManager['hpColor'] = function (_0x572785) {
-    const _0x16b050 = _0x17b060;
-    return VisuMZ[_0x16b050(0x77a)][_0x16b050(0x382)][_0x16b050(0x628)][_0x16b050(0x29b)][_0x16b050(0x64e)](this, _0x572785);
-  }),
-  (ColorManager['mpColor'] = function (_0x12c388) {
-    const _0x3ead23 = _0x17b060;
-    return VisuMZ[_0x3ead23(0x77a)]['Settings'][_0x3ead23(0x628)][_0x3ead23(0x84e)][_0x3ead23(0x64e)](this, _0x12c388);
-  }),
-  (ColorManager['tpColor'] = function (_0x16fc6f) {
-    const _0x539c1d = _0x17b060;
-    return VisuMZ[_0x539c1d(0x77a)]['Settings'][_0x539c1d(0x628)][_0x539c1d(0x4df)][_0x539c1d(0x64e)](this, _0x16fc6f);
-  }),
-  (ColorManager[_0x17b060(0x7f5)] = function (_0x47a94b) {
-    const _0x786be0 = _0x17b060;
-    return VisuMZ[_0x786be0(0x77a)]['Settings']['Color'][_0x786be0(0x89d)][_0x786be0(0x64e)](this, _0x47a94b);
-  }),
-  (ColorManager[_0x17b060(0x35d)] = function (_0x322b59) {
-    const _0x4f907c = _0x17b060;
-    return VisuMZ[_0x4f907c(0x77a)][_0x4f907c(0x382)]['Color'][_0x4f907c(0x82f)][_0x4f907c(0x64e)](this, _0x322b59);
-  }),
-  (ColorManager[_0x17b060(0x409)] = function () {
-    const _0x292508 = _0x17b060;
-    return VisuMZ['CoreEngine'][_0x292508(0x382)][_0x292508(0x628)][_0x292508(0x471)];
-  }),
-  (ColorManager[_0x17b060(0x2dd)] = function () {
-    const _0x34df83 = _0x17b060;
-    return VisuMZ[_0x34df83(0x77a)]['Settings'][_0x34df83(0x628)]['OutlineColorDmg'] || _0x34df83(0x4d0);
-  }),
-  (ColorManager[_0x17b060(0x462)] = function () {
-    const _0x1c493b = _0x17b060;
-    return VisuMZ[_0x1c493b(0x77a)][_0x1c493b(0x382)][_0x1c493b(0x628)][_0x1c493b(0x86d)] || _0x1c493b(0x1e2);
-  }),
-  (ColorManager[_0x17b060(0x587)] = function () {
-    const _0x26da2b = _0x17b060;
-    return VisuMZ['CoreEngine'][_0x26da2b(0x382)]['Color'][_0x26da2b(0x573)];
-  }),
-  (ColorManager[_0x17b060(0x1a7)] = function () {
-    const _0x2d736c = _0x17b060;
-    return VisuMZ[_0x2d736c(0x77a)][_0x2d736c(0x382)][_0x2d736c(0x628)][_0x2d736c(0x58f)];
-  }),
-  (ColorManager[_0x17b060(0x208)] = function () {
-    const _0x24df95 = _0x17b060;
-    return VisuMZ[_0x24df95(0x77a)]['Settings'][_0x24df95(0x628)][_0x24df95(0x62a)];
-  }),
-  (ColorManager[_0x17b060(0x5dc)] = function () {
-    const _0x18ce1d = _0x17b060;
-    return VisuMZ[_0x18ce1d(0x77a)][_0x18ce1d(0x382)][_0x18ce1d(0x628)][_0x18ce1d(0x235)];
-  }),
-  (SceneManager[_0x17b060(0x884)] = []),
-  (SceneManager[_0x17b060(0x51e)] = function () {
-    const _0x31ba36 = _0x17b060;
-    return this[_0x31ba36(0x2f9)] && this[_0x31ba36(0x2f9)][_0x31ba36(0x60c)] === Scene_Battle;
-  }),
-  (SceneManager[_0x17b060(0x482)] = function () {
-    const _0x1c780d = _0x17b060;
-    return this[_0x1c780d(0x2f9)] && this[_0x1c780d(0x2f9)][_0x1c780d(0x60c)] === Scene_Map;
-  }),
-  (SceneManager[_0x17b060(0x563)] = function () {
-    const _0x1b708c = _0x17b060;
-    return this[_0x1b708c(0x2f9)] && this[_0x1b708c(0x2f9)] instanceof Scene_Map;
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['SceneManager_initialize'] = SceneManager[_0x17b060(0x3e0)]),
-  (SceneManager[_0x17b060(0x3e0)] = function () {
-    const _0x31b7fd = _0x17b060;
-    VisuMZ[_0x31b7fd(0x77a)][_0x31b7fd(0x431)][_0x31b7fd(0x64e)](this), this['initVisuMZCoreEngine']();
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x6d3)] = SceneManager[_0x17b060(0x856)]),
-  (SceneManager['onKeyDown'] = function (_0x158091) {
-    const _0x3db093 = _0x17b060;
-    if ($gameTemp) this[_0x3db093(0x16a)](_0x158091);
-    VisuMZ[_0x3db093(0x77a)][_0x3db093(0x6d3)]['call'](this, _0x158091);
-  }),
-  (SceneManager[_0x17b060(0x16a)] = function (_0x246409) {
-    const _0x3614dd = _0x17b060;
-    if (!_0x246409[_0x3614dd(0x300)] && !_0x246409[_0x3614dd(0x31a)])
-      switch (_0x246409[_0x3614dd(0x282)]) {
-        case 0x52:
-          this['playTestShiftR']();
-          break;
-        case 0x54:
-          this['playTestShiftT']();
-          break;
-        case 0x75:
-          this['playTestF6']();
-          break;
-        case 0x76:
-          if (Input[_0x3614dd(0x285)](_0x3614dd(0x7f4)) || Input['isPressed'](_0x3614dd(0x4c0))) return;
-          this[_0x3614dd(0x4c4)]();
-          break;
-      }
-    else {
-      if (_0x246409[_0x3614dd(0x300)]) {
-        let _0x3c1b76 = _0x246409[_0x3614dd(0x282)];
-        if (_0x3c1b76 >= 0x31 && _0x3c1b76 <= 0x39) {
-          const _0xbaf8f2 = _0x3c1b76 - 0x30;
-          return SceneManager[_0x3614dd(0x28e)](_0xbaf8f2);
-        } else {
-          if (_0x3c1b76 >= 0x61 && _0x3c1b76 <= 0x69) {
-            const _0x13a9f9 = _0x3c1b76 - 0x60;
-            return SceneManager['playtestQuickLoad'](_0x13a9f9);
-          }
-        }
-      }
-    }
-  }),
-  (SceneManager[_0x17b060(0x795)] = function () {
-    const _0x45a318 = _0x17b060;
-    if ($gameTemp[_0x45a318(0x6dc)]() && VisuMZ['CoreEngine'][_0x45a318(0x382)][_0x45a318(0x7ae)][_0x45a318(0x1e7)]) {
-      ConfigManager[_0x45a318(0x2d4)] !== 0x0
-        ? ((ConfigManager['bgmVolume'] = 0x0), (ConfigManager[_0x45a318(0x7ec)] = 0x0), (ConfigManager['meVolume'] = 0x0), (ConfigManager['seVolume'] = 0x0))
-        : ((ConfigManager['bgmVolume'] = 0x64), (ConfigManager[_0x45a318(0x7ec)] = 0x64), (ConfigManager[_0x45a318(0x5c8)] = 0x64), (ConfigManager['seVolume'] = 0x64));
-      ConfigManager[_0x45a318(0x25e)]();
-      if (this[_0x45a318(0x2f9)]['constructor'] === Scene_Options) {
-        if (this['_scene'][_0x45a318(0x48a)]) this[_0x45a318(0x2f9)][_0x45a318(0x48a)][_0x45a318(0x80e)]();
-        if (this[_0x45a318(0x2f9)][_0x45a318(0x234)]) this['_scene'][_0x45a318(0x234)][_0x45a318(0x80e)]();
-      }
-    }
-  }),
-  (SceneManager[_0x17b060(0x4c4)] = function () {
-    const _0x434172 = _0x17b060;
-    $gameTemp[_0x434172(0x6dc)]() && VisuMZ[_0x434172(0x77a)]['Settings'][_0x434172(0x7ae)][_0x434172(0x1fd)] && ($gameTemp[_0x434172(0x7cd)] = !$gameTemp[_0x434172(0x7cd)]);
-  }),
-  (SceneManager['playTestShiftR'] = function () {
-    const _0x1f2b5d = _0x17b060;
-    if (!VisuMZ[_0x1f2b5d(0x77a)][_0x1f2b5d(0x382)][_0x1f2b5d(0x7ae)]['ShiftR_Toggle']) return;
-    if (!$gameTemp[_0x1f2b5d(0x6dc)]()) return;
-    if (!SceneManager[_0x1f2b5d(0x51e)]()) return;
-    if (!Input[_0x1f2b5d(0x285)](_0x1f2b5d(0x7f4))) return;
-    for (const _0x56efd7 of $gameParty[_0x1f2b5d(0x278)]()) {
-      if (!_0x56efd7) continue;
-      _0x56efd7[_0x1f2b5d(0x6e4)]();
-    }
-  }),
-  (SceneManager[_0x17b060(0x8a7)] = function () {
-    const _0x251c8f = _0x17b060;
-    if (!VisuMZ[_0x251c8f(0x77a)][_0x251c8f(0x382)][_0x251c8f(0x7ae)]['ShiftT_Toggle']) return;
-    if (!$gameTemp[_0x251c8f(0x6dc)]()) return;
-    if (!SceneManager[_0x251c8f(0x51e)]()) return;
-    if (!Input[_0x251c8f(0x285)](_0x251c8f(0x7f4))) return;
-    for (const _0x3338ac of $gameParty[_0x251c8f(0x278)]()) {
-      if (!_0x3338ac) continue;
-      _0x3338ac[_0x251c8f(0x36b)](_0x3338ac[_0x251c8f(0x525)]());
-    }
-  }),
-  (SceneManager[_0x17b060(0x28e)] = function (_0x1e8a2f) {
-    const _0x383312 = _0x17b060;
-    if (!$gameTemp[_0x383312(0x6dc)]()) return;
-    if (!DataManager[_0x383312(0x2d6)](_0x1e8a2f)) return;
-    if (!(VisuMZ[_0x383312(0x77a)]['Settings'][_0x383312(0x7ae)]['CtrlQuickLoad'] ?? !![])) return;
-    this[_0x383312(0x6f2)](Scene_QuickLoad), this[_0x383312(0x309)](_0x1e8a2f);
-  }),
-  (SceneManager[_0x17b060(0x2f6)] = function () {
-    const _0x4ee423 = _0x17b060;
-    (this[_0x4ee423(0x46f)] = ![]), (this[_0x4ee423(0x32c)] = !VisuMZ[_0x4ee423(0x77a)][_0x4ee423(0x382)]['UI'][_0x4ee423(0x88c)]);
-  }),
-  (SceneManager['setSideButtonLayout'] = function (_0x1d4ab0) {
-    const _0x3ef50c = _0x17b060;
-    VisuMZ['CoreEngine'][_0x3ef50c(0x382)]['UI'][_0x3ef50c(0x550)] && (this[_0x3ef50c(0x46f)] = _0x1d4ab0);
-  }),
-  (SceneManager['isSideButtonLayout'] = function () {
-    return this['_sideButtonLayout'];
-  }),
-  (SceneManager[_0x17b060(0x28c)] = function () {
-    const _0x3cbd53 = _0x17b060;
-    return this[_0x3cbd53(0x32c)];
-  }),
-  (SceneManager[_0x17b060(0x82d)] = function () {
-    const _0x171497 = _0x17b060;
-    return this[_0x171497(0x28c)]() || this['isSideButtonLayout']();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x37c)] = SceneManager[_0x17b060(0x26f)]),
-  (SceneManager['isGameActive'] = function () {
-    const _0x2edac8 = _0x17b060;
-    return VisuMZ[_0x2edac8(0x77a)][_0x2edac8(0x382)][_0x2edac8(0x7ae)][_0x2edac8(0x343)] ? VisuMZ[_0x2edac8(0x77a)]['SceneManager_isGameActive']['call'](this) : !![];
-  }),
-  (SceneManager[_0x17b060(0x7c3)] = function (_0xb8f811) {
-    const _0x446132 = _0x17b060;
-    if (_0xb8f811 instanceof Error) this[_0x446132(0x6cc)](_0xb8f811);
-    else _0xb8f811 instanceof Array && _0xb8f811[0x0] === _0x446132(0x7d0) ? this[_0x446132(0x602)](_0xb8f811) : this[_0x446132(0x608)](_0xb8f811);
-    this['stop']();
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x303)] = BattleManager[_0x17b060(0x55c)]),
-  (BattleManager[_0x17b060(0x55c)] = function () {
-    const _0x44a201 = _0x17b060;
-    return VisuMZ[_0x44a201(0x77a)]['Settings'][_0x44a201(0x7ae)][_0x44a201(0x878)] ? this[_0x44a201(0x2b3)]() : VisuMZ[_0x44a201(0x77a)]['BattleManager_processEscape'][_0x44a201(0x64e)](this);
-  }),
-  (BattleManager['processAlwaysEscape'] = function () {
-    const _0x523b20 = _0x17b060;
-    return $gameParty['performEscape'](), SoundManager[_0x523b20(0x6c2)](), this[_0x523b20(0x3a9)](), !![];
-  }),
-  (BattleManager['isTpb'] = function () {
-    const _0x2577e6 = _0x17b060;
-    return $gameSystem[_0x2577e6(0x43c)]() >= 0x1;
-  }),
-  (BattleManager[_0x17b060(0x484)] = function () {
-    const _0x3c570e = _0x17b060;
-    return $gameSystem[_0x3c570e(0x43c)]() === 0x1;
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Game_Temp_initialize'] = Game_Temp[_0x17b060(0x54a)]['initialize']),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x3e0)] = function () {
-    const _0x41037f = _0x17b060;
-    VisuMZ['CoreEngine']['Game_Temp_initialize'][_0x41037f(0x64e)](this), this[_0x41037f(0x605)](), this['createFauxAnimationQueue'](), this['createPointAnimationQueue']();
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x605)] = function () {
-    const _0x11d48d = _0x17b060;
-    VisuMZ['CoreEngine'][_0x11d48d(0x382)][_0x11d48d(0x7ae)][_0x11d48d(0x758)] && (this[_0x11d48d(0x473)] = ![]);
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x813)] = function (_0x8b00c1) {
-    const _0x41257d = _0x17b060;
-    this[_0x41257d(0x852)] = _0x8b00c1;
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x2be)] = function () {
-    const _0x2c97e5 = _0x17b060;
-    return this[_0x2c97e5(0x852)];
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x834)] = function () {
-    const _0x438d7c = _0x17b060;
-    (this[_0x438d7c(0x812)] = undefined), (this['_forcedBattleSys'] = undefined), (this['_forcedBattleGridSystem'] = undefined);
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x3cc)] = function (_0x3195b0) {
-    const _0x4a627c = _0x17b060;
-    $gameMap && $dataMap && $dataMap[_0x4a627c(0x85d)] && this[_0x4a627c(0x536)]($dataMap[_0x4a627c(0x85d)]);
-    const _0x183171 = $dataTroops[_0x3195b0];
-    if (_0x183171) {
-      let _0x445050 = DataManager[_0x4a627c(0x70a)](_0x183171['id']);
-      this[_0x4a627c(0x536)](_0x445050);
-    }
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x536)] = function (_0x499d88) {
-    const _0xe09c5c = _0x17b060;
-    if (!_0x499d88) return;
-    if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:FRONTVIEW|FRONT VIEW|FV)>/i)) this[_0xe09c5c(0x812)] = 'FV';
-    else {
-      if (_0x499d88['match'](/<(?:SIDEVIEW|SIDE VIEW|SV)>/i)) this['_forcedTroopView'] = 'SV';
-      else {
-        if (_0x499d88['match'](/<(?:BATTLEVIEW|BATTLE VIEW):[ ](.*)>/i)) {
-          const _0x17ac41 = String(RegExp['$1']);
-          if (_0x17ac41[_0xe09c5c(0x2ba)](/(?:FRONTVIEW|FRONT VIEW|FV)/i)) this[_0xe09c5c(0x812)] = 'FV';
-          else _0x17ac41[_0xe09c5c(0x2ba)](/(?:SIDEVIEW|SIDE VIEW|SV)/i) && (this[_0xe09c5c(0x812)] = 'SV');
-        }
-      }
-    }
-    if (_0x499d88['match'](/<(?:DTB)>/i)) this[_0xe09c5c(0x652)] = 0x0;
-    else {
-      if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:TPB|ATB)[ ]ACTIVE>/i)) this[_0xe09c5c(0x652)] = 0x1;
-      else {
-        if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:TPB|ATB)[ ]WAIT>/i)) this[_0xe09c5c(0x652)] = 0x2;
-        else {
-          if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:TPB|ATB)>/i)) this[_0xe09c5c(0x652)] = 0x2;
-          else {
-            if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:CTB)>/i)) Imported[_0xe09c5c(0x222)] && (this[_0xe09c5c(0x652)] = _0xe09c5c(0x630));
-            else {
-              if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:STB)>/i)) Imported[_0xe09c5c(0x156)] && (this[_0xe09c5c(0x652)] = 'STB');
-              else {
-                if (_0x499d88['match'](/<(?:BTB)>/i)) Imported[_0xe09c5c(0x385)] && (this[_0xe09c5c(0x652)] = _0xe09c5c(0x189));
-                else {
-                  if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:FTB)>/i)) Imported[_0xe09c5c(0x458)] && (this[_0xe09c5c(0x652)] = _0xe09c5c(0x803));
-                  else {
-                    if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:OTB)>/i)) Imported[_0xe09c5c(0x452)] && (this[_0xe09c5c(0x652)] = _0xe09c5c(0x648));
-                    else {
-                      if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:ETB)>/i)) Imported[_0xe09c5c(0x1b4)] && (this[_0xe09c5c(0x652)] = _0xe09c5c(0x19a));
-                      else {
-                        if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:PTB)>/i)) Imported[_0xe09c5c(0x681)] && (this[_0xe09c5c(0x652)] = _0xe09c5c(0x65b));
-                        else {
-                          if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:BATTLEVIEW|BATTLE VIEW):[ ](.*)>/i)) {
-                            const _0x33ca51 = String(RegExp['$1']);
-                            if (_0x33ca51[_0xe09c5c(0x2ba)](/DTB/i)) this[_0xe09c5c(0x652)] = 0x0;
-                            else {
-                              if (_0x33ca51[_0xe09c5c(0x2ba)](/(?:TPB|ATB)[ ]ACTIVE/i)) this[_0xe09c5c(0x652)] = 0x1;
-                              else {
-                                if (_0x33ca51[_0xe09c5c(0x2ba)](/(?:TPB|ATB)[ ]WAIT/i)) this[_0xe09c5c(0x652)] = 0x2;
-                                else {
-                                  if (_0x33ca51['match'](/CTB/i)) Imported['VisuMZ_2_BattleSystemCTB'] && (this[_0xe09c5c(0x652)] = _0xe09c5c(0x630));
-                                  else {
-                                    if (_0x33ca51[_0xe09c5c(0x2ba)](/STB/i)) Imported[_0xe09c5c(0x156)] && (this[_0xe09c5c(0x652)] = _0xe09c5c(0x5f0));
-                                    else {
-                                      if (_0x33ca51[_0xe09c5c(0x2ba)](/BTB/i)) Imported[_0xe09c5c(0x385)] && (this[_0xe09c5c(0x652)] = _0xe09c5c(0x189));
-                                      else {
-                                        if (_0x33ca51[_0xe09c5c(0x2ba)](/FTB/i)) Imported[_0xe09c5c(0x458)] && (this[_0xe09c5c(0x652)] = _0xe09c5c(0x803));
-                                        else {
-                                          if (_0x33ca51[_0xe09c5c(0x2ba)](/OTB/i)) Imported['VisuMZ_2_BattleSystemOTB'] && (this[_0xe09c5c(0x652)] = 'OTB');
-                                          else {
-                                            if (_0x33ca51['match'](/ETB/i)) Imported[_0xe09c5c(0x1b4)] && (this[_0xe09c5c(0x652)] = _0xe09c5c(0x19a));
-                                            else _0x33ca51[_0xe09c5c(0x2ba)](/PTB/i) && Imported['VisuMZ_2_BattleSystemPTB'] && (this['_forcedBattleSys'] = _0xe09c5c(0x65b));
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    if (_0x499d88[_0xe09c5c(0x2ba)](/<(?:|BATTLE )GRID>/i)) this[_0xe09c5c(0x80d)] = !![];
-    else _0x499d88[_0xe09c5c(0x2ba)](/<NO (?:|BATTLE )GRID>/i) && (this[_0xe09c5c(0x80d)] = ![]);
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x106)] = function () {
-    this['_fauxAnimationQueue'] = [];
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x847)] = function (_0x5ad0b9, _0x137def, _0x57f971, _0x15ab21) {
-    const _0x5e0dab = _0x17b060;
-    if (!this[_0x5e0dab(0x4a2)]()) return;
-    (_0x57f971 = _0x57f971 || ![]), (_0x15ab21 = _0x15ab21 || ![]);
-    if ($dataAnimations[_0x137def]) {
-      const _0x2bce0e = { targets: _0x5ad0b9, animationId: _0x137def, mirror: _0x57f971, mute: _0x15ab21 };
-      this[_0x5e0dab(0x34c)][_0x5e0dab(0x6f2)](_0x2bce0e);
-      for (const _0x5929f6 of _0x5ad0b9) {
-        _0x5929f6[_0x5e0dab(0x340)] && _0x5929f6['startAnimation']();
-      }
-    }
-  }),
-  (Game_Temp[_0x17b060(0x54a)]['showFauxAnimations'] = function () {
-    return !![];
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x5c6)] = function () {
-    const _0x4ec32b = _0x17b060;
-    return this['_fauxAnimationQueue'][_0x4ec32b(0x7f4)]();
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x29d)] = function () {
-    this['_pointAnimationQueue'] = [];
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x7f0)] = function (_0x466c8a, _0x40a1ac, _0x3be11d, _0x460596, _0x7137f4) {
-    const _0xbeebb8 = _0x17b060;
-    if (!this['showPointAnimations']()) return;
-    (_0x460596 = _0x460596 || ![]), (_0x7137f4 = _0x7137f4 || ![]);
-    if ($dataAnimations[_0x3be11d]) {
-      const _0x3e7fea = { x: _0x466c8a, y: _0x40a1ac, animationId: _0x3be11d, mirror: _0x460596, mute: _0x7137f4 };
-      this[_0xbeebb8(0xe7)][_0xbeebb8(0x6f2)](_0x3e7fea);
-    }
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0xe5)] = function () {
-    return !![];
-  }),
-  (Game_Temp['prototype']['retrievePointAnimation'] = function () {
-    const _0x1d2347 = _0x17b060;
-    return this[_0x1d2347(0xe7)][_0x1d2347(0x7f4)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x567)] = Game_System[_0x17b060(0x54a)]['initialize']),
-  (Game_System[_0x17b060(0x54a)][_0x17b060(0x3e0)] = function () {
-    const _0x546b34 = _0x17b060;
-    VisuMZ[_0x546b34(0x77a)][_0x546b34(0x567)][_0x546b34(0x64e)](this), this[_0x546b34(0x181)]();
-  }),
-  (Game_System[_0x17b060(0x54a)][_0x17b060(0x181)] = function () {
-    const _0x49fe81 = _0x17b060;
-    this[_0x49fe81(0x80c)] = { SideView: $dataSystem[_0x49fe81(0x692)], BattleSystem: this['initialBattleSystem'](), FontSize: $dataSystem['advanced']['fontSize'], Padding: 0xc };
-  }),
-  (Game_System[_0x17b060(0x54a)][_0x17b060(0x4a1)] = function () {
-    const _0x5cafda = _0x17b060;
-    if ($gameTemp[_0x5cafda(0x812)] === 'SV') return !![];
-    else {
-      if ($gameTemp[_0x5cafda(0x812)] === 'FV') return ![];
-    }
-    if (this[_0x5cafda(0x80c)] === undefined) this[_0x5cafda(0x181)]();
-    if (this[_0x5cafda(0x80c)][_0x5cafda(0x2d7)] === undefined) this['initCoreEngine']();
-    return this['_CoreEngineSettings'][_0x5cafda(0x2d7)];
-  }),
-  (Game_System[_0x17b060(0x54a)][_0x17b060(0x7b5)] = function (_0x245e2e) {
-    const _0x5b2ad3 = _0x17b060;
-    if (this[_0x5b2ad3(0x80c)] === undefined) this[_0x5b2ad3(0x181)]();
-    if (this[_0x5b2ad3(0x80c)]['SideView'] === undefined) this[_0x5b2ad3(0x181)]();
-    this['_CoreEngineSettings'][_0x5b2ad3(0x2d7)] = _0x245e2e;
-  }),
-  (Game_System['prototype'][_0x17b060(0x379)] = function () {
-    const _0x1f03ac = _0x17b060;
-    if (this[_0x1f03ac(0x80c)] === undefined) this[_0x1f03ac(0x181)]();
-    this[_0x1f03ac(0x80c)][_0x1f03ac(0x583)] = this[_0x1f03ac(0x4dd)]();
-  }),
-  (Game_System['prototype'][_0x17b060(0x4dd)] = function () {
-    const _0x227850 = _0x17b060,
-      _0x4dc85e = (VisuMZ[_0x227850(0x77a)][_0x227850(0x382)][_0x227850(0x583)] || _0x227850(0x730))['toUpperCase']()[_0x227850(0x711)]();
-    return VisuMZ[_0x227850(0x77a)][_0x227850(0x1f2)](_0x4dc85e);
-  }),
-  (Game_System[_0x17b060(0x54a)]['getBattleSystem'] = function () {
-    const _0x271533 = _0x17b060;
-    if ($gameTemp[_0x271533(0x652)] !== undefined) return $gameTemp['_forcedBattleSys'];
-    if (this[_0x271533(0x80c)] === undefined) this[_0x271533(0x181)]();
-    if (this[_0x271533(0x80c)][_0x271533(0x583)] === undefined) this[_0x271533(0x379)]();
-    return this[_0x271533(0x80c)][_0x271533(0x583)];
-  }),
-  (Game_System[_0x17b060(0x54a)][_0x17b060(0xf1)] = function (_0x3b293c) {
-    const _0x57e0ec = _0x17b060;
-    if (this[_0x57e0ec(0x80c)] === undefined) this['initCoreEngine']();
-    if (this['_CoreEngineSettings']['BattleSystem'] === undefined) this['resetBattleSystem']();
-    this[_0x57e0ec(0x80c)]['BattleSystem'] = _0x3b293c;
-  }),
-  (Game_System[_0x17b060(0x54a)][_0x17b060(0xf9)] = function () {
-    const _0x44686b = _0x17b060;
-    if (this['_CoreEngineSettings'] === undefined) this['initCoreEngine']();
-    if (this[_0x44686b(0x80c)][_0x44686b(0x8a9)] === undefined) this['initCoreEngine']();
-    return this[_0x44686b(0x80c)][_0x44686b(0x8a9)];
-  }),
-  (Game_System[_0x17b060(0x54a)][_0x17b060(0x205)] = function (_0x106882) {
-    const _0x7dc570 = _0x17b060;
-    if (this[_0x7dc570(0x80c)] === undefined) this[_0x7dc570(0x181)]();
-    if (this[_0x7dc570(0x80c)][_0x7dc570(0x75f)] === undefined) this['initCoreEngine']();
-    this['_CoreEngineSettings']['FontSize'] = _0x106882;
-  }),
-  (Game_System['prototype'][_0x17b060(0x59e)] = function () {
-    const _0x2620a2 = _0x17b060;
-    if (this[_0x2620a2(0x80c)] === undefined) this[_0x2620a2(0x181)]();
-    if (this[_0x2620a2(0x80c)][_0x2620a2(0x23b)] === undefined) this[_0x2620a2(0x181)]();
-    return this[_0x2620a2(0x80c)][_0x2620a2(0x23b)];
-  }),
-  (Game_System['prototype'][_0x17b060(0x25f)] = function (_0x3bbb8d) {
-    const _0x474cdf = _0x17b060;
-    if (this[_0x474cdf(0x80c)] === undefined) this[_0x474cdf(0x181)]();
-    if (this['_CoreEngineSettings'][_0x474cdf(0x75f)] === undefined) this['initCoreEngine']();
-    this[_0x474cdf(0x80c)]['Padding'] = _0x3bbb8d;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x448)] = Game_Screen['prototype'][_0x17b060(0x3e0)]),
-  (Game_Screen['prototype']['initialize'] = function () {
-    const _0x3759cc = _0x17b060;
-    VisuMZ[_0x3759cc(0x77a)]['Game_Screen_initialize'][_0x3759cc(0x64e)](this), this[_0x3759cc(0x388)]();
-  }),
-  (Game_Screen[_0x17b060(0x54a)][_0x17b060(0x388)] = function () {
-    const _0x4f72e5 = _0x17b060,
-      _0x4629a9 = VisuMZ[_0x4f72e5(0x77a)][_0x4f72e5(0x382)][_0x4f72e5(0x783)];
-    this[_0x4f72e5(0x5b7)] = _0x4629a9?.[_0x4f72e5(0x527)] || 'random';
-  }),
-  (Game_Screen[_0x17b060(0x54a)][_0x17b060(0x811)] = function () {
-    const _0x53c235 = _0x17b060;
-    if (this[_0x53c235(0x5b7)] === undefined) this[_0x53c235(0x388)]();
-    return this[_0x53c235(0x5b7)];
-  }),
-  (Game_Screen['prototype'][_0x17b060(0x470)] = function (_0x344eac) {
-    const _0x3b1e95 = _0x17b060;
-    if (this[_0x3b1e95(0x5b7)] === undefined) this[_0x3b1e95(0x388)]();
-    this[_0x3b1e95(0x5b7)] = _0x344eac['toLowerCase']()[_0x3b1e95(0x711)]();
-  }),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x44c)] = function () {
-    const _0x38bd2a = _0x17b060;
-    if ($gameParty['inBattle']()) return ![];
-    return this[_0x38bd2a(0x355)]() && this['onlyfilename']()[_0x38bd2a(0x65c)](0x0) === '!';
-  }),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x355)] = function () {
-    const _0x4ee2ff = _0x17b060;
-    return this[_0x4ee2ff(0x3e9)][_0x4ee2ff(0x60b)]('/')[_0x4ee2ff(0x122)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x17c)] = Game_Picture[_0x17b060(0x54a)]['x']),
-  (Game_Picture[_0x17b060(0x54a)]['x'] = function () {
-    const _0x2d1274 = _0x17b060;
-    return this[_0x2d1274(0x44c)]() ? this[_0x2d1274(0x503)]() : VisuMZ[_0x2d1274(0x77a)][_0x2d1274(0x17c)]['call'](this);
-  }),
-  (Game_Picture['prototype']['xScrollLinkedOffset'] = function () {
-    const _0x2d640c = _0x17b060,
-      _0x4db073 = $gameMap[_0x2d640c(0x664)]() * $gameMap['tileWidth']();
-    return (this['_x'] - _0x4db073) * $gameScreen[_0x2d640c(0x3ae)]();
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x32d)] = Game_Picture[_0x17b060(0x54a)]['y']),
-  (Game_Picture[_0x17b060(0x54a)]['y'] = function () {
-    const _0x9bdfe1 = _0x17b060;
-    return this[_0x9bdfe1(0x44c)]() ? this[_0x9bdfe1(0x772)]() : VisuMZ['CoreEngine'][_0x9bdfe1(0x32d)][_0x9bdfe1(0x64e)](this);
-  }),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x772)] = function () {
-    const _0x4c77bc = _0x17b060,
-      _0x22e623 = $gameMap[_0x4c77bc(0x625)]() * $gameMap[_0x4c77bc(0x251)]();
-    return (this['_y'] - _0x22e623) * $gameScreen[_0x4c77bc(0x3ae)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x5e7)] = Game_Picture[_0x17b060(0x54a)][_0x17b060(0x3ed)]),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x3ed)] = function () {
-    const _0x5749a7 = _0x17b060;
-    let _0x1313c0 = VisuMZ[_0x5749a7(0x77a)][_0x5749a7(0x5e7)][_0x5749a7(0x64e)](this);
-    return this[_0x5749a7(0x44c)]() && (_0x1313c0 *= $gameScreen[_0x5749a7(0x3ae)]()), _0x1313c0;
-  }),
-  (VisuMZ['CoreEngine']['Game_Picture_scaleY'] = Game_Picture[_0x17b060(0x54a)][_0x17b060(0x6d2)]),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x6d2)] = function () {
-    const _0x418fd8 = _0x17b060;
-    let _0x5ba4b0 = VisuMZ[_0x418fd8(0x77a)][_0x418fd8(0x46d)][_0x418fd8(0x64e)](this);
-    return this['isMapScrollLinked']() && (_0x5ba4b0 *= $gameScreen['zoomScale']()), _0x5ba4b0;
-  }),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x3c4)] = function (_0x1ba4eb) {
-    const _0x405ce5 = _0x17b060;
-    this[_0x405ce5(0x4c1)] = _0x1ba4eb;
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Game_Picture_calcEasing'] = Game_Picture[_0x17b060(0x54a)][_0x17b060(0x1b3)]),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x1b3)] = function (_0x7375d6) {
-    const _0x557a72 = _0x17b060;
-    return (
-      (this[_0x557a72(0x4c1)] = this[_0x557a72(0x4c1)] || 0x0),
-      [0x0, 0x1, 0x2, 0x3][_0x557a72(0x1ae)](this[_0x557a72(0x4c1)])
-        ? VisuMZ[_0x557a72(0x77a)][_0x557a72(0x32e)][_0x557a72(0x64e)](this, _0x7375d6)
-        : VisuMZ[_0x557a72(0x30b)](_0x7375d6, this[_0x557a72(0x4c1)])
-    );
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Game_Picture_initRotation'] = Game_Picture[_0x17b060(0x54a)][_0x17b060(0x890)]),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x890)] = function () {
-    const _0xb95915 = _0x17b060;
-    VisuMZ['CoreEngine']['Game_Picture_initRotation'][_0xb95915(0x64e)](this), this[_0xb95915(0x870)]();
-  }),
-  (Game_Picture[_0x17b060(0x54a)]['initRotationCoreEngine'] = function () {
-    const _0x2dd427 = _0x17b060;
-    this['_anglePlus'] = { current: 0x0, target: 0x0, duration: 0x0, wholeDuration: 0x0, easingType: _0x2dd427(0x6a8) };
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x8a2)] = Game_Picture[_0x17b060(0x54a)][_0x17b060(0x5d7)]),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x5d7)] = function () {
-    const _0x4e625c = _0x17b060;
-    let _0x80f477 = VisuMZ[_0x4e625c(0x77a)][_0x4e625c(0x8a2)][_0x4e625c(0x64e)](this);
-    return (_0x80f477 += this[_0x4e625c(0x8b7)]()), _0x80f477;
-  }),
-  (Game_Picture['prototype']['anglePlus'] = function () {
-    const _0x33e46d = _0x17b060;
-    if (this[_0x33e46d(0x86a)] === undefined) this[_0x33e46d(0x870)]();
-    return this['_anglePlus']['current'] || 0x0;
-  }),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x1d3)] = function (_0x207de3, _0x1a50e4, _0x4fe5a3) {
-    const _0x44dc70 = _0x17b060;
-    if (this[_0x44dc70(0x86a)] === undefined) this['initRotationCoreEngine']();
-    (this[_0x44dc70(0x86a)][_0x44dc70(0x1b0)] = _0x207de3 || 0x0),
-      (this[_0x44dc70(0x86a)]['duration'] = _0x1a50e4 || 0x0),
-      (this[_0x44dc70(0x86a)]['wholeDuration'] = _0x1a50e4 || 0x0),
-      (this['_anglePlus'][_0x44dc70(0x475)] = _0x4fe5a3 || _0x44dc70(0x6a8)),
-      _0x1a50e4 <= 0x0 && (this[_0x44dc70(0x86a)][_0x44dc70(0x596)] = this[_0x44dc70(0x86a)][_0x44dc70(0x1b0)]);
-  }),
-  (Game_Picture['prototype']['changeAnglePlusData'] = function (_0x172497, _0x3a46dd, _0x28403f) {
-    const _0x5b14a9 = _0x17b060;
-    if (this[_0x5b14a9(0x86a)] === undefined) this[_0x5b14a9(0x870)]();
-    (this[_0x5b14a9(0x86a)][_0x5b14a9(0x1b0)] += _0x172497 || 0x0),
-      (this[_0x5b14a9(0x86a)][_0x5b14a9(0x5cd)] = _0x3a46dd || 0x0),
-      (this[_0x5b14a9(0x86a)][_0x5b14a9(0x126)] = _0x3a46dd || 0x0),
-      (this[_0x5b14a9(0x86a)][_0x5b14a9(0x475)] = _0x28403f || 'Linear'),
-      _0x3a46dd <= 0x0 && (this[_0x5b14a9(0x86a)][_0x5b14a9(0x596)] = this['_anglePlus'][_0x5b14a9(0x1b0)]);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x24e)] = Game_Picture[_0x17b060(0x54a)][_0x17b060(0x47d)]),
-  (Game_Picture[_0x17b060(0x54a)]['updateRotation'] = function () {
-    const _0x13493d = _0x17b060;
-    VisuMZ[_0x13493d(0x77a)][_0x13493d(0x24e)]['call'](this), this[_0x13493d(0xed)]();
-  }),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0xed)] = function () {
-    const _0x3150d1 = _0x17b060;
-    if (this[_0x3150d1(0x86a)] === undefined) this[_0x3150d1(0x870)]();
-    const _0x3f33f7 = this[_0x3150d1(0x86a)];
-    if (_0x3f33f7[_0x3150d1(0x5cd)] <= 0x0) return;
-    (_0x3f33f7[_0x3150d1(0x596)] = this['applyEasingAnglePlus'](_0x3f33f7[_0x3150d1(0x596)], _0x3f33f7[_0x3150d1(0x1b0)])),
-      _0x3f33f7[_0x3150d1(0x5cd)]--,
-      _0x3f33f7[_0x3150d1(0x5cd)] <= 0x0 && (_0x3f33f7[_0x3150d1(0x596)] = _0x3f33f7[_0x3150d1(0x1b0)]);
-  }),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x56e)] = function (_0x12939d, _0x13b166) {
-    const _0x423f1f = _0x17b060,
-      _0x2d298a = this[_0x423f1f(0x86a)],
-      _0xb1db9d = _0x2d298a['easingType'],
-      _0x4c9b11 = _0x2d298a[_0x423f1f(0x5cd)],
-      _0x308f40 = _0x2d298a[_0x423f1f(0x126)],
-      _0x44b40e = VisuMZ[_0x423f1f(0x30b)]((_0x308f40 - _0x4c9b11) / _0x308f40, _0xb1db9d),
-      _0x234ef4 = VisuMZ[_0x423f1f(0x30b)]((_0x308f40 - _0x4c9b11 + 0x1) / _0x308f40, _0xb1db9d),
-      _0x364eb8 = (_0x12939d - _0x13b166 * _0x44b40e) / (0x1 - _0x44b40e);
-    return _0x364eb8 + (_0x13b166 - _0x364eb8) * _0x234ef4;
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Game_Action_itemHit'] = Game_Action[_0x17b060(0x54a)]['itemHit']),
-  (Game_Action['prototype'][_0x17b060(0x389)] = function (_0x2b1f08) {
-    const _0x63091f = _0x17b060;
-    return VisuMZ[_0x63091f(0x77a)][_0x63091f(0x382)]['QoL'][_0x63091f(0x420)] ? this[_0x63091f(0x5ca)](_0x2b1f08) : VisuMZ[_0x63091f(0x77a)][_0x63091f(0x64c)][_0x63091f(0x64e)](this, _0x2b1f08);
-  }),
-  (Game_Action[_0x17b060(0x54a)][_0x17b060(0x5ca)] = function (_0xa652ab) {
-    const _0x427b23 = _0x17b060,
-      _0x423490 = this[_0x427b23(0x133)](_0xa652ab),
-      _0x1da599 = this[_0x427b23(0x4a8)](_0xa652ab),
-      _0x4d6046 = this[_0x427b23(0x347)](_0xa652ab);
-    return _0x423490 * (_0x1da599 - _0x4d6046);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Game_Action_itemEva'] = Game_Action[_0x17b060(0x54a)][_0x17b060(0x4cd)]),
-  (Game_Action['prototype']['itemEva'] = function (_0x4ff88b) {
-    const _0x7ad7d2 = _0x17b060;
-    return VisuMZ[_0x7ad7d2(0x77a)][_0x7ad7d2(0x382)]['QoL'][_0x7ad7d2(0x420)] ? 0x0 : VisuMZ[_0x7ad7d2(0x77a)]['Game_Action_itemEva'][_0x7ad7d2(0x64e)](this, _0x4ff88b);
-  }),
-  (Game_Action['prototype']['itemSuccessRate'] = function (_0x133293) {
-    const _0x298eb5 = _0x17b060;
-    return this[_0x298eb5(0x2f7)]()[_0x298eb5(0x75b)] * 0.01;
-  }),
-  (Game_Action[_0x17b060(0x54a)]['subjectHitRate'] = function (_0xbd9ce2) {
-    const _0x362fee = _0x17b060;
-    if (VisuMZ[_0x362fee(0x77a)]['Settings'][_0x362fee(0x7ae)][_0x362fee(0x2c0)] && this[_0x362fee(0x756)]()) return 0x1;
-    return this[_0x362fee(0x67f)]()
-      ? VisuMZ['CoreEngine'][_0x362fee(0x382)][_0x362fee(0x7ae)][_0x362fee(0x2c0)] && this[_0x362fee(0x18a)]()[_0x362fee(0x4dc)]()
-        ? this['subject']()[_0x362fee(0x6ad)] + 0.05
-        : this[_0x362fee(0x18a)]()[_0x362fee(0x6ad)]
-      : 0x1;
-  }),
-  (Game_Action[_0x17b060(0x54a)][_0x17b060(0x347)] = function (_0x4c52e5) {
-    const _0x1e0339 = _0x17b060;
-    if (this[_0x1e0339(0x18a)]()[_0x1e0339(0x4dc)]() === _0x4c52e5[_0x1e0339(0x4dc)]()) return 0x0;
-    if (this[_0x1e0339(0x67f)]())
-      return VisuMZ[_0x1e0339(0x77a)][_0x1e0339(0x382)][_0x1e0339(0x7ae)][_0x1e0339(0x2c0)] && _0x4c52e5[_0x1e0339(0x663)]() ? _0x4c52e5[_0x1e0339(0x6f9)] - 0.05 : _0x4c52e5['eva'];
-    else return this[_0x1e0339(0x3fd)]() ? _0x4c52e5['mev'] : 0x0;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x597)] = Game_Action[_0x17b060(0x54a)]['updateLastTarget']),
-  (Game_Action[_0x17b060(0x54a)][_0x17b060(0x5c5)] = function (_0x1ff43d) {
-    const _0x20fb97 = _0x17b060;
-    VisuMZ[_0x20fb97(0x77a)][_0x20fb97(0x597)][_0x20fb97(0x64e)](this, _0x1ff43d);
-    if (VisuMZ[_0x20fb97(0x77a)][_0x20fb97(0x382)]['QoL'][_0x20fb97(0x420)]) return;
-    const _0x287f17 = _0x1ff43d[_0x20fb97(0x7ce)]();
-    _0x287f17[_0x20fb97(0x320)] && 0x1 - this[_0x20fb97(0x4cd)](_0x1ff43d) > this['itemHit'](_0x1ff43d) && ((_0x287f17[_0x20fb97(0x320)] = ![]), (_0x287f17['evaded'] = !![]));
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x2f0)] = Game_BattlerBase[_0x17b060(0x54a)]['initMembers']),
-  (Game_BattlerBase['prototype']['initMembers'] = function () {
-    const _0x334020 = _0x17b060;
-    (this[_0x334020(0x233)] = {}), VisuMZ[_0x334020(0x77a)]['Game_BattlerBase_initMembers']['call'](this);
-  }),
-  (VisuMZ['CoreEngine']['Game_BattlerBase_refresh'] = Game_BattlerBase[_0x17b060(0x54a)]['refresh']),
-  (Game_BattlerBase[_0x17b060(0x54a)][_0x17b060(0x80e)] = function () {
-    const _0x3bfcb0 = _0x17b060;
-    (this[_0x3bfcb0(0x233)] = {}), VisuMZ['CoreEngine'][_0x3bfcb0(0x7ac)]['call'](this);
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)][_0x17b060(0x89c)] = function (_0x21ecbf) {
-    const _0x20e34d = _0x17b060;
-    return (this[_0x20e34d(0x233)] = this['_cache'] || {}), this[_0x20e34d(0x233)][_0x21ecbf] !== undefined;
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)][_0x17b060(0x38f)] = function (_0x4ffc24) {
-    const _0x5d2754 = _0x17b060,
-      _0x237c88 = (_0x24549b, _0x34b290) => {
-        const _0xaaafa9 = _0x55f7;
-        if (!_0x34b290) return _0x24549b;
-        if (_0x34b290[_0xaaafa9(0x85d)][_0xaaafa9(0x2ba)](VisuMZ['CoreEngine'][_0xaaafa9(0x1bc)][_0xaaafa9(0x38f)][_0x4ffc24])) {
-          var _0x15fe55 = Number(RegExp['$1']);
-          _0x24549b += _0x15fe55;
-        }
-        if (_0x34b290[_0xaaafa9(0x85d)]['match'](VisuMZ[_0xaaafa9(0x77a)][_0xaaafa9(0x1bc)][_0xaaafa9(0x3b1)][_0x4ffc24])) {
-          var _0x3fdebb = String(RegExp['$1']);
-          try {
-            _0x24549b += eval(_0x3fdebb);
-          } catch (_0x26b578) {
-            if ($gameTemp[_0xaaafa9(0x6dc)]()) console[_0xaaafa9(0x797)](_0x26b578);
-          }
-        }
-        return _0x24549b;
-      };
-    return this[_0x5d2754(0x5b1)]()[_0x5d2754(0x63a)](_0x237c88, this['_paramPlus'][_0x4ffc24]);
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)]['paramMax'] = function (_0xaac53a) {
-    const _0x5e0547 = _0x17b060;
-    var _0x25c56d = _0x5e0547(0x15b) + (this[_0x5e0547(0x4dc)]() ? 'Actor' : 'Enemy') + _0x5e0547(0x65a) + _0xaac53a;
-    if (this['checkCacheKey'](_0x25c56d)) return this[_0x5e0547(0x233)][_0x25c56d];
-    this[_0x5e0547(0x233)][_0x25c56d] = eval(VisuMZ['CoreEngine'][_0x5e0547(0x382)][_0x5e0547(0x71d)][_0x25c56d]);
-    const _0x312a0c = (_0x257d46, _0x5d717c) => {
-      const _0x507f01 = _0x5e0547;
-      if (!_0x5d717c) return _0x257d46;
-      if (_0x5d717c[_0x507f01(0x85d)]['match'](VisuMZ[_0x507f01(0x77a)][_0x507f01(0x1bc)]['paramMax'][_0xaac53a])) {
-        var _0x3468ec = Number(RegExp['$1']);
-        if (_0x3468ec === 0x0) _0x3468ec = Number[_0x507f01(0x29a)];
-        _0x257d46 = Math['max'](_0x257d46, _0x3468ec);
-      }
-      if (_0x5d717c[_0x507f01(0x85d)]['match'](VisuMZ['CoreEngine'][_0x507f01(0x1bc)]['paramMaxJS'][_0xaac53a])) {
-        var _0x1d732b = String(RegExp['$1']);
-        try {
-          _0x257d46 = Math[_0x507f01(0x7f9)](_0x257d46, Number(eval(_0x1d732b)));
-        } catch (_0x2aaee8) {
-          if ($gameTemp['isPlaytest']()) console[_0x507f01(0x797)](_0x2aaee8);
-        }
-      }
-      return _0x257d46;
-    };
-    if (this[_0x5e0547(0x233)][_0x25c56d] === 0x0) this[_0x5e0547(0x233)][_0x25c56d] = Number[_0x5e0547(0x29a)];
-    return (this['_cache'][_0x25c56d] = this[_0x5e0547(0x5b1)]()['reduce'](_0x312a0c, this[_0x5e0547(0x233)][_0x25c56d])), this[_0x5e0547(0x233)][_0x25c56d];
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)][_0x17b060(0x3e7)] = function (_0x12a4df) {
-    const _0x121d5a = _0x17b060,
-      _0x4f1f88 = this[_0x121d5a(0x4db)](Game_BattlerBase[_0x121d5a(0x492)], _0x12a4df),
-      _0x27dcf0 = (_0x21307d, _0x5c3f4e) => {
-        const _0x3205b8 = _0x121d5a;
-        if (!_0x5c3f4e) return _0x21307d;
-        if (_0x5c3f4e['note']['match'](VisuMZ['CoreEngine'][_0x3205b8(0x1bc)][_0x3205b8(0x48b)][_0x12a4df])) {
-          var _0x2abb45 = Number(RegExp['$1']) / 0x64;
-          _0x21307d *= _0x2abb45;
-        }
-        if (_0x5c3f4e[_0x3205b8(0x85d)][_0x3205b8(0x2ba)](VisuMZ[_0x3205b8(0x77a)][_0x3205b8(0x1bc)][_0x3205b8(0xea)][_0x12a4df])) {
-          var _0x2abb45 = Number(RegExp['$1']);
-          _0x21307d *= _0x2abb45;
-        }
-        if (_0x5c3f4e[_0x3205b8(0x85d)][_0x3205b8(0x2ba)](VisuMZ[_0x3205b8(0x77a)][_0x3205b8(0x1bc)][_0x3205b8(0x180)][_0x12a4df])) {
-          var _0x3d1486 = String(RegExp['$1']);
-          try {
-            _0x21307d *= eval(_0x3d1486);
-          } catch (_0xd7fe5d) {
-            if ($gameTemp['isPlaytest']()) console['log'](_0xd7fe5d);
-          }
-        }
-        return _0x21307d;
-      };
-    return this[_0x121d5a(0x5b1)]()['reduce'](_0x27dcf0, _0x4f1f88);
-  }),
-  (Game_BattlerBase['prototype'][_0x17b060(0x47a)] = function (_0x795d67) {
-    const _0x75f978 = _0x17b060,
-      _0x37bd8f = (_0x49b3ea, _0xb67d7b) => {
-        const _0x2765f0 = _0x55f7;
-        if (!_0xb67d7b) return _0x49b3ea;
-        if (_0xb67d7b[_0x2765f0(0x85d)]['match'](VisuMZ[_0x2765f0(0x77a)][_0x2765f0(0x1bc)]['paramFlat'][_0x795d67])) {
-          var _0x18d1e5 = Number(RegExp['$1']);
-          _0x49b3ea += _0x18d1e5;
-        }
-        if (_0xb67d7b[_0x2765f0(0x85d)][_0x2765f0(0x2ba)](VisuMZ[_0x2765f0(0x77a)]['RegExp'][_0x2765f0(0x28b)][_0x795d67])) {
-          var _0x303b7b = String(RegExp['$1']);
-          try {
-            _0x49b3ea += eval(_0x303b7b);
-          } catch (_0x13f7c7) {
-            if ($gameTemp[_0x2765f0(0x6dc)]()) console[_0x2765f0(0x797)](_0x13f7c7);
-          }
-        }
-        return _0x49b3ea;
-      };
-    return this[_0x75f978(0x5b1)]()['reduce'](_0x37bd8f, 0x0);
-  }),
-  (Game_BattlerBase['prototype'][_0x17b060(0x7a1)] = function (_0x19a360) {
-    const _0x54ce6a = _0x17b060;
-    let _0x41b693 = _0x54ce6a(0x7a1) + _0x19a360 + 'Total';
-    if (this[_0x54ce6a(0x89c)](_0x41b693)) return this[_0x54ce6a(0x233)][_0x41b693];
-    return (
-      (this['_cache'][_0x41b693] = Math[_0x54ce6a(0x3fe)](VisuMZ[_0x54ce6a(0x77a)][_0x54ce6a(0x382)][_0x54ce6a(0x71d)][_0x54ce6a(0x250)][_0x54ce6a(0x64e)](this, _0x19a360))), this['_cache'][_0x41b693]
-    );
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)][_0x17b060(0x8a8)] = function (_0x4fd2fe) {
-    const _0x53a2e1 = _0x17b060,
-      _0x2f17be = (_0x54502e, _0xd068c6) => {
-        const _0x4f5254 = _0x55f7;
-        if (!_0xd068c6) return _0x54502e;
-        if (_0xd068c6[_0x4f5254(0x85d)][_0x4f5254(0x2ba)](VisuMZ[_0x4f5254(0x77a)][_0x4f5254(0x1bc)]['xparamPlus1'][_0x4fd2fe])) {
-          var _0x797e40 = Number(RegExp['$1']) / 0x64;
-          _0x54502e += _0x797e40;
-        }
-        if (_0xd068c6[_0x4f5254(0x85d)][_0x4f5254(0x2ba)](VisuMZ[_0x4f5254(0x77a)]['RegExp']['xparamPlus2'][_0x4fd2fe])) {
-          var _0x797e40 = Number(RegExp['$1']);
-          _0x54502e += _0x797e40;
-        }
-        if (_0xd068c6[_0x4f5254(0x85d)][_0x4f5254(0x2ba)](VisuMZ[_0x4f5254(0x77a)][_0x4f5254(0x1bc)][_0x4f5254(0x589)][_0x4fd2fe])) {
-          var _0x98531f = String(RegExp['$1']);
-          try {
-            _0x54502e += eval(_0x98531f);
-          } catch (_0x5793b0) {
-            if ($gameTemp[_0x4f5254(0x6dc)]()) console[_0x4f5254(0x797)](_0x5793b0);
-          }
-        }
-        return _0x54502e;
-      };
-    return this[_0x53a2e1(0x5b1)]()['reduce'](_0x2f17be, 0x0);
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)]['xparamRate'] = function (_0x468ed2) {
-    const _0x1bb3ca = _0x17b060,
-      _0x354036 = (_0x777197, _0x549ab7) => {
-        const _0x1db599 = _0x55f7;
-        if (!_0x549ab7) return _0x777197;
-        if (_0x549ab7[_0x1db599(0x85d)][_0x1db599(0x2ba)](VisuMZ['CoreEngine'][_0x1db599(0x1bc)][_0x1db599(0x7df)][_0x468ed2])) {
-          var _0x9ba7bb = Number(RegExp['$1']) / 0x64;
-          _0x777197 *= _0x9ba7bb;
-        }
-        if (_0x549ab7['note'][_0x1db599(0x2ba)](VisuMZ['CoreEngine']['RegExp'][_0x1db599(0x437)][_0x468ed2])) {
-          var _0x9ba7bb = Number(RegExp['$1']);
-          _0x777197 *= _0x9ba7bb;
-        }
-        if (_0x549ab7[_0x1db599(0x85d)][_0x1db599(0x2ba)](VisuMZ[_0x1db599(0x77a)][_0x1db599(0x1bc)][_0x1db599(0x715)][_0x468ed2])) {
-          var _0x1a6b54 = String(RegExp['$1']);
-          try {
-            _0x777197 *= eval(_0x1a6b54);
-          } catch (_0x2139f3) {
-            if ($gameTemp[_0x1db599(0x6dc)]()) console[_0x1db599(0x797)](_0x2139f3);
-          }
-        }
-        return _0x777197;
-      };
-    return this[_0x1bb3ca(0x5b1)]()[_0x1bb3ca(0x63a)](_0x354036, 0x1);
-  }),
-  (Game_BattlerBase['prototype'][_0x17b060(0x742)] = function (_0x1784fe) {
-    const _0x48b55f = _0x17b060,
-      _0x2c9eab = (_0x5a6c6e, _0x8b8bd0) => {
-        const _0x104b0c = _0x55f7;
-        if (!_0x8b8bd0) return _0x5a6c6e;
-        if (_0x8b8bd0[_0x104b0c(0x85d)][_0x104b0c(0x2ba)](VisuMZ[_0x104b0c(0x77a)]['RegExp'][_0x104b0c(0x542)][_0x1784fe])) {
-          var _0x217742 = Number(RegExp['$1']) / 0x64;
-          _0x5a6c6e += _0x217742;
-        }
-        if (_0x8b8bd0[_0x104b0c(0x85d)][_0x104b0c(0x2ba)](VisuMZ['CoreEngine']['RegExp'][_0x104b0c(0x3df)][_0x1784fe])) {
-          var _0x217742 = Number(RegExp['$1']);
-          _0x5a6c6e += _0x217742;
-        }
-        if (_0x8b8bd0[_0x104b0c(0x85d)][_0x104b0c(0x2ba)](VisuMZ[_0x104b0c(0x77a)][_0x104b0c(0x1bc)][_0x104b0c(0x780)][_0x1784fe])) {
-          var _0x520ec5 = String(RegExp['$1']);
-          try {
-            _0x5a6c6e += eval(_0x520ec5);
-          } catch (_0x396547) {
-            if ($gameTemp[_0x104b0c(0x6dc)]()) console['log'](_0x396547);
-          }
-        }
-        return _0x5a6c6e;
-      };
-    return this[_0x48b55f(0x5b1)]()[_0x48b55f(0x63a)](_0x2c9eab, 0x0);
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)][_0x17b060(0x477)] = function (_0x33597e) {
-    const _0x113493 = _0x17b060;
-    let _0x468144 = 'xparam' + _0x33597e + _0x113493(0x1ab);
-    if (this['checkCacheKey'](_0x468144)) return this[_0x113493(0x233)][_0x468144];
-    return (this[_0x113493(0x233)][_0x468144] = VisuMZ[_0x113493(0x77a)][_0x113493(0x382)][_0x113493(0x71d)][_0x113493(0x725)][_0x113493(0x64e)](this, _0x33597e)), this[_0x113493(0x233)][_0x468144];
-  }),
-  (Game_BattlerBase['prototype'][_0x17b060(0x762)] = function (_0x34f340) {
-    const _0x58b674 = _0x17b060,
-      _0x283c25 = (_0x2fdf38, _0x5a69a2) => {
-        const _0x3ae329 = _0x55f7;
-        if (!_0x5a69a2) return _0x2fdf38;
-        if (_0x5a69a2[_0x3ae329(0x85d)][_0x3ae329(0x2ba)](VisuMZ[_0x3ae329(0x77a)][_0x3ae329(0x1bc)][_0x3ae329(0x726)][_0x34f340])) {
-          var _0x40c8ae = Number(RegExp['$1']) / 0x64;
-          _0x2fdf38 += _0x40c8ae;
-        }
-        if (_0x5a69a2[_0x3ae329(0x85d)][_0x3ae329(0x2ba)](VisuMZ[_0x3ae329(0x77a)][_0x3ae329(0x1bc)]['sparamPlus2'][_0x34f340])) {
-          var _0x40c8ae = Number(RegExp['$1']);
-          _0x2fdf38 += _0x40c8ae;
-        }
-        if (_0x5a69a2[_0x3ae329(0x85d)][_0x3ae329(0x2ba)](VisuMZ[_0x3ae329(0x77a)][_0x3ae329(0x1bc)][_0x3ae329(0x702)][_0x34f340])) {
-          var _0x4b4b1d = String(RegExp['$1']);
-          try {
-            _0x2fdf38 += eval(_0x4b4b1d);
-          } catch (_0x265bbe) {
-            if ($gameTemp[_0x3ae329(0x6dc)]()) console[_0x3ae329(0x797)](_0x265bbe);
-          }
-        }
-        return _0x2fdf38;
-      };
-    return this[_0x58b674(0x5b1)]()[_0x58b674(0x63a)](_0x283c25, 0x0);
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)][_0x17b060(0x214)] = function (_0x5e64e5) {
-    const _0x330683 = _0x17b060,
-      _0x13aaea = (_0x5d23e5, _0x55e56c) => {
-        const _0x472b47 = _0x55f7;
-        if (!_0x55e56c) return _0x5d23e5;
-        if (_0x55e56c[_0x472b47(0x85d)]['match'](VisuMZ['CoreEngine'][_0x472b47(0x1bc)][_0x472b47(0x22f)][_0x5e64e5])) {
-          var _0x4a7ee6 = Number(RegExp['$1']) / 0x64;
-          _0x5d23e5 *= _0x4a7ee6;
-        }
-        if (_0x55e56c[_0x472b47(0x85d)][_0x472b47(0x2ba)](VisuMZ['CoreEngine'][_0x472b47(0x1bc)][_0x472b47(0x105)][_0x5e64e5])) {
-          var _0x4a7ee6 = Number(RegExp['$1']);
-          _0x5d23e5 *= _0x4a7ee6;
-        }
-        if (_0x55e56c['note']['match'](VisuMZ[_0x472b47(0x77a)][_0x472b47(0x1bc)][_0x472b47(0x805)][_0x5e64e5])) {
-          var _0x2f57b0 = String(RegExp['$1']);
-          try {
-            _0x5d23e5 *= eval(_0x2f57b0);
-          } catch (_0x16b101) {
-            if ($gameTemp[_0x472b47(0x6dc)]()) console[_0x472b47(0x797)](_0x16b101);
-          }
-        }
-        return _0x5d23e5;
-      };
-    return this[_0x330683(0x5b1)]()[_0x330683(0x63a)](_0x13aaea, 0x1);
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)][_0x17b060(0x53a)] = function (_0x57a8c6) {
-    const _0xa9d446 = (_0x140e23, _0x593424) => {
-      const _0x440a9c = _0x55f7;
-      if (!_0x593424) return _0x140e23;
-      if (_0x593424[_0x440a9c(0x85d)][_0x440a9c(0x2ba)](VisuMZ[_0x440a9c(0x77a)][_0x440a9c(0x1bc)][_0x440a9c(0x800)][_0x57a8c6])) {
-        var _0x2f3a32 = Number(RegExp['$1']) / 0x64;
-        _0x140e23 += _0x2f3a32;
-      }
-      if (_0x593424[_0x440a9c(0x85d)][_0x440a9c(0x2ba)](VisuMZ[_0x440a9c(0x77a)][_0x440a9c(0x1bc)][_0x440a9c(0x5ea)][_0x57a8c6])) {
-        var _0x2f3a32 = Number(RegExp['$1']);
-        _0x140e23 += _0x2f3a32;
-      }
-      if (_0x593424[_0x440a9c(0x85d)][_0x440a9c(0x2ba)](VisuMZ[_0x440a9c(0x77a)][_0x440a9c(0x1bc)]['sparamFlatJS'][_0x57a8c6])) {
-        var _0x5b8e11 = String(RegExp['$1']);
-        try {
-          _0x140e23 += eval(_0x5b8e11);
-        } catch (_0x508b07) {
-          if ($gameTemp[_0x440a9c(0x6dc)]()) console[_0x440a9c(0x797)](_0x508b07);
-        }
-      }
-      return _0x140e23;
-    };
-    return this['traitObjects']()['reduce'](_0xa9d446, 0x0);
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)]['sparam'] = function (_0x1f1a09) {
-    const _0x126f08 = _0x17b060;
-    let _0xd9075c = _0x126f08(0x12c) + _0x1f1a09 + _0x126f08(0x1ab);
-    if (this[_0x126f08(0x89c)](_0xd9075c)) return this['_cache'][_0xd9075c];
-    return (this[_0x126f08(0x233)][_0xd9075c] = VisuMZ['CoreEngine'][_0x126f08(0x382)]['Param']['SParameterFormula'][_0x126f08(0x64e)](this, _0x1f1a09)), this['_cache'][_0xd9075c];
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)][_0x17b060(0x4d4)] = function (_0xd86464, _0x418308) {
-    const _0x59b7be = _0x17b060;
-    if (typeof paramId === _0x59b7be(0x7c2)) return this['param'](_0xd86464);
-    _0xd86464 = String(_0xd86464 || '')[_0x59b7be(0x29e)]();
-    if (_0xd86464 === 'MAXHP') return this[_0x59b7be(0x7a1)](0x0);
-    if (_0xd86464 === _0x59b7be(0x148)) return this['param'](0x1);
-    if (_0xd86464 === _0x59b7be(0x135)) return this[_0x59b7be(0x7a1)](0x2);
-    if (_0xd86464 === 'DEF') return this['param'](0x3);
-    if (_0xd86464 === _0x59b7be(0x297)) return this[_0x59b7be(0x7a1)](0x4);
-    if (_0xd86464 === _0x59b7be(0x3be)) return this[_0x59b7be(0x7a1)](0x5);
-    if (_0xd86464 === 'AGI') return this[_0x59b7be(0x7a1)](0x6);
-    if (_0xd86464 === _0x59b7be(0xec)) return this['param'](0x7);
-    if (_0xd86464 === _0x59b7be(0x889)) return _0x418308 ? String(Math['round'](this[_0x59b7be(0x477)](0x0) * 0x64)) + '%' : this[_0x59b7be(0x477)](0x0);
-    if (_0xd86464 === _0x59b7be(0x2ce)) return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this[_0x59b7be(0x477)](0x1) * 0x64)) + '%' : this['xparam'](0x1);
-    if (_0xd86464 === _0x59b7be(0x6af)) return _0x418308 ? String(Math['round'](this[_0x59b7be(0x477)](0x2) * 0x64)) + '%' : this[_0x59b7be(0x477)](0x2);
-    if (_0xd86464 === _0x59b7be(0x4bb)) return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this[_0x59b7be(0x477)](0x3) * 0x64)) + '%' : this[_0x59b7be(0x477)](0x3);
-    if (_0xd86464 === _0x59b7be(0x17d)) return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this[_0x59b7be(0x477)](0x4) * 0x64)) + '%' : this['xparam'](0x4);
-    if (_0xd86464 === _0x59b7be(0x11f)) return _0x418308 ? String(Math['round'](this[_0x59b7be(0x477)](0x5) * 0x64)) + '%' : this[_0x59b7be(0x477)](0x5);
-    if (_0xd86464 === 'CNT') return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this[_0x59b7be(0x477)](0x6) * 0x64)) + '%' : this[_0x59b7be(0x477)](0x6);
-    if (_0xd86464 === _0x59b7be(0x599)) return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this[_0x59b7be(0x477)](0x7) * 0x64)) + '%' : this[_0x59b7be(0x477)](0x7);
-    if (_0xd86464 === _0x59b7be(0x69b)) return _0x418308 ? String(Math['round'](this[_0x59b7be(0x477)](0x8) * 0x64)) + '%' : this[_0x59b7be(0x477)](0x8);
-    if (_0xd86464 === _0x59b7be(0x655)) return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this['xparam'](0x9) * 0x64)) + '%' : this[_0x59b7be(0x477)](0x9);
-    if (_0xd86464 === 'TGR') return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this['sparam'](0x0) * 0x64)) + '%' : this[_0x59b7be(0x12c)](0x0);
-    if (_0xd86464 === _0x59b7be(0x1c8)) return _0x418308 ? String(Math['round'](this[_0x59b7be(0x12c)](0x1) * 0x64)) + '%' : this[_0x59b7be(0x12c)](0x1);
-    if (_0xd86464 === _0x59b7be(0x4ec)) return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this[_0x59b7be(0x12c)](0x2) * 0x64)) + '%' : this['sparam'](0x2);
-    if (_0xd86464 === _0x59b7be(0x728)) return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this[_0x59b7be(0x12c)](0x3) * 0x64)) + '%' : this[_0x59b7be(0x12c)](0x3);
-    if (_0xd86464 === _0x59b7be(0x6d6)) return _0x418308 ? String(Math['round'](this[_0x59b7be(0x12c)](0x4) * 0x64)) + '%' : this[_0x59b7be(0x12c)](0x4);
-    if (_0xd86464 === _0x59b7be(0x828)) return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this[_0x59b7be(0x12c)](0x5) * 0x64)) + '%' : this[_0x59b7be(0x12c)](0x5);
-    if (_0xd86464 === _0x59b7be(0x11a)) return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this[_0x59b7be(0x12c)](0x6) * 0x64)) + '%' : this[_0x59b7be(0x12c)](0x6);
-    if (_0xd86464 === _0x59b7be(0x121)) return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this[_0x59b7be(0x12c)](0x7) * 0x64)) + '%' : this[_0x59b7be(0x12c)](0x7);
-    if (_0xd86464 === _0x59b7be(0x1a8)) return _0x418308 ? String(Math['round'](this[_0x59b7be(0x12c)](0x8) * 0x64)) + '%' : this[_0x59b7be(0x12c)](0x8);
-    if (_0xd86464 === 'EXR') return _0x418308 ? String(Math[_0x59b7be(0x3fe)](this[_0x59b7be(0x12c)](0x9) * 0x64)) + '%' : this[_0x59b7be(0x12c)](0x9);
-    if (VisuMZ[_0x59b7be(0x77a)][_0x59b7be(0x2ca)][_0xd86464]) {
-      const _0x2a0b4f = VisuMZ[_0x59b7be(0x77a)][_0x59b7be(0x2ca)][_0xd86464],
-        _0x57ce2a = this[_0x2a0b4f];
-      return VisuMZ[_0x59b7be(0x77a)][_0x59b7be(0x6f7)][_0xd86464] === _0x59b7be(0x5ae) ? _0x57ce2a : _0x418308 ? String(Math[_0x59b7be(0x3fe)](_0x57ce2a * 0x64)) + '%' : _0x57ce2a;
-    }
-    return '';
-  }),
-  (Game_BattlerBase[_0x17b060(0x54a)][_0x17b060(0x1c1)] = function () {
-    const _0x1752a0 = _0x17b060;
-    return this[_0x1752a0(0x30c)]() && this[_0x1752a0(0x27d)] < this[_0x1752a0(0x5c4)] * VisuMZ[_0x1752a0(0x77a)]['Settings'][_0x1752a0(0x71d)]['CrisisRate'];
-  }),
-  (Game_Battler[_0x17b060(0x54a)]['performMiss'] = function () {
-    const _0x29faf0 = _0x17b060;
-    SoundManager[_0x29faf0(0x79d)](), this[_0x29faf0(0x461)]('evade');
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x7a8)] = Game_Actor[_0x17b060(0x54a)][_0x17b060(0x34e)]),
-  (Game_Actor[_0x17b060(0x54a)][_0x17b060(0x34e)] = function (_0x2df4a8) {
-    const _0x3c48e3 = _0x17b060;
-    if (this[_0x3c48e3(0x4b4)] > 0x63) return this[_0x3c48e3(0x826)](_0x2df4a8);
-    return VisuMZ[_0x3c48e3(0x77a)][_0x3c48e3(0x7a8)][_0x3c48e3(0x64e)](this, _0x2df4a8);
-  }),
-  (Game_Actor[_0x17b060(0x54a)][_0x17b060(0x826)] = function (_0x59bd83) {
-    const _0x42f048 = _0x17b060,
-      _0x196055 = this[_0x42f048(0x1e1)]()[_0x42f048(0x5aa)][_0x59bd83][0x63],
-      _0x583eb3 = this[_0x42f048(0x1e1)]()[_0x42f048(0x5aa)][_0x59bd83][0x62];
-    return _0x196055 + (_0x196055 - _0x583eb3) * (this[_0x42f048(0x4b4)] - 0x63);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x62c)] = Game_Actor[_0x17b060(0x54a)]['changeClass']),
-  (Game_Actor['prototype'][_0x17b060(0x4e5)] = function (_0x4bc638, _0x5ab567) {
-    const _0xd0b60d = _0x17b060;
-    ($gameTemp[_0xd0b60d(0x3cb)] = !![]), VisuMZ[_0xd0b60d(0x77a)][_0xd0b60d(0x62c)][_0xd0b60d(0x64e)](this, _0x4bc638, _0x5ab567), ($gameTemp[_0xd0b60d(0x3cb)] = undefined);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Game_Actor_levelUp'] = Game_Actor[_0x17b060(0x54a)][_0x17b060(0x2de)]),
-  (Game_Actor[_0x17b060(0x54a)][_0x17b060(0x2de)] = function () {
-    const _0x52921a = _0x17b060;
-    VisuMZ[_0x52921a(0x77a)][_0x52921a(0x513)][_0x52921a(0x64e)](this);
-    if (!$gameTemp[_0x52921a(0x3cb)]) this[_0x52921a(0x57d)]();
-  }),
-  (Game_Actor[_0x17b060(0x54a)]['levelUpRecovery'] = function () {
-    const _0x55bfa6 = _0x17b060;
-    this[_0x55bfa6(0x233)] = {};
-    if (VisuMZ[_0x55bfa6(0x77a)]['Settings']['QoL'][_0x55bfa6(0x3c1)]) this['_hp'] = this[_0x55bfa6(0x5c4)];
-    if (VisuMZ['CoreEngine'][_0x55bfa6(0x382)][_0x55bfa6(0x7ae)][_0x55bfa6(0x3b0)]) this['_mp'] = this[_0x55bfa6(0x20d)];
-  }),
-  (Game_Actor[_0x17b060(0x54a)][_0x17b060(0x3c0)] = function () {
-    const _0xbc7428 = _0x17b060;
-    if (this[_0xbc7428(0x172)]()) return 0x1;
-    const _0x5c40d4 = this[_0xbc7428(0x5ce)]() - this[_0xbc7428(0xe4)](),
-      _0x4c5b57 = this[_0xbc7428(0xf2)]() - this[_0xbc7428(0xe4)]();
-    return (_0x4c5b57 / _0x5c40d4)[_0xbc7428(0x42b)](0x0, 0x1);
-  }),
-  (Game_Actor[_0x17b060(0x54a)][_0x17b060(0x5b1)] = function () {
-    const _0x522f5e = _0x17b060,
-      _0x35f0a3 = Game_Battler[_0x522f5e(0x54a)][_0x522f5e(0x5b1)][_0x522f5e(0x64e)](this);
-    for (const _0x3fd305 of this[_0x522f5e(0x383)]()) {
-      _0x3fd305 && _0x35f0a3[_0x522f5e(0x6f2)](_0x3fd305);
-    }
-    return _0x35f0a3[_0x522f5e(0x6f2)](this[_0x522f5e(0x1e1)](), this['actor']()), _0x35f0a3;
-  }),
-  Object[_0x17b060(0x64d)](Game_Enemy[_0x17b060(0x54a)], _0x17b060(0x4b4), {
-    get: function () {
-      const _0x30e58c = _0x17b060;
-      return this[_0x30e58c(0x10c)]();
-    },
-    configurable: !![],
-  }),
-  (Game_Enemy['prototype']['getLevel'] = function () {
-    const _0x5497ad = _0x17b060;
-    return this['enemy']()[_0x5497ad(0x4b4)];
-  }),
-  (Game_Enemy[_0x17b060(0x54a)]['moveRelativeToResolutionChange'] = function () {
-    const _0x2528f5 = _0x17b060;
-    !this[_0x2528f5(0x38c)] &&
-      ((this[_0x2528f5(0x465)] += Math[_0x2528f5(0x3fe)]((Graphics[_0x2528f5(0x2c5)] - 0x270) / 0x2)),
-      (this[_0x2528f5(0x465)] -= Math[_0x2528f5(0x221)]((Graphics['height'] - Graphics[_0x2528f5(0x509)]) / 0x2)),
-      $gameSystem[_0x2528f5(0x4a1)]()
-        ? (this[_0x2528f5(0x685)] -= Math['floor']((Graphics[_0x2528f5(0x321)] - Graphics[_0x2528f5(0x778)]) / 0x2))
-        : (this['_screenX'] += Math[_0x2528f5(0x3fe)]((Graphics[_0x2528f5(0x778)] - 0x330) / 0x2))),
-      (this['_repositioned'] = !![]);
-  }),
-  (Game_Party[_0x17b060(0x54a)]['maxGold'] = function () {
-    const _0x4320ea = _0x17b060;
-    return VisuMZ[_0x4320ea(0x77a)][_0x4320ea(0x382)][_0x4320ea(0x6a1)][_0x4320ea(0x72d)];
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x4e9)] = Game_Party[_0x17b060(0x54a)]['consumeItem']),
-  (Game_Party['prototype']['consumeItem'] = function (_0x6bdce9) {
-    const _0x434f92 = _0x17b060;
-    if (VisuMZ[_0x434f92(0x77a)][_0x434f92(0x382)][_0x434f92(0x7ae)][_0x434f92(0x2e6)] && DataManager[_0x434f92(0x88e)](_0x6bdce9)) return;
-    VisuMZ[_0x434f92(0x77a)][_0x434f92(0x4e9)][_0x434f92(0x64e)](this, _0x6bdce9);
-  }),
-  (Game_Party['prototype'][_0x17b060(0x326)] = function () {
-    const _0x714457 = _0x17b060,
-      _0x57adee = VisuMZ[_0x714457(0x77a)]['Settings'][_0x714457(0x7ae)],
-      _0x13c979 = _0x57adee[_0x714457(0x8ac)] ?? 0x63;
-    let _0x1452c6 = [];
-    (_0x57adee['BTestItems'] ?? !![]) && (_0x1452c6 = _0x1452c6[_0x714457(0x83e)]($dataItems));
-    (_0x57adee['BTestWeapons'] ?? !![]) && (_0x1452c6 = _0x1452c6[_0x714457(0x83e)]($dataWeapons));
-    (_0x57adee[_0x714457(0x144)] ?? !![]) && (_0x1452c6 = _0x1452c6['concat']($dataArmors));
-    for (const _0x34046d of _0x1452c6) {
-      if (!_0x34046d) continue;
-      if (_0x34046d[_0x714457(0x142)][_0x714457(0x711)]() <= 0x0) continue;
-      if (_0x34046d[_0x714457(0x142)][_0x714457(0x2ba)](/-----/i)) continue;
-      this[_0x714457(0x26a)](_0x34046d, _0x13c979);
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x640)] = Game_Troop[_0x17b060(0x54a)][_0x17b060(0x67d)]),
-  (Game_Troop['prototype'][_0x17b060(0x67d)] = function (_0x401ad1) {
-    const _0x3bec9c = _0x17b060;
-    $gameTemp[_0x3bec9c(0x834)](), $gameTemp[_0x3bec9c(0x3cc)](_0x401ad1), VisuMZ[_0x3bec9c(0x77a)][_0x3bec9c(0x640)][_0x3bec9c(0x64e)](this, _0x401ad1);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x43e)] = Game_Map[_0x17b060(0x54a)][_0x17b060(0x67d)]),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x67d)] = function (_0x32a702) {
-    const _0xd9cf0e = _0x17b060;
-    VisuMZ[_0xd9cf0e(0x77a)][_0xd9cf0e(0x43e)][_0xd9cf0e(0x64e)](this, _0x32a702), this['checkCoreEngineDisplayCenter'](), this[_0xd9cf0e(0x44f)](_0x32a702), this[_0xd9cf0e(0x11e)]();
-  }),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x44f)] = function () {
-    const _0x3aa15 = _0x17b060;
-    this[_0x3aa15(0x5cf)] = VisuMZ[_0x3aa15(0x77a)][_0x3aa15(0x382)][_0x3aa15(0x7ae)][_0x3aa15(0x1fc)] || ![];
-    const _0x4d55b2 = VisuMZ['CoreEngine']['Settings']['ScreenResolution'],
-      _0x40d722 = $dataMap ? $dataMap[_0x3aa15(0x85d)] || '' : '';
-    if (_0x40d722[_0x3aa15(0x2ba)](/<SHOW TILE SHADOWS>/i)) this[_0x3aa15(0x5cf)] = ![];
-    else _0x40d722[_0x3aa15(0x2ba)](/<HIDE TILE SHADOWS>/i) && (this[_0x3aa15(0x5cf)] = !![]);
-    if (_0x40d722['match'](/<SCROLL LOCK X>/i)) (this['centerCameraCheckData']()[_0x3aa15(0x5bd)] = !![]), (this[_0x3aa15(0x59f)]()[_0x3aa15(0x664)] = _0x4d55b2[_0x3aa15(0x1f9)]);
-    else _0x40d722['match'](/<SCROLL LOCK X: (.*?)>/i) && ((this[_0x3aa15(0x59f)]()['centerX'] = !![]), (this[_0x3aa15(0x59f)]()[_0x3aa15(0x664)] = Number(RegExp['$1'])));
-    if (_0x40d722[_0x3aa15(0x2ba)](/<SCROLL LOCK Y>/i)) (this['centerCameraCheckData']()['centerY'] = !![]), (this['centerCameraCheckData']()['displayY'] = _0x4d55b2[_0x3aa15(0x30e)]);
-    else _0x40d722[_0x3aa15(0x2ba)](/<SCROLL LOCK Y: (.*?)>/i) && ((this[_0x3aa15(0x59f)]()[_0x3aa15(0x569)] = !![]), (this[_0x3aa15(0x59f)]()[_0x3aa15(0x625)] = Number(RegExp['$1'])));
-  }),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x3eb)] = function () {
-    const _0x5d8683 = _0x17b060;
-    if (this['_hideTileShadows'] === undefined) this[_0x5d8683(0x44f)]();
-    return this[_0x5d8683(0x5cf)];
-  }),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x704)] = function () {
-    const _0x56b414 = _0x17b060,
-      _0x3aab20 = VisuMZ[_0x56b414(0x77a)]['Settings'][_0x56b414(0x79f)];
-    this[_0x56b414(0x6b8)] = { centerX: ![], centerY: ![], displayX: 0x0, displayY: 0x0 };
-    if (_0x3aab20[_0x56b414(0x304)]) {
-      const _0x2dc602 = Graphics[_0x56b414(0x321)] / this[_0x56b414(0x1f1)]();
-      _0x2dc602 % 0x1 !== 0x0 &&
-        Math[_0x56b414(0x720)](_0x2dc602) === this[_0x56b414(0x321)]() &&
-        !this[_0x56b414(0x26b)]() &&
-        ((this['_centerCameraCheck']['centerX'] = !![]), (this[_0x56b414(0x6b8)][_0x56b414(0x664)] = _0x3aab20['DisplayLockX'] || 0x0));
-    }
-    if (_0x3aab20[_0x56b414(0x7d5)]) {
-      const _0x1c1002 = Graphics[_0x56b414(0x2c5)] / this['tileHeight']();
-      _0x1c1002 % 0x1 !== 0x0 &&
-        Math[_0x56b414(0x720)](_0x1c1002) === this[_0x56b414(0x2c5)]() &&
-        !this[_0x56b414(0x517)]() &&
-        ((this[_0x56b414(0x6b8)][_0x56b414(0x569)] = !![]), (this[_0x56b414(0x6b8)][_0x56b414(0x625)] = _0x3aab20['DisplayLockY'] || 0x0));
-    }
-    $gameScreen['zoomScale']() === 0x1 &&
-      (this[_0x56b414(0x59f)]()[_0x56b414(0x5bd)] && (this['_displayX'] = this[_0x56b414(0x59f)]()[_0x56b414(0x664)]),
-      this['centerCameraCheckData']()['centerY'] && (this[_0x56b414(0x2cc)] = this[_0x56b414(0x59f)]()[_0x56b414(0x625)]));
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x802)] = Game_Map['prototype'][_0x17b060(0x56d)]),
-  (Game_Map[_0x17b060(0x54a)]['setDisplayPos'] = function (_0x3aa4e5, _0x3872c8) {
-    const _0x8aae7 = _0x17b060;
-    VisuMZ['CoreEngine'][_0x8aae7(0x802)][_0x8aae7(0x64e)](this, _0x3aa4e5, _0x3872c8),
-      $gameScreen[_0x8aae7(0x3ae)]() === 0x1 &&
-        (!this[_0x8aae7(0x26b)]() && this[_0x8aae7(0x59f)]()[_0x8aae7(0x5bd)] && (this[_0x8aae7(0x3fc)] = this[_0x8aae7(0x59f)]()[_0x8aae7(0x664)]),
-        !this['isLoopVertical']() && this[_0x8aae7(0x59f)]()[_0x8aae7(0x569)] && (this['_displayY'] = this['centerCameraCheckData']()[_0x8aae7(0x625)]));
-  }),
-  (Game_Map['prototype'][_0x17b060(0x59f)] = function () {
-    const _0x15549d = _0x17b060;
-    if (this[_0x15549d(0x6b8)] === undefined) this[_0x15549d(0x704)]();
-    return this['_centerCameraCheck'];
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x378)] = Game_Map['prototype']['scrollDown']),
-  (Game_Map['prototype'][_0x17b060(0x56a)] = function (_0x1b6b1e) {
-    const _0x521fbd = _0x17b060;
-    if (this['centerCameraCheckData']()['centerY'] && $gameScreen['zoomScale']() === 0x1) {
-      this[_0x521fbd(0x2cc)] = this['centerCameraCheckData']()[_0x521fbd(0x625)];
-      return;
-    }
-    VisuMZ['CoreEngine'][_0x521fbd(0x378)][_0x521fbd(0x64e)](this, _0x1b6b1e);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Game_Map_scrollLeft'] = Game_Map[_0x17b060(0x54a)]['scrollLeft']),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x896)] = function (_0x112bcc) {
-    const _0x2b3682 = _0x17b060;
-    if (this[_0x2b3682(0x59f)]()[_0x2b3682(0x5bd)] && $gameScreen[_0x2b3682(0x3ae)]() === 0x1) {
-      this['_displayX'] = this[_0x2b3682(0x59f)]()[_0x2b3682(0x664)];
-      return;
-    }
-    VisuMZ[_0x2b3682(0x77a)][_0x2b3682(0x341)][_0x2b3682(0x64e)](this, _0x112bcc);
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x5a4)] = Game_Map[_0x17b060(0x54a)][_0x17b060(0x256)]),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x256)] = function (_0x46754b) {
-    const _0x238a76 = _0x17b060;
-    if (this[_0x238a76(0x59f)]()[_0x238a76(0x5bd)] && $gameScreen[_0x238a76(0x3ae)]() === 0x1) {
-      this[_0x238a76(0x3fc)] = this[_0x238a76(0x59f)]()['displayX'];
-      return;
-    }
-    VisuMZ[_0x238a76(0x77a)]['Game_Map_scrollRight']['call'](this, _0x46754b);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Game_Map_scrollUp'] = Game_Map[_0x17b060(0x54a)][_0x17b060(0x299)]),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x299)] = function (_0x4bb29f) {
-    const _0x2a96b2 = _0x17b060;
-    if (this[_0x2a96b2(0x59f)]()[_0x2a96b2(0x569)] && $gameScreen[_0x2a96b2(0x3ae)]() === 0x1) {
-      this[_0x2a96b2(0x2cc)] = this[_0x2a96b2(0x59f)]()['displayY'];
-      return;
-    }
-    VisuMZ['CoreEngine'][_0x2a96b2(0x7e8)][_0x2a96b2(0x64e)](this, _0x4bb29f);
-  }),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x11e)] = function () {
-    const _0x3a93ab = _0x17b060;
-    this['_tileExtendTerrainTags'] = {};
-    const _0xd6cb1e = this['tileset']();
-    if (!_0xd6cb1e) return {};
-    const _0x7cdf88 = _0xd6cb1e[_0x3a93ab(0x85d)] || '',
-      _0x4ac0b2 = /<(?:TALLER|EXT|EXTEND|RAISE)[ ]BY[ ](\d+):[ ](.*)>/gi;
-    let _0x3dd22c = {};
-    const _0xf28a9a = _0x7cdf88['match'](_0x4ac0b2);
-    if (_0xf28a9a)
-      for (const _0x88b2df of _0xf28a9a) {
-        _0x88b2df[_0x3a93ab(0x2ba)](_0x4ac0b2);
-        const _0x2ff926 = Number(RegExp['$1'])[_0x3a93ab(0x42b)](0x1, 0x10),
-          _0xa9c8bd = String(RegExp['$2'])
-            [_0x3a93ab(0x60b)](',')
-            [_0x3a93ab(0x3a8)](_0x411612 => Number(_0x411612)[_0x3a93ab(0x42b)](0x1, 0x7));
-        for (const _0x48a112 of _0xa9c8bd) {
-          _0x3dd22c[_0x48a112] = _0x2ff926;
-        }
-      }
-    this[_0x3a93ab(0x639)] = _0x3dd22c;
-  }),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x69d)] = function () {
-    const _0x3c658e = _0x17b060;
-    if (this[_0x3c658e(0x639)] === undefined) this[_0x3c658e(0x11e)]();
-    return this[_0x3c658e(0x639)];
-  }),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x442)] = function (_0x298439) {
-    const _0x3fea95 = _0x17b060;
-    if (_0x298439 >= 0x400) return ![];
-    const _0x390b85 = $gameMap['getTileExtendTerrainTags']();
-    if (Object[_0x3fea95(0x159)](_0x390b85)[_0x3fea95(0x540)] <= 0x0) return ![];
-    const _0x353100 = this[_0x3fea95(0x1ec)](),
-      _0x4ab4c9 = _0x353100[_0x298439] >> 0xc,
-      _0x4b0ad8 = _0x390b85[_0x4ab4c9] || 0x0;
-    return _0x4b0ad8 > 0x0;
-  }),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x226)] = function () {
-    const _0x396ef1 = _0x17b060,
-      _0x2b8f9a = this[_0x396ef1(0x69d)]();
-    if (Object[_0x396ef1(0x159)](_0x2b8f9a)[_0x396ef1(0x540)] <= 0x0) return;
-    $spriteset && ($spriteset[_0x396ef1(0x161)] && $spriteset[_0x396ef1(0x161)](), $spriteset[_0x396ef1(0x2a4)] && $spriteset[_0x396ef1(0x2a4)]());
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x3a2)] = Game_Character[_0x17b060(0x54a)][_0x17b060(0x647)]),
-  (Game_Character[_0x17b060(0x54a)]['processMoveCommand'] = function (_0x251d88) {
-    const _0x3977ca = _0x17b060;
-    try {
-      VisuMZ[_0x3977ca(0x77a)][_0x3977ca(0x3a2)][_0x3977ca(0x64e)](this, _0x251d88);
-    } catch (_0x1cfe37) {
-      if ($gameTemp[_0x3977ca(0x6dc)]()) console[_0x3977ca(0x797)](_0x1cfe37);
-    }
-  }),
-  (Game_Player[_0x17b060(0x54a)][_0x17b060(0x879)] = function () {
-    const _0x25a98b = _0x17b060,
-      _0x9b4a1c = $gameMap[_0x25a98b(0x12e)]();
-    this[_0x25a98b(0x329)] = Math['randomInt'](_0x9b4a1c) + Math[_0x25a98b(0x849)](_0x9b4a1c) + this[_0x25a98b(0x10d)]();
-  }),
-  (Game_Player[_0x17b060(0x54a)]['encounterStepsMinimum'] = function () {
-    const _0x556f3a = _0x17b060;
-    return $dataMap && $dataMap[_0x556f3a(0x85d)] && $dataMap['note']['match'](/<MINIMUM ENCOUNTER STEPS:[ ](\d+)>/i)
-      ? Number(RegExp['$1'])
-      : VisuMZ[_0x556f3a(0x77a)]['Settings'][_0x556f3a(0x7ae)][_0x556f3a(0x3e4)];
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x49e)] = Game_Event[_0x17b060(0x54a)]['isCollidedWithEvents']),
-  (Game_Event[_0x17b060(0x54a)][_0x17b060(0x1c0)] = function (_0x196ad0, _0x5abaf0) {
-    const _0x49cc71 = _0x17b060;
-    return this[_0x49cc71(0x62e)]() ? this[_0x49cc71(0x23e)](_0x196ad0, _0x5abaf0) : VisuMZ[_0x49cc71(0x77a)][_0x49cc71(0x49e)][_0x49cc71(0x64e)](this, _0x196ad0, _0x5abaf0);
-  }),
-  (Game_Event[_0x17b060(0x54a)][_0x17b060(0x62e)] = function () {
-    const _0x3f6047 = _0x17b060;
-    return VisuMZ['CoreEngine'][_0x3f6047(0x382)][_0x3f6047(0x7ae)][_0x3f6047(0x810)];
-  }),
-  (Game_Event[_0x17b060(0x54a)][_0x17b060(0x23e)] = function (_0x2acd8f, _0x358505) {
-    const _0x391cf5 = _0x17b060;
-    if (!this[_0x391cf5(0x796)]()) return ![];
-    else {
-      const _0x998e29 = $gameMap[_0x391cf5(0x1ea)](_0x2acd8f, _0x358505)[_0x391cf5(0x19c)](_0x3ca5f4 => _0x3ca5f4[_0x391cf5(0x796)]());
-      return _0x998e29[_0x391cf5(0x540)] > 0x0;
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x8b2)] = Game_Interpreter['prototype'][_0x17b060(0x5eb)]),
-  (Game_Interpreter[_0x17b060(0x54a)][_0x17b060(0x5eb)] = function (_0xa620e0) {
-    const _0x437ada = _0x17b060,
-      _0x34316d = this[_0x437ada(0x584)]();
-    return _0x34316d[_0x437ada(0x2ba)](/\/\/[ ]SCRIPT[ ]CALL/i) ? this[_0x437ada(0x311)](_0x34316d) : VisuMZ['CoreEngine'][_0x437ada(0x8b2)][_0x437ada(0x64e)](this, _0xa620e0);
-  }),
-  (Game_Interpreter[_0x17b060(0x54a)][_0x17b060(0x584)] = function () {
-    const _0x3cbec2 = _0x17b060;
-    let _0x4284ef = '',
-      _0x51513e = this['_index'] + 0x1;
-    while (this[_0x3cbec2(0x5ef)][_0x51513e] && this[_0x3cbec2(0x5ef)][_0x51513e]['code'] === 0x195) {
-      (_0x4284ef += this[_0x3cbec2(0x5ef)][_0x51513e]['parameters'][0x0] + '\x0a'), _0x51513e++;
-    }
-    return _0x4284ef;
-  }),
-  (Game_Interpreter[_0x17b060(0x54a)][_0x17b060(0x311)] = function (_0x2f1999) {
-    const _0x59e059 = _0x17b060;
-    try {
-      eval(_0x2f1999);
-    } catch (_0x3df119) {
-      $gameTemp[_0x59e059(0x6dc)]() && (console[_0x59e059(0x797)](_0x59e059(0x64a)), console[_0x59e059(0x797)](_0x3df119));
-    }
-    return !![];
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x1e5)] = Game_Interpreter[_0x17b060(0x54a)]['command111']),
-  (Game_Interpreter[_0x17b060(0x54a)][_0x17b060(0x131)] = function (_0x5faaea) {
-    const _0x494f1b = _0x17b060;
-    try {
-      VisuMZ[_0x494f1b(0x77a)][_0x494f1b(0x1e5)]['call'](this, _0x5faaea);
-    } catch (_0x6ec052) {
-      $gameTemp[_0x494f1b(0x6dc)]() && (console['log']('Conditional\x20Branch\x20Script\x20Error'), console[_0x494f1b(0x797)](_0x6ec052)), this['skipBranch']();
-    }
-    return !![];
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x6cf)] = Game_Interpreter[_0x17b060(0x54a)][_0x17b060(0x61a)]),
-  (Game_Interpreter['prototype']['command122'] = function (_0x12daf7) {
-    const _0x4d3e08 = _0x17b060;
-    try {
-      VisuMZ[_0x4d3e08(0x77a)][_0x4d3e08(0x6cf)][_0x4d3e08(0x64e)](this, _0x12daf7);
-    } catch (_0x466dba) {
-      $gameTemp[_0x4d3e08(0x6dc)]() && (console['log']('Control\x20Variables\x20Script\x20Error'), console[_0x4d3e08(0x797)](_0x466dba));
-    }
-    return !![];
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Game_Interpreter_command355'] = Game_Interpreter[_0x17b060(0x54a)][_0x17b060(0x52b)]),
-  (Game_Interpreter[_0x17b060(0x54a)][_0x17b060(0x52b)] = function () {
-    const _0x260cfe = _0x17b060;
-    try {
-      VisuMZ[_0x260cfe(0x77a)][_0x260cfe(0x789)][_0x260cfe(0x64e)](this);
-    } catch (_0x1dd101) {
-      $gameTemp[_0x260cfe(0x6dc)]() && (console[_0x260cfe(0x797)]('Script\x20Call\x20Error'), console[_0x260cfe(0x797)](_0x1dd101));
-    }
-    return !![];
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Game_Interpreter_PluginCommand'] = Game_Interpreter[_0x17b060(0x54a)][_0x17b060(0x1c9)]),
-  (Game_Interpreter[_0x17b060(0x54a)][_0x17b060(0x1c9)] = function (_0x94b6a0) {
-    const _0x1ab88a = _0x17b060;
-    return $gameTemp[_0x1ab88a(0x813)](this), VisuMZ[_0x1ab88a(0x77a)][_0x1ab88a(0x42c)][_0x1ab88a(0x64e)](this, _0x94b6a0);
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x500)] = function () {
-    const _0x11d0f2 = _0x17b060;
-    return VisuMZ[_0x11d0f2(0x77a)]['Settings']['UI'][_0x11d0f2(0x291)];
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x766)] = function () {
-    const _0x25c436 = _0x17b060;
-    return VisuMZ[_0x25c436(0x77a)]['Settings']['UI']['BottomHelp'];
-  }),
-  (Scene_Base['prototype'][_0x17b060(0x7a6)] = function () {
-    const _0x78eb35 = _0x17b060;
-    return VisuMZ[_0x78eb35(0x77a)][_0x78eb35(0x382)]['UI']['BottomButtons'];
-  }),
-  (Scene_Base['prototype']['isRightInputMode'] = function () {
-    const _0x5b9723 = _0x17b060;
-    return VisuMZ[_0x5b9723(0x77a)][_0x5b9723(0x382)]['UI'][_0x5b9723(0x308)];
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x610)] = function () {
-    const _0x3d020c = _0x17b060;
-    return VisuMZ[_0x3d020c(0x77a)][_0x3d020c(0x382)]['UI'][_0x3d020c(0x2b9)];
-  }),
-  (Scene_Base['prototype']['buttonAreaHeight'] = function () {
-    const _0x2bd1a4 = _0x17b060;
-    return VisuMZ[_0x2bd1a4(0x77a)][_0x2bd1a4(0x382)]['UI'][_0x2bd1a4(0x842)];
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x6ee)] = function () {
-    const _0x2b8d96 = _0x17b060;
-    return VisuMZ[_0x2b8d96(0x77a)][_0x2b8d96(0x382)]['Window'][_0x2b8d96(0x76c)];
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x2bd)] = Scene_Base[_0x17b060(0x54a)]['createWindowLayer']),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x7d4)] = function () {
-    const _0x206aca = _0x17b060;
-    VisuMZ[_0x206aca(0x77a)]['Scene_Base_createWindowLayer'][_0x206aca(0x64e)](this),
-      this[_0x206aca(0x6b3)](),
-      this[_0x206aca(0x14b)](),
-      (this[_0x206aca(0x598)]['x'] = Math[_0x206aca(0x3fe)](this['_windowLayer']['x'])),
-      (this[_0x206aca(0x598)]['y'] = Math['round'](this['_windowLayer']['y']));
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x6b3)] = function () {}),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x14b)] = function () {
-    const _0x5c8390 = _0x17b060;
-    (this[_0x5c8390(0x4ed)] = new Window_TextPopup()), this[_0x5c8390(0x781)](this['_textPopupWindow']);
-  }),
-  ($textPopup = function (_0x4b79df) {
-    const _0x3fcd48 = _0x17b060,
-      _0x3662e8 = SceneManager[_0x3fcd48(0x2f9)][_0x3fcd48(0x4ed)];
-    _0x3662e8 && _0x3662e8['addQueue'](_0x4b79df);
-  }),
-  (Scene_Base['prototype'][_0x17b060(0x1fb)] = function () {
-    const _0x22bf8b = _0x17b060;
-    return TextManager[_0x22bf8b(0x165)]('pageup', _0x22bf8b(0x7c5));
-  }),
-  (Scene_Base[_0x17b060(0x54a)]['buttonAssistKey2'] = function () {
-    const _0x4fe1ae = _0x17b060;
-    return TextManager[_0x4fe1ae(0x713)]('tab');
-  }),
-  (Scene_Base['prototype'][_0x17b060(0x56f)] = function () {
-    const _0x2c0ea4 = _0x17b060;
-    return TextManager[_0x2c0ea4(0x713)](_0x2c0ea4(0x7f4));
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x6f0)] = function () {
-    const _0x1966c2 = _0x17b060;
-    return TextManager[_0x1966c2(0x713)]('ok');
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x350)] = function () {
-    const _0x2080b9 = _0x17b060;
-    return TextManager[_0x2080b9(0x713)](_0x2080b9(0x314));
-  }),
-  (Scene_Base[_0x17b060(0x54a)]['buttonAssistText1'] = function () {
-    const _0x29a54b = _0x17b060;
-    return this['_pageupButton'] && this[_0x29a54b(0x262)][_0x29a54b(0x70d)] ? TextManager[_0x29a54b(0x3ce)] : '';
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x4f0)] = function () {
-    return '';
-  }),
-  (Scene_Base[_0x17b060(0x54a)]['buttonAssistText3'] = function () {
-    return '';
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x21d)] = function () {
-    const _0x35ddd9 = _0x17b060;
-    return TextManager[_0x35ddd9(0x1fa)];
-  }),
-  (Scene_Base['prototype']['buttonAssistText5'] = function () {
-    const _0x49b538 = _0x17b060;
-    return TextManager[_0x49b538(0x225)];
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x2bf)] = function () {
-    return 0x0;
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x404)] = function () {
-    return 0x0;
-  }),
-  (Scene_Base[_0x17b060(0x54a)]['buttonAssistOffset3'] = function () {
-    return 0x0;
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x4d3)] = function () {
-    return 0x0;
-  }),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x40c)] = function () {
-    return 0x0;
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x46b)] = Scene_Boot['prototype'][_0x17b060(0x41f)]),
-  (Scene_Boot['prototype'][_0x17b060(0x41f)] = function () {
-    const _0x57a7fa = _0x17b060;
-    VisuMZ[_0x57a7fa(0x77a)][_0x57a7fa(0x46b)][_0x57a7fa(0x64e)](this), this[_0x57a7fa(0x71e)]();
-  }),
-  (Scene_Boot['prototype'][_0x17b060(0x71e)] = function () {
-    const _0x38dbf4 = _0x17b060,
-      _0x193745 = [
-        _0x38dbf4(0x57f),
-        _0x38dbf4(0x770),
-        _0x38dbf4(0x424),
-        _0x38dbf4(0x113),
-        _0x38dbf4(0x4f5),
-        _0x38dbf4(0x895),
-        'parallaxes',
-        _0x38dbf4(0x5f8),
-        _0x38dbf4(0x415),
-        'sv_enemies',
-        _0x38dbf4(0x759),
-        _0x38dbf4(0x848),
-        'titles1',
-        'titles2',
-      ];
-    for (const _0x1712ef of _0x193745) {
-      const _0x1ac2d3 = VisuMZ[_0x38dbf4(0x77a)][_0x38dbf4(0x382)]['ImgLoad'][_0x1712ef],
-        _0x3c6c70 = _0x38dbf4(0x614)[_0x38dbf4(0x1df)](_0x1712ef);
-      for (const _0x55e467 of _0x1ac2d3) {
-        ImageManager['loadBitmap'](_0x3c6c70, _0x55e467);
-      }
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Scene_Boot_startNormalGame'] = Scene_Boot[_0x17b060(0x54a)]['startNormalGame']),
-  (Scene_Boot[_0x17b060(0x54a)][_0x17b060(0x4b6)] = function () {
-    const _0x33c4c0 = _0x17b060;
-    Utils['isOptionValid'](_0x33c4c0(0x7e6)) && VisuMZ[_0x33c4c0(0x77a)][_0x33c4c0(0x382)]['QoL'][_0x33c4c0(0x3dc)] ? this[_0x33c4c0(0x1f5)]() : VisuMZ['CoreEngine'][_0x33c4c0(0x840)]['call'](this);
-  }),
-  (Scene_Boot[_0x17b060(0x54a)]['startAutoNewGame'] = function () {
-    const _0x4eb48d = _0x17b060;
-    this[_0x4eb48d(0x5d3)](), DataManager[_0x4eb48d(0x381)](), SceneManager['goto'](Scene_Map);
-  }),
-  (Scene_Boot['prototype'][_0x17b060(0x2bc)] = function () {
-    const _0x56b56b = _0x17b060,
-      _0x42715b = $dataSystem[_0x56b56b(0x41e)]['uiAreaWidth'],
-      _0x39991e = $dataSystem[_0x56b56b(0x41e)]['uiAreaHeight'],
-      _0x5bd333 = VisuMZ[_0x56b56b(0x77a)][_0x56b56b(0x382)]['UI'][_0x56b56b(0x537)];
-    (Graphics[_0x56b56b(0x778)] = _0x42715b - _0x5bd333 * 0x2), (Graphics[_0x56b56b(0x509)] = _0x39991e - _0x5bd333 * 0x2), this[_0x56b56b(0x23a)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x429)] = Scene_Boot[_0x17b060(0x54a)]['updateDocumentTitle']),
-  (Scene_Boot[_0x17b060(0x54a)][_0x17b060(0x411)] = function () {
-    const _0x4b52b4 = _0x17b060;
-    this[_0x4b52b4(0x519)]() ? this[_0x4b52b4(0x1e3)]() : VisuMZ[_0x4b52b4(0x77a)][_0x4b52b4(0x429)][_0x4b52b4(0x64e)](this);
-  }),
-  (Scene_Boot['prototype'][_0x17b060(0x519)] = function () {
-    const _0x5b3ac2 = _0x17b060;
-    if (Scene_Title[_0x5b3ac2(0x4d5)] === '') return ![];
-    if (Scene_Title[_0x5b3ac2(0x4d5)] === 'Subtitle') return ![];
-    if (Scene_Title[_0x5b3ac2(0x40e)] === '') return ![];
-    if (Scene_Title[_0x5b3ac2(0x40e)] === _0x5b3ac2(0x39c)) return ![];
-    return !![];
-  }),
-  (Scene_Boot[_0x17b060(0x54a)][_0x17b060(0x1e3)] = function () {
-    const _0x132c7e = _0x17b060,
-      _0x3890b4 = $dataSystem[_0x132c7e(0x7d8)],
-      _0x52a23e = Scene_Title[_0x132c7e(0x4d5)] || '',
-      _0x22e1eb = Scene_Title['version'] || '',
-      _0x3c1328 = VisuMZ[_0x132c7e(0x77a)][_0x132c7e(0x382)][_0x132c7e(0x5b0)][_0x132c7e(0x4ad)][_0x132c7e(0x687)],
-      _0x5e652a = _0x3c1328[_0x132c7e(0x1df)](_0x3890b4, _0x52a23e, _0x22e1eb);
-    document[_0x132c7e(0x85f)] = _0x5e652a;
-  }),
-  (Scene_Boot['prototype'][_0x17b060(0x23a)] = function () {
-    const _0x55010c = _0x17b060;
-    if (VisuMZ[_0x55010c(0x77a)][_0x55010c(0x382)]['UI'][_0x55010c(0x550)]) {
-      const _0x37094b = Graphics[_0x55010c(0x321)] - Graphics[_0x55010c(0x778)] - VisuMZ['CoreEngine'][_0x55010c(0x382)]['UI'][_0x55010c(0x537)] * 0x2,
-        _0x5cb59e = Sprite_Button[_0x55010c(0x54a)]['blockWidth'][_0x55010c(0x64e)](this) * 0x4;
-      if (_0x37094b >= _0x5cb59e) SceneManager[_0x55010c(0x469)](!![]);
-    }
-  }),
-  (Scene_Title[_0x17b060(0x4d5)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x5b0)][_0x17b060(0x4ad)][_0x17b060(0x273)]),
-  (Scene_Title[_0x17b060(0x40e)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x5b0)][_0x17b060(0x4ad)][_0x17b060(0x192)]),
-  (Scene_Title[_0x17b060(0x518)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x1ca)]),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x601)] = Scene_Title[_0x17b060(0x54a)]['drawGameTitle']),
-  (Scene_Title[_0x17b060(0x54a)]['drawGameTitle'] = function () {
-    const _0x3e81e7 = _0x17b060;
-    VisuMZ[_0x3e81e7(0x77a)][_0x3e81e7(0x382)][_0x3e81e7(0x5b0)][_0x3e81e7(0x4ad)][_0x3e81e7(0x5db)]['call'](this);
-    if (Scene_Title[_0x3e81e7(0x4d5)] !== '' && Scene_Title[_0x3e81e7(0x4d5)] !== _0x3e81e7(0x273)) this['drawGameSubtitle']();
-    if (Scene_Title['version'] !== '' && Scene_Title['version'] !== _0x3e81e7(0x39c)) this[_0x3e81e7(0x649)]();
-  }),
-  (Scene_Title[_0x17b060(0x54a)]['drawGameSubtitle'] = function () {
-    const _0x2df58 = _0x17b060;
-    VisuMZ['CoreEngine'][_0x2df58(0x382)][_0x2df58(0x5b0)][_0x2df58(0x4ad)][_0x2df58(0x63c)][_0x2df58(0x64e)](this);
-  }),
-  (Scene_Title[_0x17b060(0x54a)][_0x17b060(0x649)] = function () {
-    const _0x137299 = _0x17b060;
-    VisuMZ[_0x137299(0x77a)][_0x137299(0x382)][_0x137299(0x5b0)]['Title'][_0x137299(0x649)][_0x137299(0x64e)](this);
-  }),
-  (Scene_Title[_0x17b060(0x54a)][_0x17b060(0x5dd)] = function () {
-    const _0x224c79 = _0x17b060;
-    this['createTitleButtons']();
-    const _0x5a9fd1 = $dataSystem[_0x224c79(0xe2)][_0x224c79(0x7b3)],
-      _0xc19986 = this[_0x224c79(0x4e2)]();
-    (this[_0x224c79(0x7b7)] = new Window_TitleCommand(_0xc19986)), this[_0x224c79(0x7b7)]['setBackgroundType'](_0x5a9fd1);
-    const _0xb4fca5 = this['commandWindowRect']();
-    this['_commandWindow'][_0x224c79(0x4f6)](_0xb4fca5['x'], _0xb4fca5['y'], _0xb4fca5[_0x224c79(0x321)], _0xb4fca5[_0x224c79(0x2c5)]),
-      this['_commandWindow'][_0x224c79(0x5f1)](),
-      this[_0x224c79(0x7b7)][_0x224c79(0x80e)](),
-      this[_0x224c79(0x7b7)][_0x224c79(0x2df)](),
-      this[_0x224c79(0x6a9)](this[_0x224c79(0x7b7)]);
-  }),
-  (Scene_Title['prototype']['commandWindowRows'] = function () {
-    const _0x47855a = _0x17b060;
-    return this[_0x47855a(0x7b7)] ? this[_0x47855a(0x7b7)][_0x47855a(0x162)]() : VisuMZ[_0x47855a(0x77a)]['Settings']['TitleCommandList'][_0x47855a(0x540)];
-  }),
-  (Scene_Title[_0x17b060(0x54a)][_0x17b060(0x4e2)] = function () {
-    const _0x3109f7 = _0x17b060;
-    return VisuMZ[_0x3109f7(0x77a)][_0x3109f7(0x382)][_0x3109f7(0x5b0)][_0x3109f7(0x4ad)][_0x3109f7(0x70e)][_0x3109f7(0x64e)](this);
-  }),
-  (Scene_Title[_0x17b060(0x54a)][_0x17b060(0x264)] = function () {
-    const _0x2c6390 = _0x17b060;
-    for (const _0x3e6b8 of Scene_Title[_0x2c6390(0x518)]) {
-      const _0x3812e6 = new Sprite_TitlePictureButton(_0x3e6b8);
-      this[_0x2c6390(0x781)](_0x3812e6);
-    }
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x3d6)] = Scene_Map[_0x17b060(0x54a)]['initialize']),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x3e0)] = function () {
-    const _0x3630ee = _0x17b060;
-    VisuMZ[_0x3630ee(0x77a)][_0x3630ee(0x3d6)][_0x3630ee(0x64e)](this), $gameTemp[_0x3630ee(0x834)](), this[_0x3630ee(0x1f3)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x157)] = Scene_Map[_0x17b060(0x54a)][_0x17b060(0x8a3)]),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x8a3)] = function () {
-    const _0x5f33eb = _0x17b060;
-    VisuMZ['CoreEngine'][_0x5f33eb(0x157)][_0x5f33eb(0x64e)](this), $gameTemp[_0x5f33eb(0x7cd)] && !$gameMessage[_0x5f33eb(0x292)]() && (this[_0x5f33eb(0x51b)](), SceneManager[_0x5f33eb(0x2cb)]());
-  }),
-  (Scene_Map['prototype'][_0x17b060(0x249)] = function () {
-    const _0x2fe0bc = _0x17b060;
-    Scene_Message[_0x2fe0bc(0x54a)][_0x2fe0bc(0x249)][_0x2fe0bc(0x64e)](this),
-      !SceneManager['isNextScene'](Scene_Battle) &&
-        (this[_0x2fe0bc(0x10b)][_0x2fe0bc(0x319)](), this[_0x2fe0bc(0x74e)]['hide'](), (this['_windowLayer'][_0x2fe0bc(0x70d)] = ![]), SceneManager['snapForBackground']()),
-      $gameScreen[_0x2fe0bc(0x2e1)](),
-      this[_0x2fe0bc(0x1f3)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Scene_Map_createMenuButton'] = Scene_Map['prototype'][_0x17b060(0x25a)]),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x25a)] = function () {
-    const _0x473360 = _0x17b060;
-    VisuMZ[_0x473360(0x77a)][_0x473360(0x433)][_0x473360(0x64e)](this), SceneManager['isSideButtonLayout']() && this[_0x473360(0x3d3)]();
-  }),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x3d3)] = function () {
-    const _0x54250c = _0x17b060;
-    this[_0x54250c(0x618)]['x'] = Graphics[_0x54250c(0x778)] + 0x4;
-  }),
-  (VisuMZ['CoreEngine']['Scene_Map_updateScene'] = Scene_Map[_0x17b060(0x54a)]['updateScene']),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x2dc)] = function () {
-    const _0x403875 = _0x17b060;
-    VisuMZ[_0x403875(0x77a)][_0x403875(0x22b)][_0x403875(0x64e)](this), this[_0x403875(0x373)]();
-  }),
-  (Scene_Map['prototype'][_0x17b060(0x373)] = function () {
-    const _0x5e8d97 = _0x17b060;
-    Input[_0x5e8d97(0x301)](_0x5e8d97(0x562)) && ((ConfigManager['alwaysDash'] = !ConfigManager[_0x5e8d97(0x107)]), ConfigManager[_0x5e8d97(0x25e)]());
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x6a7)] = Scene_Map[_0x17b060(0x54a)][_0x17b060(0x51b)]),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x51b)] = function () {
-    const _0x428359 = _0x17b060;
-    VisuMZ[_0x428359(0x77a)][_0x428359(0x6a7)]['call'](this), this[_0x428359(0x5a3)]();
-  }),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x1f3)] = function () {
-    const _0x577cc5 = _0x17b060;
-    this[_0x577cc5(0x375)] = [];
-  }),
-  (Scene_Map[_0x17b060(0x54a)]['updateOnceParallelInterpreters'] = function () {
-    const _0x188f46 = _0x17b060;
-    if (!this[_0x188f46(0x375)]) return;
-    for (const _0xa684b of this[_0x188f46(0x375)]) {
-      _0xa684b && _0xa684b['update']();
-    }
-  }),
-  (Scene_Map['prototype'][_0x17b060(0x7b8)] = function (_0x471363, _0x39bcf3) {
-    const _0xca1afd = _0x17b060,
-      _0x517a35 = $dataCommonEvents[_0x471363];
-    if (!_0x517a35) return;
-    const _0x1c0cbc = new Game_OnceParallelInterpreter();
-    this[_0xca1afd(0x5f7)](_0x1c0cbc), _0x1c0cbc['setCommonEvent'](_0x471363), _0x1c0cbc['setEvent'](_0x39bcf3);
-  }),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x5f7)] = function (_0x484601) {
-    const _0x3e4084 = _0x17b060;
-    (this[_0x3e4084(0x375)] = this[_0x3e4084(0x375)] || []), this[_0x3e4084(0x375)][_0x3e4084(0x6f2)](_0x484601);
-  }),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x888)] = function (_0x28a615) {
-    const _0x2e629d = _0x17b060;
-    (this[_0x2e629d(0x375)] = this[_0x2e629d(0x375)] || []), this['_onceParallelInterpreters']['remove'](_0x28a615);
-  });
-function Game_OnceParallelInterpreter() {
-  const _0x460306 = _0x17b060;
-  this[_0x460306(0x3e0)](...arguments);
-}
-(Game_OnceParallelInterpreter[_0x17b060(0x54a)] = Object[_0x17b060(0x3f6)](Game_Interpreter[_0x17b060(0x54a)])),
-  (Game_OnceParallelInterpreter['prototype'][_0x17b060(0x60c)] = Game_OnceParallelInterpreter),
-  (Game_OnceParallelInterpreter['prototype'][_0x17b060(0x825)] = function (_0x5229da) {
-    const _0x24ac66 = _0x17b060,
-      _0x4a0386 = $dataCommonEvents[_0x5229da];
-    _0x4a0386 ? this['setup'](_0x4a0386[_0x24ac66(0x53c)], 0x0) : this['terminate']();
-  }),
-  (Game_OnceParallelInterpreter[_0x17b060(0x54a)][_0x17b060(0x7ea)] = function (_0x33045b) {
-    const _0x2333a0 = _0x17b060;
-    this[_0x2333a0(0x6b5)] = _0x33045b || 0x0;
-  }),
-  (Game_OnceParallelInterpreter['prototype'][_0x17b060(0x249)] = function () {
-    const _0x1bd1cf = _0x17b060;
-    if (!SceneManager[_0x1bd1cf(0x482)]()) return;
-    SceneManager[_0x1bd1cf(0x2f9)][_0x1bd1cf(0x888)](this), Game_Interpreter[_0x1bd1cf(0x54a)]['terminate'][_0x1bd1cf(0x64e)](this);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Scene_MenuBase_helpAreaTop'] = Scene_MenuBase['prototype'][_0x17b060(0x3b7)]),
-  (Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x3b7)] = function () {
-    const _0x56bfe3 = _0x17b060;
-    let _0x2d8f1a = 0x0;
-    return SceneManager[_0x56bfe3(0x82d)]() ? (_0x2d8f1a = this['helpAreaTopSideButtonLayout']()) : (_0x2d8f1a = VisuMZ[_0x56bfe3(0x77a)][_0x56bfe3(0x886)][_0x56bfe3(0x64e)](this)), _0x2d8f1a;
-  }),
-  (Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x5e3)] = function () {
-    const _0x1df23e = _0x17b060;
-    return this['isBottomHelpMode']() ? this[_0x1df23e(0x6a2)]() : 0x0;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x1f8)] = Scene_MenuBase['prototype'][_0x17b060(0x137)]),
-  (Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x137)] = function () {
-    const _0x49b34b = _0x17b060;
-    return SceneManager[_0x49b34b(0x82d)]() ? this['mainAreaTopSideButtonLayout']() : VisuMZ['CoreEngine'][_0x49b34b(0x1f8)][_0x49b34b(0x64e)](this);
-  }),
-  (Scene_MenuBase[_0x17b060(0x54a)]['mainAreaTopSideButtonLayout'] = function () {
-    const _0x2a0e64 = _0x17b060;
-    if (!this[_0x2a0e64(0x766)]()) return this[_0x2a0e64(0x2a1)]();
-    else return this[_0x2a0e64(0x248)]() && this[_0x2a0e64(0x672)]() === _0x2a0e64(0x6b2) ? Window_ButtonAssist[_0x2a0e64(0x54a)][_0x2a0e64(0x835)]() : 0x0;
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x5b8)] = Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x418)]),
-  (Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x418)] = function () {
-    const _0x43aa77 = _0x17b060;
-    let _0x14d7c9 = 0x0;
-    return (
-      SceneManager[_0x43aa77(0x82d)]() ? (_0x14d7c9 = this['mainAreaHeightSideButtonLayout']()) : (_0x14d7c9 = VisuMZ[_0x43aa77(0x77a)][_0x43aa77(0x5b8)]['call'](this)),
-      this['isMenuButtonAssistEnabled']() && this[_0x43aa77(0x672)]() !== 'button' && (_0x14d7c9 -= Window_ButtonAssist[_0x43aa77(0x54a)]['lineHeight']()),
-      _0x14d7c9
-    );
-  }),
-  (Scene_MenuBase['prototype']['mainAreaHeightSideButtonLayout'] = function () {
-    const _0x3c2be2 = _0x17b060;
-    return Graphics[_0x3c2be2(0x509)] - this[_0x3c2be2(0x89f)]();
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x688)] = Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x3ba)]),
-  (Scene_MenuBase[_0x17b060(0x54a)]['createBackground'] = function () {
-    const _0x3bd2f2 = _0x17b060,
-      _0x4084b7 = VisuMZ[_0x3bd2f2(0x77a)][_0x3bd2f2(0x382)][_0x3bd2f2(0x8b4)]['BlurStrength'] ?? 0x8;
-    (this[_0x3bd2f2(0x194)] = new PIXI[_0x3bd2f2(0x6a3)][_0x3bd2f2(0x60e)](_0x4084b7)),
-      (this['_backgroundSprite'] = new Sprite()),
-      (this[_0x3bd2f2(0x729)][_0x3bd2f2(0x7d3)] = SceneManager[_0x3bd2f2(0xdf)]()),
-      (this[_0x3bd2f2(0x729)][_0x3bd2f2(0x6a3)] = [this[_0x3bd2f2(0x194)]]),
-      this['addChild'](this['_backgroundSprite']),
-      this[_0x3bd2f2(0x430)](0xc0),
-      this[_0x3bd2f2(0x430)](this[_0x3bd2f2(0x61b)]()),
-      this[_0x3bd2f2(0x5a6)]();
-  }),
-  (Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x61b)] = function () {
-    const _0x513392 = _0x17b060,
-      _0x695992 = String(this[_0x513392(0x60c)][_0x513392(0x142)]),
-      _0x5b324f = this[_0x513392(0x1fe)](_0x695992);
-    return _0x5b324f ? _0x5b324f[_0x513392(0x318)] : 0xc0;
-  }),
-  (Scene_MenuBase[_0x17b060(0x54a)]['createCustomBackgroundImages'] = function () {
-    const _0x231982 = _0x17b060,
-      _0x29c8c4 = String(this[_0x231982(0x60c)][_0x231982(0x142)]),
-      _0x2b9d40 = this['getCustomBackgroundSettings'](_0x29c8c4);
-    _0x2b9d40 &&
-      (_0x2b9d40[_0x231982(0xe1)] !== '' || _0x2b9d40['BgFilename2'] !== '') &&
-      ((this[_0x231982(0x844)] = new Sprite(ImageManager[_0x231982(0x615)](_0x2b9d40[_0x231982(0xe1)]))),
-      (this[_0x231982(0x868)] = new Sprite(ImageManager[_0x231982(0x2b1)](_0x2b9d40[_0x231982(0x3c9)]))),
-      this['addChild'](this[_0x231982(0x844)]),
-      this[_0x231982(0x781)](this[_0x231982(0x868)]),
-      this['_backSprite1'][_0x231982(0x7d3)]['addLoadListener'](this[_0x231982(0x4f1)]['bind'](this, this[_0x231982(0x844)])),
-      this[_0x231982(0x868)][_0x231982(0x7d3)]['addLoadListener'](this[_0x231982(0x4f1)][_0x231982(0x76d)](this, this[_0x231982(0x868)])));
-  }),
-  (Scene_MenuBase['prototype']['getCustomBackgroundSettings'] = function (_0x16b01a) {
-    const _0x28179d = _0x17b060;
-    return VisuMZ[_0x28179d(0x77a)][_0x28179d(0x382)][_0x28179d(0x8b4)][_0x16b01a] || VisuMZ[_0x28179d(0x77a)][_0x28179d(0x382)][_0x28179d(0x8b4)][_0x28179d(0x58a)];
-  }),
-  (Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x4f1)] = function (_0x18bac0) {
-    const _0x1e90fc = _0x17b060;
-    this[_0x1e90fc(0x533)](_0x18bac0), this[_0x1e90fc(0x799)](_0x18bac0);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x20e)] = Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x360)]),
-  (Scene_MenuBase['prototype'][_0x17b060(0x360)] = function () {
-    const _0x5de073 = _0x17b060;
-    VisuMZ[_0x5de073(0x77a)]['Scene_MenuBase_createCancelButton']['call'](this), SceneManager[_0x5de073(0x818)]() && this[_0x5de073(0x4f9)]();
-  }),
-  (Scene_MenuBase['prototype']['moveCancelButtonSideButtonLayout'] = function () {
-    const _0x493f68 = _0x17b060;
-    this[_0x493f68(0x257)]['x'] = Graphics[_0x493f68(0x778)] + 0x4;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x6e6)] = Scene_MenuBase['prototype']['createPageButtons']),
-  (Scene_MenuBase['prototype'][_0x17b060(0x54e)] = function () {
-    const _0xbde0c9 = _0x17b060;
-    VisuMZ['CoreEngine'][_0xbde0c9(0x6e6)][_0xbde0c9(0x64e)](this), SceneManager[_0xbde0c9(0x818)]() && this[_0xbde0c9(0x36f)]();
-  }),
-  (Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x36f)] = function () {
-    const _0xcbea14 = _0x17b060;
-    (this[_0xcbea14(0x262)]['x'] = -0x1 * (this[_0xcbea14(0x262)]['width'] + this[_0xcbea14(0x7de)][_0xcbea14(0x321)] + 0x8)),
-      (this['_pagedownButton']['x'] = -0x1 * (this['_pagedownButton']['width'] + 0x4));
-  }),
-  (Scene_MenuBase['prototype'][_0x17b060(0x248)] = function () {
-    const _0x412d6f = _0x17b060;
-    return VisuMZ[_0x412d6f(0x77a)][_0x412d6f(0x382)][_0x412d6f(0x862)][_0x412d6f(0x20a)];
-  }),
-  (Scene_MenuBase['prototype'][_0x17b060(0x672)] = function () {
-    const _0x2ca8f6 = _0x17b060;
-    return SceneManager[_0x2ca8f6(0x818)]() || SceneManager[_0x2ca8f6(0x28c)]() ? VisuMZ[_0x2ca8f6(0x77a)][_0x2ca8f6(0x382)]['ButtonAssist']['Location'] : _0x2ca8f6(0x139);
-  }),
-  (Scene_MenuBase[_0x17b060(0x54a)]['createButtonAssistWindow'] = function () {
-    const _0x5c3dac = _0x17b060;
-    if (!this[_0x5c3dac(0x248)]()) return;
-    const _0x2e0a29 = this[_0x5c3dac(0x1f4)]();
-    (this['_buttonAssistWindow'] = new Window_ButtonAssist(_0x2e0a29)), this['addWindow'](this[_0x5c3dac(0x5a2)]);
-  }),
-  (Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x1f4)] = function () {
-    const _0x2ff668 = _0x17b060;
-    return this['getButtonAssistLocation']() === _0x2ff668(0x139) ? this[_0x2ff668(0x784)]() : this[_0x2ff668(0x41b)]();
-  }),
-  (Scene_MenuBase[_0x17b060(0x54a)]['buttonAssistWindowButtonRect'] = function () {
-    const _0x2a1ebd = _0x17b060,
-      _0xce4a46 = ConfigManager[_0x2a1ebd(0x5f9)] ? (Sprite_Button[_0x2a1ebd(0x54a)]['blockWidth']() + 0x6) * 0x2 : 0x0,
-      _0x1a1cd5 = this['buttonY'](),
-      _0x4c7b7e = Graphics['boxWidth'] - _0xce4a46 * 0x2,
-      _0x9e6dce = this[_0x2a1ebd(0x3ec)]();
-    return new Rectangle(_0xce4a46, _0x1a1cd5, _0x4c7b7e, _0x9e6dce);
-  }),
-  (Scene_MenuBase[_0x17b060(0x54a)][_0x17b060(0x41b)] = function () {
-    const _0x55ded4 = _0x17b060,
-      _0x271d80 = Graphics['boxWidth'],
-      _0x45b624 = Window_ButtonAssist[_0x55ded4(0x54a)][_0x55ded4(0x835)](),
-      _0x547cda = 0x0;
-    let _0x2321c2 = 0x0;
-    return this[_0x55ded4(0x672)]() === _0x55ded4(0x6b2) ? (_0x2321c2 = 0x0) : (_0x2321c2 = Graphics['boxHeight'] - _0x45b624), new Rectangle(_0x547cda, _0x2321c2, _0x271d80, _0x45b624);
-  }),
-  (Scene_Menu[_0x17b060(0x653)] = VisuMZ['CoreEngine'][_0x17b060(0x382)][_0x17b060(0x5b0)][_0x17b060(0x78e)]),
-  (VisuMZ[_0x17b060(0x77a)]['Scene_Menu_create'] = Scene_Menu[_0x17b060(0x54a)][_0x17b060(0x3f6)]),
-  (Scene_Menu['prototype']['create'] = function () {
-    const _0x428576 = _0x17b060;
-    VisuMZ[_0x428576(0x77a)][_0x428576(0x7e5)][_0x428576(0x64e)](this), this[_0x428576(0x763)]();
-  }),
-  (Scene_Menu['prototype']['setCoreEngineUpdateWindowBg'] = function () {
-    const _0x599d36 = _0x17b060;
-    this[_0x599d36(0x7b7)] && this[_0x599d36(0x7b7)]['setBackgroundType'](Scene_Menu[_0x599d36(0x653)]['CommandBgType']),
-      this['_goldWindow'] && this['_goldWindow'][_0x599d36(0x12d)](Scene_Menu['layoutSettings'][_0x599d36(0x391)]),
-      this[_0x599d36(0x501)] && this[_0x599d36(0x501)][_0x599d36(0x12d)](Scene_Menu[_0x599d36(0x653)][_0x599d36(0x349)]);
-  }),
-  (Scene_Menu[_0x17b060(0x54a)][_0x17b060(0x4e2)] = function () {
-    const _0x4673fd = _0x17b060;
-    return Scene_Menu[_0x4673fd(0x653)][_0x4673fd(0x70e)]['call'](this);
-  }),
-  (Scene_Menu[_0x17b060(0x54a)][_0x17b060(0x81e)] = function () {
-    const _0x112a56 = _0x17b060;
-    return Scene_Menu[_0x112a56(0x653)][_0x112a56(0x84d)][_0x112a56(0x64e)](this);
-  }),
-  (Scene_Menu['prototype']['statusWindowRect'] = function () {
-    const _0x4c0fe7 = _0x17b060;
-    return Scene_Menu['layoutSettings'][_0x4c0fe7(0x71b)][_0x4c0fe7(0x64e)](this);
-  }),
-  (Scene_Item[_0x17b060(0x653)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x5b0)][_0x17b060(0x78a)]),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x3a6)] = Scene_Item[_0x17b060(0x54a)][_0x17b060(0x3f6)]),
-  (Scene_Item[_0x17b060(0x54a)]['create'] = function () {
-    const _0x2579a9 = _0x17b060;
-    VisuMZ[_0x2579a9(0x77a)]['Scene_Item_create'][_0x2579a9(0x64e)](this), this['setCoreEngineUpdateWindowBg']();
-  }),
-  (Scene_Item[_0x17b060(0x54a)][_0x17b060(0x763)] = function () {
-    const _0x2e81f4 = _0x17b060;
-    this[_0x2e81f4(0x370)] && this[_0x2e81f4(0x370)][_0x2e81f4(0x12d)](Scene_Item['layoutSettings']['HelpBgType']),
-      this[_0x2e81f4(0x4e6)] && this[_0x2e81f4(0x4e6)][_0x2e81f4(0x12d)](Scene_Item[_0x2e81f4(0x653)][_0x2e81f4(0x4f7)]),
-      this[_0x2e81f4(0x28d)] && this['_itemWindow'][_0x2e81f4(0x12d)](Scene_Item['layoutSettings'][_0x2e81f4(0x823)]),
-      this[_0x2e81f4(0x6bf)] && this[_0x2e81f4(0x6bf)]['setBackgroundType'](Scene_Item[_0x2e81f4(0x653)][_0x2e81f4(0x885)]);
-  }),
-  (Scene_Item[_0x17b060(0x54a)][_0x17b060(0x295)] = function () {
-    const _0x1b468a = _0x17b060;
-    return Scene_Item[_0x1b468a(0x653)][_0x1b468a(0x432)][_0x1b468a(0x64e)](this);
-  }),
-  (Scene_Item[_0x17b060(0x54a)][_0x17b060(0x564)] = function () {
-    const _0x222902 = _0x17b060;
-    return Scene_Item[_0x222902(0x653)][_0x222902(0x6c0)][_0x222902(0x64e)](this);
-  }),
-  (Scene_Item[_0x17b060(0x54a)]['itemWindowRect'] = function () {
-    const _0x602b8a = _0x17b060;
-    return Scene_Item[_0x602b8a(0x653)][_0x602b8a(0x51a)][_0x602b8a(0x64e)](this);
-  }),
-  (Scene_Item[_0x17b060(0x54a)][_0x17b060(0x47c)] = function () {
-    const _0x5d5f22 = _0x17b060;
-    return Scene_Item[_0x5d5f22(0x653)][_0x5d5f22(0x6b7)][_0x5d5f22(0x64e)](this);
-  }),
-  (Scene_Skill[_0x17b060(0x653)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x5b0)][_0x17b060(0x128)]),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x68b)] = Scene_Skill[_0x17b060(0x54a)]['create']),
-  (Scene_Skill[_0x17b060(0x54a)][_0x17b060(0x3f6)] = function () {
-    const _0x1cdb57 = _0x17b060;
-    VisuMZ[_0x1cdb57(0x77a)][_0x1cdb57(0x68b)][_0x1cdb57(0x64e)](this), this[_0x1cdb57(0x763)]();
-  }),
-  (Scene_Skill[_0x17b060(0x54a)][_0x17b060(0x763)] = function () {
-    const _0x3d4a3c = _0x17b060;
-    this['_helpWindow'] && this[_0x3d4a3c(0x370)][_0x3d4a3c(0x12d)](Scene_Skill[_0x3d4a3c(0x653)][_0x3d4a3c(0x67a)]),
-      this[_0x3d4a3c(0x1cb)] && this[_0x3d4a3c(0x1cb)]['setBackgroundType'](Scene_Skill[_0x3d4a3c(0x653)]['SkillTypeBgType']),
-      this[_0x3d4a3c(0x501)] && this[_0x3d4a3c(0x501)][_0x3d4a3c(0x12d)](Scene_Skill[_0x3d4a3c(0x653)][_0x3d4a3c(0x349)]),
-      this[_0x3d4a3c(0x28d)] && this[_0x3d4a3c(0x28d)][_0x3d4a3c(0x12d)](Scene_Skill[_0x3d4a3c(0x653)][_0x3d4a3c(0x823)]),
-      this[_0x3d4a3c(0x6bf)] && this['_actorWindow']['setBackgroundType'](Scene_Skill['layoutSettings']['ActorBgType']);
-  }),
-  (Scene_Skill[_0x17b060(0x54a)][_0x17b060(0x295)] = function () {
-    const _0x32561c = _0x17b060;
-    return Scene_Skill[_0x32561c(0x653)]['HelpRect']['call'](this);
-  }),
-  (Scene_Skill['prototype'][_0x17b060(0x4d6)] = function () {
-    const _0x179b4a = _0x17b060;
-    return Scene_Skill[_0x179b4a(0x653)][_0x179b4a(0x59d)]['call'](this);
-  }),
-  (Scene_Skill['prototype'][_0x17b060(0x865)] = function () {
-    const _0x2a4654 = _0x17b060;
-    return Scene_Skill['layoutSettings']['StatusRect'][_0x2a4654(0x64e)](this);
-  }),
-  (Scene_Skill[_0x17b060(0x54a)][_0x17b060(0x5be)] = function () {
-    const _0x37efb9 = _0x17b060;
-    return Scene_Skill[_0x37efb9(0x653)][_0x37efb9(0x51a)][_0x37efb9(0x64e)](this);
-  }),
-  (Scene_Skill[_0x17b060(0x54a)][_0x17b060(0x47c)] = function () {
-    const _0x3a4d5e = _0x17b060;
-    return Scene_Skill[_0x3a4d5e(0x653)][_0x3a4d5e(0x6b7)][_0x3a4d5e(0x64e)](this);
-  }),
-  (Scene_Equip['layoutSettings'] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x5b0)][_0x17b060(0x4ce)]),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x229)] = Scene_Equip[_0x17b060(0x54a)][_0x17b060(0x3f6)]),
-  (Scene_Equip['prototype'][_0x17b060(0x3f6)] = function () {
-    const _0x3762ea = _0x17b060;
-    VisuMZ[_0x3762ea(0x77a)][_0x3762ea(0x229)][_0x3762ea(0x64e)](this), this['setCoreEngineUpdateWindowBg']();
-  }),
-  (Scene_Equip[_0x17b060(0x54a)][_0x17b060(0x763)] = function () {
-    const _0x52a2f7 = _0x17b060;
-    this[_0x52a2f7(0x370)] && this['_helpWindow'][_0x52a2f7(0x12d)](Scene_Equip['layoutSettings'][_0x52a2f7(0x67a)]),
-      this['_statusWindow'] && this[_0x52a2f7(0x501)]['setBackgroundType'](Scene_Equip['layoutSettings']['StatusBgType']),
-      this[_0x52a2f7(0x7b7)] && this[_0x52a2f7(0x7b7)]['setBackgroundType'](Scene_Equip[_0x52a2f7(0x653)][_0x52a2f7(0x24d)]),
-      this[_0x52a2f7(0x590)] && this[_0x52a2f7(0x590)][_0x52a2f7(0x12d)](Scene_Equip[_0x52a2f7(0x653)][_0x52a2f7(0x1db)]),
-      this[_0x52a2f7(0x28d)] && this['_itemWindow'][_0x52a2f7(0x12d)](Scene_Equip[_0x52a2f7(0x653)]['ItemBgType']);
-  }),
-  (Scene_Equip[_0x17b060(0x54a)]['helpWindowRect'] = function () {
-    const _0x169627 = _0x17b060;
-    return Scene_Equip[_0x169627(0x653)][_0x169627(0x432)][_0x169627(0x64e)](this);
-  }),
-  (Scene_Equip['prototype']['statusWindowRect'] = function () {
-    const _0x5ea8ed = _0x17b060;
-    return Scene_Equip[_0x5ea8ed(0x653)][_0x5ea8ed(0x71b)][_0x5ea8ed(0x64e)](this);
-  }),
-  (Scene_Equip[_0x17b060(0x54a)]['commandWindowRect'] = function () {
-    const _0x11e738 = _0x17b060;
-    return Scene_Equip[_0x11e738(0x653)][_0x11e738(0x70e)][_0x11e738(0x64e)](this);
-  }),
-  (Scene_Equip[_0x17b060(0x54a)][_0x17b060(0x4ef)] = function () {
-    const _0x20dcac = _0x17b060;
-    return Scene_Equip[_0x20dcac(0x653)]['SlotRect'][_0x20dcac(0x64e)](this);
-  }),
-  (Scene_Equip[_0x17b060(0x54a)][_0x17b060(0x5be)] = function () {
-    const _0x3096ba = _0x17b060;
-    return Scene_Equip[_0x3096ba(0x653)][_0x3096ba(0x51a)]['call'](this);
-  }),
-  (Scene_Status[_0x17b060(0x653)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)]['MenuLayout']['StatusMenu']),
-  (VisuMZ[_0x17b060(0x77a)]['Scene_Status_create'] = Scene_Status[_0x17b060(0x54a)][_0x17b060(0x3f6)]),
-  (Scene_Status['prototype']['create'] = function () {
-    const _0x399570 = _0x17b060;
-    VisuMZ[_0x399570(0x77a)]['Scene_Status_create'][_0x399570(0x64e)](this), this[_0x399570(0x763)]();
-  }),
-  (Scene_Status['prototype'][_0x17b060(0x763)] = function () {
-    const _0x3f7889 = _0x17b060;
-    this[_0x3f7889(0x1cc)] && this[_0x3f7889(0x1cc)][_0x3f7889(0x12d)](Scene_Status[_0x3f7889(0x653)]['ProfileBgType']),
-      this[_0x3f7889(0x501)] && this[_0x3f7889(0x501)][_0x3f7889(0x12d)](Scene_Status[_0x3f7889(0x653)]['StatusBgType']),
-      this['_statusParamsWindow'] && this['_statusParamsWindow'][_0x3f7889(0x12d)](Scene_Status[_0x3f7889(0x653)][_0x3f7889(0x2d1)]),
-      this[_0x3f7889(0x8b8)] && this[_0x3f7889(0x8b8)][_0x3f7889(0x12d)](Scene_Status[_0x3f7889(0x653)][_0x3f7889(0x581)]);
-  }),
-  (Scene_Status['prototype'][_0x17b060(0x306)] = function () {
-    const _0x41df70 = _0x17b060;
-    return Scene_Status[_0x41df70(0x653)][_0x41df70(0x322)][_0x41df70(0x64e)](this);
-  }),
-  (Scene_Status[_0x17b060(0x54a)]['statusWindowRect'] = function () {
-    const _0x18682d = _0x17b060;
-    return Scene_Status[_0x18682d(0x653)]['StatusRect']['call'](this);
-  }),
-  (Scene_Status['prototype'][_0x17b060(0x69a)] = function () {
-    const _0x23720c = _0x17b060;
-    return Scene_Status[_0x23720c(0x653)][_0x23720c(0xfc)][_0x23720c(0x64e)](this);
-  }),
-  (Scene_Status[_0x17b060(0x54a)][_0x17b060(0x47e)] = function () {
-    const _0x47e52a = _0x17b060;
-    return Scene_Status[_0x47e52a(0x653)]['StatusEquipRect'][_0x47e52a(0x64e)](this);
-  }),
-  (Scene_Options['layoutSettings'] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x5b0)][_0x17b060(0x66b)]),
-  (VisuMZ['CoreEngine']['Scene_Options_create'] = Scene_Options[_0x17b060(0x54a)][_0x17b060(0x3f6)]),
-  (Scene_Options[_0x17b060(0x54a)][_0x17b060(0x3f6)] = function () {
-    const _0x30d68f = _0x17b060;
-    VisuMZ[_0x30d68f(0x77a)][_0x30d68f(0x883)]['call'](this), this[_0x30d68f(0x763)]();
-  }),
-  (Scene_Options[_0x17b060(0x54a)][_0x17b060(0x763)] = function () {
-    const _0x3f88f7 = _0x17b060;
-    this['_optionsWindow'] && this[_0x3f88f7(0x48a)][_0x3f88f7(0x12d)](Scene_Options[_0x3f88f7(0x653)][_0x3f88f7(0x65d)]);
-  }),
-  (Scene_Options[_0x17b060(0x54a)]['optionsWindowRect'] = function () {
-    const _0x7a4801 = _0x17b060;
-    return Scene_Options[_0x7a4801(0x653)][_0x7a4801(0x3d2)][_0x7a4801(0x64e)](this);
-  }),
-  (Scene_Save[_0x17b060(0x653)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x5b0)][_0x17b060(0x230)]),
-  (Scene_Save[_0x17b060(0x54a)][_0x17b060(0x3f6)] = function () {
-    const _0xc35e34 = _0x17b060;
-    Scene_File[_0xc35e34(0x54a)][_0xc35e34(0x3f6)][_0xc35e34(0x64e)](this), this[_0xc35e34(0x763)]();
-  }),
-  (Scene_Save['prototype'][_0x17b060(0x763)] = function () {
-    const _0xd9b66b = _0x17b060;
-    this[_0xd9b66b(0x370)] && this[_0xd9b66b(0x370)][_0xd9b66b(0x12d)](Scene_Save[_0xd9b66b(0x653)][_0xd9b66b(0x67a)]),
-      this[_0xd9b66b(0x234)] && this[_0xd9b66b(0x234)][_0xd9b66b(0x12d)](Scene_Save['layoutSettings']['ListBgType']);
-  }),
-  (Scene_Save[_0x17b060(0x54a)][_0x17b060(0x295)] = function () {
-    const _0x57a7d6 = _0x17b060;
-    return Scene_Save[_0x57a7d6(0x653)][_0x57a7d6(0x432)][_0x57a7d6(0x64e)](this);
-  }),
-  (Scene_Save[_0x17b060(0x54a)]['listWindowRect'] = function () {
-    const _0x2fcb5b = _0x17b060;
-    return Scene_Save['layoutSettings'][_0x2fcb5b(0x5e9)][_0x2fcb5b(0x64e)](this);
-  }),
-  (Scene_Load[_0x17b060(0x653)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x5b0)][_0x17b060(0x520)]),
-  (Scene_Load[_0x17b060(0x54a)][_0x17b060(0x3f6)] = function () {
-    const _0x239c50 = _0x17b060;
-    Scene_File[_0x239c50(0x54a)][_0x239c50(0x3f6)][_0x239c50(0x64e)](this), this[_0x239c50(0x763)]();
-  }),
-  (Scene_Load[_0x17b060(0x54a)][_0x17b060(0x763)] = function () {
-    const _0x6300a3 = _0x17b060;
-    this[_0x6300a3(0x370)] && this[_0x6300a3(0x370)][_0x6300a3(0x12d)](Scene_Load[_0x6300a3(0x653)][_0x6300a3(0x67a)]),
-      this[_0x6300a3(0x234)] && this[_0x6300a3(0x234)][_0x6300a3(0x12d)](Scene_Load[_0x6300a3(0x653)]['ListBgType']);
-  }),
-  (Scene_Load[_0x17b060(0x54a)][_0x17b060(0x295)] = function () {
-    const _0x49baec = _0x17b060;
-    return Scene_Load[_0x49baec(0x653)][_0x49baec(0x432)][_0x49baec(0x64e)](this);
-  }),
-  (Scene_Load['prototype'][_0x17b060(0x6be)] = function () {
-    const _0x4e547a = _0x17b060;
-    return Scene_Load[_0x4e547a(0x653)][_0x4e547a(0x5e9)][_0x4e547a(0x64e)](this);
-  });
-function Scene_QuickLoad() {
-  const _0x1e3390 = _0x17b060;
-  this[_0x1e3390(0x3e0)](...arguments);
-}
-(Scene_QuickLoad[_0x17b060(0x54a)] = Object[_0x17b060(0x3f6)](Scene_Load['prototype'])),
-  (Scene_QuickLoad[_0x17b060(0x54a)][_0x17b060(0x60c)] = Scene_QuickLoad),
-  (Scene_QuickLoad['prototype'][_0x17b060(0x3e0)] = function () {
-    const _0x402d9b = _0x17b060;
-    Scene_Load[_0x402d9b(0x54a)][_0x402d9b(0x3e0)]['call'](this);
-  }),
-  (Scene_QuickLoad[_0x17b060(0x54a)][_0x17b060(0x3f6)] = function () {
-    const _0x2cdbba = _0x17b060;
-    this[_0x2cdbba(0x357)](this['_saveFileID']);
-  }),
-  (Scene_QuickLoad['prototype'][_0x17b060(0x1d0)] = function (_0x36a4ec) {
-    const _0x22b95a = _0x17b060;
-    this[_0x22b95a(0x154)] = _0x36a4ec;
-  }),
-  (Scene_QuickLoad[_0x17b060(0x54a)][_0x17b060(0x6ae)] = function () {
-    const _0x572716 = _0x17b060;
-    Scene_MenuBase['prototype'][_0x572716(0x6ae)]['call'](this);
-  }),
-  (Scene_GameEnd['layoutSettings'] = VisuMZ[_0x17b060(0x77a)]['Settings'][_0x17b060(0x5b0)]['GameEnd']),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x50a)] = Scene_GameEnd['prototype'][_0x17b060(0x3ba)]),
-  (Scene_GameEnd[_0x17b060(0x54a)][_0x17b060(0x3ba)] = function () {
-    const _0x23dc0b = _0x17b060;
-    Scene_MenuBase[_0x23dc0b(0x54a)][_0x23dc0b(0x3ba)][_0x23dc0b(0x64e)](this);
-  }),
-  (Scene_GameEnd[_0x17b060(0x54a)][_0x17b060(0x5dd)] = function () {
-    const _0x401e7f = _0x17b060,
-      _0x12e040 = this[_0x401e7f(0x4e2)]();
-    (this[_0x401e7f(0x7b7)] = new Window_GameEnd(_0x12e040)),
-      this[_0x401e7f(0x7b7)][_0x401e7f(0x3f2)]('cancel', this[_0x401e7f(0x3b5)][_0x401e7f(0x76d)](this)),
-      this[_0x401e7f(0x6a9)](this[_0x401e7f(0x7b7)]),
-      this['_commandWindow'][_0x401e7f(0x12d)](Scene_GameEnd['layoutSettings'][_0x401e7f(0x24d)]);
-  }),
-  (Scene_GameEnd['prototype'][_0x17b060(0x4e2)] = function () {
-    const _0x54a179 = _0x17b060;
-    return Scene_GameEnd['layoutSettings'][_0x54a179(0x70e)][_0x54a179(0x64e)](this);
-  }),
-  (Scene_Shop[_0x17b060(0x653)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x5b0)][_0x17b060(0x5af)]),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x38e)] = Scene_Shop[_0x17b060(0x54a)][_0x17b060(0x3f6)]),
-  (Scene_Shop[_0x17b060(0x54a)][_0x17b060(0x3f6)] = function () {
-    const _0x17e150 = _0x17b060;
-    VisuMZ['CoreEngine'][_0x17e150(0x38e)]['call'](this), this[_0x17e150(0x763)]();
-  }),
-  (Scene_Shop['prototype'][_0x17b060(0x763)] = function () {
-    const _0x115622 = _0x17b060;
-    this['_helpWindow'] && this[_0x115622(0x370)][_0x115622(0x12d)](Scene_Shop[_0x115622(0x653)][_0x115622(0x67a)]),
-      this['_goldWindow'] && this[_0x115622(0x6da)][_0x115622(0x12d)](Scene_Shop[_0x115622(0x653)]['GoldBgType']),
-      this[_0x115622(0x7b7)] && this[_0x115622(0x7b7)]['setBackgroundType'](Scene_Shop[_0x115622(0x653)][_0x115622(0x24d)]),
-      this['_dummyWindow'] && this['_dummyWindow'][_0x115622(0x12d)](Scene_Shop[_0x115622(0x653)][_0x115622(0x328)]),
-      this[_0x115622(0x61d)] && this[_0x115622(0x61d)][_0x115622(0x12d)](Scene_Shop['layoutSettings']['NumberBgType']),
-      this[_0x115622(0x501)] && this[_0x115622(0x501)][_0x115622(0x12d)](Scene_Shop['layoutSettings'][_0x115622(0x349)]),
-      this[_0x115622(0x8b0)] && this[_0x115622(0x8b0)][_0x115622(0x12d)](Scene_Shop[_0x115622(0x653)][_0x115622(0x143)]),
-      this[_0x115622(0x4e6)] && this[_0x115622(0x4e6)]['setBackgroundType'](Scene_Shop[_0x115622(0x653)][_0x115622(0x4f7)]),
-      this[_0x115622(0x5ec)] && this['_sellWindow']['setBackgroundType'](Scene_Shop[_0x115622(0x653)]['SellBgType']);
-  }),
-  (Scene_Shop['prototype'][_0x17b060(0x295)] = function () {
-    const _0xd3ed69 = _0x17b060;
-    return Scene_Shop[_0xd3ed69(0x653)][_0xd3ed69(0x432)][_0xd3ed69(0x64e)](this);
-  }),
-  (Scene_Shop[_0x17b060(0x54a)]['goldWindowRect'] = function () {
-    const _0x78e01f = _0x17b060;
-    return Scene_Shop['layoutSettings'][_0x78e01f(0x84d)][_0x78e01f(0x64e)](this);
-  }),
-  (Scene_Shop[_0x17b060(0x54a)][_0x17b060(0x4e2)] = function () {
-    const _0x2fc734 = _0x17b060;
-    return Scene_Shop[_0x2fc734(0x653)][_0x2fc734(0x70e)]['call'](this);
-  }),
-  (Scene_Shop['prototype'][_0x17b060(0x459)] = function () {
-    const _0x5361f3 = _0x17b060;
-    return Scene_Shop[_0x5361f3(0x653)]['DummyRect'][_0x5361f3(0x64e)](this);
-  }),
-  (Scene_Shop[_0x17b060(0x54a)][_0x17b060(0x637)] = function () {
-    const _0x4e8a60 = _0x17b060;
-    return Scene_Shop['layoutSettings'][_0x4e8a60(0x496)][_0x4e8a60(0x64e)](this);
-  }),
-  (Scene_Shop[_0x17b060(0x54a)]['statusWindowRect'] = function () {
-    const _0x2a33a3 = _0x17b060;
-    return Scene_Shop[_0x2a33a3(0x653)]['StatusRect']['call'](this);
-  }),
-  (Scene_Shop[_0x17b060(0x54a)][_0x17b060(0x491)] = function () {
-    const _0x41da84 = _0x17b060;
-    return Scene_Shop[_0x41da84(0x653)][_0x41da84(0x267)][_0x41da84(0x64e)](this);
-  }),
-  (Scene_Shop[_0x17b060(0x54a)][_0x17b060(0x564)] = function () {
-    const _0x25f108 = _0x17b060;
-    return Scene_Shop['layoutSettings'][_0x25f108(0x6c0)][_0x25f108(0x64e)](this);
-  }),
-  (Scene_Shop[_0x17b060(0x54a)][_0x17b060(0x68d)] = function () {
-    const _0x4ba4c1 = _0x17b060;
-    return Scene_Shop['layoutSettings'][_0x4ba4c1(0x61f)]['call'](this);
-  }),
-  (Scene_Name[_0x17b060(0x653)] = VisuMZ['CoreEngine']['Settings'][_0x17b060(0x5b0)][_0x17b060(0x4f8)]),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x17b)] = Scene_Name[_0x17b060(0x54a)][_0x17b060(0x3f6)]),
-  (Scene_Name[_0x17b060(0x54a)][_0x17b060(0x3f6)] = function () {
-    const _0xc0e2d5 = _0x17b060;
-    VisuMZ[_0xc0e2d5(0x77a)][_0xc0e2d5(0x17b)][_0xc0e2d5(0x64e)](this), this['setCoreEngineUpdateWindowBg']();
-  }),
-  (Scene_Name['prototype'][_0x17b060(0x763)] = function () {
-    const _0x3bf21c = _0x17b060;
-    this[_0x3bf21c(0x36e)] && this[_0x3bf21c(0x36e)][_0x3bf21c(0x12d)](Scene_Name[_0x3bf21c(0x653)][_0x3bf21c(0x2b6)]),
-      this['_inputWindow'] && this['_inputWindow'][_0x3bf21c(0x12d)](Scene_Name[_0x3bf21c(0x653)][_0x3bf21c(0x7d1)]);
-  }),
-  (Scene_Name[_0x17b060(0x54a)][_0x17b060(0x89f)] = function () {
-    return 0x0;
-  }),
-  (Scene_Name['prototype'][_0x17b060(0x39b)] = function () {
-    const _0x90a830 = _0x17b060;
-    return Scene_Name[_0x90a830(0x653)][_0x90a830(0x1bb)]['call'](this);
-  }),
-  (Scene_Name[_0x17b060(0x54a)][_0x17b060(0x4f2)] = function () {
-    const _0x26b3d2 = _0x17b060;
-    return Scene_Name['layoutSettings']['InputRect'][_0x26b3d2(0x64e)](this);
-  }),
-  (Scene_Name[_0x17b060(0x54a)]['EnableNameInput'] = function () {
-    const _0x5d0e32 = _0x17b060;
-    if (!this[_0x5d0e32(0x52d)]) return ![];
-    return VisuMZ[_0x5d0e32(0x77a)]['Settings'][_0x5d0e32(0x197)]['EnableNameInput'];
-  }),
-  (Scene_Name[_0x17b060(0x54a)][_0x17b060(0x1fb)] = function () {
-    const _0x455cc7 = _0x17b060;
-    if (this['EnableNameInput']() && this['_inputWindow'][_0x455cc7(0x440)] !== 'keyboard') return TextManager[_0x455cc7(0x165)](_0x455cc7(0x595), _0x455cc7(0x7c5));
-    return Scene_MenuBase[_0x455cc7(0x54a)][_0x455cc7(0x1fb)][_0x455cc7(0x64e)](this);
-  }),
-  (Scene_Name[_0x17b060(0x54a)][_0x17b060(0x56f)] = function () {
-    const _0x33a0a0 = _0x17b060;
-    return this['EnableNameInput']() ? TextManager[_0x33a0a0(0x713)](_0x33a0a0(0x412)) : Scene_MenuBase[_0x33a0a0(0x54a)][_0x33a0a0(0x56f)]['call'](this);
-  }),
-  (Scene_Name[_0x17b060(0x54a)][_0x17b060(0x6f0)] = function () {
-    const _0xa76c00 = _0x17b060;
-    if (this[_0xa76c00(0x3d1)]() && this[_0xa76c00(0x52d)][_0xa76c00(0x440)] === 'keyboard') return TextManager[_0xa76c00(0x183)]([_0xa76c00(0x2fe)]);
-    return Scene_MenuBase[_0xa76c00(0x54a)][_0xa76c00(0x6f0)][_0xa76c00(0x64e)](this);
-  }),
-  (Scene_Name['prototype']['buttonAssistKey5'] = function () {
-    const _0x1d7188 = _0x17b060;
-    if (this[_0x1d7188(0x3d1)]() && this['_inputWindow'][_0x1d7188(0x440)] === _0x1d7188(0x364)) return TextManager[_0x1d7188(0x183)]([_0x1d7188(0x287)]);
-    return Scene_MenuBase[_0x1d7188(0x54a)]['buttonAssistKey5']['call'](this);
-  }),
-  (Scene_Name[_0x17b060(0x54a)]['buttonAssistText1'] = function () {
-    const _0x264f46 = _0x17b060;
-    if (this[_0x264f46(0x3d1)]() && this[_0x264f46(0x52d)]['_mode'] !== _0x264f46(0x364)) {
-      const _0x34c842 = VisuMZ['CoreEngine'][_0x264f46(0x382)]['KeyboardInput'];
-      return _0x34c842[_0x264f46(0x2fd)] || _0x264f46(0x227);
-    }
-    return Scene_MenuBase[_0x264f46(0x54a)][_0x264f46(0x8a0)]['call'](this);
-  }),
-  (Scene_Name[_0x17b060(0x54a)][_0x17b060(0x52a)] = function () {
-    const _0x3560c2 = _0x17b060;
-    if (this[_0x3560c2(0x3d1)]()) {
-      const _0xea0106 = VisuMZ['CoreEngine'][_0x3560c2(0x382)][_0x3560c2(0x197)];
-      return this['_inputWindow'][_0x3560c2(0x440)] === _0x3560c2(0x364) ? _0xea0106[_0x3560c2(0x546)] || 'Keyboard' : _0xea0106[_0x3560c2(0x7bf)] || 'Manual';
-    } else return Scene_MenuBase[_0x3560c2(0x54a)][_0x3560c2(0x52a)][_0x3560c2(0x64e)](this);
-  }),
-  (Scene_Name['prototype'][_0x17b060(0x21d)] = function () {
-    const _0x433d9f = _0x17b060;
-    if (this[_0x433d9f(0x3d1)]()) {
-      const _0xe347cb = VisuMZ[_0x433d9f(0x77a)]['Settings']['KeyboardInput'];
-      if (this['_inputWindow'][_0x433d9f(0x440)] === 'keyboard') return _0xe347cb[_0x433d9f(0x526)] || 'Finish';
-    }
-    return Scene_MenuBase[_0x433d9f(0x54a)]['buttonAssistText4'][_0x433d9f(0x64e)](this);
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0xe0)] = Scene_Name[_0x17b060(0x54a)]['onInputOk']),
-  (Scene_Name[_0x17b060(0x54a)][_0x17b060(0x7ef)] = function () {
-    const _0x2e0169 = _0x17b060;
-    this['doesNameContainBannedWords']() ? this[_0x2e0169(0x87b)]() : VisuMZ[_0x2e0169(0x77a)][_0x2e0169(0xe0)][_0x2e0169(0x64e)](this);
-  }),
-  (Scene_Name['prototype'][_0x17b060(0x7c9)] = function () {
-    const _0x18908d = _0x17b060,
-      _0x2e9374 = VisuMZ[_0x18908d(0x77a)][_0x18908d(0x382)][_0x18908d(0x197)];
-    if (!_0x2e9374) return ![];
-    const _0x28c914 = _0x2e9374[_0x18908d(0x854)];
-    if (!_0x28c914) return ![];
-    const _0x2aaa31 = this[_0x18908d(0x36e)][_0x18908d(0x142)]()[_0x18908d(0x853)]();
-    for (const _0x14b840 of _0x28c914) {
-      if (_0x2aaa31[_0x18908d(0x1ae)](_0x14b840[_0x18908d(0x853)]())) return !![];
-    }
-    return ![];
-  }),
-  (Scene_Name[_0x17b060(0x54a)]['onInputBannedWords'] = function () {
-    const _0x3ab85f = _0x17b060;
-    SoundManager[_0x3ab85f(0x217)]();
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x4ab)] = Scene_Battle[_0x17b060(0x54a)]['update']),
-  (Scene_Battle['prototype'][_0x17b060(0x319)] = function () {
-    const _0x1c3d9b = _0x17b060;
-    VisuMZ['CoreEngine'][_0x1c3d9b(0x4ab)][_0x1c3d9b(0x64e)](this);
-    if ($gameTemp['_playTestFastMode']) this[_0x1c3d9b(0x408)]();
-  }),
-  (Scene_Battle[_0x17b060(0x54a)]['updatePlayTestF7'] = function () {
-    const _0x822ad1 = _0x17b060;
-    !BattleManager[_0x822ad1(0x266)]() &&
-      !this[_0x822ad1(0x60a)] &&
-      !$gameMessage[_0x822ad1(0x292)]() &&
-      ((this[_0x822ad1(0x60a)] = !![]), this['update'](), SceneManager[_0x822ad1(0x2cb)](), (this[_0x822ad1(0x60a)] = ![]));
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Scene_Battle_createCancelButton'] = Scene_Battle[_0x17b060(0x54a)][_0x17b060(0x360)]),
-  (Scene_Battle[_0x17b060(0x54a)][_0x17b060(0x360)] = function () {
-    const _0x578a73 = _0x17b060;
-    VisuMZ[_0x578a73(0x77a)][_0x578a73(0x8aa)]['call'](this), SceneManager[_0x578a73(0x818)]() && this['repositionCancelButtonSideButtonLayout']();
-  }),
-  (Scene_Battle[_0x17b060(0x54a)]['repositionCancelButtonSideButtonLayout'] = function () {
-    const _0x288e78 = _0x17b060;
-    (this[_0x288e78(0x257)]['x'] = Graphics[_0x288e78(0x778)] + 0x4),
-      this[_0x288e78(0x7a6)]() ? (this[_0x288e78(0x257)]['y'] = Graphics[_0x288e78(0x509)] - this[_0x288e78(0x3ec)]()) : (this[_0x288e78(0x257)]['y'] = 0x0);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Sprite_Button_initialize'] = Sprite_Button[_0x17b060(0x54a)]['initialize']),
-  (Sprite_Button[_0x17b060(0x54a)][_0x17b060(0x3e0)] = function (_0x432252) {
-    const _0x226b58 = _0x17b060;
-    VisuMZ['CoreEngine'][_0x226b58(0x168)]['call'](this, _0x432252), this[_0x226b58(0x1eb)]();
-  }),
-  (Sprite_Button[_0x17b060(0x54a)][_0x17b060(0x1eb)] = function () {
-    const _0x45c166 = _0x17b060,
-      _0x4ef540 = VisuMZ[_0x45c166(0x77a)][_0x45c166(0x382)]['UI'];
-    this[_0x45c166(0x288)] = ![];
-    switch (this[_0x45c166(0x7bd)]) {
-      case _0x45c166(0x314):
-        this[_0x45c166(0x288)] = !_0x4ef540[_0x45c166(0x555)];
-        break;
-      case 'pageup':
-      case _0x45c166(0x7c5):
-        this[_0x45c166(0x288)] = !_0x4ef540['pagedownShowButton'];
-        break;
-      case _0x45c166(0x195):
-      case 'up':
-      case _0x45c166(0x5b6):
-      case _0x45c166(0x336):
-      case 'ok':
-        this[_0x45c166(0x288)] = !_0x4ef540[_0x45c166(0x5de)];
-        break;
-      case _0x45c166(0x155):
-        this[_0x45c166(0x288)] = !_0x4ef540[_0x45c166(0x659)];
-        break;
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x2da)] = Sprite_Button[_0x17b060(0x54a)]['updateOpacity']),
-  (Sprite_Button['prototype'][_0x17b060(0x3b8)] = function () {
-    const _0x2a15de = _0x17b060;
-    SceneManager['areButtonsHidden']() || this[_0x2a15de(0x288)] ? this['hideButtonFromView']() : VisuMZ[_0x2a15de(0x77a)][_0x2a15de(0x2da)][_0x2a15de(0x64e)](this);
-  }),
-  (Sprite_Button[_0x17b060(0x54a)][_0x17b060(0x544)] = function () {
-    const _0x45b71c = _0x17b060;
-    (this[_0x45b71c(0x70d)] = ![]), (this['opacity'] = 0x0), (this['x'] = Graphics[_0x45b71c(0x321)] * 0xa), (this['y'] = Graphics[_0x45b71c(0x2c5)] * 0xa);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x35e)] = Sprite_Battler['prototype'][_0x17b060(0x4fc)]),
-  (Sprite_Battler[_0x17b060(0x54a)][_0x17b060(0x4fc)] = function (_0xe57293, _0x4a17b4, _0x2fd31a) {
-    const _0x36c7f3 = _0x17b060;
-    (this[_0x36c7f3(0x6fe)] !== _0xe57293 || this[_0x36c7f3(0x14e)] !== _0x4a17b4) && (this['setMoveEasingType'](_0x36c7f3(0x6a8)), (this[_0x36c7f3(0x6cd)] = _0x2fd31a)),
-      VisuMZ[_0x36c7f3(0x77a)][_0x36c7f3(0x35e)][_0x36c7f3(0x64e)](this, _0xe57293, _0x4a17b4, _0x2fd31a);
-  }),
-  (Sprite_Battler[_0x17b060(0x54a)][_0x17b060(0x7f8)] = function (_0x3a9741) {
-    this['_moveEasingType'] = _0x3a9741;
-  }),
-  (Sprite_Battler[_0x17b060(0x54a)][_0x17b060(0x37f)] = function () {
-    const _0x2e4193 = _0x17b060;
-    if (this[_0x2e4193(0x21b)] <= 0x0) return;
-    const _0x4a94b7 = this[_0x2e4193(0x21b)],
-      _0x14c513 = this[_0x2e4193(0x6cd)],
-      _0x4f1dc8 = this[_0x2e4193(0x8ae)];
-    (this[_0x2e4193(0x239)] = this['applyEasing'](this[_0x2e4193(0x239)], this[_0x2e4193(0x6fe)], _0x4a94b7, _0x14c513, _0x4f1dc8)),
-      (this[_0x2e4193(0x2e5)] = this[_0x2e4193(0x85e)](this[_0x2e4193(0x2e5)], this[_0x2e4193(0x14e)], _0x4a94b7, _0x14c513, _0x4f1dc8)),
-      this[_0x2e4193(0x21b)]--;
-    if (this[_0x2e4193(0x21b)] <= 0x0) this[_0x2e4193(0x60f)]();
-  }),
-  (Sprite_Battler[_0x17b060(0x54a)]['applyEasing'] = function (_0xcac1ca, _0x1a7857, _0x7ad6e5, _0x456dec, _0x4b129a) {
-    const _0x5bad91 = _0x17b060,
-      _0x1aeca8 = VisuMZ[_0x5bad91(0x30b)]((_0x456dec - _0x7ad6e5) / _0x456dec, _0x4b129a || _0x5bad91(0x6a8)),
-      _0x49937f = VisuMZ['ApplyEasing']((_0x456dec - _0x7ad6e5 + 0x1) / _0x456dec, _0x4b129a || _0x5bad91(0x6a8)),
-      _0x128e92 = (_0xcac1ca - _0x1a7857 * _0x1aeca8) / (0x1 - _0x1aeca8);
-    return _0x128e92 + (_0x1a7857 - _0x128e92) * _0x49937f;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x455)] = Sprite_Actor[_0x17b060(0x54a)]['setActorHome']),
-  (Sprite_Actor[_0x17b060(0x54a)]['setActorHome'] = function (_0x4e6725) {
-    const _0x31dffe = _0x17b060;
-    VisuMZ[_0x31dffe(0x77a)][_0x31dffe(0x382)]['UI']['RepositionActors'] ? this[_0x31dffe(0x407)](_0x4e6725) : VisuMZ[_0x31dffe(0x77a)][_0x31dffe(0x455)]['call'](this, _0x4e6725);
-  }),
-  (Sprite_Actor[_0x17b060(0x54a)][_0x17b060(0x407)] = function (_0x27717c) {
-    const _0xe6977f = _0x17b060;
-    let _0x5982ad = Math[_0xe6977f(0x3fe)](Graphics[_0xe6977f(0x321)] / 0x2 + 0xc0);
-    (_0x5982ad -= Math['floor']((Graphics[_0xe6977f(0x321)] - Graphics[_0xe6977f(0x778)]) / 0x2)), (_0x5982ad += _0x27717c * 0x20);
-    let _0x3ab84d = Graphics['height'] - 0xc8 - $gameParty[_0xe6977f(0x83a)]() * 0x30;
-    (_0x3ab84d -= Math['floor']((Graphics[_0xe6977f(0x2c5)] - Graphics[_0xe6977f(0x509)]) / 0x2)), (_0x3ab84d += _0x27717c * 0x30), this[_0xe6977f(0x7ad)](_0x5982ad, _0x3ab84d);
-  }),
-  (Sprite_Actor[_0x17b060(0x54a)][_0x17b060(0x841)] = function () {
-    const _0xa4a681 = _0x17b060;
-    this[_0xa4a681(0x4fc)](0x4b0, 0x0, 0x78);
-  }),
-  (Sprite_Animation['prototype'][_0x17b060(0x11c)] = function (_0xd5ff56) {
-    const _0x54f0d2 = _0x17b060;
-    this[_0x54f0d2(0x832)] = _0xd5ff56;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x7e2)] = Sprite_Animation['prototype'][_0x17b060(0x881)]),
-  (Sprite_Animation[_0x17b060(0x54a)]['processSoundTimings'] = function () {
-    const _0x209c94 = _0x17b060;
-    if (this['_muteSound']) return;
-    VisuMZ[_0x209c94(0x77a)][_0x209c94(0x7e2)][_0x209c94(0x64e)](this);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Sprite_Animation_setViewport'] = Sprite_Animation[_0x17b060(0x54a)][_0x17b060(0x6dd)]),
-  (Sprite_Animation[_0x17b060(0x54a)][_0x17b060(0x6dd)] = function (_0x3c8dad) {
-    const _0x36120c = _0x17b060;
-    this[_0x36120c(0x667)]() ? this[_0x36120c(0x5b9)](_0x3c8dad) : VisuMZ[_0x36120c(0x77a)][_0x36120c(0x75a)][_0x36120c(0x64e)](this, _0x3c8dad);
-  }),
-  (Sprite_Animation[_0x17b060(0x54a)][_0x17b060(0x667)] = function () {
-    const _0x481944 = _0x17b060;
-    if (!this['_animation']) return ![];
-    const _0x4c0c7f = this[_0x481944(0x196)][_0x481944(0x142)] || '';
-    if (_0x4c0c7f['match'](/<MIRROR OFFSET X>/i)) return !![];
-    if (_0x4c0c7f[_0x481944(0x2ba)](/<NO MIRROR OFFSET X>/i)) return ![];
-    return VisuMZ[_0x481944(0x77a)][_0x481944(0x382)][_0x481944(0x7ae)][_0x481944(0x209)];
-  }),
-  (Sprite_Animation[_0x17b060(0x54a)][_0x17b060(0x5b9)] = function (_0x5a4897) {
-    const _0x4b9ed0 = _0x17b060,
-      _0x3340fd = this[_0x4b9ed0(0x41d)],
-      _0x1290b5 = this[_0x4b9ed0(0x41d)],
-      _0x101f59 = this[_0x4b9ed0(0x196)]['offsetX'] * (this[_0x4b9ed0(0x114)] ? -0x1 : 0x1) - _0x3340fd / 0x2,
-      _0x30a36e = this[_0x4b9ed0(0x196)][_0x4b9ed0(0x84a)] - _0x1290b5 / 0x2,
-      _0x2d0d17 = this['targetPosition'](_0x5a4897);
-    _0x5a4897['gl']['viewport'](_0x101f59 + _0x2d0d17['x'], _0x30a36e + _0x2d0d17['y'], _0x3340fd, _0x1290b5);
-  }),
-  (Sprite_Animation['prototype']['targetSpritePosition'] = function (_0x30b23f) {
-    const _0x1c019f = _0x17b060;
-    if (_0x30b23f['_mainSprite']) {
-    }
-    const _0x3f1c89 = this[_0x1c019f(0x196)]['name'];
-    let _0x515cc9 = _0x30b23f[_0x1c019f(0x2c5)] * _0x30b23f[_0x1c019f(0x82a)]['y'],
-      _0x434008 = 0x0,
-      _0x11a131 = -_0x515cc9 / 0x2;
-    if (_0x3f1c89['match'](/<(?:HEAD|HEADER|TOP)>/i)) _0x11a131 = -_0x515cc9;
-    if (_0x3f1c89[_0x1c019f(0x2ba)](/<(?:FOOT|FOOTER|BOTTOM)>/i)) _0x11a131 = 0x0;
-    if (this['_animation'][_0x1c019f(0xe8)]) _0x11a131 = 0x0;
-    if (_0x3f1c89[_0x1c019f(0x2ba)](/<(?:LEFT)>/i)) _0x434008 = -_0x30b23f['width'] / 0x2;
-    if (_0x3f1c89['match'](/<(?:RIGHT)>/i)) _0x434008 = _0x30b23f['width'] / 0x2;
-    _0x3f1c89[_0x1c019f(0x2ba)](/<ANCHOR X:[ ](\d+\.?\d*)>/i) && (_0x434008 = Number(RegExp['$1']) * _0x30b23f[_0x1c019f(0x321)]);
-    _0x3f1c89[_0x1c019f(0x2ba)](/<ANCHOR Y:[ ](\d+\.?\d*)>/i) && (_0x11a131 = (0x1 - Number(RegExp['$1'])) * -_0x515cc9);
-    _0x3f1c89['match'](/<ANCHOR:[ ](\d+\.?\d*),[ ](\d+\.?\d*)>/i) && ((_0x434008 = Number(RegExp['$1']) * _0x30b23f[_0x1c019f(0x321)]), (_0x11a131 = (0x1 - Number(RegExp['$2'])) * -_0x515cc9));
-    if (_0x3f1c89[_0x1c019f(0x2ba)](/<OFFSET X:[ ]([\+\-]\d+)>/i)) _0x434008 += Number(RegExp['$1']);
-    if (_0x3f1c89[_0x1c019f(0x2ba)](/<OFFSET Y:[ ]([\+\-]\d+)>/i)) _0x11a131 += Number(RegExp['$1']);
-    _0x3f1c89[_0x1c019f(0x2ba)](/<OFFSET:[ ]([\+\-]\d+),[ ]([\+\-]\d+)>/i) && ((_0x434008 += Number(RegExp['$1'])), (_0x11a131 += Number(RegExp['$2'])));
-    const _0x7d4820 = new Point(_0x434008, _0x11a131);
-    return _0x30b23f[_0x1c019f(0x416)](), _0x30b23f[_0x1c019f(0x25c)][_0x1c019f(0x7f2)](_0x7d4820);
-  }),
-  (Sprite_AnimationMV[_0x17b060(0x54a)][_0x17b060(0x5ed)] = function () {
-    const _0x2dbc56 = _0x17b060;
-    (this[_0x2dbc56(0x334)] = VisuMZ[_0x2dbc56(0x77a)][_0x2dbc56(0x382)][_0x2dbc56(0x7ae)][_0x2dbc56(0x787)] ?? 0x4),
-      this[_0x2dbc56(0x893)](),
-      (this[_0x2dbc56(0x334)] = this[_0x2dbc56(0x334)][_0x2dbc56(0x42b)](0x1, 0xa));
-  }),
-  (Sprite_AnimationMV[_0x17b060(0x54a)]['setupCustomRateCoreEngine'] = function () {
-    const _0x30c680 = _0x17b060;
-    if (!this[_0x30c680(0x196)]);
-    const _0x2d3b56 = this[_0x30c680(0x196)]['name'] || '';
-    _0x2d3b56[_0x30c680(0x2ba)](/<RATE:[ ](\d+)>/i) && (this[_0x30c680(0x334)] = (Number(RegExp['$1']) || 0x1)[_0x30c680(0x42b)](0x1, 0xa));
-  }),
-  (Sprite_AnimationMV[_0x17b060(0x54a)][_0x17b060(0x11c)] = function (_0x578d42) {
-    this['_muteSound'] = _0x578d42;
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Sprite_AnimationMV_processTimingData'] = Sprite_AnimationMV[_0x17b060(0x54a)][_0x17b060(0x6e9)]),
-  (Sprite_AnimationMV[_0x17b060(0x54a)][_0x17b060(0x6e9)] = function (_0x5affee) {
-    const _0x2cbb4c = _0x17b060;
-    this[_0x2cbb4c(0x832)] && ((_0x5affee = JsonEx[_0x2cbb4c(0x83c)](_0x5affee)), _0x5affee['se'] && (_0x5affee['se'][_0x2cbb4c(0x14a)] = 0x0)),
-      VisuMZ[_0x2cbb4c(0x77a)][_0x2cbb4c(0x490)][_0x2cbb4c(0x64e)](this, _0x5affee);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x7fa)] = Sprite_AnimationMV['prototype'][_0x17b060(0x3b3)]),
-  (Sprite_AnimationMV[_0x17b060(0x54a)][_0x17b060(0x3b3)] = function () {
-    const _0x1385eb = _0x17b060;
-    VisuMZ[_0x1385eb(0x77a)][_0x1385eb(0x7fa)]['call'](this);
-    if (this['_animation'][_0x1385eb(0x5b4)] === 0x3) {
-      if (this['x'] === 0x0) this['x'] = Math['round'](Graphics[_0x1385eb(0x321)] / 0x2);
-      if (this['y'] === 0x0) this['y'] = Math['round'](Graphics[_0x1385eb(0x2c5)] / 0x2);
-    }
-  }),
-  (Sprite_Damage[_0x17b060(0x54a)][_0x17b060(0x606)] = function (_0x44d7a1) {
-    const _0x526b23 = _0x17b060;
-    let _0x1a9080 = Math[_0x526b23(0x6c1)](_0x44d7a1)[_0x526b23(0x548)]();
-    this['useDigitGrouping']() && (_0x1a9080 = VisuMZ[_0x526b23(0x4bd)](_0x1a9080));
-    const _0x56a27a = this[_0x526b23(0xf8)](),
-      _0x306676 = Math[_0x526b23(0x221)](_0x56a27a * 0.75);
-    for (let _0x30e4f2 = 0x0; _0x30e4f2 < _0x1a9080[_0x526b23(0x540)]; _0x30e4f2++) {
-      const _0x3c2c0f = this[_0x526b23(0x32b)](_0x306676, _0x56a27a);
-      _0x3c2c0f[_0x526b23(0x7d3)]['drawText'](_0x1a9080[_0x30e4f2], 0x0, 0x0, _0x306676, _0x56a27a, _0x526b23(0x27e)),
-        (_0x3c2c0f['x'] = (_0x30e4f2 - (_0x1a9080[_0x526b23(0x540)] - 0x1) / 0x2) * _0x306676),
-        (_0x3c2c0f['dy'] = -_0x30e4f2);
-    }
-  }),
-  (Sprite_Damage['prototype']['useDigitGrouping'] = function () {
-    const _0x1b113d = _0x17b060;
-    return VisuMZ['CoreEngine'][_0x1b113d(0x382)][_0x1b113d(0x7ae)][_0x1b113d(0x75e)];
-  }),
-  (Sprite_Damage[_0x17b060(0x54a)][_0x17b060(0x768)] = function () {
-    const _0xa0e910 = _0x17b060;
-    return ColorManager[_0xa0e910(0x2dd)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x1b2)] = Sprite_Gauge['prototype'][_0x17b060(0x39f)]),
-  (Sprite_Gauge['prototype'][_0x17b060(0x39f)] = function () {
-    const _0x2d088e = _0x17b060;
-    return VisuMZ[_0x2d088e(0x77a)]['Sprite_Gauge_gaugeRate'][_0x2d088e(0x64e)](this)['clamp'](0x0, 0x1);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Sprite_Gauge_currentValue'] = Sprite_Gauge[_0x17b060(0x54a)][_0x17b060(0x3cf)]),
-  (Sprite_Gauge[_0x17b060(0x54a)][_0x17b060(0x3cf)] = function () {
-    const _0x3d8d2a = _0x17b060;
-    let _0x5866d4 = VisuMZ[_0x3d8d2a(0x77a)][_0x3d8d2a(0x393)][_0x3d8d2a(0x64e)](this);
-    return _0x5866d4;
-  }),
-  (Sprite_Gauge[_0x17b060(0x54a)][_0x17b060(0x5fa)] = function () {
-    const _0x36a051 = _0x17b060;
-    let _0x30e50b = this[_0x36a051(0x3cf)]();
-    this[_0x36a051(0x27c)]() && (_0x30e50b = VisuMZ['GroupDigits'](_0x30e50b));
-    const _0x47c280 = this[_0x36a051(0x2a6)]() - 0x1,
-      _0x355f37 = this[_0x36a051(0x255)] ? this[_0x36a051(0x255)]() : this[_0x36a051(0x788)]();
-    this['setupValueFont'](), this[_0x36a051(0x7d3)][_0x36a051(0x1a9)](_0x30e50b, 0x0, 0x0, _0x47c280, _0x355f37, 'right');
-  }),
-  (Sprite_Gauge['prototype'][_0x17b060(0x450)] = function () {
-    return 0x3;
-  }),
-  (Sprite_Gauge[_0x17b060(0x54a)][_0x17b060(0x27c)] = function () {
-    const _0x2d14f9 = _0x17b060;
-    return VisuMZ[_0x2d14f9(0x77a)][_0x2d14f9(0x382)][_0x2d14f9(0x7ae)][_0x2d14f9(0x419)];
-  }),
-  (Sprite_Gauge[_0x17b060(0x54a)][_0x17b060(0x768)] = function () {
-    const _0x5b28b8 = _0x17b060;
-    return ColorManager[_0x5b28b8(0x462)]();
-  }),
-  (Sprite_StateIcon[_0x17b060(0x390)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)]['UI'][_0x17b060(0x528)] ?? !![]),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x552)] = Sprite_StateIcon[_0x17b060(0x54a)]['loadBitmap']),
-  (Sprite_StateIcon[_0x17b060(0x54a)][_0x17b060(0x80b)] = function () {
-    const _0x1ebfac = _0x17b060;
-    Sprite_StateIcon[_0x1ebfac(0x390)] ? this['loadBitmapCoreEngine']() : VisuMZ[_0x1ebfac(0x77a)]['Sprite_StateIcon_loadBitmap'][_0x1ebfac(0x64e)](this);
-  }),
-  (Sprite_StateIcon[_0x17b060(0x54a)][_0x17b060(0x600)] = function () {
-    const _0xc16426 = _0x17b060;
-    (this[_0xc16426(0x7d3)] = new Bitmap(ImageManager['iconWidth'], ImageManager[_0xc16426(0x275)])), (this[_0xc16426(0x3b2)] = ImageManager[_0xc16426(0x1ef)](_0xc16426(0x284)));
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x722)] = Sprite_StateIcon['prototype'][_0x17b060(0x15d)]),
-  (Sprite_StateIcon[_0x17b060(0x54a)]['updateFrame'] = function () {
-    const _0x3738b6 = _0x17b060;
-    Sprite_StateIcon[_0x3738b6(0x390)] ? this[_0x3738b6(0x85a)]() : VisuMZ[_0x3738b6(0x77a)][_0x3738b6(0x722)][_0x3738b6(0x64e)](this);
-  }),
-  (Sprite_StateIcon[_0x17b060(0x54a)]['updateFrameCoreEngine'] = function () {
-    const _0x2df468 = _0x17b060;
-    if (this[_0x2df468(0x4fb)] === this[_0x2df468(0x18c)]) return;
-    this[_0x2df468(0x4fb)] = this[_0x2df468(0x18c)];
-    const _0x17bca0 = ImageManager[_0x2df468(0x2ab)],
-      _0x2e60d7 = ImageManager['iconHeight'],
-      _0x3b7359 = (this[_0x2df468(0x18c)] % 0x10) * _0x17bca0,
-      _0x17589e = Math[_0x2df468(0x221)](this[_0x2df468(0x18c)] / 0x10) * _0x2e60d7,
-      _0x467d2d = this[_0x2df468(0x3b2)],
-      _0x2cf560 = this[_0x2df468(0x7d3)];
-    _0x2cf560['clear'](), _0x2cf560[_0x2df468(0x3f8)](_0x467d2d, _0x3b7359, _0x17589e, _0x17bca0, _0x2e60d7, 0x0, 0x0, _0x2cf560['width'], _0x2cf560[_0x2df468(0x2c5)]);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x396)] = Sprite_Picture['prototype'][_0x17b060(0x80b)]),
-  (Sprite_Picture[_0x17b060(0x54a)][_0x17b060(0x80b)] = function () {
-    const _0x61a42f = _0x17b060;
-    this[_0x61a42f(0x88d)] && this[_0x61a42f(0x88d)][_0x61a42f(0x2ba)](/VisuMZ CoreEngine PictureIcon (\d+)/i)
-      ? this['loadIconBitmap'](Number(RegExp['$1']))
-      : VisuMZ[_0x61a42f(0x77a)]['Sprite_Picture_loadBitmap'][_0x61a42f(0x64e)](this);
-  }),
-  (Sprite_Picture[_0x17b060(0x54a)]['loadIconBitmap'] = function (_0x5dbb0c) {
-    const _0x432a2e = _0x17b060,
-      _0x1b8d58 = ImageManager[_0x432a2e(0x2ab)],
-      _0x45560d = ImageManager['iconHeight'],
-      _0x1f1916 = this[_0x432a2e(0x88d)]['match'](/SMOOTH/i);
-    this['bitmap'] = new Bitmap(_0x1b8d58, _0x45560d);
-    const _0x2262e4 = ImageManager['loadSystem']('IconSet'),
-      _0x3eae14 = (_0x5dbb0c % 0x10) * _0x1b8d58,
-      _0x254064 = Math[_0x432a2e(0x221)](_0x5dbb0c / 0x10) * _0x45560d;
-    (this[_0x432a2e(0x7d3)][_0x432a2e(0x425)] = _0x1f1916), this['bitmap'][_0x432a2e(0x3f8)](_0x2262e4, _0x3eae14, _0x254064, _0x1b8d58, _0x45560d, 0x0, 0x0, _0x1b8d58, _0x45560d);
-  });
-function Sprite_TitlePictureButton() {
-  const _0x4f64e9 = _0x17b060;
-  this[_0x4f64e9(0x3e0)](...arguments);
-}
-(Sprite_TitlePictureButton[_0x17b060(0x54a)] = Object['create'](Sprite_Clickable[_0x17b060(0x54a)])),
-  (Sprite_TitlePictureButton[_0x17b060(0x54a)][_0x17b060(0x60c)] = Sprite_TitlePictureButton),
-  (Sprite_TitlePictureButton['prototype']['initialize'] = function (_0x1be69e) {
-    const _0x16c9f8 = _0x17b060;
-    Sprite_Clickable['prototype'][_0x16c9f8(0x3e0)][_0x16c9f8(0x64e)](this), (this[_0x16c9f8(0xf3)] = _0x1be69e), (this[_0x16c9f8(0x132)] = null), this['setup']();
-  }),
-  (Sprite_TitlePictureButton[_0x17b060(0x54a)][_0x17b060(0x67d)] = function () {
-    const _0x490bee = _0x17b060;
-    (this['x'] = Graphics[_0x490bee(0x321)]), (this['y'] = Graphics['height']), (this[_0x490bee(0x70d)] = ![]), this['setupButtonImage']();
-  }),
-  (Sprite_TitlePictureButton['prototype'][_0x17b060(0x25d)] = function () {
-    const _0x2c4a5d = _0x17b060;
-    (this[_0x2c4a5d(0x7d3)] = ImageManager['loadPicture'](this['_data'][_0x2c4a5d(0x441)])), this['bitmap'][_0x2c4a5d(0x892)](this[_0x2c4a5d(0x1de)]['bind'](this));
-  }),
-  (Sprite_TitlePictureButton['prototype'][_0x17b060(0x1de)] = function () {
-    const _0x2f638d = _0x17b060;
-    this[_0x2f638d(0xf3)]['OnLoadJS'][_0x2f638d(0x64e)](this), this[_0x2f638d(0xf3)][_0x2f638d(0x55b)][_0x2f638d(0x64e)](this), this[_0x2f638d(0x6f6)](this['_data'][_0x2f638d(0x177)]['bind'](this));
-  }),
-  (Sprite_TitlePictureButton[_0x17b060(0x54a)][_0x17b060(0x319)] = function () {
-    const _0x1e999d = _0x17b060;
-    Sprite_Clickable[_0x1e999d(0x54a)][_0x1e999d(0x319)][_0x1e999d(0x64e)](this), this['updateOpacity'](), this[_0x1e999d(0x23c)]();
-  }),
-  (Sprite_TitlePictureButton['prototype'][_0x17b060(0x500)] = function () {
-    const _0x319c9c = _0x17b060;
-    return VisuMZ[_0x319c9c(0x77a)][_0x319c9c(0x382)][_0x319c9c(0x5b0)][_0x319c9c(0x4ad)][_0x319c9c(0x666)];
-  }),
-  (Sprite_TitlePictureButton[_0x17b060(0x54a)][_0x17b060(0x3b8)] = function () {
-    const _0x46f4f7 = _0x17b060;
-    this[_0x46f4f7(0x400)] || this[_0x46f4f7(0x77e)]
-      ? (this['opacity'] = 0xff)
-      : ((this['opacity'] += this[_0x46f4f7(0x70d)] ? this['fadeSpeed']() : -0x1 * this[_0x46f4f7(0x500)]()), (this[_0x46f4f7(0x3e8)] = Math[_0x46f4f7(0x701)](0xc0, this[_0x46f4f7(0x3e8)])));
-  }),
-  (Sprite_TitlePictureButton['prototype'][_0x17b060(0x6f6)] = function (_0x1517ab) {
-    const _0x3a224c = _0x17b060;
-    this[_0x3a224c(0x132)] = _0x1517ab;
-  }),
-  (Sprite_TitlePictureButton['prototype']['onClick'] = function () {
-    const _0x48b3c4 = _0x17b060;
-    this[_0x48b3c4(0x132)] && this['_clickHandler']();
-  });
-function Sprite_ExtendedTile() {
-  const _0x4b9211 = _0x17b060;
-  this[_0x4b9211(0x3e0)](...arguments);
-}
-(Sprite_ExtendedTile[_0x17b060(0x54a)] = Object[_0x17b060(0x3f6)](Sprite[_0x17b060(0x54a)])),
-  (Sprite_ExtendedTile[_0x17b060(0x54a)][_0x17b060(0x60c)] = Sprite_ExtendedTile),
-  (Sprite_ExtendedTile[_0x17b060(0x54a)][_0x17b060(0x3e0)] = function (_0x408bad, _0x3962ce, _0x3d4896, _0x30d030) {
-    const _0x498d0d = _0x17b060;
-    (this[_0x498d0d(0x7fb)] = Game_CharacterBase[_0x498d0d(0x2d9)] || -0x6),
-      (this[_0x498d0d(0x761)] = _0x408bad),
-      (this['_mapY'] = _0x3962ce),
-      (this['_tile'] = _0x3d4896),
-      (this[_0x498d0d(0x869)] = _0x30d030),
-      Sprite[_0x498d0d(0x54a)][_0x498d0d(0x3e0)][_0x498d0d(0x64e)](this),
-      this[_0x498d0d(0x3d0)](),
-      this['loadTileBitmap'](),
-      this[_0x498d0d(0x712)](),
-      this[_0x498d0d(0x319)]();
-  }),
-  (Sprite_ExtendedTile[_0x17b060(0x54a)][_0x17b060(0x3d0)] = function () {
-    const _0x5866de = _0x17b060;
-    (this[_0x5866de(0x521)] = new Sprite()),
-      (this[_0x5866de(0x521)][_0x5866de(0x435)]['x'] = 0.5),
-      (this[_0x5866de(0x521)][_0x5866de(0x435)]['y'] = 0x1),
-      (this[_0x5866de(0x521)]['y'] = -this[_0x5866de(0x7fb)] + 0x1),
-      this[_0x5866de(0x781)](this[_0x5866de(0x521)]);
-  }),
-  (Sprite_ExtendedTile['prototype']['loadTileBitmap'] = function () {
-    const _0x5ca703 = _0x17b060,
-      _0x5f2641 = $gameMap[_0x5ca703(0x2ac)](),
-      _0x530b2b = 0x5 + Math[_0x5ca703(0x221)](this[_0x5ca703(0x271)] / 0x100);
-    this['_tileSprite']['bitmap'] = ImageManager[_0x5ca703(0x31c)](_0x5f2641[_0x5ca703(0x6ef)][_0x530b2b]);
-  }),
-  (Sprite_ExtendedTile[_0x17b060(0x54a)][_0x17b060(0x712)] = function () {
-    const _0xec58e2 = _0x17b060,
-      _0x375776 = this[_0xec58e2(0x271)],
-      _0x5bfd8c = $gameMap[_0xec58e2(0x1f1)](),
-      _0xcf8ef6 = $gameMap[_0xec58e2(0x251)](),
-      _0x35bfbb = ((Math[_0xec58e2(0x221)](_0x375776 / 0x80) % 0x2) * 0x8 + (_0x375776 % 0x8)) * _0x5bfd8c,
-      _0x1d60ed = (Math['floor']((_0x375776 % 0x100) / 0x8) % 0x10) * _0xcf8ef6,
-      _0x248d5b = this[_0xec58e2(0x869)] * _0xcf8ef6;
-    this['_tileSprite'][_0xec58e2(0x674)](_0x35bfbb, _0x1d60ed - _0x248d5b, _0x5bfd8c, _0xcf8ef6 + _0x248d5b);
-  }),
-  (Sprite_ExtendedTile['prototype'][_0x17b060(0x319)] = function () {
-    const _0x434caa = _0x17b060;
-    Sprite[_0x434caa(0x54a)]['update'][_0x434caa(0x64e)](this), this[_0x434caa(0x3b3)]();
-  }),
-  (Sprite_ExtendedTile['prototype'][_0x17b060(0x3b3)] = function () {
-    const _0x1c9caf = _0x17b060,
-      _0x1238ca = $gameMap[_0x1c9caf(0x1f1)](),
-      _0x641365 = $gameMap[_0x1c9caf(0x251)](),
-      _0x3b174f = this['_mapX'],
-      _0x148e2a = this['_mapY'];
-    (this['x'] = Math[_0x1c9caf(0x221)](($gameMap[_0x1c9caf(0x837)](_0x3b174f) + 0.5) * _0x1238ca)),
-      (this['y'] = Math[_0x1c9caf(0x221)](($gameMap[_0x1c9caf(0x395)](_0x148e2a) + 0x1) * _0x641365) + this[_0x1c9caf(0x7fb)] - 0x1);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x73d)] = Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x3e0)]),
-  (Spriteset_Base['prototype'][_0x17b060(0x3e0)] = function () {
-    const _0x1ff7da = _0x17b060;
-    VisuMZ[_0x1ff7da(0x77a)][_0x1ff7da(0x73d)][_0x1ff7da(0x64e)](this), this[_0x1ff7da(0x33c)]();
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x33c)] = function () {
-    const _0x741c93 = _0x17b060;
-    (this[_0x741c93(0x1dd)] = []), (this[_0x741c93(0x574)] = []), (this[_0x741c93(0x7db)] = this['scale']['x']), (this[_0x741c93(0x82c)] = this['scale']['y']);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Spriteset_Base_destroy'] = Spriteset_Base[_0x17b060(0x54a)]['destroy']),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x2a5)] = function (_0x493567) {
-    const _0x1f09f5 = _0x17b060;
-    this[_0x1f09f5(0x62f)](), this[_0x1f09f5(0x17e)](), VisuMZ[_0x1f09f5(0x77a)][_0x1f09f5(0x5ac)][_0x1f09f5(0x64e)](this, _0x493567);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Spriteset_Base_update'] = Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x319)]),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x319)] = function () {
-    const _0x42daf4 = _0x17b060;
-    VisuMZ['CoreEngine']['Spriteset_Base_update'][_0x42daf4(0x64e)](this), this[_0x42daf4(0x423)](), this[_0x42daf4(0x5f5)](), this[_0x42daf4(0x2bb)](), this[_0x42daf4(0x5a5)]();
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x423)] = function () {}),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x5f5)] = function () {
-    const _0x34961c = _0x17b060;
-    if (!VisuMZ[_0x34961c(0x77a)][_0x34961c(0x382)][_0x34961c(0x7ae)]['AntiZoomPictures']) return;
-    if (this[_0x34961c(0x7db)] === this['scale']['x'] && this[_0x34961c(0x82c)] === this['scale']['y']) return;
-    this['adjustPictureAntiZoom'](), (this['_cacheScaleX'] = this[_0x34961c(0x82a)]['x']), (this[_0x34961c(0x82c)] = this[_0x34961c(0x82a)]['y']);
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)]['adjustPictureAntiZoom'] = function () {
-    const _0x3c06f9 = _0x17b060;
-    if (SceneManager[_0x3c06f9(0x482)]() && Spriteset_Map[_0x3c06f9(0x5d0)]) return;
-    else {
-      if (SceneManager[_0x3c06f9(0x51e)]() && Spriteset_Battle['DETACH_PICTURE_CONTAINER']) return;
-    }
-    this['scale']['x'] !== 0x0 && ((this[_0x3c06f9(0x454)][_0x3c06f9(0x82a)]['x'] = 0x1 / this[_0x3c06f9(0x82a)]['x']), (this['_pictureContainer']['x'] = -(this['x'] / this[_0x3c06f9(0x82a)]['x']))),
-      this[_0x3c06f9(0x82a)]['y'] !== 0x0 &&
-        ((this[_0x3c06f9(0x454)][_0x3c06f9(0x82a)]['y'] = 0x1 / this[_0x3c06f9(0x82a)]['y']), (this['_pictureContainer']['y'] = -(this['y'] / this['scale']['y'])));
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x119)] = Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x3b3)]),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x3b3)] = function () {
-    const _0x10c37c = _0x17b060;
-    VisuMZ[_0x10c37c(0x77a)][_0x10c37c(0x119)][_0x10c37c(0x64e)](this), this[_0x10c37c(0x785)]();
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x785)] = function () {
-    const _0x515bfb = _0x17b060;
-    if (!$gameScreen) return;
-    if ($gameScreen['_shakeDuration'] <= 0x0) return;
-    this['x'] -= Math[_0x515bfb(0x3fe)]($gameScreen[_0x515bfb(0x67b)]());
-    const _0xbdc378 = $gameScreen[_0x515bfb(0x811)]();
-    switch ($gameScreen[_0x515bfb(0x811)]()) {
-      case _0x515bfb(0x8bd):
-        this['updatePositionCoreEngineShakeOriginal']();
-        break;
-      case _0x515bfb(0x276):
-        this[_0x515bfb(0x87d)]();
-        break;
-      case 'vertical':
-        this[_0x515bfb(0xf5)]();
-        break;
-      default:
-        this[_0x515bfb(0x4c5)]();
-        break;
-    }
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)]['updatePositionCoreEngineShakeOriginal'] = function () {
-    const _0x2a919d = _0x17b060,
-      _0x4d245a = VisuMZ['CoreEngine']['Settings'][_0x2a919d(0x783)];
-    if (_0x4d245a && _0x4d245a['originalJS']) return _0x4d245a[_0x2a919d(0x7f6)][_0x2a919d(0x64e)](this);
-    this['x'] += Math[_0x2a919d(0x3fe)]($gameScreen[_0x2a919d(0x67b)]());
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)]['updatePositionCoreEngineShakeRand'] = function () {
-    const _0x452eca = _0x17b060,
-      _0x469fea = VisuMZ[_0x452eca(0x77a)][_0x452eca(0x382)]['ScreenShake'];
-    if (_0x469fea && _0x469fea[_0x452eca(0x2ff)]) return _0x469fea[_0x452eca(0x2ff)]['call'](this);
-    const _0x4de2ac = $gameScreen[_0x452eca(0x279)] * 0.75,
-      _0x106cb5 = $gameScreen[_0x452eca(0x2b7)] * 0.6,
-      _0xaaaf36 = $gameScreen[_0x452eca(0x421)];
-    (this['x'] += Math[_0x452eca(0x3fe)](Math[_0x452eca(0x849)](_0x4de2ac) - Math[_0x452eca(0x849)](_0x106cb5)) * (Math[_0x452eca(0x701)](_0xaaaf36, 0x1e) * 0.5)),
-      (this['y'] += Math[_0x452eca(0x3fe)](Math[_0x452eca(0x849)](_0x4de2ac) - Math[_0x452eca(0x849)](_0x106cb5)) * (Math['min'](_0xaaaf36, 0x1e) * 0.5));
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x87d)] = function () {
-    const _0x9d335a = _0x17b060,
-      _0x13d54c = VisuMZ['CoreEngine'][_0x9d335a(0x382)][_0x9d335a(0x783)];
-    if (_0x13d54c && _0x13d54c[_0x9d335a(0x166)]) return _0x13d54c['horzJS'][_0x9d335a(0x64e)](this);
-    const _0x2ce884 = $gameScreen[_0x9d335a(0x279)] * 0.75,
-      _0x576fdd = $gameScreen['_shakeSpeed'] * 0.6,
-      _0x218857 = $gameScreen[_0x9d335a(0x421)];
-    this['x'] += Math['round'](Math[_0x9d335a(0x849)](_0x2ce884) - Math[_0x9d335a(0x849)](_0x576fdd)) * (Math[_0x9d335a(0x701)](_0x218857, 0x1e) * 0.5);
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)]['updatePositionCoreEngineShakeVert'] = function () {
-    const _0x5746ec = _0x17b060,
-      _0x3bf59e = VisuMZ[_0x5746ec(0x77a)][_0x5746ec(0x382)][_0x5746ec(0x783)];
-    if (_0x3bf59e && _0x3bf59e[_0x5746ec(0x30f)]) return _0x3bf59e['vertJS'][_0x5746ec(0x64e)](this);
-    const _0x2287f5 = $gameScreen['_shakePower'] * 0.75,
-      _0x44221f = $gameScreen['_shakeSpeed'] * 0.6,
-      _0x2c3d03 = $gameScreen[_0x5746ec(0x421)];
-    this['y'] += Math[_0x5746ec(0x3fe)](Math[_0x5746ec(0x849)](_0x2287f5) - Math[_0x5746ec(0x849)](_0x44221f)) * (Math[_0x5746ec(0x701)](_0x2c3d03, 0x1e) * 0.5);
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x2bb)] = function () {
-    const _0x39b681 = _0x17b060;
-    for (const _0x273940 of this[_0x39b681(0x1dd)]) {
-      !_0x273940[_0x39b681(0x894)]() && this['removeFauxAnimation'](_0x273940);
-    }
-    this[_0x39b681(0x6a6)]();
-  }),
-  (Spriteset_Base['prototype'][_0x17b060(0x6a6)] = function () {
-    const _0x1a25d1 = _0x17b060;
-    for (;;) {
-      const _0x1979e5 = $gameTemp[_0x1a25d1(0x5c6)]();
-      if (_0x1979e5) this[_0x1a25d1(0x1ee)](_0x1979e5);
-      else break;
-    }
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x1ee)] = function (_0x5d7766) {
-    const _0x31824b = _0x17b060,
-      _0x3cae58 = $dataAnimations[_0x5d7766[_0x31824b(0x650)]],
-      _0x3694f0 = _0x5d7766[_0x31824b(0x53b)],
-      _0x27c412 = _0x5d7766[_0x31824b(0x708)],
-      _0xc957a = _0x5d7766[_0x31824b(0x809)];
-    let _0x7a5806 = this[_0x31824b(0x59a)]();
-    const _0x3bbaeb = this[_0x31824b(0x44e)]();
-    if (this['isAnimationForEach'](_0x3cae58))
-      for (const _0x74d3f3 of _0x3694f0) {
-        this[_0x31824b(0x50f)]([_0x74d3f3], _0x3cae58, _0x27c412, _0x7a5806, _0xc957a), (_0x7a5806 += _0x3bbaeb);
-      }
-    else this[_0x31824b(0x50f)](_0x3694f0, _0x3cae58, _0x27c412, _0x7a5806, _0xc957a);
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)]['createAnimationSprite'] = function (_0x5e2be0, _0x420454, _0x491355, _0x24fd50) {
-    const _0x5e8da6 = _0x17b060,
-      _0x1ad0bf = this[_0x5e8da6(0x4b2)](_0x420454),
-      _0x123765 = new (_0x1ad0bf ? Sprite_AnimationMV : Sprite_Animation)(),
-      _0x2898c7 = this[_0x5e8da6(0x4fa)](_0x5e2be0),
-      _0x5114fa = this['animationBaseDelay'](),
-      _0x254321 = _0x24fd50 > _0x5114fa ? this[_0x5e8da6(0x245)]() : null;
-    this['animationShouldMirror'](_0x5e2be0[0x0]) && (_0x491355 = !_0x491355),
-      (_0x123765[_0x5e8da6(0x1f6)] = _0x5e2be0),
-      _0x123765[_0x5e8da6(0x67d)](_0x2898c7, _0x420454, _0x491355, _0x24fd50, _0x254321),
-      this[_0x5e8da6(0x1bf)](_0x123765),
-      this[_0x5e8da6(0x821)][_0x5e8da6(0x6f2)](_0x123765);
-  }),
-  (Spriteset_Base['prototype'][_0x17b060(0x50f)] = function (_0x50c3d4, _0x58cc05, _0x5436b6, _0x1793ab, _0x4116aa) {
-    const _0x23b950 = _0x17b060,
-      _0x3dc258 = this[_0x23b950(0x4b2)](_0x58cc05),
-      _0x43ec3c = new (_0x3dc258 ? Sprite_AnimationMV : Sprite_Animation)(),
-      _0x52caac = this[_0x23b950(0x4fa)](_0x50c3d4);
-    this[_0x23b950(0x8a5)](_0x50c3d4[0x0]) && (_0x5436b6 = !_0x5436b6);
-    (_0x43ec3c['targetObjects'] = _0x50c3d4), _0x43ec3c[_0x23b950(0x67d)](_0x52caac, _0x58cc05, _0x5436b6, _0x1793ab), _0x43ec3c[_0x23b950(0x11c)](_0x4116aa), this[_0x23b950(0x1bf)](_0x43ec3c);
-    if (this[_0x23b950(0x821)]) this[_0x23b950(0x821)][_0x23b950(0x19f)](_0x43ec3c);
-    this['_fauxAnimationSprites'][_0x23b950(0x6f2)](_0x43ec3c);
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)]['addAnimationSpriteToContainer'] = function (_0x73e2a3) {
-    const _0x8def52 = _0x17b060;
-    this[_0x8def52(0x296)][_0x8def52(0x781)](_0x73e2a3);
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x613)] = function (_0x5daed4) {
-    const _0x1b429f = _0x17b060;
-    this[_0x1b429f(0x821)][_0x1b429f(0x19f)](_0x5daed4), this[_0x1b429f(0x83f)](_0x5daed4);
-    for (const _0x428047 of _0x5daed4[_0x1b429f(0x1f6)]) {
-      _0x428047[_0x1b429f(0x718)] && _0x428047[_0x1b429f(0x718)]();
-    }
-    _0x5daed4[_0x1b429f(0x2a5)]();
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x54c)] = function (_0x3571be) {
-    const _0x51a176 = _0x17b060;
-    this['_fauxAnimationSprites']['remove'](_0x3571be), this['removeAnimationFromContainer'](_0x3571be);
-    for (const _0x2b4e99 of _0x3571be[_0x51a176(0x1f6)]) {
-      _0x2b4e99[_0x51a176(0x718)] && _0x2b4e99['endAnimation']();
-    }
-    _0x3571be[_0x51a176(0x2a5)]();
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x83f)] = function (_0x5a1d93) {
-    const _0x47ced4 = _0x17b060;
-    this['_effectsContainer'][_0x47ced4(0x359)](_0x5a1d93);
-  }),
-  (Spriteset_Base['prototype']['removeAllFauxAnimations'] = function () {
-    const _0x15b565 = _0x17b060;
-    for (const _0x4ff37a of this[_0x15b565(0x1dd)]) {
-      this[_0x15b565(0x54c)](_0x4ff37a);
-    }
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x6db)] = function () {
-    const _0x2d3fb9 = _0x17b060;
-    return this[_0x2d3fb9(0x1dd)][_0x2d3fb9(0x540)] > 0x0;
-  }),
-  (Spriteset_Base['prototype'][_0x17b060(0x5a5)] = function () {
-    const _0x3afa98 = _0x17b060;
-    for (const _0x1def45 of this[_0x3afa98(0x574)]) {
-      !_0x1def45['isPlaying']() && this[_0x3afa98(0x4d2)](_0x1def45);
-    }
-    this[_0x3afa98(0x13a)]();
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x13a)] = function () {
-    const _0x42d0b9 = _0x17b060;
-    for (;;) {
-      const _0x26b8ea = $gameTemp[_0x42d0b9(0x4e7)]();
-      if (_0x26b8ea) this[_0x42d0b9(0x29c)](_0x26b8ea);
-      else break;
-    }
-  }),
-  (Spriteset_Base['prototype'][_0x17b060(0x29c)] = function (_0x6b74) {
-    const _0x267361 = _0x17b060,
-      _0x1c8b41 = $dataAnimations[_0x6b74[_0x267361(0x650)]],
-      _0x354b0c = this[_0x267361(0x175)](_0x6b74),
-      _0x2a012f = _0x6b74[_0x267361(0x708)],
-      _0x5b60b8 = _0x6b74[_0x267361(0x809)];
-    let _0x28f07a = this[_0x267361(0x59a)]();
-    const _0x49f9f9 = this[_0x267361(0x44e)]();
-    if (this['isAnimationForEach'](_0x1c8b41))
-      for (const _0x3a9c6f of _0x354b0c) {
-        this[_0x267361(0x515)]([_0x3a9c6f], _0x1c8b41, _0x2a012f, _0x28f07a, _0x5b60b8), (_0x28f07a += _0x49f9f9);
-      }
-    else this[_0x267361(0x515)](_0x354b0c, _0x1c8b41, _0x2a012f, _0x28f07a, _0x5b60b8);
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)]['createPointAnimationTargets'] = function (_0x412e33) {
-    const _0x4140a6 = _0x17b060,
-      _0x39951d = new Sprite_Clickable(),
-      _0xc9f3ff = this[_0x4140a6(0x45c)]();
-    (_0x39951d['x'] = _0x412e33['x'] - _0xc9f3ff['x']), (_0x39951d['y'] = _0x412e33['y'] - _0xc9f3ff['y']), (_0x39951d['z'] = 0x64);
-    const _0x5e7a63 = this[_0x4140a6(0x45c)]();
-    return _0x5e7a63['addChild'](_0x39951d), [_0x39951d];
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x45c)] = function () {
-    return this;
-  }),
-  (Spriteset_Map[_0x17b060(0x54a)][_0x17b060(0x45c)] = function () {
-    return this['_tilemap'] || this;
-  }),
-  (Spriteset_Battle[_0x17b060(0x54a)][_0x17b060(0x45c)] = function () {
-    const _0x36c865 = _0x17b060;
-    return this[_0x36c865(0x7bb)] || this;
-  }),
-  (Spriteset_Base['prototype']['createPointAnimationSprite'] = function (_0x50df75, _0x1aa2f3, _0x1829aa, _0x281142, _0x2d2dcc) {
-    const _0xfa7510 = _0x17b060,
-      _0x26dcbb = this[_0xfa7510(0x4b2)](_0x1aa2f3),
-      _0x515313 = new (_0x26dcbb ? Sprite_AnimationMV : Sprite_Animation)();
-    (_0x515313[_0xfa7510(0x1f6)] = _0x50df75),
-      _0x515313[_0xfa7510(0x67d)](_0x50df75, _0x1aa2f3, _0x1829aa, _0x281142),
-      _0x515313['setMute'](_0x2d2dcc),
-      this[_0xfa7510(0x1bf)](_0x515313),
-      this['_pointAnimationSprites'][_0xfa7510(0x6f2)](_0x515313);
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)]['removePointAnimation'] = function (_0x53aac7) {
-    const _0x340ea6 = _0x17b060;
-    this['_pointAnimationSprites']['remove'](_0x53aac7), this['_effectsContainer'][_0x340ea6(0x359)](_0x53aac7);
-    for (const _0x27ef4a of _0x53aac7[_0x340ea6(0x1f6)]) {
-      _0x27ef4a[_0x340ea6(0x718)] && _0x27ef4a[_0x340ea6(0x718)]();
-      const _0x3ce828 = this['getPointAnimationLayer']();
-      if (_0x3ce828) _0x3ce828[_0x340ea6(0x359)](_0x27ef4a);
-    }
-    _0x53aac7[_0x340ea6(0x2a5)]();
-  }),
-  (Spriteset_Base['prototype'][_0x17b060(0x17e)] = function () {
-    const _0x508dfc = _0x17b060;
-    for (const _0x191396 of this[_0x508dfc(0x574)]) {
-      this[_0x508dfc(0x4d2)](_0x191396);
-    }
-  }),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x48c)] = function () {
-    const _0x56f433 = _0x17b060;
-    return this[_0x56f433(0x574)][_0x56f433(0x540)] > 0x0;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x269)] = Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x109)]),
-  (Spriteset_Base[_0x17b060(0x54a)][_0x17b060(0x109)] = function () {
-    const _0xe10629 = _0x17b060;
-    return VisuMZ[_0xe10629(0x77a)]['Spriteset_Base_isAnimationPlaying']['call'](this) || this[_0xe10629(0x48c)]();
-  }),
-  (Spriteset_Map[_0x17b060(0x5d0)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)]['QoL']['DetachMapPictureContainer'] || ![]),
-  (VisuMZ[_0x17b060(0x77a)]['Scene_Map_createSpriteset_detach'] = Scene_Map[_0x17b060(0x54a)]['createSpriteset']),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x6d0)] = function () {
-    const _0x9bd2bb = _0x17b060;
-    VisuMZ[_0x9bd2bb(0x77a)][_0x9bd2bb(0x749)]['call'](this);
-    if (!Spriteset_Map['DETACH_PICTURE_CONTAINER']) return;
-    const _0x3c792c = this[_0x9bd2bb(0x10b)];
-    if (!_0x3c792c) return;
-    this[_0x9bd2bb(0x454)] = _0x3c792c[_0x9bd2bb(0x454)];
-    if (!this['_pictureContainer']) return;
-    this['addChild'](this['_pictureContainer']);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Spriteset_Map_createTilemap'] = Spriteset_Map[_0x17b060(0x54a)][_0x17b060(0x6b4)]),
-  (Spriteset_Map[_0x17b060(0x54a)]['createTilemap'] = function () {
-    const _0x4e0aea = _0x17b060;
-    VisuMZ['CoreEngine'][_0x4e0aea(0x661)][_0x4e0aea(0x64e)](this), this['createTileExtendSprites']();
-  }),
-  (Spriteset_Map[_0x17b060(0x54a)][_0x17b060(0x2a4)] = function () {
-    const _0x51ee4a = _0x17b060,
-      _0x4ddf0d = $gameMap[_0x51ee4a(0x2ac)]();
-    if (!_0x4ddf0d) return;
-    const _0x12bd7d = $gameMap[_0x51ee4a(0x69d)]();
-    if (Object[_0x51ee4a(0x159)](_0x12bd7d)[_0x51ee4a(0x540)] <= 0x0) return;
-    const _0x1862c5 = $gameMap['tilesetFlags']();
-    this[_0x51ee4a(0x507)] = this[_0x51ee4a(0x507)] || [];
-    for (let _0x5c43c8 = 0x0; _0x5c43c8 < $gameMap[_0x51ee4a(0x2c5)](); _0x5c43c8++) {
-      for (let _0x4f80e5 = 0x0; _0x4f80e5 < $gameMap[_0x51ee4a(0x321)](); _0x4f80e5++) {
-        for (const _0x4dd52c of $gameMap['layeredTiles'](_0x4f80e5, _0x5c43c8)) {
-          const _0x22ad32 = _0x1862c5[_0x4dd52c] >> 0xc,
-            _0x57403c = _0x12bd7d[_0x22ad32] || 0x0;
-          if (_0x57403c <= 0x0) continue;
-          this[_0x51ee4a(0x87c)](_0x4f80e5, _0x5c43c8, _0x4dd52c, _0x57403c);
-        }
-      }
-    }
-  }),
-  (Spriteset_Map[_0x17b060(0x54a)][_0x17b060(0x161)] = function () {
-    const _0x38fea6 = _0x17b060;
-    this[_0x38fea6(0x507)] = this[_0x38fea6(0x507)] || [];
-    for (const _0x24cb17 of this[_0x38fea6(0x507)]) {
-      this['_tilemap'][_0x38fea6(0x359)](_0x24cb17);
-    }
-    this[_0x38fea6(0x507)] = [];
-  }),
-  (Spriteset_Map[_0x17b060(0x54a)][_0x17b060(0x87c)] = function (_0x52d19d, _0x4dec34, _0x3f8463, _0x3591c2) {
-    const _0xa6901f = _0x17b060,
-      _0x1541c7 = new Sprite_ExtendedTile(_0x52d19d, _0x4dec34, _0x3f8463, _0x3591c2),
-      _0x10413a = $gameMap[_0xa6901f(0x1ec)]();
-    _0x10413a[_0x3f8463] & 0x10 ? (_0x1541c7['z'] = 0x4) : (_0x1541c7['z'] = 0x3), this[_0xa6901f(0x55a)][_0xa6901f(0x781)](_0x1541c7), this[_0xa6901f(0x507)][_0xa6901f(0x6f2)](_0x1541c7);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x18e)] = Tilemap['prototype'][_0x17b060(0x7a9)]),
-  (Tilemap[_0x17b060(0x54a)][_0x17b060(0x7a9)] = function (_0x35d0b2, _0x49ccdb, _0x5f1570) {
-    const _0x5232c8 = _0x17b060;
-    if ($gameMap[_0x5232c8(0x442)](_0x35d0b2)) return;
-    VisuMZ[_0x5232c8(0x77a)][_0x5232c8(0x18e)][_0x5232c8(0x64e)](this, _0x35d0b2, _0x49ccdb, _0x5f1570);
-  }),
-  (Spriteset_Battle[_0x17b060(0x5d0)] = VisuMZ[_0x17b060(0x77a)]['Settings'][_0x17b060(0x7ae)][_0x17b060(0x42a)] || ![]),
-  (VisuMZ[_0x17b060(0x77a)]['Scene_Battle_createSpriteset_detach'] = Scene_Battle[_0x17b060(0x54a)][_0x17b060(0x6d0)]),
-  (Scene_Battle[_0x17b060(0x54a)]['createSpriteset'] = function () {
-    const _0x43b27a = _0x17b060;
-    VisuMZ['CoreEngine']['Scene_Battle_createSpriteset_detach'][_0x43b27a(0x64e)](this);
-    if (!Spriteset_Battle['DETACH_PICTURE_CONTAINER']) return;
-    const _0x4b75da = this[_0x43b27a(0x10b)];
-    if (!_0x4b75da) return;
-    this[_0x43b27a(0x454)] = _0x4b75da[_0x43b27a(0x454)];
-    if (!this['_pictureContainer']) return;
-    this[_0x43b27a(0x781)](this['_pictureContainer']);
-  }),
-  (Spriteset_Battle[_0x17b060(0x54a)]['createBackground'] = function () {
-    const _0x122d75 = _0x17b060;
-    (this[_0x122d75(0x194)] = new PIXI[_0x122d75(0x6a3)][_0x122d75(0x60e)]((clamp = !![]))),
-      (this[_0x122d75(0x729)] = new Sprite()),
-      (this[_0x122d75(0x729)]['bitmap'] = SceneManager[_0x122d75(0xdf)]()),
-      (this['_backgroundSprite']['filters'] = [this[_0x122d75(0x194)]]),
-      this[_0x122d75(0x1e4)][_0x122d75(0x781)](this[_0x122d75(0x729)]);
-  }),
-  (VisuMZ['CoreEngine']['Spriteset_Battle_createEnemies'] = Spriteset_Battle[_0x17b060(0x54a)][_0x17b060(0x691)]),
-  (Spriteset_Battle[_0x17b060(0x54a)][_0x17b060(0x691)] = function () {
-    const _0x1e35ac = _0x17b060;
-    this[_0x1e35ac(0x216)]() && this[_0x1e35ac(0x7f7)](), VisuMZ[_0x1e35ac(0x77a)]['Spriteset_Battle_createEnemies']['call'](this);
-  }),
-  (Spriteset_Battle[_0x17b060(0x54a)][_0x17b060(0x216)] = function () {
-    const _0x3f948b = _0x17b060,
-      _0x4f0184 = VisuMZ[_0x3f948b(0x77a)][_0x3f948b(0x382)]['ScreenResolution'];
-    if (!_0x4f0184) return ![];
-    if (Utils[_0x3f948b(0x232)] >= '1.3.0' && !_0x4f0184['RepositionEnemies130']) return ![];
-    return _0x4f0184[_0x3f948b(0x5b5)];
-  }),
-  (Spriteset_Battle[_0x17b060(0x54a)][_0x17b060(0x7f7)] = function () {
-    const _0x332c9d = _0x17b060;
-    for (member of $gameTroop[_0x332c9d(0x278)]()) {
-      member[_0x332c9d(0x2a0)]();
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x2a8)] = Window_Base[_0x17b060(0x54a)][_0x17b060(0x3e0)]),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x3e0)] = function (_0x38f749) {
-    const _0x37ee09 = _0x17b060;
-    (_0x38f749['x'] = Math['round'](_0x38f749['x'])),
-      (_0x38f749['y'] = Math[_0x37ee09(0x3fe)](_0x38f749['y'])),
-      (_0x38f749[_0x37ee09(0x321)] = Math['round'](_0x38f749['width'])),
-      (_0x38f749[_0x37ee09(0x2c5)] = Math[_0x37ee09(0x3fe)](_0x38f749[_0x37ee09(0x2c5)])),
-      this[_0x37ee09(0x510)](),
-      VisuMZ[_0x37ee09(0x77a)][_0x37ee09(0x2a8)][_0x37ee09(0x64e)](this, _0x38f749),
-      this[_0x37ee09(0x622)]();
-  }),
-  (Window_Base[_0x17b060(0x54a)]['initDigitGrouping'] = function () {
-    const _0x30de37 = _0x17b060;
-    (this[_0x30de37(0x254)] = VisuMZ[_0x30de37(0x77a)][_0x30de37(0x382)][_0x30de37(0x7ae)][_0x30de37(0x6d5)]),
-      (this['_digitGroupingEx'] = VisuMZ[_0x30de37(0x77a)][_0x30de37(0x382)][_0x30de37(0x7ae)][_0x30de37(0x7e1)]);
-  }),
-  (Window_Base[_0x17b060(0x54a)]['lineHeight'] = function () {
-    const _0x39e309 = _0x17b060;
-    return VisuMZ[_0x39e309(0x77a)]['Settings']['Window']['LineHeight'];
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x7f1)] = function () {
-    const _0x52902e = _0x17b060;
-    return VisuMZ[_0x52902e(0x77a)][_0x52902e(0x382)][_0x52902e(0x607)][_0x52902e(0x6e2)];
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x394)] = function () {
-    const _0x7953e1 = _0x17b060;
-    $gameSystem[_0x7953e1(0x464)] ? (this[_0x7953e1(0x830)] = $gameSystem[_0x7953e1(0x464)]()) : (this['backOpacity'] = VisuMZ[_0x7953e1(0x77a)]['Settings']['Window']['BackOpacity']);
-  }),
-  (Window_Base[_0x17b060(0x54a)]['translucentOpacity'] = function () {
-    const _0x19ac3c = _0x17b060;
-    return VisuMZ[_0x19ac3c(0x77a)][_0x19ac3c(0x382)][_0x19ac3c(0x607)][_0x19ac3c(0x485)];
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x74a)] = function () {
-    const _0x2dbcc2 = _0x17b060;
-    return VisuMZ['CoreEngine'][_0x2dbcc2(0x382)][_0x2dbcc2(0x607)][_0x2dbcc2(0x5c1)];
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Window_Base_update'] = Window_Base['prototype'][_0x17b060(0x319)]),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x319)] = function () {
-    const _0x2ce843 = _0x17b060;
-    VisuMZ[_0x2ce843(0x77a)][_0x2ce843(0x693)][_0x2ce843(0x64e)](this), this[_0x2ce843(0x733)]();
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x186)] = function () {
-    const _0x417c23 = _0x17b060;
-    this[_0x417c23(0x1bd)] && ((this[_0x417c23(0x141)] += this['openingSpeed']()), this[_0x417c23(0x310)]() && (this[_0x417c23(0x1bd)] = ![]));
-  }),
-  (Window_Base['prototype'][_0x17b060(0x75c)] = function () {
-    const _0x53c96e = _0x17b060;
-    this[_0x53c96e(0x764)] && ((this[_0x53c96e(0x141)] -= this[_0x53c96e(0x74a)]()), this[_0x53c96e(0x565)]() && (this[_0x53c96e(0x764)] = ![]));
-  }),
-  (VisuMZ['CoreEngine']['Window_Base_drawText'] = Window_Base[_0x17b060(0x54a)][_0x17b060(0x1a9)]),
-  (Window_Base['prototype']['drawText'] = function (_0x5922b6, _0x19e441, _0x4e22f3, _0x32c5e9, _0x4ce86d) {
-    const _0x209e8a = _0x17b060;
-    if (this[_0x209e8a(0x27c)]()) _0x5922b6 = VisuMZ[_0x209e8a(0x4bd)](_0x5922b6);
-    VisuMZ[_0x209e8a(0x77a)][_0x209e8a(0x5c9)][_0x209e8a(0x64e)](this, _0x5922b6, _0x19e441, _0x4e22f3, _0x32c5e9, _0x4ce86d);
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x27c)] = function () {
-    const _0x276374 = _0x17b060;
-    return this[_0x276374(0x254)];
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Window_Base_createTextState'] = Window_Base[_0x17b060(0x54a)][_0x17b060(0x2eb)]),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x2eb)] = function (_0x33b85b, _0x50c7df, _0x53d2bc, _0x3cc8fb) {
-    const _0x2e48f9 = _0x17b060;
-    var _0x226262 = VisuMZ['CoreEngine']['Window_Base_createTextState'][_0x2e48f9(0x64e)](this, _0x33b85b, _0x50c7df, _0x53d2bc, _0x3cc8fb);
-    if (this[_0x2e48f9(0x307)]()) _0x226262[_0x2e48f9(0x751)] = String(VisuMZ[_0x2e48f9(0x4bd)](_0x226262[_0x2e48f9(0x751)])) || '';
-    return _0x226262;
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x307)] = function () {
-    const _0x37ed1d = _0x17b060;
-    return this[_0x37ed1d(0x237)];
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x16d)] = function (_0x3df029) {
-    const _0x5c561c = _0x17b060;
-    this[_0x5c561c(0x254)] = _0x3df029;
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x244)] = function (_0x114631) {
-    const _0x5d6722 = _0x17b060;
-    this[_0x5d6722(0x237)] = _0x114631;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x351)] = Window_Base['prototype'][_0x17b060(0x8af)]),
-  (Window_Base[_0x17b060(0x54a)]['drawIcon'] = function (_0x1a8840, _0x1a5f42, _0x339979) {
-    const _0x899adb = _0x17b060;
-    (_0x1a5f42 = Math[_0x899adb(0x3fe)](_0x1a5f42)), (_0x339979 = Math['round'](_0x339979)), VisuMZ[_0x899adb(0x77a)][_0x899adb(0x351)][_0x899adb(0x64e)](this, _0x1a8840, _0x1a5f42, _0x339979);
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x46a)] = Window_Base['prototype'][_0x17b060(0x4ae)]),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x4ae)] = function (_0x137661, _0x1946e1, _0x522811, _0x4a0d7a, _0x3b70cd, _0x260f68) {
-    const _0x5b6344 = _0x17b060;
-    (_0x3b70cd = _0x3b70cd || ImageManager[_0x5b6344(0x3c6)]),
-      (_0x260f68 = _0x260f68 || ImageManager[_0x5b6344(0x6d8)]),
-      (_0x522811 = Math[_0x5b6344(0x3fe)](_0x522811)),
-      (_0x4a0d7a = Math['round'](_0x4a0d7a)),
-      (_0x3b70cd = Math['round'](_0x3b70cd)),
-      (_0x260f68 = Math['round'](_0x260f68)),
-      VisuMZ[_0x5b6344(0x77a)][_0x5b6344(0x46a)]['call'](this, _0x137661, _0x1946e1, _0x522811, _0x4a0d7a, _0x3b70cd, _0x260f68);
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x22c)] = Window_Base[_0x17b060(0x54a)][_0x17b060(0x188)]),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x188)] = function (_0x1dc008, _0x131db5, _0x4fe065, _0x250a40) {
-    const _0x83b097 = _0x17b060;
-    (_0x4fe065 = Math[_0x83b097(0x3fe)](_0x4fe065)),
-      (_0x250a40 = Math['round'](_0x250a40)),
-      VisuMZ['CoreEngine']['Window_Base_drawCharacter']['call'](this, _0x1dc008, _0x131db5, _0x4fe065, _0x250a40);
-  }),
-  (VisuMZ['CoreEngine']['Window_Selectable_itemRect'] = Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x81d)]),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x81d)] = function (_0x275c08) {
-    const _0x372a1c = _0x17b060;
-    let _0x7dd8bd = VisuMZ[_0x372a1c(0x77a)][_0x372a1c(0x505)][_0x372a1c(0x64e)](this, _0x275c08);
-    return (
-      (_0x7dd8bd['x'] = Math[_0x372a1c(0x3fe)](_0x7dd8bd['x'])),
-      (_0x7dd8bd['y'] = Math[_0x372a1c(0x3fe)](_0x7dd8bd['y'])),
-      (_0x7dd8bd[_0x372a1c(0x321)] = Math[_0x372a1c(0x3fe)](_0x7dd8bd[_0x372a1c(0x321)])),
-      (_0x7dd8bd['height'] = Math[_0x372a1c(0x3fe)](_0x7dd8bd[_0x372a1c(0x2c5)])),
-      _0x7dd8bd
-    );
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x445)] = Window_StatusBase[_0x17b060(0x54a)][_0x17b060(0x623)]),
-  (Window_StatusBase[_0x17b060(0x54a)]['drawActorSimpleStatus'] = function (_0x4ee2ce, _0x11d251, _0x49f8ea) {
-    const _0x41e968 = _0x17b060;
-    (_0x11d251 = Math[_0x41e968(0x3fe)](_0x11d251)), (_0x49f8ea = Math['round'](_0x49f8ea)), VisuMZ[_0x41e968(0x77a)][_0x41e968(0x445)][_0x41e968(0x64e)](this, _0x4ee2ce, _0x11d251, _0x49f8ea);
-  }),
-  (Window_Base['prototype']['initCoreEasing'] = function () {
-    const _0x40b190 = _0x17b060;
-    this[_0x40b190(0x44a)] = {
-      duration: 0x0,
-      wholeDuration: 0x0,
-      type: _0x40b190(0x258),
-      targetX: this['x'],
-      targetY: this['y'],
-      targetScaleX: this['scale']['x'],
-      targetScaleY: this[_0x40b190(0x82a)]['y'],
-      targetOpacity: this[_0x40b190(0x3e8)],
-      targetBackOpacity: this[_0x40b190(0x830)],
-      targetContentsOpacity: this[_0x40b190(0x363)],
-    };
-  }),
-  (Window_Base[_0x17b060(0x54a)]['updateCoreEasing'] = function () {
-    const _0x50ced9 = _0x17b060;
-    if (!this[_0x50ced9(0x44a)]) return;
-    if (this[_0x50ced9(0x44a)]['duration'] <= 0x0) return;
-    (this['x'] = this['applyCoreEasing'](this['x'], this['_coreEasing'][_0x50ced9(0x5ff)])),
-      (this['y'] = this[_0x50ced9(0x49b)](this['y'], this['_coreEasing'][_0x50ced9(0x54b)])),
-      (this[_0x50ced9(0x82a)]['x'] = this[_0x50ced9(0x49b)](this[_0x50ced9(0x82a)]['x'], this['_coreEasing'][_0x50ced9(0x1d7)])),
-      (this['scale']['y'] = this[_0x50ced9(0x49b)](this[_0x50ced9(0x82a)]['y'], this[_0x50ced9(0x44a)][_0x50ced9(0x6d4)])),
-      (this[_0x50ced9(0x3e8)] = this[_0x50ced9(0x49b)](this[_0x50ced9(0x3e8)], this['_coreEasing'][_0x50ced9(0x23f)])),
-      (this[_0x50ced9(0x830)] = this['applyCoreEasing'](this[_0x50ced9(0x830)], this[_0x50ced9(0x44a)][_0x50ced9(0x2a2)])),
-      (this[_0x50ced9(0x363)] = this['applyCoreEasing'](this[_0x50ced9(0x363)], this[_0x50ced9(0x44a)][_0x50ced9(0x651)])),
-      this['_coreEasing'][_0x50ced9(0x5cd)]--;
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x49b)] = function (_0x1ae5d2, _0x5f70f5) {
-    const _0x2de3a6 = _0x17b060;
-    if (!this[_0x2de3a6(0x44a)]) return _0x5f70f5;
-    const _0x23e5dc = this['_coreEasing'][_0x2de3a6(0x5cd)],
-      _0x4a950b = this['_coreEasing']['wholeDuration'],
-      _0x54aa3c = this[_0x2de3a6(0x636)]((_0x4a950b - _0x23e5dc) / _0x4a950b),
-      _0xc5f981 = this[_0x2de3a6(0x636)]((_0x4a950b - _0x23e5dc + 0x1) / _0x4a950b),
-      _0x4ce097 = (_0x1ae5d2 - _0x5f70f5 * _0x54aa3c) / (0x1 - _0x54aa3c);
-    return _0x4ce097 + (_0x5f70f5 - _0x4ce097) * _0xc5f981;
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x636)] = function (_0x3f2efb) {
-    const _0x3bfffa = _0x17b060;
-    if (!this[_0x3bfffa(0x44a)]) return _0x3f2efb;
-    return VisuMZ[_0x3bfffa(0x30b)](_0x3f2efb, this[_0x3bfffa(0x44a)][_0x3bfffa(0x629)] || _0x3bfffa(0x258));
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x73c)] = function (_0x4f5e11, _0x42590d) {
-    const _0x4b9d6e = _0x17b060;
-    if (!this[_0x4b9d6e(0x44a)]) return;
-    (this['x'] = this['_coreEasing']['targetX']),
-      (this['y'] = this[_0x4b9d6e(0x44a)][_0x4b9d6e(0x54b)]),
-      (this[_0x4b9d6e(0x82a)]['x'] = this[_0x4b9d6e(0x44a)]['targetScaleX']),
-      (this[_0x4b9d6e(0x82a)]['y'] = this['_coreEasing'][_0x4b9d6e(0x6d4)]),
-      (this[_0x4b9d6e(0x3e8)] = this[_0x4b9d6e(0x44a)][_0x4b9d6e(0x23f)]),
-      (this[_0x4b9d6e(0x830)] = this[_0x4b9d6e(0x44a)]['targetBackOpacity']),
-      (this[_0x4b9d6e(0x363)] = this[_0x4b9d6e(0x44a)]['targetContentsOpacity']),
-      this['setupCoreEasing'](
-        _0x4f5e11,
-        _0x42590d,
-        this['x'],
-        this['y'],
-        this[_0x4b9d6e(0x82a)]['x'],
-        this[_0x4b9d6e(0x82a)]['y'],
-        this[_0x4b9d6e(0x3e8)],
-        this['backOpacity'],
-        this['contentsOpacity'],
-      );
-  }),
-  (Window_Base[_0x17b060(0x54a)]['setupCoreEasing'] = function (_0x4b3725, _0x16380c, _0x299fa8, _0x52036d, _0x51176e, _0x28414d, _0x1598c2, _0x171061, _0x4d74c2) {
-    const _0x19a6e0 = _0x17b060;
-    this[_0x19a6e0(0x44a)] = {
-      duration: _0x4b3725,
-      wholeDuration: _0x4b3725,
-      type: _0x16380c,
-      targetX: _0x299fa8,
-      targetY: _0x52036d,
-      targetScaleX: _0x51176e,
-      targetScaleY: _0x28414d,
-      targetOpacity: _0x1598c2,
-      targetBackOpacity: _0x171061,
-      targetContentsOpacity: _0x4d74c2,
-    };
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x714)] = function (_0x47f0b9, _0x3862a8, _0xf3fa03, _0x336c68, _0x2df7dd) {
-    const _0x4bd99c = _0x17b060;
-    this['resetFontSettings'](), (this[_0x4bd99c(0x16e)]['fontSize'] = VisuMZ[_0x4bd99c(0x77a)]['Settings'][_0x4bd99c(0x6a1)][_0x4bd99c(0x774)]);
-    const _0x55ea3c = VisuMZ['CoreEngine'][_0x4bd99c(0x382)][_0x4bd99c(0x6a1)][_0x4bd99c(0x1b5)];
-    if (_0x55ea3c > 0x0 && _0x3862a8 === TextManager[_0x4bd99c(0x52c)]) {
-      const _0xd99da8 = _0x336c68 + (this[_0x4bd99c(0x835)]() - ImageManager[_0x4bd99c(0x275)]) / 0x2;
-      this[_0x4bd99c(0x8af)](_0x55ea3c, _0xf3fa03 + (_0x2df7dd - ImageManager[_0x4bd99c(0x2ab)]), _0xd99da8), (_0x2df7dd -= ImageManager['iconWidth'] + 0x4);
-    } else this[_0x4bd99c(0x6f1)](ColorManager[_0x4bd99c(0x4ca)]()), this['drawText'](_0x3862a8, _0xf3fa03, _0x336c68, _0x2df7dd, _0x4bd99c(0x512)), (_0x2df7dd -= this['textWidth'](_0x3862a8) + 0x6);
-    this[_0x4bd99c(0x176)]();
-    const _0x432022 = this[_0x4bd99c(0x80f)](this[_0x4bd99c(0x254)] ? VisuMZ[_0x4bd99c(0x4bd)](_0x47f0b9) : _0x47f0b9);
-    _0x432022 > _0x2df7dd
-      ? this[_0x4bd99c(0x1a9)](VisuMZ[_0x4bd99c(0x77a)][_0x4bd99c(0x382)][_0x4bd99c(0x6a1)][_0x4bd99c(0x246)], _0xf3fa03, _0x336c68, _0x2df7dd, _0x4bd99c(0x512))
-      : this[_0x4bd99c(0x1a9)](_0x47f0b9, _0xf3fa03, _0x336c68, _0x2df7dd, _0x4bd99c(0x512)),
-      this['resetFontSettings']();
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x147)] = function (_0x28958f, _0x594fb0, _0x1ea074, _0x15f068, _0x8448a7) {
-    const _0x2a4700 = _0x17b060,
-      _0x44759b = ImageManager[_0x2a4700(0x1ef)]('IconSet'),
-      _0x1b54b5 = ImageManager[_0x2a4700(0x2ab)],
-      _0x283557 = ImageManager[_0x2a4700(0x275)],
-      _0x111ab2 = (_0x28958f % 0x10) * _0x1b54b5,
-      _0x18494b = Math[_0x2a4700(0x221)](_0x28958f / 0x10) * _0x283557,
-      _0x58d561 = _0x15f068,
-      _0x2d61c0 = _0x15f068;
-    (this['contents'][_0x2a4700(0x578)][_0x2a4700(0x827)] = _0x8448a7),
-      this[_0x2a4700(0x16e)][_0x2a4700(0x3f8)](_0x44759b, _0x111ab2, _0x18494b, _0x1b54b5, _0x283557, _0x594fb0, _0x1ea074, _0x58d561, _0x2d61c0),
-      (this[_0x2a4700(0x16e)]['_context'][_0x2a4700(0x827)] = !![]);
-  }),
-  (Window_Base[_0x17b060(0x54a)]['drawGauge'] = function (_0x2d0dcc, _0x12c61e, _0x2abb18, _0x257044, _0x2954c9, _0x3525f3) {
-    const _0x37f98e = _0x17b060,
-      _0xcf1bf4 = Math[_0x37f98e(0x221)]((_0x2abb18 - 0x2) * _0x257044),
-      _0x115acc = Sprite_Gauge[_0x37f98e(0x54a)][_0x37f98e(0x193)][_0x37f98e(0x64e)](this),
-      _0x28a73d = _0x12c61e + this[_0x37f98e(0x835)]() - _0x115acc - 0x2;
-    this['contents'][_0x37f98e(0x456)](_0x2d0dcc, _0x28a73d, _0x2abb18, _0x115acc, ColorManager[_0x37f98e(0x150)]()),
-      this[_0x37f98e(0x16e)][_0x37f98e(0x668)](_0x2d0dcc + 0x1, _0x28a73d + 0x1, _0xcf1bf4, _0x115acc - 0x2, _0x2954c9, _0x3525f3);
-  }),
-  (Window_Scrollable[_0x17b060(0x767)] = {
-    enabled: VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x607)][_0x17b060(0x77c)] ?? !![],
-    thickness: VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x607)][_0x17b060(0x846)] ?? 0x2,
-    offset: VisuMZ['CoreEngine'][_0x17b060(0x382)]['Window'][_0x17b060(0x243)] ?? 0x2,
-    bodyColor: VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x607)][_0x17b060(0x58e)] ?? 0x0,
-    offColor: VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x607)][_0x17b060(0x49c)] ?? 0x7,
-    offOpacity: VisuMZ[_0x17b060(0x77a)]['Settings'][_0x17b060(0x607)][_0x17b060(0x6c5)] ?? 0x80,
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x775)] = function () {
-    const _0x1c66a9 = _0x17b060;
-    return Window_Scrollable[_0x1c66a9(0x767)][_0x1c66a9(0x4be)] && Window_Scrollable[_0x1c66a9(0x767)][_0x1c66a9(0x1da)] > 0x0;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x79a)] = Window_Base[_0x17b060(0x54a)]['createContents']),
-  (Window_Base['prototype'][_0x17b060(0x5f1)] = function () {
-    const _0x2599db = _0x17b060;
-    VisuMZ[_0x2599db(0x77a)][_0x2599db(0x79a)][_0x2599db(0x64e)](this), this[_0x2599db(0x3e3)](), this[_0x2599db(0x86c)](!![]), this[_0x2599db(0x86c)](![]);
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x3e3)] = function () {
-    const _0x5021e2 = _0x17b060;
-    if (!this['isScrollBarVisible']()) return;
-    if (this[_0x5021e2(0x20c)] || this[_0x5021e2(0x707)]) return;
-    (this['_lastScrollBarValues'] = { horz: null, vert: null, maxHorz: null, maxVert: null }),
-      (this['_scrollBarHorz'] = new Sprite()),
-      (this['_scrollBarVert'] = new Sprite()),
-      this[_0x5021e2(0x781)](this[_0x5021e2(0x20c)]),
-      this[_0x5021e2(0x781)](this['_scrollBarVert']);
-  }),
-  (Window_Base[_0x17b060(0x54a)]['setupScrollBarBitmap'] = function (_0x2e0382) {
-    const _0x4fb92d = _0x17b060,
-      _0x3cdcdc = _0x2e0382 ? this[_0x4fb92d(0x20c)] : this[_0x4fb92d(0x707)];
-    if (!_0x3cdcdc) return;
-    const _0xf74512 = Window_Scrollable[_0x4fb92d(0x767)],
-      _0x5e859a = _0xf74512[_0x4fb92d(0x1da)],
-      _0x1febc8 = _0x2e0382 ? this['innerWidth'] - _0x5e859a * 0x2 : _0x5e859a,
-      _0x1f218c = _0x2e0382 ? _0x5e859a : this['innerHeight'] - _0x5e859a * 0x2;
-    (_0x3cdcdc[_0x4fb92d(0x7d3)] = new Bitmap(_0x1febc8, _0x1f218c)), _0x3cdcdc[_0x4fb92d(0x674)](0x0, 0x0, _0x1febc8, _0x1f218c), this[_0x4fb92d(0x1ba)](_0x2e0382);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x2fb)] = Window_Base['prototype']['destroyContents']),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x7be)] = function () {
-    const _0x4f5f84 = _0x17b060;
-    VisuMZ[_0x4f5f84(0x77a)]['Window_Base_destroyContents'][_0x4f5f84(0x64e)](this), this['destroyScrollBarBitmaps']();
-  }),
-  (Window_Base['prototype'][_0x17b060(0x187)] = function () {
-    const _0x3d33e6 = _0x17b060,
-      _0x5b7b60 = [this['_scrollBarHorz'], this['_scrollBarVert']];
-    for (const _0x40e349 of _0x5b7b60) {
-      if (_0x40e349 && _0x40e349[_0x3d33e6(0x7d3)]) _0x40e349['bitmap'][_0x3d33e6(0x2a5)]();
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Window_Scrollable_update'] = Window_Scrollable[_0x17b060(0x54a)][_0x17b060(0x319)]),
-  (Window_Scrollable['prototype'][_0x17b060(0x319)] = function () {
-    const _0x355f44 = _0x17b060;
-    VisuMZ[_0x355f44(0x77a)][_0x355f44(0x286)][_0x355f44(0x64e)](this), this[_0x355f44(0x898)]();
-  }),
-  (Window_Scrollable['prototype'][_0x17b060(0x898)] = function () {
-    const _0x4e67a4 = _0x17b060;
-    this[_0x4e67a4(0x136)](), this['checkScrollBarBitmap'](!![]), this[_0x4e67a4(0x63b)](![]), this[_0x4e67a4(0x1ba)](!![]), this[_0x4e67a4(0x1ba)](![]);
-  }),
-  (Window_Scrollable[_0x17b060(0x54a)][_0x17b060(0x136)] = function () {
-    const _0x4c298c = _0x17b060,
-      _0x3ae0a5 = [this['_scrollBarHorz'], this[_0x4c298c(0x707)]];
-    for (const _0x5d5aae of _0x3ae0a5) {
-      _0x5d5aae && (_0x5d5aae[_0x4c298c(0x70d)] = this[_0x4c298c(0x775)]() && this['isOpen']());
-    }
-  }),
-  (Window_Scrollable[_0x17b060(0x54a)]['checkScrollBarBitmap'] = function (_0x2bcc65) {
-    const _0x2ec2ae = _0x17b060;
-    if (!this[_0x2ec2ae(0x3a5)]) return;
-    const _0x16d16a = this[_0x2ec2ae(0x4e3)](_0x2bcc65),
-      _0x47bf65 = this[_0x2ec2ae(0x3fb)](_0x2bcc65),
-      _0x3c7407 = _0x2bcc65 ? 'horz' : _0x2ec2ae(0x72f),
-      _0x281d31 = _0x2bcc65 ? 'maxHorz' : _0x2ec2ae(0x3e2);
-    (this[_0x2ec2ae(0x3a5)][_0x3c7407] !== _0x16d16a || this[_0x2ec2ae(0x3a5)][_0x281d31] !== _0x47bf65) &&
-      ((this['_lastScrollBarValues'][_0x3c7407] = _0x16d16a), (this['_lastScrollBarValues'][_0x281d31] = _0x47bf65), this[_0x2ec2ae(0x4e0)](_0x2bcc65, _0x16d16a, _0x47bf65));
-  }),
-  (Window_Scrollable['prototype'][_0x17b060(0x4e3)] = function (_0x5a210b) {
-    const _0x415b33 = _0x17b060;
-    if (this[_0x415b33(0x362)] !== undefined) return _0x5a210b ? this['scrollX']() : this['origin']['y'];
-    return _0x5a210b ? this[_0x415b33(0x15c)]() : this['scrollY']();
-  }),
-  (Window_Scrollable['prototype'][_0x17b060(0x3fb)] = function (_0x3ded80) {
-    const _0x7eac21 = _0x17b060;
-    if (this[_0x7eac21(0x362)] !== undefined) return _0x3ded80 ? this['maxScrollX']() : Math[_0x7eac21(0x7f9)](0x0, this[_0x7eac21(0x362)] - this[_0x7eac21(0x64b)]);
-    return _0x3ded80 ? this['maxScrollX']() : this[_0x7eac21(0x483)]();
-  }),
-  (Window_Scrollable[_0x17b060(0x54a)][_0x17b060(0xf4)] = function () {
-    const _0x4e17e7 = _0x17b060;
-    if (this[_0x4e17e7(0x362)] !== undefined) return Math['max'](0x0, this[_0x4e17e7(0x362)]);
-    return this[_0x4e17e7(0x116)]();
-  }),
-  (Window_Scrollable['prototype'][_0x17b060(0x4e0)] = function (_0x220302, _0x2b81af, _0xb3aca8) {
-    const _0x5e7b60 = _0x17b060,
-      _0xd0127d = _0x220302 ? this[_0x5e7b60(0x20c)] : this[_0x5e7b60(0x707)];
-    if (!_0xd0127d) return;
-    if (!_0xd0127d[_0x5e7b60(0x7d3)]) return;
-    const _0x4400f8 = _0xd0127d[_0x5e7b60(0x7d3)];
-    _0x4400f8[_0x5e7b60(0x2d5)]();
-    if (_0xb3aca8 <= 0x0) return;
-    const _0x208b19 = _0x220302 ? this['innerWidth'] / this[_0x5e7b60(0x34b)]() : this[_0x5e7b60(0x64b)] / this[_0x5e7b60(0xf4)](),
-      _0x9c4fbd = _0x220302 ? Math[_0x5e7b60(0x3fe)](_0x2b81af * _0x208b19) : 0x0,
-      _0x5dd37d = _0x220302 ? 0x0 : Math[_0x5e7b60(0x3fe)](_0x2b81af * _0x208b19),
-      _0x274f77 = _0x220302 ? Math['round'](_0x4400f8['width'] * _0x208b19) : _0x4400f8['width'],
-      _0x5a94e8 = _0x220302 ? _0x4400f8[_0x5e7b60(0x2c5)] : Math['round'](_0x4400f8[_0x5e7b60(0x2c5)] * _0x208b19),
-      _0x3b7bd8 = Window_Scrollable[_0x5e7b60(0x767)],
-      _0x13a3da = ColorManager[_0x5e7b60(0xf7)](_0x3b7bd8[_0x5e7b60(0x56b)]),
-      _0x430b98 = ColorManager[_0x5e7b60(0xf7)](_0x3b7bd8[_0x5e7b60(0x641)]),
-      _0x4d2da4 = _0x3b7bd8[_0x5e7b60(0x118)];
-    (_0x4400f8[_0x5e7b60(0x858)] = _0x4d2da4),
-      _0x4400f8['fillAll'](_0x13a3da),
-      (_0x4400f8[_0x5e7b60(0x858)] = 0xff),
-      _0x4400f8[_0x5e7b60(0x456)](_0x9c4fbd, _0x5dd37d, _0x274f77, _0x5a94e8, _0x430b98);
-  }),
-  (Window_Base['prototype']['updateScrollBarPosition'] = function (_0xccb051) {
-    const _0x212367 = _0x17b060,
-      _0x4fab7c = _0xccb051 ? this['_scrollBarHorz'] : this[_0x212367(0x707)];
-    if (!_0x4fab7c) return;
-    const _0x32339e = Window_Scrollable['SCROLLBAR'],
-      _0x401fe9 = _0x32339e[_0x212367(0x1da)],
-      _0x1a0f05 = _0x32339e[_0x212367(0x387)];
-    if (!_0x4fab7c[_0x212367(0x206)]) return;
-    (_0x4fab7c['x'] = this[_0x212367(0x804)] + (_0xccb051 ? _0x401fe9 : this[_0x212367(0x547)] + _0x1a0f05)),
-      (_0x4fab7c['y'] = this[_0x212367(0x804)] + (_0xccb051 ? this[_0x212367(0x64b)] + _0x1a0f05 : _0x401fe9));
-  }),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x4cc)] = function (_0x36ced9) {
-    const _0x30ff88 = _0x17b060;
-    let _0x3d8770 = this[_0x30ff88(0x79e)]();
-    const _0x5518b1 = this[_0x30ff88(0x162)](),
-      _0x5030ad = this[_0x30ff88(0x817)]();
-    if (this[_0x30ff88(0x6ff)]() && (_0x3d8770 < _0x5518b1 || (_0x36ced9 && _0x5030ad === 0x1))) {
-      _0x3d8770 += _0x5030ad;
-      if (_0x3d8770 >= _0x5518b1) _0x3d8770 = _0x5518b1 - 0x1;
-      this['smoothSelect'](_0x3d8770);
-    } else !this['isUseModernControls']() && (_0x3d8770 < _0x5518b1 - _0x5030ad || (_0x36ced9 && _0x5030ad === 0x1)) && this['smoothSelect']((_0x3d8770 + _0x5030ad) % _0x5518b1);
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0xff)] = Window_Selectable['prototype']['cursorDown']),
-  (Window_Selectable[_0x17b060(0x54a)]['cursorDown'] = function (_0x17406d) {
-    const _0x36d118 = _0x17b060;
-    this[_0x36d118(0x6ff)]() && _0x17406d && this[_0x36d118(0x817)]() === 0x1 && this[_0x36d118(0x79e)]() === this[_0x36d118(0x162)]() - 0x1
-      ? this[_0x36d118(0x45f)](0x0)
-      : VisuMZ[_0x36d118(0x77a)][_0x36d118(0xff)][_0x36d118(0x64e)](this, _0x17406d);
-  }),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x4c3)] = function (_0x1854d0) {
-    const _0x3f594d = _0x17b060;
-    let _0x3fe4f3 = Math[_0x3f594d(0x7f9)](0x0, this['index']());
-    const _0x5354ac = this[_0x3f594d(0x162)](),
-      _0x3aba83 = this[_0x3f594d(0x817)]();
-    if ((this[_0x3f594d(0x6ff)]() && _0x3fe4f3 > 0x0) || (_0x1854d0 && _0x3aba83 === 0x1)) {
-      _0x3fe4f3 -= _0x3aba83;
-      if (_0x3fe4f3 <= 0x0) _0x3fe4f3 = 0x0;
-      this[_0x3f594d(0x45f)](_0x3fe4f3);
-    } else !this['isUseModernControls']() && (_0x3fe4f3 >= _0x3aba83 || (_0x1854d0 && _0x3aba83 === 0x1)) && this[_0x3f594d(0x45f)]((_0x3fe4f3 - _0x3aba83 + _0x5354ac) % _0x5354ac);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x65e)] = Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x4c3)]),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x4c3)] = function (_0x4b03cc) {
-    const _0x16443b = _0x17b060;
-    this[_0x16443b(0x6ff)]() && _0x4b03cc && this['maxCols']() === 0x1 && this['index']() === 0x0
-      ? this[_0x16443b(0x45f)](this[_0x16443b(0x162)]() - 0x1)
-      : VisuMZ[_0x16443b(0x77a)][_0x16443b(0x65e)][_0x16443b(0x64e)](this, _0x4b03cc);
-  }),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x6ff)] = function () {
-    const _0x287b7c = _0x17b060;
-    return VisuMZ[_0x287b7c(0x77a)][_0x287b7c(0x382)][_0x287b7c(0x7ae)][_0x287b7c(0x5df)];
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x352)] = Window_Selectable[_0x17b060(0x54a)]['processCursorMove']),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x1f7)] = function () {
-    const _0x46643d = _0x17b060;
-    this[_0x46643d(0x6ff)]() ? (this[_0x46643d(0x6a5)](), this['processCursorHomeEndTrigger']()) : VisuMZ[_0x46643d(0x77a)][_0x46643d(0x352)][_0x46643d(0x64e)](this);
-  }),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x4d8)] = function () {
-    return !![];
-  }),
-  (Window_Selectable['prototype'][_0x17b060(0x6a5)] = function () {
-    const _0x6c36a7 = _0x17b060;
-    if (this[_0x6c36a7(0x173)]()) {
-      const _0x1f1868 = this[_0x6c36a7(0x79e)]();
-      Input['isRepeated']('down') &&
-        (Input[_0x6c36a7(0x285)](_0x6c36a7(0x7f4)) && this[_0x6c36a7(0x4d8)]() ? this[_0x6c36a7(0x10f)]() : this[_0x6c36a7(0x4cc)](Input[_0x6c36a7(0x301)](_0x6c36a7(0x195)))),
-        Input[_0x6c36a7(0x656)]('up') && (Input[_0x6c36a7(0x285)](_0x6c36a7(0x7f4)) && this[_0x6c36a7(0x4d8)]() ? this[_0x6c36a7(0x472)]() : this[_0x6c36a7(0x4c3)](Input['isTriggered']('up'))),
-        Input[_0x6c36a7(0x656)](_0x6c36a7(0x512)) && this['cursorRight'](Input[_0x6c36a7(0x301)](_0x6c36a7(0x512))),
-        Input[_0x6c36a7(0x656)](_0x6c36a7(0x2b0)) && this[_0x6c36a7(0x76f)](Input[_0x6c36a7(0x301)](_0x6c36a7(0x2b0))),
-        !this[_0x6c36a7(0x32f)](_0x6c36a7(0x7c5)) && Input['isRepeated'](_0x6c36a7(0x7c5)) && this['cursorPagedown'](),
-        !this['isHandled']('pageup') && Input[_0x6c36a7(0x656)]('pageup') && this[_0x6c36a7(0x472)](),
-        this[_0x6c36a7(0x79e)]() !== _0x1f1868 && this[_0x6c36a7(0x873)]();
-    }
-  }),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x1cd)] = function () {
-    const _0x141188 = _0x17b060;
-    if (this['isCursorMovable']()) {
-      const _0x220bdd = this['index']();
-      Input['isTriggered']('home') && this['smoothSelect'](Math[_0x141188(0x701)](this[_0x141188(0x79e)](), 0x0)),
-        Input[_0x141188(0x301)](_0x141188(0x2d0)) && this[_0x141188(0x45f)](Math['max'](this[_0x141188(0x79e)](), this['maxItems']() - 0x1)),
-        this[_0x141188(0x79e)]() !== _0x220bdd && this['playCursorSound']();
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Window_Selectable_processTouch'] = Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x23c)]),
-  (Window_Selectable['prototype'][_0x17b060(0x23c)] = function () {
-    const _0x40b2f1 = _0x17b060;
-    this[_0x40b2f1(0x6ff)]() ? this[_0x40b2f1(0x1aa)]() : VisuMZ['CoreEngine']['Window_Selectable_processTouch']['call'](this);
-  }),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x1aa)] = function () {
-    const _0x202259 = _0x17b060;
-    VisuMZ[_0x202259(0x77a)][_0x202259(0x514)][_0x202259(0x64e)](this);
-  }),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x3d5)] = function () {
-    const _0x3b9a8f = _0x17b060;
-    return VisuMZ[_0x3b9a8f(0x77a)][_0x3b9a8f(0x382)][_0x3b9a8f(0x607)][_0x3b9a8f(0x7b0)];
-  }),
-  (Window_Selectable['prototype'][_0x17b060(0x493)] = function () {
-    const _0x3068aa = _0x17b060;
-    return VisuMZ['CoreEngine'][_0x3068aa(0x382)][_0x3068aa(0x607)][_0x3068aa(0x579)];
-  }),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x696)] = function () {
-    const _0x513e81 = _0x17b060;
-    return Window_Scrollable[_0x513e81(0x54a)][_0x513e81(0x696)][_0x513e81(0x64e)](this) + VisuMZ[_0x513e81(0x77a)][_0x513e81(0x382)]['Window'][_0x513e81(0x40f)];
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x7fe)] = Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x6c7)]),
-  (Window_Selectable[_0x17b060(0x54a)][_0x17b060(0x6c7)] = function (_0x27cf56) {
-    const _0x32252a = _0x17b060,
-      _0x5a2bad = VisuMZ['CoreEngine'][_0x32252a(0x382)][_0x32252a(0x607)];
-    if (_0x5a2bad['ShowItemBackground'] === ![]) return;
-    _0x5a2bad['DrawItemBackgroundJS'] ? _0x5a2bad[_0x32252a(0x3f9)][_0x32252a(0x64e)](this, _0x27cf56) : VisuMZ[_0x32252a(0x77a)][_0x32252a(0x7fe)][_0x32252a(0x64e)](this, _0x27cf56);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Window_Gold_refresh'] = Window_Gold[_0x17b060(0x54a)][_0x17b060(0x80e)]),
-  (Window_Gold[_0x17b060(0x54a)][_0x17b060(0x80e)] = function () {
-    const _0xf94b02 = _0x17b060;
-    this['isItemStyle']() ? this[_0xf94b02(0x6b0)]() : VisuMZ[_0xf94b02(0x77a)][_0xf94b02(0x677)]['call'](this);
-  }),
-  (Window_Gold[_0x17b060(0x54a)][_0x17b060(0x241)] = function () {
-    const _0x16d801 = _0x17b060;
-    if (TextManager[_0x16d801(0x52c)] !== this[_0x16d801(0x52c)]()) return ![];
-    return VisuMZ[_0x16d801(0x77a)]['Settings'][_0x16d801(0x6a1)]['ItemStyle'];
-  }),
-  (Window_Gold[_0x17b060(0x54a)][_0x17b060(0x6b0)] = function () {
-    const _0x47f6e8 = _0x17b060;
-    this[_0x47f6e8(0x5c0)](), this[_0x47f6e8(0x16e)]['clear'](), (this['contents']['fontSize'] = VisuMZ[_0x47f6e8(0x77a)][_0x47f6e8(0x382)][_0x47f6e8(0x6a1)]['GoldFontSize']);
-    const _0x2ae8f8 = VisuMZ[_0x47f6e8(0x77a)][_0x47f6e8(0x382)][_0x47f6e8(0x6a1)][_0x47f6e8(0x1b5)],
-      _0x479d2e = this[_0x47f6e8(0x13c)](0x0);
-    if (_0x2ae8f8 > 0x0) {
-      const _0x2a4d2b = _0x479d2e['y'] + (this[_0x47f6e8(0x835)]() - ImageManager[_0x47f6e8(0x275)]) / 0x2;
-      this[_0x47f6e8(0x8af)](_0x2ae8f8, _0x479d2e['x'], _0x2a4d2b);
-      const _0x18e32b = ImageManager[_0x47f6e8(0x2ab)] + 0x4;
-      (_0x479d2e['x'] += _0x18e32b), (_0x479d2e[_0x47f6e8(0x321)] -= _0x18e32b);
-    }
-    this[_0x47f6e8(0x6f1)](ColorManager[_0x47f6e8(0x4ca)]()), this[_0x47f6e8(0x1a9)](this[_0x47f6e8(0x52c)](), _0x479d2e['x'], _0x479d2e['y'], _0x479d2e[_0x47f6e8(0x321)], _0x47f6e8(0x2b0));
-    const _0xc599e9 = this['textWidth'](this[_0x47f6e8(0x52c)]()) + 0x6;
-    (_0x479d2e['x'] += _0xc599e9), (_0x479d2e['width'] -= _0xc599e9), this[_0x47f6e8(0x176)]();
-    const _0x4e72be = this[_0x47f6e8(0x6fc)](),
-      _0x149d8f = this[_0x47f6e8(0x80f)](this[_0x47f6e8(0x254)] ? VisuMZ[_0x47f6e8(0x4bd)](this[_0x47f6e8(0x6fc)]()) : this[_0x47f6e8(0x6fc)]());
-    _0x149d8f > _0x479d2e[_0x47f6e8(0x321)]
-      ? this[_0x47f6e8(0x1a9)](VisuMZ[_0x47f6e8(0x77a)][_0x47f6e8(0x382)][_0x47f6e8(0x6a1)]['GoldOverlap'], _0x479d2e['x'], _0x479d2e['y'], _0x479d2e[_0x47f6e8(0x321)], _0x47f6e8(0x512))
-      : this[_0x47f6e8(0x1a9)](this['value'](), _0x479d2e['x'], _0x479d2e['y'], _0x479d2e['width'], 'right'),
-      this[_0x47f6e8(0x5c0)]();
-  }),
-  (Window_StatusBase[_0x17b060(0x54a)][_0x17b060(0x566)] = function (_0x275375, _0x4f15f5, _0x2630e6, _0x33baf7, _0x233c9e) {
-    const _0x43fb8c = _0x17b060;
-    _0x33baf7 = String(_0x33baf7 || '')[_0x43fb8c(0x29e)]();
-    if (VisuMZ[_0x43fb8c(0x77a)][_0x43fb8c(0x382)][_0x43fb8c(0x71d)]['DrawIcons']) {
-      const _0x3f1877 = VisuMZ[_0x43fb8c(0x61c)](_0x33baf7);
-      _0x233c9e
-        ? (this[_0x43fb8c(0x147)](_0x3f1877, _0x275375, _0x4f15f5, this[_0x43fb8c(0x798)]()), (_0x2630e6 -= this[_0x43fb8c(0x798)]() + 0x2), (_0x275375 += this[_0x43fb8c(0x798)]() + 0x2))
-        : (this['drawIcon'](_0x3f1877, _0x275375 + 0x2, _0x4f15f5 + 0x2), (_0x2630e6 -= ImageManager[_0x43fb8c(0x2ab)] + 0x4), (_0x275375 += ImageManager['iconWidth'] + 0x4));
-    }
-    const _0x57904f = TextManager[_0x43fb8c(0x7a1)](_0x33baf7);
-    this[_0x43fb8c(0x5c0)](),
-      this[_0x43fb8c(0x6f1)](ColorManager['systemColor']()),
-      _0x233c9e
-        ? ((this[_0x43fb8c(0x16e)][_0x43fb8c(0xf8)] = this[_0x43fb8c(0x474)]()),
-          this[_0x43fb8c(0x16e)][_0x43fb8c(0x1a9)](_0x57904f, _0x275375, _0x4f15f5, _0x2630e6, this[_0x43fb8c(0x798)](), _0x43fb8c(0x2b0)))
-        : this[_0x43fb8c(0x1a9)](_0x57904f, _0x275375, _0x4f15f5, _0x2630e6),
-      this[_0x43fb8c(0x5c0)]();
-  }),
-  (Window_StatusBase[_0x17b060(0x54a)][_0x17b060(0x474)] = function () {
-    const _0x36f5e2 = _0x17b060;
-    return $gameSystem[_0x36f5e2(0xf9)]() - 0x8;
-  }),
-  (Window_StatusBase[_0x17b060(0x54a)][_0x17b060(0x8b5)] = function (_0x52cae7, _0x3d4760, _0x1d25f4, _0x215b46) {
-    const _0x52b411 = _0x17b060;
-    (_0x215b46 = _0x215b46 || 0xa8), this['resetTextColor']();
-    if (VisuMZ[_0x52b411(0x77a)]['Settings']['UI']['TextCodeClassNames']) this['drawTextEx'](_0x52cae7['currentClass']()['name'], _0x3d4760, _0x1d25f4, _0x215b46);
-    else {
-      const _0x4cd101 = _0x52cae7[_0x52b411(0x1e1)]()[_0x52b411(0x142)]['replace'](/\\I\[(\d+)\]/gi, '');
-      this['drawText'](_0x4cd101, _0x3d4760, _0x1d25f4, _0x215b46);
-    }
-  }),
-  (Window_StatusBase[_0x17b060(0x54a)][_0x17b060(0x104)] = function (_0x2fb355, _0x47c468, _0x3114df, _0x5d6890) {
-    const _0x341f4b = _0x17b060;
-    (_0x5d6890 = _0x5d6890 || 0x10e), this['resetTextColor']();
-    if (VisuMZ[_0x341f4b(0x77a)][_0x341f4b(0x382)]['UI'][_0x341f4b(0x2ea)]) this[_0x341f4b(0x489)](_0x2fb355['nickname'](), _0x47c468, _0x3114df, _0x5d6890);
-    else {
-      const _0x67fa8b = _0x2fb355[_0x341f4b(0x283)]()['replace'](/\\I\[(\d+)\]/gi, '');
-      this[_0x341f4b(0x1a9)](_0x2fb355[_0x341f4b(0x283)](), _0x47c468, _0x3114df, _0x5d6890);
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x5e0)] = Window_StatusBase[_0x17b060(0x54a)][_0x17b060(0x5a8)]),
-  (Window_StatusBase[_0x17b060(0x54a)][_0x17b060(0x5a8)] = function (_0x50c52a, _0x1a9afd, _0x43a171) {
-    const _0x4e0da0 = _0x17b060;
-    if (VisuMZ[_0x4e0da0(0x77a)]['Settings']['Param'][_0x4e0da0(0x2e4)] === ![]) return;
-    if (this['isExpGaugeDrawn']()) this[_0x4e0da0(0x52e)](_0x50c52a, _0x1a9afd, _0x43a171);
-    VisuMZ[_0x4e0da0(0x77a)][_0x4e0da0(0x5e0)]['call'](this, _0x50c52a, _0x1a9afd, _0x43a171);
-  }),
-  (Window_StatusBase[_0x17b060(0x54a)][_0x17b060(0x3a4)] = function () {
-    const _0x1f42d5 = _0x17b060;
-    return VisuMZ[_0x1f42d5(0x77a)][_0x1f42d5(0x382)]['UI']['LvExpGauge'];
-  }),
-  (Window_StatusBase[_0x17b060(0x54a)][_0x17b060(0x52e)] = function (_0x886650, _0x71f59e, _0x4e9a07) {
-    const _0x44788b = _0x17b060;
-    if (!_0x886650) return;
-    if (!_0x886650['isActor']()) return;
-    const _0x38c877 = 0x80,
-      _0x4729c3 = _0x886650['expRate']();
-    let _0x54d487 = ColorManager['expGaugeColor1'](),
-      _0x132dca = ColorManager['expGaugeColor2']();
-    _0x4729c3 >= 0x1 && ((_0x54d487 = ColorManager[_0x44788b(0x26e)]()), (_0x132dca = ColorManager[_0x44788b(0x60d)]())),
-      this[_0x44788b(0x123)](_0x71f59e, _0x4e9a07, _0x38c877, _0x4729c3, _0x54d487, _0x132dca);
-  }),
-  (Window_EquipStatus['prototype'][_0x17b060(0x453)] = function () {
-    const _0x1a3d5f = _0x17b060;
-    let _0x2bc42f = 0x0;
-    for (const _0xb7db5c of VisuMZ['CoreEngine'][_0x1a3d5f(0x382)][_0x1a3d5f(0x71d)][_0x1a3d5f(0x449)]) {
-      const _0x284bca = this['itemPadding'](),
-        _0x590c71 = this[_0x1a3d5f(0x7ba)](_0x2bc42f);
-      this[_0x1a3d5f(0x272)](_0x284bca, _0x590c71, _0xb7db5c), _0x2bc42f++;
-    }
-  }),
-  (Window_EquipStatus['prototype'][_0x17b060(0x504)] = function (_0x4efc72, _0x5ea768, _0x5a8eea) {
-    const _0x1a84a6 = _0x17b060,
-      _0x13959e = this[_0x1a84a6(0x4a5)]() - this[_0x1a84a6(0x7f1)]() * 0x2;
-    this[_0x1a84a6(0x566)](_0x4efc72, _0x5ea768, _0x13959e, _0x5a8eea, ![]);
-  }),
-  (Window_EquipStatus[_0x17b060(0x54a)][_0x17b060(0xe3)] = function (_0x3ed45d, _0x4674e8, _0x2fdadd) {
-    const _0x1a5cc9 = _0x17b060,
-      _0x112e19 = this[_0x1a5cc9(0x77b)]();
-    this[_0x1a5cc9(0x176)](), this['drawText'](this[_0x1a5cc9(0x2f3)][_0x1a5cc9(0x4d4)](_0x2fdadd, !![]), _0x3ed45d, _0x4674e8, _0x112e19, _0x1a5cc9(0x512));
-  }),
-  (Window_EquipStatus[_0x17b060(0x54a)][_0x17b060(0x38d)] = function (_0x45102b, _0x5a9354) {
-    const _0x3a8b75 = _0x17b060,
-      _0x397542 = this[_0x3a8b75(0x3f3)]();
-    this[_0x3a8b75(0x6f1)](ColorManager[_0x3a8b75(0x4ca)]());
-    const _0x2fef3c = VisuMZ['CoreEngine'][_0x3a8b75(0x382)]['UI'][_0x3a8b75(0x73a)];
-    this[_0x3a8b75(0x1a9)](_0x2fef3c, _0x45102b, _0x5a9354, _0x397542, _0x3a8b75(0x27e));
-  }),
-  (Window_EquipStatus[_0x17b060(0x54a)][_0x17b060(0x48d)] = function (_0x22abfc, _0x5bc0fa, _0x4e4f4c) {
-    const _0xc9d3bb = _0x17b060,
-      _0x4e16ea = this[_0xc9d3bb(0x77b)](),
-      _0x53a635 = this[_0xc9d3bb(0x4fd)][_0xc9d3bb(0x4d4)](_0x4e4f4c),
-      _0xf534c8 = _0x53a635 - this[_0xc9d3bb(0x2f3)][_0xc9d3bb(0x4d4)](_0x4e4f4c);
-    this[_0xc9d3bb(0x6f1)](ColorManager[_0xc9d3bb(0x7f5)](_0xf534c8)),
-      this[_0xc9d3bb(0x1a9)](this[_0xc9d3bb(0x4fd)][_0xc9d3bb(0x4d4)](_0x4e4f4c, !![]), _0x22abfc, _0x5bc0fa, _0x4e16ea, _0xc9d3bb(0x512));
-  }),
-  (VisuMZ['CoreEngine']['Window_EquipItem_isEnabled'] = Window_EquipItem[_0x17b060(0x54a)][_0x17b060(0x403)]),
-  (Window_EquipItem['prototype'][_0x17b060(0x403)] = function (_0x3fa86b) {
-    const _0x5c5baa = _0x17b060;
-    return _0x3fa86b && this['_actor'] ? this['_actor'][_0x5c5baa(0x20f)](_0x3fa86b) : VisuMZ['CoreEngine'][_0x5c5baa(0x27b)][_0x5c5baa(0x64e)](this, _0x3fa86b);
-  }),
-  (Window_StatusParams[_0x17b060(0x54a)][_0x17b060(0x162)] = function () {
-    const _0x2cae27 = _0x17b060;
-    return VisuMZ['CoreEngine'][_0x2cae27(0x382)][_0x2cae27(0x71d)][_0x2cae27(0x449)]['length'];
-  }),
-  (Window_StatusParams['prototype'][_0x17b060(0x272)] = function (_0x6464a9) {
-    const _0x50e937 = _0x17b060,
-      _0x4e55fd = this[_0x50e937(0x13c)](_0x6464a9),
-      _0x5426fa = VisuMZ['CoreEngine']['Settings']['Param'][_0x50e937(0x449)][_0x6464a9],
-      _0x24023b = TextManager['param'](_0x5426fa),
-      _0x547ff5 = this[_0x50e937(0x2f3)][_0x50e937(0x4d4)](_0x5426fa, !![]);
-    this[_0x50e937(0x566)](_0x4e55fd['x'], _0x4e55fd['y'], 0xa0, _0x5426fa, ![]),
-      this['resetTextColor'](),
-      this[_0x50e937(0x1a9)](_0x547ff5, _0x4e55fd['x'] + 0xa0, _0x4e55fd['y'], 0x3c, _0x50e937(0x512));
-  });
-if (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x197)][_0x17b060(0x3d1)]) {
-  VisuMZ[_0x17b060(0x77a)]['Settings']['KeyboardInput'][_0x17b060(0x876)] &&
-    (Window_NameInput['LATIN1'] = [
-      'Q',
-      'W',
-      'E',
-      'R',
-      'T',
-      'Y',
-      'U',
-      'I',
-      'O',
-      'P',
-      'A',
-      'S',
-      'D',
-      'F',
-      'G',
-      'H',
-      'J',
-      'K',
-      'L',
-      '\x27',
-      '`',
-      'Z',
-      'X',
-      'C',
-      'V',
-      'B',
-      'N',
-      'M',
-      ',',
-      '.',
-      'q',
-      'w',
-      'e',
-      'r',
-      't',
-      'y',
-      'u',
-      'i',
-      'o',
-      'p',
-      'a',
-      's',
-      'd',
-      'f',
-      'g',
-      'h',
-      'j',
-      'k',
-      'l',
-      ':',
-      '~',
-      'z',
-      'x',
-      'c',
-      'v',
-      'b',
-      'n',
-      'm',
-      '\x22',
-      ';',
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7',
-      '8',
-      '9',
-      '0',
-      '!',
-      '@',
-      '#',
-      '$',
-      '%',
-      '^',
-      '&',
-      '*',
-      '(',
-      ')',
-      '<',
-      '>',
-      '[',
-      ']',
-      '-',
-      '_',
-      '/',
-      '\x20',
-      _0x17b060(0x227),
-      'OK',
-    ]);
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0xe9)] = Window_NameInput[_0x17b060(0x54a)]['initialize']),
-    (Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x3e0)] = function (_0x40c0eb) {
-      const _0x58b533 = _0x17b060;
-      (this['_mode'] = this['defaultInputMode']()),
-        VisuMZ['CoreEngine'][_0x58b533(0xe9)]['call'](this, _0x40c0eb),
-        this['_mode'] === _0x58b533(0x315) ? this[_0x58b533(0x67c)](0x0) : (Input[_0x58b533(0x2d5)](), this[_0x58b533(0x7a4)]());
-    }),
-    (Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x108)] = function () {
-      const _0x5d234b = _0x17b060;
-      if (Input[_0x5d234b(0x4b9)]()) return _0x5d234b(0x315);
-      return VisuMZ[_0x5d234b(0x77a)][_0x5d234b(0x382)]['KeyboardInput']['DefaultMode'] || 'keyboard';
-    }),
-    (VisuMZ['CoreEngine'][_0x17b060(0x5ba)] = Window_NameInput['prototype'][_0x17b060(0x72a)]),
-    (Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x72a)] = function () {
-      const _0x208e50 = _0x17b060;
-      if (!this['isOpen']()) return;
-      if (!this[_0x208e50(0x12f)]) return;
-      if (this['_mode'] === 'keyboard' && Input[_0x208e50(0x6d7)]()) this['switchModes'](_0x208e50(0x315));
-      else {
-        if (Input[_0x208e50(0x2a3)]('backspace')) Input['clear'](), this[_0x208e50(0x457)]();
-        else {
-          if (Input[_0x208e50(0x301)]('tab')) Input[_0x208e50(0x2d5)](), this['_mode'] === _0x208e50(0x364) ? this[_0x208e50(0x4b8)]('default') : this[_0x208e50(0x4b8)](_0x208e50(0x364));
-          else {
-            if (this[_0x208e50(0x440)] === _0x208e50(0x364)) this[_0x208e50(0x3bd)]();
-            else Input[_0x208e50(0x2a3)]('escape') ? (Input[_0x208e50(0x2d5)](), this['switchModes'](_0x208e50(0x364))) : VisuMZ['CoreEngine'][_0x208e50(0x5ba)][_0x208e50(0x64e)](this);
-          }
-        }
-      }
-    }),
-    (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x160)] = Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x23c)]),
-    (Window_NameInput['prototype'][_0x17b060(0x23c)] = function () {
-      const _0x4ec1ee = _0x17b060;
-      if (!this[_0x4ec1ee(0x1e9)]()) return;
-      if (this[_0x4ec1ee(0x440)] === _0x4ec1ee(0x364)) {
-        if (TouchInput[_0x4ec1ee(0x301)]() && this[_0x4ec1ee(0x64f)]()) this['switchModes'](_0x4ec1ee(0x315));
-        else TouchInput[_0x4ec1ee(0x679)]() && this['switchModes'](_0x4ec1ee(0x315));
-      } else VisuMZ['CoreEngine'][_0x4ec1ee(0x160)][_0x4ec1ee(0x64e)](this);
-    }),
-    (Window_NameInput[_0x17b060(0x54a)]['processKeyboardHandling'] = function () {
-      const _0x18ca6f = _0x17b060;
-      if (Input['isSpecialCode'](_0x18ca6f(0x746))) Input[_0x18ca6f(0x2d5)](), this[_0x18ca6f(0x414)]();
-      else {
-        if (Input['_inputString'] !== undefined) {
-          let _0x55234e = Input[_0x18ca6f(0x2d3)],
-            _0x4e5fe6 = _0x55234e['length'];
-          for (let _0x130a71 = 0x0; _0x130a71 < _0x4e5fe6; ++_0x130a71) {
-            this['_editWindow']['add'](_0x55234e[_0x130a71]) ? SoundManager[_0x18ca6f(0x8ba)]() : SoundManager[_0x18ca6f(0x217)]();
-          }
-          Input[_0x18ca6f(0x2d5)]();
-        }
-      }
-    }),
-    (Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x4b8)] = function (_0x48459f) {
-      const _0x4848b4 = _0x17b060;
-      let _0x2443d5 = this[_0x4848b4(0x440)];
-      (this['_mode'] = _0x48459f),
-        _0x2443d5 !== this[_0x4848b4(0x440)] && (this[_0x4848b4(0x80e)](), SoundManager[_0x4848b4(0x8ba)](), this[_0x4848b4(0x440)] === 'default' ? this['select'](0x0) : this[_0x4848b4(0x67c)](-0x1));
-    }),
-    (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x87e)] = Window_NameInput[_0x17b060(0x54a)]['cursorDown']),
-    (Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x4cc)] = function (_0x1fcfd8) {
-      const _0x419e68 = _0x17b060;
-      if (this[_0x419e68(0x440)] === 'keyboard' && !Input[_0x419e68(0x34a)]()) return;
-      if (Input['isNumpadPressed']()) return;
-      VisuMZ[_0x419e68(0x77a)][_0x419e68(0x87e)][_0x419e68(0x64e)](this, _0x1fcfd8), this[_0x419e68(0x4b8)](_0x419e68(0x315));
-    }),
-    (VisuMZ[_0x17b060(0x77a)]['Window_NameInput_cursorUp'] = Window_NameInput['prototype'][_0x17b060(0x4c3)]),
-    (Window_NameInput['prototype'][_0x17b060(0x4c3)] = function (_0x4e648f) {
-      const _0x26ba1f = _0x17b060;
-      if (this['_mode'] === 'keyboard' && !Input[_0x26ba1f(0x34a)]()) return;
-      if (Input[_0x26ba1f(0x5bc)]()) return;
-      VisuMZ[_0x26ba1f(0x77a)]['Window_NameInput_cursorUp'][_0x26ba1f(0x64e)](this, _0x4e648f), this[_0x26ba1f(0x4b8)](_0x26ba1f(0x315));
-    }),
-    (VisuMZ['CoreEngine'][_0x17b060(0x2ae)] = Window_NameInput[_0x17b060(0x54a)]['cursorRight']),
-    (Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x4ea)] = function (_0x22cda8) {
-      const _0x127e20 = _0x17b060;
-      if (this[_0x127e20(0x440)] === _0x127e20(0x364) && !Input[_0x127e20(0x34a)]()) return;
-      if (Input['isNumpadPressed']()) return;
-      VisuMZ[_0x127e20(0x77a)][_0x127e20(0x2ae)][_0x127e20(0x64e)](this, _0x22cda8), this[_0x127e20(0x4b8)](_0x127e20(0x315));
-    }),
-    (VisuMZ['CoreEngine'][_0x17b060(0x167)] = Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x76f)]),
-    (Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x76f)] = function (_0x149c00) {
-      const _0x30df40 = _0x17b060;
-      if (this[_0x30df40(0x440)] === _0x30df40(0x364) && !Input[_0x30df40(0x34a)]()) return;
-      if (Input[_0x30df40(0x5bc)]()) return;
-      VisuMZ['CoreEngine'][_0x30df40(0x167)][_0x30df40(0x64e)](this, _0x149c00), this[_0x30df40(0x4b8)](_0x30df40(0x315));
-    }),
-    (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x864)] = Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x10f)]),
-    (Window_NameInput[_0x17b060(0x54a)]['cursorPagedown'] = function () {
-      const _0x593c48 = _0x17b060;
-      if (this[_0x593c48(0x440)] === _0x593c48(0x364)) return;
-      if (Input[_0x593c48(0x5bc)]()) return;
-      VisuMZ[_0x593c48(0x77a)]['Window_NameInput_cursorPagedown'][_0x593c48(0x64e)](this), this[_0x593c48(0x4b8)](_0x593c48(0x315));
-    }),
-    (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x4fe)] = Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x472)]),
-    (Window_NameInput[_0x17b060(0x54a)]['cursorPageup'] = function () {
-      const _0x18245c = _0x17b060;
-      if (this[_0x18245c(0x440)] === _0x18245c(0x364)) return;
-      if (Input[_0x18245c(0x5bc)]()) return;
-      VisuMZ[_0x18245c(0x77a)][_0x18245c(0x4fe)][_0x18245c(0x64e)](this), this[_0x18245c(0x4b8)](_0x18245c(0x315));
-    }),
-    (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x638)] = Window_NameInput[_0x17b060(0x54a)][_0x17b060(0x80e)]),
-    (Window_NameInput['prototype']['refresh'] = function () {
-      const _0x4e1159 = _0x17b060;
-      if (this['_mode'] === _0x4e1159(0x364)) {
-        this[_0x4e1159(0x16e)][_0x4e1159(0x2d5)](), this[_0x4e1159(0x26d)][_0x4e1159(0x2d5)](), this['resetTextColor']();
-        let _0x16a10c = VisuMZ['CoreEngine'][_0x4e1159(0x382)][_0x4e1159(0x197)][_0x4e1159(0x212)][_0x4e1159(0x60b)]('\x0a'),
-          _0x295dd7 = _0x16a10c[_0x4e1159(0x540)],
-          _0x26e460 = (this[_0x4e1159(0x64b)] - _0x295dd7 * this['lineHeight']()) / 0x2;
-        for (let _0x8fc7fe = 0x0; _0x8fc7fe < _0x295dd7; ++_0x8fc7fe) {
-          let _0x2f88fd = _0x16a10c[_0x8fc7fe],
-            _0x5329bc = this[_0x4e1159(0x22e)](_0x2f88fd)[_0x4e1159(0x321)],
-            _0x311225 = Math['floor']((this[_0x4e1159(0x16e)][_0x4e1159(0x321)] - _0x5329bc) / 0x2);
-          this[_0x4e1159(0x489)](_0x2f88fd, _0x311225, _0x26e460), (_0x26e460 += this['lineHeight']());
-        }
-      } else VisuMZ[_0x4e1159(0x77a)]['Window_NameInput_refresh'][_0x4e1159(0x64e)](this);
-    });
-}
-(VisuMZ['CoreEngine'][_0x17b060(0x4a6)] = Window_ShopSell[_0x17b060(0x54a)]['isEnabled']),
-  (Window_ShopSell['prototype'][_0x17b060(0x403)] = function (_0x399e9b) {
-    const _0x41b716 = _0x17b060;
-    return VisuMZ[_0x41b716(0x77a)][_0x41b716(0x382)][_0x41b716(0x7ae)]['KeyItemProtect'] && DataManager[_0x41b716(0x88e)](_0x399e9b)
-      ? ![]
-      : VisuMZ[_0x41b716(0x77a)][_0x41b716(0x4a6)][_0x41b716(0x64e)](this, _0x399e9b);
-  }),
-  (Window_NumberInput[_0x17b060(0x54a)][_0x17b060(0x6ff)] = function () {
-    return ![];
-  });
-VisuMZ[_0x17b060(0x77a)]['Settings'][_0x17b060(0x197)][_0x17b060(0x39e)] &&
-  ((VisuMZ[_0x17b060(0x77a)]['Window_NumberInput_start'] = Window_NumberInput[_0x17b060(0x54a)][_0x17b060(0x6ae)]),
-  (Window_NumberInput['prototype'][_0x17b060(0x6ae)] = function () {
-    const _0x3019db = _0x17b060;
-    VisuMZ[_0x3019db(0x77a)][_0x3019db(0x559)][_0x3019db(0x64e)](this), this[_0x3019db(0x67c)](this[_0x3019db(0x354)] - 0x1), Input[_0x3019db(0x2d5)]();
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x58d)] = Window_NumberInput[_0x17b060(0x54a)][_0x17b060(0x829)]),
-  (Window_NumberInput[_0x17b060(0x54a)][_0x17b060(0x829)] = function () {
-    const _0x51d68c = _0x17b060;
-    if (!this[_0x51d68c(0x1e9)]()) return;
-    if (Input[_0x51d68c(0x5bc)]()) this[_0x51d68c(0x164)]();
-    else {
-      if (Input['isSpecialCode']('backspace')) this[_0x51d68c(0x740)]();
-      else {
-        if (Input[_0x51d68c(0x568)] === 0x2e) this['processKeyboardDelete']();
-        else {
-          if (Input[_0x51d68c(0x568)] === 0x24) this[_0x51d68c(0x1a3)]();
-          else Input[_0x51d68c(0x568)] === 0x23 ? this['processKeyboardEnd']() : VisuMZ[_0x51d68c(0x77a)][_0x51d68c(0x58d)][_0x51d68c(0x64e)](this);
-        }
-      }
-    }
-  }),
-  (Window_NumberInput['prototype']['processCursorMove'] = function () {
-    const _0x36a640 = _0x17b060;
-    if (!this[_0x36a640(0x173)]()) return;
-    Input[_0x36a640(0x5bc)]() ? this[_0x36a640(0x164)]() : Window_Selectable['prototype']['processCursorMove']['call'](this);
-  }),
-  (Window_NumberInput[_0x17b060(0x54a)][_0x17b060(0x1cd)] = function () {}),
-  (Window_NumberInput[_0x17b060(0x54a)]['processKeyboardDigitChange'] = function () {
-    const _0x2d753d = _0x17b060;
-    if (String(this['_number'])[_0x2d753d(0x540)] >= this[_0x2d753d(0x354)]) return;
-    const _0x2b2ac3 = Number(String(this['_number']) + Input[_0x2d753d(0x2d3)]);
-    if (isNaN(_0x2b2ac3)) return;
-    this[_0x2d753d(0x74c)] = _0x2b2ac3;
-    const _0x40a709 = '9'[_0x2d753d(0x335)](this[_0x2d753d(0x354)]);
-    (this['_number'] = this[_0x2d753d(0x74c)][_0x2d753d(0x42b)](0x0, _0x40a709)),
-      Input['clear'](),
-      this[_0x2d753d(0x80e)](),
-      SoundManager[_0x2d753d(0x333)](),
-      this[_0x2d753d(0x67c)](this[_0x2d753d(0x354)] - 0x1);
-  }),
-  (Window_NumberInput[_0x17b060(0x54a)][_0x17b060(0x740)] = function () {
-    const _0x51a750 = _0x17b060;
-    (this[_0x51a750(0x74c)] = Number(String(this[_0x51a750(0x74c)])[_0x51a750(0x152)](0x0, -0x1))),
-      (this[_0x51a750(0x74c)] = Math[_0x51a750(0x7f9)](0x0, this[_0x51a750(0x74c)])),
-      Input[_0x51a750(0x2d5)](),
-      this[_0x51a750(0x80e)](),
-      SoundManager[_0x51a750(0x333)](),
-      this[_0x51a750(0x67c)](this[_0x51a750(0x354)] - 0x1);
-  }),
-  (Window_NumberInput['prototype'][_0x17b060(0x19b)] = function () {
-    const _0x2a0ce1 = _0x17b060;
-    (this['_number'] = Number(String(this[_0x2a0ce1(0x74c)])[_0x2a0ce1(0x223)](0x1))),
-      (this[_0x2a0ce1(0x74c)] = Math[_0x2a0ce1(0x7f9)](0x0, this[_0x2a0ce1(0x74c)])),
-      Input['clear'](),
-      this[_0x2a0ce1(0x80e)](),
-      SoundManager[_0x2a0ce1(0x333)](),
-      this[_0x2a0ce1(0x67c)](this[_0x2a0ce1(0x354)] - 0x1);
-  }),
-  (Window_NumberInput[_0x17b060(0x54a)][_0x17b060(0x1a3)] = function () {
-    const _0x3ec5d4 = _0x17b060;
-    if (this[_0x3ec5d4(0x79e)]() === 0x0) return;
-    Input[_0x3ec5d4(0x2d5)](), this[_0x3ec5d4(0x80e)](), SoundManager[_0x3ec5d4(0x333)](), this[_0x3ec5d4(0x67c)](0x0);
-  }),
-  (Window_NumberInput[_0x17b060(0x54a)]['processKeyboardEnd'] = function () {
-    const _0xd6ad00 = _0x17b060;
-    if (this[_0xd6ad00(0x79e)]() === this['_maxDigits'] - 0x1) return;
-    Input[_0xd6ad00(0x2d5)](), this[_0xd6ad00(0x80e)](), SoundManager[_0xd6ad00(0x333)](), this[_0xd6ad00(0x67c)](this[_0xd6ad00(0x354)] - 0x1);
-  }));
-(VisuMZ[_0x17b060(0x77a)]['Window_MapName_refresh'] = Window_MapName[_0x17b060(0x54a)]['refresh']),
-  (Window_MapName[_0x17b060(0x54a)][_0x17b060(0x80e)] = function () {
-    const _0x22b8cc = _0x17b060;
-    VisuMZ[_0x22b8cc(0x77a)]['Settings'][_0x22b8cc(0x7ae)]['MapNameTextCode'] ? this[_0x22b8cc(0x7b6)]() : VisuMZ[_0x22b8cc(0x77a)][_0x22b8cc(0x541)]['call'](this);
-  }),
-  (Window_MapName[_0x17b060(0x54a)]['refreshWithTextCodeSupport'] = function () {
-    const _0xd20f01 = _0x17b060;
-    this[_0xd20f01(0x16e)][_0xd20f01(0x2d5)]();
-    if ($gameMap[_0xd20f01(0x5a9)]()) {
-      const _0xbff367 = this[_0xd20f01(0x547)];
-      this[_0xd20f01(0x384)](0x0, 0x0, _0xbff367, this[_0xd20f01(0x835)]());
-      const _0x51062f = this['textSizeEx']($gameMap[_0xd20f01(0x5a9)]())[_0xd20f01(0x321)];
-      this[_0xd20f01(0x489)]($gameMap['displayName'](), Math[_0xd20f01(0x221)]((_0xbff367 - _0x51062f) / 0x2), 0x0);
-    }
-  }),
-  (Window_TitleCommand[_0x17b060(0x4b3)] = VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x593)]),
-  (Window_TitleCommand[_0x17b060(0x54a)][_0x17b060(0x3aa)] = function () {
-    const _0x5ad3c3 = _0x17b060;
-    this[_0x5ad3c3(0x2e3)]();
-  }),
-  (Window_TitleCommand['prototype'][_0x17b060(0x2e3)] = function () {
-    const _0x4f6441 = _0x17b060;
-    for (const _0x426847 of Window_TitleCommand[_0x4f6441(0x4b3)]) {
-      if (_0x426847[_0x4f6441(0x27a)][_0x4f6441(0x64e)](this)) {
-        const _0x39806b = _0x426847['Symbol'];
-        let _0x12027b = _0x426847[_0x4f6441(0x294)];
-        if (['', _0x4f6441(0x1ce)][_0x4f6441(0x1ae)](_0x12027b)) _0x12027b = _0x426847[_0x4f6441(0x447)]['call'](this);
-        const _0xa8032 = _0x426847['EnableJS'][_0x4f6441(0x64e)](this),
-          _0x5ddaf8 = _0x426847[_0x4f6441(0x575)][_0x4f6441(0x64e)](this);
-        this[_0x4f6441(0x371)](_0x12027b, _0x39806b, _0xa8032, _0x5ddaf8), this[_0x4f6441(0x3f2)](_0x39806b, _0x426847[_0x4f6441(0x177)][_0x4f6441(0x76d)](this, _0x5ddaf8));
-      }
-    }
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x84b)] = Window_TitleCommand[_0x17b060(0x54a)]['selectLast']),
-  (Window_TitleCommand[_0x17b060(0x54a)][_0x17b060(0x2df)] = function () {
-    const _0x398adf = _0x17b060;
-    VisuMZ['CoreEngine']['Window_TitleCommand_selectLast'][_0x398adf(0x64e)](this);
-    if (!Window_TitleCommand[_0x398adf(0x332)]) return;
-    const _0x13234b = this['findSymbol'](Window_TitleCommand['_lastCommandSymbol']),
-      _0x1b5ad5 = Math[_0x398adf(0x221)](this[_0x398adf(0x5f6)]() / 0x2) - 0x1;
-    this[_0x398adf(0x45f)](_0x13234b), this[_0x398adf(0x8a1)] > 0x1 && ((this[_0x398adf(0x8a1)] = 0x1), this['updateSmoothScroll']()), this[_0x398adf(0x37e)](_0x13234b - _0x1b5ad5);
-  }),
-  (Window_GameEnd[_0x17b060(0x4b3)] = VisuMZ[_0x17b060(0x77a)]['Settings']['MenuLayout'][_0x17b060(0x228)]['CommandList']),
-  (Window_GameEnd[_0x17b060(0x54a)][_0x17b060(0x3aa)] = function () {
-    const _0x3af7bf = _0x17b060;
-    this[_0x3af7bf(0x2e3)]();
-  }),
-  (Window_GameEnd[_0x17b060(0x54a)][_0x17b060(0x2e3)] = function () {
-    const _0x11dd4c = _0x17b060;
-    for (const _0x208bf1 of Window_GameEnd[_0x11dd4c(0x4b3)]) {
-      if (_0x208bf1[_0x11dd4c(0x27a)][_0x11dd4c(0x64e)](this)) {
-        const _0x4fb797 = _0x208bf1[_0x11dd4c(0x438)];
-        let _0x432d41 = _0x208bf1[_0x11dd4c(0x294)];
-        if (['', _0x11dd4c(0x1ce)][_0x11dd4c(0x1ae)](_0x432d41)) _0x432d41 = _0x208bf1[_0x11dd4c(0x447)][_0x11dd4c(0x64e)](this);
-        const _0xae8130 = _0x208bf1[_0x11dd4c(0x7b2)][_0x11dd4c(0x64e)](this),
-          _0x128343 = _0x208bf1[_0x11dd4c(0x575)][_0x11dd4c(0x64e)](this);
-        this[_0x11dd4c(0x371)](_0x432d41, _0x4fb797, _0xae8130, _0x128343), this[_0x11dd4c(0x3f2)](_0x4fb797, _0x208bf1['CallHandlerJS']['bind'](this, _0x128343));
-      }
-    }
-  });
-function Window_ButtonAssist() {
-  this['initialize'](...arguments);
-}
-(Window_ButtonAssist[_0x17b060(0x54a)] = Object[_0x17b060(0x3f6)](Window_Base[_0x17b060(0x54a)])),
-  (Window_ButtonAssist[_0x17b060(0x54a)][_0x17b060(0x60c)] = Window_ButtonAssist),
-  (Window_ButtonAssist[_0x17b060(0x54a)][_0x17b060(0x3e0)] = function (_0x4ad60c) {
-    const _0x4ce15d = _0x17b060;
-    (this[_0x4ce15d(0xf3)] = {}),
-      Window_Base[_0x4ce15d(0x54a)][_0x4ce15d(0x3e0)][_0x4ce15d(0x64e)](this, _0x4ad60c),
-      this[_0x4ce15d(0x12d)](VisuMZ['CoreEngine']['Settings'][_0x4ce15d(0x862)][_0x4ce15d(0x12b)] || 0x0),
-      this[_0x4ce15d(0x80e)]();
-  }),
-  (Window_ButtonAssist[_0x17b060(0x54a)][_0x17b060(0x7d7)] = function () {
-    const _0x241b62 = _0x17b060;
-    this[_0x241b62(0x16e)][_0x241b62(0xf8)] <= 0x60 && (this['contents']['fontSize'] += 0x6);
-  }),
-  (Window_ButtonAssist[_0x17b060(0x54a)][_0x17b060(0x83b)] = function () {
-    const _0x345bb5 = _0x17b060;
-    this[_0x345bb5(0x16e)][_0x345bb5(0xf8)] >= 0x18 && (this[_0x345bb5(0x16e)][_0x345bb5(0xf8)] -= 0x6);
-  }),
-  (Window_ButtonAssist[_0x17b060(0x54a)][_0x17b060(0x319)] = function () {
-    const _0xddb5b6 = _0x17b060;
-    Window_Base[_0xddb5b6(0x54a)][_0xddb5b6(0x319)]['call'](this), this['updateKeyText']();
-  }),
-  (Window_ButtonAssist[_0x17b060(0x54a)]['updatePadding'] = function () {
-    const _0x1f198e = _0x17b060;
-    this[_0x1f198e(0x804)] = SceneManager['_scene'][_0x1f198e(0x672)]() !== _0x1f198e(0x139) ? 0x0 : 0x8;
-  }),
-  (Window_ButtonAssist[_0x17b060(0x54a)][_0x17b060(0x792)] = function () {
-    const _0x4f9e8c = _0x17b060,
-      _0xdf4b31 = SceneManager[_0x4f9e8c(0x2f9)];
-    for (let _0x28b4b4 = 0x1; _0x28b4b4 <= 0x5; _0x28b4b4++) {
-      if (this[_0x4f9e8c(0xf3)][_0x4f9e8c(0x4f3)['format'](_0x28b4b4)] !== _0xdf4b31[_0x4f9e8c(0x6e1)[_0x4f9e8c(0x1df)](_0x28b4b4)]()) return this[_0x4f9e8c(0x80e)]();
-      if (this[_0x4f9e8c(0xf3)]['text%1'[_0x4f9e8c(0x1df)](_0x28b4b4)] !== _0xdf4b31[_0x4f9e8c(0x72b)[_0x4f9e8c(0x1df)](_0x28b4b4)]()) return this[_0x4f9e8c(0x80e)]();
-    }
-  }),
-  (Window_ButtonAssist['prototype'][_0x17b060(0x80e)] = function () {
-    const _0x5a64c8 = _0x17b060;
-    this['contents'][_0x5a64c8(0x2d5)]();
-    for (let _0xee5f7c = 0x1; _0xee5f7c <= 0x5; _0xee5f7c++) {
-      this['drawSegment'](_0xee5f7c);
-    }
-  }),
-  (Window_ButtonAssist[_0x17b060(0x54a)]['drawSegment'] = function (_0x642d6f) {
-    const _0x234cee = _0x17b060,
-      _0x89393a = this[_0x234cee(0x547)] / 0x5,
-      _0x21bead = SceneManager[_0x234cee(0x2f9)],
-      _0x101880 = _0x21bead[_0x234cee(0x6e1)[_0x234cee(0x1df)](_0x642d6f)](),
-      _0x26ef36 = _0x21bead[_0x234cee(0x72b)['format'](_0x642d6f)]();
-    (this[_0x234cee(0xf3)][_0x234cee(0x4f3)[_0x234cee(0x1df)](_0x642d6f)] = _0x101880), (this[_0x234cee(0xf3)][_0x234cee(0x17f)[_0x234cee(0x1df)](_0x642d6f)] = _0x26ef36);
-    if (_0x101880 === '') return;
-    if (_0x26ef36 === '') return;
-    const _0x4a852d = _0x21bead[_0x234cee(0x270)[_0x234cee(0x1df)](_0x642d6f)](),
-      _0x21025d = this['itemPadding'](),
-      _0x14900a = _0x89393a * (_0x642d6f - 0x1) + _0x21025d + _0x4a852d,
-      _0x48cf85 = VisuMZ['CoreEngine']['Settings']['ButtonAssist'][_0x234cee(0x21c)];
-    this[_0x234cee(0x489)](_0x48cf85['format'](_0x101880, _0x26ef36), _0x14900a, 0x0, _0x89393a - _0x21025d * 0x2);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x7a5)] = Game_Interpreter[_0x17b060(0x54a)]['updateWaitMode']),
-  (Game_Interpreter['prototype']['updateWaitMode'] = function () {
-    const _0x152eac = _0x17b060;
-    if ($gameTemp[_0x152eac(0x35f)] !== undefined) return VisuMZ['CoreEngine'][_0x152eac(0x37b)]();
-    return VisuMZ[_0x152eac(0x77a)][_0x152eac(0x7a5)][_0x152eac(0x64e)](this);
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x37b)] = function () {
-    const _0x38ba2b = _0x17b060,
-      _0x1ddb80 = $gameTemp[_0x38ba2b(0x35f)] || 0x0;
-    (_0x1ddb80 < 0x0 || _0x1ddb80 > 0x64 || TouchInput['isCancelled']() || Input['isTriggered']('cancel')) &&
-      (($gameTemp['_pictureCoordinatesMode'] = undefined), Input[_0x38ba2b(0x2d5)](), TouchInput[_0x38ba2b(0x2d5)]());
-    const _0xa76341 = $gameScreen[_0x38ba2b(0x786)](_0x1ddb80);
-    return _0xa76341 && ((_0xa76341['_x'] = TouchInput['_x']), (_0xa76341['_y'] = TouchInput['_y'])), VisuMZ[_0x38ba2b(0x77a)]['updatePictureCoordinates'](), $gameTemp[_0x38ba2b(0x35f)] !== undefined;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x324)] = function () {
-    const _0x369424 = _0x17b060,
-      _0x355ed0 = SceneManager[_0x369424(0x2f9)];
-    if (!_0x355ed0) return;
-    !_0x355ed0[_0x369424(0x705)] && (SoundManager[_0x369424(0x463)](), (_0x355ed0[_0x369424(0x705)] = new Window_PictureCoordinates()), _0x355ed0['addChild'](_0x355ed0['_pictureCoordinatesWindow'])),
-      $gameTemp[_0x369424(0x35f)] === undefined && (SoundManager['playCancel'](), _0x355ed0['removeChild'](_0x355ed0[_0x369424(0x705)]), (_0x355ed0[_0x369424(0x705)] = undefined));
-  });
-function Window_PictureCoordinates() {
-  const _0x413aea = _0x17b060;
-  this[_0x413aea(0x3e0)](...arguments);
-}
-(Window_PictureCoordinates[_0x17b060(0x54a)] = Object['create'](Window_Base[_0x17b060(0x54a)])),
-  (Window_PictureCoordinates[_0x17b060(0x54a)][_0x17b060(0x60c)] = Window_PictureCoordinates),
-  (Window_PictureCoordinates[_0x17b060(0x54a)][_0x17b060(0x3e0)] = function () {
-    const _0x3a234d = _0x17b060;
-    (this[_0x3a234d(0x151)] = 'nah'), (this[_0x3a234d(0x807)] = 'nah'), (this[_0x3a234d(0x6f5)] = 'nah');
-    const _0x25b8dc = this[_0x3a234d(0x5fe)]();
-    Window_Base['prototype'][_0x3a234d(0x3e0)][_0x3a234d(0x64e)](this, _0x25b8dc), this[_0x3a234d(0x12d)](0x2);
-  }),
-  (Window_PictureCoordinates['prototype'][_0x17b060(0x5fe)] = function () {
-    const _0x49c5fb = _0x17b060;
-    let _0x1d5f56 = 0x0,
-      _0x4d65b1 = Graphics[_0x49c5fb(0x2c5)] - this[_0x49c5fb(0x835)](),
-      _0x1eb384 = Graphics['width'],
-      _0x5442e7 = this[_0x49c5fb(0x835)]();
-    return new Rectangle(_0x1d5f56, _0x4d65b1, _0x1eb384, _0x5442e7);
-  }),
-  (Window_PictureCoordinates[_0x17b060(0x54a)][_0x17b060(0x422)] = function () {
-    const _0x3ab085 = _0x17b060;
-    this[_0x3ab085(0x804)] = 0x0;
-  }),
-  (Window_PictureCoordinates[_0x17b060(0x54a)][_0x17b060(0x319)] = function () {
-    const _0xb5cea4 = _0x17b060;
-    Window_Base['prototype'][_0xb5cea4(0x319)][_0xb5cea4(0x64e)](this), this[_0xb5cea4(0x5d4)]();
-  }),
-  (Window_PictureCoordinates[_0x17b060(0x54a)][_0x17b060(0x5d4)] = function () {
-    if (!this['needsUpdate']()) return;
-    this['refresh']();
-  }),
-  (Window_PictureCoordinates['prototype'][_0x17b060(0x44d)] = function () {
-    const _0x40d8ca = _0x17b060,
-      _0x252f6c = $gameTemp['_pictureCoordinatesMode'],
-      _0x4a03e7 = $gameScreen[_0x40d8ca(0x786)](_0x252f6c);
-    return _0x4a03e7 ? this[_0x40d8ca(0x151)] !== _0x4a03e7[_0x40d8ca(0x684)] || this[_0x40d8ca(0x807)] !== _0x4a03e7['_x'] || this[_0x40d8ca(0x6f5)] !== _0x4a03e7['_y'] : ![];
-  }),
-  (Window_PictureCoordinates['prototype'][_0x17b060(0x80e)] = function () {
-    const _0x582af4 = _0x17b060;
-    this[_0x582af4(0x16e)][_0x582af4(0x2d5)]();
-    const _0x60d73d = $gameTemp[_0x582af4(0x35f)],
-      _0x5cad2e = $gameScreen[_0x582af4(0x786)](_0x60d73d);
-    if (!_0x5cad2e) return;
-    (this['_lastOrigin'] = _0x5cad2e[_0x582af4(0x684)]), (this['_lastX'] = _0x5cad2e['_x']), (this[_0x582af4(0x6f5)] = _0x5cad2e['_y']);
-    const _0x10956b = ColorManager['itemBackColor1']();
-    this[_0x582af4(0x16e)][_0x582af4(0x456)](0x0, 0x0, this[_0x582af4(0x547)], this[_0x582af4(0x64b)], _0x10956b);
-    const _0x490fa3 = _0x582af4(0x265)[_0x582af4(0x1df)](_0x5cad2e['_origin'] === 0x0 ? _0x582af4(0x4af) : _0x582af4(0x380)),
-      _0x588ac6 = _0x582af4(0x577)['format'](_0x5cad2e['_x']),
-      _0x40da1f = _0x582af4(0xfa)[_0x582af4(0x1df)](_0x5cad2e['_y']),
-      _0x1cde39 = _0x582af4(0x42f)[_0x582af4(0x1df)](TextManager[_0x582af4(0x713)](_0x582af4(0x314)));
-    let _0x2d2ba2 = Math[_0x582af4(0x221)](this[_0x582af4(0x547)] / 0x4);
-    this[_0x582af4(0x1a9)](_0x490fa3, _0x2d2ba2 * 0x0, 0x0, _0x2d2ba2),
-      this[_0x582af4(0x1a9)](_0x588ac6, _0x2d2ba2 * 0x1, 0x0, _0x2d2ba2, _0x582af4(0x27e)),
-      this[_0x582af4(0x1a9)](_0x40da1f, _0x2d2ba2 * 0x2, 0x0, _0x2d2ba2, _0x582af4(0x27e));
-    const _0x5f22fe = this[_0x582af4(0x22e)](_0x1cde39)[_0x582af4(0x321)],
-      _0x301e60 = this[_0x582af4(0x547)] - _0x5f22fe;
-    this[_0x582af4(0x489)](_0x1cde39, _0x301e60, 0x0, _0x5f22fe);
-  });
-function Window_TextPopup() {
-  const _0x83bdb1 = _0x17b060;
-  this[_0x83bdb1(0x3e0)](...arguments);
-}
-(Window_TextPopup[_0x17b060(0x54a)] = Object[_0x17b060(0x3f6)](Window_Base[_0x17b060(0x54a)])),
-  (Window_TextPopup[_0x17b060(0x54a)][_0x17b060(0x60c)] = Window_TextPopup),
-  (Window_TextPopup['SETTINGS'] = {
-    framesPerChar: VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x607)]['DurationPerChat'] ?? 1.5,
-    framesMin: VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x607)][_0x17b060(0x215)] ?? 0x5a,
-    framesMax: VisuMZ[_0x17b060(0x77a)][_0x17b060(0x382)][_0x17b060(0x607)][_0x17b060(0x4cb)] ?? 0x12c,
-  }),
-  (Window_TextPopup[_0x17b060(0x54a)][_0x17b060(0x3e0)] = function () {
-    const _0x58d930 = _0x17b060,
-      _0x226bfd = new Rectangle(0x0, 0x0, 0x1, 0x1);
-    Window_Base[_0x58d930(0x54a)][_0x58d930(0x3e0)][_0x58d930(0x64e)](this, _0x226bfd),
-      (this[_0x58d930(0x141)] = 0x0),
-      (this['_text'] = ''),
-      (this[_0x58d930(0x24a)] = []),
-      (this['_timeDuration'] = 0x0);
-  }),
-  (Window_TextPopup[_0x17b060(0x54a)][_0x17b060(0x543)] = function () {
-    return !![];
-  }),
-  (Window_TextPopup[_0x17b060(0x54a)][_0x17b060(0x582)] = function (_0x214315) {
-    const _0x4e48e8 = _0x17b060;
-    if (this[_0x4e48e8(0x24a)][this[_0x4e48e8(0x24a)]['length'] - 0x1] === _0x214315) return;
-    this['_textQueue'][_0x4e48e8(0x6f2)](_0x214315), SceneManager['_scene'][_0x4e48e8(0x781)](this);
-  }),
-  (Window_TextPopup[_0x17b060(0x54a)][_0x17b060(0x319)] = function () {
-    const _0x1b74bb = _0x17b060;
-    Window_Base['prototype'][_0x1b74bb(0x319)][_0x1b74bb(0x64e)](this), this['updateText'](), this['updateDuration']();
-  }),
-  (Window_TextPopup[_0x17b060(0x54a)][_0x17b060(0x3f5)] = function () {
-    const _0x293071 = _0x17b060;
-    if (this[_0x293071(0x4c2)] !== '') return;
-    if (this['_textQueue']['length'] <= 0x0) return;
-    if (!this[_0x293071(0x565)]()) return;
-    this[_0x293071(0x4c2)] = this[_0x293071(0x24a)][_0x293071(0x7f4)]();
-    const _0x2e37b9 = Window_TextPopup[_0x293071(0x5a1)],
-      _0x10ea5a = Math[_0x293071(0x720)](this['_text'][_0x293071(0x540)] * _0x2e37b9[_0x293071(0x138)]);
-    this[_0x293071(0x3c5)] = _0x10ea5a['clamp'](_0x2e37b9[_0x293071(0x67e)], _0x2e37b9[_0x293071(0x57e)]);
-    const _0x1c5b66 = this[_0x293071(0x22e)](this[_0x293071(0x4c2)]);
-    let _0x2183e1 = _0x1c5b66['width'] + this[_0x293071(0x7f1)]() * 0x2;
-    _0x2183e1 += $gameSystem['windowPadding']() * 0x2;
-    let _0xb54f94 = Math[_0x293071(0x7f9)](_0x1c5b66['height'], this['lineHeight']());
-    _0xb54f94 += $gameSystem['windowPadding']() * 0x2;
-    const _0x55a147 = Math[_0x293071(0x3fe)]((Graphics[_0x293071(0x321)] - _0x2183e1) / 0x2),
-      _0x39ee70 = Math[_0x293071(0x3fe)]((Graphics[_0x293071(0x2c5)] - _0xb54f94) / 0x2),
-      _0x5d2ffb = new Rectangle(_0x55a147, _0x39ee70, _0x2183e1, _0xb54f94);
-    this[_0x293071(0x4f6)](_0x5d2ffb['x'], _0x5d2ffb['y'], _0x5d2ffb['width'], _0x5d2ffb['height']),
-      this[_0x293071(0x5f1)](),
-      this[_0x293071(0x80e)](),
-      this[_0x293071(0x697)](),
-      SceneManager[_0x293071(0x2f9)]['addChild'](this);
-  }),
-  (Window_TextPopup[_0x17b060(0x54a)][_0x17b060(0x80e)] = function () {
-    const _0x10fb83 = _0x17b060,
-      _0x3dfb75 = this[_0x10fb83(0x632)]();
-    this[_0x10fb83(0x16e)][_0x10fb83(0x2d5)](), this['drawTextEx'](this[_0x10fb83(0x4c2)], _0x3dfb75['x'], _0x3dfb75['y'], _0x3dfb75[_0x10fb83(0x321)]);
-  }),
-  (Window_TextPopup[_0x17b060(0x54a)][_0x17b060(0x604)] = function () {
-    const _0x40985c = _0x17b060;
-    if (this[_0x40985c(0x11b)]() || this[_0x40985c(0x3ab)]()) return;
-    if (this[_0x40985c(0x3c5)] <= 0x0) return;
-    this[_0x40985c(0x3c5)]--, this['_timeDuration'] <= 0x0 && (this[_0x40985c(0x74f)](), (this[_0x40985c(0x4c2)] = ''));
-  }),
-  (VisuMZ['ShowDevTools'] = function (_0x405341) {
-    const _0x233097 = _0x17b060;
-    if (Utils[_0x233097(0x201)](_0x233097(0x7e6))) {
-      var _0x190372 = require(_0x233097(0xef))[_0x233097(0x607)][_0x233097(0x40d)]();
-      SceneManager[_0x233097(0x1b6)]();
-      if (_0x405341) setTimeout(_0x190372[_0x233097(0x816)][_0x233097(0x76d)](_0x190372), 0x190);
-    }
-  }),
-  (VisuMZ[_0x17b060(0x30b)] = function (_0x1d315c, _0x1b9af5) {
-    const _0x4fb29e = _0x17b060;
-    _0x1b9af5 = _0x1b9af5[_0x4fb29e(0x29e)]();
-    var _0x4d953c = 1.70158,
-      _0x31262c = 0.7;
-    switch (_0x1b9af5) {
-      case _0x4fb29e(0x258):
-        return _0x1d315c;
-      case _0x4fb29e(0x557):
-        return -0x1 * Math[_0x4fb29e(0x824)](_0x1d315c * (Math['PI'] / 0x2)) + 0x1;
-      case 'OUTSINE':
-        return Math[_0x4fb29e(0x33a)](_0x1d315c * (Math['PI'] / 0x2));
-      case 'INOUTSINE':
-        return -0.5 * (Math[_0x4fb29e(0x824)](Math['PI'] * _0x1d315c) - 0x1);
-      case 'INQUAD':
-        return _0x1d315c * _0x1d315c;
-      case _0x4fb29e(0x460):
-        return _0x1d315c * (0x2 - _0x1d315c);
-      case 'INOUTQUAD':
-        return _0x1d315c < 0.5 ? 0x2 * _0x1d315c * _0x1d315c : -0x1 + (0x4 - 0x2 * _0x1d315c) * _0x1d315c;
-      case _0x4fb29e(0x7dd):
-        return _0x1d315c * _0x1d315c * _0x1d315c;
-      case _0x4fb29e(0x41c):
-        var _0x4e8a72 = _0x1d315c - 0x1;
-        return _0x4e8a72 * _0x4e8a72 * _0x4e8a72 + 0x1;
-      case _0x4fb29e(0x57a):
-        return _0x1d315c < 0.5 ? 0x4 * _0x1d315c * _0x1d315c * _0x1d315c : (_0x1d315c - 0x1) * (0x2 * _0x1d315c - 0x2) * (0x2 * _0x1d315c - 0x2) + 0x1;
-      case _0x4fb29e(0x1c3):
-        return _0x1d315c * _0x1d315c * _0x1d315c * _0x1d315c;
-      case _0x4fb29e(0x508):
-        var _0x4e8a72 = _0x1d315c - 0x1;
-        return 0x1 - _0x4e8a72 * _0x4e8a72 * _0x4e8a72 * _0x4e8a72;
-      case _0x4fb29e(0x690):
-        var _0x4e8a72 = _0x1d315c - 0x1;
-        return _0x1d315c < 0.5 ? 0x8 * _0x1d315c * _0x1d315c * _0x1d315c * _0x1d315c : 0x1 - 0x8 * _0x4e8a72 * _0x4e8a72 * _0x4e8a72 * _0x4e8a72;
-      case _0x4fb29e(0x73e):
-        return _0x1d315c * _0x1d315c * _0x1d315c * _0x1d315c * _0x1d315c;
-      case _0x4fb29e(0x750):
-        var _0x4e8a72 = _0x1d315c - 0x1;
-        return 0x1 + _0x4e8a72 * _0x4e8a72 * _0x4e8a72 * _0x4e8a72 * _0x4e8a72;
-      case _0x4fb29e(0x18d):
-        var _0x4e8a72 = _0x1d315c - 0x1;
-        return _0x1d315c < 0.5 ? 0x10 * _0x1d315c * _0x1d315c * _0x1d315c * _0x1d315c * _0x1d315c : 0x1 + 0x10 * _0x4e8a72 * _0x4e8a72 * _0x4e8a72 * _0x4e8a72 * _0x4e8a72;
-      case _0x4fb29e(0x4cf):
-        if (_0x1d315c === 0x0) return 0x0;
-        return Math['pow'](0x2, 0xa * (_0x1d315c - 0x1));
-      case 'OUTEXPO':
-        if (_0x1d315c === 0x1) return 0x1;
-        return -Math['pow'](0x2, -0xa * _0x1d315c) + 0x1;
-      case _0x4fb29e(0x739):
-        if (_0x1d315c === 0x0 || _0x1d315c === 0x1) return _0x1d315c;
-        var _0x2a8baa = _0x1d315c * 0x2,
-          _0x2d3f1c = _0x2a8baa - 0x1;
-        if (_0x2a8baa < 0x1) return 0.5 * Math['pow'](0x2, 0xa * _0x2d3f1c);
-        return 0.5 * (-Math[_0x4fb29e(0x476)](0x2, -0xa * _0x2d3f1c) + 0x2);
-      case _0x4fb29e(0x28f):
-        var _0x2a8baa = _0x1d315c / 0x1;
-        return -0x1 * (Math[_0x4fb29e(0x2b8)](0x1 - _0x2a8baa * _0x1d315c) - 0x1);
-      case _0x4fb29e(0x5c2):
-        var _0x4e8a72 = _0x1d315c - 0x1;
-        return Math[_0x4fb29e(0x2b8)](0x1 - _0x4e8a72 * _0x4e8a72);
-      case 'INOUTCIRC':
-        var _0x2a8baa = _0x1d315c * 0x2,
-          _0x2d3f1c = _0x2a8baa - 0x2;
-        if (_0x2a8baa < 0x1) return -0.5 * (Math['sqrt'](0x1 - _0x2a8baa * _0x2a8baa) - 0x1);
-        return 0.5 * (Math[_0x4fb29e(0x2b8)](0x1 - _0x2d3f1c * _0x2d3f1c) + 0x1);
-      case _0x4fb29e(0x76a):
-        return _0x1d315c * _0x1d315c * ((_0x4d953c + 0x1) * _0x1d315c - _0x4d953c);
-      case 'OUTBACK':
-        var _0x2a8baa = _0x1d315c / 0x1 - 0x1;
-        return _0x2a8baa * _0x2a8baa * ((_0x4d953c + 0x1) * _0x2a8baa + _0x4d953c) + 0x1;
-      case _0x4fb29e(0x46c):
-        var _0x2a8baa = _0x1d315c * 0x2,
-          _0x2f97f8 = _0x2a8baa - 0x2,
-          _0x52df47 = _0x4d953c * 1.525;
-        if (_0x2a8baa < 0x1) return 0.5 * _0x2a8baa * _0x2a8baa * ((_0x52df47 + 0x1) * _0x2a8baa - _0x52df47);
-        return 0.5 * (_0x2f97f8 * _0x2f97f8 * ((_0x52df47 + 0x1) * _0x2f97f8 + _0x52df47) + 0x2);
-      case _0x4fb29e(0x31f):
-        if (_0x1d315c === 0x0 || _0x1d315c === 0x1) return _0x1d315c;
-        var _0x2a8baa = _0x1d315c / 0x1,
-          _0x2d3f1c = _0x2a8baa - 0x1,
-          _0x2c8527 = 0x1 - _0x31262c,
-          _0x52df47 = (_0x2c8527 / (0x2 * Math['PI'])) * Math[_0x4fb29e(0x103)](0x1);
-        return -(Math[_0x4fb29e(0x476)](0x2, 0xa * _0x2d3f1c) * Math[_0x4fb29e(0x33a)](((_0x2d3f1c - _0x52df47) * (0x2 * Math['PI'])) / _0x2c8527));
-      case _0x4fb29e(0x2ee):
-        var _0x2c8527 = 0x1 - _0x31262c,
-          _0x2a8baa = _0x1d315c * 0x2;
-        if (_0x1d315c === 0x0 || _0x1d315c === 0x1) return _0x1d315c;
-        var _0x52df47 = (_0x2c8527 / (0x2 * Math['PI'])) * Math[_0x4fb29e(0x103)](0x1);
-        return Math[_0x4fb29e(0x476)](0x2, -0xa * _0x2a8baa) * Math['sin'](((_0x2a8baa - _0x52df47) * (0x2 * Math['PI'])) / _0x2c8527) + 0x1;
-      case _0x4fb29e(0x1b8):
-        var _0x2c8527 = 0x1 - _0x31262c;
-        if (_0x1d315c === 0x0 || _0x1d315c === 0x1) return _0x1d315c;
-        var _0x2a8baa = _0x1d315c * 0x2,
-          _0x2d3f1c = _0x2a8baa - 0x1,
-          _0x52df47 = (_0x2c8527 / (0x2 * Math['PI'])) * Math[_0x4fb29e(0x103)](0x1);
-        if (_0x2a8baa < 0x1) return -0.5 * (Math['pow'](0x2, 0xa * _0x2d3f1c) * Math[_0x4fb29e(0x33a)](((_0x2d3f1c - _0x52df47) * (0x2 * Math['PI'])) / _0x2c8527));
-        return Math[_0x4fb29e(0x476)](0x2, -0xa * _0x2d3f1c) * Math['sin'](((_0x2d3f1c - _0x52df47) * (0x2 * Math['PI'])) / _0x2c8527) * 0.5 + 0x1;
-      case _0x4fb29e(0x3bc):
-        var _0x2a8baa = _0x1d315c / 0x1;
-        if (_0x2a8baa < 0x1 / 2.75) return 7.5625 * _0x2a8baa * _0x2a8baa;
-        else {
-          if (_0x2a8baa < 0x2 / 2.75) {
-            var _0x2f97f8 = _0x2a8baa - 1.5 / 2.75;
-            return 7.5625 * _0x2f97f8 * _0x2f97f8 + 0.75;
-          } else {
-            if (_0x2a8baa < 2.5 / 2.75) {
-              var _0x2f97f8 = _0x2a8baa - 2.25 / 2.75;
-              return 7.5625 * _0x2f97f8 * _0x2f97f8 + 0.9375;
-            } else {
-              var _0x2f97f8 = _0x2a8baa - 2.625 / 2.75;
-              return 7.5625 * _0x2f97f8 * _0x2f97f8 + 0.984375;
-            }
-          }
-        }
-      case _0x4fb29e(0x32a):
-        var _0x208c0c = 0x1 - VisuMZ[_0x4fb29e(0x30b)](0x1 - _0x1d315c, _0x4fb29e(0x706));
-        return _0x208c0c;
-      case 'INOUTBOUNCE':
-        if (_0x1d315c < 0.5) var _0x208c0c = VisuMZ[_0x4fb29e(0x30b)](_0x1d315c * 0x2, 'inbounce') * 0.5;
-        else var _0x208c0c = VisuMZ[_0x4fb29e(0x30b)](_0x1d315c * 0x2 - 0x1, _0x4fb29e(0x706)) * 0.5 + 0.5;
-        return _0x208c0c;
-      default:
-        return _0x1d315c;
-    }
-  }),
-  (VisuMZ[_0x17b060(0x61c)] = function (_0x2288c7) {
-    const _0x5dc83d = _0x17b060;
-    _0x2288c7 = String(_0x2288c7)[_0x5dc83d(0x29e)]();
-    const _0x1993b7 = VisuMZ[_0x5dc83d(0x77a)][_0x5dc83d(0x382)][_0x5dc83d(0x71d)];
-    if (_0x2288c7 === _0x5dc83d(0x3cd)) return _0x1993b7[_0x5dc83d(0x48e)];
-    if (_0x2288c7 === _0x5dc83d(0x148)) return _0x1993b7[_0x5dc83d(0x140)];
-    if (_0x2288c7 === _0x5dc83d(0x135)) return _0x1993b7[_0x5dc83d(0x5da)];
-    if (_0x2288c7 === _0x5dc83d(0x689)) return _0x1993b7['IconParam3'];
-    if (_0x2288c7 === _0x5dc83d(0x297)) return _0x1993b7[_0x5dc83d(0x765)];
-    if (_0x2288c7 === _0x5dc83d(0x3be)) return _0x1993b7['IconParam5'];
-    if (_0x2288c7 === _0x5dc83d(0x30a)) return _0x1993b7['IconParam6'];
-    if (_0x2288c7 === _0x5dc83d(0xec)) return _0x1993b7['IconParam7'];
-    if (_0x2288c7 === _0x5dc83d(0x889)) return _0x1993b7[_0x5dc83d(0x16c)];
-    if (_0x2288c7 === 'EVA') return _0x1993b7['IconXParam1'];
-    if (_0x2288c7 === 'CRI') return _0x1993b7[_0x5dc83d(0x44b)];
-    if (_0x2288c7 === _0x5dc83d(0x4bb)) return _0x1993b7['IconXParam3'];
-    if (_0x2288c7 === _0x5dc83d(0x17d)) return _0x1993b7['IconXParam4'];
-    if (_0x2288c7 === _0x5dc83d(0x11f)) return _0x1993b7[_0x5dc83d(0x619)];
-    if (_0x2288c7 === 'CNT') return _0x1993b7[_0x5dc83d(0x2c2)];
-    if (_0x2288c7 === _0x5dc83d(0x599)) return _0x1993b7[_0x5dc83d(0x112)];
-    if (_0x2288c7 === 'MRG') return _0x1993b7[_0x5dc83d(0x524)];
-    if (_0x2288c7 === 'TRG') return _0x1993b7[_0x5dc83d(0x203)];
-    if (_0x2288c7 === _0x5dc83d(0x260)) return _0x1993b7[_0x5dc83d(0x6df)];
-    if (_0x2288c7 === _0x5dc83d(0x1c8)) return _0x1993b7[_0x5dc83d(0x882)];
-    if (_0x2288c7 === _0x5dc83d(0x4ec)) return _0x1993b7[_0x5dc83d(0x252)];
-    if (_0x2288c7 === _0x5dc83d(0x728)) return _0x1993b7['IconSParam3'];
-    if (_0x2288c7 === 'MCR') return _0x1993b7[_0x5dc83d(0x134)];
-    if (_0x2288c7 === 'TCR') return _0x1993b7[_0x5dc83d(0x8ab)];
-    if (_0x2288c7 === _0x5dc83d(0x11a)) return _0x1993b7[_0x5dc83d(0x887)];
-    if (_0x2288c7 === _0x5dc83d(0x121)) return _0x1993b7[_0x5dc83d(0x6ec)];
-    if (_0x2288c7 === _0x5dc83d(0x1a8)) return _0x1993b7[_0x5dc83d(0x3c2)];
-    if (_0x2288c7 === _0x5dc83d(0x843)) return _0x1993b7[_0x5dc83d(0x3ef)];
-    if (VisuMZ[_0x5dc83d(0x77a)][_0x5dc83d(0x5e1)][_0x2288c7]) return VisuMZ[_0x5dc83d(0x77a)][_0x5dc83d(0x5e1)][_0x2288c7] || 0x0;
-    return 0x0;
-  }),
-  (VisuMZ['ConvertNumberToString'] = function (_0x221497, _0x35134e, _0x3a4e19) {
-    const _0x2524bd = _0x17b060;
-    if (_0x3a4e19 === undefined && _0x221497 % 0x1 === 0x0) return _0x221497;
-    if (
-      _0x3a4e19 !== undefined &&
-      [_0x2524bd(0x3cd), _0x2524bd(0x148), _0x2524bd(0x135), _0x2524bd(0x689), _0x2524bd(0x297), _0x2524bd(0x3be), _0x2524bd(0x30a), _0x2524bd(0xec)][_0x2524bd(0x1ae)](
-        String(_0x3a4e19)[_0x2524bd(0x29e)]()['trim'](),
-      )
-    )
-      return _0x221497;
-    _0x35134e = _0x35134e || 0x0;
-    if (VisuMZ['CoreEngine'][_0x2524bd(0x2ca)][_0x3a4e19])
-      return VisuMZ['CoreEngine'][_0x2524bd(0x6f7)][_0x3a4e19] === 'integer' ? _0x221497 : String((_0x221497 * 0x64)[_0x2524bd(0x5b2)](_0x35134e)) + '%';
-    return String((_0x221497 * 0x64)[_0x2524bd(0x5b2)](_0x35134e)) + '%';
-  }),
-  (VisuMZ['GroupDigits'] = function (_0x468fbd) {
-    const _0x426005 = _0x17b060;
-    _0x468fbd = String(_0x468fbd);
-    if (!_0x468fbd) return _0x468fbd;
-    if (typeof _0x468fbd !== 'string') return _0x468fbd;
-    const _0x288b55 = VisuMZ[_0x426005(0x77a)][_0x426005(0x382)][_0x426005(0x7ae)][_0x426005(0x82b)] || _0x426005(0x6b6),
-      _0x5c44d8 = { maximumFractionDigits: 0x6 };
-    (_0x468fbd = _0x468fbd[_0x426005(0x39d)](/\[(.*?)\]/g, (_0x38a741, _0x1a1af9) => {
-      const _0x5f29e6 = _0x426005;
-      return VisuMZ[_0x5f29e6(0x79c)](_0x1a1af9, '[', ']');
-    })),
-      (_0x468fbd = _0x468fbd[_0x426005(0x39d)](/<(.*?)>/g, (_0x230da8, _0x5915ee) => {
-        const _0x5be0aa = _0x426005;
-        return VisuMZ[_0x5be0aa(0x79c)](_0x5915ee, '<', '>');
-      })),
-      (_0x468fbd = _0x468fbd[_0x426005(0x39d)](/\{\{(.*?)\}\}/g, (_0x3fce4e, _0x402ec2) => {
-        const _0x5ac686 = _0x426005;
-        return VisuMZ[_0x5ac686(0x79c)](_0x402ec2, '', '');
-      })),
-      (_0x468fbd = _0x468fbd[_0x426005(0x39d)](/(\d+\.?\d*)/g, (_0x1e6b32, _0x887fea) => {
-        const _0x4709e6 = _0x426005;
-        let _0x2eccca = _0x887fea;
-        if (_0x2eccca[0x0] === '0') return _0x2eccca;
-        if (_0x2eccca[_0x2eccca[_0x4709e6(0x540)] - 0x1] === '.') return Number(_0x2eccca)['toLocaleString'](_0x288b55, _0x5c44d8) + '.';
-        else return _0x2eccca[_0x2eccca[_0x4709e6(0x540)] - 0x1] === ',' ? Number(_0x2eccca)['toLocaleString'](_0x288b55, _0x5c44d8) + ',' : Number(_0x2eccca)[_0x4709e6(0x13d)](_0x288b55, _0x5c44d8);
-      }));
-    let _0x7738e6 = 0x3;
-    while (_0x7738e6--) {
-      _0x468fbd = VisuMZ[_0x426005(0x5cb)](_0x468fbd);
-    }
-    return _0x468fbd;
-  }),
-  (VisuMZ['PreserveNumbers'] = function (_0x4e0edd, _0x4a06ed, _0x569235) {
-    const _0x2416dd = _0x17b060;
-    return (
-      (_0x4e0edd = _0x4e0edd['replace'](/(\d)/gi, (_0xe91ae6, _0x1d1093) => _0x2416dd(0x2c3)[_0x2416dd(0x1df)](Number(_0x1d1093)))), _0x2416dd(0x6bd)[_0x2416dd(0x1df)](_0x4e0edd, _0x4a06ed, _0x569235)
-    );
-  }),
-  (VisuMZ['RevertPreserveNumbers'] = function (_0x54207f) {
-    const _0xea07ad = _0x17b060;
-    return (_0x54207f = _0x54207f[_0xea07ad(0x39d)](/PRESERVCONVERSION\((\d+)\)/gi, (_0x52e58c, _0x533a04) => Number(parseInt(_0x533a04)))), _0x54207f;
-  }),
-  (VisuMZ['openURL'] = function (_0x5abb2e) {
-    const _0x12cae4 = _0x17b060;
-    SoundManager[_0x12cae4(0x8ba)]();
-    if (!Utils[_0x12cae4(0x185)]()) {
-      const _0x22e065 = window['open'](_0x5abb2e, _0x12cae4(0x21a));
-    } else {
-      const _0x449432 = process[_0x12cae4(0x361)] == _0x12cae4(0x33b) ? _0x12cae4(0x697) : process[_0x12cae4(0x361)] == _0x12cae4(0x62d) ? _0x12cae4(0x6ae) : _0x12cae4(0x86f);
-      require(_0x12cae4(0x81c))['exec'](_0x449432 + '\x20' + _0x5abb2e);
-    }
-  }),
-  (VisuMZ[_0x17b060(0x220)] = function (_0x30cc12, _0x5c0cdc) {
-    const _0x4b0eaf = _0x17b060;
-    if (!_0x30cc12) return '';
-    const _0x40f181 = _0x30cc12['baseId'] || _0x30cc12['id'];
-    let _0xd4b27d = '';
-    return (
-      _0x30cc12[_0x4b0eaf(0x174)] !== undefined && _0x30cc12[_0x4b0eaf(0x283)] !== undefined && (_0xd4b27d = _0x4b0eaf(0x683)[_0x4b0eaf(0x1df)](_0x40f181, _0x5c0cdc)),
-      _0x30cc12[_0x4b0eaf(0x5f3)] !== undefined && _0x30cc12['learnings'] !== undefined && (_0xd4b27d = 'Class-%1-%2'['format'](_0x40f181, _0x5c0cdc)),
-      _0x30cc12[_0x4b0eaf(0x551)] !== undefined && _0x30cc12[_0x4b0eaf(0x22a)] !== undefined && (_0xd4b27d = 'Skill-%1-%2'['format'](_0x40f181, _0x5c0cdc)),
-      _0x30cc12[_0x4b0eaf(0x19d)] !== undefined && _0x30cc12[_0x4b0eaf(0x298)] !== undefined && (_0xd4b27d = _0x4b0eaf(0x1c6)[_0x4b0eaf(0x1df)](_0x40f181, _0x5c0cdc)),
-      _0x30cc12[_0x4b0eaf(0x709)] !== undefined && _0x30cc12[_0x4b0eaf(0x468)] === 0x1 && (_0xd4b27d = 'Weapon-%1-%2'[_0x4b0eaf(0x1df)](_0x40f181, _0x5c0cdc)),
-      _0x30cc12[_0x4b0eaf(0x530)] !== undefined && _0x30cc12['etypeId'] > 0x1 && (_0xd4b27d = _0x4b0eaf(0x621)[_0x4b0eaf(0x1df)](_0x40f181, _0x5c0cdc)),
-      _0x30cc12[_0x4b0eaf(0x68f)] !== undefined && _0x30cc12['battlerHue'] !== undefined && (_0xd4b27d = _0x4b0eaf(0x4a3)[_0x4b0eaf(0x1df)](_0x40f181, _0x5c0cdc)),
-      _0x30cc12[_0x4b0eaf(0x6cb)] !== undefined && _0x30cc12[_0x4b0eaf(0x368)] !== undefined && (_0xd4b27d = _0x4b0eaf(0x51f)['format'](_0x40f181, _0x5c0cdc)),
-      _0xd4b27d
-    );
-  }),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x435)] = function () {
-    const _0x5ea12d = _0x17b060;
-    return this[_0x5ea12d(0x85b)];
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x312)] = Game_Picture[_0x17b060(0x54a)]['initBasic']),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x560)] = function () {
-    const _0x3e6c0b = _0x17b060;
-    VisuMZ[_0x3e6c0b(0x77a)][_0x3e6c0b(0x312)]['call'](this), (this[_0x3e6c0b(0x85b)] = { x: 0x0, y: 0x0 }), (this[_0x3e6c0b(0x305)] = { x: 0x0, y: 0x0 });
-  }),
-  (VisuMZ['CoreEngine']['Game_Picture_updateMove'] = Game_Picture[_0x17b060(0x54a)][_0x17b060(0x37f)]),
-  (Game_Picture['prototype'][_0x17b060(0x37f)] = function () {
-    const _0x388f86 = _0x17b060;
-    this['updateAnchor']();
-    const _0x3d770b = this[_0x388f86(0x2e0)];
-    VisuMZ[_0x388f86(0x77a)][_0x388f86(0x480)][_0x388f86(0x64e)](this),
-      _0x3d770b > 0x0 &&
-        this[_0x388f86(0x2e0)] <= 0x0 &&
-        ((this['_x'] = this[_0x388f86(0x2fc)]),
-        (this['_y'] = this['_targetY']),
-        (this[_0x388f86(0x6a0)] = this[_0x388f86(0x506)]),
-        (this[_0x388f86(0x4ee)] = this[_0x388f86(0x79b)]),
-        (this[_0x388f86(0x10e)] = this[_0x388f86(0x348)]),
-        this[_0x388f86(0x85b)] && ((this[_0x388f86(0x85b)]['x'] = this['_targetAnchor']['x']), (this['_anchor']['y'] = this[_0x388f86(0x305)]['y'])));
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x1dc)] = Game_Picture[_0x17b060(0x54a)][_0x17b060(0x198)]),
-  (Game_Picture['prototype']['show'] = function (_0x38605b, _0xd70500, _0x4332be, _0xff6244, _0x31a9f2, _0x4a0392, _0x2f3b88, _0xd0c5e5) {
-    const _0x3d0b9b = _0x17b060;
-    VisuMZ[_0x3d0b9b(0x77a)]['Game_Picture_show'][_0x3d0b9b(0x64e)](this, _0x38605b, _0xd70500, _0x4332be, _0xff6244, _0x31a9f2, _0x4a0392, _0x2f3b88, _0xd0c5e5),
-      this[_0x3d0b9b(0x3ca)](
-        [
-          { x: 0x0, y: 0x0 },
-          { x: 0.5, y: 0.5 },
-        ][_0xd70500] || { x: 0x0, y: 0x0 },
-      );
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x69c)] = Game_Picture[_0x17b060(0x54a)][_0x17b060(0x4f6)]),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x4f6)] = function (_0x2f29f8, _0xd5c01f, _0x37a4e1, _0x3d3e8f, _0x6a9b00, _0x3eaa35, _0xcadf96, _0x3a7624, _0x5e594a) {
-    const _0xd9d797 = _0x17b060;
-    VisuMZ['CoreEngine'][_0xd9d797(0x69c)]['call'](this, _0x2f29f8, _0xd5c01f, _0x37a4e1, _0x3d3e8f, _0x6a9b00, _0x3eaa35, _0xcadf96, _0x3a7624, _0x5e594a),
-      this[_0xd9d797(0x7ab)](
-        [
-          { x: 0x0, y: 0x0 },
-          { x: 0.5, y: 0.5 },
-        ][_0x2f29f8] || { x: 0x0, y: 0x0 },
-      );
-  }),
-  (Game_Picture['prototype'][_0x17b060(0x645)] = function () {
-    const _0x55a087 = _0x17b060;
-    this[_0x55a087(0x2e0)] > 0x0 &&
-      ((this[_0x55a087(0x85b)]['x'] = this[_0x55a087(0x85e)](this[_0x55a087(0x85b)]['x'], this['_targetAnchor']['x'])),
-      (this[_0x55a087(0x85b)]['y'] = this[_0x55a087(0x85e)](this['_anchor']['y'], this[_0x55a087(0x305)]['y'])));
-  }),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x3ca)] = function (_0x16276b) {
-    const _0x104b84 = _0x17b060;
-    (this[_0x104b84(0x85b)] = _0x16276b), (this[_0x104b84(0x305)] = JsonEx[_0x104b84(0x83c)](this[_0x104b84(0x85b)]));
-  }),
-  (Game_Picture[_0x17b060(0x54a)][_0x17b060(0x7ab)] = function (_0x55c4d1) {
-    this['_targetAnchor'] = _0x55c4d1;
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x745)] = Sprite_Picture['prototype'][_0x17b060(0x5d1)]),
-  (Sprite_Picture[_0x17b060(0x54a)]['updateOrigin'] = function () {
-    const _0x1d3c01 = _0x17b060,
-      _0x2844a9 = this[_0x1d3c01(0x786)]();
-    !_0x2844a9['anchor']()
-      ? VisuMZ['CoreEngine'][_0x1d3c01(0x745)][_0x1d3c01(0x64e)](this)
-      : ((this['anchor']['x'] = _0x2844a9[_0x1d3c01(0x435)]()['x']), (this[_0x1d3c01(0x435)]['y'] = _0x2844a9[_0x1d3c01(0x435)]()['y']));
-  }),
-  (Game_Action[_0x17b060(0x54a)][_0x17b060(0x499)] = function (_0x13346d) {
-    const _0x4405b2 = _0x17b060;
-    if (_0x13346d) {
-      const _0x462244 = _0x13346d[_0x4405b2(0x290)];
-      if (_0x462244 === 0x1 && this[_0x4405b2(0x18a)]()['attackSkillId']() !== 0x1) this[_0x4405b2(0x78b)]();
-      else _0x462244 === 0x2 && this[_0x4405b2(0x18a)]()[_0x4405b2(0x694)]() !== 0x2 ? this['setGuard']() : this['setSkill'](_0x462244);
-    } else this[_0x4405b2(0x2d5)]();
-  }),
-  (Game_Actor[_0x17b060(0x54a)]['usableSkills'] = function () {
-    const _0x4d2d8c = _0x17b060;
-    return this['skills']()[_0x4d2d8c(0x19c)](_0x504bcf => this['canUse'](_0x504bcf) && this[_0x4d2d8c(0x70f)]()[_0x4d2d8c(0x1ae)](_0x504bcf[_0x4d2d8c(0x551)]));
-  }),
-  (Window_Base[_0x17b060(0x54a)][_0x17b060(0x78f)] = function () {
-    const _0x4f4c3a = _0x17b060;
-    (this['_dimmerSprite'] = new Sprite()), (this[_0x4f4c3a(0x1d4)]['bitmap'] = new Bitmap(0x0, 0x0)), (this[_0x4f4c3a(0x1d4)]['x'] = 0x0), this[_0x4f4c3a(0x3af)](this[_0x4f4c3a(0x1d4)]);
-  }),
-  (Window_Base['prototype']['refreshDimmerBitmap'] = function () {
-    const _0x30353d = _0x17b060;
-    if (this[_0x30353d(0x1d4)]) {
-      const _0x477e8f = this[_0x30353d(0x1d4)]['bitmap'],
-        _0x4d58a9 = this[_0x30353d(0x321)],
-        _0x59b570 = this[_0x30353d(0x2c5)],
-        _0x280df4 = this[_0x30353d(0x804)],
-        _0x22870a = ColorManager[_0x30353d(0x587)](),
-        _0x1ab2fe = ColorManager[_0x30353d(0x1a7)]();
-      _0x477e8f['resize'](_0x4d58a9, _0x59b570),
-        _0x477e8f[_0x30353d(0x668)](0x0, 0x0, _0x4d58a9, _0x280df4, _0x1ab2fe, _0x22870a, !![]),
-        _0x477e8f[_0x30353d(0x456)](0x0, _0x280df4, _0x4d58a9, _0x59b570 - _0x280df4 * 0x2, _0x22870a),
-        _0x477e8f[_0x30353d(0x668)](0x0, _0x59b570 - _0x280df4, _0x4d58a9, _0x280df4, _0x22870a, _0x1ab2fe, !![]),
-        this[_0x30353d(0x1d4)]['setFrame'](0x0, 0x0, _0x4d58a9, _0x59b570);
-    }
-  }),
-  (Game_Actor['prototype'][_0x17b060(0x13e)] = function () {
-    const _0x41409f = _0x17b060;
-    for (let _0x130af8 = 0x0; _0x130af8 < this[_0x41409f(0x3b4)](); _0x130af8++) {
-      const _0x2c79ef = this[_0x41409f(0x1d8)]();
-      let _0x162ee4 = Number[_0x41409f(0x5e4)];
-      this[_0x41409f(0x7e4)](_0x130af8, _0x2c79ef[0x0]);
-      for (const _0xd0ccf9 of _0x2c79ef) {
-        const _0x25e5cb = _0xd0ccf9[_0x41409f(0x753)]();
-        _0x25e5cb > _0x162ee4 && ((_0x162ee4 = _0x25e5cb), this[_0x41409f(0x7e4)](_0x130af8, _0xd0ccf9));
-      }
-    }
-    this['setActionState'](_0x41409f(0x592));
-  }),
-  (Window_BattleItem['prototype']['isEnabled'] = function (_0x480b0a) {
-    const _0x260cd3 = _0x17b060;
-    return BattleManager[_0x260cd3(0x124)]() ? BattleManager[_0x260cd3(0x124)]()[_0x260cd3(0x7fd)](_0x480b0a) : Window_ItemList[_0x260cd3(0x54a)][_0x260cd3(0x403)]['call'](this, _0x480b0a);
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Scene_Map_createSpritesetFix'] = Scene_Map[_0x17b060(0x54a)][_0x17b060(0x6d0)]),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x6d0)] = function () {
-    const _0x2ef4f6 = _0x17b060;
-    VisuMZ[_0x2ef4f6(0x77a)][_0x2ef4f6(0x4ac)][_0x2ef4f6(0x64e)](this);
-    const _0x33adf0 = this[_0x2ef4f6(0x10b)]['_timerSprite'];
-    if (_0x33adf0) this[_0x2ef4f6(0x781)](_0x33adf0);
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x757)] = Scene_Battle[_0x17b060(0x54a)][_0x17b060(0x6d0)]),
-  (Scene_Battle[_0x17b060(0x54a)]['createSpriteset'] = function () {
-    const _0x2bf102 = _0x17b060;
-    VisuMZ['CoreEngine']['Scene_Battle_createSpritesetFix'][_0x2bf102(0x64e)](this);
-    const _0x2a3a4d = this[_0x2bf102(0x10b)][_0x2bf102(0x84c)];
-    if (_0x2a3a4d) this[_0x2bf102(0x781)](_0x2a3a4d);
-  }),
-  (Sprite_Actor['prototype'][_0x17b060(0x319)] = function () {
-    const _0x49bf94 = _0x17b060;
-    Sprite_Battler[_0x49bf94(0x54a)][_0x49bf94(0x319)]['call'](this), this[_0x49bf94(0x281)]();
-    if (this[_0x49bf94(0x2f3)]) this[_0x49bf94(0x531)]();
-    else this['_battlerName'] !== '' && (this[_0x49bf94(0x3ea)] = '');
-  }),
-  (Window[_0x17b060(0x54a)]['_refreshArrows'] = function () {
-    const _0x28bd7d = _0x17b060,
-      _0x324885 = this[_0x28bd7d(0x5ad)],
-      _0x1e6793 = this['_height'],
-      _0x1e486c = 0x18,
-      _0x563cf3 = _0x1e486c / 0x2,
-      _0x46e7b1 = 0x60 + _0x1e486c,
-      _0x47be87 = 0x0 + _0x1e486c;
-    (this['_downArrowSprite']['bitmap'] = this['_windowskin']),
-      (this['_downArrowSprite'][_0x28bd7d(0x435)]['x'] = 0.5),
-      (this[_0x28bd7d(0x871)][_0x28bd7d(0x435)]['y'] = 0.5),
-      this[_0x28bd7d(0x871)]['setFrame'](_0x46e7b1 + _0x563cf3, _0x47be87 + _0x563cf3 + _0x1e486c, _0x1e486c, _0x563cf3),
-      this[_0x28bd7d(0x871)][_0x28bd7d(0x4f6)](Math['round'](_0x324885 / 0x2), Math['round'](_0x1e6793 - _0x563cf3)),
-      (this[_0x28bd7d(0x554)][_0x28bd7d(0x7d3)] = this[_0x28bd7d(0x899)]),
-      (this['_upArrowSprite'][_0x28bd7d(0x435)]['x'] = 0.5),
-      (this['_upArrowSprite'][_0x28bd7d(0x435)]['y'] = 0.5),
-      this[_0x28bd7d(0x554)][_0x28bd7d(0x674)](_0x46e7b1 + _0x563cf3, _0x47be87, _0x1e486c, _0x563cf3),
-      this[_0x28bd7d(0x554)][_0x28bd7d(0x4f6)](Math[_0x28bd7d(0x3fe)](_0x324885 / 0x2), Math[_0x28bd7d(0x3fe)](_0x563cf3));
-  }),
-  (Window[_0x17b060(0x54a)][_0x17b060(0x342)] = function () {
-    const _0x147b45 = _0x17b060,
-      _0x30b7a6 = 0x90,
-      _0x2d3bd6 = 0x60,
-      _0x283d00 = 0x18;
-    (this[_0x147b45(0x1e0)][_0x147b45(0x7d3)] = this[_0x147b45(0x899)]),
-      (this['_pauseSignSprite'][_0x147b45(0x435)]['x'] = 0.5),
-      (this['_pauseSignSprite'][_0x147b45(0x435)]['y'] = 0x1),
-      this['_pauseSignSprite'][_0x147b45(0x4f6)](Math[_0x147b45(0x3fe)](this[_0x147b45(0x5ad)] / 0x2), this[_0x147b45(0x50e)]),
-      this['_pauseSignSprite']['setFrame'](_0x30b7a6, _0x2d3bd6, _0x283d00, _0x283d00),
-      (this[_0x147b45(0x1e0)][_0x147b45(0x867)] = 0xff);
-  }),
-  (Window['prototype'][_0x17b060(0x657)] = function () {
-    const _0x206ec7 = _0x17b060,
-      _0x3858be = this[_0x206ec7(0x538)][_0x206ec7(0x25c)][_0x206ec7(0x7f2)](new Point(0x0, 0x0)),
-      _0x52df8e = this[_0x206ec7(0x538)][_0x206ec7(0x553)];
-    (_0x52df8e['x'] = _0x3858be['x'] + this[_0x206ec7(0x851)]['x']),
-      (_0x52df8e['y'] = _0x3858be['y'] + this[_0x206ec7(0x851)]['y']),
-      (_0x52df8e['width'] = Math[_0x206ec7(0x720)](this[_0x206ec7(0x547)] * this[_0x206ec7(0x82a)]['x'])),
-      (_0x52df8e['height'] = Math[_0x206ec7(0x720)](this['innerHeight'] * this[_0x206ec7(0x82a)]['y']));
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Window_refreshBack'] = Window[_0x17b060(0x54a)][_0x17b060(0x24f)]),
-  (Window[_0x17b060(0x54a)]['_refreshBack'] = function () {
-    const _0x57ce20 = _0x17b060,
-      _0x2cb8ef = VisuMZ['CoreEngine']['Settings'][_0x57ce20(0x607)][_0x57ce20(0x50c)] ?? !![];
-    if (!_0x2cb8ef) return VisuMZ[_0x57ce20(0x77a)][_0x57ce20(0x571)][_0x57ce20(0x64e)](this);
-    const _0xfe4301 = this[_0x57ce20(0x754)],
-      _0x26fc87 = Math[_0x57ce20(0x7f9)](0x0, this[_0x57ce20(0x5ad)] - _0xfe4301 * 0x2),
-      _0xb93fe3 = Math['max'](0x0, this[_0x57ce20(0x50e)] - _0xfe4301 * 0x2),
-      _0x193926 = this[_0x57ce20(0x14c)],
-      _0x2c57b4 = _0x193926['children'][0x0];
-    (_0x193926[_0x57ce20(0x7d3)] = this[_0x57ce20(0x899)]),
-      _0x193926[_0x57ce20(0x674)](0x0, 0x0, 0x60, 0x60),
-      _0x193926[_0x57ce20(0x4f6)](_0xfe4301, _0xfe4301),
-      (_0x193926['scale']['x'] = _0x26fc87 / 0x60),
-      (_0x193926[_0x57ce20(0x82a)]['y'] = _0xb93fe3 / 0x60),
-      (_0x2c57b4[_0x57ce20(0x7d3)] = this[_0x57ce20(0x899)]),
-      _0x2c57b4[_0x57ce20(0x674)](0x0, 0x60, 0x60, 0x60),
-      _0x2c57b4[_0x57ce20(0x4f6)](0x0, 0x0, _0x26fc87, _0xb93fe3),
-      (_0x2c57b4[_0x57ce20(0x82a)]['x'] = 0x1 / _0x193926['scale']['x']),
-      (_0x2c57b4[_0x57ce20(0x82a)]['y'] = 0x1 / _0x193926[_0x57ce20(0x82a)]['y']),
-      _0x193926[_0x57ce20(0x7c4)](this[_0x57ce20(0x747)]);
-  }),
-  (Game_Temp[_0x17b060(0x54a)][_0x17b060(0x43d)] = function () {
-    const _0xb5eec = _0x17b060;
-    (this[_0xb5eec(0x794)] = []), (this[_0xb5eec(0x34c)] = []), (this[_0xb5eec(0xe7)] = []), (this['_balloonQueue'] = []);
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x11d)] = Scene_Base[_0x17b060(0x54a)][_0x17b060(0x249)]),
-  (Scene_Base[_0x17b060(0x54a)][_0x17b060(0x249)] = function () {
-    const _0x7cf8b5 = _0x17b060;
-    if ($gameTemp) $gameTemp['sceneTerminationClearEffects']();
-    VisuMZ[_0x7cf8b5(0x77a)][_0x7cf8b5(0x11d)][_0x7cf8b5(0x64e)](this);
-  }),
-  (Bitmap['prototype'][_0x17b060(0x738)] = function (_0x588a80) {
-    const _0x284567 = _0x17b060,
-      _0x4e3ef0 = this['context'];
-    _0x4e3ef0['save'](), (_0x4e3ef0[_0x284567(0x56c)] = this[_0x284567(0x535)]());
-    const _0x2fbd7a = _0x4e3ef0[_0x284567(0x2a7)](_0x588a80)['width'];
-    return _0x4e3ef0['restore'](), _0x2fbd7a;
-  }),
-  (Window_Message[_0x17b060(0x54a)]['textWidth'] = function (_0x24d48b) {
-    const _0x428573 = _0x17b060;
-    return this[_0x428573(0x72e)]() ? this[_0x428573(0x16e)][_0x428573(0x738)](_0x24d48b) : Window_Base[_0x428573(0x54a)][_0x428573(0x80f)][_0x428573(0x64e)](this, _0x24d48b);
-  }),
-  (Window_Message[_0x17b060(0x54a)]['useFontWidthFix'] = function () {
-    const _0x19fad4 = _0x17b060;
-    return VisuMZ[_0x19fad4(0x77a)][_0x19fad4(0x382)][_0x19fad4(0x7ae)][_0x19fad4(0x671)] ?? !![];
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x1c4)] = Game_Action[_0x17b060(0x54a)][_0x17b060(0x2ec)]),
-  (Game_Action['prototype'][_0x17b060(0x2ec)] = function () {
-    const _0x425ae0 = _0x17b060;
-    return this['item']() ? VisuMZ[_0x425ae0(0x77a)][_0x425ae0(0x1c4)][_0x425ae0(0x64e)](this) : 0x0;
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['Game_Action_setAttack'] = Game_Action['prototype'][_0x17b060(0x78b)]),
-  (Game_Action[_0x17b060(0x54a)][_0x17b060(0x78b)] = function () {
-    const _0x1403f8 = _0x17b060;
-    if (this[_0x1403f8(0x18a)]() && this[_0x1403f8(0x18a)]()[_0x1403f8(0x1d2)]()) VisuMZ[_0x1403f8(0x77a)][_0x1403f8(0x35c)][_0x1403f8(0x64e)](this);
-    else BattleManager[_0x1403f8(0x77d)] ? VisuMZ[_0x1403f8(0x77a)][_0x1403f8(0x35c)][_0x1403f8(0x64e)](this) : this[_0x1403f8(0x2d5)]();
-  }),
-  (VisuMZ[_0x17b060(0x77a)][_0x17b060(0x86e)] = BattleManager[_0x17b060(0x755)]),
-  (BattleManager[_0x17b060(0x755)] = function (_0x9da7e4, _0xd4885b) {
-    const _0x939869 = _0x17b060;
-    (this['_bypassCanCounterCheck'] = !![]), VisuMZ[_0x939869(0x77a)][_0x939869(0x86e)]['call'](this, _0x9da7e4, _0xd4885b), (this[_0x939869(0x77d)] = undefined);
-  }),
-  (Sprite_Name['prototype'][_0x17b060(0x788)] = function () {
-    return 0x24;
-  }),
-  (Sprite_Name[_0x17b060(0x54a)][_0x17b060(0x1d9)] = function () {
-    const _0xd28ab1 = _0x17b060,
-      _0x3fce7f = this[_0xd28ab1(0x142)](),
-      _0x10492f = this[_0xd28ab1(0x2a6)](),
-      _0x41fd8e = this[_0xd28ab1(0x788)]();
-    this[_0xd28ab1(0x831)](), this[_0xd28ab1(0x7d3)]['clear'](), this[_0xd28ab1(0x7d3)][_0xd28ab1(0x580)](_0x3fce7f, 0x4, 0x0, _0x10492f - 0xa, _0x41fd8e, _0xd28ab1(0x2b0));
-  }),
-  (Bitmap['prototype']['drawTextTopAligned'] = function (_0x6049c8, _0xd927d5, _0x2d8075, _0x1850ff, _0x2ad1d3, _0x39be36) {
-    const _0x253915 = _0x17b060,
-      _0x33cde5 = this[_0x253915(0x85c)],
-      _0x1e2840 = _0x33cde5[_0x253915(0x4d9)];
-    _0x1850ff = _0x1850ff || 0xffffffff;
-    let _0x4821de = _0xd927d5,
-      _0x86d49 = Math['round'](_0x2d8075 + 0x18 / 0x2 + this[_0x253915(0xf8)] * 0.35);
-    _0x39be36 === _0x253915(0x27e) && (_0x4821de += _0x1850ff / 0x2),
-      _0x39be36 === _0x253915(0x512) && (_0x4821de += _0x1850ff),
-      _0x33cde5[_0x253915(0x25e)](),
-      (_0x33cde5['font'] = this['_makeFontNameText']()),
-      (_0x33cde5[_0x253915(0x184)] = _0x39be36),
-      (_0x33cde5[_0x253915(0x850)] = 'alphabetic'),
-      (_0x33cde5[_0x253915(0x4d9)] = 0x1),
-      this['_drawTextOutline'](_0x6049c8, _0x4821de, _0x86d49, _0x1850ff),
-      (_0x33cde5[_0x253915(0x4d9)] = _0x1e2840),
-      this[_0x253915(0x1c5)](_0x6049c8, _0x4821de, _0x86d49, _0x1850ff),
-      _0x33cde5[_0x253915(0x7b9)](),
-      this[_0x253915(0x199)]['update']();
-  }),
-  (VisuMZ[_0x17b060(0x77a)]['BattleManager_checkSubstitute'] = BattleManager[_0x17b060(0x52f)]),
-  (BattleManager[_0x17b060(0x52f)] = function (_0x4071db) {
-    const _0x566c3e = _0x17b060;
-    if (this[_0x566c3e(0x7c7)][_0x566c3e(0x891)]()) return ![];
-    return VisuMZ[_0x566c3e(0x77a)][_0x566c3e(0x502)]['call'](this, _0x4071db);
-  }),
-  (BattleManager[_0x17b060(0x4de)] = function () {
-    const _0x16336b = _0x17b060;
-    if (this[_0x16336b(0x2af)]) this[_0x16336b(0x773)][_0x16336b(0x4de)](this[_0x16336b(0x2af)]);
-    (this[_0x16336b(0x5e5)] = _0x16336b(0x84f)),
-      this[_0x16336b(0x2af)] && this['_subject'][_0x16336b(0x3b4)]() === 0x0 && (this['endBattlerActions'](this[_0x16336b(0x2af)]), (this['_subject'] = null));
-  }),
-  (Bitmap['prototype']['_startLoading'] = function () {
-    const _0x33d153 = _0x17b060;
-    (this[_0x33d153(0x4c9)] = new Image()),
-      (this[_0x33d153(0x4c9)][_0x33d153(0x13f)] = this[_0x33d153(0x277)][_0x33d153(0x76d)](this)),
-      (this['_image'][_0x33d153(0x6e7)] = this[_0x33d153(0x398)][_0x33d153(0x76d)](this)),
-      this[_0x33d153(0x8b3)](),
-      (this['_loadingState'] = _0x33d153(0x49d)),
-      Utils[_0x33d153(0x612)]()
-        ? this[_0x33d153(0x76e)]()
-        : ((this[_0x33d153(0x4c9)]['src'] = this[_0x33d153(0x3a0)]), ![] && this[_0x33d153(0x4c9)][_0x33d153(0x321)] > 0x0 && ((this[_0x33d153(0x4c9)]['onload'] = null), this[_0x33d153(0x277)]()));
-  }),
-  (Scene_Skill[_0x17b060(0x54a)][_0x17b060(0x72c)] = function () {
-    const _0x53da6e = _0x17b060;
-    Scene_MenuBase[_0x53da6e(0x54a)][_0x53da6e(0x72c)][_0x53da6e(0x64e)](this),
-      this['refreshActor'](),
-      this[_0x53da6e(0x28d)][_0x53da6e(0x406)](),
-      this[_0x53da6e(0x28d)][_0x53da6e(0x7a4)](),
-      this[_0x53da6e(0x1cb)][_0x53da6e(0x40a)]();
-  }),
-  (Scene_Skill['prototype'][_0x17b060(0x4c7)] = function () {
-    const _0x2387c7 = _0x17b060;
-    return this['_skillTypeWindow'] && this[_0x2387c7(0x1cb)]['active'];
-  }),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x153)] = function (_0x1bb270, _0x23819e, _0x2f548b) {
-    const _0x2b0aff = _0x17b060,
-      _0x599163 = this[_0x2b0aff(0x1ec)](),
-      _0x4ef113 = this[_0x2b0aff(0x170)](_0x1bb270, _0x23819e);
-    for (const _0x4a7b04 of _0x4ef113) {
-      const _0x25281b = _0x599163[_0x4a7b04];
-      if (_0x25281b === undefined || _0x25281b === null) {
-        if ($gameTemp[_0x2b0aff(0x6dc)]() && !DataManager[_0x2b0aff(0x87a)]()) {
-          let _0x33c37f = _0x2b0aff(0x6c9) + '\x0a';
-          (_0x33c37f += _0x2b0aff(0x29f) + '\x0a'),
-            (_0x33c37f += 'and\x20add\x20it\x20onto\x20this\x20one.'),
-            this[_0x2b0aff(0x3e1)]()
-              ? (alert(_0x33c37f), SceneManager[_0x2b0aff(0x81a)]())
-              : (console[_0x2b0aff(0x797)](_0x33c37f), !$gameTemp[_0x2b0aff(0x446)] && (($gameTemp[_0x2b0aff(0x446)] = !![]), SceneManager[_0x2b0aff(0x1b6)]()));
-        }
-      }
-      if ((_0x25281b & 0x10) !== 0x0) continue;
-      if ((_0x25281b & _0x2f548b) === 0x0) return !![];
-      if ((_0x25281b & _0x2f548b) === _0x2f548b) return ![];
-    }
-    return ![];
-  }),
-  (Game_Map[_0x17b060(0x54a)][_0x17b060(0x3e1)] = function () {
-    const _0x2a1bb6 = _0x17b060;
-    if (Imported[_0x2a1bb6(0x4c8)]) return !![];
-    if (Imported[_0x2a1bb6(0x6aa)]) return !![];
-    return ![];
-  }),
-  (Sprite_Animation['prototype'][_0x17b060(0x66a)] = function (_0x24c8d8) {
-    const _0x55ec5d = _0x17b060;
-    !this[_0x55ec5d(0x6bc)] && (this['_originalViewport'] = _0x24c8d8['gl'][_0x55ec5d(0x643)](_0x24c8d8['gl']['VIEWPORT']));
-  }),
-  (VisuMZ['CoreEngine'][_0x17b060(0x8b1)] = Scene_Map[_0x17b060(0x54a)][_0x17b060(0x70b)]),
-  (Scene_Map[_0x17b060(0x54a)][_0x17b060(0x70b)] = function () {
-    const _0x49d876 = _0x17b060,
-      _0x202de9 = SceneManager[_0x49d876(0x77f)][_0x49d876(0x142)];
-    if ([_0x49d876(0x45e), _0x49d876(0x6f3), 'Scene_TitleTransition', _0x49d876(0x1be)][_0x49d876(0x1ae)](_0x202de9)) return ![];
-    return VisuMZ[_0x49d876(0x77a)][_0x49d876(0x8b1)][_0x49d876(0x64e)](this);
-  });
+const _0x2e6bc0=_0x545e;(function(_0x373518,_0x39013a){const _0x4f9ebc=_0x545e,_0x26b2e8=_0x373518();while(!![]){try{const _0x85403e=-parseInt(_0x4f9ebc(0x727))/0x1*(parseInt(_0x4f9ebc(0x147))/0x2)+-parseInt(_0x4f9ebc(0x3be))/0x3*(-parseInt(_0x4f9ebc(0x69f))/0x4)+-parseInt(_0x4f9ebc(0x657))/0x5+parseInt(_0x4f9ebc(0x71f))/0x6+parseInt(_0x4f9ebc(0x406))/0x7+parseInt(_0x4f9ebc(0x655))/0x8*(-parseInt(_0x4f9ebc(0x5d4))/0x9)+-parseInt(_0x4f9ebc(0x6ee))/0xa*(-parseInt(_0x4f9ebc(0x369))/0xb);if(_0x85403e===_0x39013a)break;else _0x26b2e8['push'](_0x26b2e8['shift']());}catch(_0x46b751){_0x26b2e8['push'](_0x26b2e8['shift']());}}}(_0x2615,0x7a9f0));var label=_0x2e6bc0(0x468),tier=tier||0x0,dependencies=[],pluginData=$plugins[_0x2e6bc0(0x5c0)](function(_0x5db986){const _0x23dc30=_0x2e6bc0;return _0x5db986[_0x23dc30(0x52b)]&&_0x5db986[_0x23dc30(0x67d)][_0x23dc30(0x7fe)]('['+label+']');})[0x0];VisuMZ[label][_0x2e6bc0(0x6ef)]=VisuMZ[label][_0x2e6bc0(0x6ef)]||{},VisuMZ[_0x2e6bc0(0x823)]=function(_0x209314,_0x44ed64){const _0x192915=_0x2e6bc0;for(const _0x6cbb4c in _0x44ed64){if(_0x6cbb4c[_0x192915(0x298)](/(.*):(.*)/i)){const _0xb40b3d=String(RegExp['$1']),_0x327e32=String(RegExp['$2'])['toUpperCase']()['trim']();let _0x208f4e,_0xecff9e,_0x52dec4;switch(_0x327e32){case _0x192915(0x75d):_0x208f4e=_0x44ed64[_0x6cbb4c]!==''?Number(_0x44ed64[_0x6cbb4c]):0x0;break;case _0x192915(0x16f):_0xecff9e=_0x44ed64[_0x6cbb4c]!==''?JSON[_0x192915(0x809)](_0x44ed64[_0x6cbb4c]):[],_0x208f4e=_0xecff9e[_0x192915(0x513)](_0xa59546=>Number(_0xa59546));break;case _0x192915(0x8a6):_0x208f4e=_0x44ed64[_0x6cbb4c]!==''?eval(_0x44ed64[_0x6cbb4c]):null;break;case _0x192915(0x26a):_0xecff9e=_0x44ed64[_0x6cbb4c]!==''?JSON['parse'](_0x44ed64[_0x6cbb4c]):[],_0x208f4e=_0xecff9e[_0x192915(0x513)](_0x460814=>eval(_0x460814));break;case _0x192915(0x2e3):_0x208f4e=_0x44ed64[_0x6cbb4c]!==''?JSON[_0x192915(0x809)](_0x44ed64[_0x6cbb4c]):'';break;case _0x192915(0x31c):_0xecff9e=_0x44ed64[_0x6cbb4c]!==''?JSON['parse'](_0x44ed64[_0x6cbb4c]):[],_0x208f4e=_0xecff9e[_0x192915(0x513)](_0x3a8288=>JSON[_0x192915(0x809)](_0x3a8288));break;case _0x192915(0x439):_0x208f4e=_0x44ed64[_0x6cbb4c]!==''?new Function(JSON[_0x192915(0x809)](_0x44ed64[_0x6cbb4c])):new Function(_0x192915(0x871));break;case _0x192915(0x7c0):_0xecff9e=_0x44ed64[_0x6cbb4c]!==''?JSON[_0x192915(0x809)](_0x44ed64[_0x6cbb4c]):[],_0x208f4e=_0xecff9e[_0x192915(0x513)](_0xffed1e=>new Function(JSON[_0x192915(0x809)](_0xffed1e)));break;case _0x192915(0x251):_0x208f4e=_0x44ed64[_0x6cbb4c]!==''?String(_0x44ed64[_0x6cbb4c]):'';break;case'ARRAYSTR':_0xecff9e=_0x44ed64[_0x6cbb4c]!==''?JSON['parse'](_0x44ed64[_0x6cbb4c]):[],_0x208f4e=_0xecff9e[_0x192915(0x513)](_0x3c5d82=>String(_0x3c5d82));break;case'STRUCT':_0x52dec4=_0x44ed64[_0x6cbb4c]!==''?JSON[_0x192915(0x809)](_0x44ed64[_0x6cbb4c]):{},_0x209314[_0xb40b3d]={},VisuMZ['ConvertParams'](_0x209314[_0xb40b3d],_0x52dec4);continue;case _0x192915(0x1a4):_0xecff9e=_0x44ed64[_0x6cbb4c]!==''?JSON['parse'](_0x44ed64[_0x6cbb4c]):[],_0x208f4e=_0xecff9e[_0x192915(0x513)](_0x202d4a=>VisuMZ[_0x192915(0x823)]({},JSON[_0x192915(0x809)](_0x202d4a)));break;default:continue;}_0x209314[_0xb40b3d]=_0x208f4e;}}return _0x209314;},VisuMZ[_0x2e6bc0(0x468)]['SceneManager_exit']=SceneManager[_0x2e6bc0(0x272)],SceneManager[_0x2e6bc0(0x272)]=function(){const _0x5bf83c=_0x2e6bc0;VisuMZ['CoreEngine'][_0x5bf83c(0x5fe)][_0x5bf83c(0x895)](this);if(Utils[_0x5bf83c(0x309)]>='1.4.4'){if(typeof nw==='object')nw[_0x5bf83c(0x719)][_0x5bf83c(0x380)]();}},(_0x83c910=>{const _0x5b821f=_0x2e6bc0,_0x1dcf30=_0x83c910[_0x5b821f(0x3d0)];for(const _0x2bd346 of dependencies){if(!Imported[_0x2bd346]){alert(_0x5b821f(0x46f)['format'](_0x1dcf30,_0x2bd346)),SceneManager['exit']();break;}}const _0x59edfa=_0x83c910[_0x5b821f(0x67d)];if(_0x59edfa[_0x5b821f(0x298)](/\[Version[ ](.*?)\]/i)){const _0x23ad9a=Number(RegExp['$1']);_0x23ad9a!==VisuMZ[label][_0x5b821f(0x6d6)]&&(alert(_0x5b821f(0x1dc)[_0x5b821f(0x607)](_0x1dcf30,_0x23ad9a)),SceneManager[_0x5b821f(0x272)]());}if(_0x59edfa['match'](/\[Tier[ ](\d+)\]/i)){const _0x2bfa68=Number(RegExp['$1']);_0x2bfa68<tier?(alert(_0x5b821f(0x299)[_0x5b821f(0x607)](_0x1dcf30,_0x2bfa68,tier)),SceneManager[_0x5b821f(0x272)]()):tier=Math[_0x5b821f(0x56f)](_0x2bfa68,tier);}VisuMZ['ConvertParams'](VisuMZ[label][_0x5b821f(0x6ef)],_0x83c910[_0x5b821f(0x69c)]);})(pluginData),((()=>{const _0x357202=_0x2e6bc0;if(VisuMZ[_0x357202(0x468)][_0x357202(0x6ef)][_0x357202(0x818)]['SubfolderParse']??!![])for(const _0x51c2d0 in $plugins){const _0x4ea605=$plugins[_0x51c2d0];_0x4ea605['name']['match'](/(.*)\/(.*)/i)&&(_0x4ea605[_0x357202(0x3d0)]=String(RegExp['$2'][_0x357202(0x679)]()));}})()),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],'AnimationPoint',_0x3b1578=>{const _0x14682d=_0x2e6bc0;if(!SceneManager['_scene'])return;if(!SceneManager[_0x14682d(0x49a)][_0x14682d(0x722)])return;VisuMZ[_0x14682d(0x823)](_0x3b1578,_0x3b1578);const _0x3bb452=Math[_0x14682d(0x897)](_0x3b1578[_0x14682d(0x3d3)]),_0x2615f9=Math[_0x14682d(0x897)](_0x3b1578['pointY']);$gameTemp[_0x14682d(0x3e5)](_0x3bb452,_0x2615f9,_0x3b1578[_0x14682d(0x629)],_0x3b1578[_0x14682d(0x2cd)],_0x3b1578[_0x14682d(0x7ff)]);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],'AudioChangeBgmVolume',_0x1b20d0=>{const _0x18d33b=_0x2e6bc0;VisuMZ['ConvertParams'](_0x1b20d0,_0x1b20d0);const _0x5e611e=Math[_0x18d33b(0x897)](_0x1b20d0[_0x18d33b(0x164)])['clamp'](0x0,0x64),_0x59239d=AudioManager[_0x18d33b(0x168)];_0x59239d&&(_0x59239d['volume']=_0x5e611e,_0x59239d[_0x18d33b(0x5d9)]=AudioManager['_bgmBuffer'][_0x18d33b(0x1a8)](),AudioManager['updateBgmParameters'](_0x59239d),AudioManager['playBgm'](_0x59239d,_0x59239d['pos']),AudioManager[_0x18d33b(0x54a)][_0x18d33b(0x6d5)](_0x59239d['pos']));}),PluginManager[_0x2e6bc0(0x7c3)](pluginData['name'],_0x2e6bc0(0x590),_0x1ad2a2=>{const _0x3ef61e=_0x2e6bc0;VisuMZ[_0x3ef61e(0x823)](_0x1ad2a2,_0x1ad2a2);const _0x22f15f=Math[_0x3ef61e(0x897)](_0x1ad2a2['pitch'])[_0x3ef61e(0x2eb)](0x32,0x96),_0x2d671e=AudioManager['_currentBgm'];_0x2d671e&&(_0x2d671e[_0x3ef61e(0x7fc)]=_0x22f15f,_0x2d671e[_0x3ef61e(0x5d9)]=AudioManager[_0x3ef61e(0x54a)][_0x3ef61e(0x1a8)](),AudioManager[_0x3ef61e(0x397)](_0x2d671e),AudioManager[_0x3ef61e(0x815)](_0x2d671e,_0x2d671e[_0x3ef61e(0x5d9)]),AudioManager[_0x3ef61e(0x54a)][_0x3ef61e(0x6d5)](_0x2d671e[_0x3ef61e(0x5d9)]));}),PluginManager['registerCommand'](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x6d7),_0x1b32bb=>{const _0xc8e6e1=_0x2e6bc0;VisuMZ[_0xc8e6e1(0x823)](_0x1b32bb,_0x1b32bb);const _0x199d9c=Math['round'](_0x1b32bb[_0xc8e6e1(0x85d)])['clamp'](-0x64,0x64),_0x1824c5=AudioManager[_0xc8e6e1(0x168)];_0x1824c5&&(_0x1824c5[_0xc8e6e1(0x85d)]=_0x199d9c,_0x1824c5[_0xc8e6e1(0x5d9)]=AudioManager['_bgmBuffer']['seek'](),AudioManager[_0xc8e6e1(0x397)](_0x1824c5),AudioManager['playBgm'](_0x1824c5,_0x1824c5[_0xc8e6e1(0x5d9)]),AudioManager[_0xc8e6e1(0x54a)][_0xc8e6e1(0x6d5)](_0x1824c5[_0xc8e6e1(0x5d9)]));}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],'AudioChangeBgsVolume',_0x4dd340=>{const _0x388064=_0x2e6bc0;VisuMZ[_0x388064(0x823)](_0x4dd340,_0x4dd340);const _0xd30ba3=Math[_0x388064(0x897)](_0x4dd340[_0x388064(0x164)])['clamp'](0x0,0x64),_0x306005=AudioManager[_0x388064(0x892)];_0x306005&&(_0x306005[_0x388064(0x164)]=_0xd30ba3,_0x306005[_0x388064(0x5d9)]=AudioManager[_0x388064(0x157)][_0x388064(0x1a8)](),AudioManager[_0x388064(0x25f)](_0x306005),AudioManager[_0x388064(0x3cc)](_0x306005,_0x306005[_0x388064(0x5d9)]),AudioManager['_bgsBuffer'][_0x388064(0x6d5)](_0x306005[_0x388064(0x5d9)]));}),PluginManager['registerCommand'](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x3b8),_0x2978af=>{const _0x34684e=_0x2e6bc0;VisuMZ[_0x34684e(0x823)](_0x2978af,_0x2978af);const _0x2ddc60=Math[_0x34684e(0x897)](_0x2978af[_0x34684e(0x7fc)])[_0x34684e(0x2eb)](0x32,0x96),_0x28f29d=AudioManager[_0x34684e(0x892)];_0x28f29d&&(_0x28f29d[_0x34684e(0x7fc)]=_0x2ddc60,_0x28f29d['pos']=AudioManager['_bgsBuffer'][_0x34684e(0x1a8)](),AudioManager[_0x34684e(0x25f)](_0x28f29d),AudioManager[_0x34684e(0x3cc)](_0x28f29d,_0x28f29d[_0x34684e(0x5d9)]),AudioManager[_0x34684e(0x157)][_0x34684e(0x6d5)](_0x28f29d['pos']));}),PluginManager[_0x2e6bc0(0x7c3)](pluginData['name'],_0x2e6bc0(0x345),_0x3ec8c7=>{const _0x4d6bcb=_0x2e6bc0;VisuMZ['ConvertParams'](_0x3ec8c7,_0x3ec8c7);const _0x29cbea=Math[_0x4d6bcb(0x897)](_0x3ec8c7[_0x4d6bcb(0x85d)])['clamp'](-0x64,0x64),_0x4f2afa=AudioManager[_0x4d6bcb(0x892)];_0x4f2afa&&(_0x4f2afa['pan']=_0x29cbea,_0x4f2afa['pos']=AudioManager['_bgsBuffer'][_0x4d6bcb(0x1a8)](),AudioManager[_0x4d6bcb(0x25f)](_0x4f2afa),AudioManager[_0x4d6bcb(0x3cc)](_0x4f2afa,_0x4f2afa[_0x4d6bcb(0x5d9)]),AudioManager[_0x4d6bcb(0x157)][_0x4d6bcb(0x6d5)](_0x4f2afa[_0x4d6bcb(0x5d9)]));}),PluginManager[_0x2e6bc0(0x7c3)](pluginData['name'],_0x2e6bc0(0x3a4),_0x50edd0=>{const _0x264e07=_0x2e6bc0;if(!$gameTemp[_0x264e07(0x2d3)]())return;const _0x522a3f=Input[_0x264e07(0x32d)]();console[_0x264e07(0x882)](_0x522a3f);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x60c),_0x574ed1=>{const _0xe6d96f=_0x2e6bc0;if(!$gameTemp[_0xe6d96f(0x2d3)]())return;if(!Utils[_0xe6d96f(0x3e4)]())return;SceneManager[_0xe6d96f(0x49a)][_0xe6d96f(0x23a)]=![],VisuMZ[_0xe6d96f(0x468)]['ExportStrFromAllMaps']();}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x5e8),_0x1d4e2b=>{const _0xef4666=_0x2e6bc0;if(!$gameTemp[_0xef4666(0x2d3)]())return;if(!Utils[_0xef4666(0x3e4)]())return;SceneManager[_0xef4666(0x49a)][_0xef4666(0x23a)]=![],VisuMZ[_0xef4666(0x468)][_0xef4666(0x10a)]();}),PluginManager['registerCommand'](pluginData['name'],'ExportCurMapText',_0x46a813=>{const _0x2f301f=_0x2e6bc0;if(!$gameTemp['isPlaytest']())return;if(!Utils[_0x2f301f(0x3e4)]())return;if(!$gameMap)return;if($gameMap[_0x2f301f(0x4f8)]()<=0x0)return;VisuMZ[_0x2f301f(0x823)](_0x46a813,_0x46a813);const _0x52c9ed=_0x2f301f(0x584)['format']($gameMap[_0x2f301f(0x4f8)]()[_0x2f301f(0xe5)](0x3)),_0x25990f=VisuMZ['CoreEngine'][_0x2f301f(0x842)]($gameMap[_0x2f301f(0x4f8)]());VisuMZ[_0x2f301f(0x468)][_0x2f301f(0x714)](_0x25990f,_0x52c9ed,!![]);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x784),_0x25c6cd=>{const _0x3ae905=_0x2e6bc0;if(!$gameTemp['isPlaytest']())return;if(!Utils['isNwjs']())return;if(!$gameParty['inBattle']())return;VisuMZ[_0x3ae905(0x823)](_0x25c6cd,_0x25c6cd);const _0x1736db=_0x3ae905(0x29f)[_0x3ae905(0x607)]($gameTroop['_troopId']['padZero'](0x4)),_0x4da242=VisuMZ[_0x3ae905(0x468)][_0x3ae905(0x378)]($gameTroop['_troopId']);VisuMZ[_0x3ae905(0x468)][_0x3ae905(0x714)](_0x4da242,_0x1736db,!![]);}),VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x714)]=function(_0xee9367,_0x5462f0,_0x4a4f34){const _0x45b0c1=_0x2e6bc0,_0x40a2bf=require('fs');let _0x3c3205=_0x45b0c1(0x636)[_0x45b0c1(0x607)](_0x5462f0||'0');_0x40a2bf[_0x45b0c1(0x87f)](_0x3c3205,_0xee9367,_0x3602ad=>{if(_0x3602ad)throw err;else _0x4a4f34&&alert('Saved\x20file\x20as\x20%1\x20in\x20project\x20folder.'['format'](_0x3c3205));});},VisuMZ[_0x2e6bc0(0x468)]['ExportStrFromAllMaps']=function(){const _0x19a984=_0x2e6bc0,_0x2f9ece=[];for(const _0x125b7d of $dataMapInfos){if(!_0x125b7d)continue;_0x2f9ece['push'](_0x125b7d['id']);}const _0x2fab26=_0x2f9ece[_0x19a984(0x29e)]*0x64+Math[_0x19a984(0x3b7)](0x64);alert(_0x19a984(0x748)[_0x19a984(0x607)](_0x2fab26)),this[_0x19a984(0x89e)]=[],this[_0x19a984(0x10d)]=$dataMap;for(const _0x2e86b9 of _0x2f9ece){VisuMZ[_0x19a984(0x468)][_0x19a984(0xe9)](_0x2e86b9);}setTimeout(VisuMZ['CoreEngine'][_0x19a984(0x194)][_0x19a984(0x6e7)](this),_0x2fab26);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0xe9)]=function(_0x56f5d9){const _0x3f6351=_0x2e6bc0,_0x489717=_0x3f6351(0x137)['format'](_0x56f5d9[_0x3f6351(0xe5)](0x3)),_0x410e28=new XMLHttpRequest(),_0x3991c3='data/'+_0x489717;_0x410e28[_0x3f6351(0x6a0)]('GET',_0x3991c3),_0x410e28[_0x3f6351(0x470)]('application/json'),_0x410e28[_0x3f6351(0x88e)]=()=>this[_0x3f6351(0x181)](_0x410e28,_0x56f5d9,_0x489717,_0x3991c3),_0x410e28[_0x3f6351(0x5a8)]=()=>DataManager['onXhrError'](_0x3f6351(0x48d),_0x489717,_0x3991c3),_0x410e28[_0x3f6351(0x721)]();},VisuMZ['CoreEngine']['storeMapData']=function(_0x2ba714,_0x230f92,_0x1a3643,_0x5430c8){const _0x3e3ab9=_0x2e6bc0;$dataMap=JSON[_0x3e3ab9(0x809)](_0x2ba714['responseText']),DataManager[_0x3e3ab9(0x455)]($dataMap),this[_0x3e3ab9(0x89e)][_0x230f92]=VisuMZ[_0x3e3ab9(0x468)][_0x3e3ab9(0x842)](_0x230f92),$dataMap=this['_currentMap'];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x194)]=function(){const _0x5a278c=_0x2e6bc0,_0xf119c9=_0x5a278c(0x783);this['_storedMapText'][_0x5a278c(0x581)](undefined)['remove']('')['remove'](null);const _0x2e0fbe=this[_0x5a278c(0x89e)][_0x5a278c(0x538)]('\x0a\x0a\x0a\x0a\x0a')['trim']();VisuMZ['CoreEngine'][_0x5a278c(0x714)](_0x2e0fbe,_0xf119c9,!![]),SceneManager[_0x5a278c(0x49a)][_0x5a278c(0x23a)]=!![];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x842)]=function(_0x228afd){const _0x29b2c2=_0x2e6bc0;if(!$dataMap)return'';let _0x5059bd='█'[_0x29b2c2(0x1ca)](0x46)+'\x0a\x0a',_0x2af3b2='═'[_0x29b2c2(0x1ca)](0x46)+'\x0a\x0a',_0x261e8c='';this[_0x29b2c2(0x412)]=0x0;for(const _0x40de51 of $dataMap[_0x29b2c2(0x552)]){if(!_0x40de51)continue;let _0x438df4=_0x40de51['id'],_0x45cd6c=_0x40de51['name'],_0x17c43d=_0x40de51[_0x29b2c2(0x15a)];for(const _0xc0bf68 of _0x17c43d){const _0x243cf9=_0x17c43d[_0x29b2c2(0x314)](_0xc0bf68)+0x1;let _0x52f679=_0x2af3b2+_0x29b2c2(0x20c),_0x380490=VisuMZ[_0x29b2c2(0x468)][_0x29b2c2(0x6e1)](_0xc0bf68[_0x29b2c2(0x775)]);if(_0x380490['length']>0x0){if(_0x261e8c[_0x29b2c2(0x29e)]>0x0)_0x261e8c+=_0x2af3b2+_0x29b2c2(0x4b4);else{const _0x60ab4c=$dataMapInfos[_0x228afd][_0x29b2c2(0x3d0)];_0x261e8c+=_0x5059bd+_0x29b2c2(0x67b)[_0x29b2c2(0x607)](_0x228afd,_0x60ab4c||_0x29b2c2(0x73e))+_0x5059bd;}_0x261e8c+=_0x52f679[_0x29b2c2(0x607)](_0x438df4,_0x45cd6c,_0x243cf9,_0x380490);}}}return _0x261e8c[_0x29b2c2(0x29e)]>0x0&&(_0x261e8c+=_0x2af3b2),_0x261e8c;},VisuMZ['CoreEngine'][_0x2e6bc0(0x10a)]=function(){const _0x48256f=_0x2e6bc0,_0x564b48=$dataTroops[_0x48256f(0x29e)]*0xa+Math[_0x48256f(0x3b7)](0xa);alert('Export\x20Troop\x20Text\x20operation\x20will\x20finish\x20in\x20%1\x20ms(s)'['format'](_0x564b48));const _0x69e27a=[];for(const _0xa7ceef of $dataTroops){if(!_0xa7ceef)continue;const _0x18a5d8=_0xa7ceef['id'];_0x69e27a[_0x18a5d8]=VisuMZ['CoreEngine']['ExtractStrFromTroop'](_0x18a5d8);}setTimeout(VisuMZ[_0x48256f(0x468)][_0x48256f(0x8a0)]['bind'](this,_0x69e27a),_0x564b48);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x378)]=function(_0x37d9e2){const _0x14bdd1=_0x2e6bc0;if(!$dataTroops[_0x37d9e2])return'';let _0x4fd81e='█'['repeat'](0x46)+'\x0a\x0a',_0x209408='═'[_0x14bdd1(0x1ca)](0x46)+'\x0a\x0a',_0x3b14dc='';this[_0x14bdd1(0x412)]=0x0;const _0x456399=$dataTroops[_0x37d9e2];let _0x33202f=_0x456399[_0x14bdd1(0x15a)];for(const _0x5b77d7 of _0x33202f){const _0xe5cbf4=_0x33202f['indexOf'](_0x5b77d7)+0x1;let _0x5d79d6=_0x209408+'《《《\x20Page\x20%1\x20》》》\x0a%2\x0a',_0x342b7a=VisuMZ['CoreEngine'][_0x14bdd1(0x6e1)](_0x5b77d7[_0x14bdd1(0x775)]);_0x342b7a[_0x14bdd1(0x29e)]>0x0&&(_0x3b14dc[_0x14bdd1(0x29e)]>0x0?_0x3b14dc+=_0x209408+'\x0a\x0a\x0a\x0a\x0a':_0x3b14dc+=_0x4fd81e+'〖〖〖\x20Troop\x20%1:\x20%2\x20Script\x20〗〗〗\x0a\x0a'['format'](_0x37d9e2,_0x456399[_0x14bdd1(0x3d0)]||_0x14bdd1(0x73e))+_0x4fd81e,_0x3b14dc+=_0x5d79d6[_0x14bdd1(0x607)](_0xe5cbf4,_0x342b7a));}return _0x3b14dc['length']>0x0&&(_0x3b14dc+=_0x209408),_0x3b14dc;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x8a0)]=function(_0x10e711){const _0x4a57e1=_0x2e6bc0,_0x243a28='AllTroops';_0x10e711[_0x4a57e1(0x581)](undefined)[_0x4a57e1(0x581)]('')['remove'](null);const _0x1bb624=_0x10e711[_0x4a57e1(0x538)](_0x4a57e1(0x4b4))[_0x4a57e1(0x679)]();VisuMZ[_0x4a57e1(0x468)]['ExportString'](_0x1bb624,_0x243a28,!![]),SceneManager['_scene'][_0x4a57e1(0x23a)]=!![];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6e1)]=function(_0x52514b){const _0x2829f7=_0x2e6bc0;let _0x2e8bee='\x0a'+'─'[_0x2829f7(0x1ca)](0x46)+'\x0a',_0x5f4a11='\x0a'+'┄'[_0x2829f7(0x1ca)](0x46)+'\x0a',_0x24fa9c='';for(const _0x439598 of _0x52514b){if(!_0x439598)continue;if(_0x439598[_0x2829f7(0x6d9)]===0x65)_0x24fa9c+=_0x2e8bee+'\x0a',_0x24fa9c+='〘Show\x20Text〙\x0a',_0x439598[_0x2829f7(0x69c)][0x4]!==''&&_0x439598[_0x2829f7(0x69c)][0x4]!==undefined&&(_0x24fa9c+='【%1】\x0a'[_0x2829f7(0x607)](_0x439598['parameters'][0x4]));else{if(_0x439598[_0x2829f7(0x6d9)]===0x191)_0x24fa9c+=_0x2829f7(0x52d)['format'](_0x439598[_0x2829f7(0x69c)][0x0]);else{if(_0x439598['code']===0x192)_0x24fa9c+=_0x2e8bee,_0x24fa9c+='%1〘Choice\x20%2〙\x20%3%1'[_0x2829f7(0x607)](_0x5f4a11,_0x439598[_0x2829f7(0x69c)][0x0]+0x1,_0x439598[_0x2829f7(0x69c)][0x1]);else{if(_0x439598[_0x2829f7(0x6d9)]===0x193)_0x24fa9c+=_0x2e8bee,_0x24fa9c+=_0x2829f7(0x802)['format'](_0x5f4a11);else{if(_0x439598[_0x2829f7(0x6d9)]===0x194)_0x24fa9c+=_0x2e8bee,_0x24fa9c+=_0x2829f7(0x409)[_0x2829f7(0x607)](_0x5f4a11);else{if(_0x439598[_0x2829f7(0x6d9)]===0x69)_0x24fa9c+=_0x2e8bee+'\x0a',_0x24fa9c+=_0x2829f7(0x5ad);else{if(_0x439598[_0x2829f7(0x6d9)]===0x6c)_0x24fa9c+=_0x2e8bee+'\x0a',_0x24fa9c+='》Comment《\x0a%1\x0a'[_0x2829f7(0x607)](_0x439598['parameters'][0x0]);else{if(_0x439598['code']===0x198)_0x24fa9c+=_0x2829f7(0x52d)[_0x2829f7(0x607)](_0x439598[_0x2829f7(0x69c)][0x0]);else{if(_0x439598['code']===0x75){const _0x80174a=$dataCommonEvents[_0x439598['parameters'][0x0]];if(_0x80174a&&this[_0x2829f7(0x412)]<=0xa){this[_0x2829f7(0x412)]++;let _0x2e52f2=VisuMZ['CoreEngine'][_0x2829f7(0x6e1)](_0x80174a[_0x2829f7(0x775)]);_0x2e52f2[_0x2829f7(0x29e)]>0x0&&(_0x24fa9c+=_0x2e8bee,_0x24fa9c+=_0x5f4a11,_0x24fa9c+='〘Common\x20Event\x20%1:\x20%2〙\x20Start'[_0x2829f7(0x607)](_0x80174a['id'],_0x80174a['name']),_0x24fa9c+=_0x5f4a11,_0x24fa9c+=_0x2e52f2,_0x24fa9c+=_0x5f4a11,_0x24fa9c+=_0x2829f7(0x1f6)['format'](_0x80174a['id'],_0x80174a[_0x2829f7(0x3d0)]),_0x24fa9c+=_0x5f4a11),this['_commonEventLayers']--;}}}}}}}}}}}return _0x24fa9c[_0x2829f7(0x29e)]>0x0&&(_0x24fa9c+=_0x2e8bee),_0x24fa9c;},PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],'OpenURL',_0x2a94d7=>{const _0x50d8d9=_0x2e6bc0;VisuMZ['ConvertParams'](_0x2a94d7,_0x2a94d7);const _0x452085=_0x2a94d7[_0x50d8d9(0x100)];VisuMZ[_0x50d8d9(0x50a)](_0x452085);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x7a7),_0x5a11f1=>{const _0x3cf961=_0x2e6bc0;VisuMZ[_0x3cf961(0x823)](_0x5a11f1,_0x5a11f1);const _0x56d7df=_0x5a11f1[_0x3cf961(0x523)]||0x0;$gameParty[_0x3cf961(0x421)](_0x56d7df);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],'MapOnceParallel',_0x158c8e=>{const _0x28a239=_0x2e6bc0;if(!SceneManager[_0x28a239(0x81e)]())return;VisuMZ[_0x28a239(0x823)](_0x158c8e,_0x158c8e);const _0x396fea=_0x158c8e[_0x28a239(0x445)];SceneManager['_scene'][_0x28a239(0x54b)](_0x396fea);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0xf0),_0x340183=>{const _0x5ed8f8=_0x2e6bc0;if(!$gameTemp[_0x5ed8f8(0x2d3)]())return;if(!Utils[_0x5ed8f8(0x3e4)]())return;VisuMZ[_0x5ed8f8(0x823)](_0x340183,_0x340183);const _0x39e657=_0x340183['PictureID']||0x1;$gameTemp[_0x5ed8f8(0x83f)]=_0x39e657;}),PluginManager['registerCommand'](pluginData['name'],'PictureEasingType',_0x2e5874=>{const _0x29dc11=_0x2e6bc0;VisuMZ[_0x29dc11(0x823)](_0x2e5874,_0x2e5874);const _0x44f675=_0x2e5874['pictureId']||0x1,_0x5e72d0=_0x2e5874[_0x29dc11(0x4f6)]||'Linear',_0x156cb6=$gameScreen[_0x29dc11(0x2a9)](_0x44f675);_0x156cb6&&_0x156cb6[_0x29dc11(0x357)](_0x5e72d0);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x390),_0x1bfff2=>{const _0x5385f8=_0x2e6bc0;for(let _0x58b6d4=0x1;_0x58b6d4<=$gameScreen[_0x5385f8(0xed)]();_0x58b6d4++){$gameScreen[_0x5385f8(0x382)](_0x58b6d4);}}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x6f3),_0x260120=>{const _0x32bb2e=_0x2e6bc0;VisuMZ[_0x32bb2e(0x823)](_0x260120,_0x260120);const _0x4ee826=Math[_0x32bb2e(0x69a)](_0x260120[_0x32bb2e(0x6bd)],_0x260120[_0x32bb2e(0x6ab)]),_0x36c2cf=Math[_0x32bb2e(0x56f)](_0x260120[_0x32bb2e(0x6bd)],_0x260120[_0x32bb2e(0x6ab)]);for(let _0x298076=_0x4ee826;_0x298076<=_0x36c2cf;_0x298076++){$gameScreen['erasePicture'](_0x298076);}}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],'PictureRotateBy',_0x3e6adb=>{const _0x50bb28=_0x2e6bc0;VisuMZ['ConvertParams'](_0x3e6adb,_0x3e6adb);const _0x4faf30=Math['round'](_0x3e6adb['PictureID'])['clamp'](0x1,0x64),_0xa8e585=-Number(_0x3e6adb[_0x50bb28(0x2e2)]||0x0),_0x47cd66=Math[_0x50bb28(0x56f)](_0x3e6adb[_0x50bb28(0x62d)]||0x0,0x0),_0x13fed9=_0x3e6adb[_0x50bb28(0x4f6)]||_0x50bb28(0x4ab),_0x5e9312=_0x3e6adb[_0x50bb28(0x799)],_0x37a486=$gameScreen[_0x50bb28(0x2a9)](_0x4faf30);if(!_0x37a486)return;_0x37a486[_0x50bb28(0x37d)](_0xa8e585,_0x47cd66,_0x13fed9);if(_0x5e9312){const _0xca6fe1=$gameTemp[_0x50bb28(0x5ea)]();if(_0xca6fe1)_0xca6fe1[_0x50bb28(0x4d8)](_0x47cd66);}}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x286),_0x39e716=>{const _0x1b95f7=_0x2e6bc0;VisuMZ['ConvertParams'](_0x39e716,_0x39e716);const _0x48018=Math['round'](_0x39e716[_0x1b95f7(0x79d)])[_0x1b95f7(0x2eb)](0x1,0x64),_0x2c1aa2=-Number(_0x39e716['TargetAngle']||0x0),_0x3a4b26=Math[_0x1b95f7(0x56f)](_0x39e716['Duration']||0x0,0x0),_0x1d4764=_0x39e716[_0x1b95f7(0x4f6)]||'Linear',_0x4db03a=_0x39e716[_0x1b95f7(0x799)],_0xc1d410=$gameScreen[_0x1b95f7(0x2a9)](_0x48018);if(!_0xc1d410)return;_0xc1d410[_0x1b95f7(0x750)](_0x2c1aa2,_0x3a4b26,_0x1d4764);if(_0x4db03a){const _0x46a600=$gameTemp[_0x1b95f7(0x5ea)]();if(_0x46a600)_0x46a600['wait'](_0x3a4b26);}}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x277),_0x30964e=>{const _0x22d280=_0x2e6bc0;VisuMZ[_0x22d280(0x823)](_0x30964e,_0x30964e);const _0x2318b9=Math[_0x22d280(0x897)](_0x30964e['PictureID'])['clamp'](0x1,0x64),_0x5abc4c=_0x30964e[_0x22d280(0x6ef)],_0x199d3e=_0x5abc4c['Origin'][_0x22d280(0x2eb)](0x0,0x1),_0x5b16c1=Math[_0x22d280(0x897)](_0x5abc4c[_0x22d280(0x8bf)]||0x0),_0x2aa976=Math[_0x22d280(0x897)](_0x5abc4c['PositionY']||0x0),_0xa4071=Math[_0x22d280(0x897)](_0x5abc4c['ScaleX']||0x0),_0x226f68=Math['round'](_0x5abc4c[_0x22d280(0x4fa)]||0x0),_0x53d4f5=Math[_0x22d280(0x897)](_0x5abc4c[_0x22d280(0x38d)])[_0x22d280(0x2eb)](0x0,0xff),_0x4bb15b=_0x5abc4c[_0x22d280(0x5d6)],_0x446b55=_0x22d280(0x322),_0x201867=_0x30964e['Smooth']?_0x22d280(0x1ee):_0x22d280(0x7e2),_0x16fed6=_0x446b55['format'](_0x30964e['IconIndex'],_0x201867);$gameScreen[_0x22d280(0x43c)](_0x2318b9,_0x16fed6,_0x199d3e,_0x5b16c1,_0x2aa976,_0xa4071,_0x226f68,_0x53d4f5,_0x4bb15b);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x392),_0x5baf52=>{const _0x5be673=_0x2e6bc0;VisuMZ[_0x5be673(0x823)](_0x5baf52,_0x5baf52);const _0x40c2bd=_0x5baf52[_0x5be673(0x34f)]||_0x5be673(0x447),_0x54de25=_0x5baf52[_0x5be673(0x630)]['clamp'](0x1,0x9),_0x5d9745=_0x5baf52['Speed'][_0x5be673(0x2eb)](0x1,0x9),_0xffdf1c=_0x5baf52[_0x5be673(0x62d)]||0x1,_0x45b34d=_0x5baf52[_0x5be673(0x799)];$gameScreen[_0x5be673(0x4c6)](_0x40c2bd),$gameScreen['startShake'](_0x54de25,_0x5d9745,_0xffdf1c);if(_0x45b34d){const _0x2c59df=$gameTemp[_0x5be673(0x5ea)]();if(_0x2c59df)_0x2c59df[_0x5be673(0x4d8)](_0xffdf1c);}}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x3dd),_0x207141=>{const _0x36b13d=_0x2e6bc0;if($gameParty[_0x36b13d(0x3f6)]())return;VisuMZ['ConvertParams'](_0x207141,_0x207141);const _0x1e6aa7=_0x207141[_0x36b13d(0x519)],_0x4d4c05=(_0x207141[_0x36b13d(0x3e8)]||0x0)/0x64;for(const _0x39777e of _0x1e6aa7){const _0x415336=Math[_0x36b13d(0x447)]()<=_0x4d4c05;$gameSwitches['setValue'](_0x39777e,_0x415336);}}),PluginManager[_0x2e6bc0(0x7c3)](pluginData['name'],_0x2e6bc0(0x475),_0x44fe88=>{const _0x463371=_0x2e6bc0;if($gameParty[_0x463371(0x3f6)]())return;VisuMZ['ConvertParams'](_0x44fe88,_0x44fe88);const _0x2ce6f8=Math['min'](_0x44fe88['StartID'],_0x44fe88['EndingID']),_0x1e1685=Math['max'](_0x44fe88['StartID'],_0x44fe88['EndingID']),_0x4558aa=(_0x44fe88[_0x463371(0x3e8)]||0x0)/0x64;for(let _0x125a3a=_0x2ce6f8;_0x125a3a<=_0x1e1685;_0x125a3a++){const _0x5e5067=Math[_0x463371(0x447)]()<=_0x4558aa;$gameSwitches['setValue'](_0x125a3a,_0x5e5067);}}),PluginManager[_0x2e6bc0(0x7c3)](pluginData['name'],_0x2e6bc0(0x220),_0xac73dd=>{const _0x466912=_0x2e6bc0;if($gameParty['inBattle']())return;VisuMZ[_0x466912(0x823)](_0xac73dd,_0xac73dd);const _0x2fe7da=_0xac73dd[_0x466912(0x519)];for(const _0x26c9c3 of _0x2fe7da){const _0x22fdcd=$gameSwitches[_0x466912(0x523)](_0x26c9c3);$gameSwitches['setValue'](_0x26c9c3,!_0x22fdcd);}}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x386),_0x13bfd0=>{const _0x4dd3b3=_0x2e6bc0;if($gameParty[_0x4dd3b3(0x3f6)]())return;VisuMZ[_0x4dd3b3(0x823)](_0x13bfd0,_0x13bfd0);const _0x5e7620=Math['min'](_0x13bfd0[_0x4dd3b3(0x6bd)],_0x13bfd0['EndingID']),_0x2d403a=Math['max'](_0x13bfd0[_0x4dd3b3(0x6bd)],_0x13bfd0['EndingID']);for(let _0x3b46a3=_0x5e7620;_0x3b46a3<=_0x2d403a;_0x3b46a3++){const _0x55a1b2=$gameSwitches[_0x4dd3b3(0x523)](_0x3b46a3);$gameSwitches['setValue'](_0x3b46a3,!_0x55a1b2);}}),PluginManager['registerCommand'](pluginData['name'],_0x2e6bc0(0x52e),_0x57691a=>{const _0x616a3=_0x2e6bc0;VisuMZ[_0x616a3(0x823)](_0x57691a,_0x57691a);const _0x5e0a30=_0x57691a[_0x616a3(0x3aa)]||0x1;$gameSystem[_0x616a3(0x426)](_0x5e0a30);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x757),_0x2e626e=>{const _0x30cd72=_0x2e6bc0;if($gameParty[_0x30cd72(0x3f6)]())return;VisuMZ[_0x30cd72(0x823)](_0x2e626e,_0x2e626e);const _0x73527a=_0x2e626e['option'];if(_0x73527a['match'](/Front/i))$gameSystem[_0x30cd72(0x467)](![]);else _0x73527a[_0x30cd72(0x298)](/Side/i)?$gameSystem[_0x30cd72(0x467)](!![]):$gameSystem['setSideView'](!$gameSystem[_0x30cd72(0x3da)]());}),PluginManager[_0x2e6bc0(0x7c3)](pluginData['name'],_0x2e6bc0(0x67a),_0x589be0=>{const _0x171552=_0x2e6bc0;if($gameParty['inBattle']())return;VisuMZ[_0x171552(0x823)](_0x589be0,_0x589be0);const _0x3a8d6c=[_0x171552(0x438),'bgs','me','se'];for(const _0x2cd5c8 of _0x3a8d6c){const _0x27d1c7=_0x589be0[_0x2cd5c8],_0x4107f4='%1/'[_0x171552(0x607)](_0x2cd5c8);for(const _0x4771ff of _0x27d1c7){AudioManager[_0x171552(0x827)](_0x4107f4,_0x4771ff);}}}),PluginManager['registerCommand'](pluginData['name'],_0x2e6bc0(0x305),_0x3c30ef=>{const _0x5129fd=_0x2e6bc0;if($gameParty[_0x5129fd(0x3f6)]())return;VisuMZ[_0x5129fd(0x823)](_0x3c30ef,_0x3c30ef);const _0x45026e=[_0x5129fd(0x6aa),'battlebacks1',_0x5129fd(0x8b2),'characters',_0x5129fd(0x731),_0x5129fd(0x3bf),'parallaxes',_0x5129fd(0x4a6),_0x5129fd(0x19e),_0x5129fd(0x5a2),'system',_0x5129fd(0x43d),'titles1',_0x5129fd(0x74f)];for(const _0x16a9b9 of _0x45026e){const _0x12d1ce=_0x3c30ef[_0x16a9b9],_0x434293=_0x5129fd(0x7bc)['format'](_0x16a9b9);for(const _0x3cc27f of _0x12d1ce){ImageManager[_0x5129fd(0x1da)](_0x434293,_0x3cc27f);}}}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x2cf),_0x5024d0=>{const _0x5efd26=_0x2e6bc0;if($gameParty[_0x5efd26(0x3f6)]())return;VisuMZ[_0x5efd26(0x823)](_0x5024d0,_0x5024d0);const _0x21807c=_0x5024d0[_0x5efd26(0x3aa)][_0x5efd26(0x63e)]()[_0x5efd26(0x679)](),_0x1c4dfd=VisuMZ[_0x5efd26(0x468)]['CreateBattleSystemID'](_0x21807c);$gameSystem[_0x5efd26(0x68d)](_0x1c4dfd);}),VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x30a)]=function(_0x400a84){const _0x19bc25=_0x2e6bc0;_0x400a84=_0x400a84||'DATABASE',_0x400a84=String(_0x400a84)['toUpperCase']()[_0x19bc25(0x679)]();switch(_0x400a84){case _0x19bc25(0x850):return 0x0;case _0x19bc25(0x7fb):return 0x1;case _0x19bc25(0x37e):return 0x2;case'CTB':if(Imported[_0x19bc25(0x279)])return _0x19bc25(0x195);break;case _0x19bc25(0x3ce):if(Imported[_0x19bc25(0x535)])return _0x19bc25(0x3ce);break;case _0x19bc25(0x5e6):if(Imported['VisuMZ_2_BattleSystemBTB'])return _0x19bc25(0x5e6);break;case _0x19bc25(0x410):if(Imported[_0x19bc25(0x604)])return _0x19bc25(0x410);break;case _0x19bc25(0x5a3):if(Imported[_0x19bc25(0x558)])return _0x19bc25(0x5a3);break;case _0x19bc25(0x601):if(Imported[_0x19bc25(0x7db)])return'ETB';break;case _0x19bc25(0xe2):if(Imported[_0x19bc25(0x48c)])return _0x19bc25(0xe2);break;}return $dataSystem['battleSystem'];},PluginManager['registerCommand'](pluginData['name'],_0x2e6bc0(0x40a),_0x5169e8=>{const _0x30c0e8=_0x2e6bc0;VisuMZ[_0x30c0e8(0x823)](_0x5169e8,_0x5169e8);const _0x17b154=_0x5169e8['option']||0x1;$gameSystem[_0x30c0e8(0x3d7)](_0x17b154);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x3b9),_0x293ed4=>{const _0x2960ab=_0x2e6bc0;VisuMZ[_0x2960ab(0x823)](_0x293ed4,_0x293ed4);const _0x1dad27=_0x293ed4[_0x2960ab(0x5f9)]||'';$textPopup(_0x1dad27);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x599),_0x1630e6=>{const _0x128349=_0x2e6bc0;VisuMZ['ConvertParams'](_0x1630e6,_0x1630e6);const _0x391caa=_0x1630e6['id']||0x1,_0x2256f1=_0x1630e6[_0x128349(0x10e)],_0x546b04=_0x1630e6[_0x128349(0x36a)]||0x0;let _0x1815e1=$gameVariables[_0x128349(0x523)](_0x391caa)||0x0;switch(_0x2256f1){case'=':_0x1815e1=_0x546b04;break;case'+':_0x1815e1+=_0x546b04;break;case'-':_0x1815e1-=_0x546b04;break;case'*':_0x1815e1*=_0x546b04;break;case'/':_0x1815e1/=_0x546b04;break;case'%':_0x1815e1%=_0x546b04;break;}_0x1815e1=_0x1815e1||0x0,$gameVariables[_0x128349(0x38c)](_0x391caa,_0x1815e1);}),PluginManager[_0x2e6bc0(0x7c3)](pluginData[_0x2e6bc0(0x3d0)],_0x2e6bc0(0x126),_0x374cd0=>{const _0x224789=_0x2e6bc0;VisuMZ['ConvertParams'](_0x374cd0,_0x374cd0);const _0x4405e0=_0x374cd0['id']()||0x1,_0x4e2761=_0x374cd0[_0x224789(0x10e)],_0x1c06f8=_0x374cd0['operand']()||0x0;let _0x45c790=$gameVariables[_0x224789(0x523)](_0x4405e0)||0x0;switch(_0x4e2761){case'=':_0x45c790=_0x1c06f8;break;case'+':_0x45c790+=_0x1c06f8;break;case'-':_0x45c790-=_0x1c06f8;break;case'*':_0x45c790*=_0x1c06f8;break;case'/':_0x45c790/=_0x1c06f8;break;case'%':_0x45c790%=_0x1c06f8;break;}_0x45c790=_0x45c790||0x0,$gameVariables[_0x224789(0x38c)](_0x4405e0,_0x45c790);}),VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x2df)]=Scene_Boot['prototype'][_0x2e6bc0(0x25e)],Scene_Boot['prototype']['onDatabaseLoaded']=function(){const _0x3d1ae0=_0x2e6bc0;VisuMZ[_0x3d1ae0(0x468)][_0x3d1ae0(0x2df)][_0x3d1ae0(0x895)](this),this[_0x3d1ae0(0x44f)](),this[_0x3d1ae0(0x716)](),this[_0x3d1ae0(0x79f)](),this[_0x3d1ae0(0x862)](),this[_0x3d1ae0(0x5aa)](),this[_0x3d1ae0(0x8aa)](),VisuMZ[_0x3d1ae0(0x3f9)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x894)]={},Scene_Boot[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x44f)]=function(){const _0x198747=_0x2e6bc0,_0x533df5=[_0x198747(0x4a4),_0x198747(0x1e9),_0x198747(0x5e3),_0x198747(0x227),_0x198747(0x149),_0x198747(0x34d),_0x198747(0x670),_0x198747(0x853)],_0x170bf7=['HIT',_0x198747(0x231),_0x198747(0x2ba),_0x198747(0x280),'MEV',_0x198747(0x3ec),_0x198747(0x1eb),_0x198747(0x197),'MRG',_0x198747(0x373)],_0x34fecd=[_0x198747(0x8a4),_0x198747(0x411),_0x198747(0x319),_0x198747(0x8c2),_0x198747(0x79b),_0x198747(0x3ef),_0x198747(0x896),_0x198747(0x5db),_0x198747(0x587),'EXR'],_0x1d0c29=[_0x533df5,_0x170bf7,_0x34fecd],_0x1e3afd=[_0x198747(0x22a),_0x198747(0x3c5),_0x198747(0x1ab),_0x198747(0x41c),_0x198747(0x6bf),_0x198747(0x1a3),_0x198747(0x132),_0x198747(0x476),_0x198747(0x21d),'Flat2'];for(const _0x1f6987 of _0x1d0c29){let _0x553948='';if(_0x1f6987===_0x533df5)_0x553948=_0x198747(0x85c);if(_0x1f6987===_0x170bf7)_0x553948='xparam';if(_0x1f6987===_0x34fecd)_0x553948=_0x198747(0x500);for(const _0x3a1938 of _0x1e3afd){let _0x4121ae=_0x198747(0x4ac)[_0x198747(0x607)](_0x553948,_0x3a1938);VisuMZ[_0x198747(0x468)][_0x198747(0x894)][_0x4121ae]=[],VisuMZ[_0x198747(0x468)]['RegExp'][_0x4121ae+'JS']=[];let _0x589b1c='<%1\x20%2:[\x20]';if([_0x198747(0x22a),_0x198747(0x476)][_0x198747(0x7fe)](_0x3a1938))_0x589b1c+=_0x198747(0x7d9);else{if([_0x198747(0x3c5),_0x198747(0x21d)]['includes'](_0x3a1938))_0x589b1c+='([\x5c+\x5c-]\x5cd+)([%％])>';else{if([_0x198747(0x1ab),'Flat2'][_0x198747(0x7fe)](_0x3a1938))_0x589b1c+='([\x5c+\x5c-]\x5cd+\x5c.?\x5cd+)>';else{if(_0x3a1938==='Max')_0x589b1c+='(\x5cd+)>';else{if(_0x3a1938===_0x198747(0x1a3))_0x589b1c+='(\x5cd+)([%％])>';else _0x3a1938===_0x198747(0x132)&&(_0x589b1c+='(\x5cd+\x5c.?\x5cd+)>');}}}}for(const _0x172213 of _0x1f6987){let _0x79ccc=_0x3a1938['replace'](/[\d+]/g,'')[_0x198747(0x63e)]();const _0xcbb3a7=_0x589b1c[_0x198747(0x607)](_0x172213,_0x79ccc);VisuMZ[_0x198747(0x468)][_0x198747(0x894)][_0x4121ae][_0x198747(0x16c)](new RegExp(_0xcbb3a7,'i'));const _0x4161fc='<JS\x20%1\x20%2:[\x20](.*)>'[_0x198747(0x607)](_0x172213,_0x79ccc);VisuMZ['CoreEngine'][_0x198747(0x894)][_0x4121ae+'JS'][_0x198747(0x16c)](new RegExp(_0x4161fc,'i'));}}}},Scene_Boot[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x716)]=function(){const _0x4542f5=_0x2e6bc0;if(VisuMZ[_0x4542f5(0x3f9)])return;},Scene_Boot[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x79f)]=function(){const _0x41c282=_0x2e6bc0,_0x14838f=VisuMZ[_0x41c282(0x468)][_0x41c282(0x6ef)];_0x14838f[_0x41c282(0x818)][_0x41c282(0x24b)]&&VisuMZ[_0x41c282(0x88a)](!![]);_0x14838f[_0x41c282(0x818)][_0x41c282(0x4e2)]&&(Input[_0x41c282(0x639)][0x23]=_0x41c282(0x1c6),Input[_0x41c282(0x639)][0x24]=_0x41c282(0x207));if(_0x14838f[_0x41c282(0x51a)]){const _0x3e4230=_0x14838f[_0x41c282(0x51a)];_0x3e4230[_0x41c282(0x5e0)]=_0x3e4230[_0x41c282(0x5e0)]||_0x41c282(0x430),_0x3e4230[_0x41c282(0x81a)]=_0x3e4230['KeyTAB']||_0x41c282(0x4a5);}_0x14838f[_0x41c282(0x5c6)]['WASD']&&(Input[_0x41c282(0x639)][0x57]='up',Input[_0x41c282(0x639)][0x41]=_0x41c282(0x8b4),Input[_0x41c282(0x639)][0x53]=_0x41c282(0x218),Input['keyMapper'][0x44]=_0x41c282(0x31d),Input[_0x41c282(0x639)][0x45]='pagedown'),_0x14838f[_0x41c282(0x5c6)][_0x41c282(0x86d)]&&(Input[_0x41c282(0x639)][0x52]=_0x41c282(0x712)),_0x14838f[_0x41c282(0x2fc)][_0x41c282(0x641)]=_0x14838f['Param'][_0x41c282(0x641)]['map'](_0x38f946=>_0x38f946['toUpperCase']()[_0x41c282(0x679)]()),_0x14838f[_0x41c282(0x2fc)][_0x41c282(0x5b2)]=_0x14838f[_0x41c282(0x2fc)][_0x41c282(0x5b2)][_0x41c282(0x513)](_0x99a610=>_0x99a610[_0x41c282(0x63e)]()[_0x41c282(0x679)]()),_0x14838f[_0x41c282(0x818)][_0x41c282(0x4b8)]=_0x14838f[_0x41c282(0x818)][_0x41c282(0x4b8)]??!![],_0x14838f[_0x41c282(0x818)][_0x41c282(0x3f0)]=_0x14838f[_0x41c282(0x818)][_0x41c282(0x3f0)]??!![],_0x14838f[_0x41c282(0x51a)]['SplitEscape']&&VisuMZ[_0x41c282(0x468)][_0x41c282(0x82f)]();},VisuMZ['CoreEngine']['CheckSplitEscape']=function(){const _0x5bfc95=_0x2e6bc0;let _0x3973da=![],_0x6680e=![];for(let _0x2bf4b2 in Input['keyMapper']){const _0x468992=Input[_0x5bfc95(0x639)][_0x2bf4b2];if(_0x468992===_0x5bfc95(0x2cb))_0x3973da=!![];if(_0x468992===_0x5bfc95(0x709))_0x6680e=!![];if(_0x3973da&&_0x6680e)return;}let _0x2b211a='ERROR!\x0a\x0aCore\x20Engine\x20>\x20Plugin\x20Parameters\x20>\x20Button\x20Assist\x20>\x20Split\x20Escape\x0a\x0a';_0x2b211a+=_0x5bfc95(0x317),_0x2b211a+=_0x5bfc95(0x546),_0x2b211a+=_0x5bfc95(0x324),_0x2b211a+=_0x5bfc95(0x23c),alert(_0x2b211a),SceneManager['exit']();},Scene_Boot[_0x2e6bc0(0x5e2)]['process_VisuMZ_CoreEngine_Functions']=function(){const _0x1aac34=_0x2e6bc0;this[_0x1aac34(0x2e7)]();},Scene_Boot[_0x2e6bc0(0x5e2)]['process_VisuMZ_CoreEngine_jsQuickFunctions']=function(){const _0x565723=_0x2e6bc0,_0x3ec5f5=VisuMZ[_0x565723(0x468)]['Settings'][_0x565723(0x28b)];for(const _0xaa4002 of _0x3ec5f5){const _0x30b806=_0xaa4002[_0x565723(0x78b)]['replace'](/[ ]/g,''),_0x21abfb=_0xaa4002['CodeJS'];VisuMZ[_0x565723(0x468)]['createJsQuickFunction'](_0x30b806,_0x21abfb);}},VisuMZ['CoreEngine'][_0x2e6bc0(0x3ca)]=function(_0x455f56,_0x5f37aa){const _0x203908=_0x2e6bc0;if(!!window[_0x455f56]){if($gameTemp['isPlaytest']())console['log'](_0x203908(0x45d)[_0x203908(0x607)](_0x455f56));}const _0x4c4135=_0x203908(0x5cb)[_0x203908(0x607)](_0x455f56,_0x5f37aa);window[_0x455f56]=new Function(_0x4c4135);},Scene_Boot[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5aa)]=function(){const _0xd9d351=_0x2e6bc0,_0x290117=VisuMZ[_0xd9d351(0x468)][_0xd9d351(0x6ef)][_0xd9d351(0x176)];if(!_0x290117)return;for(const _0x315a5c of _0x290117){if(!_0x315a5c)continue;VisuMZ[_0xd9d351(0x468)][_0xd9d351(0x40b)](_0x315a5c);}},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x70e)]={},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x75f)]={},VisuMZ['CoreEngine'][_0x2e6bc0(0xf3)]={},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x479)]={},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x40b)]=function(_0x186a97){const _0x298fbb=_0x2e6bc0,_0x3bfc34=_0x186a97['Abbreviation'],_0x487c8f=_0x186a97['ParamName'],_0x15ccd7=_0x186a97[_0x298fbb(0x5f2)],_0x53dcbf=_0x186a97[_0x298fbb(0x34f)],_0xffa71e=new Function(_0x186a97[_0x298fbb(0x15e)]);VisuMZ[_0x298fbb(0x468)][_0x298fbb(0x70e)][_0x3bfc34[_0x298fbb(0x63e)]()[_0x298fbb(0x679)]()]=_0x487c8f,VisuMZ[_0x298fbb(0x468)][_0x298fbb(0x75f)][_0x3bfc34['toUpperCase']()[_0x298fbb(0x679)]()]=_0x15ccd7,VisuMZ['CoreEngine'][_0x298fbb(0xf3)][_0x3bfc34[_0x298fbb(0x63e)]()[_0x298fbb(0x679)]()]=_0x53dcbf,VisuMZ[_0x298fbb(0x468)][_0x298fbb(0x479)][_0x3bfc34['toUpperCase']()[_0x298fbb(0x679)]()]=_0x3bfc34,Object[_0x298fbb(0x738)](Game_BattlerBase[_0x298fbb(0x5e2)],_0x3bfc34,{'get'(){const _0x43e652=_0x298fbb,_0x29d8cf=_0xffa71e[_0x43e652(0x895)](this);return _0x53dcbf===_0x43e652(0x11d)?Math[_0x43e652(0x897)](_0x29d8cf):_0x29d8cf;}});},VisuMZ['CoreEngine'][_0x2e6bc0(0x45e)]={},VisuMZ[_0x2e6bc0(0x468)]['ControllerMatches']={},Scene_Boot[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x8aa)]=function(){const _0x472509=_0x2e6bc0,_0x371c29=VisuMZ['CoreEngine']['Settings'][_0x472509(0x45e)];for(const _0x138552 of _0x371c29){const _0x502382=(_0x138552[_0x472509(0x281)]||'')[_0x472509(0x616)]()[_0x472509(0x679)](),_0x283a8d=(_0x138552[_0x472509(0x245)]||'')['toLowerCase']()[_0x472509(0x679)]();VisuMZ[_0x472509(0x468)]['ControllerButtons'][_0x502382]=_0x138552,VisuMZ[_0x472509(0x468)][_0x472509(0x73f)][_0x283a8d]=_0x502382;}},VisuMZ[_0x2e6bc0(0x3f9)]=function(){const _0x218c23=_0x2e6bc0;for(const _0x2b6f3f of $dataActors){if(_0x2b6f3f)VisuMZ[_0x218c23(0x88f)](_0x2b6f3f);}for(const _0x230a5a of $dataClasses){if(_0x230a5a)VisuMZ['ParseClassNotetags'](_0x230a5a);}for(const _0x52c04e of $dataSkills){if(_0x52c04e)VisuMZ[_0x218c23(0x3e6)](_0x52c04e);}for(const _0x2c6e30 of $dataItems){if(_0x2c6e30)VisuMZ[_0x218c23(0x881)](_0x2c6e30);}for(const _0x1a0eb8 of $dataWeapons){if(_0x1a0eb8)VisuMZ[_0x218c23(0x749)](_0x1a0eb8);}for(const _0x156cbe of $dataArmors){if(_0x156cbe)VisuMZ[_0x218c23(0x2ea)](_0x156cbe);}for(const _0x3397a0 of $dataEnemies){if(_0x3397a0)VisuMZ[_0x218c23(0x751)](_0x3397a0);}for(const _0x4ff46a of $dataStates){if(_0x4ff46a)VisuMZ[_0x218c23(0x838)](_0x4ff46a);}for(const _0xc8f89b of $dataTilesets){if(_0xc8f89b)VisuMZ[_0x218c23(0x81b)](_0xc8f89b);}},VisuMZ['ParseActorNotetags']=function(_0x1a88c2){},VisuMZ[_0x2e6bc0(0x7f4)]=function(_0x427548){},VisuMZ['ParseSkillNotetags']=function(_0xef32bd){},VisuMZ['ParseItemNotetags']=function(_0x422689){},VisuMZ['ParseWeaponNotetags']=function(_0x188cf5){},VisuMZ[_0x2e6bc0(0x2ea)]=function(_0x446e30){},VisuMZ[_0x2e6bc0(0x751)]=function(_0x53e1b2){},VisuMZ[_0x2e6bc0(0x838)]=function(_0x2d2308){},VisuMZ['ParseTilesetNotetags']=function(_0x2c046a){},VisuMZ['CoreEngine'][_0x2e6bc0(0x88f)]=VisuMZ[_0x2e6bc0(0x88f)],VisuMZ['ParseActorNotetags']=function(_0x418f9c){const _0x1b6c6a=_0x2e6bc0;VisuMZ[_0x1b6c6a(0x468)][_0x1b6c6a(0x88f)]['call'](this,_0x418f9c);const _0xc95355=_0x418f9c[_0x1b6c6a(0x6a8)];if(_0xc95355['match'](/<MAX LEVEL:[ ](\d+)>/i)){_0x418f9c[_0x1b6c6a(0x778)]=Number(RegExp['$1']);if(_0x418f9c['maxLevel']===0x0)_0x418f9c[_0x1b6c6a(0x778)]=Number['MAX_SAFE_INTEGER'];}_0xc95355[_0x1b6c6a(0x298)](/<INITIAL LEVEL:[ ](\d+)>/i)&&(_0x418f9c[_0x1b6c6a(0x3fa)]=Math['min'](Number(RegExp['$1']),_0x418f9c['maxLevel']));},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x7f4)]=VisuMZ[_0x2e6bc0(0x7f4)],VisuMZ[_0x2e6bc0(0x7f4)]=function(_0x4d996f){const _0x50fad0=_0x2e6bc0;VisuMZ['CoreEngine']['ParseClassNotetags'][_0x50fad0(0x895)](this,_0x4d996f);if(_0x4d996f['learnings'])for(const _0x1b028f of _0x4d996f[_0x50fad0(0x3a8)]){_0x1b028f[_0x50fad0(0x6a8)][_0x50fad0(0x298)](/<LEARN AT LEVEL:[ ](\d+)>/i)&&(_0x1b028f[_0x50fad0(0x4c0)]=Math[_0x50fad0(0x56f)](Number(RegExp['$1']),0x1));}},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x751)]=VisuMZ[_0x2e6bc0(0x751)],VisuMZ['ParseEnemyNotetags']=function(_0x3ffe09){const _0x5afaee=_0x2e6bc0;VisuMZ[_0x5afaee(0x468)]['ParseEnemyNotetags'][_0x5afaee(0x895)](this,_0x3ffe09),_0x3ffe09['level']=0x1;const _0x2ba349=_0x3ffe09['note'];if(_0x2ba349[_0x5afaee(0x298)](/<LEVEL:[ ](\d+)>/i))_0x3ffe09[_0x5afaee(0x4c0)]=Number(RegExp['$1']);if(_0x2ba349['match'](/<MAXHP:[ ](\d+)>/i))_0x3ffe09[_0x5afaee(0x4e6)][0x0]=Number(RegExp['$1']);if(_0x2ba349['match'](/<MAXMP:[ ](\d+)>/i))_0x3ffe09[_0x5afaee(0x4e6)][0x1]=Number(RegExp['$1']);if(_0x2ba349[_0x5afaee(0x298)](/<ATK:[ ](\d+)>/i))_0x3ffe09[_0x5afaee(0x4e6)][0x2]=Number(RegExp['$1']);if(_0x2ba349[_0x5afaee(0x298)](/<DEF:[ ](\d+)>/i))_0x3ffe09[_0x5afaee(0x4e6)][0x3]=Number(RegExp['$1']);if(_0x2ba349['match'](/<MAT:[ ](\d+)>/i))_0x3ffe09['params'][0x4]=Number(RegExp['$1']);if(_0x2ba349[_0x5afaee(0x298)](/<MDF:[ ](\d+)>/i))_0x3ffe09[_0x5afaee(0x4e6)][0x5]=Number(RegExp['$1']);if(_0x2ba349['match'](/<AGI:[ ](\d+)>/i))_0x3ffe09[_0x5afaee(0x4e6)][0x6]=Number(RegExp['$1']);if(_0x2ba349[_0x5afaee(0x298)](/<LUK:[ ](\d+)>/i))_0x3ffe09[_0x5afaee(0x4e6)][0x7]=Number(RegExp['$1']);if(_0x2ba349[_0x5afaee(0x298)](/<EXP:[ ](\d+)>/i))_0x3ffe09[_0x5afaee(0x776)]=Number(RegExp['$1']);if(_0x2ba349[_0x5afaee(0x298)](/<GOLD:[ ](\d+)>/i))_0x3ffe09[_0x5afaee(0x855)]=Number(RegExp['$1']);},VisuMZ[_0x2e6bc0(0x468)]['Graphics_defaultStretchMode']=Graphics[_0x2e6bc0(0x4ae)],Graphics[_0x2e6bc0(0x4ae)]=function(){const _0x2f4b38=_0x2e6bc0;switch(VisuMZ[_0x2f4b38(0x468)][_0x2f4b38(0x6ef)][_0x2f4b38(0x818)][_0x2f4b38(0x65b)]){case _0x2f4b38(0x718):return!![];case _0x2f4b38(0x8a3):return![];default:return VisuMZ[_0x2f4b38(0x468)][_0x2f4b38(0x788)][_0x2f4b38(0x895)](this);}},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x153)]=Graphics[_0x2e6bc0(0x508)],Graphics[_0x2e6bc0(0x508)]=function(_0x33c47e,_0x3f13c0,_0x848af0=null){const _0x132f39=_0x2e6bc0;VisuMZ[_0x132f39(0x468)][_0x132f39(0x153)]['call'](this,_0x33c47e,_0x3f13c0,_0x848af0),VisuMZ[_0x132f39(0x88a)](![]);},VisuMZ['CoreEngine'][_0x2e6bc0(0x36d)]=Graphics[_0x2e6bc0(0x7a3)],Graphics['_centerElement']=function(_0x1ef467){const _0x4c15dc=_0x2e6bc0;VisuMZ[_0x4c15dc(0x468)][_0x4c15dc(0x36d)][_0x4c15dc(0x895)](this,_0x1ef467),this['_centerElementCoreEngine'](_0x1ef467);},Graphics[_0x2e6bc0(0x34b)]=function(_0x509aad){const _0x486362=_0x2e6bc0;VisuMZ['CoreEngine'][_0x486362(0x6ef)][_0x486362(0x818)][_0x486362(0x537)]&&(_0x509aad[_0x486362(0x74e)][_0x486362(0x717)]=_0x486362(0x885));VisuMZ['CoreEngine'][_0x486362(0x6ef)][_0x486362(0x818)][_0x486362(0x569)]&&(_0x509aad['style'][_0x486362(0x275)]=_0x486362(0x880));const _0x1725fb=Math['max'](0x0,Math['floor'](_0x509aad[_0x486362(0x746)]*this['_realScale'])),_0x4a60e1=Math[_0x486362(0x56f)](0x0,Math[_0x486362(0x3ff)](_0x509aad[_0x486362(0x689)]*this[_0x486362(0x3b1)]));_0x509aad[_0x486362(0x74e)][_0x486362(0x746)]=_0x1725fb+'px',_0x509aad[_0x486362(0x74e)][_0x486362(0x689)]=_0x4a60e1+'px';},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x133)]=Bitmap['prototype'][_0x2e6bc0(0x571)],Bitmap['prototype'][_0x2e6bc0(0x571)]=function(_0x55d455,_0x326e7a){const _0x5e8c0f=_0x2e6bc0;VisuMZ[_0x5e8c0f(0x468)][_0x5e8c0f(0x133)]['call'](this,_0x55d455,_0x326e7a),this[_0x5e8c0f(0x5ef)]=!(VisuMZ[_0x5e8c0f(0x468)]['Settings'][_0x5e8c0f(0x818)][_0x5e8c0f(0x569)]??!![]);},Bitmap['prototype'][_0x2e6bc0(0x699)]=function(){const _0x410d20=_0x2e6bc0;this[_0x410d20(0x4e4)]=!![];},VisuMZ['CoreEngine'][_0x2e6bc0(0x7fd)]=Sprite['prototype'][_0x2e6bc0(0x1a5)],Sprite['prototype'][_0x2e6bc0(0x1a5)]=function(){const _0x3ac405=_0x2e6bc0;if(this[_0x3ac405(0x311)])VisuMZ['CoreEngine'][_0x3ac405(0x7fd)][_0x3ac405(0x895)](this);this[_0x3ac405(0x576)]();},Sprite[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x576)]=function(){const _0x167091=_0x2e6bc0;if(!this['bitmap'])return;if(!this[_0x167091(0x253)][_0x167091(0x4e4)])return;this[_0x167091(0x253)][_0x167091(0x5fb)]&&!this['_bitmap'][_0x167091(0x5fb)][_0x167091(0x150)]&&this[_0x167091(0x253)][_0x167091(0x1a5)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x57b)]=Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x340)],Bitmap['prototype'][_0x2e6bc0(0x340)]=function(_0x580a26,_0x39430d){const _0x4046df=_0x2e6bc0;VisuMZ[_0x4046df(0x468)][_0x4046df(0x57b)]['call'](this,_0x580a26,_0x39430d),this[_0x4046df(0x699)]();},VisuMZ[_0x2e6bc0(0x468)]['Bitmap_blt']=Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x40d)],Bitmap[_0x2e6bc0(0x5e2)]['blt']=function(_0x5f5717,_0x7eee7,_0x2f0190,_0x365265,_0x5cb8e5,_0xf3bc0e,_0x1b496f,_0x40eca3,_0x32ec9a){const _0x1635a2=_0x2e6bc0;_0x7eee7=Math[_0x1635a2(0x897)](_0x7eee7),_0x2f0190=Math[_0x1635a2(0x897)](_0x2f0190),_0x365265=Math['round'](_0x365265),_0x5cb8e5=Math['round'](_0x5cb8e5),_0xf3bc0e=Math[_0x1635a2(0x897)](_0xf3bc0e),_0x1b496f=Math[_0x1635a2(0x897)](_0x1b496f),VisuMZ[_0x1635a2(0x468)]['Bitmap_blt'][_0x1635a2(0x895)](this,_0x5f5717,_0x7eee7,_0x2f0190,_0x365265,_0x5cb8e5,_0xf3bc0e,_0x1b496f,_0x40eca3,_0x32ec9a),this['markCoreEngineModified']();},VisuMZ['CoreEngine'][_0x2e6bc0(0x2a3)]=Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1e5)],Bitmap['prototype']['clearRect']=function(_0xa35412,_0x18b403,_0x424b0d,_0xb25659){const _0xd5db44=_0x2e6bc0;VisuMZ[_0xd5db44(0x468)][_0xd5db44(0x2a3)][_0xd5db44(0x895)](this,_0xa35412,_0x18b403,_0x424b0d,_0xb25659),this['markCoreEngineModified']();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x4b2)]=Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x762)],Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x762)]=function(_0x140f73,_0x1cc91e,_0xabab09,_0x224226,_0x373f3b){const _0x4b88d5=_0x2e6bc0;VisuMZ[_0x4b88d5(0x468)][_0x4b88d5(0x4b2)]['call'](this,_0x140f73,_0x1cc91e,_0xabab09,_0x224226,_0x373f3b),this['markCoreEngineModified']();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0xf5)]=Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x31a)],Bitmap[_0x2e6bc0(0x5e2)]['strokeRect']=function(_0x1eb3c3,_0x225e58,_0x13a0ec,_0x5c962c,_0x14e8d7){const _0x1c55b6=_0x2e6bc0;VisuMZ[_0x1c55b6(0x468)][_0x1c55b6(0xf5)][_0x1c55b6(0x895)](this,_0x1eb3c3,_0x225e58,_0x13a0ec,_0x5c962c,_0x14e8d7),this['markCoreEngineModified']();},VisuMZ[_0x2e6bc0(0x468)]['Bitmap_gradientFillRect']=Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x44d)],Bitmap['prototype'][_0x2e6bc0(0x44d)]=function(_0x589f7b,_0x3d8327,_0x4f84fc,_0x2df766,_0xa6abd0,_0x15160b,_0x5caa0c){const _0x220e9b=_0x2e6bc0;VisuMZ[_0x220e9b(0x468)][_0x220e9b(0x40f)][_0x220e9b(0x895)](this,_0x589f7b,_0x3d8327,_0x4f84fc,_0x2df766,_0xa6abd0,_0x15160b,_0x5caa0c),this[_0x220e9b(0x699)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x1cf)]=Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x88b)],Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x88b)]=function(_0x29c230,_0x3ee9c4,_0x1f4e7a,_0x41ab19){const _0x52384c=_0x2e6bc0;_0x29c230=Math['round'](_0x29c230),_0x3ee9c4=Math[_0x52384c(0x897)](_0x3ee9c4),_0x1f4e7a=Math[_0x52384c(0x897)](_0x1f4e7a),VisuMZ[_0x52384c(0x468)][_0x52384c(0x1cf)][_0x52384c(0x895)](this,_0x29c230,_0x3ee9c4,_0x1f4e7a,_0x41ab19),this['markCoreEngineModified']();},VisuMZ[_0x2e6bc0(0x468)]['Bitmap_measureTextWidth']=Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x650)],Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x650)]=function(_0x4683cf){const _0x3adc74=_0x2e6bc0;return Math['ceil'](VisuMZ[_0x3adc74(0x468)][_0x3adc74(0x5bf)]['call'](this,_0x4683cf));},VisuMZ['CoreEngine'][_0x2e6bc0(0x414)]=Bitmap[_0x2e6bc0(0x5e2)]['drawText'],Bitmap['prototype'][_0x2e6bc0(0x41f)]=function(_0x4e388c,_0x53be34,_0x3984ea,_0x29c93c,_0x995bc9,_0x370cbb){const _0x2ebe34=_0x2e6bc0;_0x53be34=Math[_0x2ebe34(0x897)](_0x53be34),_0x3984ea=Math[_0x2ebe34(0x897)](_0x3984ea),_0x29c93c=Math[_0x2ebe34(0x539)](_0x29c93c),_0x995bc9=Math[_0x2ebe34(0x539)](_0x995bc9),VisuMZ[_0x2ebe34(0x468)]['Bitmap_drawText'][_0x2ebe34(0x895)](this,_0x4e388c,_0x53be34,_0x3984ea,_0x29c93c,_0x995bc9,_0x370cbb),this[_0x2ebe34(0x699)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x614)]=Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x844)],Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x844)]=function(_0x5845e2,_0x42ca95,_0x1552f3,_0x5c7e48){const _0x3b9d0b=_0x2e6bc0;VisuMZ['CoreEngine'][_0x3b9d0b(0x6ef)][_0x3b9d0b(0x818)][_0x3b9d0b(0x2fd)]?this[_0x3b9d0b(0x7c6)](_0x5845e2,_0x42ca95,_0x1552f3,_0x5c7e48):VisuMZ['CoreEngine'][_0x3b9d0b(0x614)]['call'](this,_0x5845e2,_0x42ca95,_0x1552f3,_0x5c7e48);},Bitmap[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7c6)]=function(_0x431f7c,_0x4ae85c,_0x24bf79,_0x499996){const _0x4457f8=_0x2e6bc0,_0x282e3e=this['context'];_0x282e3e[_0x4457f8(0x32b)]=this[_0x4457f8(0x107)],_0x282e3e[_0x4457f8(0x8a1)](_0x431f7c,_0x4ae85c+0x2,_0x24bf79+0x2,_0x499996);},VisuMZ['CoreEngine'][_0x2e6bc0(0x7ee)]=Input[_0x2e6bc0(0x1f1)],Input[_0x2e6bc0(0x1f1)]=function(){const _0x5888a7=_0x2e6bc0;VisuMZ[_0x5888a7(0x468)][_0x5888a7(0x7ee)][_0x5888a7(0x895)](this),this[_0x5888a7(0x541)]=undefined,this[_0x5888a7(0x44e)]=undefined,this[_0x5888a7(0x1d7)]=Input['keyRepeatWait'];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x755)]=Input[_0x2e6bc0(0x645)],Input['update']=function(){const _0x3ec1b8=_0x2e6bc0;VisuMZ[_0x3ec1b8(0x468)]['Input_update'][_0x3ec1b8(0x895)](this);if(this['_gamepadWait'])this[_0x3ec1b8(0x1d7)]--;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6b7)]=Input[_0x2e6bc0(0x685)],Input[_0x2e6bc0(0x685)]=function(){const _0x1445ea=_0x2e6bc0;if(this[_0x1445ea(0x1d7)])return;VisuMZ[_0x1445ea(0x468)]['Input_pollGamepads']['call'](this);},VisuMZ['CoreEngine']['Input_setupEventHandlers']=Input[_0x2e6bc0(0x30b)],Input['_setupEventHandlers']=function(){const _0x1f6758=_0x2e6bc0;VisuMZ[_0x1f6758(0x468)][_0x1f6758(0x60b)][_0x1f6758(0x895)](this),document[_0x1f6758(0x1c1)](_0x1f6758(0x15d),this[_0x1f6758(0x6b1)][_0x1f6758(0x6e7)](this));},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x146)]=Input[_0x2e6bc0(0x617)],Input[_0x2e6bc0(0x617)]=function(_0x54374d){const _0x1ef3aa=_0x2e6bc0;this[_0x1ef3aa(0x44e)]=_0x54374d[_0x1ef3aa(0x145)],VisuMZ[_0x1ef3aa(0x468)][_0x1ef3aa(0x146)][_0x1ef3aa(0x895)](this,_0x54374d),this[_0x1ef3aa(0x84d)](null);},Input[_0x2e6bc0(0x6b1)]=function(_0xad642f){const _0x543c16=_0x2e6bc0;this[_0x543c16(0x2f2)](_0xad642f);},Input[_0x2e6bc0(0x2f2)]=function(_0x217fae){const _0x33680e=_0x2e6bc0;this['_inputSpecialKeyCode']=_0x217fae[_0x33680e(0x145)];let _0x3d3b2a=String[_0x33680e(0x548)](_0x217fae['charCode']);this[_0x33680e(0x541)]===undefined?this[_0x33680e(0x541)]=_0x3d3b2a:this[_0x33680e(0x541)]+=_0x3d3b2a;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x48b)]=Input['_shouldPreventDefault'],Input[_0x2e6bc0(0x7b4)]=function(_0x2606fa){const _0x16dd5a=_0x2e6bc0;if(_0x2606fa===0x8)return![];return VisuMZ['CoreEngine'][_0x16dd5a(0x48b)]['call'](this,_0x2606fa);},Input[_0x2e6bc0(0x5b5)]=function(_0x537583){const _0x3cd611=_0x2e6bc0;if(_0x537583[_0x3cd611(0x298)](/backspace/i))return this[_0x3cd611(0x44e)]===0x8;if(_0x537583[_0x3cd611(0x298)](/enter/i))return this[_0x3cd611(0x44e)]===0xd;if(_0x537583[_0x3cd611(0x298)](/escape/i))return this[_0x3cd611(0x44e)]===0x1b;},Input[_0x2e6bc0(0x6d8)]=function(){const _0x103552=_0x2e6bc0;return[0x30,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39]['contains'](this[_0x103552(0x44e)]);},Input[_0x2e6bc0(0x117)]=function(){const _0x3a3874=_0x2e6bc0;return[0x25,0x26,0x27,0x28][_0x3a3874(0x568)](this[_0x3a3874(0x44e)]);},Input[_0x2e6bc0(0x565)]=function(){const _0x2c3ec9=_0x2e6bc0;if(navigator[_0x2c3ec9(0x554)]){const _0x15b92c=navigator[_0x2c3ec9(0x554)]();if(_0x15b92c)for(const _0x385de0 of _0x15b92c){if(_0x385de0&&_0x385de0[_0x2c3ec9(0x2c4)])return!![];}}return![];},Input[_0x2e6bc0(0x2d9)]=function(){const _0x36f7eb=_0x2e6bc0;if(navigator[_0x36f7eb(0x554)]){const _0x35c234=navigator[_0x36f7eb(0x554)]();if(_0x35c234)for(const _0x36894a of _0x35c234){if(_0x36894a&&_0x36894a[_0x36f7eb(0x2c4)]){if(this[_0x36f7eb(0x6b9)](_0x36894a))return!![];if(this[_0x36f7eb(0x1e3)](_0x36894a))return!![];}}}return![];},Input[_0x2e6bc0(0x6b9)]=function(_0x2d3a75){const _0x4bfdef=_0x2e6bc0,_0x1fcba7=_0x2d3a75['buttons'];for(let _0x138577=0x0;_0x138577<_0x1fcba7[_0x4bfdef(0x29e)];_0x138577++){if(_0x1fcba7[_0x138577][_0x4bfdef(0x64d)])return!![];}return![];},Input['isGamepadAxisMoved']=function(_0x534346){const _0x166a88=_0x2e6bc0,_0x18427a=_0x534346[_0x166a88(0x86e)],_0x2ae073=0.5;if(_0x18427a[0x0]<-_0x2ae073)return!![];if(_0x18427a[0x0]>_0x2ae073)return!![];if(_0x18427a[0x1]<-_0x2ae073)return!![];if(_0x18427a[0x1]>_0x2ae073)return!![];return![];},Input['getLastGamepadUsed']=function(){const _0x10b2ee=_0x2e6bc0;return this[_0x10b2ee(0x57c)]||null;},Input['setLastGamepadUsed']=function(_0x1e44b2){this['_lastGamepad']=_0x1e44b2;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x5fa)]=Input[_0x2e6bc0(0x61b)],Input['_updateGamepadState']=function(_0x527e85){const _0x5a5693=_0x2e6bc0;VisuMZ[_0x5a5693(0x468)][_0x5a5693(0x5fa)]['call'](this,_0x527e85),(this[_0x5a5693(0x6b9)](_0x527e85)||this[_0x5a5693(0x1e3)](_0x527e85))&&this[_0x5a5693(0x84d)](_0x527e85);},Input[_0x2e6bc0(0x32d)]=function(){const _0xd9360b=_0x2e6bc0;return this[_0xd9360b(0x57c)]?this[_0xd9360b(0x57c)]['id']:_0xd9360b(0x8b8);},VisuMZ['CoreEngine'][_0x2e6bc0(0x62b)]=Tilemap[_0x2e6bc0(0x5e2)]['_addShadow'],Tilemap[_0x2e6bc0(0x5e2)]['_addShadow']=function(_0x484b54,_0x743eb0,_0x172718,_0x3efef8){const _0x4f6d31=_0x2e6bc0;if($gameMap&&$gameMap[_0x4f6d31(0x690)]())return;VisuMZ[_0x4f6d31(0x468)]['Tilemap_addShadow']['call'](this,_0x484b54,_0x743eb0,_0x172718,_0x3efef8);},Tilemap[_0x2e6bc0(0x49c)][_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2f7)]=function(){const _0x1d186c=_0x2e6bc0;this['_destroyInternalTextures']();for(let _0x2f417a=0x0;_0x2f417a<Tilemap['Layer'][_0x1d186c(0x6f9)];_0x2f417a++){const _0x2d1cd1=new PIXI['BaseTexture']();_0x2d1cd1['setSize'](0x800,0x800),VisuMZ[_0x1d186c(0x468)][_0x1d186c(0x6ef)][_0x1d186c(0x818)]['PixelateImageRendering']&&(_0x2d1cd1[_0x1d186c(0x891)]=PIXI[_0x1d186c(0x59e)][_0x1d186c(0x6fd)]),this['_internalTextures'][_0x1d186c(0x16c)](_0x2d1cd1);}},WindowLayer['prototype']['isMaskingEnabled']=function(){const _0x43dc1a=_0x2e6bc0;return SceneManager&&SceneManager[_0x43dc1a(0x49a)]?SceneManager[_0x43dc1a(0x49a)]['isWindowMaskingEnabled']():!![];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0xe1)]=WindowLayer[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x72c)],WindowLayer[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x72c)]=function render(_0x51f689){const _0x1887a9=_0x2e6bc0;this[_0x1887a9(0x3a2)]()?VisuMZ[_0x1887a9(0x468)][_0x1887a9(0xe1)][_0x1887a9(0x895)](this,_0x51f689):this[_0x1887a9(0x182)](_0x51f689);},WindowLayer[_0x2e6bc0(0x5e2)]['renderNoMask']=function render(_0x19e1cf){const _0x1ae5c1=_0x2e6bc0;if(!this['visible'])return;const _0x243839=new PIXI['Graphics'](),_0x33d3a1=_0x19e1cf['gl'],_0x22ae12=this[_0x1ae5c1(0x872)]['clone']();_0x19e1cf[_0x1ae5c1(0x62c)]['forceStencil'](),_0x243839[_0x1ae5c1(0x2f9)]=this[_0x1ae5c1(0x2f9)],_0x19e1cf['batch'][_0x1ae5c1(0x618)](),_0x33d3a1[_0x1ae5c1(0x785)](_0x33d3a1['STENCIL_TEST']);while(_0x22ae12[_0x1ae5c1(0x29e)]>0x0){const _0xfbf4c4=_0x22ae12['shift']();_0xfbf4c4['_isWindow']&&_0xfbf4c4['visible']&&_0xfbf4c4[_0x1ae5c1(0x73b)]>0x0&&(_0x33d3a1[_0x1ae5c1(0x741)](_0x33d3a1[_0x1ae5c1(0x315)],0x0,~0x0),_0x33d3a1[_0x1ae5c1(0x5e5)](_0x33d3a1['KEEP'],_0x33d3a1['KEEP'],_0x33d3a1['KEEP']),_0xfbf4c4[_0x1ae5c1(0x72c)](_0x19e1cf),_0x19e1cf[_0x1ae5c1(0x5ac)][_0x1ae5c1(0x618)](),_0x243839['clear'](),_0x33d3a1['stencilFunc'](_0x33d3a1[_0x1ae5c1(0x261)],0x1,~0x0),_0x33d3a1[_0x1ae5c1(0x5e5)](_0x33d3a1[_0x1ae5c1(0x413)],_0x33d3a1[_0x1ae5c1(0x413)],_0x33d3a1[_0x1ae5c1(0x413)]),_0x33d3a1[_0x1ae5c1(0x18c)](_0x33d3a1[_0x1ae5c1(0x5cf)],_0x33d3a1[_0x1ae5c1(0x262)]),_0x243839[_0x1ae5c1(0x72c)](_0x19e1cf),_0x19e1cf[_0x1ae5c1(0x5ac)][_0x1ae5c1(0x618)](),_0x33d3a1[_0x1ae5c1(0x18c)](_0x33d3a1[_0x1ae5c1(0x262)],_0x33d3a1[_0x1ae5c1(0x43a)]));}_0x33d3a1['disable'](_0x33d3a1['STENCIL_TEST']),_0x33d3a1[_0x1ae5c1(0x1f1)](_0x33d3a1['STENCIL_BUFFER_BIT']),_0x33d3a1['clearStencil'](0x0),_0x19e1cf[_0x1ae5c1(0x5ac)]['flush']();for(const _0x4d52da of this['children']){!_0x4d52da[_0x1ae5c1(0x811)]&&_0x4d52da[_0x1ae5c1(0x510)]&&_0x4d52da['render'](_0x19e1cf);}_0x19e1cf[_0x1ae5c1(0x5ac)][_0x1ae5c1(0x618)]();},DataManager['isKeyItem']=function(_0x4b5f63){const _0x758e3e=_0x2e6bc0;return this[_0x758e3e(0x806)](_0x4b5f63)&&_0x4b5f63[_0x758e3e(0x7b9)]===0x2;},VisuMZ['CoreEngine'][_0x2e6bc0(0x394)]=DataManager['setupNewGame'],DataManager[_0x2e6bc0(0x2a6)]=function(){const _0x153ae8=_0x2e6bc0;VisuMZ[_0x153ae8(0x468)][_0x153ae8(0x394)][_0x153ae8(0x895)](this),this['reservePlayTestNewGameCommonEvent'](),this[_0x153ae8(0x2f8)]();},DataManager[_0x2e6bc0(0x230)]=function(){const _0x16d80f=_0x2e6bc0;if($gameTemp['isPlaytest']()){const _0x5ab93a=VisuMZ[_0x16d80f(0x468)][_0x16d80f(0x6ef)][_0x16d80f(0x818)]['NewGameCommonEvent'];if(_0x5ab93a>0x0)$gameTemp[_0x16d80f(0x54c)](_0x5ab93a);}},DataManager[_0x2e6bc0(0x2f8)]=function(){const _0x429d7b=_0x2e6bc0,_0x215c6c=VisuMZ[_0x429d7b(0x468)][_0x429d7b(0x6ef)][_0x429d7b(0x818)]['NewGameCommonEventAll']||0x0;if(_0x215c6c>0x0)$gameTemp[_0x429d7b(0x54c)](_0x215c6c);},DataManager[_0x2e6bc0(0x5d7)]=function(_0x13f5fd){const _0x57380e=_0x2e6bc0,_0x21f8b4=$dataTroops[_0x13f5fd];if(!_0x21f8b4)return'';let _0x4bbb71='';_0x4bbb71+=_0x21f8b4['name'];for(const _0x39a142 of _0x21f8b4[_0x57380e(0x15a)]){for(const _0x168d9c of _0x39a142[_0x57380e(0x775)]){[0x6c,0x198][_0x57380e(0x7fe)](_0x168d9c['code'])&&(_0x4bbb71+='\x0a',_0x4bbb71+=_0x168d9c['parameters'][0x0]);}}return _0x4bbb71;};(VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x818)][_0x2e6bc0(0x4b5)]??!![])&&($scene=null,VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x13a)]=Scene_Base[_0x2e6bc0(0x5e2)]['create'],Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x893)]=function(){const _0x273e8e=_0x2e6bc0;VisuMZ[_0x273e8e(0x468)][_0x273e8e(0x13a)][_0x273e8e(0x895)](this),$scene=this;},$spriteset=null,VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x7de)]=Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x628)],Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x628)]=function(){const _0x4e8313=_0x2e6bc0;VisuMZ[_0x4e8313(0x468)][_0x4e8313(0x7de)][_0x4e8313(0x895)](this),$spriteset=this[_0x4e8313(0x722)];},VisuMZ[_0x2e6bc0(0x468)]['Scene_Battle_createSpriteset']=Scene_Battle['prototype'][_0x2e6bc0(0x628)],Scene_Battle['prototype'][_0x2e6bc0(0x628)]=function(){const _0x2052ed=_0x2e6bc0;VisuMZ['CoreEngine'][_0x2052ed(0x528)][_0x2052ed(0x895)](this),$spriteset=this[_0x2052ed(0x722)];},VisuMZ[_0x2e6bc0(0x468)]['Scene_Base_terminate']=Scene_Base[_0x2e6bc0(0x5e2)]['terminate'],Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x56c)]=function(){const _0x413462=_0x2e6bc0;VisuMZ[_0x413462(0x468)]['Scene_Base_terminate'][_0x413462(0x895)](this),$spriteset=null,$subject=null,$targets=null,$target=null;},$subject=null,$targets=null,$target=null,VisuMZ['CoreEngine'][_0x2e6bc0(0x675)]=BattleManager['update'],BattleManager[_0x2e6bc0(0x645)]=function(_0x3f8367){const _0x2ec368=_0x2e6bc0;VisuMZ[_0x2ec368(0x468)]['BattleManager_update']['call'](this,_0x3f8367),this[_0x2ec368(0x5e9)]();},BattleManager[_0x2e6bc0(0x5e9)]=function(){const _0x2bc0f4=_0x2e6bc0;$subject=this[_0x2bc0f4(0x848)],$targets=this[_0x2bc0f4(0x5c2)],$target=this[_0x2bc0f4(0x6b0)]||this[_0x2bc0f4(0x5c2)][0x0];},$event=null,VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x477)]=Game_Event[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x427)],Game_Event[_0x2e6bc0(0x5e2)]['start']=function(){const _0x4f1078=_0x2e6bc0;VisuMZ['CoreEngine']['Game_Event_start'][_0x4f1078(0x895)](this),$event=this;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x2f4)]=Scene_Map[_0x2e6bc0(0x5e2)]['update'],Scene_Map['prototype'][_0x2e6bc0(0x645)]=function(){const _0x570e34=_0x2e6bc0;VisuMZ[_0x570e34(0x468)][_0x570e34(0x2f4)]['call'](this),$gameMap['updateCurrentEvent']();},Game_Map[_0x2e6bc0(0x5e2)]['updateCurrentEvent']=function(){const _0x21af98=_0x2e6bc0;!this[_0x21af98(0x86a)]()&&$event!==null&&($event=null);},$commonEvent=function(_0x105b8b){const _0x42ca76=_0x2e6bc0;if($gameTemp)$gameTemp[_0x42ca76(0x54c)](_0x105b8b);});;function _0x2615(){const _0xbee267=['QUESTION_MARK','process_VisuMZ_CoreEngine_Settings','_height','KeyUnlisted','targetObjects','_centerElement','processCursorHomeEndTrigger','CorrectSkinBleeding','_anglePlus','GoldChange','isCollidedWithEvents','WIN_ICO_HELP','isBusy','paramX','displayY','scrollbarHeight','applyForcedGameTroopSettingsCoreEngine','_stored_mpGaugeColor1','createKeyJS','_backgroundFilter','ShowScrollBar','isCancelled','_shouldPreventDefault','updateSmoothScroll','titles1','createCustomBackgroundImages','buttonAssistOffset1','itypeId','_scrollDuration','etypeId','img/%1/','createFauxAnimation','members','_targetScaleX','ARRAYFUNC','optionsWindowRect','keyboard','registerCommand','command122','processCursorMoveModernControls','_drawTextShadow','DEFAULT_SHIFT_Y','isInputting','FontSize','_stored_mpGaugeColor2','dimColor1','updateLastTarget','currentClass','skipBranch','DetachBattlePictureContainer','getKeyboardInputButtonString','INSERT','Window_StatusBase_drawActorSimpleStatus','showPointAnimations','createPointAnimationTargets','Game_Unit_onBattleStart','buttonAreaHeight','Window_NumberInput_start','INSINE','([\x5c+\x5c-]\x5cd+)>','OutlineColorDmg','VisuMZ_2_BattleSystemETB','horzJS','isBottomButtonMode','Scene_Map_createSpriteset','DOUBLE_QUOTE','Game_Interpreter_command111','isActiveTpb','Pixelated','setClickHandler','MEV','Enable','Game_Action_itemEva','_viewportSize','setAnchor','OptionsRect','addOnceParallelInterpreter','saveViewport','drawCharacter','PLAY','Input_clear','_stored_gaugeBackColor','cursorRight','initButtonHidden','_mp','updateScrollBars','ParseClassNotetags','shouldAutosave','mute','PRESERVCONVERSION(%1)','_index','add','HelpBgType','TPB\x20ACTIVE','pitch','Sprite_destroy','includes','Mute','touchUI','toFixed','%1〘Choice\x20Cancel〙%1','createCancelButton','drawSegment','SETTINGS','isItem','DigitGroupingLocale','_stored_ctGaugeColor2','parse','focus','updatePositionCoreEngineShakeVert','exec','determineSideButtonLayoutValid','xparamPlus','context','_forcedTroopView','_isWindow','setActorHome','darwin','Game_Interpreter_PluginCommand','playBgm','_coreEasingType','HASH','QoL','_stored_hpGaugeColor1','KeyTAB','ParseTilesetNotetags','ColorMaxLvGauge2','repositionEnemiesByResolution','isSceneMap','clearForcedGameTroopSettingsCoreEngine','charging','Window_MapName_refresh','_stored_maxLvGaugeColor2','ConvertParams','_pauseSignSprite','xparamRateJS','checkPassage','createBuffer','NUMPAD9','commandWindowRows','tpCostColor','_colorCache','itemLineRect','WIN_OEM_ENLW','updateEffekseer','CheckSplitEscape','INOUTBOUNCE','mev','stypeId','DigitGroupingStandardText','useDigitGroupingEx','ctGaugeColor1','_onLoad','INELASTIC','ParseStateNotetags','Window_NameInput_cursorRight','offsetY','LEFT','alwaysDash','buttonAssistOffset5','processTouchModernControls','_pictureCoordinatesMode','_downArrowSprite','_categoryWindow','ExtractStrFromMap','Scene_Skill_create','_drawTextOutline','deactivate','TextManager_param','INOUTQUART','_subject','boxHeight','SCROLL_LOCK','_stored_expGaugeColor2','updateKeyText','setLastGamepadUsed','globalAlpha','WIN_OEM_CUSEL','DTB','IconSParam7','Window_Selectable_itemRect','LUK','down2','gold','Scene_Load','savefileInfo','ColorTPCost','apply','paramBase','PictureFilename','param','pan','getPointAnimationLayer','NUMPAD3','updateDuration','processKeyboardDigitChange','process_VisuMZ_CoreEngine_Functions','paramFlatJS','ColorHPGauge1','Window_SkillList_includes','ColorMPCost','isFullDocumentTitle','_mirror','EXECUTE','isEventRunning','_menuButton','runCombinedScrollingTextAsCode','DashToggleR','axes','uiAreaHeight','horizontal','return\x200','children','SParamVocab3','isAnimationPlaying','maxLvGaugeColor2','Window_Base_destroyContents','ParamMax','setSideButtonLayout','maxTurns','_image','Game_Picture_updateMove','Window_Scrollable_update','index','mainAreaHeightSideButtonLayout','writeFile','pixelated','ParseItemNotetags','log','OptionsBgType','_statusParamsWindow','none','Subtitle','Title','Sprite_Button_updateOpacity','Spriteset_Base_updatePosition','ShowDevTools','drawCircle','initVisuMZCoreEngine','isOptionValid','onload','ParseActorNotetags','moveMenuButtonSideButtonLayout','scaleMode','_currentBgs','create','RegExp','call','PDR','round','Scene_Title','Window_Gold_refresh','F15','clearTp','command355','_colorTone','_storedMapText','AutoScrollLockY','exportAllTroopStrings','fillText','Once\x20Parallel\x20for\x20Battle\x20requires\x20VisuMZ_1_BattleCore!','normal','TGR','pageup','EVAL','NoTileShadows','buttonAssistText3','buttonAssistOffset4','process_VisuMZ_CoreEngine_ControllerButtons','SellBgType','WIN_OEM_FJ_TOUROKU','shake','smoothSelect','isMapScrollLinked','itemBackColor1','enemy','battlebacks2','_origin','left','setGuard','WIN_OEM_WSCTRL','_stored_expGaugeColor1','Keyboard','string','DOWN','_sellWindow','_backgroundSprite','createContents','Sprite_Battler_startMove','PositionX','faceHeight','isCursorMovable','PHA','WindowLayer_render','PTB','paramBaseAboveLevel99','makeFontSmaller','padZero','TitlePicButtons','isSideButtonLayout','_offsetY','loadMapData','createPointAnimationSprite','Game_Interpreter_updateWaitMode','createTileExtendSprites','maxPictures','_slotWindow','_hp','PictureCoordinatesMode','_phase','clearZoom','CustomParamType','framesMax','Bitmap_strokeRect','Window_NameInput_initialize','_saveFileID','COLON','encounterStep','CLOSE_BRACKET','substring','DamageColor','Game_Map_scrollRight','SParamVocab2','moveRelativeToResolutionChange','URL','gameTitle','_actorWindow','CtrlQuickLoad','_duration','valueOutlineWidth','TextCodeNicknames','outlineColor','centerSprite','Scene_MenuBase_createPageButtons','ExportStrFromAllTroops','IconSParam1','updatePointAnimations','_currentMap','operation','buttonAssistText2','BuyRect','startMove','loadBitmapCoreEngine','SkillTypeBgType','PIPE','INOUTBACK','updateData','isArrowPressed','item','_onceParallelInterpreters','turn','Game_BattlerBase_refresh','createCommandWindow','integer','slotWindowRect','loading','WIN_OEM_BACKTAB','buttonAssistText4','INQUART','centerX','_buyWindow','animationShouldMirror','VariableJsBlock','_targetAnchor','toString','doesNameContainBannedWords','Sprite_AnimationMV_processTimingData','successRate','_centerCameraCheck','drawActorNickname','Window_refreshBack','LATIN1','ColorMaxLvGauge1','getColor','Rate2','Bitmap_initialize','autoRemovalTiming','fontSize','ColorExpGauge2','Map%1.json','mainAreaBottom','setupScrollBarBitmap','Scene_Base_create','_closing','onClick','cursorUp','RIGHT','_shakeSpeed','RepositionEnemies','LESS_THAN','TextFmt','updateRotation','IconXParam1','keyCode','Input_onKeyDown','552190csysOV','BattleManager_checkSubstitute','MAT','checkSubstitute','isTouchedInsideFrame','platform','SELECT','applyEasing','GREATER_THAN','destroyed','DetachMapPictureContainer','randomJS','Graphics_printError','TextStr','_cache','setMute','_bgsBuffer','XParamVocab7','_shiftY','pages','drawGoldItemStyle','createChildSprite','keypress','ValueJS','optSideView','Sprite_Animation_processSoundTimings','pictureButtons','LoadMenu','isRepeated','volume','TranslucentOpacity','playEscape','bitmapHeight','_currentBgm','encounterStepsMinimum','NON_FRAME','Scene_Map_createSpriteset_detach','push','goldWindowRect','_sideButtonLayout','ARRAYNUM','Window_NameInput_refresh','buttonAssistWindowRect','onMoveEnd','Game_Map_scrollDown','terms','Game_Map_scrollUp','CustomParam','IconParam3','KeyItemProtect','setSkill','_coreEngineShakeStyle','standardIconWidth','_stored_systemColor','blockWidth','altKey','InputRect','OptionsMenu','storeMapData','renderNoMask','Game_Actor_paramBase','RightMenus','GoldOverlap','_muteSound','target','_textQueue','gainItem','DELETE','Game_System_initialize','blendFunc','onBattleStart','_refreshPauseSign','requestMotion','Game_Action_updateLastTarget','valueOutlineColor','checkCoreEngineDisplayCenter','isBottomHelpMode','exportAllMapStrings','CTB','Sprite_Picture_updateOrigin','HRG','scrollLeft','Game_Map_changeTileset','Spriteset_Base_destroy','F20','stop','updateMove','sv_actors','isHandled','expRate','Spriteset_Base_update','drawBackgroundRect','Rate1','ARRAYSTRUCT','destroy','MultiKeyFmt','this.paramBase(5)','seek','ColorExpGauge1','ParamChange','Plus2','paramRate','setupButtonImage','initCoreEasing','displayX','MIN_SAFE_INTEGER','initialBattleSystem','X:\x20%1','VOLUME_MUTE','Item-%1-%2','select','scrollX','BarOffset','loadTitle1','_targetOffsetY','ColSpacing','VOLUME_DOWN','createBackground','CrisisRate','_listWindow','CommandList','createDimmerSprite','addEventListener','XParamVocab4','XParamVocab5','removeTileExtendSprites','SaveMenu','end','AntiZoomPictures','Key%1','NUMPAD7','repeat','Game_Interpreter_command122','ItemBackColor1','mhp','createTextState','Bitmap_drawCircle','ColorNormal','DETACH_PICTURE_CONTAINER','OUTCIRC','_timerSprite','CIRCUMFLEX','WIN_ICO_CLEAR','animationId','_gamepadWait','TextJS','isPreserveTp','loadBitmap','cursorLeft','%1\x27s\x20version\x20does\x20not\x20match\x20plugin\x27s.\x20Please\x20update\x20it\x20in\x20the\x20Plugin\x20Manager.','drawParamName','playTestShiftR','setupFont','Window_Base_initialize','itemSuccessRate','SParamVocab0','isGamepadAxisMoved','BarThickness','clearRect','StatusRect','F6key','MaxDuration','MAXMP','F16','CNT','lineHeight','itemBackColor2','Smooth','ShowJS','OUTQUINT','clear','windowPadding','_baseSprite','_hideTileShadows','targetScaleY','〘Common\x20Event\x20%1:\x20%2〙\x20End','_makeFontNameText','_url','_tpbChargeTime','Scene_Boot_startNormalGame','Window_NameInput_processHandling','actorWindowRect','paramRateJS','_eventId','Game_Picture_x','BattleSystem','worldTransform','BattleManager_processEscape','isMagical','Window_StatusBase_drawActorLevel','_stored_crisisColor','isMenuButtonAssistEnabled','home','isSmartEventCollisionOn','PGUP','replace','itemEva','《《《\x20Event\x20%1:\x20%2,\x20Page\x20%3\x20》》》\x0a%4\x0a','_moveEasingType','ActorMPColor','nah','Color','Gold','advanced','AccuracyBoost','setCommonEvent','_coreEasing','alignBottom','MRG','down','_lastScrollBarValues','_cacheScaleX','enabled','areButtonsHidden','Flat1','targetOpacity','xScrollLinkedOffset','SwitchToggleOne','helpAreaTopSideButtonLayout','Game_Action_numRepeats','playLoad','Game_Interpreter_command355','this.paramBase(','Window_Selectable_drawBackgroundRect','DEF','makeActionList','normalColor','Plus','BannedWords','SParamVocab5','BarBodyColor','updatePictureCoordinates','nextLevelExp','reservePlayTestNewGameCommonEvent','EVA','useFontWidthFix','IconXParam2','paramWidth','Scene_GameEnd_createBackground','isClosed','SideView','BTestArmors','_lastIconIndex','_active','_stored_hpGaugeColor2','If\x20you\x20don\x27t\x20want\x20this\x20option,\x20set\x20Split\x20Escape\x20option\x20back\x20to\x20false.','ItemPadding','isMVAnimation','systemColor','asin','performMiss','IconXParam8','scrollUp','Window_Base_update','Match','paramchangeTextColor','isNextScene','checkSmartEventCollision','processCursorMove','targetBackOpacity','OpenConsole','drawGauge','PERCENT','EquipMenu','cursorDown','ColorDeath','STR','QUOTE','bitmap','StateIconsNonFrame','dummyWindowRect','paramRate2','OUTBOUNCE','StatusEquipRect','BasicParameterFormula','setBackgroundOpacity','makeInputButtonString','createExtendedTileSprite','setupRate','onDatabaseLoaded','updateBgsParameters','updateMainMultiply','ALWAYS','ONE','offOpacity','paramFlatBonus','xparam','Sprite_Animation_setViewport','contents','StatusParamsRect','subjectHitRate','ARRAYEVAL','_stored_powerDownColor','PreserveNumbers','processKeyboardEnd','ADD','OUTBACK','anglePlus','fadeSpeed','exit','drawGameTitle','setup','image-rendering','EncounterRateMinimum','PictureShowIcon','rgba(0,\x200,\x200,\x200.7)','VisuMZ_2_BattleSystemCTB','Scene_Boot_loadSystemImages','_scrollBarVert','INCIRC','origin','_fauxAnimationSprites','processEscape','CEV','Name','OUTELASTIC','_isPlaytest','moveCancelButtonSideButtonLayout','filters','PictureRotate','buyWindowRect','Game_Actor_levelUp','setViewport','INOUTCUBIC','jsQuickFunc','xparamFlatJS','Game_Temp_initialize','meVolume','getButtonAssistLocation','BottomHelp','_pagedownButton','ColorMPGauge2','updateOpen','AutoScrollLockX','setEvent','ctrlKey','setLastPluginCommandInterpreter','match','%1\x20is\x20incorrectly\x20placed\x20on\x20the\x20plugin\x20list.\x0aIt\x20is\x20a\x20Tier\x20%2\x20plugin\x20placed\x20over\x20other\x20Tier\x20%3\x20plugins.\x0aPlease\x20reorder\x20the\x20plugin\x20list\x20from\x20smallest\x20to\x20largest\x20tier\x20numbers.','defaultInputMode','_cancelButton','removeOnceParallelInterpreter','buttonAssistOffset%1','length','Troop%1','SParameterFormula','_fauxAnimationQueue','_anchor','Bitmap_clearRect','animationNextDelay','_digitGrouping','setupNewGame','originalJS','_mainSprite','picture','Game_Map_scrollLeft','NUMPAD1','paramPlus','initRotation','processBack','buttonAssistWindowButtonRect','Sprite_AnimationMV_updatePosition','drawGameSubtitle','boxWidth','retrievePointAnimation','maxGold','Game_Battler_initTpbChargeTime','OutlineColor','_timeDuration','0.00','statusWindowRect','CRI','ScreenResolution','Game_Interpreter_command105','scrollDown','showIncompleteTilesetError','drawActorSimpleStatus','sparamPlus','consumeItem','Window_Base_createContents','constructor','connected','mainAreaHeight','PageChange','hpColor','windowRect','NUM_LOCK','isUseModernControls','menu','playtestQuickLoad','Mirror','_editWindow','SystemSetBattleSystem','Game_Picture_initRotation','_backSprite2','_buttonType','isPlaytest','OffBarOpacity','makeFontBigger','drawGameVersion','canEquip','adjustX','isGamepadTriggered','GetParamIcon','initBasic','needsUpdate','targetEvaRate','getTileExtendTerrainTags','Scene_Boot_onDatabaseLoaded','loadIconBitmap','Sprite_Actor_setActorHome','AdjustAngle','JSON','HIT','calcEasing','F11','process_VisuMZ_CoreEngine_jsQuickFunctions','Conditional\x20Branch\x20Script\x20Error','PLUS','ParseArmorNotetags','clamp','addWindow','ItemHeight','mainCommandWidth','Window_Selectable_processCursorMove','baseTextRect','OPEN_BRACKET','_registerKeyInput','shift','Scene_Map_update','Upper\x20Left','gaugeHeight','_createInternalTextures','reserveNewGameCommonEvent','transform','setTileFrame','numRepeats','Param','FontShadows','GoldIcon','escape','ALT','updatePosition','sparamPlus1','drawParamText','sparamPlus2','SystemLoadImages','Spriteset_Base_initialize','LoadError','clearCachedKeys','RPGMAKER_VERSION','CreateBattleSystemID','_setupEventHandlers','ActorRect','XParameterFormula','angle','isAnimationForEach','this.paramBase(1)','_texture','EXR','setViewportCoreEngineFix','indexOf','EQUAL','keys','You\x20do\x20not\x20have\x20a\x20custom\x20Input.keyMapper\x20with\x20\x22cancel\x22\x20and\x20\x22menu\x22\x20','setAction','REC','strokeRect','getCoreEngineScreenShakeStyle','ARRAYJSON','right','Padding','ColorCrisis','outbounce','Window_Base_drawText','VisuMZ\x20CoreEngine\x20PictureIcon\x20%1\x20%2','SmartEventCollisionPriority','keys\x20for\x20both\x20\x22cancel\x22\x20and\x20\x22menu\x22!\x0a\x0a','IconParam5','makeDocumentTitle','ColorMPGauge1','updateFauxAnimations','expParams','movePageButtonSideButtonLayout','fillStyle','_actor','getLastUsedGamepadType','INOUTSINE','processFauxAnimationRequests','FontWidthFix','title','createButtonAssistWindow','XParamVocab6','isScrollBarVisible','_playtestF7Looping','Scene_Map_initialize','isDying','switchModes','invokeCounterAttack','HELP','createMenuButton','itemHeight','RepositionEnemies130','vertical','backspace','resize','isTpb','OUTCUBIC','_buttonAssistWindow','_rate','AudioChangeBgsPan','updateFrameCoreEngine','XParamVocab8','retrieveFauxAnimation','_movementDuration','addLoadListener','_centerElementCoreEngine','F24','MDF','INBOUNCE','Type','Scene_Item_create','isAlive','PRINTSCREEN','setColorTone','updatePadding','StatusMenu','_repositioned','setEasingType','_dummyWindow','itemHit','_displayY','GroupDigits','Skill-%1-%2','maxScrollbar','Enemy','activate','F17','Scene_Map_createMenuButton','%1:\x20Exit\x20','tileWidth','_refreshBack','ForceNoPlayTest','_tileExtendSprites','endAction','removeFauxAnimation','18869587CQtwsJ','operand','isRightInputMode','CategoryRect','Graphics_centerElement','scrollbar','initDigitGrouping','standardIconHeight','Click\x20\x22Copy\x20Page\x22\x20from\x20another\x20tileset\x27s\x20pages','executeLoad','TRG','scaleX','isOpening','SlotRect','maxScrollY','ExtractStrFromTroop','centerY','TILDE','xparamFlat1','SParamVocab6','changeAnglePlusData','TPB\x20WAIT','initMembers','quit','helpAreaHeight','erasePicture','damageColor','updateCoreEasing','categoryWindowRect','SwitchToggleRange','displayName','Window_NameInput_cursorUp','this.paramBase(3)','dimColor2','ItemStyle','setValue','Opacity','backgroundBitmap','F22','PictureEraseAll','getCustomBackgroundSettings','ScreenShake','_goldWindow','DataManager_setupNewGame','VOLUME_UP','buttonAssistWindowSideRect','updateBgmParameters','BgFilename1','DefaultMode','updateWaitMode','Scene_Boot_updateDocumentTitle','imageSmoothingEnabled','eventsXyNt','isEnabled','META','Scene_Shop_create','CANCEL','isMaskingEnabled','animationBaseDelay','DebugConsoleLastControllerID','updateScrollBarVisibility','OnLoadJS','updatePositionCoreEngineShakeRand','learnings','removeAnimationFromContainer','option','OffBarColor','EQUALS','setFrame','_commandWindow','thickness','drawCurrentParam','_realScale','Scene_Map_shouldAutosave','sparamFlatJS','Game_Actor_isPreserveTp','processPointAnimationRequests','RequireFocus','randomInt','AudioChangeBgsPitch','TextPopupShow','_stored_mpCostColor','drawActorIcons','LvExpGauge','refresh','33717hzkYNM','faces','atypeId','slice','Window_Selectable_processTouch','AMPERSAND','_battlerName','Plus1','DurationPerChat','setHome','createTilemap','_iconIndex','createJsQuickFunction','IconXParam3','playBgs','number','STB','Game_Map_setup','name','isItemStyle','RowSpacing','pointX','areButtonsOutsideMainUI','loadTileBitmap','XParamVocab2','setWindowPadding','_stored_powerUpColor','button','isSideView','_screenY','#%1','SwitchRandomizeOne','Center','buttonAssistText5','NameInputMessage','currentExp','_drawTextBody','Scene_Base_terminateAnimationClearBugFix','isNwjs','requestPointAnimation','ParseSkillNotetags','_animationQueue','Chance','_movementWholeDuration','WIN_OEM_COPY','tilesetNames','MRF','_tpbState','Actor','TCR','ShiftT_Toggle','RevertPreserveNumbers','BKSP','adjustSprite','DummyBgType','ExtJS','inBattle','_profileWindow','createFauxAnimationQueue','ParseAllNotetags','initialLevel','_pointAnimationSprites','WIN_OEM_PA2','ctrl','Game_Picture_y','floor','isLoopVertical','currencyUnit','paramName','paramValueByName','_targetX','playCursorSound','250901iLQpwT','_pictureCoordinatesWindow','BTestItems','%1〘End\x20Choice\x20Selection〙%1','SystemSetWindowPadding','createCustomParameter','listWindowRect','blt','loadSystemImages','Bitmap_gradientFillRect','FTB','GRD','_commonEventLayers','REPLACE','Bitmap_drawText','TimeProgress','refreshScrollBarBitmap','gaugeRate','removeChild','updatePositionCoreEngineShakeHorz','Scene_MenuBase_helpAreaTop','key%1','Max','_effectsContainer','createTitleButtons','drawText','DisplayLockY','gainGold','_mapY','_onError','isMaxLevel','skillTypeWindowRect','setMainFontSize','start','isPointAnimationPlaying','updatePictureSettings','drawTextEx','overallWidth','SceneManager_onKeyDown','numberShowButton','updateAnchor','resetTextColor','\x5c}❪SHIFT❫\x5c{','_pictureContainer','textHeight','sqrt','ItemRect','win32','%2%1%3','Scene_Map_updateMain','bgm','FUNC','ONE_MINUS_SRC_ALPHA','_data','showPicture','tilesets','test','DigitGroupingExText','split','smallParamFontSize','numActions','isTriggered','Game_Unit_onBattleEnd','CommonEventID','clearOnceParallelInterpreters','random','addChildToBack','TextCodeClassNames','show','Scene_Title_drawGameTitle','charAt','gradientFillRect','_inputSpecialKeyCode','process_VisuMZ_CoreEngine_RegExp','alphabetic','Window_Base_createTextState','tilesetFlags','tab','removeAllPointAnimations','onLoad','\x20this.','NameMenu','EnableNameInput','IconSParam0','_lastX','itemWindowRect','Game_Picture_updateRotation','WARNING:\x20%1\x20has\x20already\x20been\x20declared\x0aand\x20cannot\x20be\x20used\x20as\x20a\x20Quick\x20JS\x20Function','ControllerButtons','loadGameImagesCoreEngine','padding','buttonAssistKey3','paintOpacity','innerHeight','ProfileBgType','ACCEPT','_CoreEngineSettings','setSideView','CoreEngine','Scene_Base_createWindowLayer','Weapon-%1-%2','getCombinedScrollingText','SEPARATOR','F23','yScrollLinkedOffset','%1\x20is\x20missing\x20a\x20required\x20plugin.\x0aPlease\x20install\x20%2\x20into\x20the\x20Plugin\x20Manager.','overrideMimeType','BoxMargin','ASTERISK','_statusEquipWindow','SHIFT','SwitchRandomizeRange','Flat','Game_Event_start','measureTextWidthNoRounding','CustomParamAbb','Armor-%1-%2','_hideButtons','IconParam4','forceOutOfPlaytest','drawing','isClosing','loadWindowskin','_optionsWindow','isOpen','createDigits','paramPlusJS','showDevTools','paramMaxJS','command357','drawActorLevel','_allTextHeight','this.paramBase(0)','Input_shouldPreventDefault','VisuMZ_2_BattleSystemPTB','$dataMap','GoldFontSize','maxHorz','selectLast','_itemWindow','OutlineColorGauge','SplitEscape','Sprite_StateIcon_loadBitmap','Total','Game_Character_processMoveCommand','startAnimation','getControllerInputButtonMatch','xparamPlus2','_scene','Y:\x20%1','Renderer','cursorPagedown','Game_Picture_angle','updateFrame','onActorChange','Sprite_StateIcon_updateFrame','SEMICOLON','ShowActorLevel','MAXHP','\x5c}❪TAB❫\x5c{','pictures','onKeyDownKeysF6F7','_textPopupWindow','CategoryBgType','hpGaugeColor1','Linear','%1%2','skills','_defaultStretchMode','_loadingState','CancelText','UpdatePictureCoordinates','Bitmap_fillRect','buttonAssistText%1','\x0a\x0a\x0a\x0a\x0a','ShortcutScripts','Scene_Menu_create','ActorBgType','ShiftR_Toggle','makeAutoBattleActions','targetContentsOpacity','GameEnd','_lastPluginCommandInterpreter','equips','IconXParam6','Basic','level','pagedownShowButton','getBattleSystem','OPEN_PAREN','IconXParam9','isGameActive','setCoreEngineScreenShakeStyle','font','EditRect','mirror','sparamRate1','Sprite_Picture_loadBitmap','F7key','COMMA','_text','getLevel','DocumentTitleFmt','xdg-open','_animation','scaleY','MapNameTextCode','changeTileset','targetY','drawIcon','wait','scaleSprite','sceneTerminationClearEffects','Scene_Name_onInputOk','KANA','smooth','Game_Picture_initBasic','_displayedPassageError','_commandList','ENTER','ModernControls','_clientArea','_customModified','reduce','params','buttonAssistKey%1','createScrollBarSprites','processMoveCommand','onKeyDown','anchorCoreEasing','BACK_QUOTE','helpAreaBottom','SkillMenu','maxCols','_windowLayer','_displayX','_margin','isKeyItem','INOUTQUAD','pow','easingType','default','mapId','buttonAssistSwitch','ScaleY','updateScrollBarPosition','EnableJS','isActor','Scene_Map_updateScene','ColorManager_loadWindowskin','sparam','buttonY','EscapeAlways','iconWidth','_balloonQueue','removeAllFauxAnimations','windowOpacity','processDigitChange','printError','_windowskin','openURL','MAX_SAFE_INTEGER','original','close','Scene_Battle_update','Game_Picture_show','visible','outlineColorGauge','drawFace','map','subtitle','removePointAnimation','processKeyboardBackspace','_playTestFastMode','GoldRect','IDs','ButtonAssist','xparamPlusJS','SCROLLBAR','parseForcedGameTroopSettingsCoreEngine','1.10.0','LineHeight','drawValue','_opening','position','value','refreshWithTextCodeSupport','restore','RepositionActors','Sprite_Button_initialize','Scene_Battle_createSpriteset','missed','setBackgroundType','status','MODECHANGE','%1\x0a','SystemSetFontSize','_targetOffsetX','ESC','EditBgType','cos','deselect','processTouch','VisuMZ_2_BattleSystemSTB','bgmVolume','FontSmoothing','join','ceil','pagedown','_stored_tpGaugeColor2','createEnemies','_battleField','addAnimationSpriteToContainer','scale','SellRect','_inputString','maxLvGaugeColor1','Window_NameInput_cursorPagedown','INOUTELASTIC','maxVert','buttons!\x20Go\x20to\x20project\x27s\x20rmmz_core.js\x20and\x20modify\x20Input.keyMapper\x20','sparamFlat1','fromCharCode','Game_Action_setAttack','_bgmBuffer','playOnceParallelInterpreter','reserveCommonEvent','_refreshArrows','buttonAssistKey2','getControllerInputButtonString','Game_Troop_setup','Scene_Battle_createSpritesetFix','events','_clickHandler','getGamepads','mainAreaTop','numberWindowRect','textBaseline','VisuMZ_2_BattleSystemOTB','NUMPAD5','HOME','refreshDimmerBitmap','updateTransform','F14','Game_Picture_calcEasing','playOk','createAnimationSprite','updateMain','changeClass','_tileExtendTerrainTags','system','isGamepadConnected','Window_NameInput_cursorLeft','CTRL','contains','PixelateImageRendering','CLOSE_CURLY_BRACKET','loadTileset','terminate','Current\x20tileset\x20has\x20incomplete\x20flag\x20data.','ActorTPColor','max','INOUTEXPO','initialize','characters','MenuLayout','tpbAcceleration','framesPerChar','destroyCoreEngineMarkedBitmaps','isAutoColorAffected','updateOnceParallelInterpreters','onTpbCharged','SParamVocab4','Bitmap_resize','_lastGamepad','wtypeId','OS_KEY','outlineColorDmg','Window_Base_drawFace','remove','Game_Picture_move','_context','Map%1','subject','_forcedBattleGridSystem','FDR','MenuBg','TitleCommandList','maxScrollX','mainFontSize','BuyBgType','contentsOpacity','DimColor2','SceneManager_initialize','AudioChangeBgmPitch','FadeSpeed','viewport','QwertyLayout','iconHeight','_lastY','Scene_Battle_createSpriteset_detach','isNormalPriority','child_process','VariableEvalReference','current','refreshActor','hideButtonFromView','checkScrollBarBitmap','SCALE_MODES','Window_NumberInput_processDigitChange','enter','createPointAnimationQueue','sv_enemies','OTB','ColorPowerDown','bitmapWidth','setupCustomRateCoreEngine','makeDeepCopy','onerror','setCoreEngineUpdateWindowBg','process_VisuMZ_CoreEngine_CustomParameters','XParamVocab9','batch','〘Scrolling\x20Text〙\x0a','FINAL','WIN_OEM_FJ_MASSHOU','onEscapeSuccess','buttonAssistOffset2','ExtDisplayedParams','NUMPAD4','initCoreEngineScreenShake','isSpecialCode','_lastOrigin','_cacheScaleY','_mapX','isExpGaugeDrawn','ImprovedAccuracySystem','_pictureName','sellWindowRect','gaugeBackColor','END','Bitmap_measureTextWidth','filter','VisuMZ_2_BattleSystemBTB','_targets','applyCoreEasing','onInputBannedWords','makeCoreEngineCommandList','KeyboardInput','xparamFlatBonus','isAnimationOffsetXMirrored','useDigitGrouping','_mode','\x0a\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20%2\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20($gameTemp.isPlaytest())\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20console.log(\x27JS\x20Quick\x20Function\x20\x22%1\x22\x20Error!\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20console.log(e);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20','powerUpColor','applyEasingAnglePlus','parallaxes','ZERO','processHandling','translucentOpacity','sin','OUTQUART','15597JVEvOY','_scrollBarHorz','BlendMode','createTroopNote','HelpRect','pos','initRotationCoreEngine','MDR','_bypassCanCounterCheck','EXSEL','_encounterCount','Scene_MenuBase_mainAreaTop','KeySHIFT','prepare','prototype','ATK','ConvertToBase','stencilOp','BTB','Scene_Options_create','ExportAllTroopText','updateBattleVariables','getLastPluginCommandInterpreter','isEventTest','JsReplaceUserVar','Window_Base_drawCharacter','Scene_MenuBase_mainAreaHeight','_smooth','OPEN_CURLY_BRACKET','showFauxAnimations','Icon','resetFontSettings','currentLevelExp','expGaugeColor1','Scene_Map_createSpritesetFix','tileHeight','setDisplayPos','text','Input_updateGamepadState','_baseTexture','framesMin','SideButtons','SceneManager_exit','textSizeEx','_shakeDuration','ETB','drawAllParams','ButtonHeight','VisuMZ_2_BattleSystemFTB','onButtonImageLoad','measureText','format','_patternHeight','onInputOk','tpGaugeColor2','Input_setupEventHandlers','ExportAllMapText','Window_Selectable_cursorUp','WIN_OEM_FINISH','WIN_OEM_FJ_ROYA','StatusParamsBgType','updateDashToggle','CallHandlerJS','OUTSINE','Bitmap_drawTextOutline','result','toLowerCase','_onKeyDown','flush','hasEncryptedImages','checkCacheKey','_updateGamepadState','OUTEXPO','seVolume','goto','onlyfilename','text%1','_destroyCanvas','currentValue','GoldMax','baseId','gainSilentTp','Game_Party_consumeItem','DECIMAL','createSpriteset','AnimationID','TAB','Tilemap_addShadow','framebuffer','Duration','targets','SLEEP','Power','cursorPageup','ItemMenu','move','createSubSprite','Manual','Exported_Script_%1.txt','itemPadding','textColor','keyMapper','ColorTPGauge1','helpWindowRect','get','ATTN','toUpperCase','contentsBack','sparamRate2','DisplayedParams','_list','this.paramBase(2)','_upArrowSprite','update','vertJS','Class-%1-%2','BattleManager_invokeCounterAttack','Sprite_Gauge_currentValue','Spriteset_Battle_createEnemies','SParamVocab8','SUBTRACT','pressed','WIN_OEM_PA1','drawNewParam','measureTextWidth','horz','HYPHEN_MINUS','save','toLocaleString','4088iiPwTL','_tile','3518370jDHRqE','setHandler','IconXParam0','commandWindowRect','AutoStretch','updatePositionCoreEngine','ColorCTGauge1','maxTp','makeCommandList','_tempActor','_stored_ctGaugeColor1','Control\x20Variables\x20Script\x20Error','_statusWindow','Window_NameInput_cursorDown','playBuzzer','Game_Event_isCollidedWithEvents','traitObjects','MinDuration','Window_EquipItem_isEnabled','Scene_MenuBase_createCancelButton','_skillTypeWindow','textWidth','guardSkillId','openingSpeed','backOpacity','AGI','gaugeLineHeight','BTestAddedQuantity','updateClose','_numberWindow','BattleManager_update','battlerHue','_number','targetScaleX','trim','SystemLoadAudio','〖〖〖\x20Map\x20%1:\x20%2\x20Script\x20〗〗〗\x0a\x0a','makeTargetSprites','description','maxItems','CommandBgType','getColorDataFromPluginParameters','_maxDigits','ZOOM','playTestShiftT','NUMPAD2','_pollGamepads','traitsPi','opacity','processSoundTimings','height','coreEngineRepositionEnemies','Scene_Equip_create','evaluate','setBattleSystem','isOpenAndActive','rgba(0,\x200,\x200,\x201.0)','areTileShadowsHidden','buttonAssistOk','buttonAssistKey5','levelUpRecovery','ShowItemBackground','IconSParam8','refreshSpritesetForExtendedTiles','ShopMenu','offsetX','markCoreEngineModified','min','drawActorExpGauge','parameters','duration','ListBgType','212aeVdSQ','open','SParamVocab1','this.paramBase(7)','playTestF6','targetSpritePosition','command105','createPageButtons','wholeDuration','note','_lastCommandSymbol','animations','EndingID','BgFilename2','Sprite_Gauge_gaugeRate','Window_NameInput_processTouch','isWindowMaskingEnabled','_target','_onKeyPress','DrawIcons','nw.gui','VisuMZ_4_UniqueTileEffects','endAnimation','_screenX','Input_pollGamepads','maxBattleMembers','isGamepadButtonPressed','Window_ShopSell_isEnabled','Game_BattlerBase_initMembers','_backSprite1','StartID','tileset','Rate','EnableNumberInput','_inputWindow','drawItem','Window_Base_drawIcon','alpha','Game_Action_itemHit','DisplayLockX','StatusBgType','initTpbChargeTime','updateText','drawIconBySize','levelUp','_digitGroupingEx','eva','targetPosition','stringKeyMap','IconSet','updatePositionCoreEngineShakeOriginal','xparamRate','buttonAssistKey1','destroyScrollBarBitmaps','_startPlaying','version','AudioChangeBgmPan','isNumpadPressed','code','createTextPopupWindow','AnimationMirrorOffset','recoverAll','adjustBoxSize','_pointAnimationQueue','allowShiftScrolling','Game_Picture_scaleX','ExtractStrFromList','ctGaugeColor2','Window_Selectable_cursorDown','VisuMZ_1_BattleCore','updateDocumentTitle','ImgLoad','bind','addChild','textAlign','buttonAssistCancel','NewGameBoot','Spriteset_Base_isAnimationPlaying','maxVisibleItems','10hcuzdr','Settings','INOUTCIRC','playCursor','LINEAR','PictureEraseRange','EISU','buttonAssistText1','up2','_tileSprite','CommandRect','MAX_GL_TEXTURES','setTopRow','processKeyboardDelete','nickname','NEAREST','initCoreEngine','Tilemap_addSpotTile','_targetOpacity','isPhysical','_helpWindow','isTileExtended','anchor','getInputMultiButtonStrings','ConvertNumberToString','Enemy-%1-%2','INBACK','cancel','updateAnglePlus','INOUTQUINT','destroyContents','Page','CustomParamNames','createFauxAnimationSprite','_isButtonHidden','endBattlerActions','dashToggle','and\x20add\x20it\x20onto\x20this\x20one.','ExportString','_forcedBattleSys','process_VisuMZ_CoreEngine_Notetags','font-smooth','stretch','App','layoutSettings','Scene_Battle_createCancelButton','_dimmerSprite','repositionCancelButtonSideButtonLayout','ApplyEasing','3437106oYRNzu','concat','send','_spriteset','zoomScale','processTimingData','setAttack','calcCoreEasing','3sWEHXU','isLoopHorizontal','_scaleY','addCommand','inbounce','render','setupTileExtendTerrainTags','DOLLAR','SceneManager_isGameActive','_inBattle','enemies','offColor','Scene_Name_create','allTiles','changeTextColor','offset','scrollY','defineProperty','centerCameraCheckData','IconXParam7','openness','processAlwaysEscape','popScene','Unnamed','ControllerMatches','_width','stencilFunc','CONTEXT_MENU','PRINT','BgType','editWindowRect','width','helpAreaTop','Export\x20Map\x20Text\x20operation\x20will\x20finish\x20in\x20%1\x20ms(s)','ParseWeaponNotetags','itemHitImprovedAccuracy','Game_Actor_changeClass','resetBattleSystem','targetX','style','titles2','setAnglePlusData','ParseEnemyNotetags','startNormalGame','isPressed','PA1','Input_update','initMembersCoreEngine','SystemSetSideView','catchNormalError','createPointAnimation','ActorHPColor','mainAreaTopSideButtonLayout','IconSParam2','NUM','Finish','CustomParamIcons','updateOrigin','arePageButtonsEnabled','fillRect','Scene_Map_updateMainMultiply','type','inputWindowRect','updateOpacity','ListRect','_pageupButton','setupCoreEngine','getInputButtonString','catchLoadError','Symbol','GoldBgType','Window','isSceneBattle','_shakePower','_tilemap','Scene_SingleLoadTransition','bodyColor','BlurFilter','list','exp','ColorSystem','maxLevel','ItemBackColor2','DummyRect','Untitled','center','IconParam7','ENTER_SPECIAL','mpGaugeColor1','actor','addQueue','attackSkillId','AllMaps','ExportCurTroopText','enable','NUMPAD8','redraw','Graphics_defaultStretchMode','OUTQUAD','skillTypes','FunctionName','innerWidth','statusParamsWindowRect','_stypeId','DrawItemBackgroundJS','_originalViewport','_srcBitmap','Location','adjustPictureAntiZoom','paramY','_offsetX','pop','powerDownColor','setMoveEasingType','Wait','BackOpacity','MCR','xparamPlus1','PictureID'];_0x2615=function(){return _0xbee267;};return _0x2615();}$onceParallel=function(_0x7a1381,_0xe1a594){const _0x5e18c3=_0x2e6bc0;if(SceneManager[_0x5e18c3(0x81e)]())SceneManager[_0x5e18c3(0x49a)][_0x5e18c3(0x54b)](_0x7a1381,_0xe1a594);else{if(SceneManager[_0x5e18c3(0x76f)]()){if(Imported[_0x5e18c3(0x6e4)])SceneManager[_0x5e18c3(0x49a)][_0x5e18c3(0x54b)](_0x7a1381);else $gameTemp&&$gameTemp['isPlaytest']()&&alert(_0x5e18c3(0x8a2));}else $gameTemp&&$gameTemp[_0x5e18c3(0x2d3)]()&&alert('This\x20scene\x20cannot\x20utilize\x20a\x20Once\x20Parallel!');}},StorageManager['jsonToZip']=function(_0x1f4bc6){return new Promise((_0x35c141,_0x54d6a)=>{const _0x9cbd39=_0x545e;try{const _0x37c503=pako['deflate'](_0x1f4bc6,{'to':_0x9cbd39(0x8b9),'level':0x1});if(_0x37c503['length']>=0xc350){}_0x35c141(_0x37c503);}catch(_0x3c6156){_0x54d6a(_0x3c6156);}});},TextManager[_0x2e6bc0(0x6cf)]=['','','',_0x2e6bc0(0x3a1),'','',_0x2e6bc0(0x33a),'','BACKSPACE',_0x2e6bc0(0x62a),'','','CLEAR',_0x2e6bc0(0x4e1),_0x2e6bc0(0x77e),'',_0x2e6bc0(0x474),_0x2e6bc0(0x567),_0x2e6bc0(0x300),'PAUSE','CAPSLOCK',_0x2e6bc0(0x4dc),_0x2e6bc0(0x6f4),'JUNJA',_0x2e6bc0(0x5ae),'HANJA','',_0x2e6bc0(0x530),'CONVERT','NONCONVERT',_0x2e6bc0(0x465),_0x2e6bc0(0x52c),'SPACE',_0x2e6bc0(0x209),'PGDN',_0x2e6bc0(0x5be),_0x2e6bc0(0x55a),_0x2e6bc0(0x83b),'UP',_0x2e6bc0(0x13e),_0x2e6bc0(0x8ba),_0x2e6bc0(0x14d),_0x2e6bc0(0x743),_0x2e6bc0(0x869),_0x2e6bc0(0x352),_0x2e6bc0(0x7d1),_0x2e6bc0(0x18a),'','0','1','2','3','4','5','6','7','8','9',_0x2e6bc0(0xf8),_0x2e6bc0(0x4a2),_0x2e6bc0(0x141),_0x2e6bc0(0x3ac),_0x2e6bc0(0x14f),_0x2e6bc0(0x79e),'AT','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',_0x2e6bc0(0x57e),'',_0x2e6bc0(0x742),'',_0x2e6bc0(0x62f),'NUMPAD0',_0x2e6bc0(0x2ab),_0x2e6bc0(0x684),_0x2e6bc0(0x85f),_0x2e6bc0(0x5b3),_0x2e6bc0(0x559),'NUMPAD6',_0x2e6bc0(0x1c9),_0x2e6bc0(0x786),_0x2e6bc0(0x828),'MULTIPLY',_0x2e6bc0(0x26e),_0x2e6bc0(0x46c),_0x2e6bc0(0x64c),_0x2e6bc0(0x627),'DIVIDE','F1','F2','F3','F4','F5','F6','F7','F8','F9','F10',_0x2e6bc0(0x2e6),'F12','F13',_0x2e6bc0(0x55d),_0x2e6bc0(0x89a),_0x2e6bc0(0x1ea),_0x2e6bc0(0x360),'F18','F19',_0x2e6bc0(0x19b),'F21',_0x2e6bc0(0x38f),_0x2e6bc0(0x46d),_0x2e6bc0(0x34c),'','','','','','','','',_0x2e6bc0(0x2c9),_0x2e6bc0(0x84a),'WIN_OEM_FJ_JISHO',_0x2e6bc0(0x5af),_0x2e6bc0(0x8ac),'WIN_OEM_FJ_LOYA',_0x2e6bc0(0x60f),'','','','','','','','','',_0x2e6bc0(0x1d4),'EXCLAMATION',_0x2e6bc0(0x7df),_0x2e6bc0(0x817),_0x2e6bc0(0x72e),_0x2e6bc0(0x24d),_0x2e6bc0(0x3c3),'UNDERSCORE',_0x2e6bc0(0x4c3),'CLOSE_PAREN',_0x2e6bc0(0x472),_0x2e6bc0(0x2e9),_0x2e6bc0(0x114),_0x2e6bc0(0x652),_0x2e6bc0(0x5f0),_0x2e6bc0(0x56a),_0x2e6bc0(0x37a),'','','','',_0x2e6bc0(0x1b3),_0x2e6bc0(0x1bb),_0x2e6bc0(0x395),'','',_0x2e6bc0(0x4a2),_0x2e6bc0(0x3ac),_0x2e6bc0(0x4cd),'MINUS','PERIOD','SLASH',_0x2e6bc0(0x4ec),'','','','','','','','','','','','','','','','','','','','','','','','','','',_0x2e6bc0(0x2f1),'BACK_SLASH',_0x2e6bc0(0xfa),_0x2e6bc0(0x252),'',_0x2e6bc0(0x39f),'ALTGR','',_0x2e6bc0(0x7a9),'WIN_ICO_00','',_0x2e6bc0(0x1d5),'','','WIN_OEM_RESET','WIN_OEM_JUMP',_0x2e6bc0(0x64e),_0x2e6bc0(0x3fc),'WIN_OEM_PA3',_0x2e6bc0(0x8b6),_0x2e6bc0(0x84f),'WIN_OEM_ATTN',_0x2e6bc0(0x60e),_0x2e6bc0(0x3ea),'WIN_OEM_AUTO',_0x2e6bc0(0x82d),_0x2e6bc0(0x120),_0x2e6bc0(0x63d),'CRSEL',_0x2e6bc0(0x5dd),'EREOF',_0x2e6bc0(0x7ed),_0x2e6bc0(0x682),'',_0x2e6bc0(0x754),'WIN_OEM_CLEAR',''],TextManager[_0x2e6bc0(0x691)]=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x51a)]['OkText'],TextManager[_0x2e6bc0(0x6ea)]=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x51a)][_0x2e6bc0(0x4b0)],TextManager[_0x2e6bc0(0x4f9)]=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x51a)]['SwitchActorText'],VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x846)]=TextManager['param'],TextManager[_0x2e6bc0(0x85c)]=function(_0x15a816){const _0x1ce4d6=_0x2e6bc0;return typeof _0x15a816===_0x1ce4d6(0x3cd)?VisuMZ[_0x1ce4d6(0x468)][_0x1ce4d6(0x846)][_0x1ce4d6(0x895)](this,_0x15a816):this[_0x1ce4d6(0x402)](_0x15a816);},TextManager[_0x2e6bc0(0x402)]=function(_0x2ef155){const _0x3c1fca=_0x2e6bc0;_0x2ef155=String(_0x2ef155||'')[_0x3c1fca(0x63e)]();const _0x5c7dde=VisuMZ['CoreEngine'][_0x3c1fca(0x6ef)][_0x3c1fca(0x2fc)];if(_0x2ef155===_0x3c1fca(0x4a4))return $dataSystem[_0x3c1fca(0x174)][_0x3c1fca(0x4e6)][0x0];if(_0x2ef155===_0x3c1fca(0x1e9))return $dataSystem[_0x3c1fca(0x174)][_0x3c1fca(0x4e6)][0x1];if(_0x2ef155===_0x3c1fca(0x5e3))return $dataSystem[_0x3c1fca(0x174)]['params'][0x2];if(_0x2ef155===_0x3c1fca(0x227))return $dataSystem[_0x3c1fca(0x174)][_0x3c1fca(0x4e6)][0x3];if(_0x2ef155==='MAT')return $dataSystem['terms'][_0x3c1fca(0x4e6)][0x4];if(_0x2ef155===_0x3c1fca(0x34d))return $dataSystem[_0x3c1fca(0x174)][_0x3c1fca(0x4e6)][0x5];if(_0x2ef155===_0x3c1fca(0x670))return $dataSystem['terms']['params'][0x6];if(_0x2ef155==='LUK')return $dataSystem['terms']['params'][0x7];if(_0x2ef155===_0x3c1fca(0x2e4))return _0x5c7dde['XParamVocab0'];if(_0x2ef155===_0x3c1fca(0x231))return _0x5c7dde['XParamVocab1'];if(_0x2ef155===_0x3c1fca(0x2ba))return _0x5c7dde[_0x3c1fca(0x3d6)];if(_0x2ef155==='CEV')return _0x5c7dde['XParamVocab3'];if(_0x2ef155===_0x3c1fca(0x7e4))return _0x5c7dde[_0x3c1fca(0x1c2)];if(_0x2ef155===_0x3c1fca(0x3ec))return _0x5c7dde[_0x3c1fca(0x1c3)];if(_0x2ef155===_0x3c1fca(0x1eb))return _0x5c7dde[_0x3c1fca(0x333)];if(_0x2ef155===_0x3c1fca(0x197))return _0x5c7dde[_0x3c1fca(0x158)];if(_0x2ef155===_0x3c1fca(0x217))return _0x5c7dde[_0x3c1fca(0x347)];if(_0x2ef155===_0x3c1fca(0x373))return _0x5c7dde[_0x3c1fca(0x5ab)];if(_0x2ef155==='TGR')return _0x5c7dde[_0x3c1fca(0x1e2)];if(_0x2ef155==='GRD')return _0x5c7dde[_0x3c1fca(0x6a1)];if(_0x2ef155===_0x3c1fca(0x319))return _0x5c7dde[_0x3c1fca(0xfe)];if(_0x2ef155==='PHA')return _0x5c7dde[_0x3c1fca(0x873)];if(_0x2ef155===_0x3c1fca(0x79b))return _0x5c7dde[_0x3c1fca(0x57a)];if(_0x2ef155===_0x3c1fca(0x3ef))return _0x5c7dde[_0x3c1fca(0x22c)];if(_0x2ef155===_0x3c1fca(0x896))return _0x5c7dde[_0x3c1fca(0x37c)];if(_0x2ef155==='MDR')return _0x5c7dde['SParamVocab7'];if(_0x2ef155===_0x3c1fca(0x587))return _0x5c7dde[_0x3c1fca(0x64b)];if(_0x2ef155==='EXR')return _0x5c7dde['SParamVocab9'];if(VisuMZ[_0x3c1fca(0x468)][_0x3c1fca(0x70e)][_0x2ef155])return VisuMZ[_0x3c1fca(0x468)][_0x3c1fca(0x70e)][_0x2ef155];return'';},TextManager[_0x2e6bc0(0x76a)]=function(_0x57a330){const _0x2733fe=_0x2e6bc0,_0x4e8a26=Input[_0x2733fe(0x32d)]();return _0x4e8a26===_0x2733fe(0x8b8)?this['getKeyboardInputButtonString'](_0x57a330):this[_0x2733fe(0x54f)](_0x4e8a26,_0x57a330);},TextManager[_0x2e6bc0(0x7d0)]=function(_0x33fb67){const _0x2dceea=_0x2e6bc0;let _0x2f7af1=VisuMZ['CoreEngine'][_0x2dceea(0x6ef)][_0x2dceea(0x51a)][_0x2dceea(0x493)];if(!_0x2f7af1){if(_0x33fb67===_0x2dceea(0x709))_0x33fb67=_0x2dceea(0x2ff);if(_0x33fb67===_0x2dceea(0x2cb))_0x33fb67='escape';}let _0x19b120=[];for(let _0x27d166 in Input['keyMapper']){_0x27d166=Number(_0x27d166);if(_0x27d166>=0x60&&_0x27d166<=0x69)continue;if([0x12,0x20][_0x2dceea(0x7fe)](_0x27d166))continue;_0x33fb67===Input['keyMapper'][_0x27d166]&&_0x19b120[_0x2dceea(0x16c)](_0x27d166);}for(let _0x51891c=0x0;_0x51891c<_0x19b120[_0x2dceea(0x29e)];_0x51891c++){_0x19b120[_0x51891c]=TextManager[_0x2dceea(0x6cf)][_0x19b120[_0x51891c]];}return this[_0x2dceea(0x25b)](_0x19b120);},TextManager[_0x2e6bc0(0x25b)]=function(_0x239c76){const _0x3253ed=_0x2e6bc0,_0x30a615=VisuMZ['CoreEngine'][_0x3253ed(0x6ef)][_0x3253ed(0x51a)],_0x1d6d92=_0x30a615[_0x3253ed(0x7a1)];let _0x1839e8='';if(_0x239c76[_0x3253ed(0x7fe)]('UP'))_0x1839e8='UP';else{if(_0x239c76[_0x3253ed(0x7fe)]('DOWN'))_0x1839e8='DOWN';else{if(_0x239c76['includes'](_0x3253ed(0x83b)))_0x1839e8=_0x3253ed(0x83b);else _0x239c76['includes']('RIGHT')?_0x1839e8=_0x3253ed(0x13e):_0x1839e8=_0x239c76[_0x3253ed(0x796)]();}}const _0x5f5659=_0x3253ed(0x1c8)[_0x3253ed(0x607)](_0x1839e8);return _0x30a615[_0x5f5659]?_0x30a615[_0x5f5659]:_0x1d6d92[_0x3253ed(0x607)](_0x1839e8);},TextManager[_0x2e6bc0(0x705)]=function(_0x448f5c,_0x5a16e2){const _0x225773=_0x2e6bc0,_0xcd0048=VisuMZ[_0x225773(0x468)]['Settings'][_0x225773(0x51a)],_0x10a35c=_0xcd0048[_0x225773(0x1a6)],_0x12a735=this[_0x225773(0x76a)](_0x448f5c),_0x1489d1=this['getInputButtonString'](_0x5a16e2);return _0x10a35c['format'](_0x12a735,_0x1489d1);},TextManager[_0x2e6bc0(0x54f)]=function(_0x4db76b,_0x198060){const _0x491297=_0x2e6bc0,_0x59e064=_0x4db76b[_0x491297(0x616)]()['trim'](),_0x19246e=VisuMZ[_0x491297(0x468)]['ControllerButtons'][_0x59e064];if(!_0x19246e)return this[_0x491297(0x498)](_0x4db76b,_0x198060);return _0x19246e[_0x198060]||this[_0x491297(0x7d0)](_0x4db76b,_0x198060);},TextManager[_0x2e6bc0(0x498)]=function(_0x5ecc83,_0x5f57cc){const _0x7a829e=_0x2e6bc0,_0xd84bd8=_0x5ecc83[_0x7a829e(0x616)]()['trim']();for(const _0x372604 in VisuMZ[_0x7a829e(0x468)][_0x7a829e(0x73f)]){if(_0xd84bd8[_0x7a829e(0x7fe)](_0x372604)){const _0x401a59=VisuMZ['CoreEngine'][_0x7a829e(0x73f)][_0x372604],_0x17e657=VisuMZ[_0x7a829e(0x468)][_0x7a829e(0x45e)][_0x401a59];return _0x17e657[_0x5f57cc]||this[_0x7a829e(0x7d0)](_0x5f57cc);}}return this[_0x7a829e(0x7d0)](_0x5f57cc);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x4ff)]=ColorManager['loadWindowskin'],ColorManager[_0x2e6bc0(0x480)]=function(){const _0x5864e6=_0x2e6bc0;VisuMZ[_0x5864e6(0x468)][_0x5864e6(0x4ff)]['call'](this),this['_colorCache']=this[_0x5864e6(0x82b)]||{};},ColorManager[_0x2e6bc0(0x680)]=function(_0x4f842f,_0x28c31d){const _0x1d12f0=_0x2e6bc0;return _0x28c31d=String(_0x28c31d),this[_0x1d12f0(0x82b)]=this[_0x1d12f0(0x82b)]||{},_0x28c31d['match'](/#(.*)/i)?this['_colorCache'][_0x4f842f]=_0x1d12f0(0x3dc)[_0x1d12f0(0x607)](String(RegExp['$1'])):this['_colorCache'][_0x4f842f]=this[_0x1d12f0(0x638)](Number(_0x28c31d)),this[_0x1d12f0(0x82b)][_0x4f842f];},ColorManager[_0x2e6bc0(0x131)]=function(_0x5c17a4){const _0x2d425b=_0x2e6bc0;return _0x5c17a4=String(_0x5c17a4),_0x5c17a4[_0x2d425b(0x298)](/#(.*)/i)?_0x2d425b(0x3dc)[_0x2d425b(0x607)](String(RegExp['$1'])):this[_0x2d425b(0x638)](Number(_0x5c17a4));},ColorManager[_0x2e6bc0(0x308)]=function(){const _0x520b1b=_0x2e6bc0;this[_0x520b1b(0x82b)]={};},ColorManager[_0x2e6bc0(0x229)]=function(){const _0x16da77=_0x2e6bc0,_0x25f815='_stored_normalColor';this['_colorCache']=this[_0x16da77(0x82b)]||{};if(this[_0x16da77(0x82b)][_0x25f815])return this[_0x16da77(0x82b)][_0x25f815];const _0x405542=VisuMZ[_0x16da77(0x468)][_0x16da77(0x6ef)]['Color'][_0x16da77(0x1d0)];return this[_0x16da77(0x680)](_0x25f815,_0x405542);},ColorManager[_0x2e6bc0(0x23f)]=function(){const _0x1e3732=_0x2e6bc0,_0x8a06c6=_0x1e3732(0x17c);this[_0x1e3732(0x82b)]=this[_0x1e3732(0x82b)]||{};if(this[_0x1e3732(0x82b)][_0x8a06c6])return this[_0x1e3732(0x82b)][_0x8a06c6];const _0x5dd9b4=VisuMZ[_0x1e3732(0x468)][_0x1e3732(0x6ef)][_0x1e3732(0x210)][_0x1e3732(0x777)];return this[_0x1e3732(0x680)](_0x8a06c6,_0x5dd9b4);},ColorManager['crisisColor']=function(){const _0x473228=_0x2e6bc0,_0x1a3096=_0x473228(0x205);this[_0x473228(0x82b)]=this[_0x473228(0x82b)]||{};if(this[_0x473228(0x82b)][_0x1a3096])return this[_0x473228(0x82b)][_0x1a3096];const _0x32b83a=VisuMZ[_0x473228(0x468)][_0x473228(0x6ef)][_0x473228(0x210)][_0x473228(0x31f)];return this[_0x473228(0x680)](_0x1a3096,_0x32b83a);},ColorManager['deathColor']=function(){const _0x317090=_0x2e6bc0,_0xe7b8bf='_stored_deathColor';this['_colorCache']=this[_0x317090(0x82b)]||{};if(this[_0x317090(0x82b)][_0xe7b8bf])return this[_0x317090(0x82b)][_0xe7b8bf];const _0x5d023f=VisuMZ[_0x317090(0x468)][_0x317090(0x6ef)][_0x317090(0x210)][_0x317090(0x250)];return this[_0x317090(0x680)](_0xe7b8bf,_0x5d023f);},ColorManager[_0x2e6bc0(0x5bd)]=function(){const _0x3eed7c=_0x2e6bc0,_0x14888f=_0x3eed7c(0x7ef);this[_0x3eed7c(0x82b)]=this[_0x3eed7c(0x82b)]||{};if(this[_0x3eed7c(0x82b)][_0x14888f])return this[_0x3eed7c(0x82b)][_0x14888f];const _0x254b5e=VisuMZ[_0x3eed7c(0x468)][_0x3eed7c(0x6ef)][_0x3eed7c(0x210)]['ColorGaugeBack'];return this['getColorDataFromPluginParameters'](_0x14888f,_0x254b5e);},ColorManager[_0x2e6bc0(0x4aa)]=function(){const _0x324bfb=_0x2e6bc0,_0x73e5bb=_0x324bfb(0x819);this['_colorCache']=this[_0x324bfb(0x82b)]||{};if(this[_0x324bfb(0x82b)][_0x73e5bb])return this[_0x324bfb(0x82b)][_0x73e5bb];const _0x4ad50b=VisuMZ[_0x324bfb(0x468)][_0x324bfb(0x6ef)][_0x324bfb(0x210)][_0x324bfb(0x864)];return this[_0x324bfb(0x680)](_0x73e5bb,_0x4ad50b);},ColorManager['hpGaugeColor2']=function(){const _0x3d8a75=_0x2e6bc0,_0x757906=_0x3d8a75(0x23b);this[_0x3d8a75(0x82b)]=this[_0x3d8a75(0x82b)]||{};if(this[_0x3d8a75(0x82b)][_0x757906])return this[_0x3d8a75(0x82b)][_0x757906];const _0x3e1f7e=VisuMZ[_0x3d8a75(0x468)][_0x3d8a75(0x6ef)][_0x3d8a75(0x210)]['ColorHPGauge2'];return this[_0x3d8a75(0x680)](_0x757906,_0x3e1f7e);},ColorManager[_0x2e6bc0(0x77f)]=function(){const _0xe2d0e1=_0x2e6bc0,_0x3ce205=_0xe2d0e1(0x7af);this['_colorCache']=this[_0xe2d0e1(0x82b)]||{};if(this[_0xe2d0e1(0x82b)][_0x3ce205])return this[_0xe2d0e1(0x82b)][_0x3ce205];const _0x3977a0=VisuMZ[_0xe2d0e1(0x468)][_0xe2d0e1(0x6ef)]['Color'][_0xe2d0e1(0x327)];return this[_0xe2d0e1(0x680)](_0x3ce205,_0x3977a0);},ColorManager['mpGaugeColor2']=function(){const _0x8bcc99=_0x2e6bc0,_0x40281f=_0x8bcc99(0x7ca);this[_0x8bcc99(0x82b)]=this[_0x8bcc99(0x82b)]||{};if(this['_colorCache'][_0x40281f])return this[_0x8bcc99(0x82b)][_0x40281f];const _0xf7941d=VisuMZ['CoreEngine'][_0x8bcc99(0x6ef)]['Color'][_0x8bcc99(0x292)];return this[_0x8bcc99(0x680)](_0x40281f,_0xf7941d);},ColorManager['mpCostColor']=function(){const _0x495823=_0x2e6bc0,_0x5dad1f=_0x495823(0x3ba);this[_0x495823(0x82b)]=this[_0x495823(0x82b)]||{};if(this[_0x495823(0x82b)][_0x5dad1f])return this[_0x495823(0x82b)][_0x5dad1f];const _0x581035=VisuMZ['CoreEngine'][_0x495823(0x6ef)][_0x495823(0x210)][_0x495823(0x866)];return this[_0x495823(0x680)](_0x5dad1f,_0x581035);},ColorManager[_0x2e6bc0(0x5cc)]=function(){const _0x41b3cd=_0x2e6bc0,_0x136c42=_0x41b3cd(0x3d8);this[_0x41b3cd(0x82b)]=this[_0x41b3cd(0x82b)]||{};if(this[_0x41b3cd(0x82b)][_0x136c42])return this[_0x41b3cd(0x82b)][_0x136c42];const _0x48d349=VisuMZ['CoreEngine'][_0x41b3cd(0x6ef)]['Color']['ColorPowerUp'];return this[_0x41b3cd(0x680)](_0x136c42,_0x48d349);},ColorManager[_0x2e6bc0(0x797)]=function(){const _0x58d5d1=_0x2e6bc0,_0xa7793c=_0x58d5d1(0x26b);this[_0x58d5d1(0x82b)]=this[_0x58d5d1(0x82b)]||{};if(this[_0x58d5d1(0x82b)][_0xa7793c])return this['_colorCache'][_0xa7793c];const _0x2acb65=VisuMZ[_0x58d5d1(0x468)][_0x58d5d1(0x6ef)][_0x58d5d1(0x210)][_0x58d5d1(0x5a4)];return this[_0x58d5d1(0x680)](_0xa7793c,_0x2acb65);},ColorManager[_0x2e6bc0(0x835)]=function(){const _0x391842=_0x2e6bc0,_0x283c92=_0x391842(0x661);this[_0x391842(0x82b)]=this[_0x391842(0x82b)]||{};if(this[_0x391842(0x82b)][_0x283c92])return this[_0x391842(0x82b)][_0x283c92];const _0x32d831=VisuMZ[_0x391842(0x468)][_0x391842(0x6ef)]['Color'][_0x391842(0x65d)];return this[_0x391842(0x680)](_0x283c92,_0x32d831);},ColorManager[_0x2e6bc0(0x6e2)]=function(){const _0x151fb2=_0x2e6bc0,_0x16d703=_0x151fb2(0x808);this['_colorCache']=this['_colorCache']||{};if(this[_0x151fb2(0x82b)][_0x16d703])return this[_0x151fb2(0x82b)][_0x16d703];const _0x1fa1c9=VisuMZ['CoreEngine']['Settings'][_0x151fb2(0x210)]['ColorCTGauge2'];return this[_0x151fb2(0x680)](_0x16d703,_0x1fa1c9);},ColorManager['tpGaugeColor1']=function(){const _0x601b16=_0x2e6bc0,_0x17ae58='_stored_tpGaugeColor1';this[_0x601b16(0x82b)]=this[_0x601b16(0x82b)]||{};if(this[_0x601b16(0x82b)][_0x17ae58])return this[_0x601b16(0x82b)][_0x17ae58];const _0x3f7620=VisuMZ[_0x601b16(0x468)]['Settings'][_0x601b16(0x210)][_0x601b16(0x63a)];return this[_0x601b16(0x680)](_0x17ae58,_0x3f7620);},ColorManager[_0x2e6bc0(0x60a)]=function(){const _0x4fd32d=_0x2e6bc0,_0x3e5d92=_0x4fd32d(0x53b);this[_0x4fd32d(0x82b)]=this[_0x4fd32d(0x82b)]||{};if(this[_0x4fd32d(0x82b)][_0x3e5d92])return this[_0x4fd32d(0x82b)][_0x3e5d92];const _0x117364=VisuMZ[_0x4fd32d(0x468)][_0x4fd32d(0x6ef)][_0x4fd32d(0x210)]['ColorTPGauge2'];return this[_0x4fd32d(0x680)](_0x3e5d92,_0x117364);},ColorManager[_0x2e6bc0(0x82a)]=function(){const _0x324295=_0x2e6bc0,_0x4389b4='_stored_tpCostColor';this[_0x324295(0x82b)]=this['_colorCache']||{};if(this[_0x324295(0x82b)][_0x4389b4])return this[_0x324295(0x82b)][_0x4389b4];const _0x115c3e=VisuMZ[_0x324295(0x468)][_0x324295(0x6ef)][_0x324295(0x210)][_0x324295(0x858)];return this[_0x324295(0x680)](_0x4389b4,_0x115c3e);},ColorManager['pendingColor']=function(){const _0x2b4894=_0x2e6bc0,_0x1de99e='_stored_pendingColor';this[_0x2b4894(0x82b)]=this[_0x2b4894(0x82b)]||{};if(this['_colorCache'][_0x1de99e])return this[_0x2b4894(0x82b)][_0x1de99e];const _0x57f8d4=VisuMZ[_0x2b4894(0x468)][_0x2b4894(0x6ef)][_0x2b4894(0x210)][_0x2b4894(0x858)];return this[_0x2b4894(0x680)](_0x1de99e,_0x57f8d4);},ColorManager[_0x2e6bc0(0x5f5)]=function(){const _0x1505c6=_0x2e6bc0,_0x346de4=_0x1505c6(0x8b7);this[_0x1505c6(0x82b)]=this['_colorCache']||{};if(this[_0x1505c6(0x82b)][_0x346de4])return this[_0x1505c6(0x82b)][_0x346de4];const _0x320654=VisuMZ[_0x1505c6(0x468)][_0x1505c6(0x6ef)][_0x1505c6(0x210)][_0x1505c6(0x1a9)];return this[_0x1505c6(0x680)](_0x346de4,_0x320654);},ColorManager['expGaugeColor2']=function(){const _0x5649d0=_0x2e6bc0,_0x4a3cd2=_0x5649d0(0x84b);this[_0x5649d0(0x82b)]=this[_0x5649d0(0x82b)]||{};if(this[_0x5649d0(0x82b)][_0x4a3cd2])return this['_colorCache'][_0x4a3cd2];const _0x4159e6=VisuMZ[_0x5649d0(0x468)]['Settings'][_0x5649d0(0x210)][_0x5649d0(0x136)];return this[_0x5649d0(0x680)](_0x4a3cd2,_0x4159e6);},ColorManager[_0x2e6bc0(0x542)]=function(){const _0x5aa3df=_0x2e6bc0,_0x3c46ce='_stored_maxLvGaugeColor1';this[_0x5aa3df(0x82b)]=this[_0x5aa3df(0x82b)]||{};if(this[_0x5aa3df(0x82b)][_0x3c46ce])return this[_0x5aa3df(0x82b)][_0x3c46ce];const _0x4089f1=VisuMZ[_0x5aa3df(0x468)][_0x5aa3df(0x6ef)][_0x5aa3df(0x210)][_0x5aa3df(0x130)];return this['getColorDataFromPluginParameters'](_0x3c46ce,_0x4089f1);},ColorManager['maxLvGaugeColor2']=function(){const _0x306b00=_0x2e6bc0,_0x5e3cab=_0x306b00(0x822);this[_0x306b00(0x82b)]=this[_0x306b00(0x82b)]||{};if(this['_colorCache'][_0x5e3cab])return this['_colorCache'][_0x5e3cab];const _0x3a72e8=VisuMZ[_0x306b00(0x468)][_0x306b00(0x6ef)][_0x306b00(0x210)][_0x306b00(0x81c)];return this[_0x306b00(0x680)](_0x5e3cab,_0x3a72e8);},ColorManager[_0x2e6bc0(0x2c7)]=function(_0x29e0ff){const _0xf3d312=_0x2e6bc0;return VisuMZ[_0xf3d312(0x468)][_0xf3d312(0x6ef)][_0xf3d312(0x210)][_0xf3d312(0x75a)]['call'](this,_0x29e0ff);},ColorManager['mpColor']=function(_0x41d574){const _0x4118b6=_0x2e6bc0;return VisuMZ[_0x4118b6(0x468)][_0x4118b6(0x6ef)][_0x4118b6(0x210)][_0x4118b6(0x20e)]['call'](this,_0x41d574);},ColorManager['tpColor']=function(_0x4dd654){const _0x49a1d9=_0x2e6bc0;return VisuMZ[_0x49a1d9(0x468)][_0x49a1d9(0x6ef)][_0x49a1d9(0x210)][_0x49a1d9(0x56e)]['call'](this,_0x4dd654);},ColorManager[_0x2e6bc0(0x246)]=function(_0x4e7c22){const _0x448bea=_0x2e6bc0;return VisuMZ[_0x448bea(0x468)][_0x448bea(0x6ef)]['Color'][_0x448bea(0x1aa)][_0x448bea(0x895)](this,_0x4e7c22);},ColorManager[_0x2e6bc0(0x383)]=function(_0xf6930d){const _0x180f19=_0x2e6bc0;return VisuMZ['CoreEngine'][_0x180f19(0x6ef)][_0x180f19(0x210)][_0x180f19(0xfc)][_0x180f19(0x895)](this,_0xf6930d);},ColorManager[_0x2e6bc0(0x107)]=function(){const _0x2793d5=_0x2e6bc0;return VisuMZ[_0x2793d5(0x468)]['Settings']['Color'][_0x2793d5(0x2b6)];},ColorManager[_0x2e6bc0(0x57f)]=function(){const _0x2609a7=_0x2e6bc0;return VisuMZ[_0x2609a7(0x468)][_0x2609a7(0x6ef)][_0x2609a7(0x210)][_0x2609a7(0x7da)]||_0x2609a7(0x278);},ColorManager[_0x2e6bc0(0x511)]=function(){const _0x1d4b0c=_0x2e6bc0;return VisuMZ[_0x1d4b0c(0x468)][_0x1d4b0c(0x6ef)][_0x1d4b0c(0x210)][_0x1d4b0c(0x492)]||_0x1d4b0c(0x68f);},ColorManager['dimColor1']=function(){const _0x564990=_0x2e6bc0;return VisuMZ[_0x564990(0x468)][_0x564990(0x6ef)][_0x564990(0x210)]['DimColor1'];},ColorManager[_0x2e6bc0(0x38a)]=function(){const _0x40b313=_0x2e6bc0;return VisuMZ['CoreEngine']['Settings']['Color'][_0x40b313(0x58e)];},ColorManager[_0x2e6bc0(0x8b0)]=function(){const _0x4269ca=_0x2e6bc0;return VisuMZ['CoreEngine'][_0x4269ca(0x6ef)][_0x4269ca(0x210)][_0x4269ca(0x1cc)];},ColorManager[_0x2e6bc0(0x1ed)]=function(){const _0x4e8bbe=_0x2e6bc0;return VisuMZ[_0x4e8bbe(0x468)][_0x4e8bbe(0x6ef)][_0x4e8bbe(0x210)][_0x4e8bbe(0x779)];},SceneManager['_storedStack']=[],SceneManager[_0x2e6bc0(0x76f)]=function(){const _0x674aa7=_0x2e6bc0;return this[_0x674aa7(0x49a)]&&this['_scene'][_0x674aa7(0x2c3)]===Scene_Battle;},SceneManager[_0x2e6bc0(0x81e)]=function(){const _0x460a7d=_0x2e6bc0;return this[_0x460a7d(0x49a)]&&this[_0x460a7d(0x49a)][_0x460a7d(0x2c3)]===Scene_Map;},SceneManager['isInstanceOfSceneMap']=function(){const _0x3522cd=_0x2e6bc0;return this[_0x3522cd(0x49a)]&&this[_0x3522cd(0x49a)]instanceof Scene_Map;},VisuMZ['CoreEngine'][_0x2e6bc0(0x58f)]=SceneManager[_0x2e6bc0(0x571)],SceneManager[_0x2e6bc0(0x571)]=function(){const _0x51fd95=_0x2e6bc0;VisuMZ['CoreEngine'][_0x51fd95(0x58f)][_0x51fd95(0x895)](this),this[_0x51fd95(0x88c)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x42c)]=SceneManager[_0x2e6bc0(0x4ea)],SceneManager[_0x2e6bc0(0x4ea)]=function(_0x5e179c){const _0x29524f=_0x2e6bc0;if($gameTemp)this[_0x29524f(0x4a7)](_0x5e179c);VisuMZ['CoreEngine'][_0x29524f(0x42c)]['call'](this,_0x5e179c);},SceneManager[_0x2e6bc0(0x4a7)]=function(_0x31dac2){const _0x5a6b61=_0x2e6bc0;if(!_0x31dac2[_0x5a6b61(0x296)]&&!_0x31dac2[_0x5a6b61(0x17e)])switch(_0x31dac2[_0x5a6b61(0x145)]){case 0x52:this[_0x5a6b61(0x1de)]();break;case 0x54:this[_0x5a6b61(0x683)]();break;case 0x75:this[_0x5a6b61(0x6a3)]();break;case 0x76:if(Input[_0x5a6b61(0x753)](_0x5a6b61(0x2f3))||Input['isPressed'](_0x5a6b61(0x3fd)))return;this['playTestF7']();break;}else{if(_0x31dac2[_0x5a6b61(0x296)]){let _0x57120e=_0x31dac2[_0x5a6b61(0x145)];if(_0x57120e>=0x31&&_0x57120e<=0x39){const _0x457ca0=_0x57120e-0x30;return SceneManager['playtestQuickLoad'](_0x457ca0);}else{if(_0x57120e>=0x61&&_0x57120e<=0x69){const _0x3541d1=_0x57120e-0x60;return SceneManager[_0x5a6b61(0x2cc)](_0x3541d1);}}}}},SceneManager[_0x2e6bc0(0x6a3)]=function(){const _0x438b7b=_0x2e6bc0;if($gameTemp[_0x438b7b(0x2d3)]()&&VisuMZ[_0x438b7b(0x468)]['Settings'][_0x438b7b(0x818)][_0x438b7b(0x1e7)]){ConfigManager[_0x438b7b(0x61d)]!==0x0?(ConfigManager[_0x438b7b(0x536)]=0x0,ConfigManager['bgsVolume']=0x0,ConfigManager['meVolume']=0x0,ConfigManager[_0x438b7b(0x61d)]=0x0):(ConfigManager['bgmVolume']=0x64,ConfigManager['bgsVolume']=0x64,ConfigManager[_0x438b7b(0x28e)]=0x64,ConfigManager[_0x438b7b(0x61d)]=0x64);ConfigManager[_0x438b7b(0x653)]();if(this[_0x438b7b(0x49a)][_0x438b7b(0x2c3)]===Scene_Options){if(this[_0x438b7b(0x49a)][_0x438b7b(0x481)])this[_0x438b7b(0x49a)][_0x438b7b(0x481)][_0x438b7b(0x3bd)]();if(this[_0x438b7b(0x49a)][_0x438b7b(0x1be)])this['_scene'][_0x438b7b(0x1be)][_0x438b7b(0x3bd)]();}}},SceneManager['playTestF7']=function(){const _0x5a1e36=_0x2e6bc0;$gameTemp[_0x5a1e36(0x2d3)]()&&VisuMZ['CoreEngine'][_0x5a1e36(0x6ef)][_0x5a1e36(0x818)][_0x5a1e36(0x4cc)]&&($gameTemp['_playTestFastMode']=!$gameTemp[_0x5a1e36(0x517)]);},SceneManager[_0x2e6bc0(0x1de)]=function(){const _0x45fc55=_0x2e6bc0;if(!VisuMZ[_0x45fc55(0x468)]['Settings'][_0x45fc55(0x818)][_0x45fc55(0x4b8)])return;if(!$gameTemp[_0x45fc55(0x2d3)]())return;if(!SceneManager['isSceneBattle']())return;if(!Input[_0x45fc55(0x753)](_0x45fc55(0x2f3)))return;for(const _0x236d0e of $gameParty[_0x45fc55(0x7be)]()){if(!_0x236d0e)continue;_0x236d0e[_0x45fc55(0x6dc)]();}},SceneManager[_0x2e6bc0(0x683)]=function(){const _0x2a03ae=_0x2e6bc0;if(!VisuMZ['CoreEngine'][_0x2a03ae(0x6ef)]['QoL'][_0x2a03ae(0x3f0)])return;if(!$gameTemp[_0x2a03ae(0x2d3)]())return;if(!SceneManager[_0x2a03ae(0x76f)]())return;if(!Input[_0x2a03ae(0x753)]('shift'))return;for(const _0x562ae3 of $gameParty[_0x2a03ae(0x7be)]()){if(!_0x562ae3)continue;_0x562ae3[_0x2a03ae(0x625)](_0x562ae3[_0x2a03ae(0x65e)]());}},SceneManager[_0x2e6bc0(0x2cc)]=function(_0x1418f0){const _0x3c5434=_0x2e6bc0;if(!$gameTemp[_0x3c5434(0x2d3)]())return;if(!DataManager[_0x3c5434(0x857)](_0x1418f0))return;if(!(VisuMZ[_0x3c5434(0x468)][_0x3c5434(0x6ef)][_0x3c5434(0x818)][_0x3c5434(0x103)]??!![]))return;this['push'](Scene_QuickLoad),this['prepareNextScene'](_0x1418f0);},SceneManager['initVisuMZCoreEngine']=function(){const _0x12d405=_0x2e6bc0;this[_0x12d405(0x16e)]=![],this[_0x12d405(0x47b)]=!VisuMZ[_0x12d405(0x468)]['Settings']['UI']['ShowButtons'];},SceneManager[_0x2e6bc0(0x878)]=function(_0x4594dd){const _0x1e2884=_0x2e6bc0;VisuMZ['CoreEngine'][_0x1e2884(0x6ef)]['UI'][_0x1e2884(0x5fd)]&&(this[_0x1e2884(0x16e)]=_0x4594dd);},SceneManager[_0x2e6bc0(0xe7)]=function(){return this['_sideButtonLayout'];},SceneManager[_0x2e6bc0(0x21c)]=function(){return this['_hideButtons'];},SceneManager[_0x2e6bc0(0x3d4)]=function(){return this['areButtonsHidden']()||this['isSideButtonLayout']();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x72f)]=SceneManager[_0x2e6bc0(0x4c5)],SceneManager[_0x2e6bc0(0x4c5)]=function(){const _0x21bbd5=_0x2e6bc0;return VisuMZ[_0x21bbd5(0x468)]['Settings'][_0x21bbd5(0x818)][_0x21bbd5(0x3b6)]?VisuMZ[_0x21bbd5(0x468)][_0x21bbd5(0x72f)][_0x21bbd5(0x895)](this):!![];},SceneManager['catchException']=function(_0x1e31b5){const _0x3eca63=_0x2e6bc0;if(_0x1e31b5 instanceof Error)this[_0x3eca63(0x758)](_0x1e31b5);else _0x1e31b5 instanceof Array&&_0x1e31b5[0x0]===_0x3eca63(0x307)?this[_0x3eca63(0x76b)](_0x1e31b5):this['catchUnknownError'](_0x1e31b5);this[_0x3eca63(0x19c)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x202)]=BattleManager[_0x2e6bc0(0x27f)],BattleManager[_0x2e6bc0(0x27f)]=function(){const _0x201719=_0x2e6bc0;return VisuMZ['CoreEngine'][_0x201719(0x6ef)][_0x201719(0x818)][_0x201719(0x502)]?this[_0x201719(0x73c)]():VisuMZ[_0x201719(0x468)][_0x201719(0x202)][_0x201719(0x895)](this);},BattleManager[_0x2e6bc0(0x73c)]=function(){const _0x5ae5b2=_0x2e6bc0;return $gameParty['performEscape'](),SoundManager[_0x5ae5b2(0x166)](),this[_0x5ae5b2(0x5b0)](),!![];},BattleManager[_0x2e6bc0(0x341)]=function(){const _0x4ee390=_0x2e6bc0;return $gameSystem[_0x4ee390(0x4c2)]()>=0x1;},BattleManager[_0x2e6bc0(0x7e1)]=function(){const _0x1ddcbd=_0x2e6bc0;return $gameSystem[_0x1ddcbd(0x4c2)]()===0x1;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x28d)]=Game_Temp[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)],Game_Temp[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)]=function(){const _0x521500=_0x2e6bc0;VisuMZ['CoreEngine'][_0x521500(0x28d)][_0x521500(0x895)](this),this[_0x521500(0x47d)](),this[_0x521500(0x3f8)](),this['createPointAnimationQueue']();},Game_Temp[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x47d)]=function(){const _0xb03901=_0x2e6bc0;VisuMZ['CoreEngine'][_0xb03901(0x6ef)][_0xb03901(0x818)][_0xb03901(0x365)]&&(this[_0xb03901(0x283)]=![]);},Game_Temp[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x297)]=function(_0x13ac54){this['_lastPluginCommandInterpreter']=_0x13ac54;},Game_Temp['prototype'][_0x2e6bc0(0x5ea)]=function(){const _0x32d341=_0x2e6bc0;return this[_0x32d341(0x4bc)];},Game_Temp['prototype'][_0x2e6bc0(0x81f)]=function(){const _0x1abc28=_0x2e6bc0;this['_forcedTroopView']=undefined,this['_forcedBattleSys']=undefined,this[_0x1abc28(0x586)]=undefined;},Game_Temp[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7ae)]=function(_0x930161){const _0x2c1619=_0x2e6bc0;$gameMap&&$dataMap&&$dataMap[_0x2c1619(0x6a8)]&&this[_0x2c1619(0x51d)]($dataMap[_0x2c1619(0x6a8)]);const _0xd41f4b=$dataTroops[_0x930161];if(_0xd41f4b){let _0x586e79=DataManager[_0x2c1619(0x5d7)](_0xd41f4b['id']);this[_0x2c1619(0x51d)](_0x586e79);}},Game_Temp[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x51d)]=function(_0x44fe16){const _0xe8af33=_0x2e6bc0;if(!_0x44fe16)return;if(_0x44fe16[_0xe8af33(0x298)](/<(?:FRONTVIEW|FRONT VIEW|FV)>/i))this[_0xe8af33(0x810)]='FV';else{if(_0x44fe16[_0xe8af33(0x298)](/<(?:SIDEVIEW|SIDE VIEW|SV)>/i))this['_forcedTroopView']='SV';else{if(_0x44fe16['match'](/<(?:BATTLEVIEW|BATTLE VIEW):[ ](.*)>/i)){const _0x3e450=String(RegExp['$1']);if(_0x3e450[_0xe8af33(0x298)](/(?:FRONTVIEW|FRONT VIEW|FV)/i))this[_0xe8af33(0x810)]='FV';else _0x3e450[_0xe8af33(0x298)](/(?:SIDEVIEW|SIDE VIEW|SV)/i)&&(this[_0xe8af33(0x810)]='SV');}}}if(_0x44fe16[_0xe8af33(0x298)](/<(?:DTB)>/i))this[_0xe8af33(0x715)]=0x0;else{if(_0x44fe16[_0xe8af33(0x298)](/<(?:TPB|ATB)[ ]ACTIVE>/i))this[_0xe8af33(0x715)]=0x1;else{if(_0x44fe16[_0xe8af33(0x298)](/<(?:TPB|ATB)[ ]WAIT>/i))this[_0xe8af33(0x715)]=0x2;else{if(_0x44fe16[_0xe8af33(0x298)](/<(?:TPB|ATB)>/i))this[_0xe8af33(0x715)]=0x2;else{if(_0x44fe16[_0xe8af33(0x298)](/<(?:CTB)>/i))Imported[_0xe8af33(0x279)]&&(this[_0xe8af33(0x715)]=_0xe8af33(0x195));else{if(_0x44fe16['match'](/<(?:STB)>/i))Imported[_0xe8af33(0x535)]&&(this[_0xe8af33(0x715)]=_0xe8af33(0x3ce));else{if(_0x44fe16[_0xe8af33(0x298)](/<(?:BTB)>/i))Imported[_0xe8af33(0x5c1)]&&(this[_0xe8af33(0x715)]='BTB');else{if(_0x44fe16[_0xe8af33(0x298)](/<(?:FTB)>/i))Imported[_0xe8af33(0x604)]&&(this[_0xe8af33(0x715)]=_0xe8af33(0x410));else{if(_0x44fe16['match'](/<(?:OTB)>/i))Imported['VisuMZ_2_BattleSystemOTB']&&(this[_0xe8af33(0x715)]='OTB');else{if(_0x44fe16['match'](/<(?:ETB)>/i))Imported['VisuMZ_2_BattleSystemETB']&&(this[_0xe8af33(0x715)]=_0xe8af33(0x601));else{if(_0x44fe16[_0xe8af33(0x298)](/<(?:PTB)>/i))Imported[_0xe8af33(0x48c)]&&(this[_0xe8af33(0x715)]=_0xe8af33(0xe2));else{if(_0x44fe16['match'](/<(?:BATTLEVIEW|BATTLE VIEW):[ ](.*)>/i)){const _0x56fd63=String(RegExp['$1']);if(_0x56fd63[_0xe8af33(0x298)](/DTB/i))this['_forcedBattleSys']=0x0;else{if(_0x56fd63[_0xe8af33(0x298)](/(?:TPB|ATB)[ ]ACTIVE/i))this[_0xe8af33(0x715)]=0x1;else{if(_0x56fd63[_0xe8af33(0x298)](/(?:TPB|ATB)[ ]WAIT/i))this[_0xe8af33(0x715)]=0x2;else{if(_0x56fd63[_0xe8af33(0x298)](/CTB/i))Imported[_0xe8af33(0x279)]&&(this[_0xe8af33(0x715)]=_0xe8af33(0x195));else{if(_0x56fd63['match'](/STB/i))Imported['VisuMZ_2_BattleSystemSTB']&&(this['_forcedBattleSys']=_0xe8af33(0x3ce));else{if(_0x56fd63[_0xe8af33(0x298)](/BTB/i))Imported['VisuMZ_2_BattleSystemBTB']&&(this[_0xe8af33(0x715)]='BTB');else{if(_0x56fd63[_0xe8af33(0x298)](/FTB/i))Imported[_0xe8af33(0x604)]&&(this[_0xe8af33(0x715)]=_0xe8af33(0x410));else{if(_0x56fd63['match'](/OTB/i))Imported[_0xe8af33(0x558)]&&(this[_0xe8af33(0x715)]=_0xe8af33(0x5a3));else{if(_0x56fd63[_0xe8af33(0x298)](/ETB/i))Imported['VisuMZ_2_BattleSystemETB']&&(this[_0xe8af33(0x715)]='ETB');else _0x56fd63[_0xe8af33(0x298)](/PTB/i)&&(Imported[_0xe8af33(0x48c)]&&(this['_forcedBattleSys']=_0xe8af33(0xe2)));}}}}}}}}}}}}}}}}}}}}if(_0x44fe16[_0xe8af33(0x298)](/<(?:|BATTLE )GRID>/i))this[_0xe8af33(0x586)]=!![];else _0x44fe16[_0xe8af33(0x298)](/<NO (?:|BATTLE )GRID>/i)&&(this[_0xe8af33(0x586)]=![]);},Game_Temp['prototype'][_0x2e6bc0(0x3f8)]=function(){const _0x55b19d=_0x2e6bc0;this[_0x55b19d(0x2a1)]=[];},Game_Temp[_0x2e6bc0(0x5e2)]['requestFauxAnimation']=function(_0x5791ce,_0x412e44,_0x536be7,_0x2549d1){const _0x10e458=_0x2e6bc0;if(!this[_0x10e458(0x5f1)]())return;_0x536be7=_0x536be7||![],_0x2549d1=_0x2549d1||![];if($dataAnimations[_0x412e44]){const _0x505783={'targets':_0x5791ce,'animationId':_0x412e44,'mirror':_0x536be7,'mute':_0x2549d1};this['_fauxAnimationQueue'][_0x10e458(0x16c)](_0x505783);for(const _0x122996 of _0x5791ce){_0x122996[_0x10e458(0x497)]&&_0x122996[_0x10e458(0x497)]();}}},Game_Temp[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5f1)]=function(){return!![];},Game_Temp[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x348)]=function(){const _0x53920c=_0x2e6bc0;return this[_0x53920c(0x2a1)][_0x53920c(0x2f3)]();},Game_Temp[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5a1)]=function(){const _0x133ffb=_0x2e6bc0;this[_0x133ffb(0x6de)]=[];},Game_Temp['prototype'][_0x2e6bc0(0x3e5)]=function(_0x5cb824,_0x5481e3,_0x6e96e2,_0x53dc4a,_0x26e823){const _0x1ce82e=_0x2e6bc0;if(!this[_0x1ce82e(0x7d3)]())return;_0x53dc4a=_0x53dc4a||![],_0x26e823=_0x26e823||![];if($dataAnimations[_0x6e96e2]){const _0xc4f1c9={'x':_0x5cb824,'y':_0x5481e3,'animationId':_0x6e96e2,'mirror':_0x53dc4a,'mute':_0x26e823};this[_0x1ce82e(0x6de)][_0x1ce82e(0x16c)](_0xc4f1c9);}},Game_Temp[_0x2e6bc0(0x5e2)]['showPointAnimations']=function(){return!![];},Game_Temp[_0x2e6bc0(0x5e2)]['retrievePointAnimation']=function(){const _0x336eff=_0x2e6bc0;return this[_0x336eff(0x6de)][_0x336eff(0x2f3)]();},VisuMZ[_0x2e6bc0(0x468)]['Game_System_initialize']=Game_System['prototype']['initialize'],Game_System['prototype']['initialize']=function(){const _0x2793d1=_0x2e6bc0;VisuMZ[_0x2793d1(0x468)][_0x2793d1(0x18b)][_0x2793d1(0x895)](this),this[_0x2793d1(0x6fe)]();},Game_System[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6fe)]=function(){const _0x4a4be6=_0x2e6bc0;this[_0x4a4be6(0x466)]={'SideView':$dataSystem[_0x4a4be6(0x15f)],'BattleSystem':this[_0x4a4be6(0x1b1)](),'FontSize':$dataSystem[_0x4a4be6(0x212)][_0x4a4be6(0x135)],'Padding':0xc};},Game_System[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3da)]=function(){const _0x51ddbb=_0x2e6bc0;if($gameTemp[_0x51ddbb(0x810)]==='SV')return!![];else{if($gameTemp[_0x51ddbb(0x810)]==='FV')return![];}if(this[_0x51ddbb(0x466)]===undefined)this[_0x51ddbb(0x6fe)]();if(this[_0x51ddbb(0x466)][_0x51ddbb(0x237)]===undefined)this[_0x51ddbb(0x6fe)]();return this[_0x51ddbb(0x466)][_0x51ddbb(0x237)];},Game_System[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x467)]=function(_0x415ed4){const _0x248091=_0x2e6bc0;if(this[_0x248091(0x466)]===undefined)this[_0x248091(0x6fe)]();if(this[_0x248091(0x466)][_0x248091(0x237)]===undefined)this[_0x248091(0x6fe)]();this[_0x248091(0x466)][_0x248091(0x237)]=_0x415ed4;},Game_System['prototype'][_0x2e6bc0(0x74c)]=function(){const _0x4e40f5=_0x2e6bc0;if(this[_0x4e40f5(0x466)]===undefined)this[_0x4e40f5(0x6fe)]();this[_0x4e40f5(0x466)][_0x4e40f5(0x200)]=this[_0x4e40f5(0x1b1)]();},Game_System['prototype']['initialBattleSystem']=function(){const _0x297de0=_0x2e6bc0,_0x3651c9=(VisuMZ['CoreEngine'][_0x297de0(0x6ef)][_0x297de0(0x200)]||'DATABASE')['toUpperCase']()[_0x297de0(0x679)]();return VisuMZ[_0x297de0(0x468)][_0x297de0(0x30a)](_0x3651c9);},Game_System[_0x2e6bc0(0x5e2)]['getBattleSystem']=function(){const _0x41d736=_0x2e6bc0;if($gameTemp[_0x41d736(0x715)]!==undefined)return $gameTemp[_0x41d736(0x715)];if(this[_0x41d736(0x466)]===undefined)this[_0x41d736(0x6fe)]();if(this[_0x41d736(0x466)][_0x41d736(0x200)]===undefined)this['resetBattleSystem']();return this[_0x41d736(0x466)][_0x41d736(0x200)];},Game_System['prototype'][_0x2e6bc0(0x68d)]=function(_0x5c96fb){const _0x4c305c=_0x2e6bc0;if(this[_0x4c305c(0x466)]===undefined)this[_0x4c305c(0x6fe)]();if(this['_CoreEngineSettings'][_0x4c305c(0x200)]===undefined)this[_0x4c305c(0x74c)]();this[_0x4c305c(0x466)][_0x4c305c(0x200)]=_0x5c96fb;},Game_System[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x58b)]=function(){const _0x1eb5ab=_0x2e6bc0;if(this['_CoreEngineSettings']===undefined)this[_0x1eb5ab(0x6fe)]();if(this[_0x1eb5ab(0x466)][_0x1eb5ab(0x7c9)]===undefined)this[_0x1eb5ab(0x6fe)]();return this[_0x1eb5ab(0x466)][_0x1eb5ab(0x7c9)];},Game_System[_0x2e6bc0(0x5e2)]['setMainFontSize']=function(_0x258821){const _0x2c7e9b=_0x2e6bc0;if(this['_CoreEngineSettings']===undefined)this[_0x2c7e9b(0x6fe)]();if(this['_CoreEngineSettings']['TimeProgress']===undefined)this[_0x2c7e9b(0x6fe)]();this[_0x2c7e9b(0x466)][_0x2c7e9b(0x7c9)]=_0x258821;},Game_System[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1f2)]=function(){const _0x4a11c4=_0x2e6bc0;if(this[_0x4a11c4(0x466)]===undefined)this['initCoreEngine']();if(this[_0x4a11c4(0x466)][_0x4a11c4(0x31e)]===undefined)this[_0x4a11c4(0x6fe)]();return this[_0x4a11c4(0x466)][_0x4a11c4(0x31e)];},Game_System[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3d7)]=function(_0x25fab8){const _0x4d6dab=_0x2e6bc0;if(this[_0x4d6dab(0x466)]===undefined)this[_0x4d6dab(0x6fe)]();if(this['_CoreEngineSettings'][_0x4d6dab(0x415)]===undefined)this['initCoreEngine']();this[_0x4d6dab(0x466)][_0x4d6dab(0x31e)]=_0x25fab8;},VisuMZ[_0x2e6bc0(0x468)]['Game_Screen_initialize']=Game_Screen[_0x2e6bc0(0x5e2)]['initialize'],Game_Screen[_0x2e6bc0(0x5e2)]['initialize']=function(){const _0x549f43=_0x2e6bc0;VisuMZ[_0x549f43(0x468)]['Game_Screen_initialize'][_0x549f43(0x895)](this),this['initCoreEngineScreenShake']();},Game_Screen[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5b4)]=function(){const _0x4ed356=_0x2e6bc0,_0x40ed6b=VisuMZ[_0x4ed356(0x468)][_0x4ed356(0x6ef)][_0x4ed356(0x392)];this[_0x4ed356(0x17a)]=_0x40ed6b?.['DefaultStyle']||_0x4ed356(0x447);},Game_Screen['prototype'][_0x2e6bc0(0x31b)]=function(){const _0x2eb992=_0x2e6bc0;if(this[_0x2eb992(0x17a)]===undefined)this['initCoreEngineScreenShake']();return this[_0x2eb992(0x17a)];},Game_Screen['prototype'][_0x2e6bc0(0x4c6)]=function(_0x2dcbcd){const _0x379f76=_0x2e6bc0;if(this[_0x379f76(0x17a)]===undefined)this[_0x379f76(0x5b4)]();this[_0x379f76(0x17a)]=_0x2dcbcd[_0x379f76(0x616)]()[_0x379f76(0x679)]();},Game_Picture['prototype']['isMapScrollLinked']=function(){const _0x99a377=_0x2e6bc0;if($gameParty[_0x99a377(0x3f6)]())return![];return this[_0x99a377(0x61f)]()&&this['onlyfilename']()[_0x99a377(0x44c)](0x0)==='!';},Game_Picture['prototype']['onlyfilename']=function(){const _0x5b911d=_0x2e6bc0;return this['_name'][_0x5b911d(0x440)]('/')['pop']();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x1ff)]=Game_Picture[_0x2e6bc0(0x5e2)]['x'],Game_Picture[_0x2e6bc0(0x5e2)]['x']=function(){const _0x403d54=_0x2e6bc0;return this[_0x403d54(0x8af)]()?this[_0x403d54(0x21f)]():VisuMZ[_0x403d54(0x468)]['Game_Picture_x'][_0x403d54(0x895)](this);},Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x21f)]=function(){const _0x2fa5df=_0x2e6bc0,_0x3d31e2=$gameMap[_0x2fa5df(0x1af)]()*$gameMap[_0x2fa5df(0x363)]();return(this['_x']-_0x3d31e2)*$gameScreen[_0x2fa5df(0x723)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x3fe)]=Game_Picture[_0x2e6bc0(0x5e2)]['y'],Game_Picture[_0x2e6bc0(0x5e2)]['y']=function(){const _0x315841=_0x2e6bc0;return this['isMapScrollLinked']()?this[_0x315841(0x46e)]():VisuMZ[_0x315841(0x468)][_0x315841(0x3fe)][_0x315841(0x895)](this);},Game_Picture['prototype'][_0x2e6bc0(0x46e)]=function(){const _0x2e71c4=_0x2e6bc0,_0x37952f=$gameMap[_0x2e71c4(0x7ac)]()*$gameMap[_0x2e71c4(0x5f7)]();return(this['_y']-_0x37952f)*$gameScreen['zoomScale']();},VisuMZ['CoreEngine']['Game_Picture_scaleX']=Game_Picture['prototype']['scaleX'],Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x374)]=function(){const _0x23aa44=_0x2e6bc0;let _0x1266e9=VisuMZ[_0x23aa44(0x468)][_0x23aa44(0x6e0)]['call'](this);return this[_0x23aa44(0x8af)]()&&(_0x1266e9*=$gameScreen['zoomScale']()),_0x1266e9;},VisuMZ[_0x2e6bc0(0x468)]['Game_Picture_scaleY']=Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x4d3)],Game_Picture[_0x2e6bc0(0x5e2)]['scaleY']=function(){const _0x12de09=_0x2e6bc0;let _0x8c4905=VisuMZ[_0x12de09(0x468)]['Game_Picture_scaleY'][_0x12de09(0x895)](this);return this[_0x12de09(0x8af)]()&&(_0x8c4905*=$gameScreen[_0x12de09(0x723)]()),_0x8c4905;},Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x357)]=function(_0x4dd9e8){const _0x1d9792=_0x2e6bc0;this[_0x1d9792(0x816)]=_0x4dd9e8;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x55e)]=Game_Picture['prototype']['calcEasing'],Game_Picture['prototype'][_0x2e6bc0(0x2e5)]=function(_0x2d1063){const _0x3fbc0d=_0x2e6bc0;return this['_coreEasingType']=this['_coreEasingType']||0x0,[0x0,0x1,0x2,0x3][_0x3fbc0d(0x7fe)](this[_0x3fbc0d(0x816)])?VisuMZ[_0x3fbc0d(0x468)][_0x3fbc0d(0x55e)][_0x3fbc0d(0x895)](this,_0x2d1063):VisuMZ[_0x3fbc0d(0x71e)](_0x2d1063,this['_coreEasingType']);},VisuMZ['CoreEngine'][_0x2e6bc0(0x2d0)]=Game_Picture['prototype'][_0x2e6bc0(0x2ad)],Game_Picture['prototype'][_0x2e6bc0(0x2ad)]=function(){const _0x4cec4a=_0x2e6bc0;VisuMZ[_0x4cec4a(0x468)][_0x4cec4a(0x2d0)][_0x4cec4a(0x895)](this),this['initRotationCoreEngine']();},Game_Picture[_0x2e6bc0(0x5e2)]['initRotationCoreEngine']=function(){const _0x4ca96d=_0x2e6bc0;this[_0x4ca96d(0x7a6)]={'current':0x0,'target':0x0,'duration':0x0,'wholeDuration':0x0,'easingType':_0x4ca96d(0x4ab)};},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x49e)]=Game_Picture['prototype'][_0x2e6bc0(0x30e)],Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x30e)]=function(){const _0x481741=_0x2e6bc0;let _0x4d7e91=VisuMZ[_0x481741(0x468)]['Game_Picture_angle'][_0x481741(0x895)](this);return _0x4d7e91+=this[_0x481741(0x270)](),_0x4d7e91;},Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x270)]=function(){const _0x5c470f=_0x2e6bc0;if(this['_anglePlus']===undefined)this[_0x5c470f(0x5da)]();return this[_0x5c470f(0x7a6)][_0x5c470f(0x59a)]||0x0;},Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x750)]=function(_0x442a74,_0x411cbc,_0x312cb4){const _0x30d342=_0x2e6bc0;if(this[_0x30d342(0x7a6)]===undefined)this[_0x30d342(0x5da)]();this[_0x30d342(0x7a6)][_0x30d342(0x187)]=_0x442a74||0x0,this[_0x30d342(0x7a6)][_0x30d342(0x69d)]=_0x411cbc||0x0,this[_0x30d342(0x7a6)][_0x30d342(0x6a7)]=_0x411cbc||0x0,this[_0x30d342(0x7a6)]['easingType']=_0x312cb4||_0x30d342(0x4ab),_0x411cbc<=0x0&&(this[_0x30d342(0x7a6)][_0x30d342(0x59a)]=this[_0x30d342(0x7a6)]['target']);},Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x37d)]=function(_0x23b814,_0x36508b,_0xd53a23){const _0x3b5aca=_0x2e6bc0;if(this[_0x3b5aca(0x7a6)]===undefined)this[_0x3b5aca(0x5da)]();this[_0x3b5aca(0x7a6)][_0x3b5aca(0x187)]+=_0x23b814||0x0,this['_anglePlus'][_0x3b5aca(0x69d)]=_0x36508b||0x0,this['_anglePlus'][_0x3b5aca(0x6a7)]=_0x36508b||0x0,this['_anglePlus']['easingType']=_0xd53a23||'Linear',_0x36508b<=0x0&&(this[_0x3b5aca(0x7a6)]['current']=this[_0x3b5aca(0x7a6)][_0x3b5aca(0x187)]);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x45c)]=Game_Picture[_0x2e6bc0(0x5e2)]['updateRotation'],Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x143)]=function(){const _0x19e29e=_0x2e6bc0;VisuMZ[_0x19e29e(0x468)]['Game_Picture_updateRotation'][_0x19e29e(0x895)](this),this[_0x19e29e(0x70a)]();},Game_Picture[_0x2e6bc0(0x5e2)]['updateAnglePlus']=function(){const _0x59a110=_0x2e6bc0;if(this['_anglePlus']===undefined)this[_0x59a110(0x5da)]();const _0x1f2f73=this[_0x59a110(0x7a6)];if(_0x1f2f73[_0x59a110(0x69d)]<=0x0)return;_0x1f2f73[_0x59a110(0x59a)]=this[_0x59a110(0x5cd)](_0x1f2f73['current'],_0x1f2f73['target']),_0x1f2f73[_0x59a110(0x69d)]--,_0x1f2f73['duration']<=0x0&&(_0x1f2f73[_0x59a110(0x59a)]=_0x1f2f73[_0x59a110(0x187)]);},Game_Picture[_0x2e6bc0(0x5e2)]['applyEasingAnglePlus']=function(_0x29b7c1,_0x3780a8){const _0x256e73=_0x2e6bc0,_0x291a2d=this['_anglePlus'],_0x2d4a81=_0x291a2d[_0x256e73(0x4f6)],_0x1ba517=_0x291a2d[_0x256e73(0x69d)],_0x3f2fdb=_0x291a2d[_0x256e73(0x6a7)],_0xaef428=VisuMZ['ApplyEasing']((_0x3f2fdb-_0x1ba517)/_0x3f2fdb,_0x2d4a81),_0x59d7ac=VisuMZ[_0x256e73(0x71e)]((_0x3f2fdb-_0x1ba517+0x1)/_0x3f2fdb,_0x2d4a81),_0x26e00d=(_0x29b7c1-_0x3780a8*_0xaef428)/(0x1-_0xaef428);return _0x26e00d+(_0x3780a8-_0x26e00d)*_0x59d7ac;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6c5)]=Game_Action[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x359)],Game_Action[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x359)]=function(_0x31f7b0){const _0x5ec7f1=_0x2e6bc0;return VisuMZ[_0x5ec7f1(0x468)]['Settings'][_0x5ec7f1(0x818)][_0x5ec7f1(0x5ba)]?this[_0x5ec7f1(0x74a)](_0x31f7b0):VisuMZ[_0x5ec7f1(0x468)][_0x5ec7f1(0x6c5)]['call'](this,_0x31f7b0);},Game_Action['prototype'][_0x2e6bc0(0x74a)]=function(_0xcdc590){const _0x3b9def=_0x2e6bc0,_0x37815b=this[_0x3b9def(0x1e1)](_0xcdc590),_0x4d3a61=this[_0x3b9def(0x269)](_0xcdc590),_0x198af8=this['targetEvaRate'](_0xcdc590);return _0x37815b*(_0x4d3a61-_0x198af8);},VisuMZ[_0x2e6bc0(0x468)]['Game_Action_itemEva']=Game_Action['prototype'][_0x2e6bc0(0x20b)],Game_Action[_0x2e6bc0(0x5e2)]['itemEva']=function(_0x1c8418){const _0x2a541a=_0x2e6bc0;return VisuMZ[_0x2a541a(0x468)][_0x2a541a(0x6ef)][_0x2a541a(0x818)]['ImprovedAccuracySystem']?0x0:VisuMZ[_0x2a541a(0x468)][_0x2a541a(0x7e6)][_0x2a541a(0x895)](this,_0x1c8418);},Game_Action['prototype']['itemSuccessRate']=function(_0xbc65af){const _0x420d87=_0x2e6bc0;return this[_0x420d87(0x118)]()[_0x420d87(0x12b)]*0.01;},Game_Action['prototype'][_0x2e6bc0(0x269)]=function(_0x51fa28){const _0x47c5ed=_0x2e6bc0;if(VisuMZ[_0x47c5ed(0x468)]['Settings'][_0x47c5ed(0x818)][_0x47c5ed(0x213)]&&this[_0x47c5ed(0x806)]())return 0x1;return this[_0x47c5ed(0x701)]()?VisuMZ[_0x47c5ed(0x468)][_0x47c5ed(0x6ef)][_0x47c5ed(0x818)]['AccuracyBoost']&&this['subject']()[_0x47c5ed(0x4fd)]()?this[_0x47c5ed(0x585)]()['hit']+0.05:this[_0x47c5ed(0x585)]()['hit']:0x1;},Game_Action[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2dd)]=function(_0x236b9c){const _0x42ce26=_0x2e6bc0;if(this['subject']()[_0x42ce26(0x4fd)]()===_0x236b9c['isActor']())return 0x0;if(this['isPhysical']())return VisuMZ[_0x42ce26(0x468)][_0x42ce26(0x6ef)][_0x42ce26(0x818)]['AccuracyBoost']&&_0x236b9c['isEnemy']()?_0x236b9c[_0x42ce26(0x6cd)]-0.05:_0x236b9c[_0x42ce26(0x6cd)];else return this[_0x42ce26(0x203)]()?_0x236b9c[_0x42ce26(0x831)]:0x0;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x190)]=Game_Action[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7cc)],Game_Action['prototype']['updateLastTarget']=function(_0x199263){const _0xcf9130=_0x2e6bc0;VisuMZ[_0xcf9130(0x468)][_0xcf9130(0x190)][_0xcf9130(0x895)](this,_0x199263);if(VisuMZ[_0xcf9130(0x468)][_0xcf9130(0x6ef)][_0xcf9130(0x818)][_0xcf9130(0x5ba)])return;const _0x215e0b=_0x199263[_0xcf9130(0x615)]();_0x215e0b[_0xcf9130(0x529)]&&(0x1-this[_0xcf9130(0x20b)](_0x199263)>this[_0xcf9130(0x359)](_0x199263)&&(_0x215e0b[_0xcf9130(0x529)]=![],_0x215e0b['evaded']=!![]));},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6bb)]=Game_BattlerBase['prototype'][_0x2e6bc0(0x37f)],Game_BattlerBase[_0x2e6bc0(0x5e2)]['initMembers']=function(){const _0x4366f9=_0x2e6bc0;this[_0x4366f9(0x155)]={},VisuMZ[_0x4366f9(0x468)]['Game_BattlerBase_initMembers']['call'](this);},VisuMZ['CoreEngine'][_0x2e6bc0(0x11b)]=Game_BattlerBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3bd)],Game_BattlerBase['prototype'][_0x2e6bc0(0x3bd)]=function(){const _0x233bd7=_0x2e6bc0;this[_0x233bd7(0x155)]={},VisuMZ[_0x233bd7(0x468)][_0x233bd7(0x11b)][_0x233bd7(0x895)](this);},Game_BattlerBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x61a)]=function(_0x216f3d){const _0x11b7c9=_0x2e6bc0;return this['_cache']=this[_0x11b7c9(0x155)]||{},this[_0x11b7c9(0x155)][_0x216f3d]!==undefined;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x5ec)]=function(_0xc09dce){const _0x142ab5=_0x2e6bc0;return _0xc09dce=_0xc09dce||'',_0xc09dce='\x20'+_0xc09dce,(VisuMZ['CoreEngine'][_0x142ab5(0x6ef)][_0x142ab5(0x2fc)][_0x142ab5(0x5e4)]??!![])&&(_0xc09dce=_0xc09dce[_0x142ab5(0x20a)](/\s(?:USER|THIS)\.mhp\b/gi,_0x142ab5(0x48a)),_0xc09dce=_0xc09dce[_0x142ab5(0x20a)](/\s(?:USER|THIS)\.mmp\b/gi,_0x142ab5(0x310)),_0xc09dce=_0xc09dce[_0x142ab5(0x20a)](/\s(?:USER|THIS)\.atk\b/gi,_0x142ab5(0x643)),_0xc09dce=_0xc09dce[_0x142ab5(0x20a)](/\s(?:USER|THIS)\.def\b/gi,_0x142ab5(0x389)),_0xc09dce=_0xc09dce['replace'](/\s(?:USER|THIS)\.mat\b/gi,'this.paramBase(4)'),_0xc09dce=_0xc09dce['replace'](/\s(?:USER|THIS)\.mdf\b/gi,_0x142ab5(0x1a7)),_0xc09dce=_0xc09dce[_0x142ab5(0x20a)](/\s(?:USER|THIS)\.agi\b/gi,'this.paramBase(6)'),_0xc09dce=_0xc09dce[_0x142ab5(0x20a)](/\s(?:USER|THIS)\.luk\b/gi,_0x142ab5(0x6a2)),_0xc09dce=_0xc09dce[_0x142ab5(0x20a)](/\s(?:USER|THIS)\.param\(/gi,_0x142ab5(0x225))),_0xc09dce=_0xc09dce['replace'](/\suser\./gi,_0x142ab5(0x456)),_0xc09dce;},Game_BattlerBase[_0x2e6bc0(0x5e2)]['paramPlus']=function(_0xd2f14a){const _0x31c706=_0x2e6bc0,_0x27e0ef=(_0x367267,_0x3a512a)=>{const _0x49e6c3=_0x545e;if(!_0x3a512a)return _0x367267;if(_0x3a512a[_0x49e6c3(0x6a8)][_0x49e6c3(0x298)](VisuMZ[_0x49e6c3(0x468)][_0x49e6c3(0x894)][_0x49e6c3(0x2ac)][_0xd2f14a])){var _0x950a59=Number(RegExp['$1']);_0x367267+=_0x950a59;}if(_0x3a512a['note'][_0x49e6c3(0x298)](VisuMZ[_0x49e6c3(0x468)][_0x49e6c3(0x894)][_0x49e6c3(0x484)][_0xd2f14a])){var _0x4791d2=String(RegExp['$1']);_0x4791d2=VisuMZ[_0x49e6c3(0x468)][_0x49e6c3(0x5ec)](_0x4791d2);try{_0x367267+=eval(_0x4791d2);}catch(_0xb254a1){if($gameTemp[_0x49e6c3(0x2d3)]())console[_0x49e6c3(0x882)](_0xb254a1);}}return _0x367267;};return this[_0x31c706(0x667)]()[_0x31c706(0x4e5)](_0x27e0ef,this['_paramPlus'][_0xd2f14a]);},Game_BattlerBase[_0x2e6bc0(0x5e2)]['paramMax']=function(_0x5f3a44){const _0x422a3c=_0x2e6bc0;var _0x44b0e7=_0x422a3c(0x4bf)+(this[_0x422a3c(0x4fd)]()?_0x422a3c(0x3ee):_0x422a3c(0x35e))+_0x422a3c(0x877)+_0x5f3a44;if(this[_0x422a3c(0x61a)](_0x44b0e7))return this['_cache'][_0x44b0e7];this[_0x422a3c(0x155)][_0x44b0e7]=eval(VisuMZ[_0x422a3c(0x468)][_0x422a3c(0x6ef)][_0x422a3c(0x2fc)][_0x44b0e7]);const _0x187f86=(_0x9cc426,_0x80f54f)=>{const _0x594c50=_0x422a3c;if(!_0x80f54f)return _0x9cc426;if(_0x80f54f[_0x594c50(0x6a8)][_0x594c50(0x298)](VisuMZ[_0x594c50(0x468)]['RegExp']['paramMax'][_0x5f3a44])){var _0x7beee2=Number(RegExp['$1']);if(_0x7beee2===0x0)_0x7beee2=Number[_0x594c50(0x50b)];_0x9cc426=Math[_0x594c50(0x56f)](_0x9cc426,_0x7beee2);}if(_0x80f54f[_0x594c50(0x6a8)][_0x594c50(0x298)](VisuMZ[_0x594c50(0x468)]['RegExp'][_0x594c50(0x486)][_0x5f3a44])){var _0x460776=String(RegExp['$1']);_0x460776=VisuMZ[_0x594c50(0x468)][_0x594c50(0x5ec)](_0x460776);try{_0x9cc426=Math[_0x594c50(0x56f)](_0x9cc426,Number(eval(_0x460776)));}catch(_0x23b0fb){if($gameTemp['isPlaytest']())console[_0x594c50(0x882)](_0x23b0fb);}}return _0x9cc426;};if(this[_0x422a3c(0x155)][_0x44b0e7]===0x0)this[_0x422a3c(0x155)][_0x44b0e7]=Number[_0x422a3c(0x50b)];return this[_0x422a3c(0x155)][_0x44b0e7]=this[_0x422a3c(0x667)]()[_0x422a3c(0x4e5)](_0x187f86,this[_0x422a3c(0x155)][_0x44b0e7]),this[_0x422a3c(0x155)][_0x44b0e7];},Game_BattlerBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1ac)]=function(_0x489ffb){const _0x6146c=_0x2e6bc0,_0x49087c=this[_0x6146c(0x686)](Game_BattlerBase['TRAIT_PARAM'],_0x489ffb),_0x3d17a0=(_0x4e93bd,_0x22e8a0)=>{const _0x3fa855=_0x6146c;if(!_0x22e8a0)return _0x4e93bd;if(_0x22e8a0[_0x3fa855(0x6a8)][_0x3fa855(0x298)](VisuMZ['CoreEngine'][_0x3fa855(0x894)]['paramRate1'][_0x489ffb])){var _0x1253ab=Number(RegExp['$1'])/0x64;_0x4e93bd*=_0x1253ab;}if(_0x22e8a0[_0x3fa855(0x6a8)][_0x3fa855(0x298)](VisuMZ[_0x3fa855(0x468)][_0x3fa855(0x894)][_0x3fa855(0x256)][_0x489ffb])){var _0x1253ab=Number(RegExp['$1']);_0x4e93bd*=_0x1253ab;}if(_0x22e8a0[_0x3fa855(0x6a8)][_0x3fa855(0x298)](VisuMZ[_0x3fa855(0x468)][_0x3fa855(0x894)][_0x3fa855(0x1fd)][_0x489ffb])){var _0x15980a=String(RegExp['$1']);_0x15980a=VisuMZ[_0x3fa855(0x468)][_0x3fa855(0x5ec)](_0x15980a);try{_0x4e93bd*=eval(_0x15980a);}catch(_0x1757a4){if($gameTemp[_0x3fa855(0x2d3)]())console[_0x3fa855(0x882)](_0x1757a4);}}return _0x4e93bd;};return this[_0x6146c(0x667)]()[_0x6146c(0x4e5)](_0x3d17a0,_0x49087c);},Game_BattlerBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x264)]=function(_0x10f66f){const _0x3c1980=_0x2e6bc0,_0xc8dab0=(_0x431eb1,_0x301d78)=>{const _0x446094=_0x545e;if(!_0x301d78)return _0x431eb1;if(_0x301d78[_0x446094(0x6a8)][_0x446094(0x298)](VisuMZ[_0x446094(0x468)][_0x446094(0x894)]['paramFlat'][_0x10f66f])){var _0x598e83=Number(RegExp['$1']);_0x431eb1+=_0x598e83;}if(_0x301d78['note'][_0x446094(0x298)](VisuMZ[_0x446094(0x468)][_0x446094(0x894)][_0x446094(0x863)][_0x10f66f])){var _0x263c95=String(RegExp['$1']);_0x263c95=VisuMZ[_0x446094(0x468)][_0x446094(0x5ec)](_0x263c95);try{_0x431eb1+=eval(_0x263c95);}catch(_0x4cce50){if($gameTemp['isPlaytest']())console[_0x446094(0x882)](_0x4cce50);}}return _0x431eb1;};return this[_0x3c1980(0x667)]()[_0x3c1980(0x4e5)](_0xc8dab0,0x0);},Game_BattlerBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x85c)]=function(_0x5011fe){const _0x3b4378=_0x2e6bc0;let _0x505007='param'+_0x5011fe+_0x3b4378(0x495);if(this[_0x3b4378(0x61a)](_0x505007))return this[_0x3b4378(0x155)][_0x505007];return this[_0x3b4378(0x155)][_0x505007]=Math[_0x3b4378(0x897)](VisuMZ[_0x3b4378(0x468)][_0x3b4378(0x6ef)][_0x3b4378(0x2fc)][_0x3b4378(0x259)][_0x3b4378(0x895)](this,_0x5011fe)),this[_0x3b4378(0x155)][_0x505007];},Game_BattlerBase['prototype'][_0x2e6bc0(0x80e)]=function(_0x5a63e9){const _0x29f6e9=(_0x218033,_0x2edff9)=>{const _0x888084=_0x545e;if(!_0x2edff9)return _0x218033;if(_0x2edff9[_0x888084(0x6a8)][_0x888084(0x298)](VisuMZ[_0x888084(0x468)][_0x888084(0x894)][_0x888084(0x79c)][_0x5a63e9])){var _0x21bf93=Number(RegExp['$1'])/0x64;_0x218033+=_0x21bf93;}if(_0x2edff9['note'][_0x888084(0x298)](VisuMZ[_0x888084(0x468)]['RegExp'][_0x888084(0x499)][_0x5a63e9])){var _0x21bf93=Number(RegExp['$1']);_0x218033+=_0x21bf93;}if(_0x2edff9[_0x888084(0x6a8)][_0x888084(0x298)](VisuMZ[_0x888084(0x468)]['RegExp'][_0x888084(0x51b)][_0x5a63e9])){var _0x8c302c=String(RegExp['$1']);_0x8c302c=VisuMZ[_0x888084(0x468)]['JsReplaceUserVar'](_0x8c302c);try{_0x218033+=eval(_0x8c302c);}catch(_0x4fcaee){if($gameTemp[_0x888084(0x2d3)]())console[_0x888084(0x882)](_0x4fcaee);}}return _0x218033;};return this['traitObjects']()['reduce'](_0x29f6e9,0x0);},Game_BattlerBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6d2)]=function(_0x119c57){const _0x283ac6=_0x2e6bc0,_0x3ced98=(_0x5262ba,_0x13e090)=>{const _0x1b434b=_0x545e;if(!_0x13e090)return _0x5262ba;if(_0x13e090[_0x1b434b(0x6a8)]['match'](VisuMZ[_0x1b434b(0x468)]['RegExp']['xparamRate1'][_0x119c57])){var _0x3fd207=Number(RegExp['$1'])/0x64;_0x5262ba*=_0x3fd207;}if(_0x13e090[_0x1b434b(0x6a8)][_0x1b434b(0x298)](VisuMZ[_0x1b434b(0x468)][_0x1b434b(0x894)]['xparamRate2'][_0x119c57])){var _0x3fd207=Number(RegExp['$1']);_0x5262ba*=_0x3fd207;}if(_0x13e090['note']['match'](VisuMZ[_0x1b434b(0x468)]['RegExp'][_0x1b434b(0x825)][_0x119c57])){var _0x40c7fe=String(RegExp['$1']);_0x40c7fe=VisuMZ['CoreEngine'][_0x1b434b(0x5ec)](_0x40c7fe);try{_0x5262ba*=eval(_0x40c7fe);}catch(_0x14dc50){if($gameTemp[_0x1b434b(0x2d3)]())console['log'](_0x14dc50);}}return _0x5262ba;};return this[_0x283ac6(0x667)]()[_0x283ac6(0x4e5)](_0x3ced98,0x1);},Game_BattlerBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5c7)]=function(_0x2e89bc){const _0x270db1=_0x2e6bc0,_0x34261f=(_0x3e22ba,_0x322ad6)=>{const _0x34e085=_0x545e;if(!_0x322ad6)return _0x3e22ba;if(_0x322ad6[_0x34e085(0x6a8)][_0x34e085(0x298)](VisuMZ[_0x34e085(0x468)][_0x34e085(0x894)][_0x34e085(0x37b)][_0x2e89bc])){var _0x17cc1c=Number(RegExp['$1'])/0x64;_0x3e22ba+=_0x17cc1c;}if(_0x322ad6['note'][_0x34e085(0x298)](VisuMZ[_0x34e085(0x468)][_0x34e085(0x894)]['xparamFlat2'][_0x2e89bc])){var _0x17cc1c=Number(RegExp['$1']);_0x3e22ba+=_0x17cc1c;}if(_0x322ad6[_0x34e085(0x6a8)][_0x34e085(0x298)](VisuMZ[_0x34e085(0x468)]['RegExp'][_0x34e085(0x28c)][_0x2e89bc])){var _0x32268d=String(RegExp['$1']);_0x32268d=VisuMZ['CoreEngine'][_0x34e085(0x5ec)](_0x32268d);try{_0x3e22ba+=eval(_0x32268d);}catch(_0x53c4cf){if($gameTemp['isPlaytest']())console[_0x34e085(0x882)](_0x53c4cf);}}return _0x3e22ba;};return this[_0x270db1(0x667)]()[_0x270db1(0x4e5)](_0x34261f,0x0);},Game_BattlerBase[_0x2e6bc0(0x5e2)]['xparam']=function(_0x4acff5){const _0x35e7ea=_0x2e6bc0;let _0x569f76=_0x35e7ea(0x265)+_0x4acff5+'Total';if(this[_0x35e7ea(0x61a)](_0x569f76))return this[_0x35e7ea(0x155)][_0x569f76];return this['_cache'][_0x569f76]=VisuMZ[_0x35e7ea(0x468)][_0x35e7ea(0x6ef)][_0x35e7ea(0x2fc)][_0x35e7ea(0x30d)][_0x35e7ea(0x895)](this,_0x4acff5),this[_0x35e7ea(0x155)][_0x569f76];},Game_BattlerBase['prototype'][_0x2e6bc0(0x2c0)]=function(_0xe015a){const _0x15b66a=_0x2e6bc0,_0xe3bed4=(_0x44a6b8,_0x479a0a)=>{const _0x1a7e55=_0x545e;if(!_0x479a0a)return _0x44a6b8;if(_0x479a0a['note'][_0x1a7e55(0x298)](VisuMZ[_0x1a7e55(0x468)]['RegExp'][_0x1a7e55(0x302)][_0xe015a])){var _0x2035aa=Number(RegExp['$1'])/0x64;_0x44a6b8+=_0x2035aa;}if(_0x479a0a[_0x1a7e55(0x6a8)][_0x1a7e55(0x298)](VisuMZ['CoreEngine'][_0x1a7e55(0x894)][_0x1a7e55(0x304)][_0xe015a])){var _0x2035aa=Number(RegExp['$1']);_0x44a6b8+=_0x2035aa;}if(_0x479a0a[_0x1a7e55(0x6a8)]['match'](VisuMZ['CoreEngine'][_0x1a7e55(0x894)]['sparamPlusJS'][_0xe015a])){var _0x5dd42c=String(RegExp['$1']);_0x5dd42c=VisuMZ[_0x1a7e55(0x468)]['JsReplaceUserVar'](_0x5dd42c);try{_0x44a6b8+=eval(_0x5dd42c);}catch(_0x26495e){if($gameTemp[_0x1a7e55(0x2d3)]())console[_0x1a7e55(0x882)](_0x26495e);}}return _0x44a6b8;};return this['traitObjects']()[_0x15b66a(0x4e5)](_0xe3bed4,0x0);},Game_BattlerBase[_0x2e6bc0(0x5e2)]['sparamRate']=function(_0x63b66d){const _0x239d95=_0x2e6bc0,_0x304941=(_0x87ea15,_0x4311e9)=>{const _0x3e97b6=_0x545e;if(!_0x4311e9)return _0x87ea15;if(_0x4311e9[_0x3e97b6(0x6a8)][_0x3e97b6(0x298)](VisuMZ[_0x3e97b6(0x468)]['RegExp'][_0x3e97b6(0x4ca)][_0x63b66d])){var _0x1e482e=Number(RegExp['$1'])/0x64;_0x87ea15*=_0x1e482e;}if(_0x4311e9[_0x3e97b6(0x6a8)][_0x3e97b6(0x298)](VisuMZ[_0x3e97b6(0x468)]['RegExp'][_0x3e97b6(0x640)][_0x63b66d])){var _0x1e482e=Number(RegExp['$1']);_0x87ea15*=_0x1e482e;}if(_0x4311e9[_0x3e97b6(0x6a8)][_0x3e97b6(0x298)](VisuMZ['CoreEngine'][_0x3e97b6(0x894)]['sparamRateJS'][_0x63b66d])){var _0x35af3f=String(RegExp['$1']);_0x35af3f=VisuMZ['CoreEngine']['JsReplaceUserVar'](_0x35af3f);try{_0x87ea15*=eval(_0x35af3f);}catch(_0x105235){if($gameTemp[_0x3e97b6(0x2d3)]())console[_0x3e97b6(0x882)](_0x105235);}}return _0x87ea15;};return this[_0x239d95(0x667)]()['reduce'](_0x304941,0x1);},Game_BattlerBase['prototype']['sparamFlatBonus']=function(_0x3cfcde){const _0x5cd958=_0x2e6bc0,_0x53e38d=(_0xed7a2d,_0x4ade04)=>{const _0x12a4dd=_0x545e;if(!_0x4ade04)return _0xed7a2d;if(_0x4ade04['note'][_0x12a4dd(0x298)](VisuMZ[_0x12a4dd(0x468)]['RegExp'][_0x12a4dd(0x547)][_0x3cfcde])){var _0x25bc7e=Number(RegExp['$1'])/0x64;_0xed7a2d+=_0x25bc7e;}if(_0x4ade04[_0x12a4dd(0x6a8)]['match'](VisuMZ[_0x12a4dd(0x468)][_0x12a4dd(0x894)]['sparamFlat2'][_0x3cfcde])){var _0x25bc7e=Number(RegExp['$1']);_0xed7a2d+=_0x25bc7e;}if(_0x4ade04[_0x12a4dd(0x6a8)][_0x12a4dd(0x298)](VisuMZ[_0x12a4dd(0x468)][_0x12a4dd(0x894)][_0x12a4dd(0x3b3)][_0x3cfcde])){var _0x5e3fce=String(RegExp['$1']);_0x5e3fce=VisuMZ[_0x12a4dd(0x468)][_0x12a4dd(0x5ec)](_0x5e3fce);try{_0xed7a2d+=eval(_0x5e3fce);}catch(_0x97f15b){if($gameTemp['isPlaytest']())console[_0x12a4dd(0x882)](_0x97f15b);}}return _0xed7a2d;};return this[_0x5cd958(0x667)]()[_0x5cd958(0x4e5)](_0x53e38d,0x0);},Game_BattlerBase[_0x2e6bc0(0x5e2)]['sparam']=function(_0x15e14d){const _0x1fa438=_0x2e6bc0;let _0x2b20bc=_0x1fa438(0x500)+_0x15e14d+_0x1fa438(0x495);if(this[_0x1fa438(0x61a)](_0x2b20bc))return this['_cache'][_0x2b20bc];return this['_cache'][_0x2b20bc]=VisuMZ[_0x1fa438(0x468)][_0x1fa438(0x6ef)][_0x1fa438(0x2fc)][_0x1fa438(0x2a0)][_0x1fa438(0x895)](this,_0x15e14d),this[_0x1fa438(0x155)][_0x2b20bc];},Game_BattlerBase['prototype'][_0x2e6bc0(0x403)]=function(_0x436ad5,_0xf1d375){const _0x31f064=_0x2e6bc0;if(typeof paramId==='number')return this[_0x31f064(0x85c)](_0x436ad5);_0x436ad5=String(_0x436ad5||'')[_0x31f064(0x63e)]();if(_0x436ad5===_0x31f064(0x4a4))return this[_0x31f064(0x85c)](0x0);if(_0x436ad5===_0x31f064(0x1e9))return this[_0x31f064(0x85c)](0x1);if(_0x436ad5===_0x31f064(0x5e3))return this[_0x31f064(0x85c)](0x2);if(_0x436ad5===_0x31f064(0x227))return this[_0x31f064(0x85c)](0x3);if(_0x436ad5===_0x31f064(0x149))return this['param'](0x4);if(_0x436ad5===_0x31f064(0x34d))return this[_0x31f064(0x85c)](0x5);if(_0x436ad5===_0x31f064(0x670))return this[_0x31f064(0x85c)](0x6);if(_0x436ad5===_0x31f064(0x853))return this[_0x31f064(0x85c)](0x7);if(_0x436ad5==='HIT')return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x265)](0x0)*0x64))+'%':this[_0x31f064(0x265)](0x0);if(_0x436ad5===_0x31f064(0x231))return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x265)](0x1)*0x64))+'%':this['xparam'](0x1);if(_0x436ad5===_0x31f064(0x2ba))return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x265)](0x2)*0x64))+'%':this['xparam'](0x2);if(_0x436ad5==='CEV')return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x265)](0x3)*0x64))+'%':this[_0x31f064(0x265)](0x3);if(_0x436ad5===_0x31f064(0x7e4))return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x265)](0x4)*0x64))+'%':this['xparam'](0x4);if(_0x436ad5==='MRF')return _0xf1d375?String(Math[_0x31f064(0x897)](this['xparam'](0x5)*0x64))+'%':this['xparam'](0x5);if(_0x436ad5==='CNT')return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x265)](0x6)*0x64))+'%':this[_0x31f064(0x265)](0x6);if(_0x436ad5===_0x31f064(0x197))return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x265)](0x7)*0x64))+'%':this[_0x31f064(0x265)](0x7);if(_0x436ad5===_0x31f064(0x217))return _0xf1d375?String(Math['round'](this[_0x31f064(0x265)](0x8)*0x64))+'%':this['xparam'](0x8);if(_0x436ad5===_0x31f064(0x373))return _0xf1d375?String(Math['round'](this[_0x31f064(0x265)](0x9)*0x64))+'%':this[_0x31f064(0x265)](0x9);if(_0x436ad5==='TGR')return _0xf1d375?String(Math['round'](this['sparam'](0x0)*0x64))+'%':this[_0x31f064(0x500)](0x0);if(_0x436ad5===_0x31f064(0x411))return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x500)](0x1)*0x64))+'%':this[_0x31f064(0x500)](0x1);if(_0x436ad5==='REC')return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x500)](0x2)*0x64))+'%':this['sparam'](0x2);if(_0x436ad5===_0x31f064(0x8c2))return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x500)](0x3)*0x64))+'%':this[_0x31f064(0x500)](0x3);if(_0x436ad5===_0x31f064(0x79b))return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x500)](0x4)*0x64))+'%':this[_0x31f064(0x500)](0x4);if(_0x436ad5===_0x31f064(0x3ef))return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x500)](0x5)*0x64))+'%':this[_0x31f064(0x500)](0x5);if(_0x436ad5==='PDR')return _0xf1d375?String(Math[_0x31f064(0x897)](this['sparam'](0x6)*0x64))+'%':this[_0x31f064(0x500)](0x6);if(_0x436ad5==='MDR')return _0xf1d375?String(Math['round'](this[_0x31f064(0x500)](0x7)*0x64))+'%':this['sparam'](0x7);if(_0x436ad5===_0x31f064(0x587))return _0xf1d375?String(Math[_0x31f064(0x897)](this[_0x31f064(0x500)](0x8)*0x64))+'%':this[_0x31f064(0x500)](0x8);if(_0x436ad5===_0x31f064(0x312))return _0xf1d375?String(Math['round'](this[_0x31f064(0x500)](0x9)*0x64))+'%':this['sparam'](0x9);if(VisuMZ[_0x31f064(0x468)][_0x31f064(0x479)][_0x436ad5]){const _0x5d71ec=VisuMZ['CoreEngine'][_0x31f064(0x479)][_0x436ad5],_0x4527e8=this[_0x5d71ec];return VisuMZ['CoreEngine'][_0x31f064(0xf3)][_0x436ad5]===_0x31f064(0x11d)?_0x4527e8:_0xf1d375?String(Math[_0x31f064(0x897)](_0x4527e8*0x64))+'%':_0x4527e8;}return'';},Game_BattlerBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x337)]=function(){const _0x388b4e=_0x2e6bc0;return this[_0x388b4e(0x351)]()&&this[_0x388b4e(0xef)]<this[_0x388b4e(0x1cd)]*VisuMZ[_0x388b4e(0x468)]['Settings'][_0x388b4e(0x2fc)][_0x388b4e(0x1bd)];},Game_Battler[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x241)]=function(){const _0x3b2188=_0x2e6bc0;SoundManager['playMiss'](),this[_0x3b2188(0x18f)]('evade');},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x183)]=Game_Actor[_0x2e6bc0(0x5e2)]['paramBase'],Game_Actor['prototype'][_0x2e6bc0(0x85a)]=function(_0x45cacc){const _0x1d9a30=_0x2e6bc0;if(this[_0x1d9a30(0x4c0)]>0x63)return this[_0x1d9a30(0xe3)](_0x45cacc);return VisuMZ[_0x1d9a30(0x468)][_0x1d9a30(0x183)][_0x1d9a30(0x895)](this,_0x45cacc);},Game_Actor[_0x2e6bc0(0x5e2)][_0x2e6bc0(0xe3)]=function(_0x339995){const _0xb60f71=_0x2e6bc0,_0x1522e6=this[_0xb60f71(0x7cd)]()[_0xb60f71(0x4e6)][_0x339995][0x63],_0x44f674=this[_0xb60f71(0x7cd)]()[_0xb60f71(0x4e6)][_0x339995][0x62];return _0x1522e6+(_0x1522e6-_0x44f674)*(this['level']-0x63);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x74b)]=Game_Actor['prototype'][_0x2e6bc0(0x562)],Game_Actor[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x562)]=function(_0x392015,_0x2acff5){const _0xb540aa=_0x2e6bc0;$gameTemp['_changingClass']=!![],VisuMZ[_0xb540aa(0x468)][_0xb540aa(0x74b)][_0xb540aa(0x895)](this,_0x392015,_0x2acff5),$gameTemp['_changingClass']=undefined;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x288)]=Game_Actor[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6cb)],Game_Actor['prototype'][_0x2e6bc0(0x6cb)]=function(){const _0xa2173c=_0x2e6bc0;VisuMZ[_0xa2173c(0x468)][_0xa2173c(0x288)][_0xa2173c(0x895)](this);if(!$gameTemp['_changingClass'])this[_0xa2173c(0x693)]();},Game_Actor[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x693)]=function(){const _0x2877d3=_0x2e6bc0;this[_0x2877d3(0x155)]={};if(VisuMZ[_0x2877d3(0x468)][_0x2877d3(0x6ef)][_0x2877d3(0x818)]['LevelUpFullHp'])this[_0x2877d3(0xef)]=this[_0x2877d3(0x1cd)];if(VisuMZ[_0x2877d3(0x468)][_0x2877d3(0x6ef)][_0x2877d3(0x818)]['LevelUpFullMp'])this[_0x2877d3(0x7f2)]=this['mmp'];},Game_Actor['prototype']['expRate']=function(){const _0x542c05=_0x2e6bc0;if(this[_0x542c05(0x424)]())return 0x1;const _0x21f210=this[_0x542c05(0x22f)]()-this['currentLevelExp'](),_0x323906=this[_0x542c05(0x3e1)]()-this[_0x542c05(0x5f4)]();return(_0x323906/_0x21f210)[_0x542c05(0x2eb)](0x0,0x1);},Game_Actor[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x667)]=function(){const _0x528069=_0x2e6bc0,_0x36fe15=Game_Battler[_0x528069(0x5e2)][_0x528069(0x667)][_0x528069(0x895)](this);for(const _0xf5aa40 of this[_0x528069(0x4bd)]()){_0xf5aa40&&_0x36fe15[_0x528069(0x16c)](_0xf5aa40);}return _0x36fe15[_0x528069(0x16c)](this[_0x528069(0x7cd)](),this[_0x528069(0x780)]()),_0x36fe15;},VisuMZ[_0x2e6bc0(0x468)]['Game_Actor_isPreserveTp']=Game_Actor['prototype']['isPreserveTp'],Game_Actor[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1d9)]=function(){const _0x3dbcfa=_0x2e6bc0;if(!$gameParty[_0x3dbcfa(0x3f6)]())return!![];return VisuMZ[_0x3dbcfa(0x468)][_0x3dbcfa(0x3b4)][_0x3dbcfa(0x895)](this);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x7d5)]=Game_Unit['prototype'][_0x2e6bc0(0x18d)],Game_Unit[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x18d)]=function(_0x39a6d2){const _0x16bc24=_0x2e6bc0;this[_0x16bc24(0x730)]=!![],VisuMZ['CoreEngine']['Game_Unit_onBattleStart'][_0x16bc24(0x895)](this,_0x39a6d2);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x444)]=Game_Unit[_0x2e6bc0(0x5e2)]['onBattleEnd'],Game_Unit[_0x2e6bc0(0x5e2)]['onBattleEnd']=function(){const _0x5ceee1=_0x2e6bc0;for(const _0x1613cc of this['members']()){_0x1613cc&&!_0x1613cc[_0x5ceee1(0x1d9)]()&&_0x1613cc[_0x5ceee1(0x89b)]();}VisuMZ[_0x5ceee1(0x468)][_0x5ceee1(0x444)][_0x5ceee1(0x895)](this);},Object[_0x2e6bc0(0x738)](Game_Enemy[_0x2e6bc0(0x5e2)],_0x2e6bc0(0x4c0),{'get':function(){const _0x4fdbbd=_0x2e6bc0;return this[_0x4fdbbd(0x4cf)]();},'configurable':!![]}),Game_Enemy[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x4cf)]=function(){const _0xdabf8e=_0x2e6bc0;return this[_0xdabf8e(0x8b1)]()['level'];},Game_Enemy[_0x2e6bc0(0x5e2)][_0x2e6bc0(0xff)]=function(){const _0x523c37=_0x2e6bc0;!this[_0x523c37(0x356)]&&(this[_0x523c37(0x3db)]+=Math[_0x523c37(0x897)]((Graphics['height']-0x270)/0x2),this[_0x523c37(0x3db)]-=Math[_0x523c37(0x3ff)]((Graphics[_0x523c37(0x689)]-Graphics[_0x523c37(0x849)])/0x2),$gameSystem['isSideView']()?this[_0x523c37(0x6b6)]-=Math[_0x523c37(0x3ff)]((Graphics['width']-Graphics[_0x523c37(0x2b2)])/0x2):this['_screenX']+=Math['round']((Graphics['boxWidth']-0x330)/0x2)),this[_0x523c37(0x356)]=!![];},Game_Party['prototype'][_0x2e6bc0(0x2b4)]=function(){const _0x364daf=_0x2e6bc0;return VisuMZ['CoreEngine'][_0x364daf(0x6ef)][_0x364daf(0x211)][_0x364daf(0x623)];},VisuMZ['CoreEngine']['Game_Party_consumeItem']=Game_Party['prototype']['consumeItem'],Game_Party[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2c1)]=function(_0x48fd68){const _0x1205ef=_0x2e6bc0;if(VisuMZ[_0x1205ef(0x468)][_0x1205ef(0x6ef)]['QoL'][_0x1205ef(0x178)]&&DataManager['isKeyItem'](_0x48fd68))return;VisuMZ[_0x1205ef(0x468)][_0x1205ef(0x626)][_0x1205ef(0x895)](this,_0x48fd68);},Game_Party[_0x2e6bc0(0x5e2)]['setupBattleTestItems']=function(){const _0x1350c2=_0x2e6bc0,_0x3f28e7=VisuMZ[_0x1350c2(0x468)][_0x1350c2(0x6ef)]['QoL'],_0x388739=_0x3f28e7[_0x1350c2(0x672)]??0x63;let _0x5bd308=[];(_0x3f28e7[_0x1350c2(0x408)]??!![])&&(_0x5bd308=_0x5bd308['concat']($dataItems));(_0x3f28e7['BTestWeapons']??!![])&&(_0x5bd308=_0x5bd308[_0x1350c2(0x720)]($dataWeapons));(_0x3f28e7[_0x1350c2(0x238)]??!![])&&(_0x5bd308=_0x5bd308['concat']($dataArmors));for(const _0x2a158d of _0x5bd308){if(!_0x2a158d)continue;if(_0x2a158d[_0x1350c2(0x3d0)]['trim']()<=0x0)continue;if(_0x2a158d['name'][_0x1350c2(0x298)](/-----/i))continue;this[_0x1350c2(0x189)](_0x2a158d,_0x388739);}},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x550)]=Game_Troop[_0x2e6bc0(0x5e2)]['setup'],Game_Troop[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x274)]=function(_0x9c9e9a){const _0x4c679a=_0x2e6bc0;$gameTemp[_0x4c679a(0x81f)](),$gameTemp['applyForcedGameTroopSettingsCoreEngine'](_0x9c9e9a),VisuMZ[_0x4c679a(0x468)][_0x4c679a(0x550)]['call'](this,_0x9c9e9a);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x3cf)]=Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x274)],Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x274)]=function(_0x2a25c2){const _0x4f736d=_0x2e6bc0;VisuMZ[_0x4f736d(0x468)][_0x4f736d(0x3cf)]['call'](this,_0x2a25c2),this[_0x4f736d(0x192)](),this[_0x4f736d(0x769)](_0x2a25c2),this['setupTileExtendTerrainTags']();},Game_Map['prototype'][_0x2e6bc0(0x769)]=function(){const _0x2c1083=_0x2e6bc0;this[_0x2c1083(0x1f4)]=VisuMZ[_0x2c1083(0x468)]['Settings'][_0x2c1083(0x818)][_0x2c1083(0x8a7)]||![];const _0x48ab7a=VisuMZ[_0x2c1083(0x468)][_0x2c1083(0x6ef)][_0x2c1083(0x2bb)],_0x17d80b=$dataMap?$dataMap[_0x2c1083(0x6a8)]||'':'';if(_0x17d80b['match'](/<SHOW TILE SHADOWS>/i))this[_0x2c1083(0x1f4)]=![];else _0x17d80b[_0x2c1083(0x298)](/<HIDE TILE SHADOWS>/i)&&(this[_0x2c1083(0x1f4)]=!![]);if(_0x17d80b[_0x2c1083(0x298)](/<SCROLL LOCK X>/i))this[_0x2c1083(0x739)]()[_0x2c1083(0x123)]=!![],this['centerCameraCheckData']()[_0x2c1083(0x1af)]=_0x48ab7a[_0x2c1083(0x6c6)];else _0x17d80b['match'](/<SCROLL LOCK X: (.*?)>/i)&&(this[_0x2c1083(0x739)]()[_0x2c1083(0x123)]=!![],this[_0x2c1083(0x739)]()[_0x2c1083(0x1af)]=Number(RegExp['$1']));if(_0x17d80b[_0x2c1083(0x298)](/<SCROLL LOCK Y>/i))this[_0x2c1083(0x739)]()[_0x2c1083(0x379)]=!![],this[_0x2c1083(0x739)]()['displayY']=_0x48ab7a[_0x2c1083(0x420)];else _0x17d80b[_0x2c1083(0x298)](/<SCROLL LOCK Y: (.*?)>/i)&&(this[_0x2c1083(0x739)]()['centerY']=!![],this[_0x2c1083(0x739)]()[_0x2c1083(0x7ac)]=Number(RegExp['$1']));},Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x690)]=function(){const _0x7acd8e=_0x2e6bc0;if(this[_0x7acd8e(0x1f4)]===undefined)this['setupCoreEngine']();return this['_hideTileShadows'];},Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x192)]=function(){const _0x15426d=_0x2e6bc0,_0x363edc=VisuMZ[_0x15426d(0x468)][_0x15426d(0x6ef)]['ScreenResolution'];this[_0x15426d(0x12c)]={'centerX':![],'centerY':![],'displayX':0x0,'displayY':0x0};if(_0x363edc[_0x15426d(0x294)]){const _0x2514cb=Graphics[_0x15426d(0x746)]/this[_0x15426d(0x363)]();_0x2514cb%0x1!==0x0&&Math[_0x15426d(0x539)](_0x2514cb)===this[_0x15426d(0x746)]()&&!this[_0x15426d(0x728)]()&&(this[_0x15426d(0x12c)][_0x15426d(0x123)]=!![],this[_0x15426d(0x12c)]['displayX']=_0x363edc['DisplayLockX']||0x0);}if(_0x363edc[_0x15426d(0x89f)]){const _0x4d36da=Graphics[_0x15426d(0x689)]/this[_0x15426d(0x5f7)]();_0x4d36da%0x1!==0x0&&Math[_0x15426d(0x539)](_0x4d36da)===this[_0x15426d(0x689)]()&&!this['isLoopVertical']()&&(this[_0x15426d(0x12c)][_0x15426d(0x379)]=!![],this[_0x15426d(0x12c)]['displayY']=_0x363edc[_0x15426d(0x420)]||0x0);}$gameScreen[_0x15426d(0x723)]()===0x1&&(this[_0x15426d(0x739)]()[_0x15426d(0x123)]&&(this[_0x15426d(0x4f1)]=this[_0x15426d(0x739)]()[_0x15426d(0x1af)]),this[_0x15426d(0x739)]()['centerY']&&(this['_displayY']=this[_0x15426d(0x739)]()[_0x15426d(0x7ac)]));},VisuMZ[_0x2e6bc0(0x468)]['Game_Map_setDisplayPos']=Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5f8)],Game_Map[_0x2e6bc0(0x5e2)]['setDisplayPos']=function(_0x4cca87,_0x2b64d7){const _0x122db6=_0x2e6bc0;VisuMZ[_0x122db6(0x468)]['Game_Map_setDisplayPos'][_0x122db6(0x895)](this,_0x4cca87,_0x2b64d7),$gameScreen['zoomScale']()===0x1&&(!this[_0x122db6(0x728)]()&&this[_0x122db6(0x739)]()[_0x122db6(0x123)]&&(this[_0x122db6(0x4f1)]=this['centerCameraCheckData']()[_0x122db6(0x1af)]),!this[_0x122db6(0x400)]()&&this[_0x122db6(0x739)]()[_0x122db6(0x379)]&&(this[_0x122db6(0x35a)]=this['centerCameraCheckData']()[_0x122db6(0x7ac)]));},Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x739)]=function(){const _0x4d7538=_0x2e6bc0;if(this['_centerCameraCheck']===undefined)this[_0x4d7538(0x192)]();return this['_centerCameraCheck'];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x173)]=Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2bd)],Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2bd)]=function(_0x43bab7){const _0x4d5d98=_0x2e6bc0;if(this[_0x4d5d98(0x739)]()[_0x4d5d98(0x379)]&&$gameScreen[_0x4d5d98(0x723)]()===0x1){this[_0x4d5d98(0x35a)]=this[_0x4d5d98(0x739)]()[_0x4d5d98(0x7ac)];return;}VisuMZ[_0x4d5d98(0x468)]['Game_Map_scrollDown'][_0x4d5d98(0x895)](this,_0x43bab7);},VisuMZ[_0x2e6bc0(0x468)]['Game_Map_scrollLeft']=Game_Map[_0x2e6bc0(0x5e2)]['scrollLeft'],Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x198)]=function(_0xb6af62){const _0x29bb3c=_0x2e6bc0;if(this[_0x29bb3c(0x739)]()[_0x29bb3c(0x123)]&&$gameScreen[_0x29bb3c(0x723)]()===0x1){this[_0x29bb3c(0x4f1)]=this[_0x29bb3c(0x739)]()[_0x29bb3c(0x1af)];return;}VisuMZ[_0x29bb3c(0x468)][_0x29bb3c(0x2aa)][_0x29bb3c(0x895)](this,_0xb6af62);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0xfd)]=Game_Map['prototype']['scrollRight'],Game_Map[_0x2e6bc0(0x5e2)]['scrollRight']=function(_0xe864ab){const _0x21b0b4=_0x2e6bc0;if(this[_0x21b0b4(0x739)]()[_0x21b0b4(0x123)]&&$gameScreen[_0x21b0b4(0x723)]()===0x1){this[_0x21b0b4(0x4f1)]=this[_0x21b0b4(0x739)]()['displayX'];return;}VisuMZ[_0x21b0b4(0x468)][_0x21b0b4(0xfd)][_0x21b0b4(0x895)](this,_0xe864ab);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x175)]=Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x243)],Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x243)]=function(_0x262201){const _0x3c77f9=_0x2e6bc0;if(this[_0x3c77f9(0x739)]()[_0x3c77f9(0x379)]&&$gameScreen[_0x3c77f9(0x723)]()===0x1){this[_0x3c77f9(0x35a)]=this[_0x3c77f9(0x739)]()[_0x3c77f9(0x7ac)];return;}VisuMZ[_0x3c77f9(0x468)][_0x3c77f9(0x175)][_0x3c77f9(0x895)](this,_0x262201);},Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x72d)]=function(){const _0x2fd7e9=_0x2e6bc0;this[_0x2fd7e9(0x563)]={};const _0x3d3393=this[_0x2fd7e9(0x6be)]();if(!_0x3d3393)return{};const _0x4c3478=_0x3d3393['note']||'',_0x481a03=/<(?:TALLER|EXT|EXTEND|RAISE)[ ]BY[ ](\d+):[ ](.*)>/gi;let _0x18bf32={};const _0x35f2eb=_0x4c3478[_0x2fd7e9(0x298)](_0x481a03);if(_0x35f2eb)for(const _0x5c1120 of _0x35f2eb){_0x5c1120[_0x2fd7e9(0x298)](_0x481a03);const _0x22862e=Number(RegExp['$1'])[_0x2fd7e9(0x2eb)](0x1,0x10),_0x134414=String(RegExp['$2'])[_0x2fd7e9(0x440)](',')['map'](_0x16fb6f=>Number(_0x16fb6f)['clamp'](0x1,0x7));for(const _0x593843 of _0x134414){_0x18bf32[_0x593843]=_0x22862e;}}this[_0x2fd7e9(0x563)]=_0x18bf32;},Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2de)]=function(){const _0x212365=_0x2e6bc0;if(this[_0x212365(0x563)]===undefined)this[_0x212365(0x72d)]();return this[_0x212365(0x563)];},Game_Map[_0x2e6bc0(0x5e2)]['isTileExtended']=function(_0x17f436){const _0x2147fa=_0x2e6bc0;if(_0x17f436>=0x400)return![];const _0xa1a08=$gameMap['getTileExtendTerrainTags']();if(Object[_0x2147fa(0x316)](_0xa1a08)[_0x2147fa(0x29e)]<=0x0)return![];const _0x23ff7a=this[_0x2147fa(0x452)](),_0x4de59e=_0x23ff7a[_0x17f436]>>0xc,_0x1dfe76=_0xa1a08[_0x4de59e]||0x0;return _0x1dfe76>0x0;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x199)]=Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x4d5)],Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x4d5)]=function(_0x4949b4){const _0x27f148=_0x2e6bc0;VisuMZ[_0x27f148(0x468)]['Game_Map_changeTileset'][_0x27f148(0x895)](this,_0x4949b4),this[_0x27f148(0x696)](),SceneManager[_0x27f148(0x49a)]['_spriteset'][_0x27f148(0x645)]();},Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x696)]=function(){const _0x2c21f4=_0x2e6bc0,_0x524035=this['getTileExtendTerrainTags']();if(Object[_0x2c21f4(0x316)](_0x524035)[_0x2c21f4(0x29e)]<=0x0)return;const _0x43548b=SceneManager[_0x2c21f4(0x49a)][_0x2c21f4(0x722)];_0x43548b&&(_0x43548b[_0x2c21f4(0x1c4)]&&_0x43548b['removeTileExtendSprites'](),_0x43548b[_0x2c21f4(0xec)]&&_0x43548b[_0x2c21f4(0xec)]());},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x496)]=Game_Character[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x4e9)],Game_Character[_0x2e6bc0(0x5e2)]['processMoveCommand']=function(_0x1a8c3e){const _0x4ca2b4=_0x2e6bc0;try{VisuMZ[_0x4ca2b4(0x468)][_0x4ca2b4(0x496)][_0x4ca2b4(0x895)](this,_0x1a8c3e);}catch(_0x54e250){if($gameTemp[_0x4ca2b4(0x2d3)]())console[_0x4ca2b4(0x882)](_0x54e250);}},Game_Player[_0x2e6bc0(0x5e2)]['makeEncounterCount']=function(){const _0x139b51=_0x2e6bc0,_0x2b5446=$gameMap[_0x139b51(0xf9)]();this[_0x139b51(0x5de)]=Math[_0x139b51(0x3b7)](_0x2b5446)+Math[_0x139b51(0x3b7)](_0x2b5446)+this[_0x139b51(0x169)]();},Game_Player['prototype'][_0x2e6bc0(0x169)]=function(){const _0x3e8b75=_0x2e6bc0;return $dataMap&&$dataMap[_0x3e8b75(0x6a8)]&&$dataMap['note']['match'](/<MINIMUM ENCOUNTER STEPS:[ ](\d+)>/i)?Number(RegExp['$1']):VisuMZ[_0x3e8b75(0x468)]['Settings'][_0x3e8b75(0x818)][_0x3e8b75(0x276)];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x666)]=Game_Event[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7a8)],Game_Event[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7a8)]=function(_0x2c756f,_0x21049c){const _0xeaee38=_0x2e6bc0;return this['isSmartEventCollisionOn']()?this[_0xeaee38(0x248)](_0x2c756f,_0x21049c):VisuMZ[_0xeaee38(0x468)][_0xeaee38(0x666)][_0xeaee38(0x895)](this,_0x2c756f,_0x21049c);},Game_Event['prototype'][_0x2e6bc0(0x208)]=function(){const _0x1de601=_0x2e6bc0;return VisuMZ[_0x1de601(0x468)]['Settings'][_0x1de601(0x818)][_0x1de601(0x323)];},Game_Event[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x248)]=function(_0xde9bfd,_0x3dfc01){const _0x5ebccf=_0x2e6bc0;if(!this[_0x5ebccf(0x597)]())return![];else{const _0x53b488=$gameMap[_0x5ebccf(0x39d)](_0xde9bfd,_0x3dfc01)[_0x5ebccf(0x5c0)](_0x23898c=>_0x23898c[_0x5ebccf(0x597)]());return _0x53b488['length']>0x0;}},VisuMZ['CoreEngine'][_0x2e6bc0(0x2bc)]=Game_Interpreter['prototype']['command105'],Game_Interpreter['prototype'][_0x2e6bc0(0x6a5)]=function(_0x32ffe6){const _0x21df92=_0x2e6bc0,_0x3fcfc8=this['getCombinedScrollingText']();return _0x3fcfc8[_0x21df92(0x298)](/\/\/[ ]SCRIPT[ ]CALL/i)?this['runCombinedScrollingTextAsCode'](_0x3fcfc8):VisuMZ[_0x21df92(0x468)][_0x21df92(0x2bc)][_0x21df92(0x895)](this,_0x32ffe6);},Game_Interpreter[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x46b)]=function(){const _0x59da05=_0x2e6bc0;let _0x45b395='',_0x22666e=this[_0x59da05(0x7f8)]+0x1;while(this[_0x59da05(0x642)][_0x22666e]&&this[_0x59da05(0x642)][_0x22666e][_0x59da05(0x6d9)]===0x195){_0x45b395+=this[_0x59da05(0x642)][_0x22666e][_0x59da05(0x69c)][0x0]+'\x0a',_0x22666e++;}return _0x45b395;},Game_Interpreter[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x86c)]=function(_0x315cd6){const _0x51cb84=_0x2e6bc0;try{eval(_0x315cd6);}catch(_0x30e7ad){$gameTemp[_0x51cb84(0x2d3)]()&&(console['log']('Show\x20Scrolling\x20Text\x20Script\x20Error'),console[_0x51cb84(0x882)](_0x30e7ad));}return!![];},VisuMZ['CoreEngine'][_0x2e6bc0(0x7e0)]=Game_Interpreter['prototype']['command111'],Game_Interpreter[_0x2e6bc0(0x5e2)]['command111']=function(_0xba97ed){const _0x783cee=_0x2e6bc0;try{VisuMZ['CoreEngine'][_0x783cee(0x7e0)][_0x783cee(0x895)](this,_0xba97ed);}catch(_0x11bca1){$gameTemp[_0x783cee(0x2d3)]()&&(console[_0x783cee(0x882)](_0x783cee(0x2e8)),console[_0x783cee(0x882)](_0x11bca1)),this[_0x783cee(0x7ce)]();}return!![];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x1cb)]=Game_Interpreter[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7c4)],Game_Interpreter['prototype'][_0x2e6bc0(0x7c4)]=function(_0x59bbac){const _0x4251de=_0x2e6bc0;try{VisuMZ[_0x4251de(0x468)][_0x4251de(0x1cb)]['call'](this,_0x59bbac);}catch(_0x3ad035){$gameTemp[_0x4251de(0x2d3)]()&&(console[_0x4251de(0x882)](_0x4251de(0x662)),console[_0x4251de(0x882)](_0x3ad035));}return!![];},VisuMZ['CoreEngine'][_0x2e6bc0(0x224)]=Game_Interpreter[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x89c)],Game_Interpreter[_0x2e6bc0(0x5e2)]['command355']=function(){const _0xfb5954=_0x2e6bc0;try{VisuMZ['CoreEngine']['Game_Interpreter_command355']['call'](this);}catch(_0x5d8939){$gameTemp[_0xfb5954(0x2d3)]()&&(console['log']('Script\x20Call\x20Error'),console[_0xfb5954(0x882)](_0x5d8939));}return!![];},VisuMZ['CoreEngine'][_0x2e6bc0(0x814)]=Game_Interpreter[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x487)],Game_Interpreter['prototype'][_0x2e6bc0(0x487)]=function(_0x1f3026){const _0x21d888=_0x2e6bc0;return $gameTemp['setLastPluginCommandInterpreter'](this),VisuMZ[_0x21d888(0x468)][_0x21d888(0x814)][_0x21d888(0x895)](this,_0x1f3026);},Scene_Base[_0x2e6bc0(0x5e2)]['fadeSpeed']=function(){const _0x1c11aa=_0x2e6bc0;return VisuMZ[_0x1c11aa(0x468)][_0x1c11aa(0x6ef)]['UI'][_0x1c11aa(0x591)];},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x193)]=function(){const _0x318602=_0x2e6bc0;return VisuMZ[_0x318602(0x468)][_0x318602(0x6ef)]['UI'][_0x318602(0x290)];},Scene_Base['prototype'][_0x2e6bc0(0x7dd)]=function(){const _0x412b07=_0x2e6bc0;return VisuMZ[_0x412b07(0x468)][_0x412b07(0x6ef)]['UI']['BottomButtons'];},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x36b)]=function(){const _0x4927e5=_0x2e6bc0;return VisuMZ[_0x4927e5(0x468)][_0x4927e5(0x6ef)]['UI'][_0x4927e5(0x184)];},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2ee)]=function(){const _0x5238d4=_0x2e6bc0;return VisuMZ[_0x5238d4(0x468)][_0x5238d4(0x6ef)]['UI']['CommandWidth'];},Scene_Base['prototype']['buttonAreaHeight']=function(){const _0x3c6e51=_0x2e6bc0;return VisuMZ[_0x3c6e51(0x468)][_0x3c6e51(0x6ef)]['UI'][_0x3c6e51(0x603)];},Scene_Base['prototype'][_0x2e6bc0(0x6af)]=function(){const _0x2acfff=_0x2e6bc0;return VisuMZ[_0x2acfff(0x468)][_0x2acfff(0x6ef)][_0x2acfff(0x76e)]['EnableMasking'];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x469)]=Scene_Base[_0x2e6bc0(0x5e2)]['createWindowLayer'],Scene_Base[_0x2e6bc0(0x5e2)]['createWindowLayer']=function(){const _0x521048=_0x2e6bc0;VisuMZ[_0x521048(0x468)][_0x521048(0x469)][_0x521048(0x895)](this),this[_0x521048(0x332)](),this[_0x521048(0x6da)](),this[_0x521048(0x4f0)]['x']=Math[_0x521048(0x897)](this[_0x521048(0x4f0)]['x']),this[_0x521048(0x4f0)]['y']=Math['round'](this['_windowLayer']['y']);},Scene_Base['prototype'][_0x2e6bc0(0x332)]=function(){},Scene_Base['prototype'][_0x2e6bc0(0x6da)]=function(){const _0x3900a9=_0x2e6bc0;this[_0x3900a9(0x4a8)]=new Window_TextPopup(),this[_0x3900a9(0x6e8)](this[_0x3900a9(0x4a8)]);},$textPopup=function(_0x20e303){const _0x41660f=_0x2e6bc0,_0x39a3c2=SceneManager['_scene'][_0x41660f(0x4a8)];_0x39a3c2&&_0x39a3c2[_0x41660f(0x781)](_0x20e303);},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6d3)]=function(){const _0x15c52b=_0x2e6bc0;return TextManager[_0x15c52b(0x705)](_0x15c52b(0x8a5),_0x15c52b(0x53a));},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x54e)]=function(){return TextManager['getInputButtonString']('tab');},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x461)]=function(){const _0x3ee00d=_0x2e6bc0;return TextManager[_0x3ee00d(0x76a)](_0x3ee00d(0x2f3));},Scene_Base['prototype']['buttonAssistKey4']=function(){const _0x51163f=_0x2e6bc0;return TextManager[_0x51163f(0x76a)]('ok');},Scene_Base[_0x2e6bc0(0x5e2)]['buttonAssistKey5']=function(){return TextManager['getInputButtonString']('cancel');},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6f5)]=function(){const _0x2bc02e=_0x2e6bc0;return this[_0x2bc02e(0x768)]&&this[_0x2bc02e(0x768)]['visible']?TextManager[_0x2bc02e(0x4f9)]:'';},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x10f)]=function(){return'';},Scene_Base[_0x2e6bc0(0x5e2)]['buttonAssistText3']=function(){return'';},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x121)]=function(){const _0x345972=_0x2e6bc0;return TextManager[_0x345972(0x691)];},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3df)]=function(){const _0x10baf5=_0x2e6bc0;return TextManager[_0x10baf5(0x6ea)];},Scene_Base['prototype'][_0x2e6bc0(0x7b8)]=function(){return 0x0;},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5b1)]=function(){return 0x0;},Scene_Base['prototype']['buttonAssistOffset3']=function(){return 0x0;},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x8a9)]=function(){return 0x0;},Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x83d)]=function(){return 0x0;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x27a)]=Scene_Boot[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x40e)],Scene_Boot[_0x2e6bc0(0x5e2)]['loadSystemImages']=function(){const _0x3a50d3=_0x2e6bc0;VisuMZ['CoreEngine'][_0x3a50d3(0x27a)][_0x3a50d3(0x895)](this),this[_0x3a50d3(0x45f)]();},Scene_Boot[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x45f)]=function(){const _0x448953=_0x2e6bc0,_0x4d7ace=['animations','battlebacks1',_0x448953(0x8b2),_0x448953(0x572),'enemies',_0x448953(0x3bf),_0x448953(0x5ce),'pictures','sv_actors',_0x448953(0x5a2),_0x448953(0x564),_0x448953(0x43d),_0x448953(0x7b6),'titles2'];for(const _0x30c364 of _0x4d7ace){const _0xb77a3c=VisuMZ[_0x448953(0x468)][_0x448953(0x6ef)][_0x448953(0x6e6)][_0x30c364],_0x3742b6=_0x448953(0x7bc)[_0x448953(0x607)](_0x30c364);for(const _0x3891f5 of _0xb77a3c){ImageManager[_0x448953(0x1da)](_0x3742b6,_0x3891f5);}}},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x1fa)]=Scene_Boot[_0x2e6bc0(0x5e2)]['startNormalGame'],Scene_Boot['prototype'][_0x2e6bc0(0x752)]=function(){const _0x54b748=_0x2e6bc0;Utils[_0x54b748(0x88d)]('test')&&VisuMZ[_0x54b748(0x468)]['Settings'][_0x54b748(0x818)][_0x54b748(0x6eb)]?this['startAutoNewGame']():VisuMZ['CoreEngine'][_0x54b748(0x1fa)][_0x54b748(0x895)](this);},Scene_Boot[_0x2e6bc0(0x5e2)]['startAutoNewGame']=function(){const _0x2f0e80=_0x2e6bc0;this['checkPlayerLocation'](),DataManager['setupNewGame'](),SceneManager[_0x2f0e80(0x61e)](Scene_Map);},Scene_Boot['prototype'][_0x2e6bc0(0x6dd)]=function(){const _0x4b4c74=_0x2e6bc0,_0x47d112=$dataSystem[_0x4b4c74(0x212)]['uiAreaWidth'],_0x13ebb0=$dataSystem[_0x4b4c74(0x212)][_0x4b4c74(0x86f)],_0xab3850=VisuMZ[_0x4b4c74(0x468)][_0x4b4c74(0x6ef)]['UI']['BoxMargin'];Graphics['boxWidth']=_0x47d112-_0xab3850*0x2,Graphics['boxHeight']=_0x13ebb0-_0xab3850*0x2,this[_0x4b4c74(0x80d)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x39b)]=Scene_Boot['prototype'][_0x2e6bc0(0x6e5)],Scene_Boot[_0x2e6bc0(0x5e2)]['updateDocumentTitle']=function(){const _0x255a1b=_0x2e6bc0;this[_0x255a1b(0x867)]()?this[_0x255a1b(0x326)]():VisuMZ[_0x255a1b(0x468)][_0x255a1b(0x39b)]['call'](this);},Scene_Boot[_0x2e6bc0(0x5e2)]['isFullDocumentTitle']=function(){const _0x31c04e=_0x2e6bc0;if(Scene_Title['subtitle']==='')return![];if(Scene_Title['subtitle']==='Subtitle')return![];if(Scene_Title['version']==='')return![];if(Scene_Title[_0x31c04e(0x6d6)]===_0x31c04e(0x2b8))return![];return!![];},Scene_Boot['prototype'][_0x2e6bc0(0x326)]=function(){const _0xe2697a=_0x2e6bc0,_0x302a26=$dataSystem[_0xe2697a(0x101)],_0x260719=Scene_Title[_0xe2697a(0x514)]||'',_0xd769=Scene_Title[_0xe2697a(0x6d6)]||'',_0x1b0286=VisuMZ[_0xe2697a(0x468)][_0xe2697a(0x6ef)][_0xe2697a(0x573)][_0xe2697a(0x887)][_0xe2697a(0x4d0)],_0x1a30b8=_0x1b0286[_0xe2697a(0x607)](_0x302a26,_0x260719,_0xd769);document[_0xe2697a(0x331)]=_0x1a30b8;},Scene_Boot[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x80d)]=function(){const _0x2ff7a3=_0x2e6bc0;if(VisuMZ['CoreEngine']['Settings']['UI'][_0x2ff7a3(0x5fd)]){const _0x29ca29=Graphics[_0x2ff7a3(0x746)]-Graphics[_0x2ff7a3(0x2b2)]-VisuMZ['CoreEngine']['Settings']['UI'][_0x2ff7a3(0x471)]*0x2,_0x1606d7=Sprite_Button[_0x2ff7a3(0x5e2)][_0x2ff7a3(0x17d)][_0x2ff7a3(0x895)](this)*0x4;if(_0x29ca29>=_0x1606d7)SceneManager[_0x2ff7a3(0x878)](!![]);}},Scene_Title[_0x2e6bc0(0x514)]=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x573)][_0x2e6bc0(0x887)]['Subtitle'],Scene_Title['version']=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x573)][_0x2e6bc0(0x887)]['Version'],Scene_Title[_0x2e6bc0(0x161)]=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0xe6)],VisuMZ['CoreEngine'][_0x2e6bc0(0x44b)]=Scene_Title[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x273)],Scene_Title['prototype'][_0x2e6bc0(0x273)]=function(){const _0x1ea5ef=_0x2e6bc0;VisuMZ['CoreEngine'][_0x1ea5ef(0x6ef)][_0x1ea5ef(0x573)][_0x1ea5ef(0x887)][_0x1ea5ef(0x273)]['call'](this);if(Scene_Title[_0x1ea5ef(0x514)]!==''&&Scene_Title[_0x1ea5ef(0x514)]!==_0x1ea5ef(0x886))this[_0x1ea5ef(0x2b1)]();if(Scene_Title[_0x1ea5ef(0x6d6)]!==''&&Scene_Title[_0x1ea5ef(0x6d6)]!==_0x1ea5ef(0x2b8))this[_0x1ea5ef(0x2d6)]();},Scene_Title[_0x2e6bc0(0x5e2)]['drawGameSubtitle']=function(){const _0x4b46ef=_0x2e6bc0;VisuMZ[_0x4b46ef(0x468)][_0x4b46ef(0x6ef)][_0x4b46ef(0x573)][_0x4b46ef(0x887)]['drawGameSubtitle'][_0x4b46ef(0x895)](this);},Scene_Title[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2d6)]=function(){const _0x5a8314=_0x2e6bc0;VisuMZ[_0x5a8314(0x468)][_0x5a8314(0x6ef)][_0x5a8314(0x573)][_0x5a8314(0x887)][_0x5a8314(0x2d6)][_0x5a8314(0x895)](this);},Scene_Title['prototype']['createCommandWindow']=function(){const _0x269a59=_0x2e6bc0;this['createTitleButtons']();const _0x5be268=$dataSystem['titleCommandWindow']['background'],_0x2bb009=this[_0x269a59(0x65a)]();this[_0x269a59(0x3ae)]=new Window_TitleCommand(_0x2bb009),this[_0x269a59(0x3ae)][_0x269a59(0x52a)](_0x5be268);const _0x33c3c9=this[_0x269a59(0x65a)]();this[_0x269a59(0x3ae)]['move'](_0x33c3c9['x'],_0x33c3c9['y'],_0x33c3c9[_0x269a59(0x746)],_0x33c3c9['height']),this[_0x269a59(0x3ae)]['createContents'](),this[_0x269a59(0x3ae)][_0x269a59(0x3bd)](),this[_0x269a59(0x3ae)]['selectLast'](),this[_0x269a59(0x2ec)](this[_0x269a59(0x3ae)]);},Scene_Title[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x829)]=function(){const _0xaf4127=_0x2e6bc0;return this[_0xaf4127(0x3ae)]?this['_commandWindow'][_0xaf4127(0x67e)]():VisuMZ[_0xaf4127(0x468)][_0xaf4127(0x6ef)][_0xaf4127(0x589)][_0xaf4127(0x29e)];},Scene_Title[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x65a)]=function(){const _0x2af62d=_0x2e6bc0;return VisuMZ['CoreEngine'][_0x2af62d(0x6ef)]['MenuLayout']['Title']['CommandRect'][_0x2af62d(0x895)](this);},Scene_Title[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x41e)]=function(){const _0x22f96f=_0x2e6bc0;for(const _0x2ec17a of Scene_Title[_0x22f96f(0x161)]){const _0x155cf3=new Sprite_TitlePictureButton(_0x2ec17a);this[_0x22f96f(0x6e8)](_0x155cf3);}},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x336)]=Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)],Scene_Map['prototype'][_0x2e6bc0(0x571)]=function(){const _0x402b16=_0x2e6bc0;VisuMZ[_0x402b16(0x468)][_0x402b16(0x336)][_0x402b16(0x895)](this),$gameTemp['clearForcedGameTroopSettingsCoreEngine'](),this[_0x402b16(0x446)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x763)]=Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x260)],Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x260)]=function(){const _0x22d8f3=_0x2e6bc0;VisuMZ['CoreEngine'][_0x22d8f3(0x763)][_0x22d8f3(0x895)](this),$gameTemp[_0x22d8f3(0x517)]&&!$gameMessage['isBusy']()&&(this['updateMain'](),SceneManager['updateEffekseer']());},Scene_Map[_0x2e6bc0(0x5e2)]['terminate']=function(){const _0x52d51c=_0x2e6bc0;Scene_Message[_0x52d51c(0x5e2)]['terminate'][_0x52d51c(0x895)](this),!SceneManager[_0x52d51c(0x247)](Scene_Battle)&&(this[_0x52d51c(0x722)][_0x52d51c(0x645)](),this['_mapNameWindow']['hide'](),this[_0x52d51c(0x4f0)][_0x52d51c(0x510)]=![],SceneManager['snapForBackground']()),$gameScreen[_0x52d51c(0xf2)](),this[_0x52d51c(0x446)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x361)]=Scene_Map[_0x2e6bc0(0x5e2)]['createMenuButton'],Scene_Map['prototype'][_0x2e6bc0(0x33b)]=function(){const _0x1ffa7=_0x2e6bc0;VisuMZ[_0x1ffa7(0x468)][_0x1ffa7(0x361)]['call'](this),SceneManager[_0x1ffa7(0xe7)]()&&this[_0x1ffa7(0x890)]();},Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x890)]=function(){const _0x24afb6=_0x2e6bc0;this[_0x24afb6(0x86b)]['x']=Graphics[_0x24afb6(0x2b2)]+0x4;},VisuMZ['CoreEngine'][_0x2e6bc0(0x4fe)]=Scene_Map[_0x2e6bc0(0x5e2)]['updateScene'],Scene_Map[_0x2e6bc0(0x5e2)]['updateScene']=function(){const _0x30137b=_0x2e6bc0;VisuMZ[_0x30137b(0x468)][_0x30137b(0x4fe)][_0x30137b(0x895)](this),this[_0x30137b(0x611)]();},Scene_Map[_0x2e6bc0(0x5e2)]['updateDashToggle']=function(){const _0x4d775d=_0x2e6bc0;Input[_0x4d775d(0x443)](_0x4d775d(0x712))&&(ConfigManager[_0x4d775d(0x83c)]=!ConfigManager[_0x4d775d(0x83c)],ConfigManager[_0x4d775d(0x653)]());},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x437)]=Scene_Map['prototype'][_0x2e6bc0(0x561)],Scene_Map[_0x2e6bc0(0x5e2)]['updateMain']=function(){const _0x2c7cc7=_0x2e6bc0;VisuMZ['CoreEngine']['Scene_Map_updateMain'][_0x2c7cc7(0x895)](this),this['updateOnceParallelInterpreters']();},Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x446)]=function(){this['_onceParallelInterpreters']=[];},Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x578)]=function(){const _0x4694c2=_0x2e6bc0;if(!this[_0x4694c2(0x119)])return;for(const _0x39bd04 of this[_0x4694c2(0x119)]){_0x39bd04&&_0x39bd04['update']();}},Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x54b)]=function(_0x3f6158,_0x37793d){const _0xc20b2e=_0x2e6bc0,_0x1c2309=$dataCommonEvents[_0x3f6158];if(!_0x1c2309)return;const _0x737ebf=new Game_OnceParallelInterpreter();this[_0xc20b2e(0x7ea)](_0x737ebf),_0x737ebf[_0xc20b2e(0x214)](_0x3f6158),_0x737ebf[_0xc20b2e(0x295)](_0x37793d);},Scene_Map['prototype'][_0x2e6bc0(0x7ea)]=function(_0x151bb7){const _0xd6a980=_0x2e6bc0;this['_onceParallelInterpreters']=this[_0xd6a980(0x119)]||[],this[_0xd6a980(0x119)][_0xd6a980(0x16c)](_0x151bb7);},Scene_Map['prototype']['removeOnceParallelInterpreter']=function(_0x397ab2){const _0x13e724=_0x2e6bc0;this[_0x13e724(0x119)]=this[_0x13e724(0x119)]||[],this[_0x13e724(0x119)][_0x13e724(0x581)](_0x397ab2);};function Game_OnceParallelInterpreter(){const _0x3bce27=_0x2e6bc0;this[_0x3bce27(0x571)](...arguments);}Game_OnceParallelInterpreter['prototype']=Object['create'](Game_Interpreter['prototype']),Game_OnceParallelInterpreter[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2c3)]=Game_OnceParallelInterpreter,Game_OnceParallelInterpreter[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x214)]=function(_0x416f4d){const _0x2142da=_0x2e6bc0,_0x313c0f=$dataCommonEvents[_0x416f4d];_0x313c0f?this['setup'](_0x313c0f[_0x2142da(0x775)],0x0):this[_0x2142da(0x56c)]();},Game_OnceParallelInterpreter['prototype'][_0x2e6bc0(0x295)]=function(_0x2cee3a){const _0x2aa398=_0x2e6bc0;this[_0x2aa398(0x1fe)]=_0x2cee3a||0x0;},Game_OnceParallelInterpreter['prototype'][_0x2e6bc0(0x56c)]=function(){const _0x313826=_0x2e6bc0;if(!SceneManager['isSceneMap']())return;SceneManager[_0x313826(0x49a)][_0x313826(0x29c)](this),Game_Interpreter['prototype'][_0x313826(0x56c)]['call'](this);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x41a)]=Scene_MenuBase['prototype'][_0x2e6bc0(0x747)],Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x747)]=function(){const _0x5f09be=_0x2e6bc0;let _0x40c11d=0x0;return SceneManager['areButtonsOutsideMainUI']()?_0x40c11d=this[_0x5f09be(0x221)]():_0x40c11d=VisuMZ[_0x5f09be(0x468)]['Scene_MenuBase_helpAreaTop'][_0x5f09be(0x895)](this),_0x40c11d;},Scene_MenuBase[_0x2e6bc0(0x5e2)]['helpAreaTopSideButtonLayout']=function(){const _0x44f4a6=_0x2e6bc0;return this[_0x44f4a6(0x193)]()?this[_0x44f4a6(0x138)]():0x0;},VisuMZ['CoreEngine'][_0x2e6bc0(0x5df)]=Scene_MenuBase['prototype']['mainAreaTop'],Scene_MenuBase['prototype'][_0x2e6bc0(0x555)]=function(){const _0x45d540=_0x2e6bc0;return SceneManager[_0x45d540(0x3d4)]()?this[_0x45d540(0x75b)]():VisuMZ[_0x45d540(0x468)]['Scene_MenuBase_mainAreaTop'][_0x45d540(0x895)](this);},Scene_MenuBase['prototype'][_0x2e6bc0(0x75b)]=function(){const _0x37fdaa=_0x2e6bc0;if(!this['isBottomHelpMode']())return this[_0x37fdaa(0x4ed)]();else return this[_0x37fdaa(0x206)]()&&this[_0x37fdaa(0x28f)]()==='top'?Window_ButtonAssist[_0x37fdaa(0x5e2)][_0x37fdaa(0x1ec)]():0x0;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x5ee)]=Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2c5)],Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2c5)]=function(){const _0x53de5b=_0x2e6bc0;let _0x113244=0x0;return SceneManager['areButtonsOutsideMainUI']()?_0x113244=this['mainAreaHeightSideButtonLayout']():_0x113244=VisuMZ['CoreEngine'][_0x53de5b(0x5ee)]['call'](this),this['isMenuButtonAssistEnabled']()&&this['getButtonAssistLocation']()!=='button'&&(_0x113244-=Window_ButtonAssist[_0x53de5b(0x5e2)][_0x53de5b(0x1ec)]()),_0x113244;},Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x87e)]=function(){const _0x599596=_0x2e6bc0;return Graphics[_0x599596(0x849)]-this['helpAreaHeight']();},VisuMZ[_0x2e6bc0(0x468)]['Scene_MenuBase_createBackground']=Scene_MenuBase['prototype'][_0x2e6bc0(0x1bc)],Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1bc)]=function(){const _0x81e37=_0x2e6bc0,_0x2905bb=VisuMZ[_0x81e37(0x468)]['Settings'][_0x81e37(0x588)]['BlurStrength']??0x8;this['_backgroundFilter']=new PIXI['filters'][(_0x81e37(0x774))](_0x2905bb),this['_backgroundSprite']=new Sprite(),this[_0x81e37(0x8bc)][_0x81e37(0x253)]=SceneManager[_0x81e37(0x38e)](),this[_0x81e37(0x8bc)][_0x81e37(0x285)]=[this[_0x81e37(0x7b1)]],this[_0x81e37(0x6e8)](this['_backgroundSprite']),this[_0x81e37(0x25a)](0xc0),this['setBackgroundOpacity'](this['getBackgroundOpacity']()),this['createCustomBackgroundImages']();},Scene_MenuBase['prototype']['getBackgroundOpacity']=function(){const _0xafe834=_0x2e6bc0,_0x28596c=String(this[_0xafe834(0x2c3)][_0xafe834(0x3d0)]),_0x2c765c=this[_0xafe834(0x391)](_0x28596c);return _0x2c765c?_0x2c765c['SnapshotOpacity']:0xc0;},Scene_MenuBase['prototype'][_0x2e6bc0(0x7b7)]=function(){const _0x35d917=_0x2e6bc0,_0x28a7bd=String(this[_0x35d917(0x2c3)][_0x35d917(0x3d0)]),_0x545c75=this[_0x35d917(0x391)](_0x28a7bd);_0x545c75&&(_0x545c75[_0x35d917(0x398)]!==''||_0x545c75['BgFilename2']!=='')&&(this[_0x35d917(0x6bc)]=new Sprite(ImageManager[_0x35d917(0x1b8)](_0x545c75[_0x35d917(0x398)])),this[_0x35d917(0x2d1)]=new Sprite(ImageManager['loadTitle2'](_0x545c75[_0x35d917(0x6ac)])),this[_0x35d917(0x6e8)](this['_backSprite1']),this['addChild'](this[_0x35d917(0x2d1)]),this[_0x35d917(0x6bc)]['bitmap'][_0x35d917(0x34a)](this[_0x35d917(0x3f3)][_0x35d917(0x6e7)](this,this['_backSprite1'])),this[_0x35d917(0x2d1)][_0x35d917(0x253)][_0x35d917(0x34a)](this[_0x35d917(0x3f3)][_0x35d917(0x6e7)](this,this[_0x35d917(0x2d1)])));},Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x391)]=function(_0x3a1df3){const _0x197a9b=_0x2e6bc0;return VisuMZ[_0x197a9b(0x468)][_0x197a9b(0x6ef)][_0x197a9b(0x588)][_0x3a1df3]||VisuMZ[_0x197a9b(0x468)][_0x197a9b(0x6ef)]['MenuBg']['Scene_Unlisted'];},Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3f3)]=function(_0x5e1f67){const _0x5b3979=_0x2e6bc0;this[_0x5b3979(0x4d9)](_0x5e1f67),this[_0x5b3979(0x108)](_0x5e1f67);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x66a)]=Scene_MenuBase['prototype'][_0x2e6bc0(0x803)],Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x803)]=function(){const _0x4aa327=_0x2e6bc0;VisuMZ[_0x4aa327(0x468)][_0x4aa327(0x66a)][_0x4aa327(0x895)](this),SceneManager[_0x4aa327(0xe7)]()&&this[_0x4aa327(0x284)]();},Scene_MenuBase['prototype'][_0x2e6bc0(0x284)]=function(){const _0x4357fd=_0x2e6bc0;this[_0x4357fd(0x29b)]['x']=Graphics[_0x4357fd(0x2b2)]+0x4;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x109)]=Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6a6)],Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6a6)]=function(){const _0x4cea3c=_0x2e6bc0;VisuMZ[_0x4cea3c(0x468)][_0x4cea3c(0x109)][_0x4cea3c(0x895)](this),SceneManager[_0x4cea3c(0xe7)]()&&this[_0x4cea3c(0x32a)]();},Scene_MenuBase['prototype']['movePageButtonSideButtonLayout']=function(){const _0x33800c=_0x2e6bc0;this[_0x33800c(0x768)]['x']=-0x1*(this[_0x33800c(0x768)][_0x33800c(0x746)]+this[_0x33800c(0x291)][_0x33800c(0x746)]+0x8),this[_0x33800c(0x291)]['x']=-0x1*(this[_0x33800c(0x291)][_0x33800c(0x746)]+0x4);},Scene_MenuBase[_0x2e6bc0(0x5e2)]['isMenuButtonAssistEnabled']=function(){const _0x397484=_0x2e6bc0;return VisuMZ[_0x397484(0x468)][_0x397484(0x6ef)][_0x397484(0x51a)][_0x397484(0x7e5)];},Scene_MenuBase['prototype'][_0x2e6bc0(0x28f)]=function(){const _0x22006d=_0x2e6bc0;return SceneManager[_0x22006d(0xe7)]()||SceneManager['areButtonsHidden']()?VisuMZ['CoreEngine'][_0x22006d(0x6ef)][_0x22006d(0x51a)][_0x22006d(0x792)]:'button';},Scene_MenuBase[_0x2e6bc0(0x5e2)]['createButtonAssistWindow']=function(){const _0x25a6eb=_0x2e6bc0;if(!this['isMenuButtonAssistEnabled']())return;const _0x41ec7a=this[_0x25a6eb(0x171)]();this[_0x25a6eb(0x343)]=new Window_ButtonAssist(_0x41ec7a),this[_0x25a6eb(0x2ec)](this['_buttonAssistWindow']);},Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x171)]=function(){const _0x2f7f55=_0x2e6bc0;return this[_0x2f7f55(0x28f)]()==='button'?this[_0x2f7f55(0x2af)]():this[_0x2f7f55(0x396)]();},Scene_MenuBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2af)]=function(){const _0x22af8b=_0x2e6bc0,_0x3df8d9=ConfigManager[_0x22af8b(0x800)]?(Sprite_Button[_0x22af8b(0x5e2)][_0x22af8b(0x17d)]()+0x6)*0x2:0x0,_0x12000e=this[_0x22af8b(0x501)](),_0x335c63=Graphics[_0x22af8b(0x2b2)]-_0x3df8d9*0x2,_0x56e3aa=this[_0x22af8b(0x7d6)]();return new Rectangle(_0x3df8d9,_0x12000e,_0x335c63,_0x56e3aa);},Scene_MenuBase[_0x2e6bc0(0x5e2)]['buttonAssistWindowSideRect']=function(){const _0x55c9d3=_0x2e6bc0,_0x1752ef=Graphics[_0x55c9d3(0x2b2)],_0x949eea=Window_ButtonAssist[_0x55c9d3(0x5e2)][_0x55c9d3(0x1ec)](),_0x31c262=0x0;let _0x1b89c0=0x0;return this[_0x55c9d3(0x28f)]()==='top'?_0x1b89c0=0x0:_0x1b89c0=Graphics['boxHeight']-_0x949eea,new Rectangle(_0x31c262,_0x1b89c0,_0x1752ef,_0x949eea);},Scene_Menu[_0x2e6bc0(0x71a)]=VisuMZ[_0x2e6bc0(0x468)]['Settings'][_0x2e6bc0(0x573)]['MainMenu'],VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x4b6)]=Scene_Menu['prototype'][_0x2e6bc0(0x893)],Scene_Menu['prototype'][_0x2e6bc0(0x893)]=function(){const _0x520ead=_0x2e6bc0;VisuMZ[_0x520ead(0x468)][_0x520ead(0x4b6)]['call'](this),this[_0x520ead(0x5a9)]();},Scene_Menu[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5a9)]=function(){const _0x27f776=_0x2e6bc0;this[_0x27f776(0x3ae)]&&this[_0x27f776(0x3ae)][_0x27f776(0x52a)](Scene_Menu[_0x27f776(0x71a)][_0x27f776(0x67f)]),this['_goldWindow']&&this[_0x27f776(0x393)][_0x27f776(0x52a)](Scene_Menu[_0x27f776(0x71a)][_0x27f776(0x76d)]),this[_0x27f776(0x663)]&&this[_0x27f776(0x663)][_0x27f776(0x52a)](Scene_Menu[_0x27f776(0x71a)][_0x27f776(0x6c7)]);},Scene_Menu[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x65a)]=function(){const _0x2f89b5=_0x2e6bc0;return Scene_Menu[_0x2f89b5(0x71a)][_0x2f89b5(0x6f8)]['call'](this);},Scene_Menu[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x16d)]=function(){const _0x3f81d1=_0x2e6bc0;return Scene_Menu[_0x3f81d1(0x71a)]['GoldRect'][_0x3f81d1(0x895)](this);},Scene_Menu['prototype'][_0x2e6bc0(0x2b9)]=function(){const _0x5660c1=_0x2e6bc0;return Scene_Menu[_0x5660c1(0x71a)][_0x5660c1(0x1e6)][_0x5660c1(0x895)](this);},Scene_Item[_0x2e6bc0(0x71a)]=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x573)][_0x2e6bc0(0x632)],VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x350)]=Scene_Item[_0x2e6bc0(0x5e2)]['create'],Scene_Item['prototype'][_0x2e6bc0(0x893)]=function(){const _0x3df85d=_0x2e6bc0;VisuMZ[_0x3df85d(0x468)]['Scene_Item_create']['call'](this),this[_0x3df85d(0x5a9)]();},Scene_Item[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5a9)]=function(){const _0xbd6827=_0x2e6bc0;this[_0xbd6827(0x702)]&&this['_helpWindow'][_0xbd6827(0x52a)](Scene_Item[_0xbd6827(0x71a)][_0xbd6827(0x7fa)]),this[_0xbd6827(0x841)]&&this[_0xbd6827(0x841)]['setBackgroundType'](Scene_Item[_0xbd6827(0x71a)][_0xbd6827(0x4a9)]),this[_0xbd6827(0x491)]&&this[_0xbd6827(0x491)][_0xbd6827(0x52a)](Scene_Item[_0xbd6827(0x71a)]['ItemBgType']),this[_0xbd6827(0x102)]&&this['_actorWindow'][_0xbd6827(0x52a)](Scene_Item['layoutSettings'][_0xbd6827(0x4b7)]);},Scene_Item['prototype'][_0x2e6bc0(0x63b)]=function(){return Scene_Item['layoutSettings']['HelpRect']['call'](this);},Scene_Item[_0x2e6bc0(0x5e2)]['categoryWindowRect']=function(){const _0x35bcc6=_0x2e6bc0;return Scene_Item[_0x35bcc6(0x71a)][_0x35bcc6(0x36c)][_0x35bcc6(0x895)](this);},Scene_Item[_0x2e6bc0(0x5e2)]['itemWindowRect']=function(){const _0x28fcc2=_0x2e6bc0;return Scene_Item[_0x28fcc2(0x71a)][_0x28fcc2(0x434)][_0x28fcc2(0x895)](this);},Scene_Item[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1fc)]=function(){const _0x5a433c=_0x2e6bc0;return Scene_Item['layoutSettings']['ActorRect'][_0x5a433c(0x895)](this);},Scene_Skill[_0x2e6bc0(0x71a)]=VisuMZ[_0x2e6bc0(0x468)]['Settings'][_0x2e6bc0(0x573)][_0x2e6bc0(0x4ee)],VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x843)]=Scene_Skill[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x893)],Scene_Skill[_0x2e6bc0(0x5e2)]['create']=function(){const _0x486951=_0x2e6bc0;VisuMZ['CoreEngine'][_0x486951(0x843)][_0x486951(0x895)](this),this['setCoreEngineUpdateWindowBg']();},Scene_Skill['prototype'][_0x2e6bc0(0x5a9)]=function(){const _0x38f388=_0x2e6bc0;this[_0x38f388(0x702)]&&this['_helpWindow']['setBackgroundType'](Scene_Skill[_0x38f388(0x71a)]['HelpBgType']),this[_0x38f388(0x66b)]&&this['_skillTypeWindow'][_0x38f388(0x52a)](Scene_Skill['layoutSettings'][_0x38f388(0x113)]),this[_0x38f388(0x663)]&&this['_statusWindow'][_0x38f388(0x52a)](Scene_Skill[_0x38f388(0x71a)]['StatusBgType']),this[_0x38f388(0x491)]&&this[_0x38f388(0x491)]['setBackgroundType'](Scene_Skill[_0x38f388(0x71a)]['ItemBgType']),this[_0x38f388(0x102)]&&this[_0x38f388(0x102)][_0x38f388(0x52a)](Scene_Skill[_0x38f388(0x71a)][_0x38f388(0x4b7)]);},Scene_Skill[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x63b)]=function(){const _0x48f6ab=_0x2e6bc0;return Scene_Skill['layoutSettings'][_0x48f6ab(0x5d8)][_0x48f6ab(0x895)](this);},Scene_Skill[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x425)]=function(){const _0xce471e=_0x2e6bc0;return Scene_Skill['layoutSettings']['SkillTypeRect'][_0xce471e(0x895)](this);},Scene_Skill['prototype']['statusWindowRect']=function(){const _0x47d269=_0x2e6bc0;return Scene_Skill['layoutSettings'][_0x47d269(0x1e6)][_0x47d269(0x895)](this);},Scene_Skill[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x45b)]=function(){const _0x1c2aa1=_0x2e6bc0;return Scene_Skill['layoutSettings'][_0x1c2aa1(0x434)][_0x1c2aa1(0x895)](this);},Scene_Skill[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1fc)]=function(){const _0x47f0e7=_0x2e6bc0;return Scene_Skill['layoutSettings'][_0x47f0e7(0x30c)][_0x47f0e7(0x895)](this);},Scene_Equip[_0x2e6bc0(0x71a)]=VisuMZ[_0x2e6bc0(0x468)]['Settings'][_0x2e6bc0(0x573)][_0x2e6bc0(0x24e)],VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x68b)]=Scene_Equip[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x893)],Scene_Equip[_0x2e6bc0(0x5e2)]['create']=function(){const _0x5e1896=_0x2e6bc0;VisuMZ[_0x5e1896(0x468)][_0x5e1896(0x68b)][_0x5e1896(0x895)](this),this['setCoreEngineUpdateWindowBg']();},Scene_Equip[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5a9)]=function(){const _0x1a5e3b=_0x2e6bc0;this[_0x1a5e3b(0x702)]&&this[_0x1a5e3b(0x702)]['setBackgroundType'](Scene_Equip[_0x1a5e3b(0x71a)]['HelpBgType']),this[_0x1a5e3b(0x663)]&&this[_0x1a5e3b(0x663)][_0x1a5e3b(0x52a)](Scene_Equip['layoutSettings']['StatusBgType']),this[_0x1a5e3b(0x3ae)]&&this[_0x1a5e3b(0x3ae)][_0x1a5e3b(0x52a)](Scene_Equip[_0x1a5e3b(0x71a)][_0x1a5e3b(0x67f)]),this[_0x1a5e3b(0xee)]&&this[_0x1a5e3b(0xee)][_0x1a5e3b(0x52a)](Scene_Equip[_0x1a5e3b(0x71a)]['SlotBgType']),this['_itemWindow']&&this[_0x1a5e3b(0x491)]['setBackgroundType'](Scene_Equip[_0x1a5e3b(0x71a)]['ItemBgType']);},Scene_Equip[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x63b)]=function(){const _0x482efc=_0x2e6bc0;return Scene_Equip['layoutSettings'][_0x482efc(0x5d8)][_0x482efc(0x895)](this);},Scene_Equip['prototype'][_0x2e6bc0(0x2b9)]=function(){const _0x2b0715=_0x2e6bc0;return Scene_Equip[_0x2b0715(0x71a)]['StatusRect'][_0x2b0715(0x895)](this);},Scene_Equip['prototype']['commandWindowRect']=function(){const _0x5e2941=_0x2e6bc0;return Scene_Equip[_0x5e2941(0x71a)][_0x5e2941(0x6f8)][_0x5e2941(0x895)](this);},Scene_Equip[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x11e)]=function(){const _0x1e56f8=_0x2e6bc0;return Scene_Equip[_0x1e56f8(0x71a)][_0x1e56f8(0x376)][_0x1e56f8(0x895)](this);},Scene_Equip[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x45b)]=function(){const _0x581045=_0x2e6bc0;return Scene_Equip['layoutSettings']['ItemRect'][_0x581045(0x895)](this);},Scene_Status['layoutSettings']=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)]['MenuLayout'][_0x2e6bc0(0x355)],VisuMZ[_0x2e6bc0(0x468)]['Scene_Status_create']=Scene_Status[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x893)],Scene_Status['prototype']['create']=function(){const _0x553e8c=_0x2e6bc0;VisuMZ[_0x553e8c(0x468)]['Scene_Status_create'][_0x553e8c(0x895)](this),this[_0x553e8c(0x5a9)]();},Scene_Status[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5a9)]=function(){const _0x244159=_0x2e6bc0;this[_0x244159(0x3f7)]&&this[_0x244159(0x3f7)]['setBackgroundType'](Scene_Status[_0x244159(0x71a)][_0x244159(0x464)]),this[_0x244159(0x663)]&&this[_0x244159(0x663)][_0x244159(0x52a)](Scene_Status[_0x244159(0x71a)]['StatusBgType']),this['_statusParamsWindow']&&this[_0x244159(0x884)][_0x244159(0x52a)](Scene_Status[_0x244159(0x71a)][_0x244159(0x610)]),this[_0x244159(0x473)]&&this['_statusEquipWindow']['setBackgroundType'](Scene_Status['layoutSettings']['StatusEquipBgType']);},Scene_Status[_0x2e6bc0(0x5e2)]['profileWindowRect']=function(){const _0x5afa89=_0x2e6bc0;return Scene_Status[_0x5afa89(0x71a)]['ProfileRect'][_0x5afa89(0x895)](this);},Scene_Status[_0x2e6bc0(0x5e2)]['statusWindowRect']=function(){const _0x37a61d=_0x2e6bc0;return Scene_Status[_0x37a61d(0x71a)][_0x37a61d(0x1e6)]['call'](this);},Scene_Status['prototype'][_0x2e6bc0(0x78d)]=function(){const _0x185b6a=_0x2e6bc0;return Scene_Status[_0x185b6a(0x71a)][_0x185b6a(0x268)]['call'](this);},Scene_Status[_0x2e6bc0(0x5e2)]['statusEquipWindowRect']=function(){const _0x47d8cc=_0x2e6bc0;return Scene_Status[_0x47d8cc(0x71a)][_0x47d8cc(0x258)][_0x47d8cc(0x895)](this);},Scene_Options[_0x2e6bc0(0x71a)]=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x573)][_0x2e6bc0(0x180)],VisuMZ[_0x2e6bc0(0x468)]['Scene_Options_create']=Scene_Options[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x893)],Scene_Options[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x893)]=function(){const _0x4fc945=_0x2e6bc0;VisuMZ[_0x4fc945(0x468)][_0x4fc945(0x5e7)][_0x4fc945(0x895)](this),this['setCoreEngineUpdateWindowBg']();},Scene_Options['prototype'][_0x2e6bc0(0x5a9)]=function(){const _0x356a44=_0x2e6bc0;this[_0x356a44(0x481)]&&this[_0x356a44(0x481)][_0x356a44(0x52a)](Scene_Options['layoutSettings'][_0x356a44(0x883)]);},Scene_Options['prototype'][_0x2e6bc0(0x7c1)]=function(){const _0x4b4b0a=_0x2e6bc0;return Scene_Options[_0x4b4b0a(0x71a)][_0x4b4b0a(0x7e9)][_0x4b4b0a(0x895)](this);},Scene_Save['layoutSettings']=VisuMZ['CoreEngine'][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x573)][_0x2e6bc0(0x1c5)],Scene_Save['prototype'][_0x2e6bc0(0x893)]=function(){const _0x474069=_0x2e6bc0;Scene_File[_0x474069(0x5e2)]['create'][_0x474069(0x895)](this),this['setCoreEngineUpdateWindowBg']();},Scene_Save[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5a9)]=function(){const _0x3f52c1=_0x2e6bc0;this[_0x3f52c1(0x702)]&&this['_helpWindow'][_0x3f52c1(0x52a)](Scene_Save['layoutSettings']['HelpBgType']),this['_listWindow']&&this[_0x3f52c1(0x1be)][_0x3f52c1(0x52a)](Scene_Save[_0x3f52c1(0x71a)][_0x3f52c1(0x69e)]);},Scene_Save[_0x2e6bc0(0x5e2)]['helpWindowRect']=function(){const _0x5abeb6=_0x2e6bc0;return Scene_Save[_0x5abeb6(0x71a)]['HelpRect'][_0x5abeb6(0x895)](this);},Scene_Save[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x40c)]=function(){const _0x5c6964=_0x2e6bc0;return Scene_Save[_0x5c6964(0x71a)][_0x5c6964(0x767)][_0x5c6964(0x895)](this);},Scene_Load[_0x2e6bc0(0x71a)]=VisuMZ['CoreEngine'][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x573)][_0x2e6bc0(0x162)],Scene_Load[_0x2e6bc0(0x5e2)]['create']=function(){const _0x61cfe6=_0x2e6bc0;Scene_File[_0x61cfe6(0x5e2)]['create'][_0x61cfe6(0x895)](this),this[_0x61cfe6(0x5a9)]();},Scene_Load[_0x2e6bc0(0x5e2)]['setCoreEngineUpdateWindowBg']=function(){const _0x204e95=_0x2e6bc0;this[_0x204e95(0x702)]&&this[_0x204e95(0x702)][_0x204e95(0x52a)](Scene_Load['layoutSettings']['HelpBgType']),this[_0x204e95(0x1be)]&&this[_0x204e95(0x1be)][_0x204e95(0x52a)](Scene_Load[_0x204e95(0x71a)][_0x204e95(0x69e)]);},Scene_Load['prototype'][_0x2e6bc0(0x63b)]=function(){const _0x227ef5=_0x2e6bc0;return Scene_Load[_0x227ef5(0x71a)][_0x227ef5(0x5d8)][_0x227ef5(0x895)](this);},Scene_Load[_0x2e6bc0(0x5e2)]['listWindowRect']=function(){const _0x202b73=_0x2e6bc0;return Scene_Load[_0x202b73(0x71a)][_0x202b73(0x767)]['call'](this);};function Scene_QuickLoad(){this['initialize'](...arguments);}Scene_QuickLoad[_0x2e6bc0(0x5e2)]=Object[_0x2e6bc0(0x893)](Scene_Load['prototype']),Scene_QuickLoad[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2c3)]=Scene_QuickLoad,Scene_QuickLoad[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)]=function(){const _0x201a97=_0x2e6bc0;Scene_Load['prototype'][_0x201a97(0x571)][_0x201a97(0x895)](this);},Scene_QuickLoad[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x893)]=function(){const _0x4367e1=_0x2e6bc0;this[_0x4367e1(0x372)](this['_saveFileID']);},Scene_QuickLoad[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5e1)]=function(_0xd00f6f){const _0x4ab650=_0x2e6bc0;this[_0x4ab650(0xf7)]=_0xd00f6f;},Scene_QuickLoad[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x427)]=function(){const _0x80ba33=_0x2e6bc0;Scene_MenuBase[_0x80ba33(0x5e2)][_0x80ba33(0x427)][_0x80ba33(0x895)](this);},Scene_GameEnd[_0x2e6bc0(0x71a)]=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x573)][_0x2e6bc0(0x4bb)],VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x235)]=Scene_GameEnd[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1bc)],Scene_GameEnd[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1bc)]=function(){const _0x5f05a0=_0x2e6bc0;Scene_MenuBase['prototype']['createBackground'][_0x5f05a0(0x895)](this);},Scene_GameEnd[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x11c)]=function(){const _0x13a888=_0x2e6bc0,_0x537c16=this[_0x13a888(0x65a)]();this[_0x13a888(0x3ae)]=new Window_GameEnd(_0x537c16),this[_0x13a888(0x3ae)][_0x13a888(0x658)](_0x13a888(0x709),this[_0x13a888(0x73d)][_0x13a888(0x6e7)](this)),this[_0x13a888(0x2ec)](this[_0x13a888(0x3ae)]),this[_0x13a888(0x3ae)]['setBackgroundType'](Scene_GameEnd[_0x13a888(0x71a)][_0x13a888(0x67f)]);},Scene_GameEnd['prototype'][_0x2e6bc0(0x65a)]=function(){const _0x23a5a0=_0x2e6bc0;return Scene_GameEnd[_0x23a5a0(0x71a)][_0x23a5a0(0x6f8)][_0x23a5a0(0x895)](this);},Scene_Shop['layoutSettings']=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x573)][_0x2e6bc0(0x697)],VisuMZ['CoreEngine'][_0x2e6bc0(0x3a0)]=Scene_Shop[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x893)],Scene_Shop[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x893)]=function(){const _0x41f64f=_0x2e6bc0;VisuMZ[_0x41f64f(0x468)][_0x41f64f(0x3a0)][_0x41f64f(0x895)](this),this['setCoreEngineUpdateWindowBg']();},Scene_Shop[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5a9)]=function(){const _0x49d95e=_0x2e6bc0;this[_0x49d95e(0x702)]&&this[_0x49d95e(0x702)][_0x49d95e(0x52a)](Scene_Shop[_0x49d95e(0x71a)]['HelpBgType']),this['_goldWindow']&&this[_0x49d95e(0x393)][_0x49d95e(0x52a)](Scene_Shop[_0x49d95e(0x71a)][_0x49d95e(0x76d)]),this[_0x49d95e(0x3ae)]&&this[_0x49d95e(0x3ae)]['setBackgroundType'](Scene_Shop[_0x49d95e(0x71a)][_0x49d95e(0x67f)]),this[_0x49d95e(0x358)]&&this[_0x49d95e(0x358)][_0x49d95e(0x52a)](Scene_Shop[_0x49d95e(0x71a)][_0x49d95e(0x3f4)]),this[_0x49d95e(0x674)]&&this[_0x49d95e(0x674)][_0x49d95e(0x52a)](Scene_Shop[_0x49d95e(0x71a)]['NumberBgType']),this[_0x49d95e(0x663)]&&this[_0x49d95e(0x663)][_0x49d95e(0x52a)](Scene_Shop['layoutSettings']['StatusBgType']),this[_0x49d95e(0x124)]&&this[_0x49d95e(0x124)][_0x49d95e(0x52a)](Scene_Shop[_0x49d95e(0x71a)][_0x49d95e(0x58c)]),this['_categoryWindow']&&this[_0x49d95e(0x841)]['setBackgroundType'](Scene_Shop[_0x49d95e(0x71a)]['CategoryBgType']),this[_0x49d95e(0x8bb)]&&this[_0x49d95e(0x8bb)][_0x49d95e(0x52a)](Scene_Shop[_0x49d95e(0x71a)][_0x49d95e(0x8ab)]);},Scene_Shop[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x63b)]=function(){const _0x3dfae1=_0x2e6bc0;return Scene_Shop['layoutSettings'][_0x3dfae1(0x5d8)][_0x3dfae1(0x895)](this);},Scene_Shop[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x16d)]=function(){const _0x210e07=_0x2e6bc0;return Scene_Shop[_0x210e07(0x71a)][_0x210e07(0x518)][_0x210e07(0x895)](this);},Scene_Shop['prototype']['commandWindowRect']=function(){const _0x1882e4=_0x2e6bc0;return Scene_Shop['layoutSettings'][_0x1882e4(0x6f8)][_0x1882e4(0x895)](this);},Scene_Shop[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x255)]=function(){const _0x15afaa=_0x2e6bc0;return Scene_Shop[_0x15afaa(0x71a)][_0x15afaa(0x77a)]['call'](this);},Scene_Shop['prototype'][_0x2e6bc0(0x556)]=function(){const _0x33c259=_0x2e6bc0;return Scene_Shop[_0x33c259(0x71a)]['NumberRect'][_0x33c259(0x895)](this);},Scene_Shop['prototype']['statusWindowRect']=function(){const _0x32f730=_0x2e6bc0;return Scene_Shop[_0x32f730(0x71a)][_0x32f730(0x1e6)][_0x32f730(0x895)](this);},Scene_Shop[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x287)]=function(){const _0x4c5fd2=_0x2e6bc0;return Scene_Shop[_0x4c5fd2(0x71a)][_0x4c5fd2(0x110)][_0x4c5fd2(0x895)](this);},Scene_Shop[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x385)]=function(){const _0x2066dc=_0x2e6bc0;return Scene_Shop[_0x2066dc(0x71a)][_0x2066dc(0x36c)][_0x2066dc(0x895)](this);},Scene_Shop[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5bc)]=function(){const _0x1b5ac0=_0x2e6bc0;return Scene_Shop['layoutSettings'][_0x1b5ac0(0x540)][_0x1b5ac0(0x895)](this);},Scene_Name['layoutSettings']=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x573)][_0x2e6bc0(0x457)],VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x733)]=Scene_Name[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x893)],Scene_Name['prototype'][_0x2e6bc0(0x893)]=function(){const _0x5afce8=_0x2e6bc0;VisuMZ[_0x5afce8(0x468)]['Scene_Name_create'][_0x5afce8(0x895)](this),this[_0x5afce8(0x5a9)]();},Scene_Name[_0x2e6bc0(0x5e2)]['setCoreEngineUpdateWindowBg']=function(){const _0x58e8e6=_0x2e6bc0;this['_editWindow']&&this[_0x58e8e6(0x2ce)][_0x58e8e6(0x52a)](Scene_Name['layoutSettings'][_0x58e8e6(0x531)]),this[_0x58e8e6(0x6c1)]&&this[_0x58e8e6(0x6c1)][_0x58e8e6(0x52a)](Scene_Name[_0x58e8e6(0x71a)]['InputBgType']);},Scene_Name[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x381)]=function(){return 0x0;},Scene_Name[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x745)]=function(){const _0x39df6a=_0x2e6bc0;return Scene_Name[_0x39df6a(0x71a)][_0x39df6a(0x4c8)][_0x39df6a(0x895)](this);},Scene_Name['prototype'][_0x2e6bc0(0x765)]=function(){const _0x542586=_0x2e6bc0;return Scene_Name[_0x542586(0x71a)][_0x542586(0x17f)][_0x542586(0x895)](this);},Scene_Name['prototype'][_0x2e6bc0(0x458)]=function(){const _0x13a719=_0x2e6bc0;if(!this[_0x13a719(0x6c1)])return![];return VisuMZ['CoreEngine']['Settings'][_0x13a719(0x5c6)][_0x13a719(0x458)];},Scene_Name[_0x2e6bc0(0x5e2)]['buttonAssistKey1']=function(){const _0x33980d=_0x2e6bc0;if(this[_0x33980d(0x458)]()&&this[_0x33980d(0x6c1)][_0x33980d(0x5ca)]!=='keyboard')return TextManager[_0x33980d(0x705)]('pageup',_0x33980d(0x53a));return Scene_MenuBase['prototype'][_0x33980d(0x6d3)][_0x33980d(0x895)](this);},Scene_Name[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x461)]=function(){const _0x4cebbc=_0x2e6bc0;return this['EnableNameInput']()?TextManager[_0x4cebbc(0x76a)](_0x4cebbc(0x453)):Scene_MenuBase[_0x4cebbc(0x5e2)][_0x4cebbc(0x461)][_0x4cebbc(0x895)](this);},Scene_Name[_0x2e6bc0(0x5e2)]['buttonAssistKey4']=function(){const _0x1e7742=_0x2e6bc0;if(this[_0x1e7742(0x458)]()&&this[_0x1e7742(0x6c1)][_0x1e7742(0x5ca)]===_0x1e7742(0x7c2))return TextManager[_0x1e7742(0x25b)]([_0x1e7742(0x4e1)]);return Scene_MenuBase['prototype']['buttonAssistKey4'][_0x1e7742(0x895)](this);},Scene_Name[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x692)]=function(){const _0x2e00f7=_0x2e6bc0;if(this[_0x2e00f7(0x458)]()&&this[_0x2e00f7(0x6c1)][_0x2e00f7(0x5ca)]==='keyboard')return TextManager[_0x2e00f7(0x25b)]([_0x2e00f7(0x3f2)]);return Scene_MenuBase[_0x2e00f7(0x5e2)][_0x2e00f7(0x692)][_0x2e00f7(0x895)](this);},Scene_Name[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6f5)]=function(){const _0x541996=_0x2e6bc0;if(this[_0x541996(0x458)]()&&this[_0x541996(0x6c1)][_0x541996(0x5ca)]!==_0x541996(0x7c2)){const _0x1d964d=VisuMZ['CoreEngine']['Settings'][_0x541996(0x5c6)];return _0x1d964d[_0x541996(0x2c6)]||_0x541996(0x70d);}return Scene_MenuBase[_0x541996(0x5e2)][_0x541996(0x6f5)][_0x541996(0x895)](this);},Scene_Name[_0x2e6bc0(0x5e2)]['buttonAssistText3']=function(){const _0x140c8a=_0x2e6bc0;if(this[_0x140c8a(0x458)]()){const _0x3f5b87=VisuMZ[_0x140c8a(0x468)]['Settings']['KeyboardInput'];return this[_0x140c8a(0x6c1)][_0x140c8a(0x5ca)]===_0x140c8a(0x7c2)?_0x3f5b87[_0x140c8a(0x8b8)]||'Keyboard':_0x3f5b87['Manual']||_0x140c8a(0x635);}else return Scene_MenuBase[_0x140c8a(0x5e2)][_0x140c8a(0x8a8)][_0x140c8a(0x895)](this);},Scene_Name[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x121)]=function(){const _0x231b8c=_0x2e6bc0;if(this['EnableNameInput']()){const _0x1b201e=VisuMZ[_0x231b8c(0x468)][_0x231b8c(0x6ef)]['KeyboardInput'];if(this[_0x231b8c(0x6c1)][_0x231b8c(0x5ca)]===_0x231b8c(0x7c2))return _0x1b201e[_0x231b8c(0x75e)]||_0x231b8c(0x75e);}return Scene_MenuBase[_0x231b8c(0x5e2)][_0x231b8c(0x121)][_0x231b8c(0x895)](this);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x4db)]=Scene_Name['prototype'][_0x2e6bc0(0x609)],Scene_Name[_0x2e6bc0(0x5e2)]['onInputOk']=function(){const _0x411ef3=_0x2e6bc0;this[_0x411ef3(0x129)]()?this['onInputBannedWords']():VisuMZ['CoreEngine'][_0x411ef3(0x4db)][_0x411ef3(0x895)](this);},Scene_Name[_0x2e6bc0(0x5e2)]['doesNameContainBannedWords']=function(){const _0x275818=_0x2e6bc0,_0x2a7455=VisuMZ[_0x275818(0x468)][_0x275818(0x6ef)][_0x275818(0x5c6)];if(!_0x2a7455)return![];const _0x241116=_0x2a7455[_0x275818(0x22b)];if(!_0x241116)return![];const _0xd9e6b4=this['_editWindow'][_0x275818(0x3d0)]()['toLowerCase']();for(const _0x4f75a6 of _0x241116){if(_0xd9e6b4[_0x275818(0x7fe)](_0x4f75a6[_0x275818(0x616)]()))return!![];}return![];},Scene_Name[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5c4)]=function(){const _0x1985ea=_0x2e6bc0;SoundManager[_0x1985ea(0x665)]();},VisuMZ['CoreEngine'][_0x2e6bc0(0x50e)]=Scene_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x645)],Scene_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x645)]=function(){const _0x3b7e75=_0x2e6bc0;VisuMZ[_0x3b7e75(0x468)][_0x3b7e75(0x50e)]['call'](this);if($gameTemp[_0x3b7e75(0x517)])this['updatePlayTestF7']();},Scene_Battle[_0x2e6bc0(0x5e2)]['updatePlayTestF7']=function(){const _0x49c6f1=_0x2e6bc0;!BattleManager[_0x49c6f1(0x7c8)]()&&!this[_0x49c6f1(0x335)]&&!$gameMessage[_0x49c6f1(0x7aa)]()&&(this[_0x49c6f1(0x335)]=!![],this['update'](),SceneManager[_0x49c6f1(0x82e)](),this[_0x49c6f1(0x335)]=![]);},VisuMZ['CoreEngine'][_0x2e6bc0(0x71b)]=Scene_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x803)],Scene_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x803)]=function(){const _0x144828=_0x2e6bc0;VisuMZ[_0x144828(0x468)]['Scene_Battle_createCancelButton'][_0x144828(0x895)](this),SceneManager[_0x144828(0xe7)]()&&this[_0x144828(0x71d)]();},Scene_Battle[_0x2e6bc0(0x5e2)]['repositionCancelButtonSideButtonLayout']=function(){const _0x113994=_0x2e6bc0;this['_cancelButton']['x']=Graphics[_0x113994(0x2b2)]+0x4,this[_0x113994(0x7dd)]()?this[_0x113994(0x29b)]['y']=Graphics[_0x113994(0x849)]-this[_0x113994(0x7d6)]():this[_0x113994(0x29b)]['y']=0x0;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x527)]=Sprite_Button[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)],Sprite_Button[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)]=function(_0x4b72ab){const _0x52625e=_0x2e6bc0;VisuMZ['CoreEngine']['Sprite_Button_initialize'][_0x52625e(0x895)](this,_0x4b72ab),this[_0x52625e(0x7f1)]();},Sprite_Button[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7f1)]=function(){const _0xb868b8=_0x2e6bc0,_0x11e0bf=VisuMZ['CoreEngine'][_0xb868b8(0x6ef)]['UI'];this[_0xb868b8(0x710)]=![];switch(this[_0xb868b8(0x2d2)]){case _0xb868b8(0x709):this[_0xb868b8(0x710)]=!_0x11e0bf['cancelShowButton'];break;case'pageup':case'pagedown':this[_0xb868b8(0x710)]=!_0x11e0bf[_0xb868b8(0x4c1)];break;case _0xb868b8(0x218):case'up':case _0xb868b8(0x854):case _0xb868b8(0x6f6):case'ok':this['_isButtonHidden']=!_0x11e0bf[_0xb868b8(0x42d)];break;case _0xb868b8(0x2cb):this[_0xb868b8(0x710)]=!_0x11e0bf['menuShowButton'];break;}},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x888)]=Sprite_Button['prototype'][_0x2e6bc0(0x766)],Sprite_Button[_0x2e6bc0(0x5e2)]['updateOpacity']=function(){const _0x4b0015=_0x2e6bc0;SceneManager['areButtonsHidden']()||this[_0x4b0015(0x710)]?this[_0x4b0015(0x59c)]():VisuMZ[_0x4b0015(0x468)]['Sprite_Button_updateOpacity']['call'](this);},Sprite_Button[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x59c)]=function(){const _0xdf6273=_0x2e6bc0;this[_0xdf6273(0x510)]=![],this[_0xdf6273(0x687)]=0x0,this['x']=Graphics['width']*0xa,this['y']=Graphics[_0xdf6273(0x689)]*0xa;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x8be)]=Sprite_Battler[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x111)],Sprite_Battler['prototype']['startMove']=function(_0x3faa64,_0x5a82cd,_0x259940){const _0x465249=_0x2e6bc0;(this[_0x465249(0x52f)]!==_0x3faa64||this[_0x465249(0x1b9)]!==_0x5a82cd)&&(this['setMoveEasingType'](_0x465249(0x4ab)),this[_0x465249(0x3e9)]=_0x259940),VisuMZ[_0x465249(0x468)][_0x465249(0x8be)][_0x465249(0x895)](this,_0x3faa64,_0x5a82cd,_0x259940);},Sprite_Battler[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x798)]=function(_0x216b2b){const _0x59ec2c=_0x2e6bc0;this[_0x59ec2c(0x20d)]=_0x216b2b;},Sprite_Battler['prototype'][_0x2e6bc0(0x19d)]=function(){const _0xe3306=_0x2e6bc0;if(this[_0xe3306(0x349)]<=0x0)return;const _0x2fbe4a=this[_0xe3306(0x349)],_0x46dc89=this['_movementWholeDuration'],_0x5a9a2f=this[_0xe3306(0x20d)];this[_0xe3306(0x795)]=this[_0xe3306(0x14e)](this[_0xe3306(0x795)],this[_0xe3306(0x52f)],_0x2fbe4a,_0x46dc89,_0x5a9a2f),this[_0xe3306(0xe8)]=this[_0xe3306(0x14e)](this[_0xe3306(0xe8)],this['_targetOffsetY'],_0x2fbe4a,_0x46dc89,_0x5a9a2f),this[_0xe3306(0x349)]--;if(this[_0xe3306(0x349)]<=0x0)this[_0xe3306(0x172)]();},Sprite_Battler[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x14e)]=function(_0x5e4d89,_0x3cf38d,_0x14747f,_0x48a873,_0x2c6385){const _0x31169f=_0x2e6bc0,_0x1ae876=VisuMZ[_0x31169f(0x71e)]((_0x48a873-_0x14747f)/_0x48a873,_0x2c6385||'Linear'),_0x136101=VisuMZ[_0x31169f(0x71e)]((_0x48a873-_0x14747f+0x1)/_0x48a873,_0x2c6385||_0x31169f(0x4ab)),_0xf43ccf=(_0x5e4d89-_0x3cf38d*_0x1ae876)/(0x1-_0x1ae876);return _0xf43ccf+(_0x3cf38d-_0xf43ccf)*_0x136101;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x2e1)]=Sprite_Actor['prototype'][_0x2e6bc0(0x812)],Sprite_Actor[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x812)]=function(_0xd35bed){const _0x991fd1=_0x2e6bc0;VisuMZ[_0x991fd1(0x468)][_0x991fd1(0x6ef)]['UI'][_0x991fd1(0x526)]?this['setActorHomeRepositioned'](_0xd35bed):VisuMZ[_0x991fd1(0x468)]['Sprite_Actor_setActorHome'][_0x991fd1(0x895)](this,_0xd35bed);},Sprite_Actor[_0x2e6bc0(0x5e2)]['setActorHomeRepositioned']=function(_0x23b0e1){const _0x45ac4b=_0x2e6bc0;let _0x35ef73=Math[_0x45ac4b(0x897)](Graphics[_0x45ac4b(0x746)]/0x2+0xc0);_0x35ef73-=Math[_0x45ac4b(0x3ff)]((Graphics[_0x45ac4b(0x746)]-Graphics['boxWidth'])/0x2),_0x35ef73+=_0x23b0e1*0x20;let _0x25ce68=Graphics[_0x45ac4b(0x689)]-0xc8-$gameParty[_0x45ac4b(0x6b8)]()*0x30;_0x25ce68-=Math[_0x45ac4b(0x3ff)]((Graphics['height']-Graphics[_0x45ac4b(0x849)])/0x2),_0x25ce68+=_0x23b0e1*0x30,this[_0x45ac4b(0x3c7)](_0x35ef73,_0x25ce68);},Sprite_Actor[_0x2e6bc0(0x5e2)]['retreat']=function(){const _0x2510f1=_0x2e6bc0;this[_0x2510f1(0x111)](0x4b0,0x0,0x78);},Sprite_Animation[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x156)]=function(_0x3d7f52){const _0x268800=_0x2e6bc0;this[_0x268800(0x186)]=_0x3d7f52;},VisuMZ[_0x2e6bc0(0x468)]['Sprite_Animation_processSoundTimings']=Sprite_Animation[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x688)],Sprite_Animation['prototype'][_0x2e6bc0(0x688)]=function(){const _0x1f9ddd=_0x2e6bc0;if(this['_muteSound'])return;VisuMZ[_0x1f9ddd(0x468)][_0x1f9ddd(0x160)]['call'](this);},VisuMZ['CoreEngine'][_0x2e6bc0(0x266)]=Sprite_Animation[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x289)],Sprite_Animation[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x289)]=function(_0xf4cde8){const _0x476b67=_0x2e6bc0;this[_0x476b67(0x5c8)]()?this[_0x476b67(0x313)](_0xf4cde8):VisuMZ[_0x476b67(0x468)][_0x476b67(0x266)][_0x476b67(0x895)](this,_0xf4cde8);},Sprite_Animation[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5c8)]=function(){const _0x1b7717=_0x2e6bc0;if(!this['_animation'])return![];const _0x556df8=this[_0x1b7717(0x4d2)][_0x1b7717(0x3d0)]||'';if(_0x556df8['match'](/<MIRROR OFFSET X>/i))return!![];if(_0x556df8[_0x1b7717(0x298)](/<NO MIRROR OFFSET X>/i))return![];return VisuMZ[_0x1b7717(0x468)][_0x1b7717(0x6ef)][_0x1b7717(0x818)][_0x1b7717(0x6db)];},Sprite_Animation[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x313)]=function(_0x374006){const _0x431a3b=_0x2e6bc0,_0x359696=this['_viewportSize'],_0x405bc8=this[_0x431a3b(0x7e7)],_0x1cfece=this['_animation'][_0x431a3b(0x698)]*(this[_0x431a3b(0x868)]?-0x1:0x1)-_0x359696/0x2,_0x1969d9=this['_animation'][_0x431a3b(0x83a)]-_0x405bc8/0x2,_0x19f209=this[_0x431a3b(0x6ce)](_0x374006);_0x374006['gl'][_0x431a3b(0x592)](_0x1cfece+_0x19f209['x'],_0x1969d9+_0x19f209['y'],_0x359696,_0x405bc8);},Sprite_Animation[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6a4)]=function(_0x5dcd66){const _0x4245b3=_0x2e6bc0;if(_0x5dcd66[_0x4245b3(0x2a8)]){}const _0x56ff62=this['_animation'][_0x4245b3(0x3d0)];let _0x498e10=_0x5dcd66[_0x4245b3(0x689)]*_0x5dcd66[_0x4245b3(0x53f)]['y'],_0x4f5621=0x0,_0x5941a5=-_0x498e10/0x2;if(_0x56ff62[_0x4245b3(0x298)](/<(?:HEAD|HEADER|TOP)>/i))_0x5941a5=-_0x498e10;if(_0x56ff62[_0x4245b3(0x298)](/<(?:FOOT|FOOTER|BOTTOM)>/i))_0x5941a5=0x0;if(this[_0x4245b3(0x4d2)][_0x4245b3(0x216)])_0x5941a5=0x0;if(_0x56ff62[_0x4245b3(0x298)](/<(?:LEFT)>/i))_0x4f5621=-_0x5dcd66[_0x4245b3(0x746)]/0x2;if(_0x56ff62[_0x4245b3(0x298)](/<(?:RIGHT)>/i))_0x4f5621=_0x5dcd66[_0x4245b3(0x746)]/0x2;_0x56ff62[_0x4245b3(0x298)](/<ANCHOR X:[ ](\d+\.?\d*)>/i)&&(_0x4f5621=Number(RegExp['$1'])*_0x5dcd66['width']);_0x56ff62[_0x4245b3(0x298)](/<ANCHOR Y:[ ](\d+\.?\d*)>/i)&&(_0x5941a5=(0x1-Number(RegExp['$1']))*-_0x498e10);_0x56ff62['match'](/<ANCHOR:[ ](\d+\.?\d*),[ ](\d+\.?\d*)>/i)&&(_0x4f5621=Number(RegExp['$1'])*_0x5dcd66['width'],_0x5941a5=(0x1-Number(RegExp['$2']))*-_0x498e10);if(_0x56ff62[_0x4245b3(0x298)](/<OFFSET X:[ ]([\+\-]\d+)>/i))_0x4f5621+=Number(RegExp['$1']);if(_0x56ff62[_0x4245b3(0x298)](/<OFFSET Y:[ ]([\+\-]\d+)>/i))_0x5941a5+=Number(RegExp['$1']);_0x56ff62[_0x4245b3(0x298)](/<OFFSET:[ ]([\+\-]\d+),[ ]([\+\-]\d+)>/i)&&(_0x4f5621+=Number(RegExp['$1']),_0x5941a5+=Number(RegExp['$2']));const _0x5f51b1=new Point(_0x4f5621,_0x5941a5);return _0x5dcd66[_0x4245b3(0x55c)](),_0x5dcd66[_0x4245b3(0x201)]['apply'](_0x5f51b1);},Sprite_AnimationMV[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x25d)]=function(){const _0x2d4f00=_0x2e6bc0;this[_0x2d4f00(0x344)]=VisuMZ['CoreEngine'][_0x2d4f00(0x6ef)][_0x2d4f00(0x818)]['MvAnimationRate']??0x4,this[_0x2d4f00(0x5a6)](),this['_rate']=this[_0x2d4f00(0x344)]['clamp'](0x1,0xa);},Sprite_AnimationMV[_0x2e6bc0(0x5e2)]['setupCustomRateCoreEngine']=function(){const _0xcaa8b8=_0x2e6bc0;if(!this['_animation']);const _0x755d31=this[_0xcaa8b8(0x4d2)][_0xcaa8b8(0x3d0)]||'';_0x755d31['match'](/<RATE:[ ](\d+)>/i)&&(this[_0xcaa8b8(0x344)]=(Number(RegExp['$1'])||0x1)['clamp'](0x1,0xa));},Sprite_AnimationMV[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x156)]=function(_0x2eda31){const _0x5ebf3c=_0x2e6bc0;this[_0x5ebf3c(0x186)]=_0x2eda31;},VisuMZ['CoreEngine']['Sprite_AnimationMV_processTimingData']=Sprite_AnimationMV[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x724)],Sprite_AnimationMV[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x724)]=function(_0x5b08f2){const _0x16dd2f=_0x2e6bc0;this[_0x16dd2f(0x186)]&&(_0x5b08f2=JsonEx[_0x16dd2f(0x5a7)](_0x5b08f2),_0x5b08f2['se']&&(_0x5b08f2['se']['volume']=0x0)),VisuMZ[_0x16dd2f(0x468)][_0x16dd2f(0x12a)][_0x16dd2f(0x895)](this,_0x5b08f2);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x2b0)]=Sprite_AnimationMV[_0x2e6bc0(0x5e2)]['updatePosition'],Sprite_AnimationMV[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x301)]=function(){const _0x5e1486=_0x2e6bc0;VisuMZ[_0x5e1486(0x468)]['Sprite_AnimationMV_updatePosition'][_0x5e1486(0x895)](this);if(this[_0x5e1486(0x4d2)][_0x5e1486(0x522)]===0x3){if(this['x']===0x0)this['x']=Math[_0x5e1486(0x897)](Graphics[_0x5e1486(0x746)]/0x2);if(this['y']===0x0)this['y']=Math[_0x5e1486(0x897)](Graphics[_0x5e1486(0x689)]/0x2);}},Sprite_Damage[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x483)]=function(_0xd944e4){const _0x5f3d2b=_0x2e6bc0;let _0xd658ff=Math['abs'](_0xd944e4)[_0x5f3d2b(0x128)]();this[_0x5f3d2b(0x5c9)]()&&(_0xd658ff=VisuMZ['GroupDigits'](_0xd658ff));const _0x3a3460=this[_0x5f3d2b(0x135)](),_0x2a77af=Math[_0x5f3d2b(0x3ff)](_0x3a3460*0.75);for(let _0x400b8c=0x0;_0x400b8c<_0xd658ff[_0x5f3d2b(0x29e)];_0x400b8c++){const _0x3ae24c=this[_0x5f3d2b(0x15c)](_0x2a77af,_0x3a3460);_0x3ae24c[_0x5f3d2b(0x253)][_0x5f3d2b(0x41f)](_0xd658ff[_0x400b8c],0x0,0x0,_0x2a77af,_0x3a3460,'center'),_0x3ae24c['x']=(_0x400b8c-(_0xd658ff[_0x5f3d2b(0x29e)]-0x1)/0x2)*_0x2a77af,_0x3ae24c['dy']=-_0x400b8c;}},Sprite_Damage['prototype']['useDigitGrouping']=function(){const _0x38c5b9=_0x2e6bc0;return VisuMZ[_0x38c5b9(0x468)][_0x38c5b9(0x6ef)][_0x38c5b9(0x818)]['DigitGroupingDamageSprites'];},Sprite_Damage['prototype'][_0x2e6bc0(0x191)]=function(){const _0x5dbc56=_0x2e6bc0;return ColorManager[_0x5dbc56(0x57f)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ad)]=Sprite_Gauge['prototype'][_0x2e6bc0(0x417)],Sprite_Gauge[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x417)]=function(){const _0x1a26e4=_0x2e6bc0;return VisuMZ['CoreEngine'][_0x1a26e4(0x6ad)]['call'](this)['clamp'](0x0,0x1);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x649)]=Sprite_Gauge[_0x2e6bc0(0x5e2)]['currentValue'],Sprite_Gauge[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x622)]=function(){const _0x2814b2=_0x2e6bc0;let _0x2bb053=VisuMZ[_0x2814b2(0x468)][_0x2814b2(0x649)]['call'](this);return _0x2bb053;},Sprite_Gauge['prototype'][_0x2e6bc0(0x520)]=function(){const _0xa7b8a3=_0x2e6bc0;let _0x228ee7=this[_0xa7b8a3(0x622)]();this[_0xa7b8a3(0x5c9)]()&&(_0x228ee7=VisuMZ['GroupDigits'](_0x228ee7));const _0x3d0bba=this[_0xa7b8a3(0x5a5)]()-0x1,_0x59dfc8=this[_0xa7b8a3(0x432)]?this['textHeight']():this[_0xa7b8a3(0x167)]();this['setupValueFont'](),this[_0xa7b8a3(0x253)][_0xa7b8a3(0x41f)](_0x228ee7,0x0,0x0,_0x3d0bba,_0x59dfc8,'right');},Sprite_Gauge[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x105)]=function(){return 0x3;},Sprite_Gauge['prototype'][_0x2e6bc0(0x5c9)]=function(){const _0x126c59=_0x2e6bc0;return VisuMZ[_0x126c59(0x468)]['Settings'][_0x126c59(0x818)]['DigitGroupingGaugeSprites'];},Sprite_Gauge[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x191)]=function(){const _0x36ccda=_0x2e6bc0;return ColorManager[_0x36ccda(0x511)]();},Sprite_StateIcon[_0x2e6bc0(0x16a)]=VisuMZ[_0x2e6bc0(0x468)]['Settings']['UI'][_0x2e6bc0(0x254)]??!![],VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x494)]=Sprite_StateIcon[_0x2e6bc0(0x5e2)]['loadBitmap'],Sprite_StateIcon[_0x2e6bc0(0x5e2)]['loadBitmap']=function(){const _0x3167b6=_0x2e6bc0;Sprite_StateIcon[_0x3167b6(0x16a)]?this[_0x3167b6(0x112)]():VisuMZ[_0x3167b6(0x468)][_0x3167b6(0x494)][_0x3167b6(0x895)](this);},Sprite_StateIcon[_0x2e6bc0(0x5e2)]['loadBitmapCoreEngine']=function(){const _0x473c96=_0x2e6bc0;this[_0x473c96(0x253)]=new Bitmap(ImageManager[_0x473c96(0x503)],ImageManager[_0x473c96(0x594)]),this[_0x473c96(0x791)]=ImageManager['loadSystem']('IconSet');},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x4a1)]=Sprite_StateIcon[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x49f)],Sprite_StateIcon[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x49f)]=function(){const _0x54ef54=_0x2e6bc0;Sprite_StateIcon[_0x54ef54(0x16a)]?this[_0x54ef54(0x346)]():VisuMZ['CoreEngine'][_0x54ef54(0x4a1)]['call'](this);},Sprite_StateIcon['prototype'][_0x2e6bc0(0x346)]=function(){const _0x1a762f=_0x2e6bc0;if(this['_lastIconIndex']===this[_0x1a762f(0x3c9)])return;this[_0x1a762f(0x239)]=this['_iconIndex'];const _0x4150fc=ImageManager['iconWidth'],_0x105037=ImageManager[_0x1a762f(0x594)],_0x2d738b=this[_0x1a762f(0x3c9)]%0x10*_0x4150fc,_0x2c0206=Math[_0x1a762f(0x3ff)](this['_iconIndex']/0x10)*_0x105037,_0x438f34=this[_0x1a762f(0x791)],_0x3ae92f=this[_0x1a762f(0x253)];_0x3ae92f[_0x1a762f(0x1f1)](),_0x3ae92f[_0x1a762f(0x40d)](_0x438f34,_0x2d738b,_0x2c0206,_0x4150fc,_0x105037,0x0,0x0,_0x3ae92f[_0x1a762f(0x746)],_0x3ae92f[_0x1a762f(0x689)]);},VisuMZ[_0x2e6bc0(0x468)]['Sprite_Picture_loadBitmap']=Sprite_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1da)],Sprite_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1da)]=function(){const _0x3a5a84=_0x2e6bc0;this['_pictureName']&&this[_0x3a5a84(0x5bb)][_0x3a5a84(0x298)](/VisuMZ CoreEngine PictureIcon (\d+)/i)?this[_0x3a5a84(0x2e0)](Number(RegExp['$1'])):VisuMZ[_0x3a5a84(0x468)][_0x3a5a84(0x4cb)]['call'](this);},Sprite_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2e0)]=function(_0x370ed3){const _0xf26812=_0x2e6bc0,_0x41bd24=ImageManager['iconWidth'],_0x279932=ImageManager[_0xf26812(0x594)],_0x34762c=this[_0xf26812(0x5bb)][_0xf26812(0x298)](/SMOOTH/i);this[_0xf26812(0x253)]=new Bitmap(_0x41bd24,_0x279932);const _0x2755be=ImageManager['loadSystem']('IconSet'),_0x4ceb2a=_0x370ed3%0x10*_0x41bd24,_0x24cb0e=Math[_0xf26812(0x3ff)](_0x370ed3/0x10)*_0x279932;this[_0xf26812(0x253)][_0xf26812(0x4dd)]=_0x34762c,this[_0xf26812(0x253)][_0xf26812(0x40d)](_0x2755be,_0x4ceb2a,_0x24cb0e,_0x41bd24,_0x279932,0x0,0x0,_0x41bd24,_0x279932);};function Sprite_TitlePictureButton(){this['initialize'](...arguments);}function _0x545e(_0x1c3fdb,_0xaff97f){const _0x2615d9=_0x2615();return _0x545e=function(_0x545e3e,_0x5af4d8){_0x545e3e=_0x545e3e-0xe1;let _0x98b2b4=_0x2615d9[_0x545e3e];return _0x98b2b4;},_0x545e(_0x1c3fdb,_0xaff97f);}Sprite_TitlePictureButton['prototype']=Object[_0x2e6bc0(0x893)](Sprite_Clickable['prototype']),Sprite_TitlePictureButton['prototype'][_0x2e6bc0(0x2c3)]=Sprite_TitlePictureButton,Sprite_TitlePictureButton[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)]=function(_0x1cc476){const _0x570481=_0x2e6bc0;Sprite_Clickable['prototype'][_0x570481(0x571)]['call'](this),this[_0x570481(0x43b)]=_0x1cc476,this[_0x570481(0x553)]=null,this[_0x570481(0x274)]();},Sprite_TitlePictureButton['prototype'][_0x2e6bc0(0x274)]=function(){const _0x3d18f6=_0x2e6bc0;this['x']=Graphics[_0x3d18f6(0x746)],this['y']=Graphics[_0x3d18f6(0x689)],this[_0x3d18f6(0x510)]=![],this[_0x3d18f6(0x1ad)]();},Sprite_TitlePictureButton['prototype'][_0x2e6bc0(0x1ad)]=function(){const _0x395a45=_0x2e6bc0;this[_0x395a45(0x253)]=ImageManager['loadPicture'](this['_data'][_0x395a45(0x85b)]),this[_0x395a45(0x253)][_0x395a45(0x34a)](this[_0x395a45(0x605)][_0x395a45(0x6e7)](this));},Sprite_TitlePictureButton['prototype'][_0x2e6bc0(0x605)]=function(){const _0x527577=_0x2e6bc0;this[_0x527577(0x43b)][_0x527577(0x3a6)][_0x527577(0x895)](this),this[_0x527577(0x43b)]['PositionJS'][_0x527577(0x895)](this),this[_0x527577(0x7e3)](this[_0x527577(0x43b)][_0x527577(0x612)][_0x527577(0x6e7)](this));},Sprite_TitlePictureButton[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x645)]=function(){const _0x4b62c2=_0x2e6bc0;Sprite_Clickable[_0x4b62c2(0x5e2)][_0x4b62c2(0x645)]['call'](this),this[_0x4b62c2(0x766)](),this[_0x4b62c2(0x534)]();},Sprite_TitlePictureButton[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x271)]=function(){const _0x470f1d=_0x2e6bc0;return VisuMZ[_0x470f1d(0x468)][_0x470f1d(0x6ef)]['MenuLayout'][_0x470f1d(0x887)]['ButtonFadeSpeed'];},Sprite_TitlePictureButton[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x766)]=function(){const _0x1cd7f5=_0x2e6bc0;this['_pressed']||this['_hovered']?this[_0x1cd7f5(0x687)]=0xff:(this[_0x1cd7f5(0x687)]+=this[_0x1cd7f5(0x510)]?this[_0x1cd7f5(0x271)]():-0x1*this['fadeSpeed'](),this[_0x1cd7f5(0x687)]=Math[_0x1cd7f5(0x69a)](0xc0,this[_0x1cd7f5(0x687)]));},Sprite_TitlePictureButton[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7e3)]=function(_0x3bb29c){this['_clickHandler']=_0x3bb29c;},Sprite_TitlePictureButton[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x13c)]=function(){const _0x39b413=_0x2e6bc0;this[_0x39b413(0x553)]&&this['_clickHandler']();};function Sprite_ExtendedTile(){const _0x4c2521=_0x2e6bc0;this[_0x4c2521(0x571)](...arguments);}Sprite_ExtendedTile['prototype']=Object[_0x2e6bc0(0x893)](Sprite[_0x2e6bc0(0x5e2)]),Sprite_ExtendedTile['prototype'][_0x2e6bc0(0x2c3)]=Sprite_ExtendedTile,Sprite_ExtendedTile[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)]=function(_0x451e6a,_0x2e7189,_0x3bb5d2,_0x42c195){const _0x33bd41=_0x2e6bc0;this[_0x33bd41(0x159)]=Game_CharacterBase[_0x33bd41(0x7c7)]||-0x6,this[_0x33bd41(0x5b8)]=_0x451e6a,this['_mapY']=_0x2e7189,this[_0x33bd41(0x656)]=_0x3bb5d2,this[_0x33bd41(0x608)]=_0x42c195,Sprite[_0x33bd41(0x5e2)][_0x33bd41(0x571)][_0x33bd41(0x895)](this),this['createSubSprite'](),this[_0x33bd41(0x3d5)](),this[_0x33bd41(0x2fa)](),this['update']();},Sprite_ExtendedTile[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x634)]=function(){const _0x3d9be4=_0x2e6bc0;this[_0x3d9be4(0x6f7)]=new Sprite(),this['_tileSprite'][_0x3d9be4(0x704)]['x']=0.5,this[_0x3d9be4(0x6f7)][_0x3d9be4(0x704)]['y']=0x1,this[_0x3d9be4(0x6f7)]['y']=-this[_0x3d9be4(0x159)]+0x1,this[_0x3d9be4(0x6e8)](this['_tileSprite']);},Sprite_ExtendedTile['prototype'][_0x2e6bc0(0x3d5)]=function(){const _0x37de79=_0x2e6bc0,_0x6c306d=$gameMap[_0x37de79(0x6be)](),_0x52fdb4=0x5+Math[_0x37de79(0x3ff)](this[_0x37de79(0x656)]/0x100);this['_tileSprite'][_0x37de79(0x253)]=ImageManager[_0x37de79(0x56b)](_0x6c306d[_0x37de79(0x3eb)][_0x52fdb4]);},Sprite_ExtendedTile['prototype'][_0x2e6bc0(0x2fa)]=function(){const _0x4b55b0=_0x2e6bc0,_0x2e98e1=this[_0x4b55b0(0x656)],_0x2e206a=$gameMap[_0x4b55b0(0x363)](),_0x3fc12f=$gameMap[_0x4b55b0(0x5f7)](),_0x36c704=(Math['floor'](_0x2e98e1/0x80)%0x2*0x8+_0x2e98e1%0x8)*_0x2e206a,_0x1b1bf5=Math[_0x4b55b0(0x3ff)](_0x2e98e1%0x100/0x8)%0x10*_0x3fc12f,_0x562436=this[_0x4b55b0(0x608)]*_0x3fc12f;this[_0x4b55b0(0x6f7)]['setFrame'](_0x36c704,_0x1b1bf5-_0x562436,_0x2e206a,_0x3fc12f+_0x562436);},Sprite_ExtendedTile[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x645)]=function(){const _0x1deffd=_0x2e6bc0;Sprite[_0x1deffd(0x5e2)][_0x1deffd(0x645)][_0x1deffd(0x895)](this),this[_0x1deffd(0x301)]();},Sprite_ExtendedTile['prototype'][_0x2e6bc0(0x301)]=function(){const _0x43df40=_0x2e6bc0,_0xf85d84=$gameMap[_0x43df40(0x363)](),_0x509a2e=$gameMap[_0x43df40(0x5f7)](),_0x36c2f0=this[_0x43df40(0x5b8)],_0x10dd46=this[_0x43df40(0x422)];this['x']=Math[_0x43df40(0x3ff)](($gameMap[_0x43df40(0x2d8)](_0x36c2f0)+0.5)*_0xf85d84),this['y']=Math[_0x43df40(0x3ff)](($gameMap['adjustY'](_0x10dd46)+0x1)*_0x509a2e)+this[_0x43df40(0x159)]-0x1;},VisuMZ['CoreEngine'][_0x2e6bc0(0x306)]=Spriteset_Base[_0x2e6bc0(0x5e2)]['initialize'],Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)]=function(){const _0x3049f8=_0x2e6bc0;VisuMZ[_0x3049f8(0x468)][_0x3049f8(0x306)][_0x3049f8(0x895)](this),this['initMembersCoreEngine']();},Spriteset_Base['prototype'][_0x2e6bc0(0x756)]=function(){const _0x441fcd=_0x2e6bc0;this[_0x441fcd(0x27e)]=[],this[_0x441fcd(0x3fb)]=[],this[_0x441fcd(0x21a)]=this['scale']['x'],this[_0x441fcd(0x5b7)]=this[_0x441fcd(0x53f)]['y'];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x19a)]=Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1a5)],Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1a5)]=function(_0x57706a){const _0x30c402=_0x2e6bc0;this[_0x30c402(0x505)](),this[_0x30c402(0x454)](),VisuMZ[_0x30c402(0x468)]['Spriteset_Base_destroy'][_0x30c402(0x895)](this,_0x57706a);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x1a1)]=Spriteset_Base['prototype']['update'],Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x645)]=function(){const _0x57c65e=_0x2e6bc0;VisuMZ[_0x57c65e(0x468)][_0x57c65e(0x1a1)]['call'](this),this[_0x57c65e(0x429)](),this['updatePictureAntiZoom'](),this[_0x57c65e(0x328)](),this[_0x57c65e(0x10c)]();},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x429)]=function(){},Spriteset_Base[_0x2e6bc0(0x5e2)]['updatePictureAntiZoom']=function(){const _0x67cb4f=_0x2e6bc0;if(!VisuMZ[_0x67cb4f(0x468)][_0x67cb4f(0x6ef)][_0x67cb4f(0x818)][_0x67cb4f(0x1c7)])return;if(this[_0x67cb4f(0x21a)]===this['scale']['x']&&this[_0x67cb4f(0x5b7)]===this[_0x67cb4f(0x53f)]['y'])return;this[_0x67cb4f(0x793)](),this['_cacheScaleX']=this[_0x67cb4f(0x53f)]['x'],this[_0x67cb4f(0x5b7)]=this[_0x67cb4f(0x53f)]['y'];},Spriteset_Base['prototype'][_0x2e6bc0(0x793)]=function(){const _0x3899c3=_0x2e6bc0;if(SceneManager['isSceneMap']()&&Spriteset_Map[_0x3899c3(0x1d1)])return;else{if(SceneManager[_0x3899c3(0x76f)]()&&Spriteset_Battle['DETACH_PICTURE_CONTAINER'])return;}this[_0x3899c3(0x53f)]['x']!==0x0&&(this[_0x3899c3(0x431)][_0x3899c3(0x53f)]['x']=0x1/this[_0x3899c3(0x53f)]['x'],this['_pictureContainer']['x']=-(this['x']/this[_0x3899c3(0x53f)]['x'])),this[_0x3899c3(0x53f)]['y']!==0x0&&(this[_0x3899c3(0x431)][_0x3899c3(0x53f)]['y']=0x1/this[_0x3899c3(0x53f)]['y'],this[_0x3899c3(0x431)]['y']=-(this['y']/this['scale']['y']));},VisuMZ[_0x2e6bc0(0x468)]['Spriteset_Base_updatePosition']=Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x301)],Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x301)]=function(){const _0x1e7fe6=_0x2e6bc0;VisuMZ[_0x1e7fe6(0x468)][_0x1e7fe6(0x889)][_0x1e7fe6(0x895)](this),this[_0x1e7fe6(0x65c)]();},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x65c)]=function(){const _0x3c86a3=_0x2e6bc0;if(!$gameScreen)return;if($gameScreen[_0x3c86a3(0x600)]<=0x0)return;this['x']-=Math[_0x3c86a3(0x897)]($gameScreen[_0x3c86a3(0x8ad)]());const _0xfa76ff=$gameScreen[_0x3c86a3(0x31b)]();switch($gameScreen['getCoreEngineScreenShakeStyle']()){case _0x3c86a3(0x50c):this['updatePositionCoreEngineShakeOriginal']();break;case _0x3c86a3(0x870):this[_0x3c86a3(0x419)]();break;case _0x3c86a3(0x33e):this[_0x3c86a3(0x80b)]();break;default:this[_0x3c86a3(0x3a7)]();break;}},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6d1)]=function(){const _0x223a45=_0x2e6bc0,_0x3543f4=VisuMZ[_0x223a45(0x468)][_0x223a45(0x6ef)][_0x223a45(0x392)];if(_0x3543f4&&_0x3543f4[_0x223a45(0x2a7)])return _0x3543f4[_0x223a45(0x2a7)][_0x223a45(0x895)](this);this['x']+=Math[_0x223a45(0x897)]($gameScreen[_0x223a45(0x8ad)]());},Spriteset_Base[_0x2e6bc0(0x5e2)]['updatePositionCoreEngineShakeRand']=function(){const _0x19c09a=_0x2e6bc0,_0x4bf4c1=VisuMZ[_0x19c09a(0x468)]['Settings'][_0x19c09a(0x392)];if(_0x4bf4c1&&_0x4bf4c1[_0x19c09a(0x152)])return _0x4bf4c1['randomJS'][_0x19c09a(0x895)](this);const _0x1c2eb8=$gameScreen[_0x19c09a(0x770)]*0.75,_0x44f1cc=$gameScreen[_0x19c09a(0x13f)]*0.6,_0x59455f=$gameScreen['_shakeDuration'];this['x']+=Math[_0x19c09a(0x897)](Math['randomInt'](_0x1c2eb8)-Math[_0x19c09a(0x3b7)](_0x44f1cc))*(Math['min'](_0x59455f,0x1e)*0.5),this['y']+=Math['round'](Math['randomInt'](_0x1c2eb8)-Math[_0x19c09a(0x3b7)](_0x44f1cc))*(Math['min'](_0x59455f,0x1e)*0.5);},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x419)]=function(){const _0x77b8a9=_0x2e6bc0,_0x27b768=VisuMZ[_0x77b8a9(0x468)][_0x77b8a9(0x6ef)][_0x77b8a9(0x392)];if(_0x27b768&&_0x27b768[_0x77b8a9(0x7dc)])return _0x27b768[_0x77b8a9(0x7dc)][_0x77b8a9(0x895)](this);const _0x3c6bcf=$gameScreen[_0x77b8a9(0x770)]*0.75,_0x82b4e0=$gameScreen['_shakeSpeed']*0.6,_0x4a504a=$gameScreen['_shakeDuration'];this['x']+=Math[_0x77b8a9(0x897)](Math[_0x77b8a9(0x3b7)](_0x3c6bcf)-Math[_0x77b8a9(0x3b7)](_0x82b4e0))*(Math['min'](_0x4a504a,0x1e)*0.5);},Spriteset_Base[_0x2e6bc0(0x5e2)]['updatePositionCoreEngineShakeVert']=function(){const _0x3a1b41=_0x2e6bc0,_0x3cbb31=VisuMZ[_0x3a1b41(0x468)][_0x3a1b41(0x6ef)][_0x3a1b41(0x392)];if(_0x3cbb31&&_0x3cbb31[_0x3a1b41(0x646)])return _0x3cbb31[_0x3a1b41(0x646)][_0x3a1b41(0x895)](this);const _0xde2e0c=$gameScreen[_0x3a1b41(0x770)]*0.75,_0x22e671=$gameScreen[_0x3a1b41(0x13f)]*0.6,_0x4ed3e8=$gameScreen[_0x3a1b41(0x600)];this['y']+=Math[_0x3a1b41(0x897)](Math[_0x3a1b41(0x3b7)](_0xde2e0c)-Math[_0x3a1b41(0x3b7)](_0x22e671))*(Math[_0x3a1b41(0x69a)](_0x4ed3e8,0x1e)*0.5);},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x328)]=function(){const _0x561a45=_0x2e6bc0;for(const _0x40eb25 of this[_0x561a45(0x27e)]){!_0x40eb25['isPlaying']()&&this[_0x561a45(0x368)](_0x40eb25);}this[_0x561a45(0x32f)]();},Spriteset_Base[_0x2e6bc0(0x5e2)]['processFauxAnimationRequests']=function(){const _0x24f179=_0x2e6bc0;for(;;){const _0xae0e90=$gameTemp[_0x24f179(0x348)]();if(_0xae0e90)this[_0x24f179(0x7bd)](_0xae0e90);else break;}},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7bd)]=function(_0xc23207){const _0x37f0c0=_0x2e6bc0,_0x32e9c8=$dataAnimations[_0xc23207[_0x37f0c0(0x1d6)]],_0x430555=_0xc23207[_0x37f0c0(0x62e)],_0x515302=_0xc23207[_0x37f0c0(0x4c9)],_0x3b3518=_0xc23207[_0x37f0c0(0x7f6)];let _0x46ab1e=this[_0x37f0c0(0x3a3)]();const _0x44820c=this['animationNextDelay']();if(this[_0x37f0c0(0x30f)](_0x32e9c8))for(const _0xcc279 of _0x430555){this[_0x37f0c0(0x70f)]([_0xcc279],_0x32e9c8,_0x515302,_0x46ab1e,_0x3b3518),_0x46ab1e+=_0x44820c;}else this[_0x37f0c0(0x70f)](_0x430555,_0x32e9c8,_0x515302,_0x46ab1e,_0x3b3518);},Spriteset_Base['prototype'][_0x2e6bc0(0x560)]=function(_0x5385cf,_0x41f3bc,_0x41b76f,_0x4afb96){const _0x4ba4ea=_0x2e6bc0,_0x3cb5fe=this[_0x4ba4ea(0x23e)](_0x41f3bc),_0x3f5fe8=new(_0x3cb5fe?Sprite_AnimationMV:Sprite_Animation)(),_0x492ce4=this['makeTargetSprites'](_0x5385cf),_0x585b9a=this[_0x4ba4ea(0x3a3)](),_0x191287=_0x4afb96>_0x585b9a?this['lastAnimationSprite']():null;this[_0x4ba4ea(0x125)](_0x5385cf[0x0])&&(_0x41b76f=!_0x41b76f),_0x3f5fe8[_0x4ba4ea(0x7a2)]=_0x5385cf,_0x3f5fe8[_0x4ba4ea(0x274)](_0x492ce4,_0x41f3bc,_0x41b76f,_0x4afb96,_0x191287),this[_0x4ba4ea(0x53e)](_0x3f5fe8),this['_animationSprites'][_0x4ba4ea(0x16c)](_0x3f5fe8);},Spriteset_Base[_0x2e6bc0(0x5e2)]['createFauxAnimationSprite']=function(_0x1aaa89,_0x1c4b30,_0x4abf0e,_0x1f46bd,_0x41c748){const _0x583ed8=_0x2e6bc0,_0x85d908=this[_0x583ed8(0x23e)](_0x1c4b30),_0x2d4d4f=new(_0x85d908?Sprite_AnimationMV:Sprite_Animation)(),_0x1d0941=this[_0x583ed8(0x67c)](_0x1aaa89);this[_0x583ed8(0x125)](_0x1aaa89[0x0])&&(_0x4abf0e=!_0x4abf0e);_0x2d4d4f[_0x583ed8(0x7a2)]=_0x1aaa89,_0x2d4d4f['setup'](_0x1d0941,_0x1c4b30,_0x4abf0e,_0x1f46bd),_0x2d4d4f[_0x583ed8(0x156)](_0x41c748),this[_0x583ed8(0x53e)](_0x2d4d4f);if(this['_animationSprites'])this['_animationSprites']['remove'](_0x2d4d4f);this['_fauxAnimationSprites'][_0x583ed8(0x16c)](_0x2d4d4f);},Spriteset_Base[_0x2e6bc0(0x5e2)]['addAnimationSpriteToContainer']=function(_0x374fe1){const _0x1df2cc=_0x2e6bc0;this['_effectsContainer'][_0x1df2cc(0x6e8)](_0x374fe1);},Spriteset_Base[_0x2e6bc0(0x5e2)]['removeAnimation']=function(_0x119a90){const _0x445d26=_0x2e6bc0;this['_animationSprites']['remove'](_0x119a90),this[_0x445d26(0x3a9)](_0x119a90);for(const _0x1d6e82 of _0x119a90['targetObjects']){_0x1d6e82['endAnimation']&&_0x1d6e82[_0x445d26(0x6b5)]();}_0x119a90[_0x445d26(0x1a5)]();},Spriteset_Base['prototype'][_0x2e6bc0(0x368)]=function(_0x5e1be9){const _0x5505a1=_0x2e6bc0;this[_0x5505a1(0x27e)]['remove'](_0x5e1be9),this[_0x5505a1(0x3a9)](_0x5e1be9);for(const _0x5d7dac of _0x5e1be9['targetObjects']){_0x5d7dac[_0x5505a1(0x6b5)]&&_0x5d7dac[_0x5505a1(0x6b5)]();}_0x5e1be9[_0x5505a1(0x1a5)]();},Spriteset_Base['prototype'][_0x2e6bc0(0x3a9)]=function(_0x47c97e){const _0x4a82ab=_0x2e6bc0;this['_effectsContainer'][_0x4a82ab(0x418)](_0x47c97e);},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x505)]=function(){const _0x2fc709=_0x2e6bc0;for(const _0x367c54 of this[_0x2fc709(0x27e)]){this[_0x2fc709(0x368)](_0x367c54);}},Spriteset_Base[_0x2e6bc0(0x5e2)]['isFauxAnimationPlaying']=function(){const _0x15b68a=_0x2e6bc0;return this[_0x15b68a(0x27e)][_0x15b68a(0x29e)]>0x0;},Spriteset_Base[_0x2e6bc0(0x5e2)]['updatePointAnimations']=function(){const _0x558271=_0x2e6bc0;for(const _0x55fa02 of this[_0x558271(0x3fb)]){!_0x55fa02['isPlaying']()&&this[_0x558271(0x515)](_0x55fa02);}this[_0x558271(0x3b5)]();},Spriteset_Base['prototype'][_0x2e6bc0(0x3b5)]=function(){const _0x5eb9fa=_0x2e6bc0;for(;;){const _0x533619=$gameTemp[_0x5eb9fa(0x2b3)]();if(_0x533619)this[_0x5eb9fa(0x759)](_0x533619);else break;}},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x759)]=function(_0x55a983){const _0x45ab72=_0x2e6bc0,_0x2025ac=$dataAnimations[_0x55a983[_0x45ab72(0x1d6)]],_0x68e923=this[_0x45ab72(0x7d4)](_0x55a983),_0x2bdf5c=_0x55a983[_0x45ab72(0x4c9)],_0x381881=_0x55a983[_0x45ab72(0x7f6)];let _0x513ca1=this[_0x45ab72(0x3a3)]();const _0x2bf39b=this[_0x45ab72(0x2a4)]();if(this[_0x45ab72(0x30f)](_0x2025ac))for(const _0x220bc3 of _0x68e923){this[_0x45ab72(0xea)]([_0x220bc3],_0x2025ac,_0x2bdf5c,_0x513ca1,_0x381881),_0x513ca1+=_0x2bf39b;}else this['createPointAnimationSprite'](_0x68e923,_0x2025ac,_0x2bdf5c,_0x513ca1,_0x381881);},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7d4)]=function(_0x212a57){const _0x2fda65=_0x2e6bc0,_0x2a7779=new Sprite_Clickable(),_0x5a46e3=this[_0x2fda65(0x85e)]();_0x2a7779['x']=_0x212a57['x']-_0x5a46e3['x'],_0x2a7779['y']=_0x212a57['y']-_0x5a46e3['y'],_0x2a7779['z']=0x64;const _0x4ba323=this[_0x2fda65(0x85e)]();return _0x4ba323[_0x2fda65(0x6e8)](_0x2a7779),[_0x2a7779];},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x85e)]=function(){return this;},Spriteset_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x85e)]=function(){const _0x305e50=_0x2e6bc0;return this[_0x305e50(0x771)]||this;},Spriteset_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x85e)]=function(){const _0x483da4=_0x2e6bc0;return this[_0x483da4(0x53d)]||this;},Spriteset_Base[_0x2e6bc0(0x5e2)]['createPointAnimationSprite']=function(_0xa56160,_0x394d20,_0x438fa1,_0x4716d1,_0xa2ed38){const _0x554440=_0x2e6bc0,_0x1a2952=this[_0x554440(0x23e)](_0x394d20),_0x502409=new(_0x1a2952?Sprite_AnimationMV:Sprite_Animation)();_0x502409[_0x554440(0x7a2)]=_0xa56160,_0x502409[_0x554440(0x274)](_0xa56160,_0x394d20,_0x438fa1,_0x4716d1),_0x502409[_0x554440(0x156)](_0xa2ed38),this[_0x554440(0x53e)](_0x502409),this[_0x554440(0x3fb)][_0x554440(0x16c)](_0x502409);},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x515)]=function(_0x4429c3){const _0x19bdb8=_0x2e6bc0;this['_pointAnimationSprites']['remove'](_0x4429c3),this[_0x19bdb8(0x41d)][_0x19bdb8(0x418)](_0x4429c3);for(const _0x1ad390 of _0x4429c3['targetObjects']){_0x1ad390[_0x19bdb8(0x6b5)]&&_0x1ad390[_0x19bdb8(0x6b5)]();const _0x294e88=this[_0x19bdb8(0x85e)]();if(_0x294e88)_0x294e88[_0x19bdb8(0x418)](_0x1ad390);}_0x4429c3[_0x19bdb8(0x1a5)]();},Spriteset_Base['prototype'][_0x2e6bc0(0x454)]=function(){for(const _0x2b99cc of this['_pointAnimationSprites']){this['removePointAnimation'](_0x2b99cc);}},Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x428)]=function(){const _0x593f6a=_0x2e6bc0;return this['_pointAnimationSprites'][_0x593f6a(0x29e)]>0x0;},VisuMZ['CoreEngine'][_0x2e6bc0(0x6ec)]=Spriteset_Base['prototype'][_0x2e6bc0(0x874)],Spriteset_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x874)]=function(){const _0x7a6036=_0x2e6bc0;return VisuMZ[_0x7a6036(0x468)][_0x7a6036(0x6ec)]['call'](this)||this[_0x7a6036(0x428)]();},Spriteset_Map[_0x2e6bc0(0x1d1)]=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x818)][_0x2e6bc0(0x151)]||![],VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x16b)]=Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x628)],Scene_Map[_0x2e6bc0(0x5e2)]['createSpriteset']=function(){const _0x5f7c6=_0x2e6bc0;VisuMZ['CoreEngine']['Scene_Map_createSpriteset_detach'][_0x5f7c6(0x895)](this);if(!Spriteset_Map['DETACH_PICTURE_CONTAINER'])return;const _0x2a34ad=this[_0x5f7c6(0x722)];if(!_0x2a34ad)return;this[_0x5f7c6(0x431)]=_0x2a34ad['_pictureContainer'];if(!this[_0x5f7c6(0x431)])return;this[_0x5f7c6(0x6e8)](this[_0x5f7c6(0x431)]);},VisuMZ[_0x2e6bc0(0x468)]['Spriteset_Map_createTilemap']=Spriteset_Map[_0x2e6bc0(0x5e2)]['createTilemap'],Spriteset_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3c8)]=function(){const _0x49c0c3=_0x2e6bc0;VisuMZ['CoreEngine']['Spriteset_Map_createTilemap'][_0x49c0c3(0x895)](this),this[_0x49c0c3(0xec)]();},Spriteset_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0xec)]=function(){const _0xacfd51=_0x2e6bc0,_0x3d7925=$gameMap[_0xacfd51(0x6be)]();if(!_0x3d7925)return;const _0x3f26b7=$gameMap[_0xacfd51(0x2de)]();if(Object[_0xacfd51(0x316)](_0x3f26b7)[_0xacfd51(0x29e)]<=0x0)return;const _0x1032c7=$gameMap[_0xacfd51(0x452)]();this[_0xacfd51(0x366)]=this[_0xacfd51(0x366)]||[];for(let _0x55f605=0x0;_0x55f605<$gameMap['height']();_0x55f605++){for(let _0x91b9b9=0x0;_0x91b9b9<$gameMap[_0xacfd51(0x746)]();_0x91b9b9++){for(const _0x27d6b6 of $gameMap['layeredTiles'](_0x91b9b9,_0x55f605)){const _0x3b2e08=_0x1032c7[_0x27d6b6]>>0xc,_0x45ea0a=_0x3f26b7[_0x3b2e08]||0x0;if(_0x45ea0a<=0x0)continue;this[_0xacfd51(0x25c)](_0x91b9b9,_0x55f605,_0x27d6b6,_0x45ea0a);}}}},Spriteset_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1c4)]=function(){const _0x4e2f9f=_0x2e6bc0;this[_0x4e2f9f(0x366)]=this[_0x4e2f9f(0x366)]||[];for(const _0x2229b0 of this[_0x4e2f9f(0x366)]){this[_0x4e2f9f(0x771)][_0x4e2f9f(0x418)](_0x2229b0);}this[_0x4e2f9f(0x366)]=[];},Spriteset_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x25c)]=function(_0x29b0a2,_0x475baa,_0x295a13,_0x5a7f7d){const _0x3da866=_0x2e6bc0,_0x3c5e4f=new Sprite_ExtendedTile(_0x29b0a2,_0x475baa,_0x295a13,_0x5a7f7d),_0x47b5c5=$gameMap[_0x3da866(0x452)]();_0x47b5c5[_0x295a13]&0x10?_0x3c5e4f['z']=0x4:_0x3c5e4f['z']=0x3,this[_0x3da866(0x771)]['addChild'](_0x3c5e4f),this[_0x3da866(0x366)][_0x3da866(0x16c)](_0x3c5e4f);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ff)]=Tilemap[_0x2e6bc0(0x5e2)]['_addSpotTile'],Tilemap[_0x2e6bc0(0x5e2)]['_addSpotTile']=function(_0x316473,_0x5867de,_0x5965ed){const _0x4cd3a1=_0x2e6bc0;if($gameMap[_0x4cd3a1(0x703)](_0x316473))return;VisuMZ['CoreEngine']['Tilemap_addSpotTile'][_0x4cd3a1(0x895)](this,_0x316473,_0x5867de,_0x5965ed);},Spriteset_Battle[_0x2e6bc0(0x1d1)]=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x818)][_0x2e6bc0(0x7cf)]||![],VisuMZ[_0x2e6bc0(0x468)]['Scene_Battle_createSpriteset_detach']=Scene_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x628)],Scene_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x628)]=function(){const _0x503535=_0x2e6bc0;VisuMZ[_0x503535(0x468)][_0x503535(0x596)]['call'](this);if(!Spriteset_Battle[_0x503535(0x1d1)])return;const _0x22eb58=this[_0x503535(0x722)];if(!_0x22eb58)return;this['_pictureContainer']=_0x22eb58[_0x503535(0x431)];if(!this['_pictureContainer'])return;this[_0x503535(0x6e8)](this[_0x503535(0x431)]);},Spriteset_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1bc)]=function(){const _0x44c807=_0x2e6bc0;this[_0x44c807(0x7b1)]=new PIXI['filters'][(_0x44c807(0x774))](clamp=!![]),this[_0x44c807(0x8bc)]=new Sprite(),this[_0x44c807(0x8bc)][_0x44c807(0x253)]=SceneManager[_0x44c807(0x38e)](),this[_0x44c807(0x8bc)][_0x44c807(0x285)]=[this[_0x44c807(0x7b1)]],this[_0x44c807(0x1f3)][_0x44c807(0x6e8)](this[_0x44c807(0x8bc)]);},VisuMZ['CoreEngine'][_0x2e6bc0(0x64a)]=Spriteset_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x53c)],Spriteset_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x53c)]=function(){const _0x35f4dc=_0x2e6bc0;this[_0x35f4dc(0x68a)]()&&this[_0x35f4dc(0x81d)](),VisuMZ[_0x35f4dc(0x468)]['Spriteset_Battle_createEnemies'][_0x35f4dc(0x895)](this);},Spriteset_Battle['prototype']['coreEngineRepositionEnemies']=function(){const _0x2c5fb6=_0x2e6bc0,_0x143702=VisuMZ['CoreEngine'][_0x2c5fb6(0x6ef)][_0x2c5fb6(0x2bb)];if(!_0x143702)return![];if(Utils['RPGMAKER_VERSION']>='1.3.0'&&!_0x143702[_0x2c5fb6(0x33d)])return![];if(Utils['RPGMAKER_VERSION']>=_0x2c5fb6(0x51e)&&!_0x143702['RepositionEnemies130'])return![];return _0x143702[_0x2c5fb6(0x140)];},Spriteset_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x81d)]=function(){const _0x4b7f23=_0x2e6bc0;for(member of $gameTroop[_0x4b7f23(0x7be)]()){member[_0x4b7f23(0xff)]();}},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x1e0)]=Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)],Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)]=function(_0x23083d){const _0x58f5a5=_0x2e6bc0;_0x23083d['x']=Math[_0x58f5a5(0x897)](_0x23083d['x']),_0x23083d['y']=Math[_0x58f5a5(0x897)](_0x23083d['y']),_0x23083d[_0x58f5a5(0x746)]=Math[_0x58f5a5(0x897)](_0x23083d[_0x58f5a5(0x746)]),_0x23083d[_0x58f5a5(0x689)]=Math[_0x58f5a5(0x897)](_0x23083d[_0x58f5a5(0x689)]),this[_0x58f5a5(0x36f)](),VisuMZ[_0x58f5a5(0x468)][_0x58f5a5(0x1e0)][_0x58f5a5(0x895)](this,_0x23083d),this[_0x58f5a5(0x1ae)]();},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x36f)]=function(){const _0x51daac=_0x2e6bc0;this[_0x51daac(0x2a5)]=VisuMZ[_0x51daac(0x468)][_0x51daac(0x6ef)]['QoL'][_0x51daac(0x833)],this['_digitGroupingEx']=VisuMZ[_0x51daac(0x468)]['Settings']['QoL'][_0x51daac(0x43f)];},Window_Base['prototype']['lineHeight']=function(){const _0x1fd50c=_0x2e6bc0;return VisuMZ[_0x1fd50c(0x468)][_0x1fd50c(0x6ef)]['Window'][_0x1fd50c(0x51f)];},Window_Base['prototype'][_0x2e6bc0(0x637)]=function(){const _0x10e880=_0x2e6bc0;return VisuMZ[_0x10e880(0x468)][_0x10e880(0x6ef)][_0x10e880(0x76e)][_0x10e880(0x23d)];},Window_Base[_0x2e6bc0(0x5e2)]['updateBackOpacity']=function(){const _0xa40379=_0x2e6bc0;$gameSystem[_0xa40379(0x506)]?this[_0xa40379(0x66f)]=$gameSystem[_0xa40379(0x506)]():this['backOpacity']=VisuMZ[_0xa40379(0x468)][_0xa40379(0x6ef)][_0xa40379(0x76e)][_0xa40379(0x79a)];},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5d1)]=function(){const _0x451d66=_0x2e6bc0;return VisuMZ['CoreEngine'][_0x451d66(0x6ef)][_0x451d66(0x76e)][_0x451d66(0x165)];},Window_Base['prototype'][_0x2e6bc0(0x66e)]=function(){const _0x5d5518=_0x2e6bc0;return VisuMZ['CoreEngine']['Settings'][_0x5d5518(0x76e)]['OpenSpeed'];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x244)]=Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x645)],Window_Base[_0x2e6bc0(0x5e2)]['update']=function(){const _0x4e0b1c=_0x2e6bc0;VisuMZ[_0x4e0b1c(0x468)][_0x4e0b1c(0x244)][_0x4e0b1c(0x895)](this),this[_0x4e0b1c(0x384)]();},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x293)]=function(){const _0x10b317=_0x2e6bc0;this[_0x10b317(0x521)]&&(this[_0x10b317(0x73b)]+=this[_0x10b317(0x66e)](),this[_0x10b317(0x482)]()&&(this['_opening']=![]));},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x673)]=function(){const _0x2ee6e=_0x2e6bc0;this[_0x2ee6e(0x13b)]&&(this['openness']-=this[_0x2ee6e(0x66e)](),this[_0x2ee6e(0x236)]()&&(this[_0x2ee6e(0x13b)]=![]));},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x321)]=Window_Base['prototype']['drawText'],Window_Base['prototype'][_0x2e6bc0(0x41f)]=function(_0x4dfea5,_0x4e33c2,_0x373777,_0x3a8418,_0x5ba37d){const _0x12b867=_0x2e6bc0;if(this[_0x12b867(0x5c9)]())_0x4dfea5=VisuMZ['GroupDigits'](_0x4dfea5);VisuMZ[_0x12b867(0x468)]['Window_Base_drawText'][_0x12b867(0x895)](this,_0x4dfea5,_0x4e33c2,_0x373777,_0x3a8418,_0x5ba37d);},Window_Base['prototype']['useDigitGrouping']=function(){const _0x223104=_0x2e6bc0;return this[_0x223104(0x2a5)];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x451)]=Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1ce)],Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1ce)]=function(_0x35d37e,_0x43d639,_0x2f4374,_0x199a0e){const _0x5e2fa5=_0x2e6bc0;var _0x27ea94=VisuMZ[_0x5e2fa5(0x468)]['Window_Base_createTextState'][_0x5e2fa5(0x895)](this,_0x35d37e,_0x43d639,_0x2f4374,_0x199a0e);if(this[_0x5e2fa5(0x834)]())_0x27ea94['text']=String(VisuMZ['GroupDigits'](_0x27ea94[_0x5e2fa5(0x5f9)]))||'';return _0x27ea94;},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x834)]=function(){const _0x187ad9=_0x2e6bc0;return this[_0x187ad9(0x6cc)];},Window_Base[_0x2e6bc0(0x5e2)]['enableDigitGrouping']=function(_0x32ce0d){const _0x2a0365=_0x2e6bc0;this[_0x2a0365(0x2a5)]=_0x32ce0d;},Window_Base[_0x2e6bc0(0x5e2)]['enableDigitGroupingEx']=function(_0x67d6c){const _0xac284=_0x2e6bc0;this[_0xac284(0x6cc)]=_0x67d6c;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6c3)]=Window_Base[_0x2e6bc0(0x5e2)]['drawIcon'],Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x4d7)]=function(_0x179857,_0xeb6942,_0x3210ae){const _0x2daa45=_0x2e6bc0;_0xeb6942=Math[_0x2daa45(0x897)](_0xeb6942),_0x3210ae=Math[_0x2daa45(0x897)](_0x3210ae),VisuMZ[_0x2daa45(0x468)][_0x2daa45(0x6c3)][_0x2daa45(0x895)](this,_0x179857,_0xeb6942,_0x3210ae);},VisuMZ['CoreEngine']['Window_Base_drawFace']=Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x512)],Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x512)]=function(_0x55af3b,_0x1eb1f8,_0x45f22f,_0x554514,_0x2efc66,_0x31dd1a){const _0xb99f11=_0x2e6bc0;_0x2efc66=_0x2efc66||ImageManager['faceWidth'],_0x31dd1a=_0x31dd1a||ImageManager[_0xb99f11(0x8c0)],_0x45f22f=Math[_0xb99f11(0x897)](_0x45f22f),_0x554514=Math[_0xb99f11(0x897)](_0x554514),_0x2efc66=Math[_0xb99f11(0x897)](_0x2efc66),_0x31dd1a=Math[_0xb99f11(0x897)](_0x31dd1a),VisuMZ[_0xb99f11(0x468)][_0xb99f11(0x580)][_0xb99f11(0x895)](this,_0x55af3b,_0x1eb1f8,_0x45f22f,_0x554514,_0x2efc66,_0x31dd1a);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x5ed)]=Window_Base[_0x2e6bc0(0x5e2)]['drawCharacter'],Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7ec)]=function(_0x15bc1a,_0x48e102,_0x298bbb,_0x7b8072){const _0x4b13d8=_0x2e6bc0;_0x298bbb=Math['round'](_0x298bbb),_0x7b8072=Math[_0x4b13d8(0x897)](_0x7b8072),VisuMZ[_0x4b13d8(0x468)]['Window_Base_drawCharacter'][_0x4b13d8(0x895)](this,_0x15bc1a,_0x48e102,_0x298bbb,_0x7b8072);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x852)]=Window_Selectable[_0x2e6bc0(0x5e2)]['itemRect'],Window_Selectable[_0x2e6bc0(0x5e2)]['itemRect']=function(_0x8a2ea2){const _0x47730c=_0x2e6bc0;let _0x4100ac=VisuMZ[_0x47730c(0x468)][_0x47730c(0x852)][_0x47730c(0x895)](this,_0x8a2ea2);return _0x4100ac['x']=Math[_0x47730c(0x897)](_0x4100ac['x']),_0x4100ac['y']=Math[_0x47730c(0x897)](_0x4100ac['y']),_0x4100ac[_0x47730c(0x746)]=Math[_0x47730c(0x897)](_0x4100ac[_0x47730c(0x746)]),_0x4100ac['height']=Math['round'](_0x4100ac[_0x47730c(0x689)]),_0x4100ac;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x7d2)]=Window_StatusBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2bf)],Window_StatusBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2bf)]=function(_0x338eb0,_0x1870ab,_0x1f9519){const _0x109c07=_0x2e6bc0;_0x1870ab=Math[_0x109c07(0x897)](_0x1870ab),_0x1f9519=Math[_0x109c07(0x897)](_0x1f9519),VisuMZ[_0x109c07(0x468)][_0x109c07(0x7d2)][_0x109c07(0x895)](this,_0x338eb0,_0x1870ab,_0x1f9519);},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1ae)]=function(){const _0x38b9dc=_0x2e6bc0;this[_0x38b9dc(0x215)]={'duration':0x0,'wholeDuration':0x0,'type':_0x38b9dc(0x6f2),'targetX':this['x'],'targetY':this['y'],'targetScaleX':this['scale']['x'],'targetScaleY':this[_0x38b9dc(0x53f)]['y'],'targetOpacity':this[_0x38b9dc(0x687)],'targetBackOpacity':this[_0x38b9dc(0x66f)],'targetContentsOpacity':this['contentsOpacity']};},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x384)]=function(){const _0x10b158=_0x2e6bc0;if(!this[_0x10b158(0x215)])return;if(this['_coreEasing'][_0x10b158(0x69d)]<=0x0)return;this['x']=this[_0x10b158(0x5c3)](this['x'],this[_0x10b158(0x215)][_0x10b158(0x74d)]),this['y']=this['applyCoreEasing'](this['y'],this[_0x10b158(0x215)][_0x10b158(0x4d6)]),this[_0x10b158(0x53f)]['x']=this[_0x10b158(0x5c3)](this[_0x10b158(0x53f)]['x'],this[_0x10b158(0x215)][_0x10b158(0x678)]),this[_0x10b158(0x53f)]['y']=this['applyCoreEasing'](this[_0x10b158(0x53f)]['y'],this[_0x10b158(0x215)][_0x10b158(0x1f5)]),this['opacity']=this[_0x10b158(0x5c3)](this[_0x10b158(0x687)],this[_0x10b158(0x215)]['targetOpacity']),this[_0x10b158(0x66f)]=this[_0x10b158(0x5c3)](this[_0x10b158(0x66f)],this['_coreEasing'][_0x10b158(0x24a)]),this[_0x10b158(0x58d)]=this[_0x10b158(0x5c3)](this['contentsOpacity'],this[_0x10b158(0x215)][_0x10b158(0x4ba)]),this[_0x10b158(0x215)][_0x10b158(0x69d)]--;},Window_Base['prototype'][_0x2e6bc0(0x5c3)]=function(_0xd74f51,_0x2d2a4d){const _0x1f6422=_0x2e6bc0;if(!this['_coreEasing'])return _0x2d2a4d;const _0x3bb3d6=this[_0x1f6422(0x215)][_0x1f6422(0x69d)],_0x5250ba=this[_0x1f6422(0x215)][_0x1f6422(0x6a7)],_0xa91d9d=this[_0x1f6422(0x726)]((_0x5250ba-_0x3bb3d6)/_0x5250ba),_0xeadaed=this[_0x1f6422(0x726)]((_0x5250ba-_0x3bb3d6+0x1)/_0x5250ba),_0xeb52c3=(_0xd74f51-_0x2d2a4d*_0xa91d9d)/(0x1-_0xa91d9d);return _0xeb52c3+(_0x2d2a4d-_0xeb52c3)*_0xeadaed;},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x726)]=function(_0x165ad4){const _0x893250=_0x2e6bc0;if(!this['_coreEasing'])return _0x165ad4;return VisuMZ['ApplyEasing'](_0x165ad4,this[_0x893250(0x215)][_0x893250(0x764)]||_0x893250(0x6f2));},Window_Base['prototype'][_0x2e6bc0(0x4eb)]=function(_0x416248,_0x2d97bf){const _0x57a1ce=_0x2e6bc0;if(!this[_0x57a1ce(0x215)])return;this['x']=this[_0x57a1ce(0x215)][_0x57a1ce(0x74d)],this['y']=this['_coreEasing'][_0x57a1ce(0x4d6)],this['scale']['x']=this[_0x57a1ce(0x215)]['targetScaleX'],this[_0x57a1ce(0x53f)]['y']=this['_coreEasing'][_0x57a1ce(0x1f5)],this[_0x57a1ce(0x687)]=this[_0x57a1ce(0x215)][_0x57a1ce(0x21e)],this['backOpacity']=this[_0x57a1ce(0x215)]['targetBackOpacity'],this[_0x57a1ce(0x58d)]=this[_0x57a1ce(0x215)][_0x57a1ce(0x4ba)],this['setupCoreEasing'](_0x416248,_0x2d97bf,this['x'],this['y'],this[_0x57a1ce(0x53f)]['x'],this['scale']['y'],this[_0x57a1ce(0x687)],this[_0x57a1ce(0x66f)],this[_0x57a1ce(0x58d)]);},Window_Base[_0x2e6bc0(0x5e2)]['setupCoreEasing']=function(_0x44ad05,_0x25aea7,_0x4ce7cc,_0x488faf,_0x1e6d8f,_0x5ef60d,_0x574581,_0x625754,_0x523947){const _0x1a19b2=_0x2e6bc0;this[_0x1a19b2(0x215)]={'duration':_0x44ad05,'wholeDuration':_0x44ad05,'type':_0x25aea7,'targetX':_0x4ce7cc,'targetY':_0x488faf,'targetScaleX':_0x1e6d8f,'targetScaleY':_0x5ef60d,'targetOpacity':_0x574581,'targetBackOpacity':_0x625754,'targetContentsOpacity':_0x523947};},Window_Base[_0x2e6bc0(0x5e2)]['drawCurrencyValue']=function(_0x4cf498,_0x545cd0,_0x95b60b,_0x330690,_0x284f3e){const _0x7ffaf4=_0x2e6bc0;this[_0x7ffaf4(0x5f3)](),this['contents'][_0x7ffaf4(0x135)]=VisuMZ[_0x7ffaf4(0x468)][_0x7ffaf4(0x6ef)][_0x7ffaf4(0x211)][_0x7ffaf4(0x48e)];const _0x57197f=VisuMZ[_0x7ffaf4(0x468)][_0x7ffaf4(0x6ef)][_0x7ffaf4(0x211)][_0x7ffaf4(0x2fe)];if(_0x57197f>0x0&&_0x545cd0===TextManager[_0x7ffaf4(0x401)]){const _0x374832=_0x330690+(this['lineHeight']()-ImageManager['iconHeight'])/0x2;this[_0x7ffaf4(0x4d7)](_0x57197f,_0x95b60b+(_0x284f3e-ImageManager[_0x7ffaf4(0x503)]),_0x374832),_0x284f3e-=ImageManager[_0x7ffaf4(0x503)]+0x4;}else this['changeTextColor'](ColorManager['systemColor']()),this[_0x7ffaf4(0x41f)](_0x545cd0,_0x95b60b,_0x330690,_0x284f3e,'right'),_0x284f3e-=this['textWidth'](_0x545cd0)+0x6;this[_0x7ffaf4(0x42f)]();const _0x4dc3d5=this[_0x7ffaf4(0x66c)](this['_digitGrouping']?VisuMZ[_0x7ffaf4(0x35b)](_0x4cf498):_0x4cf498);_0x4dc3d5>_0x284f3e?this[_0x7ffaf4(0x41f)](VisuMZ[_0x7ffaf4(0x468)]['Settings']['Gold'][_0x7ffaf4(0x185)],_0x95b60b,_0x330690,_0x284f3e,_0x7ffaf4(0x31d)):this[_0x7ffaf4(0x41f)](_0x4cf498,_0x95b60b,_0x330690,_0x284f3e,_0x7ffaf4(0x31d)),this[_0x7ffaf4(0x5f3)]();},Window_Base[_0x2e6bc0(0x5e2)]['drawIconBySize']=function(_0x31a690,_0x271da7,_0x4a2a27,_0x3a0ca9,_0x3d95a3){const _0x50d4e8=_0x2e6bc0,_0x4a1c2b=ImageManager['loadSystem'](_0x50d4e8(0x6d0)),_0x52ee2f=ImageManager['iconWidth'],_0x400ee8=ImageManager['iconHeight'],_0x2a9575=_0x31a690%0x10*_0x52ee2f,_0x589e21=Math[_0x50d4e8(0x3ff)](_0x31a690/0x10)*_0x400ee8,_0x4cb495=_0x3a0ca9,_0x199c10=_0x3a0ca9;this[_0x50d4e8(0x267)][_0x50d4e8(0x583)][_0x50d4e8(0x39c)]=_0x3d95a3,this[_0x50d4e8(0x267)]['blt'](_0x4a1c2b,_0x2a9575,_0x589e21,_0x52ee2f,_0x400ee8,_0x271da7,_0x4a2a27,_0x4cb495,_0x199c10),this[_0x50d4e8(0x267)]['_context'][_0x50d4e8(0x39c)]=!![];},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x24c)]=function(_0x4c6cce,_0x343463,_0x346fee,_0x24340b,_0x2210ec,_0xd9e3f){const _0x3f7c5c=_0x2e6bc0,_0xb16ea4=Math[_0x3f7c5c(0x3ff)]((_0x346fee-0x2)*_0x24340b),_0x27b506=Sprite_Gauge[_0x3f7c5c(0x5e2)][_0x3f7c5c(0x2f6)][_0x3f7c5c(0x895)](this),_0x430944=_0x343463+this[_0x3f7c5c(0x1ec)]()-_0x27b506-0x2;this[_0x3f7c5c(0x267)][_0x3f7c5c(0x762)](_0x4c6cce,_0x430944,_0x346fee,_0x27b506,ColorManager[_0x3f7c5c(0x5bd)]()),this[_0x3f7c5c(0x267)][_0x3f7c5c(0x44d)](_0x4c6cce+0x1,_0x430944+0x1,_0xb16ea4,_0x27b506-0x2,_0x2210ec,_0xd9e3f);},Window_Scrollable[_0x2e6bc0(0x51c)]={'enabled':VisuMZ['CoreEngine'][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x76e)][_0x2e6bc0(0x7b2)]??!![],'thickness':VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x76e)][_0x2e6bc0(0x1e4)]??0x2,'offset':VisuMZ['CoreEngine'][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x76e)][_0x2e6bc0(0x1b7)]??0x2,'bodyColor':VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)]['Window'][_0x2e6bc0(0x22d)]??0x0,'offColor':VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x76e)][_0x2e6bc0(0x3ab)]??0x7,'offOpacity':VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x76e)][_0x2e6bc0(0x2d4)]??0x80},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x334)]=function(){const _0x1b411b=_0x2e6bc0;return Window_Scrollable[_0x1b411b(0x51c)][_0x1b411b(0x21b)]&&Window_Scrollable['SCROLLBAR'][_0x1b411b(0x3af)]>0x0;},VisuMZ['CoreEngine'][_0x2e6bc0(0x2c2)]=Window_Base[_0x2e6bc0(0x5e2)]['createContents'],Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x8bd)]=function(){const _0x473179=_0x2e6bc0;VisuMZ['CoreEngine'][_0x473179(0x2c2)]['call'](this),this[_0x473179(0x4e8)](),this[_0x473179(0x139)](!![]),this['setupScrollBarBitmap'](![]);},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x4e8)]=function(){const _0x4d39a2=_0x2e6bc0;if(!this[_0x4d39a2(0x334)]())return;if(this[_0x4d39a2(0x5d5)]||this['_scrollBarVert'])return;this[_0x4d39a2(0x219)]={'horz':null,'vert':null,'maxHorz':null,'maxVert':null},this['_scrollBarHorz']=new Sprite(),this[_0x4d39a2(0x27b)]=new Sprite(),this['addChild'](this[_0x4d39a2(0x5d5)]),this[_0x4d39a2(0x6e8)](this['_scrollBarVert']);},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x139)]=function(_0x5f410a){const _0x258128=_0x2e6bc0,_0x4bae1c=_0x5f410a?this[_0x258128(0x5d5)]:this[_0x258128(0x27b)];if(!_0x4bae1c)return;const _0x353968=Window_Scrollable['SCROLLBAR'],_0x4f1c5b=_0x353968[_0x258128(0x3af)],_0x4a836c=_0x5f410a?this[_0x258128(0x78c)]-_0x4f1c5b*0x2:_0x4f1c5b,_0x5c5e5f=_0x5f410a?_0x4f1c5b:this[_0x258128(0x463)]-_0x4f1c5b*0x2;_0x4bae1c[_0x258128(0x253)]=new Bitmap(_0x4a836c,_0x5c5e5f),_0x4bae1c['setFrame'](0x0,0x0,_0x4a836c,_0x5c5e5f),this['updateScrollBarPosition'](_0x5f410a);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x876)]=Window_Base['prototype']['destroyContents'],Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x70c)]=function(){const _0x4c2b51=_0x2e6bc0;VisuMZ[_0x4c2b51(0x468)][_0x4c2b51(0x876)][_0x4c2b51(0x895)](this),this[_0x4c2b51(0x6d4)]();},Window_Base['prototype'][_0x2e6bc0(0x6d4)]=function(){const _0x46d994=_0x2e6bc0,_0x5ed1b9=[this[_0x46d994(0x5d5)],this[_0x46d994(0x27b)]];for(const _0x1fab65 of _0x5ed1b9){if(_0x1fab65&&_0x1fab65['bitmap'])_0x1fab65['bitmap'][_0x46d994(0x1a5)]();}},VisuMZ[_0x2e6bc0(0x468)]['Window_Scrollable_update']=Window_Scrollable['prototype'][_0x2e6bc0(0x645)],Window_Scrollable['prototype'][_0x2e6bc0(0x645)]=function(){const _0x4a6fd0=_0x2e6bc0;VisuMZ[_0x4a6fd0(0x468)][_0x4a6fd0(0x87c)][_0x4a6fd0(0x895)](this),this['updateScrollBars']();},Window_Scrollable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7f3)]=function(){const _0x3d70e8=_0x2e6bc0;this['updateScrollBarVisibility'](),this[_0x3d70e8(0x59d)](!![]),this[_0x3d70e8(0x59d)](![]),this[_0x3d70e8(0x4fb)](!![]),this[_0x3d70e8(0x4fb)](![]);},Window_Scrollable['prototype'][_0x2e6bc0(0x3a5)]=function(){const _0x4229ce=_0x2e6bc0,_0x10fbaa=[this['_scrollBarHorz'],this[_0x4229ce(0x27b)]];for(const _0x24998f of _0x10fbaa){_0x24998f&&(_0x24998f[_0x4229ce(0x510)]=this[_0x4229ce(0x334)]()&&this[_0x4229ce(0x482)]());}},Window_Scrollable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x59d)]=function(_0x281e78){const _0x5c16f0=_0x2e6bc0;if(!this['_lastScrollBarValues'])return;const _0x337715=this[_0x5c16f0(0x36e)](_0x281e78),_0x22c82a=this['maxScrollbar'](_0x281e78),_0x313451=_0x281e78?_0x5c16f0(0x651):'vert',_0x3cce1c=_0x281e78?_0x5c16f0(0x48f):_0x5c16f0(0x545);(this['_lastScrollBarValues'][_0x313451]!==_0x337715||this[_0x5c16f0(0x219)][_0x3cce1c]!==_0x22c82a)&&(this[_0x5c16f0(0x219)][_0x313451]=_0x337715,this['_lastScrollBarValues'][_0x3cce1c]=_0x22c82a,this['refreshScrollBarBitmap'](_0x281e78,_0x337715,_0x22c82a));},Window_Scrollable[_0x2e6bc0(0x5e2)]['scrollbar']=function(_0x5f3318){const _0x3605e8=_0x2e6bc0;if(this[_0x3605e8(0x489)]!==undefined)return _0x5f3318?this[_0x3605e8(0x1b6)]():this[_0x3605e8(0x27d)]['y'];return _0x5f3318?this['scrollX']():this[_0x3605e8(0x737)]();},Window_Scrollable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x35d)]=function(_0x7699b8){const _0x41ad28=_0x2e6bc0;if(this[_0x41ad28(0x489)]!==undefined)return _0x7699b8?this[_0x41ad28(0x58a)]():Math[_0x41ad28(0x56f)](0x0,this[_0x41ad28(0x489)]-this[_0x41ad28(0x463)]);return _0x7699b8?this[_0x41ad28(0x58a)]():this[_0x41ad28(0x377)]();},Window_Scrollable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7ad)]=function(){const _0x50dfad=_0x2e6bc0;if(this[_0x50dfad(0x489)]!==undefined)return Math[_0x50dfad(0x56f)](0x0,this['_allTextHeight']);return this['overallHeight']();},Window_Scrollable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x416)]=function(_0x448732,_0x1d0178,_0x3b5520){const _0x4244fc=_0x2e6bc0,_0x2e1cbc=_0x448732?this[_0x4244fc(0x5d5)]:this[_0x4244fc(0x27b)];if(!_0x2e1cbc)return;if(!_0x2e1cbc[_0x4244fc(0x253)])return;const _0x852cde=_0x2e1cbc['bitmap'];_0x852cde['clear']();if(_0x3b5520<=0x0)return;const _0x3667eb=_0x448732?this['innerWidth']/this[_0x4244fc(0x42b)]():this[_0x4244fc(0x463)]/this['scrollbarHeight'](),_0x5cb438=_0x448732?Math['round'](_0x1d0178*_0x3667eb):0x0,_0x3b4da7=_0x448732?0x0:Math[_0x4244fc(0x897)](_0x1d0178*_0x3667eb),_0x3945fe=_0x448732?Math[_0x4244fc(0x897)](_0x852cde[_0x4244fc(0x746)]*_0x3667eb):_0x852cde[_0x4244fc(0x746)],_0x2e2b6a=_0x448732?_0x852cde['height']:Math['round'](_0x852cde['height']*_0x3667eb),_0x1df7f7=Window_Scrollable[_0x4244fc(0x51c)],_0x10b66a=ColorManager[_0x4244fc(0x131)](_0x1df7f7[_0x4244fc(0x732)]),_0x24a0d6=ColorManager[_0x4244fc(0x131)](_0x1df7f7[_0x4244fc(0x773)]),_0x4ff92a=_0x1df7f7[_0x4244fc(0x263)];_0x852cde[_0x4244fc(0x462)]=_0x4ff92a,_0x852cde['fillAll'](_0x10b66a),_0x852cde['paintOpacity']=0xff,_0x852cde[_0x4244fc(0x762)](_0x5cb438,_0x3b4da7,_0x3945fe,_0x2e2b6a,_0x24a0d6);},Window_Base['prototype']['updateScrollBarPosition']=function(_0x423913){const _0x5835d4=_0x2e6bc0,_0x3be156=_0x423913?this[_0x5835d4(0x5d5)]:this[_0x5835d4(0x27b)];if(!_0x3be156)return;const _0x40b8e7=Window_Scrollable[_0x5835d4(0x51c)],_0x26fc99=_0x40b8e7['thickness'],_0x3e85a2=_0x40b8e7[_0x5835d4(0x736)];if(!_0x3be156[_0x5835d4(0x2f9)])return;_0x3be156['x']=this[_0x5835d4(0x460)]+(_0x423913?_0x26fc99:this[_0x5835d4(0x78c)]+_0x3e85a2),_0x3be156['y']=this[_0x5835d4(0x460)]+(_0x423913?this[_0x5835d4(0x463)]+_0x3e85a2:_0x26fc99);},Window_Selectable['prototype'][_0x2e6bc0(0x24f)]=function(_0x535f44){const _0x4ea94=_0x2e6bc0;let _0x4d02db=this['index']();const _0x51ff0b=this[_0x4ea94(0x67e)](),_0x56ceba=this['maxCols']();if(this[_0x4ea94(0x2ca)]()&&(_0x4d02db<_0x51ff0b||_0x535f44&&_0x56ceba===0x1)){_0x4d02db+=_0x56ceba;if(_0x4d02db>=_0x51ff0b)_0x4d02db=_0x51ff0b-0x1;this[_0x4ea94(0x8ae)](_0x4d02db);}else!this[_0x4ea94(0x2ca)]()&&((_0x4d02db<_0x51ff0b-_0x56ceba||_0x535f44&&_0x56ceba===0x1)&&this['smoothSelect']((_0x4d02db+_0x56ceba)%_0x51ff0b));},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6e3)]=Window_Selectable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x24f)],Window_Selectable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x24f)]=function(_0x1fc221){const _0x27dc84=_0x2e6bc0;this[_0x27dc84(0x2ca)]()&&_0x1fc221&&this[_0x27dc84(0x4ef)]()===0x1&&this[_0x27dc84(0x87d)]()===this[_0x27dc84(0x67e)]()-0x1?this[_0x27dc84(0x8ae)](0x0):VisuMZ[_0x27dc84(0x468)][_0x27dc84(0x6e3)][_0x27dc84(0x895)](this,_0x1fc221);},Window_Selectable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x13d)]=function(_0x105990){const _0x196c2e=_0x2e6bc0;let _0x7f0c47=Math[_0x196c2e(0x56f)](0x0,this[_0x196c2e(0x87d)]());const _0x46f409=this[_0x196c2e(0x67e)](),_0x3697c5=this['maxCols']();if(this[_0x196c2e(0x2ca)]()&&_0x7f0c47>0x0||_0x105990&&_0x3697c5===0x1){_0x7f0c47-=_0x3697c5;if(_0x7f0c47<=0x0)_0x7f0c47=0x0;this[_0x196c2e(0x8ae)](_0x7f0c47);}else!this[_0x196c2e(0x2ca)]()&&((_0x7f0c47>=_0x3697c5||_0x105990&&_0x3697c5===0x1)&&this[_0x196c2e(0x8ae)]((_0x7f0c47-_0x3697c5+_0x46f409)%_0x46f409));},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x60d)]=Window_Selectable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x13d)],Window_Selectable['prototype'][_0x2e6bc0(0x13d)]=function(_0x984cc1){const _0x305b56=_0x2e6bc0;this[_0x305b56(0x2ca)]()&&_0x984cc1&&this[_0x305b56(0x4ef)]()===0x1&&this[_0x305b56(0x87d)]()===0x0?this['smoothSelect'](this[_0x305b56(0x67e)]()-0x1):VisuMZ[_0x305b56(0x468)][_0x305b56(0x60d)][_0x305b56(0x895)](this,_0x984cc1);},Window_Selectable[_0x2e6bc0(0x5e2)]['isUseModernControls']=function(){const _0x25c5f7=_0x2e6bc0;return VisuMZ[_0x25c5f7(0x468)]['Settings'][_0x25c5f7(0x818)][_0x25c5f7(0x4e2)];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x2ef)]=Window_Selectable['prototype'][_0x2e6bc0(0x249)],Window_Selectable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x249)]=function(){const _0x31dde5=_0x2e6bc0;this[_0x31dde5(0x2ca)]()?(this[_0x31dde5(0x7c5)](),this[_0x31dde5(0x7a4)]()):VisuMZ[_0x31dde5(0x468)][_0x31dde5(0x2ef)][_0x31dde5(0x895)](this);},Window_Selectable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6df)]=function(){return!![];},Window_Selectable['prototype'][_0x2e6bc0(0x7c5)]=function(){const _0x196977=_0x2e6bc0;if(this[_0x196977(0x8c1)]()){const _0x310e8b=this[_0x196977(0x87d)]();Input[_0x196977(0x163)]('down')&&(Input[_0x196977(0x753)](_0x196977(0x2f3))&&this[_0x196977(0x6df)]()?this['cursorPagedown']():this['cursorDown'](Input['isTriggered']('down'))),Input[_0x196977(0x163)]('up')&&(Input[_0x196977(0x753)]('shift')&&this['allowShiftScrolling']()?this['cursorPageup']():this[_0x196977(0x13d)](Input['isTriggered']('up'))),Input['isRepeated'](_0x196977(0x31d))&&this['cursorRight'](Input[_0x196977(0x443)](_0x196977(0x31d))),Input['isRepeated'](_0x196977(0x8b4))&&this[_0x196977(0x1db)](Input['isTriggered']('left')),!this['isHandled'](_0x196977(0x53a))&&Input[_0x196977(0x163)](_0x196977(0x53a))&&this[_0x196977(0x49d)](),!this[_0x196977(0x19f)](_0x196977(0x8a5))&&Input['isRepeated'](_0x196977(0x8a5))&&this['cursorPageup'](),this['index']()!==_0x310e8b&&this[_0x196977(0x405)]();}},Window_Selectable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7a4)]=function(){const _0x33ec14=_0x2e6bc0;if(this[_0x33ec14(0x8c1)]()){const _0x13bbef=this[_0x33ec14(0x87d)]();Input[_0x33ec14(0x443)](_0x33ec14(0x207))&&this[_0x33ec14(0x8ae)](Math[_0x33ec14(0x69a)](this[_0x33ec14(0x87d)](),0x0)),Input[_0x33ec14(0x443)](_0x33ec14(0x1c6))&&this[_0x33ec14(0x8ae)](Math[_0x33ec14(0x56f)](this[_0x33ec14(0x87d)](),this[_0x33ec14(0x67e)]()-0x1)),this['index']()!==_0x13bbef&&this[_0x33ec14(0x405)]();}},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x3c2)]=Window_Selectable[_0x2e6bc0(0x5e2)]['processTouch'],Window_Selectable[_0x2e6bc0(0x5e2)]['processTouch']=function(){const _0x3fcede=_0x2e6bc0;this[_0x3fcede(0x2ca)]()?this[_0x3fcede(0x83e)]():VisuMZ[_0x3fcede(0x468)][_0x3fcede(0x3c2)][_0x3fcede(0x895)](this);},Window_Selectable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x83e)]=function(){const _0x100e95=_0x2e6bc0;VisuMZ[_0x100e95(0x468)][_0x100e95(0x3c2)][_0x100e95(0x895)](this);},Window_Selectable[_0x2e6bc0(0x5e2)]['colSpacing']=function(){const _0x4ab502=_0x2e6bc0;return VisuMZ[_0x4ab502(0x468)][_0x4ab502(0x6ef)][_0x4ab502(0x76e)][_0x4ab502(0x1ba)];},Window_Selectable[_0x2e6bc0(0x5e2)]['rowSpacing']=function(){const _0x48b695=_0x2e6bc0;return VisuMZ[_0x48b695(0x468)]['Settings'][_0x48b695(0x76e)][_0x48b695(0x3d2)];},Window_Selectable[_0x2e6bc0(0x5e2)]['itemHeight']=function(){const _0x1d6800=_0x2e6bc0;return Window_Scrollable[_0x1d6800(0x5e2)][_0x1d6800(0x33c)][_0x1d6800(0x895)](this)+VisuMZ[_0x1d6800(0x468)][_0x1d6800(0x6ef)][_0x1d6800(0x76e)][_0x1d6800(0x2ed)];;},VisuMZ[_0x2e6bc0(0x468)]['Window_Selectable_drawBackgroundRect']=Window_Selectable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1a2)],Window_Selectable[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1a2)]=function(_0x132c5e){const _0x28ef14=_0x2e6bc0,_0x210900=VisuMZ[_0x28ef14(0x468)][_0x28ef14(0x6ef)][_0x28ef14(0x76e)];if(_0x210900[_0x28ef14(0x694)]===![])return;_0x210900['DrawItemBackgroundJS']?_0x210900[_0x28ef14(0x78f)][_0x28ef14(0x895)](this,_0x132c5e):VisuMZ[_0x28ef14(0x468)][_0x28ef14(0x226)][_0x28ef14(0x895)](this,_0x132c5e);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x899)]=Window_Gold['prototype'][_0x2e6bc0(0x3bd)],Window_Gold[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3bd)]=function(){const _0x20d1d9=_0x2e6bc0;this['isItemStyle']()?this['drawGoldItemStyle']():VisuMZ[_0x20d1d9(0x468)][_0x20d1d9(0x899)][_0x20d1d9(0x895)](this);},Window_Gold['prototype'][_0x2e6bc0(0x3d1)]=function(){const _0x3b1777=_0x2e6bc0;if(TextManager[_0x3b1777(0x401)]!==this['currencyUnit']())return![];return VisuMZ[_0x3b1777(0x468)][_0x3b1777(0x6ef)]['Gold'][_0x3b1777(0x38b)];},Window_Gold[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x15b)]=function(){const _0x1410fa=_0x2e6bc0;this[_0x1410fa(0x5f3)](),this[_0x1410fa(0x267)][_0x1410fa(0x1f1)](),this['contents']['fontSize']=VisuMZ['CoreEngine']['Settings'][_0x1410fa(0x211)][_0x1410fa(0x48e)];const _0xde7325=VisuMZ[_0x1410fa(0x468)][_0x1410fa(0x6ef)][_0x1410fa(0x211)][_0x1410fa(0x2fe)],_0x4ce3fd=this[_0x1410fa(0x82c)](0x0);if(_0xde7325>0x0){const _0x25edb3=ImageManager[_0x1410fa(0x17b)]||0x20,_0x92f867=_0x25edb3-ImageManager[_0x1410fa(0x503)],_0x5acd01=_0x4ce3fd['y']+(this[_0x1410fa(0x1ec)]()-ImageManager[_0x1410fa(0x594)])/0x2;this[_0x1410fa(0x4d7)](_0xde7325,_0x4ce3fd['x']+Math[_0x1410fa(0x539)](_0x92f867/0x2),_0x5acd01);const _0xbe5625=_0x25edb3+0x4;_0x4ce3fd['x']+=_0xbe5625,_0x4ce3fd[_0x1410fa(0x746)]-=_0xbe5625;}this[_0x1410fa(0x735)](ColorManager[_0x1410fa(0x23f)]()),this[_0x1410fa(0x41f)](this[_0x1410fa(0x401)](),_0x4ce3fd['x'],_0x4ce3fd['y'],_0x4ce3fd[_0x1410fa(0x746)],'left');const _0x32821b=this[_0x1410fa(0x66c)](this[_0x1410fa(0x401)]())+0x6;;_0x4ce3fd['x']+=_0x32821b,_0x4ce3fd['width']-=_0x32821b,this[_0x1410fa(0x42f)]();const _0x48358d=this[_0x1410fa(0x523)](),_0xaa6298=this[_0x1410fa(0x66c)](this[_0x1410fa(0x2a5)]?VisuMZ['GroupDigits'](this[_0x1410fa(0x523)]()):this[_0x1410fa(0x523)]());_0xaa6298>_0x4ce3fd[_0x1410fa(0x746)]?this['drawText'](VisuMZ[_0x1410fa(0x468)][_0x1410fa(0x6ef)][_0x1410fa(0x211)][_0x1410fa(0x185)],_0x4ce3fd['x'],_0x4ce3fd['y'],_0x4ce3fd[_0x1410fa(0x746)],_0x1410fa(0x31d)):this[_0x1410fa(0x41f)](this[_0x1410fa(0x523)](),_0x4ce3fd['x'],_0x4ce3fd['y'],_0x4ce3fd[_0x1410fa(0x746)],_0x1410fa(0x31d)),this[_0x1410fa(0x5f3)]();},Window_StatusBase[_0x2e6bc0(0x5e2)]['drawParamText']=function(_0x555fdd,_0x46d5b0,_0x3a843e,_0x492e1e,_0x276f7e){const _0x53ee1c=_0x2e6bc0;_0x492e1e=String(_0x492e1e||'')[_0x53ee1c(0x63e)]();if(VisuMZ[_0x53ee1c(0x468)][_0x53ee1c(0x6ef)]['Param'][_0x53ee1c(0x6b2)]){const _0x262157=VisuMZ[_0x53ee1c(0x2da)](_0x492e1e);if(_0x276f7e)this[_0x53ee1c(0x6ca)](_0x262157,_0x555fdd,_0x46d5b0,this['gaugeLineHeight']()),_0x3a843e-=this[_0x53ee1c(0x671)]()+0x2,_0x555fdd+=this['gaugeLineHeight']()+0x2;else{const _0x3d5a88=ImageManager[_0x53ee1c(0x17b)]||0x20,_0x6cff6e=ImageManager['standardIconHeight']||0x20,_0xf0036a=_0x3d5a88-ImageManager[_0x53ee1c(0x503)],_0x2acfa1=_0x6cff6e-ImageManager['iconHeight'];let _0x33b1b0=0x2,_0x22d2f8=0x2;this[_0x53ee1c(0x1ec)]()!==0x24&&(_0x22d2f8=Math['floor']((this[_0x53ee1c(0x1ec)]()-_0x6cff6e)/0x2));const _0x10f2c9=_0x555fdd+Math[_0x53ee1c(0x3ff)](_0xf0036a/0x2)+_0x33b1b0,_0x54073c=_0x46d5b0+Math['floor'](_0x2acfa1/0x2)+_0x22d2f8;this['drawIcon'](_0x262157,_0x10f2c9,_0x54073c),_0x3a843e-=_0x3d5a88+0x4,_0x555fdd+=_0x3d5a88+0x4;}}const _0x50ce61=TextManager[_0x53ee1c(0x85c)](_0x492e1e);this[_0x53ee1c(0x5f3)](),this[_0x53ee1c(0x735)](ColorManager[_0x53ee1c(0x23f)]()),_0x276f7e?(this['contents'][_0x53ee1c(0x135)]=this[_0x53ee1c(0x441)](),this[_0x53ee1c(0x267)][_0x53ee1c(0x41f)](_0x50ce61,_0x555fdd,_0x46d5b0,_0x3a843e,this[_0x53ee1c(0x671)](),_0x53ee1c(0x8b4))):this[_0x53ee1c(0x41f)](_0x50ce61,_0x555fdd,_0x46d5b0,_0x3a843e),this[_0x53ee1c(0x5f3)]();},Window_StatusBase[_0x2e6bc0(0x5e2)]['smallParamFontSize']=function(){return $gameSystem['mainFontSize']()-0x8;},Window_StatusBase[_0x2e6bc0(0x5e2)]['drawActorClass']=function(_0x474fa0,_0x5c9119,_0x45abb0,_0x1dd25f){const _0x3060fb=_0x2e6bc0;_0x1dd25f=_0x1dd25f||0xa8,this[_0x3060fb(0x42f)]();if(VisuMZ[_0x3060fb(0x468)][_0x3060fb(0x6ef)]['UI'][_0x3060fb(0x449)])this['drawTextEx'](_0x474fa0[_0x3060fb(0x7cd)]()[_0x3060fb(0x3d0)],_0x5c9119,_0x45abb0,_0x1dd25f);else{const _0x185cf0=_0x474fa0[_0x3060fb(0x7cd)]()['name'][_0x3060fb(0x20a)](/\\I\[(\d+)\]/gi,'');this[_0x3060fb(0x41f)](_0x185cf0,_0x5c9119,_0x45abb0,_0x1dd25f);}},Window_StatusBase['prototype'][_0x2e6bc0(0x12d)]=function(_0x5bca30,_0x2bab2a,_0x1f4382,_0xc7877e){const _0x3fbca7=_0x2e6bc0;_0xc7877e=_0xc7877e||0x10e,this[_0x3fbca7(0x42f)]();if(VisuMZ[_0x3fbca7(0x468)][_0x3fbca7(0x6ef)]['UI'][_0x3fbca7(0x106)])this[_0x3fbca7(0x42a)](_0x5bca30[_0x3fbca7(0x6fc)](),_0x2bab2a,_0x1f4382,_0xc7877e);else{const _0x55997a=_0x5bca30[_0x3fbca7(0x6fc)]()[_0x3fbca7(0x20a)](/\\I\[(\d+)\]/gi,'');this[_0x3fbca7(0x41f)](_0x5bca30[_0x3fbca7(0x6fc)](),_0x2bab2a,_0x1f4382,_0xc7877e);}},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x204)]=Window_StatusBase['prototype'][_0x2e6bc0(0x488)],Window_StatusBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x488)]=function(_0x236896,_0x4283de,_0x368e14){const _0xe26626=_0x2e6bc0;if(VisuMZ['CoreEngine'][_0xe26626(0x6ef)][_0xe26626(0x2fc)][_0xe26626(0x4a3)]===![])return;if(this[_0xe26626(0x5b9)]())this[_0xe26626(0x69b)](_0x236896,_0x4283de,_0x368e14);VisuMZ[_0xe26626(0x468)][_0xe26626(0x204)][_0xe26626(0x895)](this,_0x236896,_0x4283de,_0x368e14);},Window_StatusBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5b9)]=function(){const _0x32f0ed=_0x2e6bc0;return VisuMZ[_0x32f0ed(0x468)][_0x32f0ed(0x6ef)]['UI'][_0x32f0ed(0x3bc)];},Window_StatusBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x69b)]=function(_0x377622,_0x6462a0,_0x3387b9){const _0x427396=_0x2e6bc0;if(!_0x377622)return;if(!_0x377622[_0x427396(0x4fd)]())return;const _0xedfb7d=0x80,_0xeb0f4b=_0x377622[_0x427396(0x1a0)]();let _0x286028=ColorManager['expGaugeColor1'](),_0x171fe8=ColorManager['expGaugeColor2']();_0xeb0f4b>=0x1&&(_0x286028=ColorManager[_0x427396(0x542)](),_0x171fe8=ColorManager[_0x427396(0x875)]()),this[_0x427396(0x24c)](_0x6462a0,_0x3387b9,_0xedfb7d,_0xeb0f4b,_0x286028,_0x171fe8);},Window_EquipStatus['prototype'][_0x2e6bc0(0x602)]=function(){const _0x31d559=_0x2e6bc0;let _0x1b529c=0x0;for(const _0x585671 of VisuMZ['CoreEngine']['Settings'][_0x31d559(0x2fc)]['DisplayedParams']){const _0x3161d5=this[_0x31d559(0x637)](),_0x59e237=this[_0x31d559(0x794)](_0x1b529c);this[_0x31d559(0x6c2)](_0x3161d5,_0x59e237,_0x585671),_0x1b529c++;}},Window_EquipStatus[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1dd)]=function(_0x4a8fb5,_0x200948,_0x3b07d2){const _0x404f72=_0x2e6bc0,_0x20ad3e=this[_0x404f72(0x7ab)]()-this['itemPadding']()*0x2;this['drawParamText'](_0x4a8fb5,_0x200948,_0x20ad3e,_0x3b07d2,![]);},Window_EquipStatus[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3b0)]=function(_0x3efa51,_0x24f200,_0x2777ca){const _0x4a4f41=_0x2e6bc0,_0x1c4f91=this[_0x4a4f41(0x234)]();this[_0x4a4f41(0x42f)](),this[_0x4a4f41(0x41f)](this[_0x4a4f41(0x32c)]['paramValueByName'](_0x2777ca,!![]),_0x3efa51,_0x24f200,_0x1c4f91,_0x4a4f41(0x31d));},Window_EquipStatus[_0x2e6bc0(0x5e2)]['drawRightArrow']=function(_0x47d854,_0x2421ed){const _0x148e32=_0x2e6bc0,_0x139b11=this['rightArrowWidth']();this[_0x148e32(0x735)](ColorManager[_0x148e32(0x23f)]());const _0x54c59b=VisuMZ[_0x148e32(0x468)][_0x148e32(0x6ef)]['UI']['ParamArrow'];this['drawText'](_0x54c59b,_0x47d854,_0x2421ed,_0x139b11,'center');},Window_EquipStatus[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x64f)]=function(_0x12fc06,_0x1b840f,_0x2766a7){const _0x3a70c4=_0x2e6bc0,_0x5a2cc8=this['paramWidth'](),_0x149f4d=this[_0x3a70c4(0x660)][_0x3a70c4(0x403)](_0x2766a7),_0x421c9c=_0x149f4d-this[_0x3a70c4(0x32c)][_0x3a70c4(0x403)](_0x2766a7);this['changeTextColor'](ColorManager['paramchangeTextColor'](_0x421c9c)),this[_0x3a70c4(0x41f)](this[_0x3a70c4(0x660)][_0x3a70c4(0x403)](_0x2766a7,!![]),_0x12fc06,_0x1b840f,_0x5a2cc8,_0x3a70c4(0x31d));},VisuMZ[_0x2e6bc0(0x468)]['Window_EquipItem_isEnabled']=Window_EquipItem[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x39e)],Window_EquipItem['prototype'][_0x2e6bc0(0x39e)]=function(_0x3e0511){const _0xa95706=_0x2e6bc0;return _0x3e0511&&this[_0xa95706(0x32c)]?this[_0xa95706(0x32c)][_0xa95706(0x2d7)](_0x3e0511):VisuMZ['CoreEngine'][_0xa95706(0x669)][_0xa95706(0x895)](this,_0x3e0511);},Window_StatusParams[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x67e)]=function(){const _0x5c20be=_0x2e6bc0;return VisuMZ[_0x5c20be(0x468)]['Settings']['Param'][_0x5c20be(0x641)][_0x5c20be(0x29e)];},Window_StatusParams[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6c2)]=function(_0x4c30db){const _0x535819=_0x2e6bc0,_0x2adc2=this['itemLineRect'](_0x4c30db),_0x41e517=VisuMZ[_0x535819(0x468)][_0x535819(0x6ef)][_0x535819(0x2fc)][_0x535819(0x641)][_0x4c30db],_0x37eb26=TextManager[_0x535819(0x85c)](_0x41e517),_0x187f18=this['_actor'][_0x535819(0x403)](_0x41e517,!![]);this[_0x535819(0x303)](_0x2adc2['x'],_0x2adc2['y'],0xa0,_0x41e517,![]),this[_0x535819(0x42f)](),this[_0x535819(0x41f)](_0x187f18,_0x2adc2['x']+0xa0,_0x2adc2['y'],0x3c,_0x535819(0x31d));};if(VisuMZ[_0x2e6bc0(0x468)]['Settings'][_0x2e6bc0(0x5c6)][_0x2e6bc0(0x458)]){VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x5c6)][_0x2e6bc0(0x593)]&&(Window_NameInput[_0x2e6bc0(0x12f)]=['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','\x27','`','Z','X','C','V','B','N','M',',','.','q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l',':','~','z','x','c','v','b','n','m','\x22',';','1','2','3','4','5','6','7','8','9','0','!','@','#','$','%','^','&','*','(',')','<','>','[',']','-','_','/','\x20','Page','OK']);;VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0xf6)]=Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)],Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)]=function(_0xdc800d){const _0x42904f=_0x2e6bc0;this[_0x42904f(0x5ca)]=this[_0x42904f(0x29a)](),VisuMZ[_0x42904f(0x468)]['Window_NameInput_initialize']['call'](this,_0xdc800d),this[_0x42904f(0x5ca)]===_0x42904f(0x4f7)?this['select'](0x0):(Input[_0x42904f(0x1f1)](),this[_0x42904f(0x533)]());},Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x29a)]=function(){const _0x3bf915=_0x2e6bc0;if(Input[_0x3bf915(0x565)]())return'default';return VisuMZ[_0x3bf915(0x468)][_0x3bf915(0x6ef)][_0x3bf915(0x5c6)][_0x3bf915(0x399)]||_0x3bf915(0x7c2);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x1fb)]=Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5d0)],Window_NameInput[_0x2e6bc0(0x5e2)]['processHandling']=function(){const _0x371d27=_0x2e6bc0;if(!this[_0x371d27(0x482)]())return;if(!this['active'])return;if(this[_0x371d27(0x5ca)]===_0x371d27(0x7c2)&&Input[_0x371d27(0x2d9)]())this['switchModes'](_0x371d27(0x4f7));else{if(Input[_0x371d27(0x5b5)](_0x371d27(0x33f)))Input[_0x371d27(0x1f1)](),this[_0x371d27(0x2ae)]();else{if(Input['isTriggered'](_0x371d27(0x453)))Input['clear'](),this[_0x371d27(0x5ca)]===_0x371d27(0x7c2)?this[_0x371d27(0x338)](_0x371d27(0x4f7)):this[_0x371d27(0x338)](_0x371d27(0x7c2));else{if(this[_0x371d27(0x5ca)]==='keyboard')this['processKeyboardHandling']();else Input[_0x371d27(0x5b5)]('escape')?(Input[_0x371d27(0x1f1)](),this[_0x371d27(0x338)](_0x371d27(0x7c2))):VisuMZ[_0x371d27(0x468)][_0x371d27(0x1fb)][_0x371d27(0x895)](this);}}}},VisuMZ[_0x2e6bc0(0x468)]['Window_NameInput_processTouch']=Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x534)],Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x534)]=function(){const _0x50c3c1=_0x2e6bc0;if(!this[_0x50c3c1(0x68e)]())return;if(this['_mode']===_0x50c3c1(0x7c2)){if(TouchInput[_0x50c3c1(0x443)]()&&this[_0x50c3c1(0x14b)]())this[_0x50c3c1(0x338)](_0x50c3c1(0x4f7));else TouchInput['isCancelled']()&&this[_0x50c3c1(0x338)](_0x50c3c1(0x4f7));}else VisuMZ[_0x50c3c1(0x468)][_0x50c3c1(0x6ae)][_0x50c3c1(0x895)](this);},Window_NameInput['prototype']['processKeyboardHandling']=function(){const _0x4ee362=_0x2e6bc0;if(Input[_0x4ee362(0x5b5)](_0x4ee362(0x5a0)))Input[_0x4ee362(0x1f1)](),this['onNameOk']();else{if(Input[_0x4ee362(0x541)]!==undefined){let _0x185397=Input[_0x4ee362(0x541)],_0x455ddc=_0x185397[_0x4ee362(0x29e)];for(let _0x48cb49=0x0;_0x48cb49<_0x455ddc;++_0x48cb49){this['_editWindow'][_0x4ee362(0x7f9)](_0x185397[_0x48cb49])?SoundManager[_0x4ee362(0x55f)]():SoundManager[_0x4ee362(0x665)]();}Input['clear']();}}},Window_NameInput[_0x2e6bc0(0x5e2)]['switchModes']=function(_0x59b66a){const _0x1168fb=_0x2e6bc0;let _0x1a59e1=this[_0x1168fb(0x5ca)];this[_0x1168fb(0x5ca)]=_0x59b66a,_0x1a59e1!==this['_mode']&&(this[_0x1168fb(0x3bd)](),SoundManager[_0x1168fb(0x55f)](),this['_mode']==='default'?this[_0x1168fb(0x1b5)](0x0):this[_0x1168fb(0x1b5)](-0x1));},VisuMZ[_0x2e6bc0(0x468)]['Window_NameInput_cursorDown']=Window_NameInput[_0x2e6bc0(0x5e2)]['cursorDown'],Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x24f)]=function(_0x51aaa0){const _0x47ae12=_0x2e6bc0;if(this['_mode']==='keyboard'&&!Input[_0x47ae12(0x117)]())return;if(Input['isNumpadPressed']())return;VisuMZ[_0x47ae12(0x468)][_0x47ae12(0x664)][_0x47ae12(0x895)](this,_0x51aaa0),this[_0x47ae12(0x338)]('default');},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x388)]=Window_NameInput[_0x2e6bc0(0x5e2)]['cursorUp'],Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x13d)]=function(_0x57a8bd){const _0x3ef477=_0x2e6bc0;if(this[_0x3ef477(0x5ca)]===_0x3ef477(0x7c2)&&!Input[_0x3ef477(0x117)]())return;if(Input['isNumpadPressed']())return;VisuMZ[_0x3ef477(0x468)][_0x3ef477(0x388)][_0x3ef477(0x895)](this,_0x57a8bd),this[_0x3ef477(0x338)](_0x3ef477(0x4f7));},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x839)]=Window_NameInput['prototype']['cursorRight'],Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7f0)]=function(_0x3c4aba){const _0x1b27c5=_0x2e6bc0;if(this['_mode']===_0x1b27c5(0x7c2)&&!Input[_0x1b27c5(0x117)]())return;if(Input[_0x1b27c5(0x6d8)]())return;VisuMZ[_0x1b27c5(0x468)][_0x1b27c5(0x839)][_0x1b27c5(0x895)](this,_0x3c4aba),this[_0x1b27c5(0x338)](_0x1b27c5(0x4f7));},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x566)]=Window_NameInput['prototype']['cursorLeft'],Window_NameInput[_0x2e6bc0(0x5e2)]['cursorLeft']=function(_0x3990ff){const _0x2dab3d=_0x2e6bc0;if(this[_0x2dab3d(0x5ca)]===_0x2dab3d(0x7c2)&&!Input[_0x2dab3d(0x117)]())return;if(Input['isNumpadPressed']())return;VisuMZ[_0x2dab3d(0x468)]['Window_NameInput_cursorLeft'][_0x2dab3d(0x895)](this,_0x3990ff),this['switchModes']('default');},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x543)]=Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x49d)],Window_NameInput['prototype'][_0x2e6bc0(0x49d)]=function(){const _0x5d9c8f=_0x2e6bc0;if(this[_0x5d9c8f(0x5ca)]===_0x5d9c8f(0x7c2))return;if(Input[_0x5d9c8f(0x6d8)]())return;VisuMZ[_0x5d9c8f(0x468)][_0x5d9c8f(0x543)][_0x5d9c8f(0x895)](this),this[_0x5d9c8f(0x338)]('default');},VisuMZ[_0x2e6bc0(0x468)]['Window_NameInput_cursorPageup']=Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x631)],Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x631)]=function(){const _0x333258=_0x2e6bc0;if(this[_0x333258(0x5ca)]===_0x333258(0x7c2))return;if(Input['isNumpadPressed']())return;VisuMZ[_0x333258(0x468)]['Window_NameInput_cursorPageup'][_0x333258(0x895)](this),this[_0x333258(0x338)](_0x333258(0x4f7));},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x170)]=Window_NameInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3bd)],Window_NameInput['prototype'][_0x2e6bc0(0x3bd)]=function(){const _0x32c30a=_0x2e6bc0;if(this[_0x32c30a(0x5ca)]===_0x32c30a(0x7c2)){this[_0x32c30a(0x267)][_0x32c30a(0x1f1)](),this[_0x32c30a(0x63f)][_0x32c30a(0x1f1)](),this[_0x32c30a(0x42f)]();let _0x1227b7=VisuMZ['CoreEngine'][_0x32c30a(0x6ef)]['KeyboardInput'][_0x32c30a(0x3e0)][_0x32c30a(0x440)]('\x0a'),_0x479dda=_0x1227b7[_0x32c30a(0x29e)],_0x2bb52b=(this[_0x32c30a(0x463)]-_0x479dda*this['lineHeight']())/0x2;for(let _0x1e5bc4=0x0;_0x1e5bc4<_0x479dda;++_0x1e5bc4){let _0x39710e=_0x1227b7[_0x1e5bc4],_0x58f6ad=this[_0x32c30a(0x5ff)](_0x39710e)['width'],_0x157831=Math['floor']((this[_0x32c30a(0x267)]['width']-_0x58f6ad)/0x2);this[_0x32c30a(0x42a)](_0x39710e,_0x157831,_0x2bb52b),_0x2bb52b+=this[_0x32c30a(0x1ec)]();}}else VisuMZ[_0x32c30a(0x468)][_0x32c30a(0x170)]['call'](this);};};VisuMZ['CoreEngine'][_0x2e6bc0(0x6ba)]=Window_ShopSell[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x39e)],Window_ShopSell[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x39e)]=function(_0x5418fb){const _0x4087b9=_0x2e6bc0;return VisuMZ[_0x4087b9(0x468)]['Settings'][_0x4087b9(0x818)][_0x4087b9(0x178)]&&DataManager[_0x4087b9(0x4f3)](_0x5418fb)?![]:VisuMZ[_0x4087b9(0x468)][_0x4087b9(0x6ba)][_0x4087b9(0x895)](this,_0x5418fb);},Window_NumberInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2ca)]=function(){return![];};VisuMZ[_0x2e6bc0(0x468)]['Settings']['KeyboardInput'][_0x2e6bc0(0x6c0)]&&(VisuMZ['CoreEngine']['Window_NumberInput_start']=Window_NumberInput['prototype'][_0x2e6bc0(0x427)],Window_NumberInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x427)]=function(){const _0x535547=_0x2e6bc0;VisuMZ[_0x535547(0x468)][_0x535547(0x7d7)][_0x535547(0x895)](this),this['select'](this['_maxDigits']-0x1),Input['clear']();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x59f)]=Window_NumberInput['prototype'][_0x2e6bc0(0x507)],Window_NumberInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x507)]=function(){const _0x126dd4=_0x2e6bc0;if(!this[_0x126dd4(0x68e)]())return;if(Input[_0x126dd4(0x6d8)]())this[_0x126dd4(0x861)]();else{if(Input['isSpecialCode'](_0x126dd4(0x33f)))this[_0x126dd4(0x516)]();else{if(Input[_0x126dd4(0x44e)]===0x2e)this['processKeyboardDelete']();else{if(Input[_0x126dd4(0x44e)]===0x24)this['processKeyboardHome']();else Input['_inputSpecialKeyCode']===0x23?this[_0x126dd4(0x26d)]():VisuMZ[_0x126dd4(0x468)][_0x126dd4(0x59f)]['call'](this);}}}},Window_NumberInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x249)]=function(){const _0x1d73f9=_0x2e6bc0;if(!this[_0x1d73f9(0x8c1)]())return;Input['isNumpadPressed']()?this[_0x1d73f9(0x861)]():Window_Selectable[_0x1d73f9(0x5e2)][_0x1d73f9(0x249)][_0x1d73f9(0x895)](this);},Window_NumberInput['prototype'][_0x2e6bc0(0x7a4)]=function(){},Window_NumberInput['prototype'][_0x2e6bc0(0x861)]=function(){const _0xeccff1=_0x2e6bc0;if(String(this[_0xeccff1(0x677)])[_0xeccff1(0x29e)]>=this[_0xeccff1(0x681)])return;const _0xa42fec=Number(String(this['_number'])+Input[_0xeccff1(0x541)]);if(isNaN(_0xa42fec))return;this['_number']=_0xa42fec;const _0x2a4eb0='9'[_0xeccff1(0x1ca)](this[_0xeccff1(0x681)]);this['_number']=this['_number'][_0xeccff1(0x2eb)](0x0,_0x2a4eb0),Input[_0xeccff1(0x1f1)](),this['refresh'](),SoundManager['playCursor'](),this[_0xeccff1(0x1b5)](this[_0xeccff1(0x681)]-0x1);},Window_NumberInput['prototype'][_0x2e6bc0(0x516)]=function(){const _0x27a8b3=_0x2e6bc0;this['_number']=Number(String(this[_0x27a8b3(0x677)])[_0x27a8b3(0x3c1)](0x0,-0x1)),this[_0x27a8b3(0x677)]=Math[_0x27a8b3(0x56f)](0x0,this['_number']),Input[_0x27a8b3(0x1f1)](),this[_0x27a8b3(0x3bd)](),SoundManager[_0x27a8b3(0x6f1)](),this[_0x27a8b3(0x1b5)](this['_maxDigits']-0x1);},Window_NumberInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6fb)]=function(){const _0x5ea42f=_0x2e6bc0;this['_number']=Number(String(this[_0x5ea42f(0x677)])[_0x5ea42f(0xfb)](0x1)),this[_0x5ea42f(0x677)]=Math[_0x5ea42f(0x56f)](0x0,this[_0x5ea42f(0x677)]),Input[_0x5ea42f(0x1f1)](),this[_0x5ea42f(0x3bd)](),SoundManager[_0x5ea42f(0x6f1)](),this['select'](this[_0x5ea42f(0x681)]-0x1);},Window_NumberInput[_0x2e6bc0(0x5e2)]['processKeyboardHome']=function(){const _0x2b22fe=_0x2e6bc0;if(this[_0x2b22fe(0x87d)]()===0x0)return;Input[_0x2b22fe(0x1f1)](),this[_0x2b22fe(0x3bd)](),SoundManager[_0x2b22fe(0x6f1)](),this[_0x2b22fe(0x1b5)](0x0);},Window_NumberInput[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x26d)]=function(){const _0x79c1f4=_0x2e6bc0;if(this['index']()===this['_maxDigits']-0x1)return;Input[_0x79c1f4(0x1f1)](),this['refresh'](),SoundManager['playCursor'](),this[_0x79c1f4(0x1b5)](this[_0x79c1f4(0x681)]-0x1);});;VisuMZ['CoreEngine'][_0x2e6bc0(0x821)]=Window_MapName[_0x2e6bc0(0x5e2)]['refresh'],Window_MapName[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3bd)]=function(){const _0x221d6d=_0x2e6bc0;VisuMZ[_0x221d6d(0x468)]['Settings'][_0x221d6d(0x818)][_0x221d6d(0x4d4)]?this[_0x221d6d(0x524)]():VisuMZ[_0x221d6d(0x468)]['Window_MapName_refresh'][_0x221d6d(0x895)](this);},Window_MapName[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x524)]=function(){const _0x85c75b=_0x2e6bc0;this['contents'][_0x85c75b(0x1f1)]();if($gameMap[_0x85c75b(0x387)]()){const _0x354dd8=this[_0x85c75b(0x78c)];this['drawBackground'](0x0,0x0,_0x354dd8,this[_0x85c75b(0x1ec)]());const _0x47b2bd=this[_0x85c75b(0x5ff)]($gameMap[_0x85c75b(0x387)]())[_0x85c75b(0x746)];this[_0x85c75b(0x42a)]($gameMap[_0x85c75b(0x387)](),Math[_0x85c75b(0x3ff)]((_0x354dd8-_0x47b2bd)/0x2),0x0);}},Window_TitleCommand['_commandList']=VisuMZ['CoreEngine'][_0x2e6bc0(0x6ef)]['TitleCommandList'],Window_TitleCommand[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x65f)]=function(){const _0x1c9cb0=_0x2e6bc0;this[_0x1c9cb0(0x5c5)]();},Window_TitleCommand[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5c5)]=function(){const _0xaba41d=_0x2e6bc0;for(const _0xd38c6f of Window_TitleCommand['_commandList']){if(_0xd38c6f[_0xaba41d(0x1ef)][_0xaba41d(0x895)](this)){const _0x40751e=_0xd38c6f[_0xaba41d(0x76c)];let _0x4d314b=_0xd38c6f[_0xaba41d(0x154)];if(['',_0xaba41d(0x77b)][_0xaba41d(0x7fe)](_0x4d314b))_0x4d314b=_0xd38c6f[_0xaba41d(0x1d8)][_0xaba41d(0x895)](this);const _0x33a13a=_0xd38c6f['EnableJS'][_0xaba41d(0x895)](this),_0x16be1e=_0xd38c6f['ExtJS']['call'](this);this['addCommand'](_0x4d314b,_0x40751e,_0x33a13a,_0x16be1e),this[_0xaba41d(0x658)](_0x40751e,_0xd38c6f[_0xaba41d(0x612)][_0xaba41d(0x6e7)](this,_0x16be1e));}}},VisuMZ['CoreEngine']['Window_TitleCommand_selectLast']=Window_TitleCommand[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x490)],Window_TitleCommand[_0x2e6bc0(0x5e2)]['selectLast']=function(){const _0x102fd4=_0x2e6bc0;VisuMZ['CoreEngine']['Window_TitleCommand_selectLast'][_0x102fd4(0x895)](this);if(!Window_TitleCommand[_0x102fd4(0x6a9)])return;const _0x10a046=this['findSymbol'](Window_TitleCommand[_0x102fd4(0x6a9)]),_0x1c2a68=Math[_0x102fd4(0x3ff)](this[_0x102fd4(0x6ed)]()/0x2)-0x1;this[_0x102fd4(0x8ae)](_0x10a046),this[_0x102fd4(0x7ba)]>0x1&&(this['_scrollDuration']=0x1,this[_0x102fd4(0x7b5)]()),this[_0x102fd4(0x6fa)](_0x10a046-_0x1c2a68);},Window_GameEnd[_0x2e6bc0(0x4e0)]=VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)]['MenuLayout'][_0x2e6bc0(0x4bb)][_0x2e6bc0(0x1bf)],Window_GameEnd[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x65f)]=function(){const _0x1fb15e=_0x2e6bc0;this[_0x1fb15e(0x5c5)]();},Window_GameEnd[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x5c5)]=function(){const _0x3eb17b=_0x2e6bc0;for(const _0x310f96 of Window_GameEnd[_0x3eb17b(0x4e0)]){if(_0x310f96[_0x3eb17b(0x1ef)]['call'](this)){const _0x4e51a4=_0x310f96[_0x3eb17b(0x76c)];let _0x4cba60=_0x310f96[_0x3eb17b(0x154)];if(['','Untitled']['includes'](_0x4cba60))_0x4cba60=_0x310f96[_0x3eb17b(0x1d8)][_0x3eb17b(0x895)](this);const _0x26a29c=_0x310f96[_0x3eb17b(0x4fc)][_0x3eb17b(0x895)](this),_0xdebfff=_0x310f96[_0x3eb17b(0x3f5)][_0x3eb17b(0x895)](this);this[_0x3eb17b(0x72a)](_0x4cba60,_0x4e51a4,_0x26a29c,_0xdebfff),this[_0x3eb17b(0x658)](_0x4e51a4,_0x310f96['CallHandlerJS'][_0x3eb17b(0x6e7)](this,_0xdebfff));}}};function Window_ButtonAssist(){this['initialize'](...arguments);}Window_ButtonAssist[_0x2e6bc0(0x5e2)]=Object[_0x2e6bc0(0x893)](Window_Base[_0x2e6bc0(0x5e2)]),Window_ButtonAssist[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2c3)]=Window_ButtonAssist,Window_ButtonAssist[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)]=function(_0x1f8143){const _0xb225a1=_0x2e6bc0;this['_data']={},Window_Base[_0xb225a1(0x5e2)][_0xb225a1(0x571)][_0xb225a1(0x895)](this,_0x1f8143),this[_0xb225a1(0x52a)](VisuMZ[_0xb225a1(0x468)][_0xb225a1(0x6ef)]['ButtonAssist'][_0xb225a1(0x744)]||0x0),this[_0xb225a1(0x3bd)]();},Window_ButtonAssist[_0x2e6bc0(0x5e2)]['lineHeight']=function(){const _0x5711c0=_0x2e6bc0;return this['innerHeight']||Window_Base[_0x5711c0(0x5e2)][_0x5711c0(0x1ec)][_0x5711c0(0x895)](this);},Window_ButtonAssist[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2d5)]=function(){const _0x5d7af0=_0x2e6bc0;this[_0x5d7af0(0x267)][_0x5d7af0(0x135)]<=0x60&&(this[_0x5d7af0(0x267)][_0x5d7af0(0x135)]+=0x6);},Window_ButtonAssist['prototype'][_0x2e6bc0(0xe4)]=function(){const _0x322441=_0x2e6bc0;this[_0x322441(0x267)]['fontSize']>=0x18&&(this[_0x322441(0x267)][_0x322441(0x135)]-=0x6);},Window_ButtonAssist[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x645)]=function(){const _0x27927f=_0x2e6bc0;Window_Base[_0x27927f(0x5e2)]['update'][_0x27927f(0x895)](this),this[_0x27927f(0x84c)]();},Window_ButtonAssist[_0x2e6bc0(0x5e2)]['updatePadding']=function(){const _0x31d555=_0x2e6bc0;this[_0x31d555(0x460)]=SceneManager[_0x31d555(0x49a)][_0x31d555(0x28f)]()!==_0x31d555(0x3d9)?0x0:0x8;},Window_ButtonAssist['prototype'][_0x2e6bc0(0x84c)]=function(){const _0x27adcc=_0x2e6bc0,_0x4afdeb=SceneManager[_0x27adcc(0x49a)];for(let _0x10998c=0x1;_0x10998c<=0x5;_0x10998c++){if(this[_0x27adcc(0x43b)][_0x27adcc(0x41b)[_0x27adcc(0x607)](_0x10998c)]!==_0x4afdeb[_0x27adcc(0x4e7)[_0x27adcc(0x607)](_0x10998c)]())return this[_0x27adcc(0x3bd)]();if(this[_0x27adcc(0x43b)][_0x27adcc(0x620)[_0x27adcc(0x607)](_0x10998c)]!==_0x4afdeb[_0x27adcc(0x4b3)[_0x27adcc(0x607)](_0x10998c)]())return this[_0x27adcc(0x3bd)]();}},Window_ButtonAssist[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3bd)]=function(){const _0x5fb3e3=_0x2e6bc0;this[_0x5fb3e3(0x267)][_0x5fb3e3(0x1f1)]();for(let _0x1be43b=0x1;_0x1be43b<=0x5;_0x1be43b++){this[_0x5fb3e3(0x804)](_0x1be43b);}},Window_ButtonAssist[_0x2e6bc0(0x5e2)]['drawSegment']=function(_0x332ecd){const _0x207931=_0x2e6bc0,_0x2c5913=this[_0x207931(0x78c)]/0x5,_0x3b8fb3=SceneManager[_0x207931(0x49a)],_0x57a130=_0x3b8fb3['buttonAssistKey%1'[_0x207931(0x607)](_0x332ecd)](),_0x39192a=_0x3b8fb3[_0x207931(0x4b3)[_0x207931(0x607)](_0x332ecd)]();this['_data'][_0x207931(0x41b)[_0x207931(0x607)](_0x332ecd)]=_0x57a130,this['_data'][_0x207931(0x620)['format'](_0x332ecd)]=_0x39192a;if(_0x57a130==='')return;if(_0x39192a==='')return;const _0x3fe9a0=_0x3b8fb3[_0x207931(0x29d)[_0x207931(0x607)](_0x332ecd)](),_0x5e5c45=this['itemPadding'](),_0x30de05=_0x2c5913*(_0x332ecd-0x1)+_0x5e5c45+_0x3fe9a0,_0xa2a332=VisuMZ[_0x207931(0x468)]['Settings'][_0x207931(0x51a)][_0x207931(0x142)];this['drawTextEx'](_0xa2a332[_0x207931(0x607)](_0x57a130,_0x39192a),_0x30de05,0x0,_0x2c5913-_0x5e5c45*0x2);},VisuMZ['CoreEngine'][_0x2e6bc0(0xeb)]=Game_Interpreter[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x39a)],Game_Interpreter['prototype'][_0x2e6bc0(0x39a)]=function(){const _0x5c4b77=_0x2e6bc0;if($gameTemp[_0x5c4b77(0x83f)]!==undefined)return VisuMZ['CoreEngine'][_0x5c4b77(0x4b1)]();return VisuMZ['CoreEngine'][_0x5c4b77(0xeb)][_0x5c4b77(0x895)](this);},VisuMZ['CoreEngine'][_0x2e6bc0(0x4b1)]=function(){const _0x364b18=_0x2e6bc0,_0x37760d=$gameTemp[_0x364b18(0x83f)]||0x0;(_0x37760d<0x0||_0x37760d>0x64||TouchInput[_0x364b18(0x7b3)]()||Input[_0x364b18(0x443)](_0x364b18(0x709)))&&($gameTemp[_0x364b18(0x83f)]=undefined,Input[_0x364b18(0x1f1)](),TouchInput['clear']());const _0x5e81ee=$gameScreen[_0x364b18(0x2a9)](_0x37760d);return _0x5e81ee&&(_0x5e81ee['_x']=TouchInput['_x'],_0x5e81ee['_y']=TouchInput['_y']),VisuMZ[_0x364b18(0x468)]['updatePictureCoordinates'](),$gameTemp[_0x364b18(0x83f)]!==undefined;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x22e)]=function(){const _0x5274f9=_0x2e6bc0,_0x510e42=SceneManager[_0x5274f9(0x49a)];if(!_0x510e42)return;!_0x510e42[_0x5274f9(0x407)]&&(SoundManager[_0x5274f9(0x223)](),_0x510e42['_pictureCoordinatesWindow']=new Window_PictureCoordinates(),_0x510e42[_0x5274f9(0x6e8)](_0x510e42[_0x5274f9(0x407)])),$gameTemp[_0x5274f9(0x83f)]===undefined&&(SoundManager['playCancel'](),_0x510e42['removeChild'](_0x510e42[_0x5274f9(0x407)]),_0x510e42[_0x5274f9(0x407)]=undefined);};function Window_PictureCoordinates(){this['initialize'](...arguments);}Window_PictureCoordinates[_0x2e6bc0(0x5e2)]=Object['create'](Window_Base[_0x2e6bc0(0x5e2)]),Window_PictureCoordinates[_0x2e6bc0(0x5e2)]['constructor']=Window_PictureCoordinates,Window_PictureCoordinates[_0x2e6bc0(0x5e2)]['initialize']=function(){const _0xb6b517=_0x2e6bc0;this[_0xb6b517(0x5b6)]=_0xb6b517(0x20f),this['_lastX']=_0xb6b517(0x20f),this[_0xb6b517(0x595)]=_0xb6b517(0x20f);const _0x206695=this['windowRect']();Window_Base[_0xb6b517(0x5e2)][_0xb6b517(0x571)][_0xb6b517(0x895)](this,_0x206695),this['setBackgroundType'](0x2);},Window_PictureCoordinates['prototype'][_0x2e6bc0(0x2c8)]=function(){const _0x4af8b0=_0x2e6bc0;let _0x3b3ef2=0x0,_0x53296a=Graphics[_0x4af8b0(0x689)]-this[_0x4af8b0(0x1ec)](),_0x31bf7e=Graphics[_0x4af8b0(0x746)],_0x3b5893=this[_0x4af8b0(0x1ec)]();return new Rectangle(_0x3b3ef2,_0x53296a,_0x31bf7e,_0x3b5893);},Window_PictureCoordinates[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x354)]=function(){const _0x29ae9d=_0x2e6bc0;this[_0x29ae9d(0x460)]=0x0;},Window_PictureCoordinates['prototype'][_0x2e6bc0(0x645)]=function(){const _0x2da62a=_0x2e6bc0;Window_Base[_0x2da62a(0x5e2)][_0x2da62a(0x645)][_0x2da62a(0x895)](this),this[_0x2da62a(0x116)]();},Window_PictureCoordinates[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x116)]=function(){const _0x162faa=_0x2e6bc0;if(!this[_0x162faa(0x2dc)]())return;this[_0x162faa(0x3bd)]();},Window_PictureCoordinates['prototype'][_0x2e6bc0(0x2dc)]=function(){const _0x26d7dd=_0x2e6bc0,_0x43fbb3=$gameTemp[_0x26d7dd(0x83f)],_0x275749=$gameScreen[_0x26d7dd(0x2a9)](_0x43fbb3);return _0x275749?this[_0x26d7dd(0x5b6)]!==_0x275749['_origin']||this[_0x26d7dd(0x45a)]!==_0x275749['_x']||this[_0x26d7dd(0x595)]!==_0x275749['_y']:![];},Window_PictureCoordinates['prototype']['refresh']=function(){const _0x1b6747=_0x2e6bc0;this[_0x1b6747(0x267)]['clear']();const _0x193bf0=$gameTemp[_0x1b6747(0x83f)],_0x454233=$gameScreen[_0x1b6747(0x2a9)](_0x193bf0);if(!_0x454233)return;this['_lastOrigin']=_0x454233['_origin'],this[_0x1b6747(0x45a)]=_0x454233['_x'],this['_lastY']=_0x454233['_y'];const _0x5347f2=ColorManager[_0x1b6747(0x8b0)]();this[_0x1b6747(0x267)][_0x1b6747(0x762)](0x0,0x0,this[_0x1b6747(0x78c)],this[_0x1b6747(0x463)],_0x5347f2);const _0x2117ed='\x20Origin:\x20%1'[_0x1b6747(0x607)](_0x454233[_0x1b6747(0x8b3)]===0x0?_0x1b6747(0x2f5):_0x1b6747(0x3de)),_0x5da274=_0x1b6747(0x1b2)[_0x1b6747(0x607)](_0x454233['_x']),_0x362d07=_0x1b6747(0x49b)[_0x1b6747(0x607)](_0x454233['_y']),_0x35e817=_0x1b6747(0x362)[_0x1b6747(0x607)](TextManager[_0x1b6747(0x76a)](_0x1b6747(0x709)));let _0x56fe12=Math[_0x1b6747(0x3ff)](this[_0x1b6747(0x78c)]/0x4);this['drawText'](_0x2117ed,_0x56fe12*0x0,0x0,_0x56fe12),this[_0x1b6747(0x41f)](_0x5da274,_0x56fe12*0x1,0x0,_0x56fe12,_0x1b6747(0x77c)),this['drawText'](_0x362d07,_0x56fe12*0x2,0x0,_0x56fe12,'center');const _0x4d7a15=this[_0x1b6747(0x5ff)](_0x35e817)['width'],_0x192097=this[_0x1b6747(0x78c)]-_0x4d7a15;this[_0x1b6747(0x42a)](_0x35e817,_0x192097,0x0,_0x4d7a15);};function Window_TextPopup(){const _0x487eaa=_0x2e6bc0;this[_0x487eaa(0x571)](...arguments);}Window_TextPopup[_0x2e6bc0(0x5e2)]=Object['create'](Window_Base['prototype']),Window_TextPopup[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2c3)]=Window_TextPopup,Window_TextPopup[_0x2e6bc0(0x805)]={'framesPerChar':VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)]['Window'][_0x2e6bc0(0x3c6)]??1.5,'framesMin':VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x76e)][_0x2e6bc0(0x668)]??0x5a,'framesMax':VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x6ef)][_0x2e6bc0(0x76e)][_0x2e6bc0(0x1e8)]??0x12c},Window_TextPopup[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x571)]=function(){const _0x125f0a=_0x2e6bc0,_0x35cf09=new Rectangle(0x0,0x0,0x1,0x1);Window_Base['prototype'][_0x125f0a(0x571)]['call'](this,_0x35cf09),this[_0x125f0a(0x73b)]=0x0,this[_0x125f0a(0x4ce)]='',this[_0x125f0a(0x188)]=[],this[_0x125f0a(0x2b7)]=0x0;},Window_TextPopup['prototype'][_0x2e6bc0(0x577)]=function(){return!![];},Window_TextPopup[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x781)]=function(_0xa18340){const _0x2cc079=_0x2e6bc0;if(this[_0x2cc079(0x188)][this['_textQueue'][_0x2cc079(0x29e)]-0x1]===_0xa18340)return;this['_textQueue'][_0x2cc079(0x16c)](_0xa18340),SceneManager[_0x2cc079(0x49a)][_0x2cc079(0x6e8)](this);},Window_TextPopup['prototype']['update']=function(){const _0x3a56a3=_0x2e6bc0;Window_Base[_0x3a56a3(0x5e2)][_0x3a56a3(0x645)][_0x3a56a3(0x895)](this),this[_0x3a56a3(0x6c9)](),this[_0x3a56a3(0x860)]();},Window_TextPopup[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x6c9)]=function(){const _0x23df81=_0x2e6bc0;if(this[_0x23df81(0x4ce)]!=='')return;if(this[_0x23df81(0x188)]['length']<=0x0)return;if(!this[_0x23df81(0x236)]())return;this[_0x23df81(0x4ce)]=this['_textQueue'][_0x23df81(0x2f3)]();const _0x2c0994=Window_TextPopup[_0x23df81(0x805)],_0x314372=Math[_0x23df81(0x539)](this['_text'][_0x23df81(0x29e)]*_0x2c0994[_0x23df81(0x575)]);this['_timeDuration']=_0x314372[_0x23df81(0x2eb)](_0x2c0994[_0x23df81(0x5fc)],_0x2c0994[_0x23df81(0xf4)]);const _0x20a699=this[_0x23df81(0x5ff)](this[_0x23df81(0x4ce)]);let _0x3b9677=_0x20a699[_0x23df81(0x746)]+this[_0x23df81(0x637)]()*0x2;_0x3b9677+=$gameSystem['windowPadding']()*0x2;let _0x3056dd=Math['max'](_0x20a699['height'],this[_0x23df81(0x1ec)]());_0x3056dd+=$gameSystem[_0x23df81(0x1f2)]()*0x2;const _0x30d864=Math[_0x23df81(0x897)]((Graphics[_0x23df81(0x746)]-_0x3b9677)/0x2),_0x4abcbf=Math[_0x23df81(0x897)]((Graphics['height']-_0x3056dd)/0x2),_0x3eb5df=new Rectangle(_0x30d864,_0x4abcbf,_0x3b9677,_0x3056dd);this[_0x23df81(0x633)](_0x3eb5df['x'],_0x3eb5df['y'],_0x3eb5df[_0x23df81(0x746)],_0x3eb5df['height']),this[_0x23df81(0x8bd)](),this[_0x23df81(0x3bd)](),this[_0x23df81(0x6a0)](),SceneManager['_scene']['addChild'](this);},Window_TextPopup[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3bd)]=function(){const _0x25de95=_0x2e6bc0,_0x1c352b=this[_0x25de95(0x2f0)]();this[_0x25de95(0x267)][_0x25de95(0x1f1)](),this[_0x25de95(0x42a)](this['_text'],_0x1c352b['x'],_0x1c352b['y'],_0x1c352b[_0x25de95(0x746)]);},Window_TextPopup[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x860)]=function(){const _0x203412=_0x2e6bc0;if(this[_0x203412(0x375)]()||this[_0x203412(0x47f)]())return;if(this[_0x203412(0x2b7)]<=0x0)return;this[_0x203412(0x2b7)]--,this[_0x203412(0x2b7)]<=0x0&&(this[_0x203412(0x50d)](),this[_0x203412(0x4ce)]='');},VisuMZ[_0x2e6bc0(0x88a)]=function(_0x2b57a7){const _0x26f60b=_0x2e6bc0;if(Utils[_0x26f60b(0x88d)](_0x26f60b(0x43e))){var _0x25a960=require(_0x26f60b(0x6b3))[_0x26f60b(0x76e)][_0x26f60b(0x63c)]();SceneManager[_0x26f60b(0x485)]();if(_0x2b57a7)setTimeout(_0x25a960[_0x26f60b(0x80a)]['bind'](_0x25a960),0x190);}},VisuMZ[_0x2e6bc0(0x71e)]=function(_0x42d6f8,_0xa00655){const _0x5caf2f=_0x2e6bc0;_0xa00655=_0xa00655[_0x5caf2f(0x63e)]();var _0x110c61=1.70158,_0x49b9ce=0.7;switch(_0xa00655){case _0x5caf2f(0x6f2):return _0x42d6f8;case _0x5caf2f(0x7d8):return-0x1*Math[_0x5caf2f(0x532)](_0x42d6f8*(Math['PI']/0x2))+0x1;case _0x5caf2f(0x613):return Math[_0x5caf2f(0x5d2)](_0x42d6f8*(Math['PI']/0x2));case _0x5caf2f(0x32e):return-0.5*(Math[_0x5caf2f(0x532)](Math['PI']*_0x42d6f8)-0x1);case'INQUAD':return _0x42d6f8*_0x42d6f8;case _0x5caf2f(0x789):return _0x42d6f8*(0x2-_0x42d6f8);case _0x5caf2f(0x4f4):return _0x42d6f8<0.5?0x2*_0x42d6f8*_0x42d6f8:-0x1+(0x4-0x2*_0x42d6f8)*_0x42d6f8;case'INCUBIC':return _0x42d6f8*_0x42d6f8*_0x42d6f8;case _0x5caf2f(0x342):var _0x2f4013=_0x42d6f8-0x1;return _0x2f4013*_0x2f4013*_0x2f4013+0x1;case _0x5caf2f(0x28a):return _0x42d6f8<0.5?0x4*_0x42d6f8*_0x42d6f8*_0x42d6f8:(_0x42d6f8-0x1)*(0x2*_0x42d6f8-0x2)*(0x2*_0x42d6f8-0x2)+0x1;case _0x5caf2f(0x122):return _0x42d6f8*_0x42d6f8*_0x42d6f8*_0x42d6f8;case _0x5caf2f(0x5d3):var _0x2f4013=_0x42d6f8-0x1;return 0x1-_0x2f4013*_0x2f4013*_0x2f4013*_0x2f4013;case _0x5caf2f(0x847):var _0x2f4013=_0x42d6f8-0x1;return _0x42d6f8<0.5?0x8*_0x42d6f8*_0x42d6f8*_0x42d6f8*_0x42d6f8:0x1-0x8*_0x2f4013*_0x2f4013*_0x2f4013*_0x2f4013;case'INQUINT':return _0x42d6f8*_0x42d6f8*_0x42d6f8*_0x42d6f8*_0x42d6f8;case _0x5caf2f(0x1f0):var _0x2f4013=_0x42d6f8-0x1;return 0x1+_0x2f4013*_0x2f4013*_0x2f4013*_0x2f4013*_0x2f4013;case _0x5caf2f(0x70b):var _0x2f4013=_0x42d6f8-0x1;return _0x42d6f8<0.5?0x10*_0x42d6f8*_0x42d6f8*_0x42d6f8*_0x42d6f8*_0x42d6f8:0x1+0x10*_0x2f4013*_0x2f4013*_0x2f4013*_0x2f4013*_0x2f4013;case'INEXPO':if(_0x42d6f8===0x0)return 0x0;return Math[_0x5caf2f(0x4f5)](0x2,0xa*(_0x42d6f8-0x1));case _0x5caf2f(0x61c):if(_0x42d6f8===0x1)return 0x1;return-Math[_0x5caf2f(0x4f5)](0x2,-0xa*_0x42d6f8)+0x1;case _0x5caf2f(0x570):if(_0x42d6f8===0x0||_0x42d6f8===0x1)return _0x42d6f8;var _0x1d9c7c=_0x42d6f8*0x2,_0x290c97=_0x1d9c7c-0x1;if(_0x1d9c7c<0x1)return 0.5*Math[_0x5caf2f(0x4f5)](0x2,0xa*_0x290c97);return 0.5*(-Math[_0x5caf2f(0x4f5)](0x2,-0xa*_0x290c97)+0x2);case _0x5caf2f(0x27c):var _0x1d9c7c=_0x42d6f8/0x1;return-0x1*(Math[_0x5caf2f(0x433)](0x1-_0x1d9c7c*_0x42d6f8)-0x1);case _0x5caf2f(0x1d2):var _0x2f4013=_0x42d6f8-0x1;return Math[_0x5caf2f(0x433)](0x1-_0x2f4013*_0x2f4013);case _0x5caf2f(0x6f0):var _0x1d9c7c=_0x42d6f8*0x2,_0x290c97=_0x1d9c7c-0x2;if(_0x1d9c7c<0x1)return-0.5*(Math[_0x5caf2f(0x433)](0x1-_0x1d9c7c*_0x1d9c7c)-0x1);return 0.5*(Math['sqrt'](0x1-_0x290c97*_0x290c97)+0x1);case _0x5caf2f(0x708):return _0x42d6f8*_0x42d6f8*((_0x110c61+0x1)*_0x42d6f8-_0x110c61);case _0x5caf2f(0x26f):var _0x1d9c7c=_0x42d6f8/0x1-0x1;return _0x1d9c7c*_0x1d9c7c*((_0x110c61+0x1)*_0x1d9c7c+_0x110c61)+0x1;break;case _0x5caf2f(0x115):var _0x1d9c7c=_0x42d6f8*0x2,_0x58978b=_0x1d9c7c-0x2,_0x47a74e=_0x110c61*1.525;if(_0x1d9c7c<0x1)return 0.5*_0x1d9c7c*_0x1d9c7c*((_0x47a74e+0x1)*_0x1d9c7c-_0x47a74e);return 0.5*(_0x58978b*_0x58978b*((_0x47a74e+0x1)*_0x58978b+_0x47a74e)+0x2);case _0x5caf2f(0x837):if(_0x42d6f8===0x0||_0x42d6f8===0x1)return _0x42d6f8;var _0x1d9c7c=_0x42d6f8/0x1,_0x290c97=_0x1d9c7c-0x1,_0x2b873b=0x1-_0x49b9ce,_0x47a74e=_0x2b873b/(0x2*Math['PI'])*Math['asin'](0x1);return-(Math['pow'](0x2,0xa*_0x290c97)*Math[_0x5caf2f(0x5d2)]((_0x290c97-_0x47a74e)*(0x2*Math['PI'])/_0x2b873b));case _0x5caf2f(0x282):var _0x2b873b=0x1-_0x49b9ce,_0x1d9c7c=_0x42d6f8*0x2;if(_0x42d6f8===0x0||_0x42d6f8===0x1)return _0x42d6f8;var _0x47a74e=_0x2b873b/(0x2*Math['PI'])*Math[_0x5caf2f(0x240)](0x1);return Math[_0x5caf2f(0x4f5)](0x2,-0xa*_0x1d9c7c)*Math[_0x5caf2f(0x5d2)]((_0x1d9c7c-_0x47a74e)*(0x2*Math['PI'])/_0x2b873b)+0x1;case _0x5caf2f(0x544):var _0x2b873b=0x1-_0x49b9ce;if(_0x42d6f8===0x0||_0x42d6f8===0x1)return _0x42d6f8;var _0x1d9c7c=_0x42d6f8*0x2,_0x290c97=_0x1d9c7c-0x1,_0x47a74e=_0x2b873b/(0x2*Math['PI'])*Math[_0x5caf2f(0x240)](0x1);if(_0x1d9c7c<0x1)return-0.5*(Math[_0x5caf2f(0x4f5)](0x2,0xa*_0x290c97)*Math[_0x5caf2f(0x5d2)]((_0x290c97-_0x47a74e)*(0x2*Math['PI'])/_0x2b873b));return Math[_0x5caf2f(0x4f5)](0x2,-0xa*_0x290c97)*Math[_0x5caf2f(0x5d2)]((_0x290c97-_0x47a74e)*(0x2*Math['PI'])/_0x2b873b)*0.5+0x1;case _0x5caf2f(0x257):var _0x1d9c7c=_0x42d6f8/0x1;if(_0x1d9c7c<0x1/2.75)return 7.5625*_0x1d9c7c*_0x1d9c7c;else{if(_0x1d9c7c<0x2/2.75){var _0x58978b=_0x1d9c7c-1.5/2.75;return 7.5625*_0x58978b*_0x58978b+0.75;}else{if(_0x1d9c7c<2.5/2.75){var _0x58978b=_0x1d9c7c-2.25/2.75;return 7.5625*_0x58978b*_0x58978b+0.9375;}else{var _0x58978b=_0x1d9c7c-2.625/2.75;return 7.5625*_0x58978b*_0x58978b+0.984375;}}}case _0x5caf2f(0x34e):var _0x5d5039=0x1-VisuMZ[_0x5caf2f(0x71e)](0x1-_0x42d6f8,_0x5caf2f(0x320));return _0x5d5039;case _0x5caf2f(0x830):if(_0x42d6f8<0.5)var _0x5d5039=VisuMZ['ApplyEasing'](_0x42d6f8*0x2,_0x5caf2f(0x72b))*0.5;else var _0x5d5039=VisuMZ[_0x5caf2f(0x71e)](_0x42d6f8*0x2-0x1,'outbounce')*0.5+0.5;return _0x5d5039;default:return _0x42d6f8;}},VisuMZ['GetParamIcon']=function(_0x5aac7d){const _0x482fa1=_0x2e6bc0;_0x5aac7d=String(_0x5aac7d)[_0x482fa1(0x63e)]();const _0xe30afb=VisuMZ[_0x482fa1(0x468)][_0x482fa1(0x6ef)]['Param'];if(_0x5aac7d===_0x482fa1(0x4a4))return _0xe30afb['IconParam0'];if(_0x5aac7d==='MAXMP')return _0xe30afb['IconParam1'];if(_0x5aac7d===_0x482fa1(0x5e3))return _0xe30afb['IconParam2'];if(_0x5aac7d===_0x482fa1(0x227))return _0xe30afb[_0x482fa1(0x177)];if(_0x5aac7d==='MAT')return _0xe30afb[_0x482fa1(0x47c)];if(_0x5aac7d===_0x482fa1(0x34d))return _0xe30afb[_0x482fa1(0x325)];if(_0x5aac7d===_0x482fa1(0x670))return _0xe30afb['IconParam6'];if(_0x5aac7d==='LUK')return _0xe30afb[_0x482fa1(0x77d)];if(_0x5aac7d===_0x482fa1(0x2e4))return _0xe30afb[_0x482fa1(0x659)];if(_0x5aac7d===_0x482fa1(0x231))return _0xe30afb[_0x482fa1(0x144)];if(_0x5aac7d===_0x482fa1(0x2ba))return _0xe30afb[_0x482fa1(0x233)];if(_0x5aac7d===_0x482fa1(0x280))return _0xe30afb[_0x482fa1(0x3cb)];if(_0x5aac7d===_0x482fa1(0x7e4))return _0xe30afb['IconXParam4'];if(_0x5aac7d==='MRF')return _0xe30afb['IconXParam5'];if(_0x5aac7d==='CNT')return _0xe30afb[_0x482fa1(0x4be)];if(_0x5aac7d===_0x482fa1(0x197))return _0xe30afb[_0x482fa1(0x73a)];if(_0x5aac7d===_0x482fa1(0x217))return _0xe30afb[_0x482fa1(0x242)];if(_0x5aac7d==='TRG')return _0xe30afb[_0x482fa1(0x4c4)];if(_0x5aac7d===_0x482fa1(0x8a4))return _0xe30afb[_0x482fa1(0x459)];if(_0x5aac7d==='GRD')return _0xe30afb[_0x482fa1(0x10b)];if(_0x5aac7d===_0x482fa1(0x319))return _0xe30afb[_0x482fa1(0x75c)];if(_0x5aac7d===_0x482fa1(0x8c2))return _0xe30afb['IconSParam3'];if(_0x5aac7d===_0x482fa1(0x79b))return _0xe30afb['IconSParam4'];if(_0x5aac7d===_0x482fa1(0x3ef))return _0xe30afb['IconSParam5'];if(_0x5aac7d==='PDR')return _0xe30afb['IconSParam6'];if(_0x5aac7d===_0x482fa1(0x5db))return _0xe30afb[_0x482fa1(0x851)];if(_0x5aac7d==='FDR')return _0xe30afb[_0x482fa1(0x695)];if(_0x5aac7d===_0x482fa1(0x312))return _0xe30afb['IconSParam9'];if(VisuMZ['CoreEngine'][_0x482fa1(0x75f)][_0x5aac7d])return VisuMZ[_0x482fa1(0x468)][_0x482fa1(0x75f)][_0x5aac7d]||0x0;return 0x0;},VisuMZ[_0x2e6bc0(0x706)]=function(_0x59854b,_0x463636,_0x1ebf30){const _0x2eb193=_0x2e6bc0;if(_0x1ebf30===undefined&&_0x59854b%0x1===0x0)return _0x59854b;if(_0x1ebf30!==undefined&&[_0x2eb193(0x4a4),_0x2eb193(0x1e9),_0x2eb193(0x5e3),_0x2eb193(0x227),'MAT','MDF',_0x2eb193(0x670),_0x2eb193(0x853)][_0x2eb193(0x7fe)](String(_0x1ebf30)[_0x2eb193(0x63e)]()[_0x2eb193(0x679)]()))return _0x59854b;_0x463636=_0x463636||0x0;if(VisuMZ[_0x2eb193(0x468)][_0x2eb193(0x479)][_0x1ebf30])return VisuMZ['CoreEngine'][_0x2eb193(0xf3)][_0x1ebf30]==='integer'?_0x59854b:String((_0x59854b*0x64)[_0x2eb193(0x801)](_0x463636))+'%';return String((_0x59854b*0x64)['toFixed'](_0x463636))+'%';},VisuMZ[_0x2e6bc0(0x35b)]=function(_0x2c1625){const _0x531e08=_0x2e6bc0;_0x2c1625=String(_0x2c1625);if(!_0x2c1625)return _0x2c1625;if(typeof _0x2c1625!==_0x531e08(0x8b9))return _0x2c1625;const _0x2a27e0=VisuMZ[_0x531e08(0x468)][_0x531e08(0x6ef)]['QoL'][_0x531e08(0x807)]||'en-US',_0x3ae46a={'maximumFractionDigits':0x6};_0x2c1625=_0x2c1625[_0x531e08(0x20a)](/\[(.*?)\]/g,(_0x3dbc75,_0x1fd660)=>{const _0x5e3f33=_0x531e08;return VisuMZ[_0x5e3f33(0x26c)](_0x1fd660,'[',']');}),_0x2c1625=_0x2c1625[_0x531e08(0x20a)](/<(.*?)>/g,(_0x5e745e,_0x44d955)=>{const _0x4fb328=_0x531e08;return VisuMZ[_0x4fb328(0x26c)](_0x44d955,'<','>');}),_0x2c1625=_0x2c1625[_0x531e08(0x20a)](/\{\{(.*?)\}\}/g,(_0x3cdeb7,_0x2712cc)=>{const _0x5a2771=_0x531e08;return VisuMZ[_0x5a2771(0x26c)](_0x2712cc,'','');}),_0x2c1625=_0x2c1625[_0x531e08(0x20a)](/(\d+\.?\d*)/g,(_0x5697ad,_0x3c5962)=>{const _0x273ae3=_0x531e08;let _0x63179=_0x3c5962;if(_0x63179[0x0]==='0')return _0x63179;if(_0x63179[_0x63179[_0x273ae3(0x29e)]-0x1]==='.')return Number(_0x63179)[_0x273ae3(0x654)](_0x2a27e0,_0x3ae46a)+'.';else return _0x63179[_0x63179[_0x273ae3(0x29e)]-0x1]===','?Number(_0x63179)['toLocaleString'](_0x2a27e0,_0x3ae46a)+',':Number(_0x63179)[_0x273ae3(0x654)](_0x2a27e0,_0x3ae46a);});let _0x462cb4=0x3;while(_0x462cb4--){_0x2c1625=VisuMZ['RevertPreserveNumbers'](_0x2c1625);}return _0x2c1625;},VisuMZ[_0x2e6bc0(0x26c)]=function(_0x33401b,_0x53bdc7,_0xc25758){const _0x4fef35=_0x2e6bc0;return _0x33401b=_0x33401b[_0x4fef35(0x20a)](/(\d)/gi,(_0xeb7dd9,_0x5bc141)=>_0x4fef35(0x7f7)[_0x4fef35(0x607)](Number(_0x5bc141))),_0x4fef35(0x436)[_0x4fef35(0x607)](_0x33401b,_0x53bdc7,_0xc25758);},VisuMZ[_0x2e6bc0(0x3f1)]=function(_0x41b82b){const _0x43c479=_0x2e6bc0;return _0x41b82b=_0x41b82b[_0x43c479(0x20a)](/PRESERVCONVERSION\((\d+)\)/gi,(_0x56186c,_0x573197)=>Number(parseInt(_0x573197))),_0x41b82b;},VisuMZ[_0x2e6bc0(0x50a)]=function(_0x1f90f7){const _0x5d6162=_0x2e6bc0;SoundManager[_0x5d6162(0x55f)]();if(!Utils[_0x5d6162(0x3e4)]()){const _0x1d8821=window[_0x5d6162(0x6a0)](_0x1f90f7,'_blank');}else{const _0x170956=process[_0x5d6162(0x14c)]==_0x5d6162(0x813)?_0x5d6162(0x6a0):process[_0x5d6162(0x14c)]==_0x5d6162(0x435)?_0x5d6162(0x427):_0x5d6162(0x4d1);require(_0x5d6162(0x598))[_0x5d6162(0x80c)](_0x170956+'\x20'+_0x1f90f7);}},VisuMZ[_0x2e6bc0(0x7b0)]=function(_0x35cc13,_0x3f7026){const _0x146c2f=_0x2e6bc0;if(!_0x35cc13)return'';const _0x3d6493=_0x35cc13[_0x146c2f(0x624)]||_0x35cc13['id'];let _0x28057c='';return _0x35cc13[_0x146c2f(0x3fa)]!==undefined&&_0x35cc13[_0x146c2f(0x6fc)]!==undefined&&(_0x28057c='Actor-%1-%2'[_0x146c2f(0x607)](_0x3d6493,_0x3f7026)),_0x35cc13[_0x146c2f(0x329)]!==undefined&&_0x35cc13[_0x146c2f(0x3a8)]!==undefined&&(_0x28057c=_0x146c2f(0x647)['format'](_0x3d6493,_0x3f7026)),_0x35cc13['stypeId']!==undefined&&_0x35cc13['requiredWtypeId1']!==undefined&&(_0x28057c=_0x146c2f(0x35c)[_0x146c2f(0x607)](_0x3d6493,_0x3f7026)),_0x35cc13[_0x146c2f(0x7b9)]!==undefined&&_0x35cc13['consumable']!==undefined&&(_0x28057c=_0x146c2f(0x1b4)['format'](_0x3d6493,_0x3f7026)),_0x35cc13[_0x146c2f(0x57d)]!==undefined&&_0x35cc13['etypeId']===0x1&&(_0x28057c=_0x146c2f(0x46a)[_0x146c2f(0x607)](_0x3d6493,_0x3f7026)),_0x35cc13[_0x146c2f(0x3c0)]!==undefined&&_0x35cc13[_0x146c2f(0x7bb)]>0x1&&(_0x28057c=_0x146c2f(0x47a)[_0x146c2f(0x607)](_0x3d6493,_0x3f7026)),_0x35cc13['dropItems']!==undefined&&_0x35cc13[_0x146c2f(0x676)]!==undefined&&(_0x28057c=_0x146c2f(0x707)[_0x146c2f(0x607)](_0x3d6493,_0x3f7026)),_0x35cc13[_0x146c2f(0x134)]!==undefined&&_0x35cc13[_0x146c2f(0x879)]!==undefined&&(_0x28057c='State-%1-%2'[_0x146c2f(0x607)](_0x3d6493,_0x3f7026)),_0x28057c;},Window_Base[_0x2e6bc0(0x5e2)]['processDrawIcon']=function(_0x42a122,_0x4d74fa){const _0x348128=_0x2e6bc0,_0x2bdf7d=ImageManager[_0x348128(0x17b)]||0x20,_0x148825=ImageManager[_0x348128(0x370)]||0x20;if(_0x4d74fa[_0x348128(0x47e)]){const _0x501a4a=_0x2bdf7d-ImageManager[_0x348128(0x503)],_0x61eaaf=_0x148825-ImageManager[_0x348128(0x594)];let _0x46205b=0x2,_0xf10469=0x2;this[_0x348128(0x1ec)]()!==0x24&&(_0xf10469=Math[_0x348128(0x3ff)]((this['lineHeight']()-_0x148825)/0x2));const _0x306b18=_0x4d74fa['x']+Math[_0x348128(0x3ff)](_0x501a4a/0x2)+_0x46205b,_0x2efd3b=_0x4d74fa['y']+Math['floor'](_0x61eaaf/0x2)+_0xf10469;this['drawIcon'](_0x42a122,_0x306b18,_0x2efd3b);}_0x4d74fa['x']+=_0x2bdf7d+0x4;},Window_StatusBase[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x3bb)]=function(_0x42ec41,_0x176052,_0x429a00,_0x311e7a){const _0x246669=_0x2e6bc0;_0x311e7a=_0x311e7a||0x90;const _0x4ca7f6=ImageManager['standardIconWidth']||0x20,_0x2759a4=ImageManager[_0x246669(0x370)]||0x20,_0x1d0f98=_0x4ca7f6-ImageManager['iconWidth'],_0x416abe=_0x2759a4-ImageManager['iconHeight'],_0x330aa8=_0x4ca7f6,_0x49545c=_0x42ec41['allIcons']()[_0x246669(0x3c1)](0x0,Math['floor'](_0x311e7a/_0x330aa8));let _0x3371b1=_0x176052+Math[_0x246669(0x539)](_0x1d0f98/0x2),_0x83bb8a=_0x429a00+Math['ceil'](_0x416abe/0x2);for(const _0xf4df32 of _0x49545c){this['drawIcon'](_0xf4df32,_0x3371b1,_0x83bb8a),_0x3371b1+=_0x330aa8;}},Game_Picture[_0x2e6bc0(0x5e2)]['anchor']=function(){const _0x3119f1=_0x2e6bc0;return this[_0x3119f1(0x2a2)];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x4de)]=Game_Picture['prototype'][_0x2e6bc0(0x2db)],Game_Picture[_0x2e6bc0(0x5e2)]['initBasic']=function(){const _0x12682f=_0x2e6bc0;VisuMZ[_0x12682f(0x468)][_0x12682f(0x4de)][_0x12682f(0x895)](this),this[_0x12682f(0x2a2)]={'x':0x0,'y':0x0},this['_targetAnchor']={'x':0x0,'y':0x0};},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x87b)]=Game_Picture['prototype']['updateMove'],Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x19d)]=function(){const _0x1c61d6=_0x2e6bc0;this[_0x1c61d6(0x42e)]();const _0x9779e4=this[_0x1c61d6(0x104)];VisuMZ['CoreEngine'][_0x1c61d6(0x87b)][_0x1c61d6(0x895)](this),_0x9779e4>0x0&&this[_0x1c61d6(0x104)]<=0x0&&(this['_x']=this[_0x1c61d6(0x404)],this['_y']=this['_targetY'],this['_scaleX']=this[_0x1c61d6(0x7bf)],this[_0x1c61d6(0x729)]=this['_targetScaleY'],this['_opacity']=this[_0x1c61d6(0x700)],this[_0x1c61d6(0x2a2)]&&(this[_0x1c61d6(0x2a2)]['x']=this[_0x1c61d6(0x127)]['x'],this[_0x1c61d6(0x2a2)]['y']=this[_0x1c61d6(0x127)]['y']));},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x50f)]=Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x44a)],Game_Picture['prototype'][_0x2e6bc0(0x44a)]=function(_0x66dc64,_0x3d1d42,_0x28f6e4,_0x25ef9a,_0x2a6517,_0x26bac1,_0x75cf2a,_0x3b45a0){const _0x39f6e6=_0x2e6bc0;VisuMZ[_0x39f6e6(0x468)][_0x39f6e6(0x50f)][_0x39f6e6(0x895)](this,_0x66dc64,_0x3d1d42,_0x28f6e4,_0x25ef9a,_0x2a6517,_0x26bac1,_0x75cf2a,_0x3b45a0),this[_0x39f6e6(0x7e8)]([{'x':0x0,'y':0x0},{'x':0.5,'y':0.5}][_0x3d1d42]||{'x':0x0,'y':0x0});},VisuMZ[_0x2e6bc0(0x468)]['Game_Picture_move']=Game_Picture[_0x2e6bc0(0x5e2)]['move'],Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x633)]=function(_0x24ddc5,_0x4fbef6,_0x191627,_0x3b2e49,_0x3751fc,_0x49d37b,_0x1df805,_0x51e60f,_0x1e5e3d){const _0x4020de=_0x2e6bc0;VisuMZ[_0x4020de(0x468)][_0x4020de(0x582)][_0x4020de(0x895)](this,_0x24ddc5,_0x4fbef6,_0x191627,_0x3b2e49,_0x3751fc,_0x49d37b,_0x1df805,_0x51e60f,_0x1e5e3d),this['setTargetAnchor']([{'x':0x0,'y':0x0},{'x':0.5,'y':0.5}][_0x24ddc5]||{'x':0x0,'y':0x0});},Game_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x42e)]=function(){const _0x55c30c=_0x2e6bc0;this[_0x55c30c(0x104)]>0x0&&(this['_anchor']['x']=this['applyEasing'](this[_0x55c30c(0x2a2)]['x'],this[_0x55c30c(0x127)]['x']),this[_0x55c30c(0x2a2)]['y']=this['applyEasing'](this[_0x55c30c(0x2a2)]['y'],this[_0x55c30c(0x127)]['y']));},Game_Picture[_0x2e6bc0(0x5e2)]['setAnchor']=function(_0x3debc2){const _0x5936af=_0x2e6bc0;this['_anchor']=_0x3debc2,this[_0x5936af(0x127)]=JsonEx[_0x5936af(0x5a7)](this[_0x5936af(0x2a2)]);},Game_Picture[_0x2e6bc0(0x5e2)]['setTargetAnchor']=function(_0x58c028){const _0x450b79=_0x2e6bc0;this[_0x450b79(0x127)]=_0x58c028;},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x196)]=Sprite_Picture[_0x2e6bc0(0x5e2)]['updateOrigin'],Sprite_Picture[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x760)]=function(){const _0x13c2af=_0x2e6bc0,_0x54a6bd=this[_0x13c2af(0x2a9)]();!_0x54a6bd['anchor']()?VisuMZ[_0x13c2af(0x468)][_0x13c2af(0x196)][_0x13c2af(0x895)](this):(this[_0x13c2af(0x704)]['x']=_0x54a6bd[_0x13c2af(0x704)]()['x'],this[_0x13c2af(0x704)]['y']=_0x54a6bd[_0x13c2af(0x704)]()['y']);},Game_Action[_0x2e6bc0(0x5e2)]['setEnemyAction']=function(_0x10cd2a){const _0x3b30f1=_0x2e6bc0;if(_0x10cd2a){const _0x399405=_0x10cd2a['skillId'];if(_0x399405===0x1&&this[_0x3b30f1(0x585)]()[_0x3b30f1(0x782)]()!==0x1)this[_0x3b30f1(0x725)]();else _0x399405===0x2&&this['subject']()[_0x3b30f1(0x66d)]()!==0x2?this[_0x3b30f1(0x8b5)]():this[_0x3b30f1(0x179)](_0x399405);}else this[_0x3b30f1(0x1f1)]();},Game_Actor[_0x2e6bc0(0x5e2)]['usableSkills']=function(){const _0x52b5b7=_0x2e6bc0;return this[_0x52b5b7(0x4ad)]()[_0x52b5b7(0x5c0)](_0x31651e=>this['canUse'](_0x31651e)&&this[_0x52b5b7(0x78a)]()['includes'](_0x31651e[_0x52b5b7(0x832)]));},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x1c0)]=function(){const _0x5b1838=_0x2e6bc0;this['_dimmerSprite']=new Sprite(),this['_dimmerSprite'][_0x5b1838(0x253)]=new Bitmap(0x0,0x0),this[_0x5b1838(0x71c)]['x']=0x0,this[_0x5b1838(0x448)](this[_0x5b1838(0x71c)]);},Window_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x55b)]=function(){const _0x5ca375=_0x2e6bc0;if(this[_0x5ca375(0x71c)]){const _0x419445=this[_0x5ca375(0x71c)][_0x5ca375(0x253)],_0x56e3c3=this[_0x5ca375(0x746)],_0x4b82df=this[_0x5ca375(0x689)],_0x550976=this[_0x5ca375(0x460)],_0x4dbb7b=ColorManager[_0x5ca375(0x7cb)](),_0x57a5ea=ColorManager[_0x5ca375(0x38a)]();_0x419445[_0x5ca375(0x340)](_0x56e3c3,_0x4b82df),_0x419445['gradientFillRect'](0x0,0x0,_0x56e3c3,_0x550976,_0x57a5ea,_0x4dbb7b,!![]),_0x419445['fillRect'](0x0,_0x550976,_0x56e3c3,_0x4b82df-_0x550976*0x2,_0x4dbb7b),_0x419445[_0x5ca375(0x44d)](0x0,_0x4b82df-_0x550976,_0x56e3c3,_0x550976,_0x4dbb7b,_0x57a5ea,!![]),this[_0x5ca375(0x71c)][_0x5ca375(0x3ad)](0x0,0x0,_0x56e3c3,_0x4b82df);}},Game_Actor[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x4b9)]=function(){const _0x9c7f58=_0x2e6bc0;for(let _0x5d7b53=0x0;_0x5d7b53<this[_0x9c7f58(0x442)]();_0x5d7b53++){const _0x5bd485=this[_0x9c7f58(0x228)]();let _0x2253fd=Number[_0x9c7f58(0x1b0)];this['setAction'](_0x5d7b53,_0x5bd485[0x0]);for(const _0x183088 of _0x5bd485){const _0x3f93ae=_0x183088[_0x9c7f58(0x68c)]();_0x3f93ae>_0x2253fd&&(_0x2253fd=_0x3f93ae,this[_0x9c7f58(0x318)](_0x5d7b53,_0x183088));}}this['setActionState']('waiting');},Window_BattleItem['prototype'][_0x2e6bc0(0x39e)]=function(_0x1eee0d){const _0x16ad4f=_0x2e6bc0;return BattleManager[_0x16ad4f(0x780)]()?BattleManager[_0x16ad4f(0x780)]()['canUse'](_0x1eee0d):Window_ItemList[_0x16ad4f(0x5e2)][_0x16ad4f(0x39e)][_0x16ad4f(0x895)](this,_0x1eee0d);},VisuMZ[_0x2e6bc0(0x468)]['Scene_Map_createSpritesetFix']=Scene_Map['prototype'][_0x2e6bc0(0x628)],Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x628)]=function(){const _0x5bbba9=_0x2e6bc0;VisuMZ['CoreEngine'][_0x5bbba9(0x5f6)][_0x5bbba9(0x895)](this);const _0x2c72e6=this[_0x5bbba9(0x722)][_0x5bbba9(0x1d3)];if(_0x2c72e6)this[_0x5bbba9(0x6e8)](_0x2c72e6);},VisuMZ[_0x2e6bc0(0x468)]['Scene_Battle_createSpritesetFix']=Scene_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x628)],Scene_Battle[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x628)]=function(){const _0x40f7ad=_0x2e6bc0;VisuMZ[_0x40f7ad(0x468)][_0x40f7ad(0x551)][_0x40f7ad(0x895)](this);const _0x5ef9b3=this['_spriteset']['_timerSprite'];if(_0x5ef9b3)this['addChild'](_0x5ef9b3);},Sprite_Actor[_0x2e6bc0(0x5e2)]['update']=function(){const _0x5cab68=_0x2e6bc0;Sprite_Battler['prototype'][_0x5cab68(0x645)]['call'](this),this['updateShadow']();if(this[_0x5cab68(0x32c)])this['updateMotion']();else this['_battlerName']!==''&&(this[_0x5cab68(0x3c4)]='');},Window[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x54d)]=function(){const _0x6009d=_0x2e6bc0,_0x322969=this[_0x6009d(0x740)],_0xa498da=this[_0x6009d(0x7a0)],_0x47462a=0x18,_0x51b361=_0x47462a/0x2,_0x4597a1=0x60+_0x47462a,_0x47f4c6=0x0+_0x47462a;this['_downArrowSprite']['bitmap']=this[_0x6009d(0x509)],this[_0x6009d(0x840)][_0x6009d(0x704)]['x']=0.5,this[_0x6009d(0x840)]['anchor']['y']=0.5,this[_0x6009d(0x840)][_0x6009d(0x3ad)](_0x4597a1+_0x51b361,_0x47f4c6+_0x51b361+_0x47462a,_0x47462a,_0x51b361),this[_0x6009d(0x840)][_0x6009d(0x633)](Math[_0x6009d(0x897)](_0x322969/0x2),Math[_0x6009d(0x897)](_0xa498da-_0x51b361)),this[_0x6009d(0x644)][_0x6009d(0x253)]=this[_0x6009d(0x509)],this[_0x6009d(0x644)][_0x6009d(0x704)]['x']=0.5,this[_0x6009d(0x644)][_0x6009d(0x704)]['y']=0.5,this[_0x6009d(0x644)][_0x6009d(0x3ad)](_0x4597a1+_0x51b361,_0x47f4c6,_0x47462a,_0x51b361),this['_upArrowSprite'][_0x6009d(0x633)](Math['round'](_0x322969/0x2),Math[_0x6009d(0x897)](_0x51b361));},Window[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x18e)]=function(){const _0x5fd38d=_0x2e6bc0,_0x3fcf2d=0x90,_0x162b33=0x60,_0x290731=0x18;this[_0x5fd38d(0x824)][_0x5fd38d(0x253)]=this['_windowskin'],this['_pauseSignSprite'][_0x5fd38d(0x704)]['x']=0.5,this[_0x5fd38d(0x824)][_0x5fd38d(0x704)]['y']=0x1,this[_0x5fd38d(0x824)][_0x5fd38d(0x633)](Math[_0x5fd38d(0x897)](this[_0x5fd38d(0x740)]/0x2),this[_0x5fd38d(0x7a0)]),this[_0x5fd38d(0x824)][_0x5fd38d(0x3ad)](_0x3fcf2d,_0x162b33,_0x290731,_0x290731),this[_0x5fd38d(0x824)][_0x5fd38d(0x6c4)]=0xff;},Window[_0x2e6bc0(0x5e2)]['_updateFilterArea']=function(){const _0x44d5d4=_0x2e6bc0,_0x8b33f4=this[_0x44d5d4(0x4e3)][_0x44d5d4(0x201)][_0x44d5d4(0x859)](new Point(0x0,0x0)),_0x3890d9=this[_0x44d5d4(0x4e3)]['filterArea'];_0x3890d9['x']=_0x8b33f4['x']+this['origin']['x'],_0x3890d9['y']=_0x8b33f4['y']+this['origin']['y'],_0x3890d9[_0x44d5d4(0x746)]=Math[_0x44d5d4(0x539)](this[_0x44d5d4(0x78c)]*this['scale']['x']),_0x3890d9[_0x44d5d4(0x689)]=Math[_0x44d5d4(0x539)](this['innerHeight']*this[_0x44d5d4(0x53f)]['y']);},VisuMZ['CoreEngine'][_0x2e6bc0(0x12e)]=Window['prototype']['_refreshBack'],Window['prototype'][_0x2e6bc0(0x364)]=function(){const _0x415aa8=_0x2e6bc0,_0x1265d4=VisuMZ[_0x415aa8(0x468)][_0x415aa8(0x6ef)][_0x415aa8(0x76e)][_0x415aa8(0x7a5)]??!![];if(!_0x1265d4)return VisuMZ[_0x415aa8(0x468)][_0x415aa8(0x12e)]['call'](this);const _0x46785b=this[_0x415aa8(0x4f2)],_0x20324e=Math[_0x415aa8(0x56f)](0x0,this[_0x415aa8(0x740)]-_0x46785b*0x2),_0x39700d=Math[_0x415aa8(0x56f)](0x0,this[_0x415aa8(0x7a0)]-_0x46785b*0x2),_0x346631=this['_backSprite'],_0x5d35e4=_0x346631[_0x415aa8(0x872)][0x0];_0x346631[_0x415aa8(0x253)]=this[_0x415aa8(0x509)],_0x346631[_0x415aa8(0x3ad)](0x0,0x0,0x60,0x60),_0x346631[_0x415aa8(0x633)](_0x46785b,_0x46785b),_0x346631[_0x415aa8(0x53f)]['x']=_0x20324e/0x60,_0x346631['scale']['y']=_0x39700d/0x60,_0x5d35e4[_0x415aa8(0x253)]=this[_0x415aa8(0x509)],_0x5d35e4[_0x415aa8(0x3ad)](0x0,0x60,0x60,0x60),_0x5d35e4[_0x415aa8(0x633)](0x0,0x0,_0x20324e,_0x39700d),_0x5d35e4['scale']['x']=0x1/_0x346631[_0x415aa8(0x53f)]['x'],_0x5d35e4[_0x415aa8(0x53f)]['y']=0x1/_0x346631['scale']['y'],_0x346631[_0x415aa8(0x353)](this[_0x415aa8(0x89d)]);},Game_Temp[_0x2e6bc0(0x5e2)]['sceneTerminationClearEffects']=function(){const _0x5a2357=_0x2e6bc0;this[_0x5a2357(0x3e7)]=[],this[_0x5a2357(0x2a1)]=[],this['_pointAnimationQueue']=[],this[_0x5a2357(0x504)]=[];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x3e3)]=Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x56c)],Scene_Base[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x56c)]=function(){const _0xd69c24=_0x2e6bc0;if($gameTemp)$gameTemp[_0xd69c24(0x4da)]();VisuMZ[_0xd69c24(0x468)]['Scene_Base_terminateAnimationClearBugFix'][_0xd69c24(0x895)](this);},Bitmap['prototype']['measureTextWidthNoRounding']=function(_0x3c682a){const _0x555bc6=_0x2e6bc0,_0x24dc7c=this[_0x555bc6(0x80f)];_0x24dc7c[_0x555bc6(0x653)](),_0x24dc7c['font']=this[_0x555bc6(0x1f7)]();const _0x46b069=_0x24dc7c[_0x555bc6(0x606)](_0x3c682a)[_0x555bc6(0x746)];return _0x24dc7c[_0x555bc6(0x525)](),_0x46b069;},Window_Message['prototype'][_0x2e6bc0(0x66c)]=function(_0x362eb4){const _0x34b6fc=_0x2e6bc0;return this[_0x34b6fc(0x232)]()?this['contents'][_0x34b6fc(0x478)](_0x362eb4):Window_Base['prototype']['textWidth']['call'](this,_0x362eb4);},Window_Message[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x232)]=function(){const _0x3712d3=_0x2e6bc0;return VisuMZ[_0x3712d3(0x468)]['Settings'][_0x3712d3(0x818)][_0x3712d3(0x330)]??!![];},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x222)]=Game_Action[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x2fb)],Game_Action['prototype'][_0x2e6bc0(0x2fb)]=function(){const _0xcc2f25=_0x2e6bc0;return this[_0xcc2f25(0x118)]()?VisuMZ[_0xcc2f25(0x468)][_0xcc2f25(0x222)]['call'](this):0x0;},VisuMZ['CoreEngine'][_0x2e6bc0(0x549)]=Game_Action[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x725)],Game_Action[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x725)]=function(){const _0x490946=_0x2e6bc0;if(this['subject']()&&this['subject']()['canAttack']())VisuMZ[_0x490946(0x468)][_0x490946(0x549)]['call'](this);else BattleManager[_0x490946(0x5dc)]?VisuMZ[_0x490946(0x468)][_0x490946(0x549)][_0x490946(0x895)](this):this[_0x490946(0x1f1)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x648)]=BattleManager[_0x2e6bc0(0x339)],BattleManager[_0x2e6bc0(0x339)]=function(_0x73b84,_0x3fa2ae){const _0x3a89d2=_0x2e6bc0;this[_0x3a89d2(0x5dc)]=!![],VisuMZ['CoreEngine'][_0x3a89d2(0x648)]['call'](this,_0x73b84,_0x3fa2ae),this[_0x3a89d2(0x5dc)]=undefined;},Sprite_Name[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x167)]=function(){return 0x24;},Sprite_Name[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x787)]=function(){const _0x2c6ce1=_0x2e6bc0,_0x53cd81=this[_0x2c6ce1(0x3d0)](),_0x316b7e=this['bitmapWidth'](),_0x2bf7f8=this[_0x2c6ce1(0x167)]();this[_0x2c6ce1(0x1df)](),this[_0x2c6ce1(0x253)][_0x2c6ce1(0x1f1)](),this[_0x2c6ce1(0x253)]['drawTextTopAligned'](_0x53cd81,0x4,0x0,_0x316b7e-0xa,_0x2bf7f8,'left');},Bitmap[_0x2e6bc0(0x5e2)]['drawTextTopAligned']=function(_0x35a917,_0x3a0cc2,_0x1d09e3,_0x3f14aa,_0x5ada91,_0x5dbf1b){const _0x49adee=_0x2e6bc0,_0x18c8e8=this['context'],_0x2acef9=_0x18c8e8[_0x49adee(0x84e)];_0x3f14aa=_0x3f14aa||0xffffffff;let _0x1ed16a=_0x3a0cc2,_0x30dc8a=Math[_0x49adee(0x897)](_0x1d09e3+0x18/0x2+this[_0x49adee(0x135)]*0.35);_0x5dbf1b===_0x49adee(0x77c)&&(_0x1ed16a+=_0x3f14aa/0x2),_0x5dbf1b===_0x49adee(0x31d)&&(_0x1ed16a+=_0x3f14aa),_0x18c8e8[_0x49adee(0x653)](),_0x18c8e8[_0x49adee(0x4c7)]=this[_0x49adee(0x1f7)](),_0x18c8e8[_0x49adee(0x6e9)]=_0x5dbf1b,_0x18c8e8[_0x49adee(0x557)]=_0x49adee(0x450),_0x18c8e8[_0x49adee(0x84e)]=0x1,this[_0x49adee(0x844)](_0x35a917,_0x1ed16a,_0x30dc8a,_0x3f14aa),_0x18c8e8[_0x49adee(0x84e)]=_0x2acef9,this[_0x49adee(0x3e2)](_0x35a917,_0x1ed16a,_0x30dc8a,_0x3f14aa),_0x18c8e8[_0x49adee(0x525)](),this[_0x49adee(0x5fb)][_0x49adee(0x645)]();},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x148)]=BattleManager[_0x2e6bc0(0x14a)],BattleManager[_0x2e6bc0(0x14a)]=function(_0x1a67cf){const _0x29891f=_0x2e6bc0;if(this[_0x29891f(0x848)]&&this[_0x29891f(0x848)][_0x29891f(0x4fd)]()===_0x1a67cf['isActor']())return![];return VisuMZ[_0x29891f(0x468)]['BattleManager_checkSubstitute'][_0x29891f(0x895)](this,_0x1a67cf);},BattleManager[_0x2e6bc0(0x367)]=function(){const _0x16bd88=_0x2e6bc0;if(this[_0x16bd88(0x848)])this['_logWindow']['endAction'](this['_subject']);this[_0x16bd88(0xf1)]=_0x16bd88(0x11a),this[_0x16bd88(0x848)]&&this[_0x16bd88(0x848)][_0x16bd88(0x442)]()===0x0&&(this[_0x16bd88(0x711)](this[_0x16bd88(0x848)]),this[_0x16bd88(0x848)]=null);},Bitmap['prototype']['_startLoading']=function(){const _0x1e0b27=_0x2e6bc0;this[_0x1e0b27(0x87a)]=new Image(),this[_0x1e0b27(0x87a)][_0x1e0b27(0x88e)]=this[_0x1e0b27(0x836)][_0x1e0b27(0x6e7)](this),this[_0x1e0b27(0x87a)]['onerror']=this[_0x1e0b27(0x423)][_0x1e0b27(0x6e7)](this),this[_0x1e0b27(0x621)](),this[_0x1e0b27(0x4af)]=_0x1e0b27(0x11f),Utils[_0x1e0b27(0x619)]()?this['_startDecrypting']():(this[_0x1e0b27(0x87a)]['src']=this[_0x1e0b27(0x1f8)],![]&&this[_0x1e0b27(0x87a)][_0x1e0b27(0x746)]>0x0&&(this['_image'][_0x1e0b27(0x88e)]=null,this[_0x1e0b27(0x836)]()));},Scene_Skill[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x4a0)]=function(){const _0x51f041=_0x2e6bc0;Scene_MenuBase['prototype']['onActorChange']['call'](this),this[_0x51f041(0x59b)](),this[_0x51f041(0x491)][_0x51f041(0x845)](),this[_0x51f041(0x491)][_0x51f041(0x533)](),this[_0x51f041(0x66b)][_0x51f041(0x35f)]();},Scene_Skill[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x761)]=function(){const _0x24a443=_0x2e6bc0;return this['_skillTypeWindow']&&this[_0x24a443(0x66b)]['active'];},Game_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x826)]=function(_0x342485,_0x2b53ee,_0x4d737d){const _0x4cdf54=_0x2e6bc0,_0x49ada9=this[_0x4cdf54(0x452)](),_0x2da639=this[_0x4cdf54(0x734)](_0x342485,_0x2b53ee);for(const _0x30b4a9 of _0x2da639){const _0x3b6c9e=_0x49ada9[_0x30b4a9];if(_0x3b6c9e===undefined||_0x3b6c9e===null){if($gameTemp[_0x4cdf54(0x2d3)]()&&!DataManager[_0x4cdf54(0x5eb)]()){let _0x2c8852=_0x4cdf54(0x56d)+'\x0a';_0x2c8852+=_0x4cdf54(0x371)+'\x0a',_0x2c8852+=_0x4cdf54(0x713);if(this[_0x4cdf54(0x2be)]())alert(_0x2c8852),SceneManager[_0x4cdf54(0x272)]();else{if(!this[_0x4cdf54(0x4df)])console['log'](_0x2c8852);this['_displayedPassageError']=!![];}}}if((_0x3b6c9e&0x10)!==0x0)continue;if((_0x3b6c9e&_0x4d737d)===0x0)return!![];if((_0x3b6c9e&_0x4d737d)===_0x4d737d)return![];}return![];},Game_Map['prototype'][_0x2e6bc0(0x2be)]=function(){const _0x1b1383=_0x2e6bc0;if(Imported['VisuMZ_3_EventChainReact'])return!![];if(Imported[_0x1b1383(0x6b4)])return!![];return![];},Sprite_Animation[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7eb)]=function(_0xa8a474){const _0x1eba06=_0x2e6bc0;!this[_0x1eba06(0x790)]&&(this[_0x1eba06(0x790)]=_0xa8a474['gl']['getParameter'](_0xa8a474['gl']['VIEWPORT']));},VisuMZ[_0x2e6bc0(0x468)]['Scene_Map_shouldAutosave']=Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7f5)],Scene_Map[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7f5)]=function(){const _0x532d85=_0x2e6bc0,_0x52c585=SceneManager['_previousClass'][_0x532d85(0x3d0)];if([_0x532d85(0x898),_0x532d85(0x856),'Scene_TitleTransition',_0x532d85(0x772)]['includes'](_0x52c585))return![];return VisuMZ[_0x532d85(0x468)][_0x532d85(0x3b2)][_0x532d85(0x895)](this);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x865)]=Window_SkillList[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7fe)],Window_SkillList[_0x2e6bc0(0x5e2)][_0x2e6bc0(0x7fe)]=function(_0x2e4307){const _0x58c2a6=_0x2e6bc0;if(this[_0x58c2a6(0x78e)]<=0x0)return![];return VisuMZ[_0x58c2a6(0x468)][_0x58c2a6(0x865)][_0x58c2a6(0x895)](this,_0x2e4307);},VisuMZ[_0x2e6bc0(0x468)][_0x2e6bc0(0x2b5)]=Game_Battler['prototype'][_0x2e6bc0(0x6c8)],Game_Battler['prototype'][_0x2e6bc0(0x6c8)]=function(_0xbd0784){const _0x24437c=_0x2e6bc0;VisuMZ[_0x24437c(0x468)][_0x24437c(0x2b5)][_0x24437c(0x895)](this,_0xbd0784),isNaN(this[_0x24437c(0x1f9)])&&(VisuMZ['CoreEngine']['Game_Battler_initTpbChargeTime'][_0x24437c(0x895)](this,_0xbd0784),isNaN(this[_0x24437c(0x1f9)])&&(this['_tpbChargeTime']=0x0));},Game_Battler['prototype']['updateTpbChargeTime']=function(){const _0x36b21e=_0x2e6bc0;this[_0x36b21e(0x3ed)]===_0x36b21e(0x820)&&(this['_tpbChargeTime']+=this[_0x36b21e(0x574)](),isNaN(this[_0x36b21e(0x1f9)])&&(this['_tpbChargeTime']=this[_0x36b21e(0x574)](),isNaN(this['_tpbChargeTime'])&&(this[_0x36b21e(0x1f9)]=0x0)),this['_tpbChargeTime']>=0x1&&(this['_tpbChargeTime']=0x1,this[_0x36b21e(0x579)]()));};
