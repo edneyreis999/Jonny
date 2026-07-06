@@ -2527,7 +2527,50 @@
                             "indent": 0,
                             "parameters": [
                                 {
-                                    "name": "Crash",
+                                    "name": "car-braking",
+                                    "volume": 100,
+                                    "pitch": 150,
+                                    "pan": 0
+                                }
+                            ]
+                        },
+                        {
+                            "code": 230,
+                            "indent": 0,
+                            "parameters": [
+                                120
+                            ]
+                        },
+                        {
+                            "code": 250,
+                            "indent": 0,
+                            "parameters": [
+                                {
+                                    "name": "crashAndExplode",
+                                    "volume": 90,
+                                    "pitch": 100,
+                                    "pan": 0
+                                }
+                            ]
+                        },
+                        {
+                            "code": 250,
+                            "indent": 0,
+                            "parameters": [
+                                {
+                                    "name": "GlassBraking",
+                                    "volume": 100,
+                                    "pitch": 150,
+                                    "pan": 0
+                                }
+                            ]
+                        },
+                        {
+                            "code": 250,
+                            "indent": 0,
+                            "parameters": [
+                                {
+                                    "name": "GlassBraking",
                                     "volume": 100,
                                     "pitch": 150,
                                     "pan": 0
@@ -2548,8 +2591,13 @@
                             "code": 230,
                             "indent": 0,
                             "parameters": [
-                                120
+                                600
                             ]
+                        },
+                        {
+                            "code": 251,
+                            "indent": 0,
+                            "parameters": []
                         },
                         {
                             "code": 201,

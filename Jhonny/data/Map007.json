@@ -1,19 +1,19 @@
 {
     "autoplayBgm": true,
-    "autoplayBgs": false,
+    "autoplayBgs": true,
     "battleback1Name": "",
     "battleback2Name": "",
     "bgm": {
-        "name": "Town4",
+        "name": "HappyEnding",
         "pan": 0,
         "pitch": 100,
         "volume": 90
     },
     "bgs": {
-        "name": "",
+        "name": "People2",
         "pan": 0,
         "pitch": 100,
-        "volume": 90
+        "volume": 25
     },
     "data": [
         0,
