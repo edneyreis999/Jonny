@@ -1,0 +1,191 @@
+VisuStella MZ Message Core - Guia Completo para LLMs
+======================================================
+
+SUMARIO
+-------
+Este documento descreve a documentacao catalogada do plugin VisuStella Message Core
+para RPG Maker MZ, sua organizacao e como navegar entre as secoes.
+
+PLUGIN
+------
+Nome: VisuStella MZ Message Core
+Tier: 1 (colocar abaixo de plugins de tier menor no Plugin Manager)
+Requisitos: RPG Maker MZ
+Autor: VisuStella
+
+DESCRICAO GERAL
+---------------
+Plugin Tier 1 que estende o sistema de mensagens do RPG Maker MZ com:
+- Text codes avancados (hard-coded e customizaveis)
+- Auto-Color de entradas do database e keywords
+- Sistema de macros para texto
+- Word Wrap automatico
+- Choice handling expandido (show/hide/enable/disable, bg/fg images, shuffle)
+- Suporte a multi-idioma via CSV/TSV
+- Text Speed option no menu
+- Custom Font Manager
+- Plugin Commands para Message, Choice, Picture, Select
+
+ORGANIZACAO DA DOCUMENTACAO
+----------------------------
+
+conceitos/
+  visao-geral.md
+    - Features do plugin, requisitos, tier info
+    - Lista dos 8 extension plugins
+    - Major changes: Dim BG extension, Extended Messages, Extended Choices
+    - PONTO DE PARTIDA para entender o plugin
+
+  text-language-switching.md
+    - Sistema de troca de idioma (v1.46+, TSV v1.53+)
+    - Como habilitar, gerar CSV/TSV, editar
+    - Text codes: \tl{}, \translate{}, \loc{}, \locale{}, \localize{}, ${}
+    - Regras: semicolon separator, case insensitive keys, line breaks com <br>
+    - Macros convertidos ANTES de language switches
+    - Database names como keys automaticas (Weapon Types, Armor Types, etc.)
+
+text-codes/
+  default-mz.md
+    - Text codes padrao do RPG Maker MZ (nao editaveis via Parameters)
+    - Global: \V[], \N[], \P[], \C[], \I[], \PX[], \PY[], \G, \{, \}, \FS[], \\
+    - Message Only: \$, \., \|, \!, \>, \<, \^
+
+  hard-coded-global.md
+    - Hard-coded do Message Core que funcionam em QUALQUER janela
+    - Formatacao: <b>, </b>, <i>, </i>
+    - Alinhamento: <left>, <center>, <right> (NAO funciona com Word Wrap)
+    - Cor/Wrap: <ColorLock>, <WordWrap>, <br>
+    - Pictures: \picture<x>, \CenterPicture<x>
+    - Map Name: <left>, <center>, <right>, <top>, <middle>, <bottom>, <X:>, <Y:> (requer CoreEngine)
+    - Auto-Casing: <Caps>, <Upper>, <Lower>, <Alt>, <Chaos> (+ closing tags)
+    - Controls: <Up Button>, <Ok Button>, etc. (requer CoreEngine)
+
+  hard-coded-message.md
+    - Acoes: \CommonEvent[], \Wait[], <Next Page>
+    - Auto-Size: <Auto>, <Auto Width/Height>, <Auto Actor/Party/Player/Event/Enemy: x>
+    - Posicionamento: <Position:>, <Coordinates:>, <Dimensions:>, <Offset:>
+    - NOTA: Auto-Size e Position NAO funcionam com Word Wrap
+
+  hard-coded-choice.md
+    - Show/Hide: <Show>, <Show Switch:>, <Hide>, <Hide Switch:>, etc.
+    - Enable/Disable: <Enable>, <Enable Switch:>, <Disable>, <Disable Switch:>, etc.
+    - Layout: <Choice Width:>, <Choice Indent:>
+    - BgColor: <BgColor: x>, <BgColor: #rrggbb> (requer CoreEngine)
+    - Help: <Help> text </Help>
+    - Shuffle: <Shuffle>, <Shuffle: x>
+    - Background Images: <BgImg: filename> + 8 posicoes
+    - Foreground Images: <FgImg: filename> + 8 posicoes
+    - NOTA: Apenas 1 bg + 1 fg por choice
+
+  hard-coded-name-window.md
+    - Posicao: <Left>, <Center>, <Right>, <Position: x>
+    - Background: \NormalBG, \DimBG, \TransparentBG
+
+  hard-coded-battle.md
+    - <Current Battle Target>, <Current Battle User>
+    - <Current Battle Action>, <Current Battle Action Name>
+    - NAO recomendado para Help Descriptions
+
+  customizable.md
+    - Database: \Class[], \Skill[], \Item[], \Weapon[], \Armor[], \State[], \Enemy[], \Troop[]
+    - Quantities: \ItemQuantity[], \WeaponQuantity[], \ArmorQuantity[]
+    - Window: \NormalBG, \DimBG, \TransparentBG, \FontChange<>, \ResetFont
+    - Cor: \HexColor<>, \OutlineColor[], \OutlineWidth[], \ResetColor
+    - Window Move: \WindowMoveTo<?>, \WindowMoveBy<?>, \WindowReset
+    - Face: \ActorFace[], \PartyFace[], \ChangeFace<x,y>, \FaceIndex[]
+    - Delay: \TextDelay[]
+    - NOTA: Editaveis via Plugin Parameters
+
+  random-text-pool.md
+    - Formato: <RNG> text1 | text2 | text3 </RNG>
+    - NAO funciona dentro de macros
+
+comandos/
+  message.md
+    - Message: Properties (Rows, Width, Word Wrap)
+    - Message: X/Y Offsets (offsets persistentes com clamping)
+
+  choice.md
+    - Choices: Distance (distancia entre choice e message windows)
+    - Choice: Properties (Line Height, Min Width, Max Rows/Columns, Text Alignment)
+
+  picture.md
+    - Picture: Change Text (9 posicoes, suporta text codes)
+    - Picture: Erase Text
+    - Picture: Refresh Text (para text codes dinamicos)
+
+  select.md
+    - Select: Weapon (filtra por Weapon Type)
+    - Select: Armor (filtra por Armor Type + Equip Type)
+    - Select: Skill (requer SkillsStatesCore, filtra por Skill Type)
+
+parametros/
+  general-settings.md
+    - Message Window: Rows, Width, Fast Forward Key, Text Delay, Offset X/Y, Dim BG, Outline, Each Message Start/End
+    - Name Box: Color, Offset X/Y
+    - Choice List: Line Height, Max Rows/Columns, Text Alignment
+    - Default Text Codes: Relative PX/PY, \{/\} max/min/change
+
+  auto-color.md
+    - Regras: case sensitive, tamanho exato (exceto Asian), simbolos nao contam, chars especiais ignorados
+    - Database Highlighting: Actors, Classes, Skills, Items, Weapons, Armors, Enemies, States
+    - Word Highlighting: listas por \C[x] color
+
+  custom-font-manager.md
+    - Registro de fonts: Font Family + Filename
+    - Fonts devem estar na pasta "fonts" do projeto
+
+  text-code-actions.md
+    - Formato: Match, Type, Common Event, JS: Action
+
+  text-code-replacements.md
+    - Formato: Match, Type, STR: Text, JS: Text
+
+  text-macros.md
+    - Formato: Match, STR: Text, JS: Text
+    - Uso: [MacroName] (NAO \MacroName)
+
+  text-language-settings.md
+    - Main Settings, Options, Languages, Language Names, Language Fonts, Language Images
+    - Language Images: folder [XX] e filename [XX] replacement
+    - Convert Default? controla se idioma default usa marker ou [XX]
+
+  text-speed-option.md
+    - Add Option?, Window Height, Option Name, Default Value (1-10, 11=instant)
+
+  word-wrap.md
+    - Onde funciona: Message Window, Help Window (NAO Choice Window)
+    - 3 formas de habilitar: text code, plugin command, parameters
+    - Regras: NAO com alignment, suporta LTR + Asian languages
+    - Settings: Message/Help Window enable, Line Break -> Space, Tight Wrap, End Padding
+
+referencia/
+  glossario.md
+    - Termos: Text Code, Action, Replacement, Macro, Word Wrap, Auto-Color, etc.
+
+  compatibilidade.md
+    - Requisitos: RPG Maker MZ, Tier 1
+    - Dependencies: CoreEngine (map name, controls, BgColor), SkillsStatesCore (Select Skill)
+    - 8 Extension Plugins
+    - Notas: Word Wrap vs Alignment, Auto-Size vs Word Wrap, CSV semicolon, etc.
+
+RELACAO ENTRE AREAS
+-------------------
+- conceitos/ fornece contexto para todas as outras secoes
+- text-codes/ e o recurso mais consultado; hard-coded-global aplica-se a todas as janelas
+- comandos/ automatiza configuracoes de parametros/ via eventos
+- parametros/ e a configuracao "decompile" dos text-codes/ customizaveis
+- referencia/ cruza informacoes de todas as areas
+
+MAIORES PONTOS DE ATENCAO
+--------------------------
+1. Word Wrap NAO funciona com alignment (<left>, <center>, <right>)
+2. Word Wrap NAO funciona em Choice Window
+3. Auto-Size NAO funciona com Word Wrap
+4. CSV separator e semicolon (;) NAO comma (,)
+5. Text macros usam [MacroName] NAO \MacroName
+6. Extension plugins devem ficar ABAIXO deste no Plugin Manager
+7. Alguns text codes requerem CoreEngine ou SkillsStatesCore
+8. Auto-Color e case sensitive e tamanho exato (idiomas romanos)
+9. Language switching requer input manual (NAO e traducao automatica)
+10. Fast Forward Key igual ao dash button limpa inputs ao triggerar evento
