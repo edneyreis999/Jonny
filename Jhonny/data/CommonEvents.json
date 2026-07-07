@@ -4258,12 +4258,44 @@
         "id": 25,
         "list": [
             {
+                "code": 101,
+                "indent": 0,
+                "parameters": [
+                    "",
+                    0,
+                    1,
+                    1,
+                    "Jonny"
+                ]
+            },
+            {
+                "code": 401,
+                "indent": 0,
+                "parameters": [
+                    "\\tl{maps.Map013.i_ve_had_everything_i_needed_to_find_cou_865a558e3b}"
+                ]
+            },
+            {
+                "code": 401,
+                "indent": 0,
+                "parameters": [
+                    "\\tl{maps.Map013.to_the_car_to_get_ready_for_my_last_race_7f2f53e0da}"
+                ]
+            },
+            {
+                "code": 401,
+                "indent": 0,
+                "parameters": [
+                    "\\tl{maps.Map013.goodbye_chance_a5731b6c4b}"
+                ]
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
             }
         ],
-        "name": "",
+        "name": "VN3_RaceGoodbye",
         "switchId": 1,
         "trigger": 0
     },
@@ -4271,12 +4303,44 @@
         "id": 26,
         "list": [
             {
+                "code": 117,
+                "indent": 0,
+                "parameters": [
+                    20
+                ]
+            },
+            {
+                "code": 101,
+                "indent": 0,
+                "parameters": [
+                    "",
+                    0,
+                    1,
+                    1,
+                    "Jonny"
+                ]
+            },
+            {
+                "code": 401,
+                "indent": 0,
+                "parameters": [
+                    "\\tl{maps.Map013.just_to_give_me_a_bit_more_courage_67b4f0d04d}"
+                ]
+            },
+            {
+                "code": 117,
+                "indent": 0,
+                "parameters": [
+                    21
+                ]
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
             }
         ],
-        "name": "",
+        "name": "VN3_CourageSip",
         "switchId": 1,
         "trigger": 0
     },
@@ -4284,12 +4348,37 @@
         "id": 27,
         "list": [
             {
+                "code": 117,
+                "indent": 0,
+                "parameters": [
+                    20
+                ]
+            },
+            {
+                "code": 101,
+                "indent": 0,
+                "parameters": [
+                    "",
+                    0,
+                    1,
+                    1,
+                    "Jonny"
+                ]
+            },
+            {
+                "code": 401,
+                "indent": 0,
+                "parameters": [
+                    "\\tl{maps.Map013.i_ll_never_do_it_goodbye_chance_22ad2a4418}"
+                ]
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
             }
         ],
-        "name": "",
+        "name": "VN3_RefuseKeysGoodbye",
         "switchId": 1,
         "trigger": 0
     },
