@@ -451,7 +451,7 @@
         "SW_LAST_ACTION_SAFE",
         "SW_PAUSED",
         "SW_IS_CURVA_DIABO",
-        ""
+        "SW_RACE_RETRY_PENDING"
     ],
     "terms": {
         "basic": [
@@ -746,7 +746,7 @@
         "VAR_TIMER_SECONDS",
         "VAR_SCENE_DISPLAY"
     ],
-    "versionId": 56477983,
+    "versionId": 27786646,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,

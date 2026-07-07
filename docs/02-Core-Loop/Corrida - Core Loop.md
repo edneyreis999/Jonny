@@ -70,7 +70,7 @@ tags: [core-loop, corrida, roguelite, minigame, rpg-maker-mz, timer-based, proce
 | **Final fixo**        | Última cena da Corrida 3 é sempre ==Curva do Diabo== (`P_cena = 100`, não-reseteável).        |
 | **POV**               | Dissociativo — entre corridas você é o amigo; nas corridas você "vira" o Jhonny (ver [[Roleta Paulista]] §3 e §6). |
 | **Condição de vitória**| Completar todas as `N_cenas` cenas sem crashar ==E== atingir ==threshold mínimo de Pontos de Glória==. Runtime atual validado: 200/400/600 por corrida; spec histórica anterior: 60/100/150. Ver §8 para detalhes da tela cerimonial e progressão. |
-| **Condição de derrota**| Risk action com roll falho = ==crash== = restart imediato da corrida. Timer expira = jogada safe automática (Parar/Esquerda). ==Não atingir threshold ao final = derrota== (tela DERROTA + restart da mesma corrida via `EV_Crash`). |
+| **Condição de derrota**| Risk action com roll falho = ==crash== e tela de derrota por risk (`Map019`). Timer expira = jogada safe automática (Parar/Esquerda). ==Não atingir threshold ao final = derrota== por pontuação/posição (`Map020`). As derrotas confirmadas armam retry da mesma corrida via `SW_RACE_RETRY_PENDING`. |
 | **Input**             | Mouse (clique) + teclado (setas). RPG Maker MZ expõe ambos nativamente em HTML5.               |
 | **Implementação MZ**  | Common Events para regra/estado + helper ativo `Jhonny_RaceHelper.js` para HUD, microfeedback e helpers sem mover a fonte de verdade para o plugin. |
 
@@ -122,7 +122,7 @@ Toda cena — sinal ou curva — compartilha o mesmo esqueleto. Timer é **fixo 
 | **4. Atualização D** | instantâneo    | Disciplina atualizada: +10 (safe, clamp 50) ou `0` (risk). Barra reflete com flash discreto. |
 | **5. Transição**     | 0,2s           | Fade para próxima cena. Atualiza `current_scene_index`.                                              |
 
-**Duração total por cena:** ~4,9s (Sinal) / ~4,4s (Curva). Uma corrida de 6 cenas dura ~28s; uma de 10 cenas dura ~47s. Restart é barato (< 1s).
+**Duração total por cena:** ~4,9s (Sinal) / ~4,4s (Curva). Uma corrida de 6 cenas dura ~28s; uma de 10 cenas dura ~47s. Após a confirmação da tela de derrota, o handoff de retry é barato (< 1s).
 
 ---
 
@@ -370,10 +370,12 @@ for i in 0..N-1:
 ## 7. Restart / Roguelite Loop #restart #roguelite
 
 > [!tip] Princípio do Restart
-> Qualquer erro fatal → ==crash== → ==restart imediato==. Minimiza fricção: ==sem tela de game over==, ==VN não replaya== entre tentativas. Restart é ==< 1s total==.
+> Qualquer derrota de corrida passa por uma tela curta de resultado e, após confirmação, volta direto para a mesma corrida. Minimiza fricção: ==sem tela de game over de engine==, ==VN não replaya== entre tentativas e o handoff pós-confirmação fica barato.
 
 ### 7.1 Trigger de restart
-- Qualquer erro fatal (Risk action com roll falho, timer expira sem input) → `EV_Crash` → restart.
+- Risk action com roll falho → `EV_Crash`/`EV_VitoriaCorrida` → `Map019` (`Resultado Derrota Risk`) → retry da mesma corrida após confirmação.
+- Fim de corrida abaixo do threshold → `EV_VitoriaCorrida` → `Map020` (`Resultado Derrota Posicao`) → retry da mesma corrida após confirmação.
+- Timer expira sem input = ação safe automática, não derrota.
 
 ### 7.2 O que é preservado entre restarts
 - **ConcernScore** (acumulado nas cenas VN — não é alterado por restarts de corrida).
@@ -386,8 +388,9 @@ for i in 0..N-1:
 - **`current_scene_index`** volta a 0.
 
 ### 7.4 UX do restart
-- Crash → vinheta curta (0,5s) → fade-in direto na cena 1 da mesma corrida.
-- **Sem tela de game over intermediária.** Minimiza fricção — Restart precisa ser < 1s total.
+- Crash → feedback curto → tela `DERROTA!` de risk em `Map019` → confirmação por espaço/clique → retry da mesma corrida.
+- Derrota por pontuação/posição → tela `DERROTA!` em `Map020` → confirmação por espaço/clique → retry da mesma corrida.
+- **Sem tela de game over de engine.** O retry volta para `Map001`, arma a página autorun por `SW_RACE_RETRY_PENDING` e chama `EV_RaceOrchestrator` (CE 5).
 - Cenas VN **não** replayam entre restarts (só na primeira vez da corrida). Jogador entra direto no minigame.
 
 > [!tip] Restart sem VN é crucial
@@ -398,11 +401,11 @@ for i in 0..N-1:
 ## 8. Vitória e Derrota da Corrida #vitória #derrota #threshold
 
 > [!important] Critério de sucesso da corrida
-> Completar todas as `N_cenas` cenas sem crashar ==não garante vitória==. O jogador precisa atingir um ==threshold mínimo de Pontos de Glória== específico por corrida. Abaixo do threshold = derrota (restart da mesma corrida via `EV_Crash`).
+> Completar todas as `N_cenas` cenas sem crashar ==não garante vitória==. O jogador precisa atingir um ==threshold mínimo de Pontos de Glória== específico por corrida. Abaixo do threshold = derrota por pontuação/posição em `Map020`, seguida de retry da mesma corrida via `SW_RACE_RETRY_PENDING`.
 
 ### 8.1 Trigger de fim de corrida
 
-Quando `VAR_SCENE_INDEX >= VAR_RACE_N_CENAS` (todas as cenas resolvidas, sem crash), o `EV_RaceRenderer` (CE 7) chama `EV_VitoriaCorrida` (CE 19). Não há transição direta para próxima corrida — passa pela tela cerimonial primeiro.
+Quando `VAR_SCENE_INDEX >= VAR_RACE_N_CENAS` (todas as cenas resolvidas), o `EV_RaceRenderer` (CE 7) chama `EV_VitoriaCorrida` (CE 19). No runtime aprovado, CE19 é o dispatcher de resultado: calcula vitória/derrota, limpa estado de corrida e transfere para `Map018`, `Map019` ou `Map020`.
 
 ### 8.2 Thresholds por corrida
 
@@ -418,34 +421,25 @@ Quando `VAR_SCENE_INDEX >= VAR_RACE_N_CENAS` (todas as cenas resolvidas, sem cra
 > [!note] Tuning futuro
 > Se o objetivo voltar a ser "Corrida 1 passa com Safe puro" ou reduzir a exigência de Risk, trate como mudança de balanceamento com Playtest. Não faça essa alteração como correção incidental de JSON ou refactor de CE19.
 
-### 8.3 Tela cerimonial (VITÓRIA ou DERROTA)
+### 8.3 Telas de resultado (Map018/Map019/Map020)
 
-Ao disparar `EV_VitoriaCorrida` (CE 19):
+`EV_VitoriaCorrida` (CE 19) não é mais o owner visual da tela. Ele faz cleanup defensivo, calcula `VAR_VITORIA_PASSOU` (117) com os thresholds da §8.2, registra o resultado e transfere para um dos mapas de resultado:
 
-1. **Erase** de todas as pictures ativas (1-60).
-2. **Stop BGM** com 60 frames de fadeout.
-3. **Play ME "Victory"** (curto, ~2-3s).
-4. **Show Picture 5** — fundo de vitória/derrota (`race/bg_vitoria` ou fallback Tint Screen dourado/vermelho).
-5. **Threshold check** via Script inline compara `VAR_PONTOS_GLORIA` contra thresholds (§8.2), seta `VAR_VITORIA_PASSOU` (117) = 0 ou 1.
-6. **Mostra 4 TextPictures:**
-   - **Picture 53: "VITÓRIA!"** — só visível se `VAR_VITORIA_PASSOU == 1` (cor 6 = dourado).
-   - **Picture 56: "DERROTA!"** — só visível se `VAR_VITORIA_PASSOU == 0` (cor 18 = vermelho).
-   - **Picture 54: "Pontos de Glória: \\V[105]"** — sempre (cor 0 = branco).
-   - **Picture 55: "Pressione [Espaço] para continuar"** — sempre (cor 7 = cinza).
-   - Decisão F6 (2026-06-19): usar **2 TextPicture separados** (Picture 53 + 56) com If/Else Show Picture — TextPicture é fixo em edição, então estrutura condicional no `Show` em vez de alternar texto de uma mesma picture.
-7. **Loop de espera por input** (Label/Jump + `Wait 1 frame` + check `Input.isTriggered('ok')`).
-8. **Após input:** branch por `VAR_VITORIA_PASSOU` (§8.4).
+| Mapa | Caso | Textos MVP aprovados |
+|------|------|----------------------|
+| `Map018` | Vitória por threshold. | `\C[6]VITORIA!` · `Glory Score: \V[105]` · `Pressione [ESPACO] ou clique` |
+| `Map019` | Derrota por jogada arriscada falha/crash. | `\C[18]DERROTA!` · `Jogada arriscada falhou` · `Pressione [ESPACO] ou clique` |
+| `Map020` | Derrota por pontuação/posição abaixo do threshold. | `\C[18]DERROTA!` · `Voce nao chegou em primeiro` · `Pressione [ESPACO] ou clique` |
 
-> [!info] Picture 53 e 56 nunca coexistem
-> Estrutura If/Else garante que apenas Picture 53 (VITÓRIA) **ou** Picture 56 (DERROTA) seja mostrada — nunca ambas. Após input, ambos são apagados via Script inline `for (let i of [5,53,54,55,56]) $gameScreen.erasePicture(i);` para limpeza defensiva.
+Cada mapa de resultado apaga pictures de forma defensiva, toca a ME adequada, aguarda `Input.isTriggered('ok')` ou `TouchInput.isTriggered()`, limpa audio/pictures/locks e executa a rota pós-confirmação. O Playtest humano validou as três rotas e não observou vazamento de áudio.
 
 ### 8.4 Branch pós-input (progressão entre corridas)
 
 | Condição | Ação |
 |----------|------|
-| `VAR_VITORIA_PASSOU == 1` AND `VAR_RACE_ID < 3` | Incrementa `VAR_RACE_ID += 1`, chama `EV_RaceOrchestrator` (CE 5) → começa próxima corrida |
-| `VAR_VITORIA_PASSOU == 1` AND `VAR_RACE_ID == 3` | Tela "FIM" + "Obrigado por jogar!" → loop infinito (jogador fecha janela). Sem endless mode no MVP. |
-| `VAR_VITORIA_PASSOU == 0` (qualquer corrida) | Chama `EV_Crash` (CE 18) → restart da ==mesma corrida== sem avançar `VAR_RACE_ID`, `VAR_ATTEMPT_N` incrementa +1 |
+| `VAR_VITORIA_PASSOU == 1` | CE19 transfere para `Map018`. Após confirmação, `Map018` transfere para o destino narrativo da corrida atual (`Map005`, `Map013` ou `Map016`). |
+| `VAR_VITORIA_PASSOU == 0` e `SW_CRASH_FLAG` ON | CE19 transfere para `Map019`. Após confirmação, `Map019` seta `SW_RACE_RETRY_PENDING`, transfere para `Map001` e a página autorun prioritária chama CE 5. |
+| `VAR_VITORIA_PASSOU == 0` e `SW_CRASH_FLAG` OFF | CE19 transfere para `Map020`. Após confirmação, `Map020` seta `SW_RACE_RETRY_PENDING`, transfere para `Map001` e a página autorun prioritária chama CE 5. |
 
 ### 8.5 Reset de `VAR_VITORIA_PASSOU` (defensivo)
 
@@ -460,20 +454,20 @@ Estado "passou" nunca persiste para a próxima corrida por engano.
 
 ```
 Corrida 1 (Lenda, 6 cenas, threshold 200)
-  ├── Passou → Corrida 2
-  └── Não passou → Restart Corrida 1 (EV_Crash, mesma seed resetada, ATTEMPT_N++)
+  ├── Passou → Map018 → Map005
+  └── Não passou → Map019/Map020 → Map001 retry → CE5
 
 Corrida 2 (Rachadura, 8 cenas, threshold 400)
-  ├── Passou → Corrida 3
-  └── Não passou → Restart Corrida 2
+  ├── Passou → Map018 → Map013
+  └── Não passou → Map019/Map020 → Map001 retry → CE5
 
 Corrida 3 (Abismo, 10 cenas, threshold 600)
-  ├── Passou → Tela "FIM"
-  └── Não passou → Restart Corrida 3
+  ├── Passou → Map018 → Map016
+  └── Não passou → Map019/Map020 → Map001 retry → CE5
 ```
 
 > [!note] Sem endless mode no MVP
-> Após vencer Corrida 3 com pontuação suficiente, jogador vê tela "FIM". Modo NG+ / endless fica para v2.
+> Após vencer Corrida 3 com pontuação suficiente, o fluxo aprovado passa por `Map018` e segue para `Map016`, que permanece como destino de encerramento atual. Modo NG+ / endless fica para v2.
 
 ---
 
@@ -532,7 +526,7 @@ Corrida 3 (Abismo, 10 cenas, threshold 600)
 | Cap da taxa_sucesso                   | 100%                | 100%      | 100%      | 100%      |
 | Duração setup cena                    | 0,3s                | igual     | igual     | igual     |
 | Duração resolução                     | 0,4s                | igual     | igual     | igual     |
-| Restart total (crash → cena 1)        | < 1s                | igual     | igual     | igual     |
+| Handoff de retry pós-confirmação      | < 1s                | igual     | igual     | igual     |
 
 ---
 
@@ -585,6 +579,7 @@ Corrida 3 (Abismo, 10 cenas, threshold 600)
 - **1 Common Event paralelo** `EV_RaceTimer`: ticka a cada 0,1s, decrementa `timer_remaining`, verifica timeout.
 - **1 Common Event paralelo** `EV_RaceRenderer`: observa `current_scene_index` e renderiza a cena correspondente via `Show Picture` + `Move Picture`.
 - **1 Map event** por corrida (Corrida 1, 2, 3) que orquestra o fluxo: define `N_cenas`, rola seed, sorteia tipo + `P_cena` por cena, chama `EV_RaceRenderer`.
+- **3 mapas de resultado**: `Map018` (`Resultado Vitoria`), `Map019` (`Resultado Derrota Risk`) e `Map020` (`Resultado Derrota Posicao`). CE19 despacha para esses mapas; eles capturam OK/clique e fazem a rota pós-confirmação.
 - **Botões** são pictures com hitbox via evento `On Mouse Click` (MZ suporta via parâmetro de picture). Teclado via evento paralelo checando `Input.isTriggered('ok')` etc.
 - **HUD e microinterações** ficam no helper ativo `Jhonny_RaceHelper.js` quando a mudança é puramente visual e o estado já está exposto por switches/variáveis.
 
@@ -616,7 +611,7 @@ Corrida 3 (Abismo, 10 cenas, threshold 600)
 | 116 | `VAR_TIMER_TIMEOUT_FLAG` | int (0/1) | Criada em F4 — flag de timeout do timer |
 | 117 | `VAR_VITORIA_PASSOU` | int (0/1) | Criada em F6 — reset ==defensivo== no `EV_Crash` E no INIT Orchestrator |
 
-### 13.3 Switches (Editor IDs 100-105)
+### 13.3 Switches (Editor IDs 100-106)
 
 | Editor ID | Nome | Função |
 |-----------|------|--------|
@@ -626,6 +621,7 @@ Corrida 3 (Abismo, 10 cenas, threshold 600)
 | 103 | `SW_LAST_ACTION_SAFE` | ON se última foi Safe, OFF se Risk (para feedback) |
 | 104 | `SW_PAUSED` | Menu de pausa aberto |
 | 105 | `SW_IS_CURVA_DIABO` | ==Reservado para Fase Especial da Curva do Diabo (pós-MVP)== — intocada na F6 |
+| 106 | `SW_RACE_RETRY_PENDING` | Handoff pós-derrota: `Map019`/`Map020` ligam, `Map001` desliga em página autorun prioritária e chama CE 5 para reiniciar a corrida atual |
 
 > [!warning] Semântica do `ControlSwitch` (code 121) — bug crítico F5
 > `params[2] === 0` → switch **ON**; `params[2] === 1` → switch **OFF** (==oposto do intuitivo==). Sempre auditar comandos `121` no JSON gerado.
@@ -644,7 +640,7 @@ VAR_RACE_N_CENAS = id === 1 ? 6 : id === 2 ? 8 : id === 3 ? 10 : 6  # clamp id s
 
 while SW_RACE_ACTIVE:
     if VAR_SCENE_INDEX >= VAR_RACE_N_CENAS:
-        Call EV_VitoriaCorrida  # threshold check + tela cerimonial (§8)
+        Call EV_VitoriaCorrida  # threshold check + dispatcher para Map018/019/020 (§8)
         break
     if SW_CRASH_FLAG == 1:
         Call EV_Crash  # Tint preto (não fade), restart, nova seed, Disciplina=0, ATTEMPT_N++, VITORIA_PASSOU=0
