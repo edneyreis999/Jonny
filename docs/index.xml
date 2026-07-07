@@ -4,7 +4,7 @@
     <scope>project-docs</scope>
     <summary>Catalogo navegavel da documentacao duradoura do projeto Jhonny e dos artefatos Loki init materializados.</summary>
     <owner>catalogador</owner>
-    <updated_at>2026-07-06</updated_at>
+    <updated_at>2026-07-07</updated_at>
   </metadata>
   <documents>
     <document id="corrida-core-loop" path="docs/02-Core-Loop/Corrida - Core Loop.md" type="game-design-and-runtime-spec" priority="high">
@@ -38,6 +38,34 @@
         <section anchor="invariantes-runtime" tokens="700" purpose="Regras que nao podem ser quebradas por refactors." />
         <section anchor="grafo-de-common-events" tokens="900" purpose="Mapa de CEs relevantes e responsabilidades." />
         <section anchor="gates-antes-de-editar-json" tokens="650" purpose="Checklist para edicoes estruturadas em data JSON." />
+      </sections>
+    </document>
+    <document id="map013-dialogue-route-baseline" path="docs/02-Core-Loop/Map013 - Dialogue and Route Baseline.md" type="technical-reference" priority="high">
+      <summary>Baseline duradouro da otimizacao de dialogos do Map013: alvos de Common Event, invariante de saida de rota e status de validacao estatica.</summary>
+      <use_when>Use ao editar ou revisar ranges de dialogo do Map013, chamadas de Common Event de dialogo, transfers de rota, comportamento S276 ou expectativa de validacao estatica apos o primeiro lote aprovado de consolidacao.</use_when>
+      <not_covered>Nao documenta candidatos de duplicacao ainda nao aprovados como trabalho concluido; nao declara Playtest ou runtime human-validated; nao substitui inspecao do Map013 atual antes de rewrites futuros.</not_covered>
+      <keywords>
+        <keyword>Map013</keyword>
+        <keyword>Map013 dialogue baseline</keyword>
+        <keyword>dialogue optimization</keyword>
+        <keyword>Common Event 25</keyword>
+        <keyword>Common Event 26</keyword>
+        <keyword>Common Event 27</keyword>
+        <keyword>VN3_RaceGoodbye</keyword>
+        <keyword>VN3_CourageSip</keyword>
+        <keyword>VN3_RefuseKeysGoodbye</keyword>
+        <keyword>S276</keyword>
+        <keyword>Map006</keyword>
+        <keyword>Exit Event Processing</keyword>
+        <keyword>pending playtest</keyword>
+      </keywords>
+      <sections>
+        <section anchor="purpose" tokens="80" purpose="Escopo e motivo do baseline." />
+        <section anchor="approved-rewrite-scope" tokens="160" purpose="Alvos de Common Event aprovados sem detalhar todos os ranges." />
+        <section anchor="static-baseline" tokens="140" purpose="Contagens finais e invariantes preservados pela validacao estatica." />
+        <section anchor="route-exit-invariant" tokens="120" purpose="Correcao S276 e numeros de clean-exit." />
+        <section anchor="pending-validation" tokens="80" purpose="Separacao entre validacao estatica e Playtest humano pendente." />
+        <section anchor="future-rewrite-rule" tokens="80" purpose="Regra para usar estado atual do arquivo em rewrites futuros." />
       </sections>
     </document>
     <document id="rmmz-debug-playtest" path="docs/03-Tech/RPG Maker MZ - Debug Playtest.md" type="runtime-debug-procedure" priority="high">
