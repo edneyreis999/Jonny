@@ -27,10 +27,28 @@ Este documento consolida contratos runtime da corrida que antes estavam espalhad
 
 - `SW_RACE_ACTIVE` é switch de lifecycle da corrida. Desligar esse switch pode encerrar o Common Event paralelo dono e limpar o interpreter ativo.
 - `SW_INPUT_LOCKED` bloqueia gameplay input. Use esse lock para tela de resultado, resolução e transições; não desligue `SW_RACE_ACTIVE` só para impedir input.
+- `VAR_CONSCIENCIA` (104) é o ID técnico da Disciplina. No estado atual aprovado, trate e apresente como `DISCIPLINA` 0..50, nunca como Glória ou recurso 0..100.
+- Ação safe (`EV_OnSafe`) soma +10 em Disciplina com clamp 50. Após 5 ações seguras, a barra está cheia.
+- Ação risk (`EV_OnRisk`) calcula `VAR_TAXA_SUCESSO = min(100, VAR_P_CENA + VAR_CONSCIENCIA)` e zera `VAR_CONSCIENCIA` em sucesso e falha.
+- `VAR_P_CENA` é a chance base visual da ação arriscada e também alimenta a recompensa de Glória em risk-sucesso. Na HUD, `FRACASSO = 100 - SUCESSO` e `SUCESSO = min(100, P_cena + Disciplina)`.
 - `EV_VitoriaCorrida` é a tela canônica de resultado de fim de corrida. Derrota por pontuação passa por ela e só depois decide retry.
 - Durante a tela de resultado, setas e CEs de gameplay devem respeitar `SW_INPUT_LOCKED`; apenas a confirmação da tela deve operar.
 - `command117` chama outro Common Event como child síncrono. Não use `command117` para disparar um CE que depende de loop paralelo próprio sem garantir que ele termina.
 - Retry não deve repetir a VN nem o preload completo quando o caminho validado pula esse trecho por tentativa. Confirme a semântica de `VAR_ATTEMPT_N` antes de mudar o fluxo.
+
+## HUD e helper ativo
+
+Para ajustes puramente visuais de HUD, microinteração, feedback de botões, timer, barras ou quadro de posições, confirme primeiro se o estado necessário já está exposto por `SW_RACE_ACTIVE` e variáveis da corrida. Quando estiver, prefira uma camada no helper ativo `Jhonny/js/plugins/Jhonny_RaceHelper.js` em vez de reescrever `CommonEvents.json`, assets, `plugins.js` ou engine files.
+
+Contrato aprovado da HUD pós-rodada 1:
+
+- Barra esquerda: label simples `DISCIPLINA`; range visual 0..50; sem `GLORIA`, `x/meta` ou progresso numérico de Glória.
+- Painel de risco: labels `FRACASSO` e `SUCESSO`; chance base e bônus de Disciplina em cores diferentes; bônus visual de Disciplina só preenche o espaço restante até 100%.
+- HUD de posições: título e quatro linhas de corredores; jogador como `Jhonny`; sem `VOCE`, sem `x/meta` e sem barra horizontal redundante; manter animação de ultrapassagem.
+- Timer: preservar layout, cor, animação, posição e comportamento aprovados; não mudar sem nova decisão humana.
+- Botões: manter animação/microfeedback, mas sem círculos e labels inferiores redundantes.
+
+Validação mínima para polish via helper: confirmar `Jhonny_RaceHelper` ativo em `js/plugins.js`, rodar `node -c Jhonny/js/plugins/Jhonny_RaceHelper.js`, fazer browser boot smoke e manter Playtest humano como gate final para leitura, input, timing, timeout, crash, vitória/derrota e retry.
 
 ## Grafo de Common Events
 
@@ -41,8 +59,8 @@ Este documento consolida contratos runtime da corrida que antes estavam espalhad
 | 6 | `EV_UpdateHud` | Atualiza HUD. | Se virar loop paralelo, remova callers síncronos `command117` que possam travar. |
 | 7 | `EV_RaceRenderer` | Renderiza cena, detecta fim de corrida e chama a tela de resultado. | Não deve pular `EV_VitoriaCorrida` quando `VAR_SCENE_INDEX >= VAR_RACE_N_CENAS`. |
 | 10 | `EV_RaceTimer` | Tick de timer. | Deve respeitar input lock e estado de lifecycle. |
-| 11 | `EV_OnSafe` | Resolve ação safe. | Deve respeitar `SW_INPUT_LOCKED`. |
-| 12 | `EV_OnRisk` | Resolve ação risk. | Deve respeitar `SW_INPUT_LOCKED` e não criar tela paralela de resultado sem decisão. |
+| 11 | `EV_OnSafe` | Resolve ação safe. | Deve respeitar `SW_INPUT_LOCKED`, somar +10 Disciplina e limitar `VAR_CONSCIENCIA` a 50. |
+| 12 | `EV_OnRisk` | Resolve ação risk. | Deve respeitar `SW_INPUT_LOCKED`, calcular `VAR_TAXA_SUCESSO` com `P_cena + Disciplina`, zerar Disciplina e não criar tela paralela de resultado sem decisão. |
 | 13 | `EV_KeyInput` | Entrada por teclado. | Na tela de resultado, setas não podem reservar CE11/CE12. |
 | 16 | `EV_HoverRiskButton` | Feedback de hover/custo. | Deve ser silencioso quando input estiver bloqueado. |
 | 18 | `EV_Crash` | Cleanup e restart da mesma corrida. | Não deve matar o handoff necessário antes de o fluxo alcançar o resultado correto. |
