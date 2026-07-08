@@ -1633,9 +1633,9 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.you_re_popular_getting_warnings_is_basic_1bf982799a}",
-                                    "\\tl{maps.Map005.choice.don_t_worry_about_it_you_can_make_it_up__f57f1d3689}",
-                                    "\\tl{maps.Map005.choice.you_ve_never_really_cared_about_warnings_243bd3eec4}"
+                                    "\\tl{maps.Map005.choice.you_re_popular_getting_warnings_is_basic_1bf982799a}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.don_t_worry_about_it_you_can_make_it_up__f57f1d3689}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.you_ve_never_really_cared_about_warnings_243bd3eec4}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -1648,7 +1648,7 @@
                             "indent": 0,
                             "parameters": [
                                 0,
-                                "You’re popular! Getting warnings is basically your middle name."
+                                "\\tl{maps.Map005.choice.you_re_popular_getting_warnings_is_basic_1bf982799a}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -1688,9 +1688,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.a_diploma_is_just_a_piece_of_paper_johnn_c029f9c3f8}",
-                                    "\\tl{maps.Map005.choice.the_johnny_i_know_doesn_t_care_about_tha_1227f0e7e1}",
-                                    "\\tl{maps.Map005.choice.do_you_want_to_talk_about_it_2458a686af}"
+                                    "\\tl{maps.Map005.choice.a_diploma_is_just_a_piece_of_paper_johnn_c029f9c3f8}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.the_johnny_i_know_doesn_t_care_about_tha_1227f0e7e1}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.do_you_want_to_talk_about_it_2458a686af}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -1703,7 +1703,7 @@
                             "indent": 1,
                             "parameters": [
                                 0,
-                                "A diploma is just a piece of paper, Johnny."
+                                "\\tl{maps.Map005.choice.a_diploma_is_just_a_piece_of_paper_johnn_c029f9c3f8}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -1748,7 +1748,7 @@
                             "indent": 1,
                             "parameters": [
                                 1,
-                                "The Johnny I know doesn’t care about that kind of stuff."
+                                "\\tl{maps.Map005.choice.the_johnny_i_know_doesn_t_care_about_tha_1227f0e7e1}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -1793,7 +1793,7 @@
                             "indent": 1,
                             "parameters": [
                                 2,
-                                "Do you want to talk about it?"
+                                "\\tl{maps.Map005.choice.do_you_want_to_talk_about_it_2458a686af}<Choice Common Event: 30>"
                             ]
                         },
                         {
@@ -1833,9 +1833,9 @@
                             "indent": 2,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}",
-                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}",
-                                    "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}"
+                                    "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -1848,7 +1848,7 @@
                             "indent": 2,
                             "parameters": [
                                 0,
-                                "That’s why I never show up to first period."
+                                "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -1893,7 +1893,7 @@
                             "indent": 2,
                             "parameters": [
                                 1,
-                                "Who even likes waking up early to study? haha"
+                                "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -1938,7 +1938,7 @@
                             "indent": 2,
                             "parameters": [
                                 2,
-                                "You seem kinda down. If you wanna talk, I’m here, okay?"
+                                "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}<Choice Common Event: 30>"
                             ]
                         },
                         {
@@ -2003,7 +2003,7 @@
                             "indent": 0,
                             "parameters": [
                                 1,
-                                "Don’t worry about it. You can make it up later."
+                                "\\tl{maps.Map005.choice.don_t_worry_about_it_you_can_make_it_up__f57f1d3689}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -2043,9 +2043,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.a_diploma_is_just_a_piece_of_paper_johnn_c029f9c3f8}",
-                                    "\\tl{maps.Map005.choice.that_s_right_tthe_johnny_i_know_doesn_t__a755244444}",
-                                    "\\tl{maps.Map005.choice.do_you_want_to_talk_about_it_2458a686af}"
+                                    "\\tl{maps.Map005.choice.a_diploma_is_just_a_piece_of_paper_johnn_c029f9c3f8}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.that_s_right_tthe_johnny_i_know_doesn_t__a755244444}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.do_you_want_to_talk_about_it_2458a686af}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -2058,7 +2058,7 @@
                             "indent": 1,
                             "parameters": [
                                 0,
-                                "A diploma is just a piece of paper, Johnny."
+                                "\\tl{maps.Map005.choice.a_diploma_is_just_a_piece_of_paper_johnn_c029f9c3f8}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -2103,7 +2103,7 @@
                             "indent": 1,
                             "parameters": [
                                 1,
-                                "That’s right, tThe Johnny I know doesn’t care about that kind of stuff."
+                                "\\tl{maps.Map005.choice.that_s_right_tthe_johnny_i_know_doesn_t__a755244444}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -2148,7 +2148,7 @@
                             "indent": 1,
                             "parameters": [
                                 2,
-                                "Do you want to talk about it?"
+                                "\\tl{maps.Map005.choice.do_you_want_to_talk_about_it_2458a686af}<Choice Common Event: 30>"
                             ]
                         },
                         {
@@ -2188,9 +2188,9 @@
                             "indent": 2,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}",
-                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}",
-                                    "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}"
+                                    "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -2203,7 +2203,7 @@
                             "indent": 2,
                             "parameters": [
                                 0,
-                                "That’s why I never show up to first period."
+                                "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -2248,7 +2248,7 @@
                             "indent": 2,
                             "parameters": [
                                 1,
-                                "Who even likes waking up early to study? haha"
+                                "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -2293,7 +2293,7 @@
                             "indent": 2,
                             "parameters": [
                                 2,
-                                "You seem kinda down. If you wanna talk, I’m here, okay?"
+                                "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}<Choice Common Event: 30>"
                             ]
                         },
                         {
@@ -2358,7 +2358,7 @@
                             "indent": 0,
                             "parameters": [
                                 2,
-                                "You’ve never really cared about warnings before. Did something happen?"
+                                "\\tl{maps.Map005.choice.you_ve_never_really_cared_about_warnings_243bd3eec4}<Choice Common Event: 30>"
                             ]
                         },
                         {
@@ -2405,9 +2405,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}",
-                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}",
-                                    "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}"
+                                    "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -2420,7 +2420,7 @@
                             "indent": 1,
                             "parameters": [
                                 0,
-                                "That’s why I never show up to first period."
+                                "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -2465,7 +2465,7 @@
                             "indent": 1,
                             "parameters": [
                                 1,
-                                "Who even likes waking up early to study? haha"
+                                "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -2510,7 +2510,7 @@
                             "indent": 1,
                             "parameters": [
                                 2,
-                                "You seem kinda down. If you wanna talk, I’m here, okay?"
+                                "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}<Choice Common Event: 30>"
                             ]
                         },
                         {
@@ -2689,9 +2689,9 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}",
-                                    "\\tl{maps.Map005.choice.couples_fight_that_s_normal_5e3b723e03}",
-                                    "\\tl{maps.Map005.choice.so_what_did_you_guys_fight_about_f675815263}"
+                                    "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.couples_fight_that_s_normal_5e3b723e03}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.so_what_did_you_guys_fight_about_f675815263}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -2704,7 +2704,7 @@
                             "indent": 0,
                             "parameters": [
                                 0,
-                                "Then just break up already! Stop complaining so much."
+                                "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -2744,9 +2744,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.a_girlfriend_and_the_whole_school_at_you_d042fdd88b}",
-                                    "\\tl{maps.Map005.choice.no_need_to_show_off_on_your_single_frien_f371f3d42a}",
-                                    "\\tl{maps.Map005.choice.so_what_did_you_fight_about_b579e00fbb}"
+                                    "\\tl{maps.Map005.choice.a_girlfriend_and_the_whole_school_at_you_d042fdd88b}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.no_need_to_show_off_on_your_single_frien_f371f3d42a}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.so_what_did_you_fight_about_b579e00fbb}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -2759,7 +2759,7 @@
                             "indent": 1,
                             "parameters": [
                                 0,
-                                "A girlfriend and the whole school at your feet!"
+                                "\\tl{maps.Map005.choice.a_girlfriend_and_the_whole_school_at_you_d042fdd88b}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -2797,7 +2797,7 @@
                             "indent": 1,
                             "parameters": [
                                 1,
-                                "No need to show off on your single friend, dude."
+                                "\\tl{maps.Map005.choice.no_need_to_show_off_on_your_single_frien_f371f3d42a}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -2835,7 +2835,7 @@
                             "indent": 1,
                             "parameters": [
                                 2,
-                                "So what did you fight about?"
+                                "\\tl{maps.Map005.choice.so_what_did_you_fight_about_b579e00fbb}<Choice Common Event: 30>"
                             ]
                         },
                         {
@@ -2889,9 +2889,9 @@
                             "indent": 2,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}",
-                                    "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}",
-                                    "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}"
+                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -2904,7 +2904,7 @@
                             "indent": 2,
                             "parameters": [
                                 0,
-                                "That’s just your girlfriend being jealous and not wanting you to race anymore."
+                                "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -2917,7 +2917,7 @@
                             "indent": 2,
                             "parameters": [
                                 1,
-                                "You just need to race again and you’ll be back to normal."
+                                "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -2930,7 +2930,7 @@
                             "indent": 2,
                             "parameters": [
                                 2,
-                                "You don’t really seem okay with this..."
+                                "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}<Choice Common Event: 30>"
                             ]
                         },
                         {
@@ -3027,7 +3027,7 @@
                             "indent": 0,
                             "parameters": [
                                 1,
-                                "Couples fight, that’s normal."
+                                "\\tl{maps.Map005.choice.couples_fight_that_s_normal_5e3b723e03}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -3060,9 +3060,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.a_girlfriend_and_the_whole_school_at_you_d042fdd88b}",
-                                    "\\tl{maps.Map005.choice.no_need_to_show_off_on_your_single_frien_f371f3d42a}",
-                                    "\\tl{maps.Map005.choice.so_what_did_you_fight_about_b579e00fbb}"
+                                    "\\tl{maps.Map005.choice.a_girlfriend_and_the_whole_school_at_you_d042fdd88b}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.no_need_to_show_off_on_your_single_frien_f371f3d42a}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.so_what_did_you_fight_about_b579e00fbb}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -3075,7 +3075,7 @@
                             "indent": 1,
                             "parameters": [
                                 0,
-                                "A girlfriend and the whole school at your feet!"
+                                "\\tl{maps.Map005.choice.a_girlfriend_and_the_whole_school_at_you_d042fdd88b}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -3113,7 +3113,7 @@
                             "indent": 1,
                             "parameters": [
                                 1,
-                                "No need to show off on your single friend, dude."
+                                "\\tl{maps.Map005.choice.no_need_to_show_off_on_your_single_frien_f371f3d42a}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -3151,7 +3151,7 @@
                             "indent": 1,
                             "parameters": [
                                 2,
-                                "So what did you fight about?"
+                                "\\tl{maps.Map005.choice.so_what_did_you_fight_about_b579e00fbb}<Choice Common Event: 30>"
                             ]
                         },
                         {
@@ -3205,9 +3205,9 @@
                             "indent": 2,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}",
-                                    "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}",
-                                    "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}"
+                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -3220,7 +3220,7 @@
                             "indent": 2,
                             "parameters": [
                                 0,
-                                "That’s just your girlfriend being jealous and not wanting you to race anymore."
+                                "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -3233,9 +3233,8 @@
                             "indent": 2,
                             "parameters": [
                                 1,
-                                "You just need to race again and you’ll be back to normal."
-                            ],
-                            "collapsed": true
+                                "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}<Choice Common Event: 29>"
+                            ]
                         },
                         {
                             "code": 0,
@@ -3247,9 +3246,8 @@
                             "indent": 2,
                             "parameters": [
                                 2,
-                                "You don’t really seem okay with this..."
-                            ],
-                            "collapsed": true
+                                "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}<Choice Common Event: 30>"
+                            ]
                         },
                         {
                             "code": 117,
@@ -3345,9 +3343,8 @@
                             "indent": 0,
                             "parameters": [
                                 2,
-                                "So what did you guys fight about?"
-                            ],
-                            "collapsed": true
+                                "\\tl{maps.Map005.choice.so_what_did_you_guys_fight_about_f675815263}<Choice Common Event: 30>"
+                            ]
                         },
                         {
                             "code": 101,
@@ -3386,9 +3383,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}",
-                                    "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}",
-                                    "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}"
+                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -3401,9 +3398,8 @@
                             "indent": 1,
                             "parameters": [
                                 0,
-                                "That’s just your girlfriend being jealous and not wanting you to race anymore."
-                            ],
-                            "collapsed": true
+                                "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>"
+                            ]
                         },
                         {
                             "code": 0,
@@ -3415,9 +3411,8 @@
                             "indent": 1,
                             "parameters": [
                                 1,
-                                "You just need to race again and you’ll be back to normal."
-                            ],
-                            "collapsed": true
+                                "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}<Choice Common Event: 29>"
+                            ]
                         },
                         {
                             "code": 0,
@@ -3429,9 +3424,8 @@
                             "indent": 1,
                             "parameters": [
                                 2,
-                                "You don’t really seem okay with this..."
-                            ],
-                            "collapsed": true
+                                "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}<Choice Common Event: 30>"
+                            ]
                         },
                         {
                             "code": 101,
@@ -3554,9 +3548,9 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.you_just_need_some_adrenaline_you_should_59ce7c87da}",
-                                    "\\tl{maps.Map005.choice.it_s_just_a_phase_johnny_there_s_a_race__825299e0f6}",
-                                    "\\tl{maps.Map005.choice.it_s_weird_that_you_re_not_even_excited__08bda81766}"
+                                    "\\tl{maps.Map005.choice.you_just_need_some_adrenaline_you_should_59ce7c87da}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.it_s_just_a_phase_johnny_there_s_a_race__825299e0f6}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.it_s_weird_that_you_re_not_even_excited__08bda81766}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -3569,7 +3563,7 @@
                             "indent": 0,
                             "parameters": [
                                 0,
-                                "You just need some adrenaline. You should race more."
+                                "\\tl{maps.Map005.choice.you_just_need_some_adrenaline_you_should_59ce7c87da}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -3607,7 +3601,7 @@
                             "indent": 0,
                             "parameters": [
                                 1,
-                                "It’s just a phase, Johnny. There’s a race tomorrow, you’ll forget all about this."
+                                "\\tl{maps.Map005.choice.it_s_just_a_phase_johnny_there_s_a_race__825299e0f6}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -3645,9 +3639,8 @@
                             "indent": 0,
                             "parameters": [
                                 2,
-                                "It’s weird that you’re not even excited about racing."
-                            ],
-                            "collapsed": true
+                                "\\tl{maps.Map005.choice.it_s_weird_that_you_re_not_even_excited__08bda81766}<Choice Common Event: 30>"
+                            ]
                         },
                         {
                             "code": 117,
@@ -3815,9 +3808,9 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.you_d_be_the_biggest_legend_in_town_609312188e}",
-                                    "\\tl{maps.Map005.choice.that_s_so_you_jonny_if_you_say_can_do_it_b6f8fde3cd}",
-                                    "\\tl{maps.Map005.choice.the_last_guy_who_tried_died_you_re_not_s_a378f3056a}"
+                                    "\\tl{maps.Map005.choice.you_d_be_the_biggest_legend_in_town_609312188e}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.that_s_so_you_jonny_if_you_say_can_do_it_b6f8fde3cd}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.the_last_guy_who_tried_died_you_re_not_s_a378f3056a}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -3830,7 +3823,7 @@
                             "indent": 0,
                             "parameters": [
                                 0,
-                                "You’d be the biggest legend in town."
+                                "\\tl{maps.Map005.choice.you_d_be_the_biggest_legend_in_town_609312188e}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -3870,9 +3863,9 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.my_friend_jonny_is_the_best_you_re_going_79fa1ed75f}",
-                                    "\\tl{maps.Map005.choice.that_s_just_like_you_jonny_the_only_poss_abd9f3b744}",
-                                    "\\tl{maps.Map005.choice.but_the_last_guy_who_tried_that_turn_die_b3c153ee01}"
+                                    "\\tl{maps.Map005.choice.my_friend_jonny_is_the_best_you_re_going_79fa1ed75f}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.that_s_just_like_you_jonny_the_only_poss_abd9f3b744}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.but_the_last_guy_who_tried_that_turn_die_b3c153ee01}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
@@ -3885,7 +3878,7 @@
                             "indent": 1,
                             "parameters": [
                                 0,
-                                "My friend Jonny is the best! You’re going to crush it tomorrow."
+                                "\\tl{maps.Map005.choice.my_friend_jonny_is_the_best_you_re_going_79fa1ed75f}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -3994,7 +3987,7 @@
                             "indent": 1,
                             "parameters": [
                                 1,
-                                "That’s just like you, Jonny! The only possible winner tomorrow."
+                                "\\tl{maps.Map005.choice.that_s_just_like_you_jonny_the_only_poss_abd9f3b744}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -4103,7 +4096,7 @@
                             "indent": 1,
                             "parameters": [
                                 2,
-                                "But... The last guy who tried that turn died. Are you serious about this?"
+                                "\\tl{maps.Map005.choice.but_the_last_guy_who_tried_that_turn_die_b3c153ee01}<Choice Common Event: 30>"
                             ]
                         },
                         {
@@ -4304,7 +4297,7 @@
                             "indent": 0,
                             "parameters": [
                                 1,
-                                "That’s so you, Jonny. If you say can do it..."
+                                "\\tl{maps.Map005.choice.that_s_so_you_jonny_if_you_say_can_do_it_b6f8fde3cd}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -4342,7 +4335,7 @@
                             "indent": 0,
                             "parameters": [
                                 2,
-                                "The last guy who tried died. You’re not serious, right? "
+                                "\\tl{maps.Map005.choice.the_last_guy_who_tried_died_you_re_not_s_a378f3056a}<Choice Common Event: 30>"
                             ]
                         },
                         {
