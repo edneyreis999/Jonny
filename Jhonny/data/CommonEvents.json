@@ -2207,8 +2207,8 @@
                 "indent": 0,
                 "parameters": [
                     {
-                        "name": "freada",
-                        "volume": 90,
+                        "name": "woosh",
+                        "volume": 70,
                         "pitch": 100,
                         "pan": 0
                     }
@@ -2273,8 +2273,8 @@
                 "indent": 0,
                 "parameters": [
                     {
-                        "name": "Up1",
-                        "volume": 70,
+                        "name": "frear",
+                        "volume": 90,
                         "pitch": 100,
                         "pan": 0
                     }
@@ -2811,7 +2811,7 @@
                 "indent": 0,
                 "parameters": [
                     {
-                        "name": "pneu_cantando",
+                        "name": "woosh",
                         "volume": 90,
                         "pitch": 100,
                         "pan": 0
