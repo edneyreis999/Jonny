@@ -1380,6 +1380,11 @@
                     },
                     "list": [
                         {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
                             "code": 121,
                             "indent": 0,
                             "parameters": [
@@ -1398,25 +1403,11 @@
                             ]
                         },
                         {
-                            "code": 242,
-                            "indent": 0,
-                            "parameters": [
-                                1
-                            ]
-                        },
-                        {
-                            "code": 246,
-                            "indent": 0,
-                            "parameters": [
-                                1
-                            ]
-                        },
-                        {
-                            "code": 249,
+                            "code": 241,
                             "indent": 0,
                             "parameters": [
                                 {
-                                    "name": "Defeat1",
+                                    "name": "derrota1",
                                     "volume": 90,
                                     "pitch": 100,
                                     "pan": 0
@@ -1424,125 +1415,15 @@
                             ]
                         },
                         {
-                            "code": 355,
-                            "indent": 0,
-                            "parameters": [
-                                "for (let i = 1; i <= 63; i++) $gameScreen.erasePicture(i);"
-                            ]
-                        },
-                        {
-                            "code": 223,
-                            "indent": 0,
-                            "parameters": [
-                                [
-                                    0,
-                                    0,
-                                    0,
-                                    0
-                                ],
-                                6,
-                                false
-                            ]
-                        },
-                        {
-                            "code": 357,
-                            "indent": 0,
-                            "parameters": [
-                                "TextPicture",
-                                "set",
-                                "Set Text Picture",
-                                {
-                                    "text": "\\C[18]DERROTA!"
-                                }
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Text = \\C[18]DERROTA!"
-                            ]
-                        },
-                        {
                             "code": 231,
                             "indent": 0,
                             "parameters": [
-                                53,
-                                "",
+                                1,
+                                "cenarios/CarroQuebrado",
                                 0,
                                 0,
-                                308,
-                                190,
-                                100,
-                                100,
-                                255,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 357,
-                            "indent": 0,
-                            "parameters": [
-                                "TextPicture",
-                                "set",
-                                "Set Text Picture",
-                                {
-                                    "text": "Jogada arriscada falhou"
-                                }
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Text = Jogada arriscada falhou"
-                            ]
-                        },
-                        {
-                            "code": 231,
-                            "indent": 0,
-                            "parameters": [
-                                54,
-                                "",
                                 0,
                                 0,
-                                248,
-                                280,
-                                100,
-                                100,
-                                255,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 357,
-                            "indent": 0,
-                            "parameters": [
-                                "TextPicture",
-                                "set",
-                                "Set Text Picture",
-                                {
-                                    "text": "Pressione [ESPACO] ou clique"
-                                }
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Text = Pressione [ESPACO] ou clique"
-                            ]
-                        },
-                        {
-                            "code": 231,
-                            "indent": 0,
-                            "parameters": [
-                                55,
-                                "",
-                                0,
-                                0,
-                                238,
-                                350,
                                 100,
                                 100,
                                 255,
@@ -1553,7 +1434,47 @@
                             "code": 230,
                             "indent": 0,
                             "parameters": [
-                                15
+                                160
+                            ]
+                        },
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "TextPicture",
+                                "set",
+                                "Set Text Picture",
+                                {
+                                    "text": "<center>\n\n\n\\FS[70]\\C[10]DEU RUIM!\n\\FS[40]\\C[0]Jogada arriscada falhou\n\n\n\n\n\n\n\n\n\n\n\\FS[25]\\C[0] Pressione [ESPAÇO] ou clique com o mouse </center>"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Text = <center>   \\FS[70]\\C[10]DEU RUIM! \\FS[40]\\C[0]Jogada…"
+                            ]
+                        },
+                        {
+                            "code": 231,
+                            "indent": 0,
+                            "parameters": [
+                                53,
+                                "",
+                                1,
+                                0,
+                                640,
+                                360,
+                                100,
+                                100,
+                                255,
+                                0
                             ]
                         },
                         {
@@ -1598,31 +1519,22 @@
                             ]
                         },
                         {
-                            "code": 235,
+                            "code": 242,
                             "indent": 0,
                             "parameters": [
-                                54
+                                60
                             ]
                         },
                         {
-                            "code": 235,
+                            "code": 221,
                             "indent": 0,
-                            "parameters": [
-                                55
-                            ]
+                            "parameters": []
                         },
                         {
-                            "code": 223,
+                            "code": 230,
                             "indent": 0,
                             "parameters": [
-                                [
-                                    0,
-                                    0,
-                                    0,
-                                    0
-                                ],
-                                6,
-                                false
+                                60
                             ]
                         },
                         {
@@ -1630,6 +1542,13 @@
                             "indent": 0,
                             "parameters": [
                                 "$gameTemp.clearCommonEventReservation();"
+                            ]
+                        },
+                        {
+                            "code": 355,
+                            "indent": 0,
+                            "parameters": [
+                                "for (let i = 1; i <= 63; i++) $gameScreen.erasePicture(i);"
                             ]
                         },
                         {
@@ -1730,7 +1649,7 @@
     "note": "",
     "parallaxLoopX": false,
     "parallaxLoopY": false,
-    "parallaxName": "Celular",
+    "parallaxName": "",
     "parallaxShow": true,
     "parallaxSx": 0,
     "parallaxSy": 0,

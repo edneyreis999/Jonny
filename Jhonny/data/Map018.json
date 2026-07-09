@@ -1380,6 +1380,11 @@
                     },
                     "list": [
                         {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
                             "code": 121,
                             "indent": 0,
                             "parameters": [
@@ -1398,25 +1403,27 @@
                             ]
                         },
                         {
-                            "code": 242,
+                            "code": 231,
                             "indent": 0,
                             "parameters": [
-                                1
+                                1,
+                                "cenarios/Vitoria",
+                                0,
+                                0,
+                                0,
+                                0,
+                                100,
+                                100,
+                                255,
+                                0
                             ]
                         },
                         {
-                            "code": 246,
-                            "indent": 0,
-                            "parameters": [
-                                1
-                            ]
-                        },
-                        {
-                            "code": 249,
+                            "code": 241,
                             "indent": 0,
                             "parameters": [
                                 {
-                                    "name": "Victory1",
+                                    "name": "vitoria1",
                                     "volume": 90,
                                     "pitch": 100,
                                     "pan": 0
@@ -1424,25 +1431,16 @@
                             ]
                         },
                         {
-                            "code": 355,
+                            "code": 230,
                             "indent": 0,
                             "parameters": [
-                                "for (let i = 1; i <= 63; i++) $gameScreen.erasePicture(i);"
+                                160
                             ]
                         },
                         {
-                            "code": 223,
+                            "code": 222,
                             "indent": 0,
-                            "parameters": [
-                                [
-                                    0,
-                                    0,
-                                    0,
-                                    0
-                                ],
-                                6,
-                                false
-                            ]
+                            "parameters": []
                         },
                         {
                             "code": 357,
@@ -1452,7 +1450,7 @@
                                 "set",
                                 "Set Text Picture",
                                 {
-                                    "text": "\\C[6]VITORIA!"
+                                    "text": "<center>\n\n\n\n\n\n\\FS[70]\\C[17]VITÓRIA!\n\\FS[40]\\C[0]Glory Score: \\V[105]\n\n\n\n\n\n\n\n\\FS[25]\\C[0] Pressione [ESPAÇO] ou clique com o mouse </center>"
                                 }
                             ]
                         },
@@ -1460,7 +1458,7 @@
                             "code": 657,
                             "indent": 0,
                             "parameters": [
-                                "Text = \\C[6]VITORIA!"
+                                "Text = <center>      \\FS[70]\\C[17]VITÓRIA! \\FS[40]\\C[0]Glor…"
                             ]
                         },
                         {
@@ -1469,91 +1467,14 @@
                             "parameters": [
                                 53,
                                 "",
+                                1,
                                 0,
-                                0,
-                                308,
-                                190,
+                                640,
+                                360,
                                 100,
                                 100,
                                 255,
                                 0
-                            ]
-                        },
-                        {
-                            "code": 357,
-                            "indent": 0,
-                            "parameters": [
-                                "TextPicture",
-                                "set",
-                                "Set Text Picture",
-                                {
-                                    "text": "Glory Score: \\V[105]"
-                                }
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Text = Glory Score: \\V[105]"
-                            ]
-                        },
-                        {
-                            "code": 231,
-                            "indent": 0,
-                            "parameters": [
-                                54,
-                                "",
-                                0,
-                                0,
-                                248,
-                                280,
-                                100,
-                                100,
-                                255,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 357,
-                            "indent": 0,
-                            "parameters": [
-                                "TextPicture",
-                                "set",
-                                "Set Text Picture",
-                                {
-                                    "text": "Pressione [ESPACO] ou clique"
-                                }
-                            ]
-                        },
-                        {
-                            "code": 657,
-                            "indent": 0,
-                            "parameters": [
-                                "Text = Pressione [ESPACO] ou clique"
-                            ]
-                        },
-                        {
-                            "code": 231,
-                            "indent": 0,
-                            "parameters": [
-                                55,
-                                "",
-                                0,
-                                0,
-                                238,
-                                350,
-                                100,
-                                100,
-                                255,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                15
                             ]
                         },
                         {
@@ -1598,31 +1519,22 @@
                             ]
                         },
                         {
-                            "code": 235,
+                            "code": 242,
                             "indent": 0,
                             "parameters": [
-                                54
+                                60
                             ]
                         },
                         {
-                            "code": 235,
+                            "code": 221,
                             "indent": 0,
-                            "parameters": [
-                                55
-                            ]
+                            "parameters": []
                         },
                         {
-                            "code": 223,
+                            "code": 230,
                             "indent": 0,
                             "parameters": [
-                                [
-                                    0,
-                                    0,
-                                    0,
-                                    0
-                                ],
-                                6,
-                                false
+                                60
                             ]
                         },
                         {
@@ -1630,6 +1542,13 @@
                             "indent": 0,
                             "parameters": [
                                 "$gameTemp.clearCommonEventReservation();"
+                            ]
+                        },
+                        {
+                            "code": 355,
+                            "indent": 0,
+                            "parameters": [
+                                "for (let i = 1; i <= 63; i++) $gameScreen.erasePicture(i);"
                             ]
                         },
                         {
@@ -1797,7 +1716,7 @@
     "note": "",
     "parallaxLoopX": false,
     "parallaxLoopY": false,
-    "parallaxName": "!cenario",
+    "parallaxName": "",
     "parallaxShow": true,
     "parallaxSx": 0,
     "parallaxSy": 0,

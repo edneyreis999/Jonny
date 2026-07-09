@@ -1380,6 +1380,11 @@
                     },
                     "list": [
                         {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
                             "code": 357,
                             "indent": 0,
                             "parameters": [
@@ -1388,7 +1393,7 @@
                                 "BASIC: Enter Bust",
                                 {
                                     "PictureID:eval": "1",
-                                    "PictureName:str": "Jonny",
+                                    "PictureName:str": "Jonny_1",
                                     "Origin:str": "Bust",
                                     "Position:num": "5",
                                     "StartOffsetX:eval": "-200",
@@ -1410,7 +1415,7 @@
                             "code": 657,
                             "indent": 0,
                             "parameters": [
-                                "Picture File = Jonny"
+                                "Picture File = Jonny_1"
                             ]
                         },
                         {
@@ -1547,13 +1552,13 @@
                                 "BASIC: Enter Bust",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador",
+                                    "PictureName:str": "Jogador_1",
                                     "Origin:str": "Bust",
                                     "Position:num": "9",
                                     "StartOffsetX:eval": "-200",
                                     "StartOffsetY:eval": "0",
                                     "EasingType:str": "OutSine",
-                                    "HorzMirror:str": "None",
+                                    "HorzMirror:str": "Auto-Reverse",
                                     "Duration:eval": "20"
                                 }
                             ]
@@ -1569,7 +1574,7 @@
                             "code": 657,
                             "indent": 0,
                             "parameters": [
-                                "Picture File = Jogador"
+                                "Picture File = Jogador_1"
                             ]
                         },
                         {
@@ -1611,7 +1616,7 @@
                             "code": 657,
                             "indent": 0,
                             "parameters": [
-                                "Horizontal Mirror = None"
+                                "Horizontal Mirror = Auto-Reverse"
                             ]
                         },
                         {
