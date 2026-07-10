@@ -4212,5 +4212,72 @@
         "name": "Johnny Triste",
         "switchId": 1,
         "trigger": 0
+    },
+    {
+        "id": 31,
+        "list": [
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Basic_GraphicChange",
+                    "BASIC: Graphic Change",
+                    {
+                        "PictureID:eval": "1",
+                        "PictureName:str": "Jonny_5"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID = 1"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture File = Jonny_5"
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_2_VNPictureBusts",
+                    "Basic_GraphicChange",
+                    "BASIC: Graphic Change",
+                    {
+                        "PictureID:eval": "2",
+                        "PictureName:str": "Jogador_4"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture ID = 2"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Picture File = Jogador_4"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "Johnny Alerta",
+        "switchId": 1,
+        "trigger": 0
     }
 ]
