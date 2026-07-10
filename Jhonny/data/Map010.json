@@ -1779,7 +1779,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "1",
-                                    "PictureName:str": "Jonny_1"
+                                    "PictureName:str": "Jonny_2"
                                 }
                             ]
                         },
@@ -1831,7 +1831,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_5"
+                                    "PictureName:str": "Jogador_2"
                                 }
                             ]
                         },
@@ -1960,7 +1960,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_1"
+                                    "PictureName:str": "Jogador_4"
                                 }
                             ]
                         },
@@ -2012,7 +2012,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "1",
-                                    "PictureName:str": "Jonny_7"
+                                    "PictureName:str": "Jonny_5"
                                 }
                             ]
                         },
@@ -2148,7 +2148,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_2"
+                                    "PictureName:str": "Jogador_9"
                                 }
                             ]
                         },
@@ -2207,7 +2207,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "1",
-                                    "PictureName:str": "Jonny_9"
+                                    "PictureName:str": "Jonny_1"
                                 }
                             ]
                         },
@@ -2418,7 +2418,7 @@
                                 "BASIC: Enter Bust",
                                 {
                                     "PictureID:eval": "1",
-                                    "PictureName:str": "Jonny_1",
+                                    "PictureName:str": "Jonny_5",
                                     "Origin:str": "Bust",
                                     "Position:num": "1",
                                     "StartOffsetX:eval": "-200",
@@ -2711,7 +2711,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_2"
+                                    "PictureName:str": "Jogador_9"
                                 }
                             ]
                         },
@@ -2924,7 +2924,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_1"
+                                    "PictureName:str": "Jogador_4"
                                 }
                             ]
                         },

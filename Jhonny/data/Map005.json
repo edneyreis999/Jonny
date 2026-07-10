@@ -1552,7 +1552,7 @@
                                 "BASIC: Enter Bust",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_1",
+                                    "PictureName:str": "Jogador_7",
                                     "Origin:str": "Bust",
                                     "Position:num": "9",
                                     "StartOffsetX:eval": "-200",
@@ -2554,7 +2554,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_10"
+                                    "PictureName:str": "Jogador_4"
                                 }
                             ]
                         },
@@ -2633,7 +2633,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_1"
+                                    "PictureName:str": "Jogador_3"
                                 }
                             ]
                         },
@@ -2829,8 +2829,8 @@
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}<Choice Common Event: 28>",
-                                    "\\tl{maps.Map005.choice.couples_fight_that_s_normal_5e3b723e03}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.couples_fight_that_s_normal_5e3b723e03}<Choice Common Event: 28>",
                                     "\\tl{maps.Map005.choice.so_what_did_you_guys_fight_about_f675815263}<Choice Common Event: 30>"
                                 ],
                                 -1,
@@ -2844,7 +2844,7 @@
                             "indent": 0,
                             "parameters": [
                                 0,
-                                "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}<Choice Common Event: 28>"
+                                "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -3275,7 +3275,7 @@
                             "indent": 0,
                             "parameters": [
                                 1,
-                                "\\tl{maps.Map005.choice.couples_fight_that_s_normal_5e3b723e03}<Choice Common Event: 29>"
+                                "\\tl{maps.Map005.choice.couples_fight_that_s_normal_5e3b723e03}<Choice Common Event: 28>"
                             ]
                         },
                         {
