@@ -2318,65 +2318,6 @@
                             ]
                         },
                         {
-                            "code": 102,
-                            "indent": 0,
-                            "parameters": [
-                                [
-                                    "\\tl{maps.Map010.choice.feliz_3093ffe85c}",
-                                    "\\tl{maps.Map010.choice.neutro_fb6c6efdea}",
-                                    "\\tl{maps.Map010.choice.triste_4896fe122d}"
-                                ],
-                                1,
-                                0,
-                                2,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 402,
-                            "indent": 0,
-                            "parameters": [
-                                0,
-                                "Feliz <Choice Common Event: 28>"
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 1,
-                            "parameters": []
-                        },
-                        {
-                            "code": 402,
-                            "indent": 0,
-                            "parameters": [
-                                1,
-                                "Neutro <Choice Common Event: 29>"
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 1,
-                            "parameters": []
-                        },
-                        {
-                            "code": 402,
-                            "indent": 0,
-                            "parameters": [
-                                2,
-                                "Triste <Choice Common Event: 30>"
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 1,
-                            "parameters": []
-                        },
-                        {
-                            "code": 404,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
                             "code": 122,
                             "indent": 0,
                             "parameters": [

@@ -2367,6 +2367,33 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 1,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "1",
+                                    "PictureName:str": "Jonny_6"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture ID = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture File = Jonny_6"
+                            ]
+                        },
+                        {
                             "code": 117,
                             "indent": 1,
                             "parameters": [
@@ -2519,6 +2546,33 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 2,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador_10"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture File = Jogador_10"
+                            ]
+                        },
+                        {
                             "code": 117,
                             "indent": 2,
                             "parameters": [
@@ -2569,6 +2623,33 @@
                             "code": 404,
                             "indent": 0,
                             "parameters": []
+                        },
+                        {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador_1"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jogador_1"
+                            ]
                         },
                         {
                             "code": 117,
@@ -2658,6 +2739,33 @@
                     },
                     "list": [
                         {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "1",
+                                    "PictureName:str": "Jonny_6"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jonny_6"
+                            ]
+                        },
+                        {
                             "code": 117,
                             "indent": 0,
                             "parameters": [
@@ -2690,6 +2798,33 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador_7"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jogador_7"
+                            ]
+                        },
+                        {
                             "code": 102,
                             "indent": 0,
                             "parameters": [
@@ -2710,6 +2845,33 @@
                             "parameters": [
                                 0,
                                 "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}<Choice Common Event: 28>"
+                            ]
+                        },
+                        {
+                            "code": 357,
+                            "indent": 1,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "1",
+                                    "PictureName:str": "Jonny_9"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture ID = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture File = Jonny_9"
                             ]
                         },
                         {
@@ -2745,6 +2907,33 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 1,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador_2"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture File = Jogador_2"
+                            ]
+                        },
+                        {
                             "code": 102,
                             "indent": 1,
                             "parameters": [
@@ -2765,6 +2954,33 @@
                             "parameters": [
                                 0,
                                 "\\tl{maps.Map005.choice.a_girlfriend_and_the_whole_school_at_you_d042fdd88b}<Choice Common Event: 28>"
+                            ]
+                        },
+                        {
+                            "code": 357,
+                            "indent": 2,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "1",
+                                    "PictureName:str": "Jonny_2"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture ID = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture File = Jonny_2"
                             ]
                         },
                         {
@@ -2803,6 +3019,33 @@
                             "parameters": [
                                 1,
                                 "\\tl{maps.Map005.choice.no_need_to_show_off_on_your_single_frien_f371f3d42a}<Choice Common Event: 29>"
+                            ]
+                        },
+                        {
+                            "code": 357,
+                            "indent": 2,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador_9"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture File = Jogador_9"
                             ]
                         },
                         {
