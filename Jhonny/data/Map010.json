@@ -1779,7 +1779,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "1",
-                                    "PictureName:str": "Jonny_1"
+                                    "PictureName:str": "Jonny_2"
                                 }
                             ]
                         },
@@ -1831,7 +1831,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_5"
+                                    "PictureName:str": "Jogador_2"
                                 }
                             ]
                         },
@@ -1960,7 +1960,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_1"
+                                    "PictureName:str": "Jogador_4"
                                 }
                             ]
                         },
@@ -2012,7 +2012,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "1",
-                                    "PictureName:str": "Jonny_7"
+                                    "PictureName:str": "Jonny_5"
                                 }
                             ]
                         },
@@ -2148,7 +2148,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_2"
+                                    "PictureName:str": "Jogador_9"
                                 }
                             ]
                         },
@@ -2207,7 +2207,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "1",
-                                    "PictureName:str": "Jonny_9"
+                                    "PictureName:str": "Jonny_1"
                                 }
                             ]
                         },
@@ -2318,65 +2318,6 @@
                             ]
                         },
                         {
-                            "code": 102,
-                            "indent": 0,
-                            "parameters": [
-                                [
-                                    "\\tl{maps.Map010.choice.feliz_3093ffe85c}",
-                                    "\\tl{maps.Map010.choice.neutro_fb6c6efdea}",
-                                    "\\tl{maps.Map010.choice.triste_4896fe122d}"
-                                ],
-                                1,
-                                0,
-                                2,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 402,
-                            "indent": 0,
-                            "parameters": [
-                                0,
-                                "Feliz <Choice Common Event: 28>"
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 1,
-                            "parameters": []
-                        },
-                        {
-                            "code": 402,
-                            "indent": 0,
-                            "parameters": [
-                                1,
-                                "Neutro <Choice Common Event: 29>"
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 1,
-                            "parameters": []
-                        },
-                        {
-                            "code": 402,
-                            "indent": 0,
-                            "parameters": [
-                                2,
-                                "Triste <Choice Common Event: 30>"
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 1,
-                            "parameters": []
-                        },
-                        {
-                            "code": 404,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
                             "code": 122,
                             "indent": 0,
                             "parameters": [
@@ -2456,7 +2397,7 @@
                             "parameters": [
                                 "",
                                 0,
-                                0,
+                                1,
                                 1,
                                 ""
                             ]
@@ -2465,7 +2406,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\tl{maps.Map010.new_message_received_21bc4c7167}"
+                                "<Hide Buttons>\\tl{maps.Map010.new_message_received_21bc4c7167}"
                             ]
                         },
                         {
@@ -2477,7 +2418,7 @@
                                 "BASIC: Enter Bust",
                                 {
                                     "PictureID:eval": "1",
-                                    "PictureName:str": "Jonny_1",
+                                    "PictureName:str": "Jonny_5",
                                     "Origin:str": "Bust",
                                     "Position:num": "1",
                                     "StartOffsetX:eval": "-200",
@@ -2770,7 +2711,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_2"
+                                    "PictureName:str": "Jogador_9"
                                 }
                             ]
                         },
@@ -2983,7 +2924,7 @@
                                 "BASIC: Graphic Change",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_1"
+                                    "PictureName:str": "Jogador_4"
                                 }
                             ]
                         },

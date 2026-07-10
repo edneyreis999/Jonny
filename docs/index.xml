@@ -4,7 +4,7 @@
     <scope>project-docs</scope>
     <summary>Catalogo navegavel da documentacao duradoura do projeto Jhonny e dos artefatos Loki init materializados. Para regras atuais da corrida, preferir os documentos high-priority de Core Loop e Runtime; inventarios loki-init sao snapshots de descoberta.</summary>
     <owner>catalogador</owner>
-    <updated_at>2026-07-07</updated_at>
+    <updated_at>2026-07-10</updated_at>
   </metadata>
   <documents>
     <document id="corrida-core-loop" path="docs/02-Core-Loop/Corrida - Core Loop.md" type="game-design-and-runtime-spec" priority="high">
@@ -115,6 +115,33 @@
         <section anchor="contrato-do-tsv" tokens="450" purpose="Formato TSV esperado e restricoes de tab em celulas." />
         <section anchor="plano-para-migrar-de-csv-para-tsv" tokens="1000" purpose="Plano executavel para migrar a solucao atual para TSV." />
         <section anchor="gates-de-escrita" tokens="250" purpose="Gates para plugins.js, data JSON, tabela de idioma e Playtest." />
+      </sections>
+    </document>
+    <document id="rmmz-dialogos-choices-repetidos" path="docs/03-Tech/RPG Maker MZ - Dialogos e Choices Repetidos.md" type="project-runtime-editing-convention" priority="high">
+      <summary>Convencao duravel para editar dialogos e choices repetidos em RPG Maker MZ: enumerar cobertura por chave estavel, preservar \tl{} e tags Choice Common Event, e validar branches antes/depois do patch.</summary>
+      <use_when>Use antes de alterar mapas ou Common Events com dialogos, choices, bustos VN, Picture Choices, Choice Common Events, keys \tl{} ou branches repetidos.</use_when>
+      <not_covered>Nao substitui Playtest, LQA, route matrix completa, validacao visual automatizada ou documentacao universal do pacote Loki.</not_covered>
+      <keywords>
+        <keyword>dialogos repetidos</keyword>
+        <keyword>choices repetidas</keyword>
+        <keyword>RPG Maker MZ choices</keyword>
+        <keyword>Map013</keyword>
+        <keyword>Picture Choices</keyword>
+        <keyword>Choice Common Event</keyword>
+        <keyword>ChoiceCmnEvts</keyword>
+        <keyword>VNPictureBusts</keyword>
+        <keyword>PictureChoices</keyword>
+        <keyword>\tl</keyword>
+        <keyword>CE31</keyword>
+        <keyword>command117</keyword>
+        <keyword>code 402</keyword>
+        <keyword>coverage by key</keyword>
+      </keywords>
+      <sections>
+        <section anchor="quando-usar" tokens="180" purpose="Escopo da convencao para mapas ou eventos com dialogos e choices repetidos." />
+        <section anchor="convencao" tokens="260" purpose="Regra de enumerar todas as ocorrencias equivalentes e preservar \tl{} e Choice Common Event." />
+        <section anchor="checklist-antes-de-escrever" tokens="280" purpose="Preflight de parser, cobertura esperada, plugins envolvidos e Common Event salva." />
+        <section anchor="validacao-apos-patch" tokens="220" purpose="Checks de cobertura, code 402, command117, indent e contagens preservadas." />
       </sections>
     </document>
     <document id="loki-init-readme" path="docs/loki-init/README.md" type="workflow-summary" priority="high">

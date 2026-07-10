@@ -1450,7 +1450,7 @@
                                 "set",
                                 "Set Text Picture",
                                 {
-                                    "text": "<center>\n\n\n\n\n\n\\FS[70]\\C[17]VITÓRIA!\n\\FS[40]\\C[0]Glory Score: \\V[105]\n\n\n\n\n\n\n\n\\FS[25]\\C[0] Pressione [ESPAÇO] ou clique com o mouse </center>"
+                                    "text": "<center>\n\n\n\n\n\\FS[70]\\C[17]VITÓRIA!\n\n\n\n\n\n\\FS[25]\\C[0] Pressione [ESPAÇO] ou clique com o mouse </center>"
                                 }
                             ]
                         },
@@ -1458,7 +1458,7 @@
                             "code": 657,
                             "indent": 0,
                             "parameters": [
-                                "Text = <center>      \\FS[70]\\C[17]VITÓRIA! \\FS[40]\\C[0]Glor…"
+                                "Text = <center>     \\FS[70]\\C[17]VITÓRIA!      \\FS[25]\\C[0]…"
                             ]
                         },
                         {
@@ -1522,7 +1522,7 @@
                             "code": 242,
                             "indent": 0,
                             "parameters": [
-                                60
+                                1
                             ]
                         },
                         {

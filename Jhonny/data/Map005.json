@@ -1480,8 +1480,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -1552,7 +1552,7 @@
                                 "BASIC: Enter Bust",
                                 {
                                     "PictureID:eval": "2",
-                                    "PictureName:str": "Jogador_1",
+                                    "PictureName:str": "Jogador_7",
                                     "Origin:str": "Bust",
                                     "Position:num": "9",
                                     "StartOffsetX:eval": "-200",
@@ -1645,7 +1645,7 @@
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -1669,8 +1669,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -1700,7 +1700,7 @@
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -1724,8 +1724,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -1769,8 +1769,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -1814,8 +1814,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -1839,13 +1839,13 @@
                             "parameters": [
                                 [
                                     "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}<Choice Common Event: 28>",
-                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 28>",
                                     "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -1869,8 +1869,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -1898,7 +1898,7 @@
                             "indent": 2,
                             "parameters": [
                                 1,
-                                "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>"
+                                "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -1914,8 +1914,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -1959,8 +1959,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2024,8 +2024,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2055,7 +2055,7 @@
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -2079,8 +2079,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2124,8 +2124,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2169,7 +2169,7 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
+                                0,
                                 2,
                                 "Jonny"
                             ]
@@ -2194,13 +2194,13 @@
                             "parameters": [
                                 [
                                     "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}<Choice Common Event: 28>",
-                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 28>",
                                     "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -2224,8 +2224,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2253,7 +2253,7 @@
                             "indent": 2,
                             "parameters": [
                                 1,
-                                "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>"
+                                "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -2269,8 +2269,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2314,8 +2314,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2367,6 +2367,33 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 1,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "1",
+                                    "PictureName:str": "Jonny_6"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture ID = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture File = Jonny_6"
+                            ]
+                        },
+                        {
                             "code": 117,
                             "indent": 1,
                             "parameters": [
@@ -2379,7 +2406,7 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
+                                0,
                                 2,
                                 "Jonny"
                             ]
@@ -2411,13 +2438,13 @@
                             "parameters": [
                                 [
                                     "\\tl{maps.Map005.choice.that_s_why_i_never_show_up_to_first_peri_fff166a550}<Choice Common Event: 28>",
-                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 28>",
                                     "\\tl{maps.Map005.choice.you_seem_kinda_down_if_you_wanna_talk_i__4c059e2ab0}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -2441,8 +2468,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2470,7 +2497,7 @@
                             "indent": 1,
                             "parameters": [
                                 1,
-                                "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 29>"
+                                "\\tl{maps.Map005.choice.who_even_likes_waking_up_early_to_study__8ca47f65f2}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -2486,8 +2513,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2519,6 +2546,33 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 2,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador_4"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture File = Jogador_10"
+                            ]
+                        },
+                        {
                             "code": 117,
                             "indent": 2,
                             "parameters": [
@@ -2531,8 +2585,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2571,6 +2625,33 @@
                             "parameters": []
                         },
                         {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador_3"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jogador_1"
+                            ]
+                        },
+                        {
                             "code": 117,
                             "indent": 0,
                             "parameters": [
@@ -2583,8 +2664,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "\\N[1]"
                             ]
                         },
@@ -2658,6 +2739,33 @@
                     },
                     "list": [
                         {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "1",
+                                    "PictureName:str": "Jonny_6"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jonny_6"
+                            ]
+                        },
+                        {
                             "code": 117,
                             "indent": 0,
                             "parameters": [
@@ -2670,8 +2778,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2690,18 +2798,45 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 0,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador_7"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 0,
+                            "parameters": [
+                                "Picture File = Jogador_7"
+                            ]
+                        },
+                        {
                             "code": 102,
                             "indent": 0,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}<Choice Common Event: 29>",
                                     "\\tl{maps.Map005.choice.couples_fight_that_s_normal_5e3b723e03}<Choice Common Event: 29>",
                                     "\\tl{maps.Map005.choice.so_what_did_you_guys_fight_about_f675815263}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -2709,7 +2844,34 @@
                             "indent": 0,
                             "parameters": [
                                 0,
-                                "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}<Choice Common Event: 28>"
+                                "\\tl{maps.Map005.choice.then_just_break_up_already_stop_complain_00abc56f10}<Choice Common Event: 29>"
+                            ]
+                        },
+                        {
+                            "code": 357,
+                            "indent": 1,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "1",
+                                    "PictureName:str": "Jonny_9"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture ID = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture File = Jonny_9"
                             ]
                         },
                         {
@@ -2725,8 +2887,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2745,6 +2907,33 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 1,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador_2"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 1,
+                            "parameters": [
+                                "Picture File = Jogador_2"
+                            ]
+                        },
+                        {
                             "code": 102,
                             "indent": 1,
                             "parameters": [
@@ -2756,7 +2945,7 @@
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -2765,6 +2954,33 @@
                             "parameters": [
                                 0,
                                 "\\tl{maps.Map005.choice.a_girlfriend_and_the_whole_school_at_you_d042fdd88b}<Choice Common Event: 28>"
+                            ]
+                        },
+                        {
+                            "code": 357,
+                            "indent": 2,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "1",
+                                    "PictureName:str": "Jonny_2"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture ID = 1"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture File = Jonny_2"
                             ]
                         },
                         {
@@ -2780,8 +2996,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2806,6 +3022,33 @@
                             ]
                         },
                         {
+                            "code": 357,
+                            "indent": 2,
+                            "parameters": [
+                                "VisuMZ_2_VNPictureBusts",
+                                "Basic_GraphicChange",
+                                "BASIC: Graphic Change",
+                                {
+                                    "PictureID:eval": "2",
+                                    "PictureName:str": "Jogador_9"
+                                }
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture ID = 2"
+                            ]
+                        },
+                        {
+                            "code": 657,
+                            "indent": 2,
+                            "parameters": [
+                                "Picture File = Jogador_9"
+                            ]
+                        },
+                        {
                             "code": 117,
                             "indent": 2,
                             "parameters": [
@@ -2818,8 +3061,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2856,8 +3099,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2894,14 +3137,14 @@
                             "indent": 2,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 29>",
                                     "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}<Choice Common Event: 29>",
                                     "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -2909,7 +3152,7 @@
                             "indent": 2,
                             "parameters": [
                                 0,
-                                "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>"
+                                "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -2951,8 +3194,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -2983,8 +3226,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3048,8 +3291,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3072,7 +3315,7 @@
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -3096,8 +3339,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3134,8 +3377,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3172,8 +3415,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3210,14 +3453,14 @@
                             "indent": 2,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 29>",
                                     "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}<Choice Common Event: 29>",
                                     "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -3225,7 +3468,7 @@
                             "indent": 2,
                             "parameters": [
                                 0,
-                                "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>"
+                                "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -3267,8 +3510,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3299,8 +3542,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3357,8 +3600,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3388,14 +3631,14 @@
                             "indent": 1,
                             "parameters": [
                                 [
-                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>",
+                                    "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 29>",
                                     "\\tl{maps.Map005.choice.you_just_need_to_race_again_and_you_ll_b_6f32741316}<Choice Common Event: 29>",
                                     "\\tl{maps.Map005.choice.you_don_t_really_seem_okay_with_this_1e82f8af40}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -3403,7 +3646,7 @@
                             "indent": 1,
                             "parameters": [
                                 0,
-                                "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 28>"
+                                "\\tl{maps.Map005.choice.that_s_just_your_girlfriend_being_jealou_13cfcbbb7a}<Choice Common Event: 29>"
                             ]
                         },
                         {
@@ -3438,8 +3681,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3470,8 +3713,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3522,8 +3765,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3560,7 +3803,7 @@
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -3584,8 +3827,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3622,8 +3865,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3660,8 +3903,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3702,8 +3945,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "\\N[1]"
                             ]
                         },
@@ -3789,8 +4032,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3814,13 +4057,13 @@
                             "parameters": [
                                 [
                                     "\\tl{maps.Map005.choice.you_d_be_the_biggest_legend_in_town_609312188e}<Choice Common Event: 28>",
-                                    "\\tl{maps.Map005.choice.that_s_so_you_jonny_if_you_say_can_do_it_b6f8fde3cd}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.that_s_so_you_jonny_if_you_say_can_do_it_b6f8fde3cd}<Choice Common Event: 28>",
                                     "\\tl{maps.Map005.choice.the_last_guy_who_tried_died_you_re_not_s_a378f3056a}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -3844,8 +4087,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3869,13 +4112,13 @@
                             "parameters": [
                                 [
                                     "\\tl{maps.Map005.choice.my_friend_jonny_is_the_best_you_re_going_79fa1ed75f}<Choice Common Event: 28>",
-                                    "\\tl{maps.Map005.choice.that_s_just_like_you_jonny_the_only_poss_abd9f3b744}<Choice Common Event: 29>",
+                                    "\\tl{maps.Map005.choice.that_s_just_like_you_jonny_the_only_poss_abd9f3b744}<Choice Common Event: 28>",
                                     "\\tl{maps.Map005.choice.but_the_last_guy_who_tried_that_turn_die_b3c153ee01}<Choice Common Event: 30>"
                                 ],
                                 -1,
                                 0,
                                 1,
-                                1
+                                0
                             ]
                         },
                         {
@@ -3899,8 +4142,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3931,8 +4174,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "\\N[1]"
                             ]
                         },
@@ -3963,8 +4206,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -3992,7 +4235,7 @@
                             "indent": 1,
                             "parameters": [
                                 1,
-                                "\\tl{maps.Map005.choice.that_s_just_like_you_jonny_the_only_poss_abd9f3b744}<Choice Common Event: 29>"
+                                "\\tl{maps.Map005.choice.that_s_just_like_you_jonny_the_only_poss_abd9f3b744}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -4008,8 +4251,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -4040,8 +4283,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "\\N[1]"
                             ]
                         },
@@ -4072,8 +4315,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -4117,8 +4360,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -4156,8 +4399,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "\\N[1]"
                             ]
                         },
@@ -4181,8 +4424,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -4213,8 +4456,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "\\N[1]"
                             ]
                         },
@@ -4245,8 +4488,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -4270,8 +4513,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "\\N[1]"
                             ]
                         },
@@ -4302,7 +4545,7 @@
                             "indent": 0,
                             "parameters": [
                                 1,
-                                "\\tl{maps.Map005.choice.that_s_so_you_jonny_if_you_say_can_do_it_b6f8fde3cd}<Choice Common Event: 29>"
+                                "\\tl{maps.Map005.choice.that_s_so_you_jonny_if_you_say_can_do_it_b6f8fde3cd}<Choice Common Event: 28>"
                             ]
                         },
                         {
@@ -4318,8 +4561,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -4356,8 +4599,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -4395,8 +4638,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "\\N[1]"
                             ]
                         },
@@ -4427,8 +4670,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -4459,8 +4702,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "\\N[1]"
                             ]
                         },
@@ -4491,8 +4734,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "Jonny"
                             ]
                         },
@@ -4516,8 +4759,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                1,
-                                1,
+                                0,
+                                2,
                                 "\\N[1]"
                             ]
                         },
