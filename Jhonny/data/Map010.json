@@ -2397,8 +2397,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                0,
-                                2,
+                                1,
+                                1,
                                 ""
                             ]
                         },
@@ -2406,7 +2406,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\tl{maps.Map010.new_message_received_21bc4c7167}"
+                                "<Hide Buttons>\\tl{maps.Map010.new_message_received_21bc4c7167}"
                             ]
                         },
                         {

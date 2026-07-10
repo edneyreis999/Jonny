@@ -2489,8 +2489,8 @@
                             "parameters": [
                                 "",
                                 0,
-                                0,
                                 2,
+                                1,
                                 ""
                             ]
                         },
@@ -2498,7 +2498,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\tl{maps.Map011.content_warning_this_game_contains_theme_b17eb7c4ab}"
+                                "<Hide Buttons>\\tl{maps.Map011.content_warning_this_game_contains_theme_b17eb7c4ab}"
                             ]
                         },
                         {
