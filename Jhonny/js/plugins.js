@@ -23,6 +23,18 @@ var $plugins =
         }
     },
     {
+        "name": "Jhonny_CreditsSkip",
+        "status": true,
+        "description": "Permite pular o Scroll Text dos creditos em mapas configurados.",
+        "parameters": {
+            "Credits Map IDs": "9,14",
+            "Allow OK": "true",
+            "Allow Cancel": "true",
+            "Allow Shift": "true",
+            "Allow Touch": "true"
+        }
+    },
+    {
         "name": "VisuMZ_0_CoreEngine",
         "status": true,
         "description": "[RPG Maker MZ] [Tier 0] [Version 1.90] [CoreEngine]",
