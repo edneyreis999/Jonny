@@ -4,7 +4,7 @@
     <scope>project-docs</scope>
     <summary>Catalogo navegavel da documentacao duradoura do projeto Jhonny e dos artefatos Loki init materializados. Para regras atuais da corrida, preferir os documentos high-priority de Core Loop e Runtime; inventarios loki-init sao snapshots de descoberta.</summary>
     <owner>catalogador</owner>
-    <updated_at>2026-07-10</updated_at>
+    <updated_at>2026-07-14</updated_at>
   </metadata>
   <documents>
     <document id="corrida-core-loop" path="docs/02-Core-Loop/Corrida - Core Loop.md" type="game-design-and-runtime-spec" priority="high">
@@ -96,8 +96,8 @@
       </sections>
     </document>
     <document id="rmmz-visustella-message-core-localization" path="docs/03-Tech/RPG Maker MZ - VisuStella Message Core Localization.md" type="plugin-localization-reference" priority="high">
-      <summary>Referencia duradoura para configurar e usar VisuStella Message Core Text Language Switching em RPG Maker MZ, incluindo plano CSV para TSV.</summary>
-      <use_when>Use antes de editar Message Core, Languages.csv, Languages.tsv, chaves \tl{}, opcoes de idioma, word wrap, text codes ou localizacao PT/EN.</use_when>
+      <summary>Referencia duradoura para configurar e usar VisuStella Message Core Text Language Switching em RPG Maker MZ, incluindo plano CSV para TSV, tags de controle em \tl{}, Word Wrap, Choice Window e quebras pontuais em Show Text.</summary>
+      <use_when>Use antes de editar Message Core, Languages.csv, Languages.tsv, chaves \tl{}, tags de controle localizadas, opcoes de idioma, word wrap, Choice Window, Show Text, text codes ou localizacao PT/EN.</use_when>
       <not_covered>Traducao final aprovada, LQA, Playtest, runtime behavior validado ou referencia completa de todos os plugin commands.</not_covered>
       <keywords>
         <keyword>VisuMZ_1_MessageCore</keyword>
@@ -105,6 +105,10 @@
         <keyword>Languages.csv</keyword>
         <keyword>Languages.tsv</keyword>
         <keyword>\tl</keyword>
+        <keyword>Hide Buttons</keyword>
+        <keyword>Word Wrap</keyword>
+        <keyword>Choice Window</keyword>
+        <keyword>Show Text</keyword>
         <keyword>Portuguese</keyword>
         <keyword>English</keyword>
       </keywords>
@@ -113,6 +117,8 @@
         <section anchor="configuracao-minima" tokens="500" purpose="Parametros necessarios para habilitar localizacao." />
         <section anchor="contrato-do-csv" tokens="450" purpose="Formato CSV atual com separador semicolon." />
         <section anchor="contrato-do-tsv" tokens="450" purpose="Formato TSV esperado e restricoes de tab em celulas." />
+        <section anchor="tags-de-controle-em-comandos-localizados" tokens="350" purpose="Convencao para manter tags como Hide Buttons no comando de mapa quando prefixam \tl{} e evitar duplicacao na tabela localizada." />
+        <section anchor="word-wrap-e-compatibilidade" tokens="500" purpose="Compatibilidade de Word Wrap, Choice Window, alinhamentos e quebra manual em Show Text com evidencia visual." />
         <section anchor="plano-para-migrar-de-csv-para-tsv" tokens="1000" purpose="Plano executavel para migrar a solucao atual para TSV." />
         <section anchor="gates-de-escrita" tokens="250" purpose="Gates para plugins.js, data JSON, tabela de idioma e Playtest." />
       </sections>

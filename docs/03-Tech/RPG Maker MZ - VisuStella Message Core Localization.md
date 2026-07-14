@@ -26,6 +26,8 @@ Use este documento antes de:
 - alterar `Jhonny/js/plugins.js` para parametros do Message Core;
 - converter `Jhonny/data/Languages.csv` para TSV;
 - criar ou revisar `\tl{...}` em `Jhonny/data/*.json`;
+- revisar tags de controle combinadas com `\tl{...}`;
+- tratar overflow em `Show Text`, Choice Window ou textos localizados;
 - revisar idioma no menu Options;
 - validar carregamento da tabela de idiomas;
 - decidir se texto deve entrar em chave de localizacao ou continuar hardcoded.
@@ -149,6 +151,18 @@ Nao converter sem evidencia:
 - formulas, scripts, note tags e parametros tecnicos;
 - superfícies que nao processam text codes em runtime.
 
+## Tags De Controle Em Comandos Localizados
+
+Quando um comando de mapa ja prefixa `\tl{...}` com uma tag VisuStella de
+controle, mantenha a tag no comando de mapa e nao duplique a mesma tag na
+celula localizada.
+
+Caso validado no projeto: `<Hide Buttons>\tl{...}` deve ficar em `Map*.json`.
+A celula correspondente em `Languages.tsv` deve conter apenas o conteudo
+localizado e outros text codes necessarios ao texto. Duplicar `<Hide Buttons>`
+no comando e na traducao pode expor a tag como literal visivel ou tornar o
+comportamento dependente da superficie de render.
+
 ## Word Wrap E Compatibilidade
 
 Notas promovidas da referencia local:
@@ -161,9 +175,16 @@ Notas promovidas da referencia local:
 - `VisuMZ_1_SkillsStatesCore` e necessario para o plugin command `Select:
   Skill`.
 - Word Wrap nao funciona na Choice Window.
+- Nao trate Choice Window como superficie corrigida por Word Wrap; choices
+  longas exigem revisao propria de texto, janela ou layout.
 - Word Wrap nao deve ser combinado com text alignment codes como `<left>`,
   `<center>` e `<right>`.
 - Auto-Size e Position text codes nao funcionam com Word Wrap habilitado.
+- Para overflow pontual em `Show Text` localizado, prefira quebra manual em
+  keys especificas com evidencia visual e Playtest. Nao habilite Word Wrap
+  global como primeira resposta.
+- Ao usar `<br>` em `Languages.tsv`, valide shape da tabela, unicidade de keys,
+  cobertura de `\tl{...}` e comprimento dos segmentos apos quebra.
 - Imagens localizadas com marker `[XX]` exigem imagem ancora no RPG Maker
   client.
 - Fontes por idioma precisam estar registradas no Custom Font Manager.
