@@ -1380,6 +1380,11 @@
                     },
                     "list": [
                         {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
                             "code": 357,
                             "indent": 0,
                             "parameters": [
@@ -1388,7 +1393,7 @@
                                 "BASIC: Enter Bust",
                                 {
                                     "PictureID:eval": "1",
-                                    "PictureName:str": "Jonny_1",
+                                    "PictureName:str": "Jonny_9",
                                     "Origin:str": "Bust",
                                     "Position:num": "1",
                                     "StartOffsetX:eval": "-200",
@@ -1410,7 +1415,7 @@
                             "code": 657,
                             "indent": 0,
                             "parameters": [
-                                "Picture File = Jonny_1"
+                                "Picture File = Jonny_9"
                             ]
                         },
                         {
@@ -2108,9 +2113,9 @@
                             "indent": 0,
                             "parameters": [
                                 0,
-                                7,
-                                2,
+                                26,
                                 1,
+                                2,
                                 0,
                                 0
                             ]
