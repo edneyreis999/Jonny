@@ -341,9 +341,9 @@
             "volume": 90
         }
     ],
-    "startMapId": 11,
-    "startX": 3,
-    "startY": 6,
+    "startMapId": 10,
+    "startX": 2,
+    "startY": 7,
     "switches": [
         "",
         "",
@@ -746,7 +746,7 @@
         "VAR_TIMER_SECONDS",
         "VAR_SCENE_DISPLAY"
     ],
-    "versionId": 91087282,
+    "versionId": 83488624,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,

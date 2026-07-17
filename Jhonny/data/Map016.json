@@ -2484,17 +2484,15 @@
                     },
                     "list": [
                         {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
                             "code": 242,
                             "indent": 0,
                             "parameters": [
                                 1
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
                             ]
                         },
                         {
@@ -2512,7 +2510,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\tl{maps.Map016.i_won_but_it_doesn_t_change_a_thing_622082494c}"
+                                "<Hide Buttons>\\tl{maps.Map016.i_won_but_it_doesn_t_change_a_thing_622082494c}"
                             ]
                         },
                         {
@@ -2523,10 +2521,24 @@
                             ]
                         },
                         {
-                            "code": 230,
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 231,
                             "indent": 0,
                             "parameters": [
-                                30
+                                1,
+                                "transitions/curvaDiabo1",
+                                0,
+                                0,
+                                -50,
+                                -50,
+                                100,
+                                100,
+                                255,
+                                0
                             ]
                         },
                         {
@@ -2546,6 +2558,42 @@
                             "indent": 0,
                             "parameters": [
                                 120
+                            ]
+                        },
+                        {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 231,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "transitions/curvaDiabo2",
+                                0,
+                                0,
+                                -50,
+                                -50,
+                                100,
+                                100,
+                                255,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 225,
+                            "indent": 0,
+                            "parameters": [
+                                9,
+                                3,
+                                60,
+                                false
                             ]
                         },
                         {
@@ -2585,26 +2633,182 @@
                             ]
                         },
                         {
-                            "code": 225,
+                            "code": 230,
                             "indent": 0,
                             "parameters": [
-                                9,
-                                3,
-                                120,
-                                true
+                                120
+                            ]
+                        },
+                        {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 231,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "transitions/curvaDiabo3",
+                                0,
+                                0,
+                                -50,
+                                -50,
+                                100,
+                                100,
+                                255,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 230,
+                            "indent": 0,
+                            "parameters": [
+                                300
+                            ]
+                        },
+                        {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 231,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "transitions/jonnyDeath1",
+                                0,
+                                0,
+                                -50,
+                                -50,
+                                100,
+                                100,
+                                255,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 250,
+                            "indent": 0,
+                            "parameters": [
+                                {
+                                    "name": "hospital",
+                                    "volume": 90,
+                                    "pitch": 100,
+                                    "pan": 0
+                                }
                             ]
                         },
                         {
                             "code": 230,
                             "indent": 0,
                             "parameters": [
-                                420
+                                120
+                            ]
+                        },
+                        {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 231,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "transitions/jonnyDeath2",
+                                0,
+                                0,
+                                -50,
+                                -50,
+                                100,
+                                100,
+                                255,
+                                0
                             ]
                         },
                         {
                             "code": 251,
                             "indent": 0,
                             "parameters": []
+                        },
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 241,
+                            "indent": 0,
+                            "parameters": [
+                                {
+                                    "name": "Fading-Light",
+                                    "volume": 90,
+                                    "pitch": 100,
+                                    "pan": 0
+                                }
+                            ]
+                        },
+                        {
+                            "code": 245,
+                            "indent": 0,
+                            "parameters": [
+                                {
+                                    "name": "",
+                                    "volume": 90,
+                                    "pitch": 100,
+                                    "pan": 0
+                                }
+                            ]
+                        },
+                        {
+                            "code": 245,
+                            "indent": 0,
+                            "parameters": [
+                                {
+                                    "name": "Wind1",
+                                    "volume": 40,
+                                    "pitch": 100,
+                                    "pan": 0
+                                }
+                            ]
+                        },
+                        {
+                            "code": 230,
+                            "indent": 0,
+                            "parameters": [
+                                120
+                            ]
+                        },
+                        {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 246,
+                            "indent": 0,
+                            "parameters": [
+                                2
+                            ]
+                        },
+                        {
+                            "code": 235,
+                            "indent": 0,
+                            "parameters": [
+                                1
+                            ]
                         },
                         {
                             "code": 201,

@@ -1374,32 +1374,6 @@
                             "parameters": []
                         },
                         {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 250,
-                            "indent": 0,
-                            "parameters": [
-                                {
-                                    "name": "Acelerate",
-                                    "volume": 90,
-                                    "pitch": 150,
-                                    "pan": 100
-                                }
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                180
-                            ]
-                        },
-                        {
                             "code": 117,
                             "indent": 0,
                             "parameters": [
@@ -1463,6 +1437,11 @@
                 {
                     "list": [
                         {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
                             "code": 117,
                             "indent": 0,
                             "parameters": [
@@ -1525,6 +1504,11 @@
                 },
                 {
                     "list": [
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
                         {
                             "code": 117,
                             "indent": 0,

@@ -46035,8 +46035,7 @@
                             "parameters": [
                                 2,
                                 "\\tl{maps.Map013.choice.what_happened_jonny_0fe0816349}<Choice Common Event: 30>"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -52941,8 +52940,7 @@
                             "parameters": [
                                 2,
                                 "You really liked her, didn’t you?"
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -58932,8 +58930,7 @@
                             "parameters": [
                                 2,
                                 "Let’s talk, Jonny. I don’t think it’s a good idea for you to race while you’re hot-headed."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -60780,8 +60777,7 @@
                             "parameters": [
                                 2,
                                 "Stop trying to change the subject."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 117,
@@ -60927,8 +60923,7 @@
                             "parameters": [
                                 1,
                                 "Slash the Opala's tire and stop Jonny from racing."
-                            ],
-                            "collapsed": true
+                            ]
                         },
                         {
                             "code": 201,
