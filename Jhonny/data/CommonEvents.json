@@ -513,6 +513,131 @@
                 ]
             },
             {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/freiar",
+                    0,
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/curvaSegura",
+                    0,
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/atalho",
+                    0,
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 231,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    "race/acelerar",
+                    0,
+                    0,
+                    0,
+                    0,
+                    100,
+                    100,
+                    255,
+                    0
+                ]
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 235,
+                "indent": 0,
+                "parameters": [
+                    1
+                ]
+            },
+            {
+                "code": 222,
+                "indent": 0,
+                "parameters": []
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
@@ -2305,8 +2430,19 @@
                 ]
             },
             {
-                "code": 357,
+                "code": 111,
                 "indent": 0,
+                "parameters": [
+                    1,
+                    102,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 1,
                 "parameters": [
                     "VisuMZ_3_VisualCutinEffect",
                     "CutinStart_VisualCutinEffect",
@@ -2317,89 +2453,146 @@
                         "portraitFilename:str": "race/freiar",
                         "parallaxFilename:str": "",
                         "bgColor:str": "#888888",
-                        "ExtraSettings:struct": "{\"Transition\":\"\",\"enterDuration:num\":\"5\",\"exitDuration:num\":\"5\",\"Cutin\":\"\",\"bgShow:eval\":\"false\",\"outlineShow:eval\":\"false\",\"Portrait\":\"\",\"PortraitBase\":\"\",\"portraitAnchorX:num\":\"0.5\",\"portraitAnchorY:num\":\"0.5\",\"portraitHue:num\":\"0\",\"portraitOpacity:num\":\"255\",\"portraitOffsetX:num\":\"+0\",\"portraitOffsetY:num\":\"+0\",\"PortraitEnter\":\"\",\"portraitEnterX:num\":\"1280\",\"portraitEnterY:num\":\"+0\",\"portraitEnterEasingType:str\":\"InOutSine\",\"PortraitExit\":\"\",\"portraitExitX:num\":\"-1280\",\"portraitExitY:num\":\"+0\",\"portraitExitEasingType:str\":\"InOutSine\",\"PortraitFlip\":\"\",\"portraitFlipHorz:eval\":\"false\",\"portraitFlipVert:eval\":\"false\",\"PortraitScale\":\"\",\"portraitForcedScale:num\":\"0.0\",\"portraitScaleToFit:eval\":\"true\",\"portraitScaleMax:eval\":\"false\",\"PortraitAni\":\"\",\"animatedPortraitLooping:eval\":\"true\",\"animatedPortraitWaitFrames:num\":\"4\",\"Parallax\":\"\",\"ParallaxBase\":\"\",\"parallaxBlendMode:num\":\"0\",\"parallaxHue:num\":\"0\",\"parallaxOpacity:num\":\"255\",\"ParallaxScroll\":\"\",\"parallaxOffsetX:num\":\"+0.0\",\"parallaxOffsetY:num\":\"+0.0\",\"parallaxScrollX:num\":\"+0.0\",\"parallaxScrollY:num\":\"+0.0\"}",
+                        "ExtraSettings:struct": "{\"Transition\":\"\",\"enterDuration:num\":\"5\",\"exitDuration:num\":\"5\",\"Cutin\":\"\",\"bgShow:eval\":\"false\",\"outlineShow:eval\":\"false\",\"Portrait\":\"\",\"PortraitBase\":\"\",\"portraitAnchorX:num\":\"0.5\",\"portraitAnchorY:num\":\"0.5\",\"portraitHue:num\":\"0\",\"portraitOpacity:num\":\"255\",\"portraitOffsetX:num\":\"+0\",\"portraitOffsetY:num\":\"+0\",\"PortraitEnter\":\"\",\"portraitEnterX:num\":\"1280\",\"portraitEnterY:num\":\"+0\",\"portraitEnterEasingType:str\":\"InOutSine\",\"PortraitExit\":\"\",\"portraitExitX:num\":\"-1280\",\"portraitExitY:num\":\"+0\",\"portraitExitEasingType:str\":\"InOutSine\",\"PortraitFlip\":\"\",\"portraitFlipHorz:eval\":\"false\",\"portraitFlipVert:eval\":\"false\",\"PortraitScale\":\"\",\"portraitForcedScale:num\":\"0.0\",\"portraitScaleToFit:eval\":\"true\",\"portraitScaleMax:eval\":\"false\",\"PortraitAni\":\"\",\"animatedPortraitLooping:eval\":\"false\",\"animatedPortraitWaitFrames:num\":\"60\",\"Parallax\":\"\",\"ParallaxBase\":\"\",\"parallaxBlendMode:num\":\"0\",\"parallaxHue:num\":\"0\",\"parallaxOpacity:num\":\"255\",\"ParallaxScroll\":\"\",\"parallaxOffsetX:num\":\"+0.0\",\"parallaxOffsetY:num\":\"+0.0\",\"parallaxScrollX:num\":\"+0.0\",\"parallaxScrollY:num\":\"+0.0\"}",
                         "WaitForEntrance:eval": "false"
                     }
                 ]
             },
             {
                 "code": 657,
-                "indent": 0,
+                "indent": 1,
                 "parameters": [
                     "Basic Settings = "
                 ]
             },
             {
                 "code": 657,
-                "indent": 0,
+                "indent": 1,
                 "parameters": [
                     "Cutin Style Type = CenterHorzSpan"
                 ]
             },
             {
                 "code": 657,
-                "indent": 0,
+                "indent": 1,
                 "parameters": [
                     "Portrait Filename = race/freiar"
                 ]
             },
             {
                 "code": 657,
-                "indent": 0,
+                "indent": 1,
                 "parameters": [
                     "Parallax Filename = "
                 ]
             },
             {
                 "code": 657,
-                "indent": 0,
+                "indent": 1,
                 "parameters": [
                     "Background Color = #888888"
                 ]
             },
             {
                 "code": 657,
-                "indent": 0,
+                "indent": 1,
                 "parameters": [
                     "Extra Settings = {\"Transition\":\"\",\"enterDuration:num\":\"5\",\"…"
                 ]
             },
             {
                 "code": 657,
-                "indent": 0,
+                "indent": 1,
                 "parameters": [
                     "Wait For Entrance = false"
                 ]
             },
             {
-                "code": 234,
+                "code": 0,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 411,
                 "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 357,
+                "indent": 1,
                 "parameters": [
-                    1,
-                    [
-                        -68,
-                        -68,
-                        -68,
-                        0
-                    ],
-                    5,
-                    false
+                    "VisuMZ_3_VisualCutinEffect",
+                    "CutinStart_VisualCutinEffect",
+                    "Cutin Add: Add Visual Cutin Effect",
+                    {
+                        "Basic": "",
+                        "type:str": "CenterHorzSpan",
+                        "portraitFilename:str": "race/curvaSegura",
+                        "parallaxFilename:str": "",
+                        "bgColor:str": "#888888",
+                        "ExtraSettings:struct": "{\"Transition\":\"\",\"enterDuration:num\":\"5\",\"exitDuration:num\":\"5\",\"Cutin\":\"\",\"bgShow:eval\":\"false\",\"outlineShow:eval\":\"false\",\"Portrait\":\"\",\"PortraitBase\":\"\",\"portraitAnchorX:num\":\"0.5\",\"portraitAnchorY:num\":\"0.5\",\"portraitHue:num\":\"0\",\"portraitOpacity:num\":\"255\",\"portraitOffsetX:num\":\"+0\",\"portraitOffsetY:num\":\"+0\",\"PortraitEnter\":\"\",\"portraitEnterX:num\":\"1280\",\"portraitEnterY:num\":\"+0\",\"portraitEnterEasingType:str\":\"InOutSine\",\"PortraitExit\":\"\",\"portraitExitX:num\":\"-1280\",\"portraitExitY:num\":\"+0\",\"portraitExitEasingType:str\":\"InOutSine\",\"PortraitFlip\":\"\",\"portraitFlipHorz:eval\":\"false\",\"portraitFlipVert:eval\":\"false\",\"PortraitScale\":\"\",\"portraitForcedScale:num\":\"0.0\",\"portraitScaleToFit:eval\":\"true\",\"portraitScaleMax:eval\":\"false\",\"PortraitAni\":\"\",\"animatedPortraitLooping:eval\":\"false\",\"animatedPortraitWaitFrames:num\":\"4\",\"Parallax\":\"\",\"ParallaxBase\":\"\",\"parallaxBlendMode:num\":\"0\",\"parallaxHue:num\":\"0\",\"parallaxOpacity:num\":\"255\",\"ParallaxScroll\":\"\",\"parallaxOffsetX:num\":\"+0.0\",\"parallaxOffsetY:num\":\"+0.0\",\"parallaxScrollX:num\":\"+0.0\",\"parallaxScrollY:num\":\"+0.0\"}",
+                        "WaitForEntrance:eval": "false"
+                    }
                 ]
             },
             {
-                "code": 234,
-                "indent": 0,
+                "code": 657,
+                "indent": 1,
                 "parameters": [
-                    10,
-                    [
-                        -68,
-                        -68,
-                        -68,
-                        0
-                    ],
-                    5,
-                    false
+                    "Basic Settings = "
                 ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Cutin Style Type = CenterHorzSpan"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Portrait Filename = race/curvaSegura"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Parallax Filename = "
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Background Color = #888888"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Extra Settings = {\"Transition\":\"\",\"enterDuration:num\":\"5\",\"…"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Wait For Entrance = false"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 1,
+                "parameters": []
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
             },
             {
                 "code": 230,
@@ -2453,6 +2646,15 @@
                 "code": 412,
                 "indent": 0,
                 "parameters": []
+            },
+            {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    1
+                ]
             },
             {
                 "code": 0,
@@ -2533,6 +2735,211 @@
                     101,
                     101,
                     0
+                ]
+            },
+            {
+                "code": 111,
+                "indent": 0,
+                "parameters": [
+                    1,
+                    102,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "code": 250,
+                "indent": 1,
+                "parameters": [
+                    {
+                        "name": "Acelerate2",
+                        "volume": 75,
+                        "pitch": 120,
+                        "pan": 0
+                    }
+                ]
+            },
+            {
+                "code": 250,
+                "indent": 1,
+                "parameters": [
+                    {
+                        "name": "woosh",
+                        "volume": 90,
+                        "pitch": 120,
+                        "pan": 0
+                    }
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 1,
+                "parameters": [
+                    "VisuMZ_3_VisualCutinEffect",
+                    "CutinStart_VisualCutinEffect",
+                    "Cutin Add: Add Visual Cutin Effect",
+                    {
+                        "Basic": "",
+                        "type:str": "CenterHorzSpan",
+                        "portraitFilename:str": "race/acelerar",
+                        "parallaxFilename:str": "",
+                        "bgColor:str": "#888888",
+                        "ExtraSettings:struct": "{\"Transition\":\"\",\"enterDuration:num\":\"5\",\"exitDuration:num\":\"5\",\"Cutin\":\"\",\"bgShow:eval\":\"false\",\"outlineShow:eval\":\"false\",\"Portrait\":\"\",\"PortraitBase\":\"\",\"portraitAnchorX:num\":\"0.5\",\"portraitAnchorY:num\":\"0.5\",\"portraitHue:num\":\"0\",\"portraitOpacity:num\":\"255\",\"portraitOffsetX:num\":\"+0\",\"portraitOffsetY:num\":\"+0\",\"PortraitEnter\":\"\",\"portraitEnterX:num\":\"1280\",\"portraitEnterY:num\":\"+0\",\"portraitEnterEasingType:str\":\"InOutSine\",\"PortraitExit\":\"\",\"portraitExitX:num\":\"-1280\",\"portraitExitY:num\":\"+0\",\"portraitExitEasingType:str\":\"InOutSine\",\"PortraitFlip\":\"\",\"portraitFlipHorz:eval\":\"false\",\"portraitFlipVert:eval\":\"false\",\"PortraitScale\":\"\",\"portraitForcedScale:num\":\"0.0\",\"portraitScaleToFit:eval\":\"true\",\"portraitScaleMax:eval\":\"false\",\"PortraitAni\":\"\",\"animatedPortraitLooping:eval\":\"true\",\"animatedPortraitWaitFrames:num\":\"4\",\"Parallax\":\"\",\"ParallaxBase\":\"\",\"parallaxBlendMode:num\":\"0\",\"parallaxHue:num\":\"0\",\"parallaxOpacity:num\":\"255\",\"ParallaxScroll\":\"\",\"parallaxOffsetX:num\":\"+0.0\",\"parallaxOffsetY:num\":\"+0.0\",\"parallaxScrollX:num\":\"+0.0\",\"parallaxScrollY:num\":\"+0.0\"}",
+                        "WaitForEntrance:eval": "false"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Basic Settings = "
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Cutin Style Type = CenterHorzSpan"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Portrait Filename = race/acelerar"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Parallax Filename = "
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Background Color = #888888"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Extra Settings = {\"Transition\":\"\",\"enterDuration:num\":\"5\",\"…"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Wait For Entrance = false"
+                ]
+            },
+            {
+                "code": 411,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 357,
+                "indent": 1,
+                "parameters": [
+                    "VisuMZ_3_VisualCutinEffect",
+                    "CutinStart_VisualCutinEffect",
+                    "Cutin Add: Add Visual Cutin Effect",
+                    {
+                        "Basic": "",
+                        "type:str": "CenterHorzSpan",
+                        "portraitFilename:str": "race/atalho",
+                        "parallaxFilename:str": "",
+                        "bgColor:str": "#888888",
+                        "ExtraSettings:struct": "{\"Transition\":\"\",\"enterDuration:num\":\"5\",\"exitDuration:num\":\"5\",\"Cutin\":\"\",\"bgShow:eval\":\"false\",\"outlineShow:eval\":\"false\",\"Portrait\":\"\",\"PortraitBase\":\"\",\"portraitAnchorX:num\":\"0.5\",\"portraitAnchorY:num\":\"0.5\",\"portraitHue:num\":\"0\",\"portraitOpacity:num\":\"255\",\"portraitOffsetX:num\":\"+0\",\"portraitOffsetY:num\":\"+0\",\"PortraitEnter\":\"\",\"portraitEnterX:num\":\"1280\",\"portraitEnterY:num\":\"+0\",\"portraitEnterEasingType:str\":\"InOutSine\",\"PortraitExit\":\"\",\"portraitExitX:num\":\"-1280\",\"portraitExitY:num\":\"+0\",\"portraitExitEasingType:str\":\"InOutSine\",\"PortraitFlip\":\"\",\"portraitFlipHorz:eval\":\"false\",\"portraitFlipVert:eval\":\"false\",\"PortraitScale\":\"\",\"portraitForcedScale:num\":\"0.0\",\"portraitScaleToFit:eval\":\"true\",\"portraitScaleMax:eval\":\"false\",\"PortraitAni\":\"\",\"animatedPortraitLooping:eval\":\"true\",\"animatedPortraitWaitFrames:num\":\"4\",\"Parallax\":\"\",\"ParallaxBase\":\"\",\"parallaxBlendMode:num\":\"0\",\"parallaxHue:num\":\"0\",\"parallaxOpacity:num\":\"255\",\"ParallaxScroll\":\"\",\"parallaxOffsetX:num\":\"+0.0\",\"parallaxOffsetY:num\":\"+0.0\",\"parallaxScrollX:num\":\"+0.0\",\"parallaxScrollY:num\":\"+0.0\"}",
+                        "WaitForEntrance:eval": "false"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Basic Settings = "
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Cutin Style Type = CenterHorzSpan"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Portrait Filename = race/atalho"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Parallax Filename = "
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Background Color = #888888"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Extra Settings = {\"Transition\":\"\",\"enterDuration:num\":\"5\",\"…"
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 1,
+                "parameters": [
+                    "Wait For Entrance = false"
+                ]
+            },
+            {
+                "code": 412,
+                "indent": 0,
+                "parameters": []
+            },
+            {
+                "code": 230,
+                "indent": 0,
+                "parameters": [
+                    60
+                ]
+            },
+            {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_3_VisualCutinEffect",
+                    "CutinEnd_VisualCutinEffectAll",
+                    "Cutin End: End Visual Cutin Effect (All)",
+                    {
+                        "WaitForExit:eval": "true"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Wait For Exit = true"
                 ]
             },
             {
@@ -2657,99 +3064,6 @@
                 ]
             },
             {
-                "code": 357,
-                "indent": 1,
-                "parameters": [
-                    "VisuMZ_3_VisualCutinEffect",
-                    "CutinStart_VisualCutinEffect",
-                    "Cutin Add: Add Visual Cutin Effect",
-                    {
-                        "Basic": "",
-                        "type:str": "CenterHorzSpan",
-                        "portraitFilename:str": "race/acelerar",
-                        "parallaxFilename:str": "",
-                        "bgColor:str": "#888888",
-                        "ExtraSettings:struct": "{\"Transition\":\"\",\"enterDuration:num\":\"5\",\"exitDuration:num\":\"5\",\"Cutin\":\"\",\"bgShow:eval\":\"false\",\"outlineShow:eval\":\"false\",\"Portrait\":\"\",\"PortraitBase\":\"\",\"portraitAnchorX:num\":\"0.5\",\"portraitAnchorY:num\":\"0.5\",\"portraitHue:num\":\"0\",\"portraitOpacity:num\":\"255\",\"portraitOffsetX:num\":\"+0\",\"portraitOffsetY:num\":\"+0\",\"PortraitEnter\":\"\",\"portraitEnterX:num\":\"1280\",\"portraitEnterY:num\":\"+0\",\"portraitEnterEasingType:str\":\"InOutSine\",\"PortraitExit\":\"\",\"portraitExitX:num\":\"-1280\",\"portraitExitY:num\":\"+0\",\"portraitExitEasingType:str\":\"InOutSine\",\"PortraitFlip\":\"\",\"portraitFlipHorz:eval\":\"false\",\"portraitFlipVert:eval\":\"false\",\"PortraitScale\":\"\",\"portraitForcedScale:num\":\"0.0\",\"portraitScaleToFit:eval\":\"true\",\"portraitScaleMax:eval\":\"false\",\"PortraitAni\":\"\",\"animatedPortraitLooping:eval\":\"true\",\"animatedPortraitWaitFrames:num\":\"4\",\"Parallax\":\"\",\"ParallaxBase\":\"\",\"parallaxBlendMode:num\":\"0\",\"parallaxHue:num\":\"0\",\"parallaxOpacity:num\":\"255\",\"ParallaxScroll\":\"\",\"parallaxOffsetX:num\":\"+0.0\",\"parallaxOffsetY:num\":\"+0.0\",\"parallaxScrollX:num\":\"+0.0\",\"parallaxScrollY:num\":\"+0.0\"}",
-                        "WaitForEntrance:eval": "false"
-                    }
-                ]
-            },
-            {
-                "code": 657,
-                "indent": 1,
-                "parameters": [
-                    "Basic Settings = "
-                ]
-            },
-            {
-                "code": 657,
-                "indent": 1,
-                "parameters": [
-                    "Cutin Style Type = CenterHorzSpan"
-                ]
-            },
-            {
-                "code": 657,
-                "indent": 1,
-                "parameters": [
-                    "Portrait Filename = race/acelerar"
-                ]
-            },
-            {
-                "code": 657,
-                "indent": 1,
-                "parameters": [
-                    "Parallax Filename = "
-                ]
-            },
-            {
-                "code": 657,
-                "indent": 1,
-                "parameters": [
-                    "Background Color = #888888"
-                ]
-            },
-            {
-                "code": 657,
-                "indent": 1,
-                "parameters": [
-                    "Extra Settings = {\"Transition\":\"\",\"enterDuration:num\":\"5\",\"…"
-                ]
-            },
-            {
-                "code": 657,
-                "indent": 1,
-                "parameters": [
-                    "Wait For Entrance = false"
-                ]
-            },
-            {
-                "code": 230,
-                "indent": 1,
-                "parameters": [
-                    60
-                ]
-            },
-            {
-                "code": 357,
-                "indent": 1,
-                "parameters": [
-                    "VisuMZ_3_VisualCutinEffect",
-                    "CutinEnd_VisualCutinEffectAll",
-                    "Cutin End: End Visual Cutin Effect (All)",
-                    {
-                        "WaitForExit:eval": "true"
-                    }
-                ]
-            },
-            {
-                "code": 657,
-                "indent": 1,
-                "parameters": [
-                    "Wait For Exit = true"
-                ]
-            },
-            {
                 "code": 111,
                 "indent": 1,
                 "parameters": [
@@ -2775,6 +3089,15 @@
                 "code": 412,
                 "indent": 1,
                 "parameters": []
+            },
+            {
+                "code": 121,
+                "indent": 1,
+                "parameters": [
+                    101,
+                    101,
+                    1
+                ]
             },
             {
                 "code": 411,
@@ -2966,15 +3289,6 @@
                 ]
             },
             {
-                "code": 121,
-                "indent": 0,
-                "parameters": [
-                    101,
-                    101,
-                    1
-                ]
-            },
-            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
@@ -2989,39 +3303,6 @@
     {
         "id": 15,
         "list": [
-            {
-                "code": 250,
-                "indent": 0,
-                "parameters": [
-                    {
-                        "name": "Acelerate2",
-                        "volume": 75,
-                        "pitch": 120,
-                        "pan": 0
-                    }
-                ]
-            },
-            {
-                "code": 250,
-                "indent": 0,
-                "parameters": [
-                    {
-                        "name": "woosh",
-                        "volume": 90,
-                        "pitch": 120,
-                        "pan": 0
-                    }
-                ]
-            },
-            {
-                "code": 121,
-                "indent": 0,
-                "parameters": [
-                    101,
-                    101,
-                    1
-                ]
-            },
             {
                 "code": 0,
                 "indent": 0,
@@ -3239,6 +3520,25 @@
                 ]
             },
             {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_3_VisualCutinEffect",
+                    "CutinEnd_VisualCutinEffectAll",
+                    "Cutin End: End Visual Cutin Effect (All)",
+                    {
+                        "WaitForExit:eval": "false"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Wait For Exit = false"
+                ]
+            },
+            {
                 "code": 242,
                 "indent": 0,
                 "parameters": [
@@ -3265,6 +3565,11 @@
                 "parameters": [
                     "$gameTemp.clearCommonEventReservation();"
                 ]
+            },
+            {
+                "code": 221,
+                "indent": 0,
+                "parameters": []
             },
             {
                 "code": 121,
