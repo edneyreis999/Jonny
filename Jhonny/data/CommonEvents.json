@@ -2648,6 +2648,15 @@
                 "parameters": []
             },
             {
+                "code": 121,
+                "indent": 0,
+                "parameters": [
+                    101,
+                    101,
+                    1
+                ]
+            },
+            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
@@ -3082,6 +3091,15 @@
                 "parameters": []
             },
             {
+                "code": 121,
+                "indent": 1,
+                "parameters": [
+                    101,
+                    101,
+                    1
+                ]
+            },
+            {
                 "code": 411,
                 "indent": 0,
                 "parameters": []
@@ -3271,15 +3289,6 @@
                 ]
             },
             {
-                "code": 121,
-                "indent": 0,
-                "parameters": [
-                    101,
-                    101,
-                    1
-                ]
-            },
-            {
                 "code": 0,
                 "indent": 0,
                 "parameters": []
@@ -3294,15 +3303,6 @@
     {
         "id": 15,
         "list": [
-            {
-                "code": 121,
-                "indent": 0,
-                "parameters": [
-                    101,
-                    101,
-                    1
-                ]
-            },
             {
                 "code": 0,
                 "indent": 0,
@@ -3520,6 +3520,25 @@
                 ]
             },
             {
+                "code": 357,
+                "indent": 0,
+                "parameters": [
+                    "VisuMZ_3_VisualCutinEffect",
+                    "CutinEnd_VisualCutinEffectAll",
+                    "Cutin End: End Visual Cutin Effect (All)",
+                    {
+                        "WaitForExit:eval": "false"
+                    }
+                ]
+            },
+            {
+                "code": 657,
+                "indent": 0,
+                "parameters": [
+                    "Wait For Exit = false"
+                ]
+            },
+            {
                 "code": 242,
                 "indent": 0,
                 "parameters": [
@@ -3548,6 +3567,11 @@
                 ]
             },
             {
+                "code": 221,
+                "indent": 0,
+                "parameters": []
+            },
+            {
                 "code": 121,
                 "indent": 0,
                 "parameters": [
@@ -3555,11 +3579,6 @@
                     100,
                     1
                 ]
-            },
-            {
-                "code": 221,
-                "indent": 0,
-                "parameters": []
             },
             {
                 "code": 111,

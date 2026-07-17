@@ -1401,10 +1401,39 @@
                             "parameters": []
                         },
                         {
-                            "code": 230,
+                            "code": 101,
                             "indent": 0,
                             "parameters": [
-                                120
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "Depois da briga, eu e Johnny nos falamos cada vez menos..."
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "Até não nos falarmos mais."
                             ]
                         },
                         {
@@ -1434,10 +1463,21 @@
                             "parameters": []
                         },
                         {
-                            "code": 230,
+                            "code": 101,
                             "indent": 0,
                             "parameters": [
-                                150
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "Johnny parou de correr..."
                             ]
                         },
                         {
@@ -1470,7 +1510,7 @@
                             "code": 230,
                             "indent": 0,
                             "parameters": [
-                                150
+                                120
                             ]
                         },
                         {
@@ -1500,10 +1540,21 @@
                             "parameters": []
                         },
                         {
-                            "code": 230,
+                            "code": 101,
                             "indent": 0,
                             "parameters": [
-                                150
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "O que o permitiu reatar com Marina..."
                             ]
                         },
                         {
@@ -1533,10 +1584,28 @@
                             "parameters": []
                         },
                         {
-                            "code": 230,
+                            "code": 101,
                             "indent": 0,
                             "parameters": [
-                                150
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "Aquele resto de ano não foi mais o mesmo até o dia de nossa"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "formatura."
                             ]
                         },
                         {
