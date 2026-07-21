@@ -1445,7 +1445,7 @@
                                 "set",
                                 "Set Text Picture",
                                 {
-                                    "text": "<center>\n\n\n\\FS[70]\\C[10]DEU RUIM!\n\\FS[40]\\C[0]Jogada arriscada falhou\n\n\n\n\n\n\n\n\n\n\n\\FS[25]\\C[0] Pressione [ESPAÇO] ou clique com o mouse </center>"
+                                    "text": "<center>\n\n\n\\FS[70]\\C[10]\\tl{maps.Map019.this_went_bad_8222ee5457}\n\\FS[40]\\C[0]\\tl{maps.Map019.the_risky_move_failed_6ba2b8bbe6}\n\n\n\n\n\n\n\n\n\n\n\\FS[25]\\C[0] \\tl{maps.Map019.press_space_or_click_the_mouse_fb09d235ff} </center>"
                                 }
                             ]
                         },
@@ -1453,7 +1453,7 @@
                             "code": 657,
                             "indent": 0,
                             "parameters": [
-                                "Text = <center>   \\FS[70]\\C[10]DEU RUIM! \\FS[40]\\C[0]Jogada…"
+                                "Text = <center> \\FS[70]\\C[10]\\tl{maps.Map019.this_went_bad_8222ee5457} \\FS[40]\\C[0]\\tl{maps.Map019.the_risky_move_failed_6ba2b8…"
                             ]
                         },
                         {
