@@ -1445,7 +1445,7 @@
                                 "set",
                                 "Set Text Picture",
                                 {
-                                    "text": "<center>\n\n\n\\FS[70]\\C[10]VOCÊ PERDEU!\n\\FS[40]\\C[0]Você não chegou em primeiro lugar\n\n\n\n\n\n\n\n\n\n\n\\FS[25]\\C[0] Pressione [ESPAÇO] ou clique com o mouse </center>"
+                                    "text": "<center>\n\n\n\\FS[70]\\C[10]\\tl{maps.Map020.you_lost_e6dc231cca}\n\\FS[40]\\C[0]\\tl{maps.Map020.you_did_not_finish_in_first_place_7cd568a399}\n\n\n\n\n\n\n\n\n\n\n\\FS[25]\\C[0] \\tl{maps.Map020.press_space_or_click_the_mouse_2718b76958} </center>"
                                 }
                             ]
                         },
@@ -1453,7 +1453,7 @@
                             "code": 657,
                             "indent": 0,
                             "parameters": [
-                                "Text = <center>   \\FS[70]\\C[10]VOCÊ PERDEU! \\FS[40]\\C[0]Voc…"
+                                "Text = <center> \\FS[70]\\C[10]\\tl{maps.Map020.you_lost_e6dc231cca} \\FS[40]\\C[0]\\tl{maps.Map020.you_did_not_finish_in_first_place…"
                             ]
                         },
                         {

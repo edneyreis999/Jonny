@@ -1415,7 +1415,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Depois da briga, eu e Johnny nos falamos cada vez menos..."
+                                "\\tl{maps.Map026.after_the_fight_johnny_and_i_talked_less_and_les_8fea4bb441}"
                             ]
                         },
                         {
@@ -1433,7 +1433,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Até não nos falarmos mais."
+                                "\\tl{maps.Map026.until_we_stopped_talking_altogether_baad43b584}"
                             ]
                         },
                         {
@@ -1477,7 +1477,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Johnny parou de correr..."
+                                "\\tl{maps.Map026.johnny_stopped_racing_1e849cc890}"
                             ]
                         },
                         {
@@ -1554,7 +1554,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "O que o permitiu reatar com Marina..."
+                                "\\tl{maps.Map026.which_allowed_him_to_get_back_together_with_mari_0185813ebb}"
                             ]
                         },
                         {
@@ -1598,14 +1598,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "Aquele resto de ano não foi mais o mesmo até o dia de nossa"
+                                "\\tl{maps.Map026.the_rest_of_that_year_was_never_the_same_until_t_687e0b00fc}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "formatura."
+                                "\\tl{maps.Map026.graduation_ae864e8d89}"
                             ]
                         },
                         {
