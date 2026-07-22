@@ -1380,7 +1380,23 @@
                     },
                     "list": [
                         {
-                            "code": 221,
+                            "code": 231,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "cenarios/garagem",
+                                0,
+                                0,
+                                0,
+                                0,
+                                100,
+                                100,
+                                255,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 222,
                             "indent": 0,
                             "parameters": []
                         },
@@ -1399,14 +1415,401 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\tl{maps.Map017.when_i_moved_to_this_town_things_were_not_like_t_bb2d08c607}"
+                                "\\tl{maps.Map017.the_following_week_i_was_already_in_his_garage_c4e66ef02d}"
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\tl{maps.Map017.now_5bc58483d0}"
+                                "\\tl{maps.Map017.a_metallic_blue_opala_hood_open_parts_scattered_8a8999810d}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.across_the_floor_c29dae1673}"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.he_talked_about_that_car_like_someone_talking_ab_3b83bb8823}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.this_engine_could_be_everything_he_said_249d4a9d80}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.it_just_needs_someone_who_understands_it_63162864df}"
+                            ]
+                        },
+                        {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 231,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "cenarios/consertoOpala",
+                                0,
+                                0,
+                                0,
+                                0,
+                                100,
+                                100,
+                                255,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.i_had_never_laid_hands_on_a_real_engine_before_9e2c50a580}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.but_when_he_handed_me_the_wrench_and_said_444e3167dc}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.tighten_that_there_i_knew_exactly_where_it_was_089d158ad6}"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.it_was_as_if_i_already_knew_that_car_68abb4dc82}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.i_had_just_never_touched_it_da54dafc95}"
+                            ]
+                        },
+                        {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 231,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "cenarios/Racha2",
+                                0,
+                                0,
+                                0,
+                                0,
+                                100,
+                                100,
+                                255,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.the_first_race_came_without_warning_f1ff3826a7}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.jonny_called_me_at_eleven_at_night_come_bring_th_ba90b96f70}"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.when_i_arrived_there_were_fifty_people_in_the_st_2f8772117b}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.headlights_on_smoke_on_the_asphalt_i_had_never_s_56bd430081}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.like_it_and_i_was_never_the_same_again_e3ec765b0e}"
+                            ]
+                        },
+                        {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 231,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "cenarios/primeiroLugar",
+                                0,
+                                0,
+                                0,
+                                0,
+                                100,
+                                100,
+                                255,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.we_won_not_me_him_but_when_the_blue_opala_crosse_db81971381}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.line_and_the_crowd_erupted_jonny_shouted_my_name_35a203f9c2}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.this_car_flies_because_of_him_55bc4fcd6e}"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.and_suddenly_everyone_wanted_to_know_who_the_boy_56191ced70}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.who_drew_engine_parts_in_a_school_notebook_7426579110}"
+                            ]
+                        },
+                        {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 231,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "cenarios/festa",
+                                0,
+                                0,
+                                0,
+                                0,
+                                100,
+                                100,
+                                255,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 222,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.then_the_parties_started_and_with_them_the_girls_d8738cb8a1}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.no_one_had_ever_noticed_me_before_suddenly_there_c315f6b839}"
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\tl{maps.Map017.people_pulling_at_my_arm_laughing_at_my_jokes_0fad1df27a}"
+                            ]
+                        },
+                        {
+                            "code": 221,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 242,
+                            "indent": 0,
+                            "parameters": [
+                                1
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2,
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "Eu tenho vivido neste ciclo deste então..."
+                            ]
+                        },
+                        {
+                            "code": 122,
+                            "indent": 0,
+                            "parameters": [
+                                6,
+                                6,
+                                0,
+                                0,
+                                1
                             ]
                         },
                         {
@@ -1414,178 +1817,12 @@
                             "indent": 0,
                             "parameters": [
                                 {
-                                    "name": "Racha1",
+                                    "name": "Scene1",
                                     "volume": 90,
                                     "pitch": 100,
                                     "pan": 0
                                 }
                             ]
-                        },
-                        {
-                            "code": 231,
-                            "indent": 0,
-                            "parameters": [
-                                1,
-                                "cenarios/patioEscola",
-                                0,
-                                0,
-                                0,
-                                0,
-                                100,
-                                100,
-                                255,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 222,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2,
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\tl{maps.Map017.new_town_new_school_same_old_backpack_the_sun_be_590bbb6d19}"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\tl{maps.Map017.hard_on_the_concrete_courtyard_and_i_did_not_kno_97b1a11b68}"
-                            ]
-                        },
-                        {
-                            "code": 221,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
-                            "code": 231,
-                            "indent": 0,
-                            "parameters": [
-                                1,
-                                "cenarios/corredorEscola",
-                                0,
-                                0,
-                                0,
-                                0,
-                                100,
-                                100,
-                                255,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 222,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2,
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\tl{maps.Map017.the_hallways_smelled_like_wet_cement_65fd6b3e99}"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\tl{maps.Map017.and_peeling_paint_i_walked_with_my_head_down_try_3bc8d43e23}"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\tl{maps.Map017.not_to_draw_attention_92af33035b}"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2,
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\tl{maps.Map017.i_just_wanted_to_survive_one_more_invisible_year_5f6e39b844}"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2,
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\tl{maps.Map017.but_there_is_one_thing_i_could_never_hide_2415e2bf32}"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\tl{maps.Map017.when_my_brain_shuts_off_my_hand_starts_drawing_229d9f38b9}"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\tl{maps.Map017.engines_suspension_exhausts_any_part_i_7fbe06165c}"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\tl{maps.Map017.saw_i_sketched_that_is_how_he_found_me_f4b8cdb2c9}"
-                            ]
-                        },
-                        {
-                            "code": 221,
-                            "indent": 0,
-                            "parameters": []
                         },
                         {
                             "code": 235,
@@ -1599,10 +1836,10 @@
                             "indent": 0,
                             "parameters": [
                                 0,
-                                27,
-                                4,
-                                14,
+                                31,
                                 8,
+                                6,
+                                2,
                                 0
                             ]
                         },

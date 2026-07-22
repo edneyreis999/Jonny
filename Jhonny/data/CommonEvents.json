@@ -4734,5 +4734,341 @@
         "name": "Johnny Alerta",
         "switchId": 1,
         "trigger": 0
+    },
+    {
+        "id": 32,
+        "list": [
+            {
+                "code": 205,
+                "indent": 0,
+                "parameters": [
+                    -1,
+                    {
+                        "list": [
+                            {
+                                "code": 45,
+                                "parameters": [
+                                    "Move To:2,7"
+                                ],
+                                "indent": null
+                            },
+                            {
+                                "code": 16,
+                                "indent": null
+                            },
+                            {
+                                "code": 29,
+                                "parameters": [
+                                    6
+                                ],
+                                "indent": null
+                            },
+                            {
+                                "code": 0
+                            }
+                        ],
+                        "repeat": false,
+                        "skippable": false,
+                        "wait": false
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 45,
+                        "parameters": [
+                            "Move To:2,7"
+                        ],
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 16,
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 29,
+                        "parameters": [
+                            6
+                        ],
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "MoveToSchool",
+        "switchId": 1,
+        "trigger": 0
+    },
+    {
+        "id": 33,
+        "list": [
+            {
+                "code": 205,
+                "indent": 0,
+                "parameters": [
+                    -1,
+                    {
+                        "list": [
+                            {
+                                "code": 45,
+                                "parameters": [
+                                    "Move To:7,7"
+                                ],
+                                "indent": null
+                            },
+                            {
+                                "code": 16,
+                                "indent": null
+                            },
+                            {
+                                "code": 29,
+                                "parameters": [
+                                    6
+                                ],
+                                "indent": null
+                            },
+                            {
+                                "code": 0
+                            }
+                        ],
+                        "repeat": false,
+                        "skippable": false,
+                        "wait": false
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 45,
+                        "parameters": [
+                            "Move To:7,7"
+                        ],
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 16,
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 29,
+                        "parameters": [
+                            6
+                        ],
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "MoveToHouse",
+        "switchId": 1,
+        "trigger": 0
+    },
+    {
+        "id": 34,
+        "list": [
+            {
+                "code": 205,
+                "indent": 0,
+                "parameters": [
+                    -1,
+                    {
+                        "list": [
+                            {
+                                "code": 45,
+                                "parameters": [
+                                    "Move To:12,7"
+                                ],
+                                "indent": null
+                            },
+                            {
+                                "code": 16,
+                                "indent": null
+                            },
+                            {
+                                "code": 29,
+                                "parameters": [
+                                    6
+                                ],
+                                "indent": null
+                            },
+                            {
+                                "code": 0
+                            }
+                        ],
+                        "repeat": false,
+                        "skippable": false,
+                        "wait": false
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 45,
+                        "parameters": [
+                            "Move To:12,7"
+                        ],
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 16,
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 29,
+                        "parameters": [
+                            6
+                        ],
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "MoveToGarage",
+        "switchId": 1,
+        "trigger": 0
+    },
+    {
+        "id": 35,
+        "list": [
+            {
+                "code": 205,
+                "indent": 0,
+                "parameters": [
+                    -1,
+                    {
+                        "list": [
+                            {
+                                "code": 45,
+                                "parameters": [
+                                    "Move To:1,10"
+                                ],
+                                "indent": null
+                            },
+                            {
+                                "code": 16,
+                                "indent": null
+                            },
+                            {
+                                "code": 29,
+                                "parameters": [
+                                    6
+                                ],
+                                "indent": null
+                            },
+                            {
+                                "code": 0
+                            }
+                        ],
+                        "repeat": false,
+                        "skippable": false,
+                        "wait": false
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 45,
+                        "parameters": [
+                            "Move To:1,10"
+                        ],
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 16,
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 505,
+                "indent": 0,
+                "parameters": [
+                    {
+                        "code": 29,
+                        "parameters": [
+                            6
+                        ],
+                        "indent": null
+                    }
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 0,
+                "parameters": []
+            }
+        ],
+        "name": "MoveToRace",
+        "switchId": 1,
+        "trigger": 0
     }
 ]

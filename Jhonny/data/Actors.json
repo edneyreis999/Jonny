@@ -2,9 +2,9 @@
     null,
     {
         "id": 1,
-        "battlerName": "",
-        "characterIndex": 0,
-        "characterName": "",
+        "battlerName": "SF_Actor3_7",
+        "characterIndex": 2,
+        "characterName": "SF_People1",
         "classId": 1,
         "equips": [
             2,
@@ -13,8 +13,8 @@
             3,
             0
         ],
-        "faceIndex": 0,
-        "faceName": "",
+        "faceIndex": 2,
+        "faceName": "SF_People1",
         "traits": [],
         "initialLevel": 1,
         "maxLevel": 99,

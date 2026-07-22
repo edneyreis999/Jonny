@@ -120,7 +120,7 @@
         "pitch": 100,
         "volume": 90
     },
-    "editMapId": 20,
+    "editMapId": 32,
     "elements": [
         "",
         "Físico",
@@ -176,7 +176,9 @@
     "optSideView": false,
     "optSlipDeath": false,
     "optTransparent": false,
-    "partyMembers": [],
+    "partyMembers": [
+        1
+    ],
     "ship": {
         "bgm": {
             "name": "Ship2",
@@ -342,8 +344,8 @@
         }
     ],
     "startMapId": 11,
-    "startX": 3,
-    "startY": 5,
+    "startX": 2,
+    "startY": 0,
     "switches": [
         "",
         "",
@@ -629,7 +631,7 @@
         "VN3",
         "track_poli",
         "",
-        "",
+        "EventsController",
         "",
         "",
         "",
@@ -746,7 +748,7 @@
         "VAR_TIMER_SECONDS",
         "VAR_SCENE_DISPLAY"
     ],
-    "versionId": 71517311,
+    "versionId": 77335338,
     "victoryMe": {
         "name": "Victory1",
         "pan": 0,
