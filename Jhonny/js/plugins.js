@@ -320,6 +320,12 @@ var $plugins =
         }
     },
     {
+        "name": "Jhonny_MapMode",
+        "status": true,
+        "description": "[Jhonny] Map mode player policy",
+        "parameters": {}
+    },
+    {
         "name": "VisuMZ_4_EventTitleScene",
         "status": false,
         "description": "[RPG Maker MZ] [Tier 4] [Version 1.06] [EventTitleScene]",

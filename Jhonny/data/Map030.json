@@ -1351,7 +1351,7 @@
         null,
         {
             "id": 1,
-            "name": "EV001",
+            "name": "State Controller",
             "note": "",
             "pages": [
                 {
@@ -1868,6 +1868,74 @@
                     "through": false,
                     "trigger": 3,
                     "walkAnime": true
+                },
+                {
+                    "conditions": {
+                        "actorId": 1,
+                        "actorValid": false,
+                        "itemId": 1,
+                        "itemValid": false,
+                        "selfSwitchCh": "A",
+                        "selfSwitchValid": false,
+                        "switch1Id": 1,
+                        "switch1Valid": false,
+                        "switch2Id": 1,
+                        "switch2Valid": false,
+                        "variableId": 6,
+                        "variableValid": true,
+                        "variableValue": 1
+                    },
+                    "directionFix": false,
+                    "image": {
+                        "characterIndex": 0,
+                        "characterName": "",
+                        "direction": 2,
+                        "pattern": 0,
+                        "tileId": 0
+                    },
+                    "list": [
+                        {
+                            "code": 201,
+                            "indent": 0,
+                            "parameters": [
+                                0,
+                                31,
+                                8,
+                                6,
+                                2,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 115,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 0,
+                            "indent": 0,
+                            "parameters": []
+                        }
+                    ],
+                    "moveFrequency": 3,
+                    "moveRoute": {
+                        "list": [
+                            {
+                                "code": 0,
+                                "parameters": []
+                            }
+                        ],
+                        "repeat": true,
+                        "skippable": false,
+                        "wait": false
+                    },
+                    "moveSpeed": 3,
+                    "moveType": 0,
+                    "priorityType": 0,
+                    "stepAnime": false,
+                    "through": false,
+                    "trigger": 3,
+                    "walkAnime": true
                 }
             ],
             "x": 0,
@@ -1875,7 +1943,7 @@
         }
     ],
     "height": 13,
-    "note": "",
+    "note": "<JhonnyMapMode: vn>",
     "parallaxLoopX": false,
     "parallaxLoopY": false,
     "parallaxName": "",

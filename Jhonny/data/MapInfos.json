@@ -105,8 +105,8 @@
         "name": "Prologo",
         "order": 2,
         "parentId": 32,
-        "scrollX": 0,
-        "scrollY": 0,
+        "scrollX": 777.7777777777778,
+        "scrollY": 439.1111111111111,
         "quick": false
     },
     {
@@ -266,7 +266,7 @@
         "order": 32,
         "parentId": 35,
         "scrollX": 784.8888888888889,
-        "scrollY": 599.1111111111111,
+        "scrollY": 528,
         "quick": false
     },
     {
@@ -311,7 +311,7 @@
     },
     {
         "id": 32,
-        "expanded": false,
+        "expanded": true,
         "name": "Visual Novel",
         "order": 1,
         "parentId": 0,
@@ -321,7 +321,7 @@
     },
     {
         "id": 33,
-        "expanded": false,
+        "expanded": true,
         "name": "Gameplay",
         "order": 22,
         "parentId": 0,
@@ -331,7 +331,7 @@
     },
     {
         "id": 34,
-        "expanded": false,
+        "expanded": true,
         "name": "Corrida",
         "order": 23,
         "parentId": 33,
@@ -341,12 +341,12 @@
     },
     {
         "id": 35,
-        "expanded": false,
+        "expanded": true,
         "name": "RPG",
         "order": 31,
         "parentId": 33,
-        "scrollX": 0,
-        "scrollY": 0,
+        "scrollX": 777.7777777777778,
+        "scrollY": 439.1111111111111,
         "quick": false
     }
 ]
